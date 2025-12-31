@@ -1,0 +1,944 @@
+{
+  "generated_at": "2025-12-31T21:00:29.637Z",
+  "total_count": 48,
+  "issues": [
+    {
+      "number": 584,
+      "title": "[Bug] Loading TLS certificates from path doesn't work",
+      "state": "OPEN",
+      "author": "maciejdudko",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2025-12-26T16:59:31Z",
+      "updatedAt": "2025-12-26T16:59:31Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/584"
+    },
+    {
+      "number": 579,
+      "title": "[Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux",
+      "state": "OPEN",
+      "author": "cfauchere",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2025-12-17T22:50:42Z",
+      "updatedAt": "2025-12-18T15:28:10Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/579"
+    },
+    {
+      "number": 578,
+      "title": "[Feature Request] Add tests to confirm proper Nexus support for time-skipping environment",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-12-17T17:36:14Z",
+      "updatedAt": "2025-12-17T17:36:14Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/578"
+    },
+    {
+      "number": 577,
+      "title": "[Bug] Investigate test host crash flake",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2025-12-12T22:16:08Z",
+      "updatedAt": "2025-12-30T20:41:58Z",
+      "closedAt": null,
+      "commentCount": 4,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/577"
+    },
+    {
+      "number": 576,
+      "title": "[Feature Request] .NET Analyzer for Checking Workflows",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-12-12T15:31:49Z",
+      "updatedAt": "2025-12-12T15:39:04Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/576"
+    },
+    {
+      "number": 568,
+      "title": "[Feature Request] Support non-workflow activities",
+      "state": "OPEN",
+      "author": "maciejdudko",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-12-02T17:20:32Z",
+      "updatedAt": "2025-12-02T17:20:32Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/568"
+    },
+    {
+      "number": 563,
+      "title": "Use global.json file to centralize SDK version",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2025-11-19T00:31:30Z",
+      "updatedAt": "2025-12-30T20:53:21Z",
+      "closedAt": null,
+      "commentCount": 5,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/563"
+    },
+    {
+      "number": 558,
+      "title": "[Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow",
+      "state": "OPEN",
+      "author": "chris-olszewski",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-11-12T16:27:02Z",
+      "updatedAt": "2025-11-12T16:27:02Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/558"
+    },
+    {
+      "number": 553,
+      "title": "[Feature Request] OperatorService (RPC) and WorkflowService (RPC) members are marked virtual or inherit from interface",
+      "state": "OPEN",
+      "author": "kimpenhaus",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-10-29T12:21:36Z",
+      "updatedAt": "2025-10-29T13:18:55Z",
+      "closedAt": null,
+      "commentCount": 4,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/553"
+    },
+    {
+      "number": 550,
+      "title": "[Bug] Investigate `CanRunWith_CustomSlotSupplier` flake",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2025-10-24T19:53:54Z",
+      "updatedAt": "2025-12-02T23:26:40Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/550"
+    },
+    {
+      "number": 549,
+      "title": "[Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_Autoscaling` flake",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2025-10-24T19:52:42Z",
+      "updatedAt": "2025-10-24T19:54:09Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/549"
+    },
+    {
+      "number": 514,
+      "title": "[Feature Request] Nexus cancellation type support",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-08-29T18:57:15Z",
+      "updatedAt": "2025-10-14T12:44:08Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/514"
+    },
+    {
+      "number": 496,
+      "title": "Inconsistent log property names for the workflow run identifier",
+      "state": "OPEN",
+      "author": "DSmith-VERX",
+      "labels": [],
+      "createdAt": "2025-07-10T21:21:53Z",
+      "updatedAt": "2025-07-10T22:00:25Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/496"
+    },
+    {
+      "number": 479,
+      "title": "[.NET] Worker Versioning high level client",
+      "state": "OPEN",
+      "author": "Sushisource",
+      "labels": [],
+      "createdAt": "2025-05-14T22:46:39Z",
+      "updatedAt": "2025-05-14T22:49:12Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/479"
+    },
+    {
+      "number": 478,
+      "title": "[Feature Request] Investigate test flake for `CanRunWith_CustomSlotSupplier`",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-05-14T19:44:14Z",
+      "updatedAt": "2025-06-03T16:17:53Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/478"
+    },
+    {
+      "number": 440,
+      "title": "[Feature Request] Support user data in forwarded log callback in C bridge",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-03-31T17:29:35Z",
+      "updatedAt": "2025-03-31T17:29:35Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/440"
+    },
+    {
+      "number": 435,
+      "title": "[Feature Request] Workflow logging - NLog async calls",
+      "state": "OPEN",
+      "author": "jimborogers",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-03-19T06:41:08Z",
+      "updatedAt": "2025-03-19T13:43:20Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/435"
+    },
+    {
+      "number": 420,
+      "title": "[Feature Request] Provide synchronous Run method in testing",
+      "state": "OPEN",
+      "author": "mehaKumar",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-03-06T23:58:32Z",
+      "updatedAt": "2025-03-07T12:49:33Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/420"
+    },
+    {
+      "number": 412,
+      "title": "Expose Workflow cancel cause/reason",
+      "state": "OPEN",
+      "author": "Sushisource",
+      "labels": [],
+      "createdAt": "2025-02-11T20:44:22Z",
+      "updatedAt": "2025-02-11T20:44:22Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/412"
+    },
+    {
+      "number": 402,
+      "title": "[Feature Request] Expose read-only headers to activity info",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-02-03T13:29:53Z",
+      "updatedAt": "2025-02-03T13:29:53Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/402"
+    },
+    {
+      "number": 398,
+      "title": "[Feature Request] Add explicit memoization support to the`Patched()` API",
+      "state": "OPEN",
+      "author": "mjameswh",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-01-29T23:45:44Z",
+      "updatedAt": "2025-01-29T23:45:44Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/398"
+    },
+    {
+      "number": 395,
+      "title": "[Bug] Temporalio.Exceptions.RpcException:operation was canceled",
+      "state": "OPEN",
+      "author": "pauldotknopf",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2025-01-20T01:54:14Z",
+      "updatedAt": "2025-01-24T17:07:13Z",
+      "closedAt": null,
+      "commentCount": 3,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/395"
+    },
+    {
+      "number": 390,
+      "title": "[Feature Request] F# Samples/Documentation",
+      "state": "OPEN",
+      "author": "purkhusid",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-01-08T17:50:48Z",
+      "updatedAt": "2025-09-01T09:03:25Z",
+      "closedAt": null,
+      "commentCount": 3,
+      "upvotes": 2,
+      "totalReactions": 2,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/390"
+    },
+    {
+      "number": 387,
+      "title": "[Feature Request] Provide \"workflow local\"",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-01-07T13:52:13Z",
+      "updatedAt": "2025-01-07T13:52:13Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/387"
+    },
+    {
+      "number": 386,
+      "title": "[Feature Request] Improve WaitConditionAsync semantics",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-01-06T21:22:36Z",
+      "updatedAt": "2025-01-06T21:24:49Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/386"
+    },
+    {
+      "number": 363,
+      "title": "[Feature Request] Make scoped IServiceProvider available to ActivityInboundInterceptor",
+      "state": "OPEN",
+      "author": "tdg5",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-11-05T15:39:28Z",
+      "updatedAt": "2024-11-12T15:38:03Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/363"
+    },
+    {
+      "number": 360,
+      "title": "[Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-10-21T16:31:24Z",
+      "updatedAt": "2024-10-21T16:31:24Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/360"
+    },
+    {
+      "number": 357,
+      "title": "[Bug] Unexpected Serialization of Activity Results",
+      "state": "OPEN",
+      "author": "robcao",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-10-10T03:10:01Z",
+      "updatedAt": "2024-10-11T19:07:13Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/357"
+    },
+    {
+      "number": 337,
+      "title": "[Feature Request] Include more details from tonic from failed client_rpc_call invocations",
+      "state": "OPEN",
+      "author": "robcao",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-08-28T15:38:18Z",
+      "updatedAt": "2024-09-10T19:01:32Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/337"
+    },
+    {
+      "number": 307,
+      "title": "[Feature Request] Replace `System.TimeProvider` in workflows",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-07-15T22:42:37Z",
+      "updatedAt": "2024-07-16T17:45:55Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/307"
+    },
+    {
+      "number": 305,
+      "title": "Handle multiple completion commands",
+      "state": "OPEN",
+      "author": "dandavison",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-07-13T12:39:00Z",
+      "updatedAt": "2024-07-15T12:44:30Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/305"
+    },
+    {
+      "number": 299,
+      "title": "[Feature Request] Upon initial client connection, use `RpcException` if initial `GetSystemInfo` call fails",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-07-03T14:00:31Z",
+      "updatedAt": "2024-07-03T14:00:32Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/299"
+    },
+    {
+      "number": 291,
+      "title": "[Feature Request] Update test running to replay",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-06-27T13:11:14Z",
+      "updatedAt": "2024-06-27T13:11:15Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/291"
+    },
+    {
+      "number": 286,
+      "title": "Support .NET Trimming",
+      "state": "OPEN",
+      "author": "angusbjones",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-06-25T03:16:47Z",
+      "updatedAt": "2024-06-25T13:17:48Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 7,
+      "totalReactions": 8,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/286"
+    },
+    {
+      "number": 280,
+      "title": "[Bug] TaskQueue not forwarded when using Test Environment, breaks ContinueAsNew (hangs)",
+      "state": "OPEN",
+      "author": "mnichols",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-06-18T15:59:30Z",
+      "updatedAt": "2024-06-18T16:46:20Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/280"
+    },
+    {
+      "number": 256,
+      "title": "[Feature Request] Clarify what the ICustomMetricMeter is used for in DiagnosticSource extension README",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-05-30T13:29:34Z",
+      "updatedAt": "2024-05-30T13:29:34Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/256"
+    },
+    {
+      "number": 247,
+      "title": "[Feature Request] Support for win-x86",
+      "state": "OPEN",
+      "author": "kevbry",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-05-10T19:58:29Z",
+      "updatedAt": "2024-05-10T21:19:14Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/247"
+    },
+    {
+      "number": 246,
+      "title": "[Feature Request] Expose raw proto objects on WorkflowExecution and WorkflowExecutionDescription",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-05-10T12:26:53Z",
+      "updatedAt": "2024-05-10T12:26:53Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/246"
+    },
+    {
+      "number": 243,
+      "title": "[Feature Request] Enforce no-commands-allowed restrictions in read-only contexts",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-05-08T17:55:43Z",
+      "updatedAt": "2024-05-08T17:55:43Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/243"
+    },
+    {
+      "number": 234,
+      "title": "[Bug] Unexpected reuse of payload instances in payload codec for specific workflow failure scenarios.",
+      "state": "OPEN",
+      "author": "robcao",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-04-26T14:10:14Z",
+      "updatedAt": "2024-04-26T15:24:26Z",
+      "closedAt": null,
+      "commentCount": 3,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/234"
+    },
+    {
+      "number": 229,
+      "title": "[Feature Request] Make Temporalio.Testing to a seperate nuget out of Temporalio",
+      "state": "OPEN",
+      "author": "rsr-maersk",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-04-22T17:00:52Z",
+      "updatedAt": "2024-04-22T18:29:42Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/229"
+    },
+    {
+      "number": 194,
+      "title": "coverlet.collector.3.1.2.nupkg: 1 vulnerabilities (highest severity is: 7.5)",
+      "state": "OPEN",
+      "author": "app/mend-for-github-com",
+      "labels": [
+        "Mend: dependency security vulnerability"
+      ],
+      "createdAt": "2024-02-28T18:45:28Z",
+      "updatedAt": "2024-03-05T12:49:05Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/194"
+    },
+    {
+      "number": 179,
+      "title": "[Bug] Workflow Update hangs on time skipping environment",
+      "state": "OPEN",
+      "author": "alrz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-01-21T20:01:01Z",
+      "updatedAt": "2024-08-08T22:54:09Z",
+      "closedAt": null,
+      "commentCount": 8,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/179"
+    },
+    {
+      "number": 176,
+      "title": "[Feature Request] Handle possibility of update-before-start",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-01-12T18:39:01Z",
+      "updatedAt": "2024-01-12T18:39:01Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/176"
+    },
+    {
+      "number": 171,
+      "title": "[Feature Request] Schedule creation should create tracing span by default",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-01-03T21:14:15Z",
+      "updatedAt": "2025-02-04T18:25:06Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/171"
+    },
+    {
+      "number": 131,
+      "title": "[Feature Request] Support single-platform local NuGet package build",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2023-08-30T12:05:00Z",
+      "updatedAt": "2023-09-01T16:22:50Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/131"
+    },
+    {
+      "number": 77,
+      "title": "[Bug] Time skipping test server not auto skipping time properly in some cases",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2023-05-25T19:14:07Z",
+      "updatedAt": "2023-08-22T20:50:09Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/77"
+    },
+    {
+      "number": 32,
+      "title": "[Feature Request] Add CancellationToken parameter to TemporalClient.ConnectAsync and friends",
+      "state": "OPEN",
+      "author": "cgillum",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2023-03-09T01:28:28Z",
+      "updatedAt": "2023-08-22T20:51:08Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/32"
+    }
+  ],
+  "stats": {
+    "by_state": {
+      "OPEN": 48
+    },
+    "by_label": {
+      "enhancement": 31,
+      "bug": 12,
+      "Mend: dependency security vulnerability": 1
+    },
+    "engagement": {
+      "total_upvotes": 13,
+      "total_comments": 51,
+      "issues_with_upvotes": 6,
+      "issues_with_comments": 26,
+      "upvote_rate": "13%",
+      "comment_rate": "54%"
+    }
+  },
+  "top_by_upvotes": [
+    {
+      "number": 286,
+      "title": "Support .NET Trimming",
+      "upvotes": 7,
+      "comments": 1
+    },
+    {
+      "number": 390,
+      "title": "[Feature Request] F# Samples/Documentation",
+      "upvotes": 2,
+      "comments": 3
+    },
+    {
+      "number": 420,
+      "title": "[Feature Request] Provide synchronous Run method in testing",
+      "upvotes": 1,
+      "comments": 1
+    },
+    {
+      "number": 363,
+      "title": "[Feature Request] Make scoped IServiceProvider available to ActivityInboundInterceptor",
+      "upvotes": 1,
+      "comments": 2
+    },
+    {
+      "number": 256,
+      "title": "[Feature Request] Clarify what the ICustomMetricMeter is used for in DiagnosticSource extension README",
+      "upvotes": 1,
+      "comments": 0
+    },
+    {
+      "number": 131,
+      "title": "[Feature Request] Support single-platform local NuGet package build",
+      "upvotes": 1,
+      "comments": 0
+    }
+  ],
+  "top_by_comments": [
+    {
+      "number": 179,
+      "title": "[Bug] Workflow Update hangs on time skipping environment",
+      "upvotes": 0,
+      "comments": 8
+    },
+    {
+      "number": 563,
+      "title": "Use global.json file to centralize SDK version",
+      "upvotes": 0,
+      "comments": 5
+    },
+    {
+      "number": 577,
+      "title": "[Bug] Investigate test host crash flake",
+      "upvotes": 0,
+      "comments": 4
+    },
+    {
+      "number": 553,
+      "title": "[Feature Request] OperatorService (RPC) and WorkflowService (RPC) members are marked virtual or inherit from interface",
+      "upvotes": 0,
+      "comments": 4
+    },
+    {
+      "number": 395,
+      "title": "[Bug] Temporalio.Exceptions.RpcException:operation was canceled",
+      "upvotes": 0,
+      "comments": 3
+    },
+    {
+      "number": 390,
+      "title": "[Feature Request] F# Samples/Documentation",
+      "upvotes": 2,
+      "comments": 3
+    },
+    {
+      "number": 234,
+      "title": "[Bug] Unexpected reuse of payload instances in payload codec for specific workflow failure scenarios.",
+      "upvotes": 0,
+      "comments": 3
+    },
+    {
+      "number": 579,
+      "title": "[Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux",
+      "upvotes": 0,
+      "comments": 2
+    },
+    {
+      "number": 363,
+      "title": "[Feature Request] Make scoped IServiceProvider available to ActivityInboundInterceptor",
+      "upvotes": 1,
+      "comments": 2
+    },
+    {
+      "number": 550,
+      "title": "[Bug] Investigate `CanRunWith_CustomSlotSupplier` flake",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 514,
+      "title": "[Feature Request] Nexus cancellation type support",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 496,
+      "title": "Inconsistent log property names for the workflow run identifier",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 478,
+      "title": "[Feature Request] Investigate test flake for `CanRunWith_CustomSlotSupplier`",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 435,
+      "title": "[Feature Request] Workflow logging - NLog async calls",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 420,
+      "title": "[Feature Request] Provide synchronous Run method in testing",
+      "upvotes": 1,
+      "comments": 1
+    },
+    {
+      "number": 386,
+      "title": "[Feature Request] Improve WaitConditionAsync semantics",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 357,
+      "title": "[Bug] Unexpected Serialization of Activity Results",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 337,
+      "title": "[Feature Request] Include more details from tonic from failed client_rpc_call invocations",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 307,
+      "title": "[Feature Request] Replace `System.TimeProvider` in workflows",
+      "upvotes": 0,
+      "comments": 1
+    },
+    {
+      "number": 305,
+      "title": "Handle multiple completion commands",
+      "upvotes": 0,
+      "comments": 1
+    }
+  ]
+}
