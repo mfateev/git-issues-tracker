@@ -35,19 +35,16 @@ echo "GitHub API rate limit: $rate_remaining/$rate_limit remaining"
 # Estimate requests needed (rough: 2 per repo for listing + potential updates)
 estimated_requests=$((${#repos[@]} * 50))
 
-if [ "$rate_remaining" -lt "$((estimated_requests + RATE_LIMIT_BUFFER))" ]; then
+min_required=$((estimated_requests + RATE_LIMIT_BUFFER))
+
+if [ "$rate_remaining" -lt "$min_required" ]; then
     reset_time=$(date -r "$rate_reset" '+%Y-%m-%d %H:%M:%S' 2>/dev/null || date -d "@$rate_reset" '+%Y-%m-%d %H:%M:%S' 2>/dev/null || echo "epoch: $rate_reset")
     echo ""
-    echo "WARNING: Low API rate limit for updating ${#repos[@]} repos"
-    echo "  Estimated need: ~$estimated_requests requests + $RATE_LIMIT_BUFFER buffer"
+    echo "ERROR: Insufficient API rate limit for updating ${#repos[@]} repos"
+    echo "  Estimated need: ~$estimated_requests requests + $RATE_LIMIT_BUFFER buffer = $min_required"
     echo "  Have: $rate_remaining"
     echo "  Resets at: $reset_time"
-    echo ""
-    read -p "Continue anyway? (y/N) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
-    fi
+    exit 1
 fi
 
 echo ""
