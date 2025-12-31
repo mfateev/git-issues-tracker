@@ -44,6 +44,10 @@ function loadAllIssues() {
     return allIssues;
 }
 
+function slugify(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 function generateContributors() {
     console.log('Loading all issues...');
     const issues = loadAllIssues();
@@ -99,7 +103,7 @@ function generateContributors() {
     md += `**Unique Issue Authors:** ${sortedIssuers.length}\n`;
     md += `**Unique Commenters:** ${sortedCommenters.length}\n\n`;
 
-    // Issues by author
+    // Issues by author (with links to detail sections)
     md += `## Issues Filed by Author\n\n`;
     md += `| Rank | Author | Issues | Repositories |\n`;
     md += `|------|--------|--------|---------------|\n`;
@@ -108,7 +112,8 @@ function generateContributors() {
         const repoList = Object.keys(data.repos).length > 3
             ? `${Object.keys(data.repos).slice(0, 3).join(', ')}...`
             : Object.keys(data.repos).join(', ');
-        md += `| ${idx + 1} | ${author} | ${data.count} | ${repoList} |\n`;
+        const anchor = slugify(`${author} ${data.count} issues`);
+        md += `| ${idx + 1} | [${author}](#${anchor}) | ${data.count} | ${repoList} |\n`;
     });
     md += `\n`;
 
@@ -148,24 +153,20 @@ function generateContributors() {
     });
     md += `\n`;
 
-    // Per-repository breakdown for top issuers
+    // All authors with their issues
     md += `---\n\n`;
-    md += `## Top Issue Authors - Detail\n\n`;
+    md += `## Issues by Author\n\n`;
 
-    sortedIssuers.slice(0, 20).forEach(([author, data]) => {
+    sortedIssuers.forEach(([author, data]) => {
         md += `### ${author} (${data.count} issues)\n\n`;
-        md += `<details>\n<summary>View issues</summary>\n\n`;
         md += `| Repo | Issue | Title |\n`;
         md += `|------|-------|-------|\n`;
-        data.issues.slice(0, 30).forEach(issue => {
-            const shortTitle = issue.title.length > 50 ? issue.title.substring(0, 47) + '...' : issue.title;
+        data.issues.forEach(issue => {
+            const shortTitle = issue.title.length > 60 ? issue.title.substring(0, 57) + '...' : issue.title;
             const shortRepo = issue.repo.replace('temporalio/', '');
             md += `| ${shortRepo} | [#${issue.number}](${issue.url}) | ${shortTitle} |\n`;
         });
-        if (data.issues.length > 30) {
-            md += `| | | *...and ${data.issues.length - 30} more* |\n`;
-        }
-        md += `\n</details>\n\n`;
+        md += `\n`;
     });
 
     // Write output
