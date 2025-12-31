@@ -7,6 +7,7 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | Repository | Issues | Top User Request |
 |------------|--------|------------------|
 | [Server](https://github.com/temporalio/temporal) | 530 | External workflow wait (70 upvotes) |
+| [Features](https://github.com/temporalio/features) | 247 | Custom workflow markers (15 upvotes) |
 | [Java SDK](https://github.com/temporalio/sdk-java) | 215 | Kotlin coroutines support |
 | [Go SDK](https://github.com/temporalio/sdk-go) | 163 | Improved error handling |
 | [TypeScript SDK](https://github.com/temporalio/sdk-typescript) | 148 | Bun support (46 upvotes) |
@@ -14,7 +15,7 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 48 | .NET Trimming support |
 | [PHP SDK](https://github.com/temporalio/sdk-php) | 47 | Marshaller documentation |
 | [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
-| **Total** | **1,290** | |
+| **Total** | **1,537** | |
 
 ## Analysis
 
@@ -27,6 +28,7 @@ git-issues-tracker/
 ├── analysis/                       # Issue analysis documents
 │   ├── SUMMARY.md                  # Cross-repository summary
 │   ├── server.md                   # Temporal Server
+│   ├── features.md                 # Cross-SDK features
 │   ├── java.md
 │   ├── go.md
 │   ├── typescript.md
