@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 
 const REPOS_DIR = path.join(__dirname, '..', 'repos');
-const OUTPUT_FILE = path.join(__dirname, '..', 'analysis', 'CONTRIBUTORS.md');
+const OUTPUT_FILE = path.join(__dirname, '..', 'analysis', 'contributors.md');
 
 function loadAllIssues() {
     const repos = fs.readdirSync(REPOS_DIR)

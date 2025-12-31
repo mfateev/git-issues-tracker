@@ -19,14 +19,15 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 
 ## Analysis
 
-See [analysis/SUMMARY.md](analysis/SUMMARY.md) for cross-SDK insights including common themes, top user requests, and recommended initiatives.
+See [analysis/summary.md](analysis/summary.md) for cross-SDK insights including common themes, top user requests, and recommended initiatives.
 
 ## Structure
 
 ```
 git-issues-tracker/
 ├── analysis/                       # Issue analysis documents
-│   ├── SUMMARY.md                  # Cross-repository summary
+│   ├── summary.md                  # Cross-repository summary
+│   ├── contributors.md             # Contributor statistics
 │   ├── server.md                   # Temporal Server
 │   ├── features.md                 # Cross-SDK features
 │   ├── java.md
