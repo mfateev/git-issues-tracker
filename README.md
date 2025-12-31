@@ -40,13 +40,15 @@ git-issues-tracker/
 │   └── {owner}-{repo}/             # e.g., temporalio-sdk-java
 │       ├── issues/                 # Individual issue JSON files
 │       ├── issues-index.json       # Quick lookup index with engagement stats
-│       └── sync-metadata.json      # Tracks sync state
+│       ├── sync-metadata.json      # Tracks sync state
+│       └── ISSUES.md               # Human-readable issue list
 ├── scripts/                        # Shared scripts
 │   ├── fetch-issues.sh             # Full download for any repo
 │   ├── update-issues.sh            # Incremental update for one repo
 │   ├── update-all.sh               # Update all tracked repos
 │   ├── build-index.js              # Build/rebuild index
-│   └── analyze-issues.js           # Analysis and reports
+│   ├── analyze-issues.js           # Analysis and reports
+│   └── generate-readable.js        # Generate human-readable ISSUES.md
 └── README.md
 ```
 
@@ -115,6 +117,24 @@ Example:
 ```bash
 node scripts/analyze-issues.js temporalio-sdk-java priority
 ```
+
+### Generate Human-Readable Issue Lists
+
+Generate markdown files with all issues sorted by priority:
+
+```bash
+# Single repository
+node scripts/generate-readable.js temporalio-sdk-java
+
+# All repositories
+node scripts/generate-readable.js --all
+```
+
+Output: `repos/<repo>/ISSUES.md` containing:
+- Summary stats (issues, upvotes, comments)
+- Top labels breakdown
+- Top 20 issues by priority score
+- All issues grouped by category (bugs, enhancements, other)
 
 ## Data Format
 
