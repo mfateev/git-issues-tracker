@@ -118,9 +118,9 @@ Example:
 node scripts/analyze-issues.js temporalio-sdk-java priority
 ```
 
-### Generate Human-Readable Issue Lists
+### Generate Complete Issue Dumps
 
-Generate markdown files with all issues sorted by priority:
+Generate markdown files with full issue data sorted by priority:
 
 ```bash
 # Single repository
@@ -131,10 +131,13 @@ node scripts/generate-readable.js --all
 ```
 
 Output: `repos/<repo>/ISSUES.md` containing:
-- Summary stats (issues, upvotes, comments)
-- Top labels breakdown
-- Top 20 issues by priority score
-- All issues grouped by category (bugs, enhancements, other)
+- Summary stats and top labels
+- Complete data for each issue:
+  - Full description/body text
+  - All comments (in collapsible blocks)
+  - Author with name, assignees, milestone
+  - All labels and reactions
+  - Timestamps and age
 
 ## Data Format
 
