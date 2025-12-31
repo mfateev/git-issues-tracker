@@ -9,6 +9,7 @@
 
 - [Summary](#summary)
 - [Top Labels](#top-labels)
+- [Issue Index](#issue-index)
 - [All Issues](#all-issues)
 
 ## Summary
@@ -27,6 +28,59 @@
 | enhancement | 31 |
 | bug | 12 |
 | Mend: dependency security vulnerability | 1 |
+
+## Issue Index
+
+| # | 👍 | 💬 | Title |
+|---|-----|-----|-------|
+| [#286](#286-support-net-trimming) | 7 | 1 | Support .NET Trimming |
+| [#179](#179-bug-workflow-update-hangs-on-time-skipping-environ) | 0 | 8 | [Bug] Workflow Update hangs on time skipping environment |
+| [#390](#390-feature-request-f-samples-documentation) | 2 | 3 | [Feature Request] F# Samples/Documentation |
+| [#563](#563-use-global-json-file-to-centralize-sdk-version) | 0 | 5 | Use global.json file to centralize SDK version |
+| [#577](#577-bug-investigate-test-host-crash-flake) | 0 | 4 | [Bug] Investigate test host crash flake |
+| [#553](#553-feature-request-operatorservice-rpc-and-workflowse) | 0 | 4 | [Feature Request] OperatorService (RPC) and WorkflowServi... |
+| [#363](#363-feature-request-make-scoped-iserviceprovider-avail) | 1 | 2 | [Feature Request] Make scoped IServiceProvider available ... |
+| [#420](#420-feature-request-provide-synchronous-run-method-in-) | 1 | 1 | [Feature Request] Provide synchronous Run method in testing |
+| [#395](#395-bug-temporalio-exceptions-rpcexception-operation-w) | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation was ca... |
+| [#234](#234-bug-unexpected-reuse-of-payload-instances-in-paylo) | 0 | 3 | [Bug] Unexpected reuse of payload instances in payload co... |
+| [#579](#579-bug-sigsegv-crash-in-temporal-core-worker-poll-wor) | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow... |
+| [#256](#256-feature-request-clarify-what-the-icustommetricmete) | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMeter is ... |
+| [#131](#131-feature-request-support-single-platform-local-nuge) | 1 | 0 | [Feature Request] Support single-platform local NuGet pac... |
+| [#550](#550-bug-investigate-canrunwith-customslotsupplier-flak) | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
+| [#514](#514-feature-request-nexus-cancellation-type-support) | 0 | 1 | [Feature Request] Nexus cancellation type support |
+| [#496](#496-inconsistent-log-property-names-for-the-workflow-r) | 0 | 1 | Inconsistent log property names for the workflow run iden... |
+| [#478](#478-feature-request-investigate-test-flake-for-canrunw) | 0 | 1 | [Feature Request] Investigate test flake for `CanRunWith_... |
+| [#435](#435-feature-request-workflow-logging-nlog-async-calls) | 0 | 1 | [Feature Request] Workflow logging - NLog async calls |
+| [#386](#386-feature-request-improve-waitconditionasync-semanti) | 0 | 1 | [Feature Request] Improve WaitConditionAsync semantics |
+| [#357](#357-bug-unexpected-serialization-of-activity-results) | 0 | 1 | [Bug] Unexpected Serialization of Activity Results |
+| [#337](#337-feature-request-include-more-details-from-tonic-fr) | 0 | 1 | [Feature Request] Include more details from tonic from fa... |
+| [#307](#307-feature-request-replace-system-timeprovider-in-wor) | 0 | 1 | [Feature Request] Replace `System.TimeProvider` in workflows |
+| [#305](#305-handle-multiple-completion-commands) | 0 | 1 | Handle multiple completion commands |
+| [#280](#280-bug-taskqueue-not-forwarded-when-using-test-enviro) | 0 | 1 | [Bug] TaskQueue not forwarded when using Test Environment... |
+| [#247](#247-feature-request-support-for-win-x86) | 0 | 1 | [Feature Request] Support for win-x86 |
+| [#229](#229-feature-request-make-temporalio-testing-to-a-seper) | 0 | 1 | [Feature Request] Make Temporalio.Testing to a seperate n... |
+| [#171](#171-feature-request-schedule-creation-should-create-tr) | 0 | 1 | [Feature Request] Schedule creation should create tracing... |
+| [#32](#32-feature-request-add-cancellationtoken-parameter-to) | 0 | 1 | [Feature Request] Add CancellationToken parameter to Temp... |
+| [#584](#584-bug-loading-tls-certificates-from-path-doesn-t-wor) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
+| [#578](#578-feature-request-add-tests-to-confirm-proper-nexus-) | 0 | 0 | [Feature Request] Add tests to confirm proper Nexus suppo... |
+| [#576](#576-feature-request-net-analyzer-for-checking-workflow) | 0 | 0 | [Feature Request] .NET Analyzer for Checking Workflows |
+| [#568](#568-feature-request-support-non-workflow-activities) | 0 | 0 | [Feature Request] Support non-workflow activities |
+| [#558](#558-feature-request-allow-overriding-of-the-worker-dep) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployme... |
+| [#549](#549-bug-investigate-executeworkflowasync-pollingbehavi) | 0 | 0 | [Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_A... |
+| [#479](#479-net-worker-versioning-high-level-client) | 0 | 0 | [.NET] Worker Versioning high level client |
+| [#440](#440-feature-request-support-user-data-in-forwarded-log) | 0 | 0 | [Feature Request] Support user data in forwarded log call... |
+| [#412](#412-expose-workflow-cancel-cause-reason) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#402](#402-feature-request-expose-read-only-headers-to-activi) | 0 | 0 | [Feature Request] Expose read-only headers to activity info |
+| [#398](#398-feature-request-add-explicit-memoization-support-t) | 0 | 0 | [Feature Request] Add explicit memoization support to the... |
+| [#387](#387-feature-request-provide-workflow-local) | 0 | 0 | [Feature Request] Provide "workflow local" |
+| [#360](#360-feature-request-auto-skip-time-in-time-skipping-te) | 0 | 0 | [Feature Request] Auto-skip time in time-skipping testing... |
+| [#299](#299-feature-request-upon-initial-client-connection-use) | 0 | 0 | [Feature Request] Upon initial client connection, use `Rp... |
+| [#291](#291-feature-request-update-test-running-to-replay) | 0 | 0 | [Feature Request] Update test running to replay |
+| [#246](#246-feature-request-expose-raw-proto-objects-on-workfl) | 0 | 0 | [Feature Request] Expose raw proto objects on WorkflowExe... |
+| [#243](#243-feature-request-enforce-no-commands-allowed-restri) | 0 | 0 | [Feature Request] Enforce no-commands-allowed restriction... |
+| [#194](#194-coverlet-collector-3-1-2-nupkg-1-vulnerabilities-h) | 0 | 0 | coverlet.collector.3.1.2.nupkg: 1 vulnerabilities (highes... |
+| [#176](#176-feature-request-handle-possibility-of-update-befor) | 0 | 0 | [Feature Request] Handle possibility of update-before-start |
+| [#77](#77-bug-time-skipping-test-server-not-auto-skipping-ti) | 0 | 0 | [Bug] Time skipping test server not auto skipping time pr... |
 
 ---
 
@@ -446,7 +500,7 @@ Yeah, I think it's understood why a global.json file has value for _contributors
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/577 |
 | **State** | OPEN |
 | **Author** | jmaeagle99 (Justin Anderson) |
-| **Created** | 2025-12-12 22:16:08.000 UTC (18 days ago) |
+| **Created** | 2025-12-12 22:16:08.000 UTC (19 days ago) |
 | **Updated** | 2025-12-30 20:41:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |

@@ -9,6 +9,7 @@
 
 - [Summary](#summary)
 - [Top Labels](#top-labels)
+- [Issue Index](#issue-index)
 - [All Issues](#all-issues)
 
 ## Summary
@@ -30,6 +31,174 @@
 | external dependency | 5 |
 | next-gen | 1 |
 | Mend: dependency security vulnerability | 1 |
+
+## Issue Index
+
+| # | 👍 | 💬 | Title |
+|---|-----|-----|-------|
+| [#916](#916-ability-to-mock-intercept-side-effect-calls-in-tes) | 21 | 0 | Ability to mock/intercept side effect calls in test suite |
+| [#181](#181-add-ability-for-a-clean-worker-shutdown-that-waits) | 16 | 0 | Add ability for a clean worker shutdown that waits for a ... |
+| [#829](#829-use-interceptor-logger-for-all-logs-related-to-a-w) | 6 | 5 | Use interceptor logger for all logs related to a workflow... |
+| [#1282](#1282-heartbeat-timeout-not-raised-while-testing) | 5 | 5 | Heartbeat timeout not raised while testing |
+| [#89](#89-refactor-sdk-to-avoid-type-aliasing) | 7 | 1 | Refactor SDK to avoid type aliasing |
+| [#1352](#1352-serialization-context-for-codecs-and-converters) | 4 | 6 | Serialization context for codecs and converters |
+| [#1149](#1149-allow-custom-trace-attribute-keys) | 4 | 3 | Allow custom trace attribute keys |
+| [#313](#313-allow-including-local-activity-input-into-the-hist) | 4 | 2 | Allow including local activity input into the history |
+| [#866](#866-testworkflowenvironment-doesn-t-enforce-workflowex) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecution... |
+| [#642](#642-inconsistent-behavior-when-asserting-invocations) | 1 | 7 | Inconsistent behavior when asserting invocations |
+| [#475](#475-panic-when-querying-during-workflow-failure-retry) | 0 | 9 | Panic when querying during Workflow failure + retry  |
+| [#1330](#1330-add-taskqueue-to-tracerstartspanoptions) | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
+| [#1114](#1114-support-activity-functions-with-variadic-arguments) | 1 | 6 | Support activity functions with variadic arguments   |
+| [#986](#986-awaitwithtimeout-does-not-cancel-its-timer-when-co) | 1 | 5 | AwaitWithTimeout does not cancel its timer when condition... |
+| [#937](#937-add-ability-to-keep-session-open-in-case-of-a-work) | 0 | 7 | Add ability to keep session open in case of a worker rest... |
+| [#884](#884-feature-request-add-ability-to-support-passing-ses) | 2 | 3 | [Feature Request] Add ability to support passing sessions... |
+| [#167](#167-activity-times-out-in-test-environment-with-child-) | 2 | 3 | Activity times out in test environment with child workflow |
+| [#1208](#1208-canceling-a-context-with-multiple-child-contexts-c) | 2 | 2 | Canceling a context with multiple child contexts can be n... |
+| [#982](#982-cannot-register-mock-activity-with-string-name-on-) | 1 | 4 | Cannot register mock activity with string name on test wo... |
+| [#2109](#2109-mutablesideeffect-in-test-framework-ignores-cmp-fu) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
+| [#1351](#1351-support-interceptor-on-workflowrun-get) | 1 | 3 | Support interceptor on WorkflowRun.Get |
+| [#718](#718-add-metric-for-time-passed-from-the-activity-sched) | 2 | 1 | Add metric for time passed from the activity scheduling t... |
+| [#659](#659-possibility-to-deprecate-attribute-control) | 0 | 5 | Possibility to deprecate attribute `Control` |
+| [#495](#495-calling-getchildworkflowexecution-for-a-mocked-wor) | 0 | 5 | Calling `GetChildWorkflowExecution` for a mocked workflow... |
+| [#61](#61-remove-mocks-package) | 2 | 1 | Remove mocks package |
+| [#2065](#2065-newtestactivityenvironment-no-longer-implements-wo) | 1 | 2 | NewTestActivityEnvironment no longer implements worker.Ac... |
+| [#1976](#1976-continueasnew-should-create-new-root-span) | 0 | 4 | ContinueAsNew should create new root span |
+| [#1895](#1895-support-simulating-race-conditions-during-signal-d) | 0 | 4 | Support simulating race conditions during signal draining |
+| [#1716](#1716-make-it-possible-to-keep-workflows-in-worker-cache) | 0 | 4 | Make it possible to keep workflows in worker cache also i... |
+| [#1582](#1582-updated-context-functions-to-match-context-library) | 2 | 0 | Updated context functions to match context library |
+| [#1410](#1410-consider-migrating-away-from-golang-mock) | 2 | 0 | Consider migrating away from golang/mock |
+| [#1397](#1397-add-support-for-replayworkflowhistoryoptions-to-re) | 1 | 2 | Add Support for `ReplayWorkflowHistoryOptions` to `Replay... |
+| [#1167](#1167-allow-setting-activity-timeouts-in-testactivityenv) | 0 | 4 | Allow setting activity timeouts in TestActivityEnvironment |
+| [#1100](#1100-testworkflowenvironment-should-surface-errors-and-) | 1 | 2 | TestWorkflowEnvironment should surface errors and respect... |
+| [#949](#949-allow-user-to-override-default-maximum-activity-at) | 1 | 2 | Allow user to override default maximum activity attempts ... |
+| [#533](#533-continueasnew-which-transfers-all-unprocessed-sign) | 0 | 4 | ContinueAsNew which transfers all unprocessed signals to ... |
+| [#444](#444-maxrpctimeout-value-is-too-long) | 0 | 4 | maxRPCTimeout value is too long |
+| [#351](#351-testing-cancellation-of-parent-workflow-with-child) | 2 | 0 | [Testing] Cancellation of Parent Workflow with Child Work... |
+| [#70](#70-refactor-newworker-and-remove-downcast) | 1 | 2 | Refactor NewWorker and remove downcast |
+| [#2103](#2103-cosmetic-bug-in-logger) | 0 | 3 | Cosmetic bug in logger |
+| [#2097](#2097-feature-request-add-context-to-metricshandler-for-) | 0 | 3 | Feature Request: Add Context to MetricsHandler for Exempl... |
+| [#2066](#2066-lost-messages-from-workflow-newchannel-ctx) | 0 | 3 | Lost messages from workflow.NewChannel(ctx) |
+| [#1961](#1961-getting-a-strange-error-when-writing-tests-which-d) | 0 | 3 | Getting a strange error when writing tests which does not... |
+| [#1906](#1906-workflowcheck-crash-index-out-of-range) | 1 | 1 | workflowcheck crash (index out of range) |
+| [#1759](#1759-change-activity-error-to-warn-or-allow-it-to-be-co) | 1 | 1 | Change activity error to warn, or allow it to be configur... |
+| [#1609](#1609-support-contextaware-for-failure-converters) | 1 | 1 | Support ContextAware for failure converters |
+| [#1177](#1177-switch-to-a-new-clock-library) | 0 | 3 | Switch to a new clock library |
+| [#1037](#1037-calling-a-value-receiver-method-with-a-pointer-typ) | 0 | 3 | Calling a value receiver method with a pointer type cause... |
+| [#1035](#1035-workflowcheck-should-check-that-serialized-objects) | 0 | 3 | Workflowcheck should check that serialized objects do not... |
+| [#955](#955-suppress-worker-stopping-polling-errors) | 0 | 3 | Suppress "worker stopping" polling errors |
+| [#875](#875-safer-queries-and-update-validators) | 0 | 3 | Safer queries (and update validators) |
+| [#842](#842-support-custom-object-processing-in-codec-grpc-int) | 0 | 3 | Support custom object processing in codec gRPC interceptor |
+| [#813](#813-weird-workflow-task-failure) | 0 | 3 | Weird workflow task failure |
+| [#458](#458-testworkflowenvironment-fail-registerdelayedcallba) | 1 | 1 | TestWorkflowEnvironment: Fail RegisterDelayedCallback aft... |
+| [#126](#126-add-autoheartbeating-of-activities) | 0 | 3 | Add autoheartbeating of activities |
+| [#2131](#2131-configurable-minrpctimeout-for-activity-worker-ins) | 0 | 2 | Configurable minRPCTimeout for activity worker instead of... |
+| [#2107](#2107-panic-in-temporal-unit-test-framework) | 1 | 0 | Panic in temporal unit test framework. |
+| [#1980](#1980-feature-request-include-version-in-workflowcheck-v) | 0 | 2 | Feature Request: Include Version in workflowcheck -V=full... |
+| [#1954](#1954-ability-to-get-original-logger-from-activity-getlo) | 1 | 0 | Ability to get original Logger from activity.GetLogger(ct... |
+| [#1929](#1929-otel-emitted-metrics-do-not-match-behavior-describ) | 0 | 2 | OTel emitted metrics do not match behavior described in t... |
+| [#1646](#1646-setstarttime-for-activity-test-env) | 1 | 0 | SetStartTime for activity test env |
+| [#1593](#1593-consider-potential-range-over-func-apis) | 0 | 2 | Consider potential range-over-func APIs |
+| [#1468](#1468-interceptors-are-skipped-for-mocked-activities) | 0 | 2 | Interceptors are skipped for mocked activities |
+| [#1086](#1086-add-support-for-a-graceful-shutdown-of-go-workers-) | 0 | 2 | Add support for a graceful shutdown of go workers where a... |
+| [#1033](#1033-onupsertsearchattributes-and-onupsertmemo-unclear-) | 0 | 2 | OnUpsertSearchAttributes and OnUpsertMemo unclear about m... |
+| [#933](#933-no-problem-indicators-on-failed-workflow-input-des) | 0 | 2 | No problem indicators on failed workflow input deserializ... |
+| [#899](#899-github-com-uber-go-tally-v4-v4-1-1-2-vulnerabiliti) | 0 | 2 | github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (hi... |
+| [#754](#754-grpc-proxy-integration-test) | 1 | 0 | gRPC Proxy Integration Test |
+| [#616](#616-investigate-options-around-latency-reporting-and-c) | 0 | 2 | Investigate options around latency reporting and comparis... |
+| [#497](#497-test-suite-query-after-signal-works-in-sdk-but-not) | 1 | 0 | [Test suite] Query after signal works in SDK, but not in ... |
+| [#439](#439-include-a-way-to-perform-assertions-on-the-workflo) | 1 | 0 | Include a way to perform assertions on the workflow signa... |
+| [#358](#358-bug-the-json-input-is-invalid-in-the-workflow-hist) | 0 | 2 | [Bug] the json input is invalid in the workflow history a... |
+| [#266](#266-expose-activity-start-and-completion-information-t) | 1 | 0 | Expose activity start and completion information to the w... |
+| [#101](#101-add-ability-to-pass-channel-as-a-parameter-to-chil) | 1 | 0 | Add ability to pass Channel as a parameter to Child workf... |
+| [#35](#35-add-ability-to-pass-configuration-to-a-workflow) | 1 | 0 | Add ability to pass configuration to a workflow |
+| [#2098](#2098-update-childworkflowoptions-comment-to-indicate-th) | 0 | 1 | Update ChildWorkflowOptions comment to indicate the defau... |
+| [#2039](#2039-joining-errors-causes-testworkflowenvironment-to-h) | 0 | 1 | Joining errors causes TestWorkflowEnvironment to hide pan... |
+| [#1705](#1705-user-defined-requestid-for-signalworkflow) | 0 | 1 | User-defined RequestId for SignalWorkflow |
+| [#1624](#1624-signal-sent-to-selector-can-be-lost-if-default-pat) | 0 | 1 | Signal sent to Selector can be lost if Default path blocks  |
+| [#1574](#1574-batched-heartbeat-got-canceled-due-to-caller-conte) | 0 | 1 | Batched heartbeat got canceled due to caller context canc... |
+| [#1471](#1471-support-new-versioning-in-workflowinfo-getcurrentb) | 0 | 1 | Support New Versioning in WorkflowInfo.GetCurrentBuildID() |
+| [#1445](#1445-otel-metric-handler-improvements) | 0 | 1 | OTel metric handler improvements |
+| [#1395](#1395-make-testworkflowenvironment-return-errors-with-st) | 0 | 1 | Make TestWorkflowEnvironment return errors with stack traces |
+| [#1334](#1334-allow-opting-out-of-tracer-span-creation-on-schedu) | 0 | 1 | Allow opting out of tracer span creation on schedule create |
+| [#1300](#1300-better-task-failures-when-passing-incorrect-option) | 0 | 1 | Better Task Failures when passing incorrect options to Ex... |
+| [#1227](#1227-worker-versioning-workflow-session) | 0 | 1 | Worker versioning + workflow session |
+| [#1104](#1104-context-timeout-is-halved-on-client-executeworkflo) | 0 | 1 | Context timeout is halved on client.ExecuteWorkflow |
+| [#1099](#1099-testworkflowenvironment-timeouts-run-defer-stateme) | 0 | 1 | TestWorkflowEnvironment timeouts run defer statements |
+| [#1045](#1045-memo-does-not-go-through-user-provided-data-covert) | 0 | 1 | Memo does not go through user provided data coverter |
+| [#996](#996-opt-in-to-having-stack-trace-query-use-custom-data) | 0 | 1 | Opt-in to having stack trace query use custom data converter |
+| [#975](#975-missing-mock-invocation-causes-panicerror-in-a-tes) | 0 | 1 | Missing mock invocation causes PanicError in a test but t... |
+| [#968](#968-remove-deprecated-metrics) | 0 | 1 | Remove deprecated metrics |
+| [#967](#967-testsuite-testworkflowenvironment-does-not-complet) | 0 | 1 | testsuite.TestWorkflowEnvironment does not complete workf... |
+| [#935](#935-testing-be-able-to-unit-test-a-workflow-with-a-pop) | 0 | 1 | Testing: Be Able to Unit Test a Workflow with a Populated... |
+| [#922](#922-testworkflowenvironment-signalexternalworkflow-dat) | 0 | 1 | TestWorkflowEnvironment.SignalExternalWorkflow data race ... |
+| [#912](#912-change-default-prometheus-santitize-options-to-not) | 0 | 1 | Change default Prometheus santitize options to not change... |
+| [#716](#716-if-a-workflow-is-terminated-while-processing-it-ca) | 0 | 1 | If a workflow is terminated while processing, it can leak... |
+| [#698](#698-allow-unable-to-find-workflow-type-error-to-be-con) | 0 | 1 | Allow "unable to find workflow type" error to be configur... |
+| [#194](#194-support-seamless-cleanup-during-session-cancellati) | 0 | 1 | Support seamless cleanup during session cancellation |
+| [#50](#50-make-testworkflowenvironment-support-test-multiple) | 0 | 1 | Make TestWorkflowEnvironment support test multiple workflows |
+| [#2124](#2124-support-non-workflow-activities) | 0 | 0 | Support non-workflow activities |
+| [#2123](#2123-api-go-proxy-allow-payload-visitor-to-run-in-paral) | 0 | 0 | [api-go] Proxy: allow payload visitor to run in parallel |
+| [#2094](#2094-worker-heartbeating) | 0 | 0 | Worker Heartbeating |
+| [#2090](#2090-starting-a-child-workflow-in-tests-leaks-goroutine) | 0 | 0 | Starting a child workflow in tests leaks goroutines |
+| [#2085](#2085-add-support-for-firstexecutionrunid-to-cancel-and-) | 0 | 0 | Add support for firstExecutionRunId to cancel and terminate |
+| [#2045](#2045-ensure-tests-exist-to-confirm-custom-slot-supplier) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot i... |
+| [#2025](#2025-fix-describetaskqueueenhanced-w-stats-to-use-non-d) | 0 | 0 | Fix DescribeTaskQueueEnhanced w/ stats to use non-depreca... |
+| [#2020](#2020-plugin-support) | 0 | 0 | Plugin support |
+| [#2005](#2005-onworkflow-test-mocker-doesn-t-propagate-context-h) | 0 | 0 | OnWorkflow test mocker doesn't propagate context headers |
+| [#1869](#1869-setonchildworkflowcompletedlistener-doesn-t-work-a) | 0 | 0 | SetOnChildWorkflowCompletedListener doesn't work as expected |
+| [#1846](#1846-astime-on-a-nil-pointer-converts-to-jan-1st-1970-a) | 0 | 0 | AsTime() on a nil pointer converts to  Jan. 1st, 1970 at ... |
+| [#1838](#1838-non-deterministic-workflow-code-can-send-incorrect) | 0 | 0 | Non-deterministic workflow code can send incorrect WFT co... |
+| [#1817](#1817-expose-workflow-cancel-cause-reason) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#1796](#1796-add-patched-and-deprecatepatch-apis) | 0 | 0 | Add `Patched()` and `DeprecatePatch()` APIs |
+| [#1778](#1778-rename-worker-deployment-api-interfaces) | 0 | 0 | Rename Worker Deployment API interfaces |
+| [#1777](#1777-add-ramp-to-worker-deployments) | 0 | 0 | Add ramp to Worker Deployments |
+| [#1776](#1776-provide-flag-to-tell-the-update-handler-that-the-h) | 0 | 0 | Provide flag to tell the update handler that the handling... |
+| [#1760](#1760-provide-workflow-local) | 0 | 0 | Provide "workflow local" |
+| [#1693](#1693-provide-details-and-actionable-info-about-non-dete) | 0 | 0 | Provide details and actionable info about Non Determinist... |
+| [#1668](#1668-when-deserializing-typed-search-attributes-invalid) | 0 | 0 | When deserializing typed search attributes, invalid value... |
+| [#1650](#1650-list-of-flaky-tests) | 0 | 0 | List of flaky tests |
+| [#1633](#1633-modify-test-suite-to-dump-junit-xml) | 0 | 0 | Modify test suite to dump junit XML |
+| [#1610](#1610-provide-access-to-the-workflow-results-from-worker) | 0 | 0 | Provide access to the workflow results from worker.Workfl... |
+| [#1564](#1564-test-nexus-with-cloud) | 0 | 0 | Test Nexus with Cloud |
+| [#1536](#1536-terminate-if-running-doesn-t-work-for-duplicate-ch) | 0 | 0 | TERMINATE_IF_RUNNING doesn't work for duplicate child wor... |
+| [#1496](#1496-workflow-outcome-is-inconsistent-between-test-env-) | 0 | 0 | Workflow outcome is inconsistent between test env and rea... |
+| [#1469](#1469-allow-specifying-attempt-in-testworkflowenvironmen) | 0 | 0 | Allow specifying attempt in TestWorkflowEnvironment |
+| [#1427](#1427-testworkflowenvironment-workflow-context-does-not-) | 0 | 0 | TestWorkflowEnvironment workflow Context does not block w... |
+| [#1387](#1387-configurable-panic-policy-at-the-workflow-level) | 0 | 0 | Configurable panic policy at the workflow level |
+| [#1360](#1360-testsuite-devserver-occasionally-does-not-stop) | 0 | 0 | `testsuite.DevServer` occasionally does not stop |
+| [#1349](#1349-workflowrun-get-does-not-use-a-context-aware-data-) | 0 | 0 | WorkflowRun.Get does not use a context aware data converter |
+| [#1341](#1341-workflowchecker-should-flag-anonymous-functions-in) | 0 | 0 | WorkflowChecker should flag anonymous functions in local ... |
+| [#1315](#1315-deprecate-update-related-sdk-flags) | 0 | 0 | Deprecate Update related SDK flags |
+| [#1283](#1283-remove-clientoutboundinterceptor-pollworkflowupdat) | 0 | 0 | Remove ClientOutboundInterceptor.PollWorkflowUpdate |
+| [#1240](#1240-data-race-after-deadlock-detector-fired) | 0 | 0 | Data race after deadlock detector fired |
+| [#1197](#1197-drain-polled-tasks-on-shutdown) | 0 | 0 | Drain polled tasks on shutdown |
+| [#1173](#1173-enable-testing-with-onactivity-and-non-retryable-e) | 0 | 0 | Enable testing with OnActivity and non-retryable errors t... |
+| [#1157](#1157-support-localactivityoptions-waitforcancellation) | 0 | 0 | Support LocalActivityOptions.WaitForCancellation |
+| [#1132](#1132-add-support-for-visiting-all-payloads-at-once-in-p) | 0 | 0 | Add support for visiting all payloads at once in proxy vi... |
+| [#1131](#1131-worker-options-workeractivitiespersecond-applies-a) | 0 | 0 | worker.Options.WorkerActivitiesPerSecond applies after po... |
+| [#1054](#1054-encodedfailureattributes-capability-should-be-resp) | 0 | 0 | EncodedFailureAttributes capability should be respected |
+| [#997](#997-support-dynamic-query-and-update-handler) | 0 | 0 | Support dynamic query and update handler |
+| [#909](#909-fatal-poll-error-on-worker-start-isn-t-stopping-ac) | 0 | 0 | Fatal poll error on worker start isn't stopping activity ... |
+| [#900](#900-log-warning-on-failed-serialization-of-signal-inpu) | 0 | 0 | Log warning on failed serialization of signal input |
+| [#873](#873-ensure-slots-available-metric-is-updated-on-worker) | 0 | 0 | Ensure slots available metric is updated on worker stop |
+| [#755](#755-sticky-query-invalid-state-machine-transition-erro) | 0 | 0 | Sticky query invalid state machine transition error |
+| [#728](#728-add-await-branch-to-selector) | 0 | 0 | Add Await branch to Selector |
+| [#705](#705-make-workflowservicestubsoptions-rpclongpolltimeou) | 0 | 0 | Make WorkflowServiceStubsOptions#rpcLongPollTimeout confi... |
+| [#676](#676-document-dangers-with-workflow-withchildoptions-an) | 0 | 0 | Document dangers with workflow.WithChildOptions and workf... |
+| [#619](#619-make-tracing-tags-consistent-across-sdks) | 0 | 0 | Make tracing tags consistent across SDKs |
+| [#514](#514-testactivityenvironment-executeactivity-requires-r) | 0 | 0 | TestActivityEnvironment.ExecuteActivity requires Register... |
+| [#505](#505-non-retryable-errors-in-sessions) | 0 | 0 | Non-retryable errors in sessions |
+| [#491](#491-testsuite-workflow-retry-not-working) | 0 | 0 | Testsuite Workflow Retry not working |
+| [#482](#482-workflow-query-hangs-if-the-temporal-workflow-exec) | 0 | 0 | Workflow query hangs if the temporal workflow execution p... |
+| [#346](#346-requestcancelexternalworkflow-get-ctx-nil-blocks-f) | 0 | 0 | RequestCancelExternalWorkflow(...).Get(ctx, nil) blocks f... |
+| [#335](#335-original-failure-source-is-lost-when-convertfailur) | 0 | 0 | Original Failure source is lost when ConvertFailureToErro... |
+| [#277](#277-expose-access-to-grpc-serviceclient-so-we-can-crea) | 0 | 0 | Expose access to grpc.ServiceClient so we can create defa... |
+| [#247](#247-retrieved-string-search-attribute-includes-quotati) | 0 | 0 | Retrieved String Search Attribute includes quotation char... |
+| [#238](#238-recordactivityheartbeat-signature-should-be-modifi) | 0 | 0 | RecordActivityHeartbeat signature should be modified to r... |
+| [#198](#198-add-support-for-doing-backward-incompatible-change) | 0 | 0 | Add support for doing backward incompatible changes to wo... |
+| [#186](#186-worker-reports-validation-error-on-processing-of-t) | 0 | 0 | Worker reports validation error on processing of transien... |
+| [#125](#125-remove-need-to-register-mocked-activity) | 0 | 0 | Remove need to register mocked activity |
+| [#108](#108-fix-race-condition-in-testworkflowenvironmentimpl) | 0 | 0 | Fix race condition in testWorkflowEnvironmentImpl |
 
 ---
 
@@ -4166,7 +4335,7 @@ Please is there any issue at hand that you would like me to contribute then? I w
 | **URL** | https://github.com/temporalio/sdk-go/issues/2066 |
 | **State** | OPEN |
 | **Author** | yuandrew (Andrew Yuan) |
-| **Created** | 2025-10-02 22:19:14.000 UTC (2 months ago) |
+| **Created** | 2025-10-02 22:19:14.000 UTC (3 months ago) |
 | **Updated** | 2025-12-10 17:57:23.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |

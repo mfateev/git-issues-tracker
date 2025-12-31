@@ -138,6 +138,7 @@ function generateReadable(repoDir) {
     md += `## Table of Contents\n\n`;
     md += `- [Summary](#summary)\n`;
     md += `- [Top Labels](#top-labels)\n`;
+    md += `- [Issue Index](#issue-index)\n`;
     md += `- [All Issues](#all-issues)\n\n`;
 
     // Summary stats
@@ -163,6 +164,16 @@ function generateReadable(repoDir) {
         });
         md += `\n`;
     }
+
+    // Issue Index - quick reference table
+    md += `## Issue Index\n\n`;
+    md += `| # | 👍 | 💬 | Title |\n`;
+    md += `|---|-----|-----|-------|\n`;
+    issues.forEach(issue => {
+        const shortTitle = issue.title.length > 60 ? issue.title.substring(0, 57) + '...' : issue.title;
+        md += `| [#${issue.number}](#${issue.number}-${issue.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').substring(0, 50)}) | ${issue._upvotes} | ${issue._commentCount} | ${shortTitle} |\n`;
+    });
+    md += `\n`;
 
     // All issues with full details
     md += `---\n\n`;

@@ -9,6 +9,7 @@
 
 - [Summary](#summary)
 - [Top Labels](#top-labels)
+- [Issue Index](#issue-index)
 - [All Issues](#all-issues)
 
 ## Summary
@@ -26,6 +27,35 @@
 |-------|-------|
 | enhancement | 19 |
 | bug | 4 |
+
+## Issue Index
+
+| # | 👍 | 💬 | Title |
+|---|-----|-----|-------|
+| [#319](#319-feature-request-look-into-client-side-trimming-of-) | 2 | 1 | [Feature Request] Look into client-side trimming of failu... |
+| [#162](#162-investigate-issue-with-ruby-3-1-3-2-and-worker-fib) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
+| [#315](#315-bug-scopedlogger-fails-attempting-to-compare-symbo) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to ... |
+| [#306](#306-feature-request-update-build-gems-gh-workflow-smok) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke tes... |
+| [#360](#360-problem-testing-temporal-workflows-with-signals-in) | 0 | 1 | Problem: Testing Temporal Workflows with Signals in Ruby ... |
+| [#334](#334-feature-request-ensure-fibers-and-workflow-instanc) | 0 | 1 | [Feature Request] Ensure fibers and workflow instances ar... |
+| [#238](#238-feature-request-serialization-context-for-codecs-a) | 0 | 1 | [Feature Request] Serialization context for codecs and co... |
+| [#203](#203-feature-request-contributing-guide) | 0 | 1 | [Feature Request] Contributing Guide |
+| [#172](#172-bug-windows-ci-segfaulting-during-tests) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
+| [#367](#367-feature-request-support-non-workflow-activities) | 0 | 0 | [Feature Request] Support non-workflow activities |
+| [#364](#364-feature-request-confirm-assert-ruby-4-compatibilit) | 0 | 0 | [Feature Request] Confirm/assert Ruby 4 compatibility, ma... |
+| [#361](#361-feature-request-allow-overriding-of-the-worker-dep) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployme... |
+| [#355](#355-bug-some-common-uses-of-activemodel-fail-in-workfl) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows d... |
+| [#333](#333-feature-request-require-payload-codec-from-data-co) | 0 | 0 | [Feature Request] Require payload codec from data convert... |
+| [#318](#318-feature-request-plugin-support) | 0 | 0 | [Feature Request] Plugin support |
+| [#270](#270-ruby-worker-versioning-high-level-client) | 0 | 0 | [Ruby] Worker Versioning high level client |
+| [#232](#232-initial-nexus-implementation-ruby) | 0 | 0 | Initial Nexus implementation - Ruby |
+| [#222](#222-feature-request-test-randomness-seed-update-over-r) | 0 | 0 | [Feature Request] Test randomness seed update over reset |
+| [#218](#218-feature-request-support-buildable-source-gem) | 0 | 0 | [Feature Request] Support buildable source gem |
+| [#209](#209-feature-request-add-explicit-memoization-support-t) | 0 | 0 | [Feature Request] Add explicit memoization support to the... |
+| [#192](#192-feature-request-remove-go-from-test-pipeline) | 0 | 0 | [Feature Request] Remove Go from test pipeline |
+| [#191](#191-feature-request-deadlock-detection-improve-interru) | 0 | 0 | [Feature Request] Deadlock detection - improve interrupti... |
+| [#185](#185-feature-request-warn-on-unawaited-workflow-futures) | 0 | 0 | [Feature Request] Warn on unawaited workflow futures with... |
+| [#179](#179-feature-request-provide-workflow-local) | 0 | 0 | [Feature Request] Provide "workflow local" |
 
 ---
 
