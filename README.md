@@ -15,11 +15,16 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [Ruby](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
 | **Total** | **760** | |
 
+## Analysis
+
+See [analysis/SUMMARY.md](analysis/SUMMARY.md) for cross-SDK insights including common themes, top user requests, and recommended initiatives.
+
 ## Structure
 
 ```
 git-issues-tracker/
 ├── analysis/                       # Issue analysis documents
+│   ├── SUMMARY.md                  # Cross-SDK summary
 │   ├── java.md
 │   ├── go.md
 │   ├── typescript.md
