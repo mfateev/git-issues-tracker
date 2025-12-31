@@ -27,7 +27,8 @@ See [analysis/summary.md](analysis/summary.md) for cross-SDK insights including 
 git-issues-tracker/
 ├── analysis/                       # Issue analysis documents
 │   ├── summary.md                  # Cross-repository summary
-│   ├── contributors.md             # Contributor statistics
+│   ├── contributors.md             # Contributor statistics (linked to issues)
+│   ├── recent.md                   # Recently filed issues (last 30 days)
 │   ├── server.md                   # Temporal Server
 │   ├── features.md                 # Cross-SDK features
 │   ├── java.md
@@ -49,7 +50,9 @@ git-issues-tracker/
 │   ├── update-all.sh               # Update all tracked repos
 │   ├── build-index.js              # Build/rebuild index
 │   ├── analyze-issues.js           # Analysis and reports
-│   └── generate-readable.js        # Generate human-readable ISSUES.md
+│   ├── generate-readable.js        # Generate human-readable ISSUES.md
+│   ├── generate-contributors.js    # Contributor statistics with issue links
+│   └── generate-recent.js          # Recent issues report
 └── README.md
 ```
 
