@@ -29,6 +29,28 @@ total=$(echo "$issue_nums" | wc -l | tr -d ' ')
 
 echo "Found $total open issues"
 
+# Check rate limit - ensure we have at least 500 requests buffer
+RATE_LIMIT_BUFFER=500
+required_requests=$((total + 1))  # +1 for the issue list request we already made
+rate_remaining=$(gh api rate_limit --jq '.resources.core.remaining')
+rate_limit=$(gh api rate_limit --jq '.resources.core.limit')
+rate_reset=$(gh api rate_limit --jq '.resources.core.reset')
+
+min_required=$((required_requests + RATE_LIMIT_BUFFER))
+
+echo "Rate limit: $rate_remaining/$rate_limit remaining"
+
+if [ "$rate_remaining" -lt "$min_required" ]; then
+    reset_time=$(date -r "$rate_reset" '+%Y-%m-%d %H:%M:%S' 2>/dev/null || date -d "@$rate_reset" '+%Y-%m-%d %H:%M:%S' 2>/dev/null || echo "epoch: $rate_reset")
+    echo "ERROR: Insufficient API rate limit"
+    echo "  Need: $required_requests requests + $RATE_LIMIT_BUFFER buffer = $min_required"
+    echo "  Have: $rate_remaining"
+    echo "  Resets at: $reset_time"
+    exit 1
+fi
+
+echo "Rate limit check passed (need $min_required, have $rate_remaining)"
+
 count=0
 for num in $issue_nums; do
     count=$((count + 1))
