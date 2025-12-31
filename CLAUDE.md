@@ -4,63 +4,70 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a local GitHub issue tracking system that mirrors issues from GitHub repositories for offline analysis. It uses the GitHub CLI (`gh`) to fetch issues and Node.js scripts for indexing and analysis.
+Local GitHub issue tracking system for Temporal SDK repositories. Mirrors issues for offline analysis using GitHub CLI (`gh`) and Node.js scripts.
+
+## Currently Tracked
+
+- temporalio-sdk-java (215 issues)
+- temporalio-sdk-go (163 issues)
+- temporalio-sdk-typescript (148 issues)
+- temporalio-sdk-python (115 issues)
+- temporalio-sdk-dotnet (48 issues)
+- temporalio-sdk-php (47 issues)
+- temporalio-sdk-ruby (24 issues)
 
 ## Common Commands
 
-### Track a New Repository
 ```bash
+# Update all tracked repos
+./scripts/update-all.sh
+
+# Track a new repository
 ./scripts/fetch-issues.sh owner/repo
 node scripts/build-index.js owner-repo
-```
 
-### Update and Analyze
-```bash
-# Incremental update (only changed issues)
+# Update single repo
 ./scripts/update-issues.sh owner-repo
-
-# Rebuild index
-node scripts/build-index.js owner-repo
-
-# Update all tracked repos
-node scripts/build-index.js --all
 
 # List tracked repositories
 node scripts/build-index.js --list
-```
 
-### Analysis Commands
-```bash
+# Analysis
 node scripts/analyze-issues.js <repo-dir-name> <command>
 ```
-Available commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, `comments`, `engagement`, `priority`, `recent`, `stale`, `categories`
+
+Analysis commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, `comments`, `engagement`, `priority`, `recent`, `stale`, `categories`, `report`
 
 ## Architecture
 
 ```
+analysis/                       # Issue analysis documents
+├── java.md
+├── go.md
+├── typescript.md
+├── python.md
+├── dotnet.md
+├── php.md
+└── ruby.md
+
 repos/                          # Per-repository data
 └── {owner}-{repo}/
     ├── issues/                 # Raw JSON per issue (issue-{num}.json)
     ├── issues-index.json       # Aggregated index with engagement stats
-    ├── sync-metadata.json      # Sync state (last_sync, issue_count)
-    └── PROPOSAL.md             # Optional analysis document
+    └── sync-metadata.json      # Sync state (last_sync, issue_count)
 
 scripts/
 ├── fetch-issues.sh             # Full download (uses gh CLI)
-├── update-issues.sh            # Incremental sync
-├── build-index.js              # Creates issues-index.json with engagement metrics
+├── update-issues.sh            # Incremental sync for one repo
+├── update-all.sh               # Update all tracked repos
+├── build-index.js              # Creates issues-index.json
 └── analyze-issues.js           # Query and reporting tool
 ```
 
-## Data Structures
-
-**Issue JSON** (`issues/issue-{num}.json`): Contains `number`, `title`, `body`, `state`, `author`, `labels`, `comments`, `reactionGroups`, timestamps.
-
-**Index JSON** (`issues-index.json`): Contains issue summaries with computed `upvotes` (from THUMBS_UP reactions), `commentCount`, plus aggregated stats by state/label and engagement metrics.
-
 ## Key Patterns
 
-- Repository names are normalized: `owner/repo` becomes `owner-repo` for directory names
-- Engagement metrics: upvotes (👍 reactions) and comment counts are extracted during indexing
-- Priority score formula: `upvotes * 2 + comments`
-- Scripts use `gh` CLI for GitHub API access; ensure it's authenticated
+- Repository names normalized: `owner/repo` → `owner-repo` for directories
+- Scripts check GitHub API rate limit before fetching (500 request buffer)
+- Priority score: `upvotes × 2 + comments`
+- Upvotes extracted from THUMBS_UP reactions during indexing
+- Requires authenticated `gh` CLI
