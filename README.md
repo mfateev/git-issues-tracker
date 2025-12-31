@@ -132,6 +132,7 @@ node scripts/generate-readable.js --all
 
 Output: `repos/<repo>/ISSUES.md` containing:
 - Summary stats and top labels
+- **Issue index** - clickable table linking to each issue
 - Complete data for each issue:
   - Full description/body text
   - All comments (in collapsible blocks)
