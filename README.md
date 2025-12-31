@@ -34,7 +34,8 @@ git-issues-tracker/
 │       └── sync-metadata.json      # Tracks sync state
 ├── scripts/                        # Shared scripts
 │   ├── fetch-issues.sh             # Full download for any repo
-│   ├── update-issues.sh            # Incremental updates
+│   ├── update-issues.sh            # Incremental update for one repo
+│   ├── update-all.sh               # Update all tracked repos
 │   ├── build-index.js              # Build/rebuild index
 │   └── analyze-issues.js           # Analysis and reports
 └── README.md
@@ -73,7 +74,8 @@ node scripts/build-index.js --list
 ### Update All Repositories
 
 ```bash
-node scripts/build-index.js --all
+# Fetch updates and rebuild indexes for all tracked repos
+./scripts/update-all.sh
 ```
 
 ## Analysis Tools
