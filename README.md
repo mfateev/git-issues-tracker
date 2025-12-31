@@ -4,16 +4,17 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 
 ## Tracked Repositories
 
-| SDK | Issues | Top User Request |
-|-----|--------|------------------|
-| [Java](https://github.com/temporalio/sdk-java) | 215 | Kotlin coroutines support |
-| [Go](https://github.com/temporalio/sdk-go) | 163 | Improved error handling |
-| [TypeScript](https://github.com/temporalio/sdk-typescript) | 148 | Bun support (46 upvotes) |
-| [Python](https://github.com/temporalio/sdk-python) | 115 | Sandbox/debugging improvements |
-| [.NET](https://github.com/temporalio/sdk-dotnet) | 48 | .NET Trimming support |
-| [PHP](https://github.com/temporalio/sdk-php) | 47 | Marshaller documentation |
-| [Ruby](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
-| **Total** | **760** | |
+| Repository | Issues | Top User Request |
+|------------|--------|------------------|
+| [Server](https://github.com/temporalio/temporal) | 530 | External workflow wait (70 upvotes) |
+| [Java SDK](https://github.com/temporalio/sdk-java) | 215 | Kotlin coroutines support |
+| [Go SDK](https://github.com/temporalio/sdk-go) | 163 | Improved error handling |
+| [TypeScript SDK](https://github.com/temporalio/sdk-typescript) | 148 | Bun support (46 upvotes) |
+| [Python SDK](https://github.com/temporalio/sdk-python) | 115 | Sandbox/debugging improvements |
+| [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 48 | .NET Trimming support |
+| [PHP SDK](https://github.com/temporalio/sdk-php) | 47 | Marshaller documentation |
+| [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
+| **Total** | **1,290** | |
 
 ## Analysis
 
@@ -24,7 +25,8 @@ See [analysis/SUMMARY.md](analysis/SUMMARY.md) for cross-SDK insights including 
 ```
 git-issues-tracker/
 ├── analysis/                       # Issue analysis documents
-│   ├── SUMMARY.md                  # Cross-SDK summary
+│   ├── SUMMARY.md                  # Cross-repository summary
+│   ├── server.md                   # Temporal Server
 │   ├── java.md
 │   ├── go.md
 │   ├── typescript.md
