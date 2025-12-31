@@ -4,17 +4,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Local GitHub issue tracking system for Temporal SDK repositories. Mirrors issues for offline analysis using GitHub CLI (`gh`) and Node.js scripts.
+Local GitHub issue tracking system for Temporal repositories. Mirrors issues for offline analysis using GitHub CLI (`gh`) and Node.js scripts.
 
-## Currently Tracked
+## Currently Tracked (1,537 issues)
 
-- temporalio-sdk-java (215 issues)
-- temporalio-sdk-go (163 issues)
-- temporalio-sdk-typescript (148 issues)
-- temporalio-sdk-python (115 issues)
-- temporalio-sdk-dotnet (48 issues)
-- temporalio-sdk-php (47 issues)
-- temporalio-sdk-ruby (24 issues)
+| Repository | Directory | Issues |
+|------------|-----------|--------|
+| temporalio/temporal | temporalio-temporal | 530 |
+| temporalio/features | temporalio-features | 247 |
+| temporalio/sdk-java | temporalio-sdk-java | 215 |
+| temporalio/sdk-go | temporalio-sdk-go | 163 |
+| temporalio/sdk-typescript | temporalio-sdk-typescript | 148 |
+| temporalio/sdk-python | temporalio-sdk-python | 115 |
+| temporalio/sdk-dotnet | temporalio-sdk-dotnet | 48 |
+| temporalio/sdk-php | temporalio-sdk-php | 47 |
+| temporalio/sdk-ruby | temporalio-sdk-ruby | 24 |
 
 ## Common Commands
 
@@ -42,6 +46,9 @@ Analysis commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, 
 
 ```
 analysis/                       # Issue analysis documents
+├── SUMMARY.md                  # Cross-repository summary
+├── server.md                   # Temporal Server
+├── features.md                 # Cross-SDK features
 ├── java.md
 ├── go.md
 ├── typescript.md
