@@ -1,0 +1,80 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "Currently when you try to use ResetWorkflowExecution with the client from TestWorkflowEnvironment with in-memory Test Server you get:\r\n\r\n```\r\n       io.grpc.StatusRuntimeException: UNIMPLEMENTED: Method temporal.api.workflowservice.v1.WorkflowService/ResetWorkflowExecution is unimplemented\r\n```\r\n\r\nWould be nice to add support for it in the future. Thanks.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5AHeJW",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "You can use dockerized temporal for tests that have to cover reset of the workflow. \r\nWe may consider implementing some simplified version of a reset in the test server in the future.",
+      "createdAt": "2022-03-22T22:22:52Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1093#issuecomment-1075700310",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5AHjJt",
+      "author": {
+        "login": "tsurdilo"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yeah, forgot to mention this is when setUseExternalService is not set to true",
+      "createdAt": "2022-03-22T22:37:56Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1093#issuecomment-1075720813",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5Zyazf",
+      "author": {
+        "login": "parth-kulkarni-db"
+      },
+      "authorAssociation": "NONE",
+      "body": "Is there any update if this is added in Test Server in Apr 23?",
+      "createdAt": "2023-04-13T05:58:09Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1093#issuecomment-1506389215",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-03-22T22:19:05Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1093,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Add ResetWorkflowExecution support in Test Server",
+  "updatedAt": "2024-12-17T21:26:50Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1093"
+}

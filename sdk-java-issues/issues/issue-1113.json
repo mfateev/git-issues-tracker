@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjgzMTA1NDg=",
+    "is_bot": false,
+    "login": "javiercanillas",
+    "name": "Javier Canillas"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nWorkflow configuration can be achieved in two different ways. The first one, descrived on docs is through the Workflow implementation constructor, like the following (snipped code taken from [tutorial](https://github.com/temporalio/money-transfer-project-template-java/blob/master/src/main/java/moneytransferapp/MoneyTransferWorkflowImpl.java#L12)):\r\n\r\n```java\r\npublic class MoneyTransferWorkflowImpl implements MoneyTransferWorkflow {\r\n    private static final String WITHDRAW = \"Withdraw\";\r\n    // RetryOptions specify how to automatically handle retries when Activities fail.\r\n    private final RetryOptions retryoptions = RetryOptions.newBuilder()\r\n            .setInitialInterval(Duration.ofSeconds(1))\r\n            .setMaximumInterval(Duration.ofSeconds(100))\r\n            .setBackoffCoefficient(2)\r\n            .setMaximumAttempts(500)\r\n            .build();\r\n    private final ActivityOptions defaultActivityOptions = ActivityOptions.newBuilder()\r\n            // Timeout options specify when to automatically timeout Activities if the process is taking too long.\r\n            .setStartToCloseTimeout(Duration.ofSeconds(5))\r\n            // Optionally provide customized RetryOptions.\r\n            // Temporal retries failures by default, this is simply an example.\r\n            .setRetryOptions(retryoptions)\r\n            .build();\r\n```\r\n\r\nBy doing this, configuration seems a little *hardcoded*. But I can have 3 levels of `ActivityOptions`:\r\n\r\n1. **A default one that applies to all non-configured activities**, by giving `defaultActivityOptions` to all activities during creation time except those that requires a particular configuration, method to be used `Workflow.newActivityStub(Class<T> activityInterface, ActivityOptions options)`\r\n\r\n2. **A particular Option to all methods on a particular Activity**, by creating a particular `ActivityOptions` instead of default and passing it as argument to `Workflow.newActivityStub(Class<T> activityInterface, ActivityOptions options)` when creating the activity instance.\r\n3. **A method base option map**, further configuration might be achieved by using  `Workflow.newActivityStub(Class<T> activityInterface, ActivityOptions options, Map<String, ActivityOptions> activityMethodOptions)`, where each method of the activity can have its own `ActivityOptions`. (This approach is a little tricky since it doesn't support polymorphism)\r\n\r\n\r\nOn the other way, to avoid *hardcoding* configuration, We can use `Worker.registerWorkflowImplementationTypes(WorkflowImplementationOptions options, Class<?>... workflowImplementationClasses)`, by doing so, we need to pass `WorkflowImplementationOptions` containing `defaultActivityOptions` that matches point 1 and also `activityOptions` that matches point 3 of the other approach. But this strategy misses the second point of the above approach, leaving only a default activity option for the whole workflow activities and expose limitation over method polymorphism inside the same activity class (same problem as the method above) and adds a new unique limitation that requires not activities sharing method names.\r\n\r\n**Describe the solution you'd like**\r\nLeaving the local method polymorphism method limitation aside, it would be awesome to balance this two configuration strategies to be able to achieve the same without sacrificing functionality.\r\n\r\n**Describe alternatives you've considered**\r\nNot much, I have been struggling with this for a while now.\r\n\r\n**Additional context**\r\nNone so far.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-03-29T13:34:18Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1113,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Unbalance external workflow configuration?",
+  "updatedAt": "2022-04-01T22:02:06Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1113"
+}

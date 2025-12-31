@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjY3MjQ5Mw==",
+    "is_bot": false,
+    "login": "karunagoyal",
+    "name": "Karuna Goyal"
+  },
+  "body": "The @WorkflowImpl annotation has two attributes for specifying which worker to register a workflow with:\nworkers - by worker name\ntaskQueues - by task queue\nCurrently, only taskQueues supports Spring property placeholders (e.g., ${my.property}), while workers does not. This inconsistency causes issues when sharing workflow modules across multiple services that need different worker names.\n\n**Current Behavior**\nIn WorkersTemplate.java:\ntaskQueues - ✅ Resolves placeholders:\nworkers - ❌ Does NOT resolve placeholders:\n\n**Expected Behavior**\nBoth workers and taskQueues should support Spring property placeholders for consistency:\n\n**Use Case**\nWe have a shared workflow module used by multiple Spring Boot services. Each service configures its own worker name in application.yaml. We want to use:\nCurrently, this fails because the placeholder is not resolved, causing:\nWorkaround\nUsing taskQueues with a placeholder works:\nHowever, this is inconsistent with the workers attribute behavior.\n\n**Proposed Fix**\nAdd placeholder resolution in configureWorkflowImplementationsByWorkerName(), configureActivityBeansByWorkerName(), and configureNexusServiceBeansByWorkerName() methods in WorkersTemplate.java.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-12-12T17:25:42Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2747,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "@WorkflowImpl(workers = \"...\") should support Spring property placeholders like taskQueues does",
+  "updatedAt": "2025-12-12T17:25:42Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2747"
+}

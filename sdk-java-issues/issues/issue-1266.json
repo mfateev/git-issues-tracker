@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nhttps://github.com/temporalio/sdk-java/pull/1265 fixed a bug that happens if Temporal Server is down when workers are reporting the results to the Server. But right now there is no ability to test the scenario of such an outage. \r\n\r\n**Describe the solution you'd like**\r\nTemporal SDK should add support for such tests to Test Server. Also, a unit test for this bug and fix should be implemented.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-06-17T21:29:00Z",
+  "labels": [],
+  "milestone": null,
+  "number": 1266,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Add unit test covering scenario of Server outage during Worker sending workflow task execution result",
+  "updatedAt": "2024-12-17T21:20:29Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1266"
+}

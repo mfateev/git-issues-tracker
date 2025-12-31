@@ -1,0 +1,64 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNzY4Mw==",
+    "is_bot": false,
+    "login": "Sushisource",
+    "name": "Spencer Judge"
+  },
+  "body": "See https://github.com/temporalio/sdk-go/pull/527\r\nSee details from :point_up:. Fix should be straightforward.\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5CK36v",
+      "author": {
+        "login": "bergundy"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "We also have a way to opt-out of following runs when waiting for the result in Python, TS, and now Go.\r\nSee relevant code here:\r\nhttps://github.com/temporalio/sdk-typescript/blob/cb6151fcaa29e9cda4a1ae90dda31ae007a6dd10/packages/client/src/workflow-client.ts#L403\r\nhttps://github.com/temporalio/sdk-typescript/blob/cb6151fcaa29e9cda4a1ae90dda31ae007a6dd10/packages/client/src/workflow-client.ts#L509\r\n\r\nThe `followRuns` option can be set on `execute` and `result` in TS client and handle objects.",
+      "createdAt": "2022-04-26T19:01:40Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/696#issuecomment-1110146735",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5CK6xb",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Here's the Go change to support opting out of following runs: https://github.com/temporalio/sdk-go/pull/791",
+      "createdAt": "2022-04-26T19:15:40Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/696#issuecomment-1110158427",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-09-03T18:37:07Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": {
+    "number": 12,
+    "title": "Next",
+    "description": "",
+    "dueOn": null
+  },
+  "number": 696,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Port fix for following execution chain from Go SDK",
+  "updatedAt": "2023-05-23T06:58:00Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/696"
+}

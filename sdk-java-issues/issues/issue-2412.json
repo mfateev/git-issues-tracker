@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNzY4Mw==",
+    "is_bot": false,
+    "login": "Sushisource",
+    "name": "Spencer Judge"
+  },
+  "body": "## Expected Behavior\nMarker commands should never be sent to server with an empty marker name.\n\n## Actual Behavior\nThat happened\n\n## Steps to Reproduce the Problem\nUnclear. Some user workflows were seen encountering this error on workflow completion:\n\n```BadRecordMarkerAttributes: MarkerName is not set on RecordMarkerCommand.```\n\nFrom what I could tell looking at the code briefly, the only way it seemed like this might happen is if the marker command was constructed while replaying was true, and then it later became false and sent off the command.\n\n## Specifications\nThis was definitely Java SDK, which we determined by seeing the stack trace query. Not clear which version. Java needs to do https://github.com/temporalio/sdk-java/issues/1838",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6d5jDu",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Commands aren't sent on replay, there was an old bug https://github.com/temporalio/sdk-java/issues/1558 can you confirm this happend with the latest SDK ?",
+      "createdAt": "2025-02-10T20:01:43Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2412#issuecomment-2649108718",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6eZqgh",
+      "author": {
+        "login": "Sushisource"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "No info on the version unfortunately since it's not being written to the history yet. We could potentially go to the customer and try to ask them about it, this was just something @alexshtin discovered while scanning logs.",
+      "createdAt": "2025-02-13T19:27:43Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2412#issuecomment-2657527841",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-02-10T19:34:11Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2412,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Marker Commands being sent with empty names in the wild",
+  "updatedAt": "2025-02-13T19:27:45Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2412"
+}

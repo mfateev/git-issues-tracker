@@ -1,0 +1,96 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nIt is not possible to specify a business level ID for an activity during its invocation. This is a problem for completing activities asynchronously by ID.\r\n\r\n**Describe the solution you'd like**\r\nProvide a way to specify the ID when invoking an activity.\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDczMzQwNTk4MQ==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Right now we tell people to create a new stub every time, we should think if we can provide per-activity invocation options.",
+      "createdAt": "2020-11-25T01:33:42Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/86#issuecomment-733405981",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM456spu",
+      "author": {
+        "login": "tsurdilo"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I think the idea is to specify business level activity id via ActivityOptions as it can be done via other SDKs currently. \r\n\r\nHere is a forum reference for a user that needs this feature implemented:  https://community.temporal.io/t/possible-to-set-activityid/3406",
+      "createdAt": "2021-11-17T15:26:15Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 2
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/86#issuecomment-971688558",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5aN2VX",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Related: https://github.com/temporalio/sdk-java/issues/1009",
+      "createdAt": "2023-04-18T17:55:03Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/86#issuecomment-1513579863",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6rr2Y4",
+      "author": {
+        "login": "Hassib-Maslah"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hello @mfateev, I was wondering if there are any updates regarding this issue. Do you have an estimated release date ?\n\n",
+      "createdAt": "2025-05-14T14:09:58Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/86#issuecomment-2880398904",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2020-05-12T18:31:34Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 86,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support passing activityId to an activity invocation",
+  "updatedAt": "2025-05-15T07:55:00Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/86"
+}

@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjMzMTMyNDEw",
+    "is_bot": false,
+    "login": "Hnoianko",
+    "name": ""
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nIt would be nice to have native image descriptors as part of the temporal-spring-boot-starter-alphao\r\n\r\nSimilar to what already exists in the test-server\r\nhttps://github.com/temporalio/sdk-java/tree/15df866f9c91219f6cf61533aee8fc2139ad7c93/temporal-test-server/src/main/resources/META-INF/native-image/io.temporal/temporal-test-server\r\n\r\nCurrently I am experiencing different build issues when trying to build a spring boot app native image.\r\n\r\nError example:\r\n`Error: Classes that should be initialized at run time got initialized during image building:\r\n[INFO]     [creator]      ch.qos.logback.core.util.StatusPrinter was unintentionally initialized at build time. To see why ch.qos.logback.core.util.StatusPrinter got initialized use --trace-class-initialization=ch.qos.logback.core.util.StatusPrinter\r\n[INFO]     [creator]     io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder the class was requested to be initialized at run time (from 'META-INF/native-image/native-image.properties' in 'file:///workspace/' with 'io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder' and from 'META-INF/native-image/io/temporal/temporal-serviceclient/native-image.properties' in 'file:///workspace/BOOT-INF/lib/temporal-serviceclient-1.23.2.jar' with 'io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder'). To see why io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder got initialized use --trace-class-initialization=io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder\r\n[INFO]     [creator]     ch.qos.logback.core.util.Loader was unintentionally initialized at build time. To see why ch.qos.logback.core.util.Loader got initialized use --trace-class-initialization=ch.qos.logback.core.util.Loader\r\n[INFO]     [creator]     ch.qos.logback.classic.Level was unintentionally initialized at build time. To see why ch.qos.logback.classic.Level got initialized use --trace-class-initialization=ch.qos.logback.classic.Level\r\n[INFO]     [creator]     io.grpc.netty.shaded.io.netty.buffer.UnpooledByteBufAllocator the class was requested to be initialized at run time (subtype of io.grpc.netty.shaded.io.netty.buffer.AbstractByteBufAllocator). To see why io.grpc.netty.shaded.io.netty.buffer.UnpooledByteBufAllocator got initialized use --trace-class-initialization=io.grpc.netty.shaded.io.netty.buffer.UnpooledByteBufAllocator\r\n[INFO]     [creator]     io.grpc.netty.shaded.io.netty.buffer.AbstractByteBufAllocator the class was requested to be initialized at run time (from 'META-INF/native-image/native-image.properties' in 'file:///workspace/' with 'io.grpc.netty.shaded.io.netty.buffer.AbstractByteBufAllocator'). To see why io.grpc.netty.shaded.io.netty.buffer.AbstractByteBufAllocator got initialized use --trace-class-initialization=io.grpc.netty.shaded.io.netty.buffer.AbstractByteBufAllocator\r\n[INFO]     [creator]     ch.qos.logback.classic.Logger was unintentionally initialized at build time. To see why ch.qos.logback.classic.Logger got initialized use --trace-class-initialization=ch.qos.logback.classic.Logger\r\n[INFO]     [creator]     To see how the classes got initialized, use --trace-class-initialization=ch.qos.logback.core.util.StatusPrinter,io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder,ch.qos.logback.core.util.Loader,ch.qos.logback.classic.Level,io.grpc.netty.shaded.io.netty.buffer.UnpooledByteBufAllocator,io.grpc.netty.shaded.io.netty.buffer.AbstractByteBufAllocator,ch.qos.logback.classic.Logger\r\n[INFO]     [creator`\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5-RDW2",
+      "author": {
+        "login": "Hnoianko"
+      },
+      "authorAssociation": "NONE",
+      "body": "seems like the issue is coming from the erroneous native configs in the grpc-netty-shaded\r\n\r\nhttps://github.com/grpc/grpc-java/issues/10601#issuecomment-1909221668 ",
+      "createdAt": "2024-05-17T21:23:02Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2064#issuecomment-2118399414",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6XlGK9",
+      "author": {
+        "login": "paramadeep"
+      },
+      "authorAssociation": "NONE",
+      "body": "We are also facing  the same issue. Can someone help on how to resolve this. Or point to relevant material to understand this better to fix it. \r\n```\r\ntemporal-serviceclient/src/main/resources/META-INF/native-image/io/temporal/temporal-serviceclient/native-image.properties\r\n```\r\nfile marks, \r\n```\r\n--initialize-at-run-time=io.grpc.netty.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory$NopInstanceHolder\r\n```\r\nOn compilation we are getting the following error\r\n```\r\nScriptCompilationException(scriptCompilationErrors=\r\n[ScriptCompilationError(message=Unresolved reference: NopInstanceHolder, \r\n```\r\n\r\nCould this be because it is a private class?\r\n",
+      "createdAt": "2024-12-14T12:21:48Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2064#issuecomment-2543084221",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-05-14T20:27:58Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2064,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Native image descriptor for GraalVM in the temporal-spring-boot-starter-alpha",
+  "updatedAt": "2024-12-14T12:23:38Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2064"
+}

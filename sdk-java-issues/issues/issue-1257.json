@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\nScheduled throttled activity heartbeats shouldn't delay worker shutdown. The worker shutdown should drain such heartbeats.\r\n\r\n## Actual Behavior\r\nWorker shutdown is delayed on the shutdown of activity heartbeat executor because there are scheduled heartbeat tasks.\r\n\r\n## Steps to Reproduce the Problem\r\n\r\nSee ActivityTimeoutTest#testActivityStartToCloseTimeout that should be taking about 2 seconds, but takes 10 seconds and has\r\n```\r\n13:39:55.206 [TemporalShutdownManager: 1] WARN  i.t.internal.worker.ShutdownManager - Wait for a graceful shutdown of SyncActivityWorker{namespace=default, taskQueue=test-activities, identity=81008@Dmitrys-Temporal-MacBook.local}#heartbeatExecutor timed out, fallback to shutdownNow()\r\n```\r\nin the shutdown log.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-06-09T17:52:04Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 1257,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Cached activity heartbeat prevents worker from a quick shutdown",
+  "updatedAt": "2022-06-09T17:52:04Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1257"
+}

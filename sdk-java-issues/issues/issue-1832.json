@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjY1NjQzMTY3",
+    "is_bot": false,
+    "login": "madhur-spotnana",
+    "name": "Madhur Singal"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nI am using temporal with a spring boot project and trying to create a custom annotation for defining activity interfaces. I need this custom annotation to define default options for activities like startToCloseTimeout or taskQueue. This is how I am planning to create the annotation:\r\n```\r\n@Target(ElementType.TYPE)\r\n@Retention(RetentionPolicy.RUNTIME)\r\n@ActivityInterface\r\npublic @interface MyCustomAnnotation {\r\n\r\n  long startToCloseTimeoutMs();\r\n\r\n  String taskQueue();\r\n}\r\n```\r\nThis does not work because the `@ActivityInterface` cannot be used as [meta annotation](https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html#beans-meta-annotations).\r\n\r\n**Describe the solution you'd like**\r\nAdd support for using Temporal annotations (like `@WorkflowInterface`, `@ActivityInterface`, `@WorkflowMethod`) as meta annotations. To do this, the SDK needs to be modified to read the annotation using [this](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/annotation/AnnotationUtils.html#findAnnotation-java.lang.Class-java.lang.Class-), which recursively scans for annotation added as meta annotation.\r\n\r\n**Describe alternatives you've considered**\r\nTo create this custom annotation I have used Byte Buddy to modify my activity interfaces at runtime and add the Temporal annotation where my custom annotation is present.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-08-01T18:12:27Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1832,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 4
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Support for using Temporal Annotations as Meta Annotation",
+  "updatedAt": "2023-08-01T18:16:45Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1832"
+}

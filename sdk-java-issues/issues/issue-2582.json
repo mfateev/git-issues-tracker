@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUyMjA1",
+    "is_bot": false,
+    "login": "dandavison",
+    "name": "Dan Davison"
+  },
+  "body": "In a Nexus operation, `HandlerException` has a constructor\n```java\n  public HandlerException(ErrorType errorType, @Nullable Throwable cause)\n```\ninviting operation authors to throw a `HandlerException` with no cause, such as\n\n```java\nthrow new HandlerException(HandlerException.ErrorType.NOT_FOUND, (Throwable) null);\n```\n\nBut this crashes at https://github.com/temporalio/sdk-java/blob/f919926a2d67c10c34fee4b19eed1c605d4223a4/temporal-sdk/src/main/java/io/temporal/common/converter/PayloadAndFailureDataConverter.java#L136-L145\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-07-05T22:53:44Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2582,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Null cause in Nexus HandlerException is not handled correctly",
+  "updatedAt": "2025-07-06T13:40:18Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2582"
+}

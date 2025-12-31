@@ -1,0 +1,131 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "        WorkflowImplementationOptions options =\r\n        WorkflowImplementationOptions.newBuilder()\r\n            .setFailWorkflowExceptionTypes(NullPointerException.class)\r\n            .build();\r\n       worker.registerWorkflowImplementationTypes(options, DynamicGreetingWorkflowImpl.class);\r\n\r\nthrowing NullPointerException inside Dynamic workflow (workflow that implements DynamicWorkflow interface) \r\ndoes not take in account WorkflowImplementationOptions and will not fail when NPE is thrown. This works fine for \"normal\" workflow impls which would fail at this point.\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5OjIAE",
+      "author": {
+        "login": "drewhoskins-stripe"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "I ran into this bug today.  Any ETA for a fix?",
+      "createdAt": "2022-11-16T23:46:13Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1241#issuecomment-1317830660",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5OjfLR",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@drewhoskins-stripe Not yet, Drew. But I will put it up for prioritization or may take it during the next Bulk Bug Squash that I am able to do.",
+      "createdAt": "2022-11-17T01:29:02Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1241#issuecomment-1317925585",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5OnYbK",
+      "author": {
+        "login": "drewhoskins-stripe"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Thanks!",
+      "createdAt": "2022-11-17T17:09:16Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1241#issuecomment-1318946506",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5dFhaj",
+      "author": {
+        "login": "jeffschoner-stripe"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@Spikhalskiy Any updates on this one?",
+      "createdAt": "2023-05-24T18:18:11Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1241#issuecomment-1561728675",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5dFhtv",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "No update at this time",
+      "createdAt": "2023-05-24T18:19:12Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1241#issuecomment-1561729903",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM533p1H",
+      "author": {
+        "login": "zuodimiaoyun"
+      },
+      "authorAssociation": "NONE",
+      "body": "I have the same problem, do we have a plan to solve it?",
+      "createdAt": "2024-03-21T02:30:20Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1241#issuecomment-2011077959",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-06-01T15:25:50Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": {
+    "number": 12,
+    "title": "Next",
+    "description": "",
+    "dueOn": null
+  },
+  "number": 1241,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "DynamicWorkflow not taking in account WorkflowImplementationOptions",
+  "updatedAt": "2024-03-21T02:30:21Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1241"
+}

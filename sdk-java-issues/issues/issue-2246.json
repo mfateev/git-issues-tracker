@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExODYwODQ=",
+    "is_bot": false,
+    "login": "ikonst",
+    "name": "Ilya Priven"
+  },
+  "body": "## Expected Behavior\r\n\r\n`worker.runUntil` returns shortly after workflow ends\r\n\r\n## Actual Behavior\r\n\r\n- `worker.runUntil` usually hangs, ostensibly because it fails to wait for the abandoned activity\r\n- Logged SDK warning:\r\n  ```\r\n  WARN temporal_sdk_core::worker::activities: Activity not found on completion. This may happen if the activity has already been cancelled but completed anyway. task_token=TaskToken(<activity's token>) details=Status { code: NotFound, message: \"invalid activityID or activity already timed out or invoking workflow is completed\", metadata: MetadataMap { headers: {\"content-type\": \"application/grpc\"} }, source: None }\r\n  ```\r\n\r\n## Steps to Reproduce the Problem\r\n\r\nPardon my TypeScript...\r\n\r\nAssume activity `foo`:\r\n```ts\r\nexport async function foo() {\r\n}\r\n```\r\nand workflow `workflow`:\r\n```ts\r\nconst { foo } = proxyActivities<typeof activities>({ startToCloseTimeout: \"60 seconds\" });\r\n\r\nexport async function workflow() {\r\n  await foo();\r\n}\r\n```\r\n\r\nAnd let this be the test:\r\n```ts\r\ntest(\"foo\", async () => {\r\n  testEnv = await TestWorkflowEnvironment.createTimeSkipping();\r\n  worker = Worker.create({\r\n    connection: testEnv.nativeConnection,\r\n    ...\r\n  });\r\n\r\n  let waited = false;\r\n  const worker = await createWorker({\r\n    activities: {\r\n      foo: async function() { \r\n        if (!waited) {\r\n          await testEnv.sleep(\"61 seconds\");\r\n          waited = true;\r\n        }\r\n      }\r\n    },\r\n  });\r\n  \r\n  await worker.runUntil(testEnv.client.workflow.execute(workflow, {}));\r\n  // ^ gets stuck here:\r\n});\r\n```\r\n\r\n## Specifications\r\n\r\n  - Version: TypeScript SDK 1.11.1\r\n  - Platform: MacOS\r\n\r\n## Discussion\r\n\r\n- Original Slack thread: https://temporalio.slack.com/archives/C01DKSMU94L/p1727789446627909",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2024-10-01T19:03:16Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2246,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Time-skipping past activity’s startToCloseTimeout causes worker not to close",
+  "updatedAt": "2025-06-02T15:26:21Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2246"
+}

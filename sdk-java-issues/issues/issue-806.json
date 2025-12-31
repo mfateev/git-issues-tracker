@@ -1,0 +1,126 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\n`Workflow.retry` RetryOptions.doNotRetry is a list of strings. So any exception is converted to a string before matching. In many scenarios, the retry is based on a specific information in a specific exception down the chain or even on some other information within the workflow body.\r\n\r\n**Describe the solution you'd like**\r\nAn API that takes a function (or lambda) that can execute random user provided logic to decide if retry is needed.\r\n\r\n**Additional context**\r\nThis only works for retries from the workflow code. The service side retries have to rely on string matching in the current architecture. An activity already can decide itself that the error is not retryable by throwing an non-retryable ApplicationFailure.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM4-PLsf",
+      "author": {
+        "login": "niegus"
+      },
+      "authorAssociation": "NONE",
+      "body": "Is there an ETA about when this could be tackled? :) ",
+      "createdAt": "2022-02-18T08:55:51Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/806#issuecomment-1044167455",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM4-RkiJ",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@niegus We typically don't provide ETAs for feature requests. Contributions are welcomed, this is a great starter issue.",
+      "createdAt": "2022-02-18T16:29:08Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/806#issuecomment-1044793481",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM4-oMb0",
+      "author": {
+        "login": "niegus"
+      },
+      "authorAssociation": "NONE",
+      "body": "How do you envision this feature? `Workflow.retry` retries based on the expiration parameter, plus the maximum attempts configured in the `RetryOptions`, always if the exception is not set in the list of `doNotRetry` exceptions.\r\n\r\nIf there is a new function/lambda to decide if the retry is need, how it would work with the current behavior? Taking precedence over them? Validate on the creation of the `RetryOption` so there can not be contradictions between the \"retryOn\" and \"doNotRetry\"?",
+      "createdAt": "2022-02-25T10:20:33Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/806#issuecomment-1050724084",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM4_DpaE",
+      "author": {
+        "login": "niegus"
+      },
+      "authorAssociation": "NONE",
+      "body": "cc: @Spikhalskiy @mfateev ",
+      "createdAt": "2022-03-03T10:52:08Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/806#issuecomment-1057920644",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM4_E2kS",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "I think to have it consistent, it should be `doNotRetryPedicate` and retry doesn't happen if `ex.getErrorType in retryOptions.getDoNotRetry() || doNotRetryPedicate(ex)`.\r\n\r\nBut I'm getting back the comment about the great starter issue. \r\nI thought about a bit different place in the system (workflow method exceptions and failures). \r\n`Workflow.retry` works with persisted side effects and it may get tricky. But if you want to give it a shot, the effort is very welcomed.",
+      "createdAt": "2022-03-03T16:32:30Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/806#issuecomment-1058236690",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM4_HiDf",
+      "author": {
+        "login": "niegus"
+      },
+      "authorAssociation": "NONE",
+      "body": "@Spikhalskiy This feature request comes from this thread: https://community.temporal.io/t/temporal-queue-activities/3095/8 to retry in certain cases, `doNotRetryPredicate()` could do the trick, but it would require to write negative code 😅 \r\n\r\nEg.\r\n```\r\ndoNotRetryPredicate(ex -> !(ex.getCause() instanceof TimeoutFailure && \r\n               ((TimeoutFailure) ex.getCause()).getTimeoutType() == TimeoutType.TIMEOUT_TYPE_SCHEDULE_TO_START))\r\n```\r\n\r\nIMHO (as a customer of this lib) it would be easier:\r\n```\r\nretryOnPredicate(ex -> ex.getCause() instanceof TimeoutFailure && \r\n               ((TimeoutFailure) ex.getCause()).getTimeoutType() == TimeoutType.TIMEOUT_TYPE_SCHEDULE_TO_START)\r\n```\r\n\r\nWDYT? Would that make sense?",
+      "createdAt": "2022-03-04T08:19:36Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/806#issuecomment-1058939103",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-10-09T15:49:57Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 806,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Workflow.retry that takes a function to decide if retry is needed",
+  "updatedAt": "2022-03-04T08:19:36Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/806"
+}

@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjU5NTczMTc=",
+    "is_bot": false,
+    "login": "ftkurt",
+    "name": "Fatih Kurt"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nI'm always frustrated when trying to register a Java workflow with a static name. The current option using annotations does not work for our use case. We define proto enums and share them across different apps so they can trigger workflows across apps. For instance, we have:\r\n```java\r\npublic interface MyWorkflow {\r\n    @WorkflowMethod(name = \"MyStaticWorkflowName\")\r\n    void execute();\r\n}\r\n```\r\nWe need a way to set a default workflow implementation type name during registration.\r\n\r\n**Describe the solution you'd like**\r\nA method to register a workflow with a static name during registration using something like:\r\n```java\r\nWorkflowImplementationOptions options = WorkflowImplementationOptions.newBuilder()\r\n        .setDefaultWorkflowImplementationTypeName(Workflows.WORKFLOWS_SEND_SUBMISSION.name())\r\n        .build();\r\n\r\nworker.registerWorkflowImplementationTypes(options, SendSubmissionWorkflowImpl.class);\r\n```\r\nThis would allow us to define workflows that can be triggered across different apps with a shared static name.\r\n\r\n**Describe alternatives you've considered**\r\nCurrently, the alternative is to use the short name of the workflow interface by default. However, this does not meet our needs as we cannot share interfaces across apps written in different languages (Golang, Python). Using annotations alone is insufficient for our scenario.\r\n\r\n**Additional context**\r\nOur apps in Golang and Python cannot share Java interfaces, hence the need for a static name registration method. We currently share these names through protobuf-defined enums which can be built for all apps and envs. \r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6Cg_43",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Would you also need the same functionality for activity names?",
+      "createdAt": "2024-06-25T18:28:44Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2122#issuecomment-2189688375",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6CzNZS",
+      "author": {
+        "login": "ftkurt"
+      },
+      "authorAssociation": "NONE",
+      "body": "@Quinn-With-Two-Ns yes, that will be useful as well. We are running some activities cross platform as well. ",
+      "createdAt": "2024-06-27T11:44:14Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2122#issuecomment-2194462290",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-06-24T11:19:00Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2122,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Java SDK does not have option to register workflow name statically",
+  "updatedAt": "2024-06-27T11:44:15Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2122"
+}

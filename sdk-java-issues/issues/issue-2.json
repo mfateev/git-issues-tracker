@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "There should be some sort of a generic interceptor that is invoked upon thread initialization instead of the hardcoded dependencies like:\r\n\r\nhttps://github.com/uber/cadence-java-client/blob/cbe3706e2094e0abe4855b9afad1d58c86d7adfe/src/main/java/com/uber/cadence/internal/sync/WorkflowThreadImpl.java#L80",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDczMzM5Nzc1NQ==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "The question here is whether or not we can move this to interceptors. If no we need to have a design discussion and make interceptors powerful enough to support use cases like this.",
+      "createdAt": "2020-11-25T01:06:28Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2#issuecomment-733397755",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM41l3lF",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Revisiting this issue after some work on interceptors had been done and class structure changed significantly.\r\n\r\nWe should refactor out MDC initialization logic from `WorkflowThreadImpl`: https://github.com/Spikhalskiy/java-sdk/blob/15ca5083059e0bb27ff44f03addce2ecdd554404/temporal-sdk/src/main/java/io/temporal/internal/sync/WorkflowThreadImpl.java#L94\r\ninto a new Interceptor. Interceptors already allow intercepting creation of WorkflowThreads. If interceptors are lacking anything to support this, we can add the lacking functionality.",
+      "createdAt": "2021-08-15T22:34:12Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2#issuecomment-899119429",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2019-12-29T20:13:02Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Refactor ReplayWorkflowContext out of WorkflowThread",
+  "updatedAt": "2021-08-15T22:34:12Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2"
+}

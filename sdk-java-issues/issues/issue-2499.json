@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjM2NzEzMg==",
+    "is_bot": false,
+    "login": "ghaskins",
+    "name": "Gregory Haskins"
+  },
+  "body": "There are cases where the current integrated LRU cache for workflow threads may not sufficiently capture the optimal strategy for all workloads.  \n\nFor example, some high-volume workloads allow the cache to fill with workflows that are effectively abandoned because a remote worker completed them without any invalidation signal to clear the defunct task within the current worker. These abandoned workflows add extra eviction overhead for new, unrelated workflows, and the system may sometimes benefit from alternate eviction strategies that differ from the current synchronous LRU algorithm.  Examples include augmenting the LRU with a TTL model, or adding an asynchronous/background eviction mechanism.\n\nThe proposal is to add a mechanism allowing a pluggable cache that defaults to the current LRU design, allowing SDK end-users to supply their own implementations when desired.\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6poLBB",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "This is similar to the general cross-SDK request at https://github.com/temporalio/features/issues/573 (we would look into supporting cache customization across SDKs, not just Java). There is no timeline for the effort however.",
+      "createdAt": "2025-05-01T22:03:59Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2499#issuecomment-2845880385",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-05-01T21:34:25Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2499,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support pluggable workflow caches",
+  "updatedAt": "2025-05-01T22:03:59Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2499"
+}

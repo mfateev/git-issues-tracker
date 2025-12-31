@@ -1,0 +1,119 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOB9HeUA",
+    "is_bot": false,
+    "login": "susie-oracle",
+    "name": ""
+  },
+  "body": "## Expected Behavior\n\nupgrade grpc-netty-shaded to 1.75.0\n## Actual Behavior\n\n\n## Steps to Reproduce the Problem\n\n  1.check dependencies of temporal java-sdk\n  1.https://www.cve.org/CVERecord?id=CVE-2025-55163\n  1.\n\n## Specifications\n\n  - Version: 1.28.1, ..,1.31.0\n  - Platform:\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM7JZgDp",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "A few points,\n1. This [vulnerability](https://github.com/netty/netty/security/advisories/GHSA-prj3-ccx8-p6x4) does not apply to how the Java SDK uses netty since the Java SDK is only a client.\n\n2. If the issue is simply the vulnerability scan then you can update the version of `gRPC` the SDK uses. As part of our CI we test the Java SDK with the latest version of Java gRPC. Note, this is what we always recommend anyway.",
+      "createdAt": "2025-10-07T22:17:26Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3378905321",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7R8hsy",
+      "author": {
+        "login": "mike706574"
+      },
+      "authorAssociation": "NONE",
+      "body": "> A few points,\n> \n> 1. This [vulnerability](https://github.com/netty/netty/security/advisories/GHSA-prj3-ccx8-p6x4) does not apply to how the Java SDK uses netty since the Java SDK is only a client.\n> 2. If the issue is simply the vulnerability scan then you can update the version of `gRPC` the SDK uses. As part of our CI we test the Java SDK with the latest version of Java gRPC. Note, this is what we always recommend anyway.\n\nI think it might be helpful if this context and the recommendation were documented somewhere more formally. I found it here, and I also found it [in this community thread](https://community.temporal.io/t/dependency-security-issue-cve-2025-55163/18479), but might have saved me some time if it were more front and center. Maybe the README? There's already a note about Protobuf versions in there, so doesn't seem like it would be too out of place there? Just a thought.",
+      "createdAt": "2025-11-12T14:44:00Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3522304818",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7WYl8r",
+      "author": {
+        "login": "Vishal-Joshi"
+      },
+      "authorAssociation": "NONE",
+      "body": "Is there a plan to update temporal SDK to latest version of gRPC? Even if I update gRPC to v1.76.*, temporal SDK has dependencies on classes of gRPC v1.58.* which are not in gRPC v.176.*",
+      "createdAt": "2025-12-01T14:14:33Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3596771115",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7WdrQK",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "@Vishal-Joshi please see the comment [above](https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3378905321). The Java SDK is fully compatible with the latest gRPC.",
+      "createdAt": "2025-12-01T18:07:23Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3598103562",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7W8Tnp",
+      "author": {
+        "login": "Vishal-Joshi"
+      },
+      "authorAssociation": "NONE",
+      "body": "> [@Vishal-Joshi](https://github.com/Vishal-Joshi) please see the comment [above](https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3378905321). The Java SDK is fully compatible with the latest gRPC.\n\nThanks @Quinn-With-Two-Ns. I applied your fix and tested with gRPC 1.76.0 BOM\n\n```\n<dependency>\n            <groupId>io.grpc</groupId>\n            <artifactId>grpc-bom</artifactId>\n            <version>1.76.0</version>\n            <type>pom</type>\n  </dependency>\n```\nBut I see then our tests start to break as `io.temporal:temporal-testing:jar:1.31.0` has some internal dependency\n\n```\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [io.temporal.testing.TestWorkflowEnvironment]: Factory method 'testWorkflowEnvironment' threw exception with message: io/grpc/internal/AbstractServerImplBuilder\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n        at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n        ... 176 more\nCaused by: java.lang.NoClassDefFoundError: io/grpc/internal/AbstractServerImplBuilder\n        at java.base/java.lang.ClassLoader.defineClass1(Native Method)\n        at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1027)\n        at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)\n        at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862)\n        at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)\n        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)\n        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)\n        at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)\n        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)\n```\n\n\nIt is not only testing. If I try to run the temporal managed by spring-boot v3.5.7, the application fails to start up with same error\nTemporal related dependencies in pom are\n```\n<dependency>\n                <groupId>io.temporal</groupId>\n                <artifactId>temporal-spring-boot-starter</artifactId>\n                <version>1.31.0</version>\n            </dependency>\n            <dependency>\n                <groupId>io.temporal</groupId>\n                <artifactId>temporal-spring-boot-autoconfigure</artifactId>\n                <version>1.31.0</version>\n            </dependency>\n            <dependency>\n                <groupId>io.temporal</groupId>\n                <artifactId>temporal-kotlin</artifactId>\n                <version>1.31.0</version>\n            </dependency>\n```\n```Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'temporalScheduleClient' defined in class path resource [io/temporal/spring/boot/autoconfigure/RootNamespaceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'scheduleClient' parameter 0: Error creating bean with name 'temporalClientTemplate' defined in class path resource [io/temporal/spring/boot/autoconfigure/RootNamespaceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'clientTemplate' parameter 0: Error creating bean with name 'temporalRootNamespaceTemplate' defined in class path resource [io/temporal/spring/boot/autoconfigure/RootNamespaceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'rootNamespaceTemplate' parameter 1: Error creating bean with name 'temporalWorkflowServiceStubs' defined in class path resource [io/temporal/spring/boot/autoconfigure/ServiceStubsAutoConfiguration.class]: Failed to instantiate [io.temporal.serviceclient.WorkflowServiceStubs]: Factory method 'workflowServiceStubsTemplate' threw exception with message: io/grpc/internal/AbstractManagedChannelImplBuilder\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1770)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)\n\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)\n\t... 21 common frames omitted\nCaused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'temporalClientTemplate' defined in class path resource [io/temporal/spring/boot/autoconfigure/RootNamespaceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'clientTemplate' parameter 0: Error creating bean with name 'temporalRootNamespaceTemplate' defined in class path resource [io/temporal/spring/boot/autoconfigure/RootNamespaceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'rootNamespaceTemplate' parameter 1: Error creating bean with name 'temporalWorkflowServiceStubs' defined in class path resource [io/temporal/spring/boot/autoconfigure/ServiceStubsAutoConfiguration.class]: Failed to instantiate [io.temporal.serviceclient.WorkflowServiceStubs]: Factory method 'workflowServiceStubsTemplate' threw exception with message: io/grpc/internal/AbstractManagedChannelImplBuilder\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1770)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)\n\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)\n\t... 35 common frames omitted\nCaused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'temporalRootNamespaceTemplate' defined in class path resource [io/temporal/spring/boot/autoconfigure/RootNamespaceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'rootNamespaceTemplate' parameter 1: Error creating bean with name 'temporalWorkflowServiceStubs' defined in class path resource [io/temporal/spring/boot/autoconfigure/ServiceStubsAutoConfiguration.class]: Failed to instantiate [io.temporal.serviceclient.WorkflowServiceStubs]: Factory method 'workflowServiceStubsTemplate' threw exception with message: io/grpc/internal/AbstractManagedChannelImplBuilder\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1708)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)\n\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)\n\t... 49 common frames omitted\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'temporalWorkflowServiceStubs' defined in class path resource [io/temporal/spring/boot/autoconfigure/ServiceStubsAutoConfiguration.class]: Failed to instantiate [io.temporal.serviceclient.WorkflowServiceStubs]: Factory method 'workflowServiceStubsTemplate' threw exception with message: io/grpc/internal/AbstractManagedChannelImplBuilder\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1770)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1653)\n\tat org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)\n\tat org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)\n\t... 62 common frames omitted\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [io.temporal.serviceclient.WorkflowServiceStubs]: Factory method 'workflowServiceStubsTemplate' threw exception with message: io/grpc/internal/AbstractManagedChannelImplBuilder\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 76 common frames omitted\nCaused by: java.lang.NoClassDefFoundError: io/grpc/internal/AbstractManagedChannelImplBuilder\n\tat java.base/java.lang.ClassLoader.defineClass1(Native Method)\n\tat java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:962)\n\tat java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:132)\n\tat java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:776)\n\tat java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:691)\n\tat java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:620)\n\tat java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:578)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)\n\tat io.temporal.serviceclient.ChannelManager.prepareChannel(ChannelManager.java:186)\n\tat io.temporal.serviceclient.ChannelManager.<init>(ChannelManager.java:98)\n\tat io.temporal.serviceclient.ChannelManager.<init>(ChannelManager.java:78)\n\tat io.temporal.serviceclient.WorkflowServiceStubsImpl.<init>(WorkflowServiceStubsImpl.java:64)\n\tat io.temporal.serviceclient.WorkflowServiceStubs.newServiceStubs(WorkflowServiceStubs.java:46)\n\tat io.temporal.serviceclient.WorkflowServiceStubs.newLocalServiceStubs(WorkflowServiceStubs.java:23)\n\tat io.temporal.spring.boot.autoconfigure.template.ServiceStubsTemplate.createServiceStubs(ServiceStubsTemplate.java:50)\n\tat io.temporal.spring.boot.autoconfigure.template.ServiceStubsTemplate.getWorkflowServiceStubs(ServiceStubsTemplate.java:38)\n\tat io.temporal.spring.boot.autoconfigure.ServiceStubsAutoConfiguration.workflowServiceStubsTemplate(ServiceStubsAutoConfiguration.java:51)\n\tat io.temporal.spring.boot.autoconfigure.ServiceStubsAutoConfiguration$$SpringCGLIB$$0.CGLIB$workflowServiceStubsTemplate$1(<generated>)\n\tat io.temporal.spring.boot.autoconfigure.ServiceStubsAutoConfiguration$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat io.temporal.spring.boot.autoconfigure.ServiceStubsAutoConfiguration$$SpringCGLIB$$0.workflowServiceStubsTemplate(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 79 common frames omitted\nCaused by: java.lang.ClassNotFoundException: io.grpc.internal.AbstractManagedChannelImplBuilder\n\tat java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580)\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)\n\t... 104 common frames omitted\n\nProcess finished with exit code 1\n```",
+      "createdAt": "2025-12-03T10:26:14Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3606133225",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7XhmX7",
+      "author": {
+        "login": "Vishal-Joshi"
+      },
+      "authorAssociation": "NONE",
+      "body": "I have resolved this issue by adding gRPC in \"dependencyManagement\" of maven with scope import.\n```\n<dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>io.grpc</groupId>\n                <artifactId>grpc-bom</artifactId>\n                <version>1.76.0</version>\n                <type>pom</type>\n                <scope>import</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n```",
+      "createdAt": "2025-12-05T09:05:45Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2676#issuecomment-3615909371",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-10-07T21:08:53Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2676,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "temporal java sdk is using an older version of grpc-netty-shaded with vulnerabilities",
+  "updatedAt": "2025-12-05T09:06:45Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2676"
+}

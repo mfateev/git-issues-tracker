@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nEach signal causes execution of a method annotated with @SignalMethod in its own thread. It means if the signal handling method blocks execution all other signals are still delivered through other threads.\r\n\r\nIn some scenarios the preferred semantic would be using a single thread to deliver all signals of the given type. This way workflow can flow control their processing. So while signal handling method is blocked all other signals are queued up waiting for thread to become available.\r\n\r\n**Describe the solution you'd like**\r\nDefault signal handling to a single thread and provide an option through @SignalMethod parameter to multithreaded dispatch. Or do not provide multithreaded dispatch at all.\r\n\r\n**Describe alternatives you've considered**\r\nKeep it as it is.\r\n\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2020-09-18T03:22:24Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 214,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 6
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "@SignalMethod threading configuration",
+  "updatedAt": "2020-09-18T03:22:24Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/214"
+}

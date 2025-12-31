@@ -1,0 +1,34 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNjM5Ng==",
+    "is_bot": false,
+    "login": "cretz",
+    "name": "Chad Retz"
+  },
+  "body": "**Describe the solution you'd like**\r\n\r\nToday `io.temporal.internal.testservice.CommandVerifier.verifyCommand` is called on each command to make sure valid or a task failure occurs. Since this is not a task failure caused by caller and there is no UI for Java test server, this is just silently failed. We should log (where it's called from `TestWorkflowMutableStateImpl`). This only applies to search attributes today, because that's the only thing we check command validity on (we don't need to log unhandled command, that's a normal state of operation).",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-05-17T20:41:02Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1767,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Log server-side task failure caused by invalid command in test server",
+  "updatedAt": "2024-11-20T21:04:58Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1767"
+}

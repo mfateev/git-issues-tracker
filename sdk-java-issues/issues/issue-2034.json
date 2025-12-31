@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjI4ODU2MjQz",
+    "is_bot": false,
+    "login": "madhav2302",
+    "name": "Madhav Sodhani"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nI am writing unit tests for activity with `TestActivityEnvironment`, and using `var workflowType = Activity.getExecutionContext().getInfo().getWorkflowType();` in my activity. \r\n\r\nThere is no way to populate this execution context for as of now other then creating a temporary workflow using `TestWorkflowEnvironment` and creating a sample workflow. \r\n\r\nIdeally, I should be able to setup execution context for tests without any interactions with workflows.\r\n\r\n**Describe the solution you'd like**\r\nSomething like below would be nice.\r\n```\r\nTestActivityEnvironment.newInstance(TestEnvironmentOptions.newBuilder().setActivityExecutionContext(...).build())\r\n```\r\n\r\n**Describe alternatives you've considered**\r\nSetting up test environment workflow, which is very tedious for unit tests.\r\n\r\n**Additional context**\r\nSee https://temporalio.slack.com/archives/CTT84KXK9/p1712848268603179\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6M8EZN",
+      "author": {
+        "login": "madhav2302"
+      },
+      "authorAssociation": "NONE",
+      "body": "@mfateev @cretz are there any plans to work on this? it will help with making tests easier. ",
+      "createdAt": "2024-09-20T20:18:00Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2034#issuecomment-2364556877",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6NJqwJ",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Hrmm, yes, it is common in other SDKs to be able to populate activity info for tests. So I believe that this will be done, but no concrete timeline currently. We will look to prioritize.",
+      "createdAt": "2024-09-23T12:48:22Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2034#issuecomment-2368121865",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-04-11T19:32:21Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2034,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Provide way to populate activity execution context for activity unit tests",
+  "updatedAt": "2024-09-23T12:49:26Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2034"
+}

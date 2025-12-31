@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "`io.temporal.internal.testing.WorkflowTestingTest > testActivityFailure`\r\n\r\nfails with \r\n\r\n```\r\nio.temporal.internal.testing.WorkflowTestingTest > testActivityFailure STANDARD_OUT\r\n\r\n    21:11:19.001 [Activity Executor taskQueue=\"test-workflow\", namespace=\"default\": 1] WARN  i.t.i.a.POJOActivityTaskHandler - Activity failure. ActivityId=38334385-1f57-30b4-bc10-97377255f018, activityType=Execute, attempt=1\r\n\r\n    java.lang.IllegalThreadStateException: Execute-input1\r\n    \tat io.temporal.internal.testing.WorkflowTestingTest$FailingActivityImpl.execute(WorkflowTestingTest.java:596)\r\n    \tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n    \tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n    \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n    \tat java.lang.reflect.Method.invoke(Method.java:498)\r\n    \tat io.temporal.internal.activity.POJOActivityTaskHandler$POJOActivityInboundCallsInterceptor.execute(POJOActivityTaskHandler.java:214)\r\n    \tat io.temporal.internal.activity.POJOActivityTaskHandler$POJOActivityImplementation.execute(POJOActivityTaskHandler.java:180)\r\n    \tat io.temporal.internal.activity.POJOActivityTaskHandler.handle(POJOActivityTaskHandler.java:120)\r\n    \tat io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:204)\r\n    \tat io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:14)\r\n    \tat io.temporal.internal.worker.PollTaskExecutor.lambda$process$0(PollTaskExecutor.java:93)\r\n    \tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n    \tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n    \tat java.lang.Thread.run(Thread.java:750)\r\n.......\r\n\r\n    21:20:04.797 [Activity Executor taskQueue=\"test-workflow\", namespace=\"default\": 21] WARN  i.t.i.a.POJOActivityTaskHandler - Activity failure. ActivityId=38334385-1f57-30b4-bc10-97377255f018, activityType=Execute, attempt=78094\r\n\r\n    java.lang.IllegalThreadStateException: Execute-input1\r\n    \tat io.temporal.internal.testing.WorkflowTestingTest$FailingActivityImpl.execute(WorkflowTestingTest.java:596)\r\n    \tat sun.reflect.GeneratedMethodAccessor15.invoke(Unknown Source)\r\n    \tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n    \tat java.lang.reflect.Method.invoke(Method.java:498)\r\n    \tat io.temporal.internal.activity.POJOActivityTaskHandler$POJOActivityInboundCallsInterceptor.execute(POJOActivityTaskHandler.java:214)\r\n    \tat io.temporal.internal.activity.POJOActivityTaskHandler$POJOActivityImplementation.execute(POJOActivityTaskHandler.java:180)\r\n    \tat io.temporal.internal.activity.POJOActivityTaskHandler.handle(POJOActivityTaskHandler.java:120)\r\n    \tat io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:204)\r\n    \tat io.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:164)\r\n    \tat io.temporal.internal.worker.PollTaskExecutor.lambda$process$0(PollTaskExecutor.java:93)\r\n    \tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n    \tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n    \tat java.lang.Thread.run(Thread.java:750)\r\n```\r\n\r\nand getting killed by timeout.\r\n\r\nIt flakes with real Temporal Server only and may manifest a severe server issue.\r\n\r\n[java-sdk-public_build_649_docker-unit-test-with-docker-service.log.zip](https://github.com/temporalio/sdk-java/files/8292866/java-sdk-public_build_649_docker-unit-test-with-docker-service.log.zip)\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-03-17T22:11:09Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 1081,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Test flakes with Real Temporal Server leading to infinite activity retry",
+  "updatedAt": "2025-05-15T02:24:28Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1081"
+}

@@ -1,0 +1,37 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "How to repro - run the java sdk samples metrics sample: https://github.com/temporalio/samples-java/tree/main/core/src/main/java/io/temporal/samples/metrics\n\nSample starts only 2 activities, PerformA and PerformB. Metrics report activity_schedule_to_start_latency for 3 activities, PerformA, PerformB and \"none\" which is the default. \nPer docs this metric should not be reporting activity_type at all, but it is, and its also confusing why its reporting it for \"none\", I believe this is done on activity failure since in sample activities are being retried couple times. \n\nRequest is to either fix activity_schedule_to_start_latency to always report activity_type (which would be pretty useful if possible) or to not report it at all, and leave task_queue as lowest granularity for this metric.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM7YSm-D",
+      "author": {
+        "login": "robzienert"
+      },
+      "authorAssociation": "NONE",
+      "body": "The metric has always (as far as I can remember) reported `activity_type`, but now it reports `activity_type` _and_ also includes a `none` value for that tag, which is incorrect: There's no scenario where an activity schedule to start would not have an associated activity type (from a user perspective, not sure about the internals).",
+      "createdAt": "2025-12-08T19:53:06Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2733#issuecomment-3628756867",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-11-19T14:42:25Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2733,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "activity_schedule_to_start_latency reports activity_type unexpectedly",
+  "updatedAt": "2025-12-08T19:53:39Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2733"
+}

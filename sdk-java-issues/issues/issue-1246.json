@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "Currently client query calls that \"hang\" (don't return a result) do that for 60 seconds (max workflow task timeout?) at which point client gets delivered WorkflowServiceException that includes StatusRuntimeException (context deadline exceeded). \r\nThe client call should instead fail with WorkflowServiceException according to rpcTimeout (default 10s). \r\n\r\nNot a proper sdk sample, but https://gist.github.com/tsurdilo/57282199bc8534c3838252f1c4bf58fc\r\nshows this (query hangs for 60 seconds while local activity is retrying).\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5IM40f",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Most likely directly related to #1346 and the structure of the current workflow task execution flow",
+      "createdAt": "2022-08-10T22:14:17Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1246#issuecomment-1211338015",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-06-02T22:49:30Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 1246,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Query is not picked up by the worker executing local activity for more than a minute",
+  "updatedAt": "2022-08-10T22:14:17Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1246"
+}

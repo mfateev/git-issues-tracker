@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\n\r\nIf we pass a blob as an activity input that is larger than a server limit, we should get a descriptive message from the server about the failure and a clean Activity failure.\r\n\r\n## Actual Behavior\r\n\r\nWe get a broken gRPC channel.\r\n\r\n## Related user request:\r\n\r\n_while passing blob object into activity calls (say pdf or image files) I am getting the below exception\r\nio.grpc.internal.AbstractClientStream$TransportState.inboundDataReceived Received data on closed stream_\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-11-05T17:55:54Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 860,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Passing too large blob as an Activity input ends with non-descriptive gRPC error",
+  "updatedAt": "2021-11-05T17:57:19Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/860"
+}

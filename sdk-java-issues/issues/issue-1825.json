@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOBbpEjw",
+    "is_bot": false,
+    "login": "masashinak",
+    "name": "Masashi Nakane"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\n\r\nWe store the temporal cloud cert and private key as env vars opposed to application.yaml/prop.\r\nBecause the env var values cannot contain linebreak/linefeed special characters, the ServiceStubOptionsTemaplte fails to load cert/key saying it is not valid cert [ on this line ](https://github.com/temporalio/sdk-java/blob/c2b941a0fb8b2cfe907ec1fdf9d4b9637cf32179/temporal-spring-boot-autoconfigure-alpha/src/main/java/io/temporal/spring/boot/autoconfigure/template/ServiceStubOptionsTemplate.java#L124C16-L124C16).\r\n(It works perfectly with application.yaml/propeties because it converts \"\\n\" to linebreak)\r\n\r\n![image](https://github.com/temporalio/sdk-java/assets/96093327/023e7f99-2f40-4933-ab77-0f5c393fc3bf)\r\n\r\n\r\n**Describe the solution you'd like**\r\nAdd a logic to convert \"\\\\n\" to \"\\n\" in the cert string if it is there , maybe in ServiceStubOptionsTemplate class.\r\n\r\n**Describe alternatives you've considered**\r\nI replaced ServiceStubsAutoConfiguration with our  customized/extended class which  converts  \"\\\\n\" to \"\\n\" in mtlsProperties' cert and key.\r\n\r\n`@SpringBootApplication(exclude = [ServiceStubsAutoConfiguration::class])\r\n`",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-07-26T18:23:23Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1825,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support the certificate with linebreak strings from env variable",
+  "updatedAt": "2023-07-26T18:25:10Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1825"
+}

@@ -1,0 +1,74 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjgwODA5ODgw",
+    "is_bot": false,
+    "login": "awx-michael-wang",
+    "name": "Michael Wang"
+  },
+  "body": "## Expected Behavior\r\n`Promise.allOf(promises)` should fail as long as one of the `promises` fails, no matter it is already failed before calling the `allOf` or after.\r\n\r\n## Actual Behavior\r\nIf one `Promise` in `promises` is already failed before calling `allOf`, the failure is ignored.\r\n\r\n## How to reproduce\r\n\r\nA workflow like following will ended successfully.\r\n```Kotlin\r\n        val promise1 = Async.procedure { throw RuntimeException() }\r\n        val promise2 = Async.procedure {\r\n            // do something else\r\n        }\r\n        someActivity.doSomething()\r\n\r\n        Promise.allOf(promise1, promise2).get()\r\n```\r\n\r\n## Analysis\r\n\r\n`AllOfPromise#addPromise` only handles the promise that is not completed.\r\n\r\n## Specifications\r\n\r\n  - Version: 1.20.0",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM58LNjj",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yes this is a bug, looks like we ignore the promise if it has completed regardless of how it completed\r\n\r\nhttps://github.com/temporalio/sdk-java/blob/ed211fa611112288b576a2c979be9284e17fec89/temporal-sdk/src/main/java/io/temporal/internal/sync/AllOfPromise.java#L54 \r\n\r\nWe should check if it has completed exceptionally or not.\r\n\r\nFixing this though could break backwards compatibility since this could effect workflow code.  Any fix will need to make sure to preserve history compatibility with workflows that have this scenario.",
+      "createdAt": "2024-04-29T17:50:38Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2046#issuecomment-2083313891",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM58cBQp",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "In the mean time the easiest way to workaround this bug I think is to implement a wrapper around `promiseAllOf` to check if any promise passed in failed \r\n\r\n``` java\r\nstatic Promise<Void> allOf(Promise<?>... promises) {\r\n  for (Promise<?> p : promises) {\r\n      if (p.isCompleted() && p.getFailure() != null) {\r\n        return Workflow.newFailedPromise(p.getFailure());\r\n      }\r\n    }\r\n    return WorkflowInternal.promiseAllOf(promises);\r\n  }\r\n}\r\n```",
+      "createdAt": "2024-04-30T23:36:29Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2046#issuecomment-2087719977",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM584XaJ",
+      "author": {
+        "login": "awx-michael-wang"
+      },
+      "authorAssociation": "NONE",
+      "body": "Thank you. I did implement a similar wrapper:\r\n```Kotlin\r\nfun <T> List<Promise<T>>.safeAllOf(): Promise<Void> {\r\n    val existFailure = this.filter { it.isCompleted }\r\n        .firstNotNullOfOrNull { it.failure }\r\n\r\n    return if (existFailure != null) {\r\n        Workflow.newFailedPromise(existFailure)\r\n    } else {\r\n        Promise.allOf(this)\r\n    }\r\n}\r\n```",
+      "createdAt": "2024-05-06T03:52:43Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2046#issuecomment-2095150729",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-04-29T12:56:15Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2046,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 2
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Failed promise before calling allOf is not failing the wrapped promise.",
+  "updatedAt": "2024-05-06T03:52:55Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2046"
+}

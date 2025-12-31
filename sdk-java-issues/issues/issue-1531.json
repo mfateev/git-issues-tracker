@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOBfO3uw",
+    "is_bot": false,
+    "login": "s-aliasgar",
+    "name": ""
+  },
+  "body": "temporal-sdk: 1.17.0\r\ntemporal-spring-boot-starter-alpha: 1.17.0\r\n\r\nWhen using Temporal-Springboot-alpha since the workers are created by Temporal-Springboot-alpha \r\nCan we declare ActivityStub using an annotation?\r\nSomething like\r\n\r\n@ActivityStub(\r\n      taskQueue = SOME_QUEUE,\r\n      retryOptions =\r\n          @RetryActivityOptions(\r\n              maximumAttempts = 1,\r\n              doNotRetry = {\"SomeException\"}))\r\n  private ISomeActivity someActivity;\r\n\r\n\r\nInstead of defining it as \"Workflow.newActivityStub(ISomeActivity.class, activityOptions)\"\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5PCGKM",
+      "author": {
+        "login": "s-aliasgar"
+      },
+      "authorAssociation": "NONE",
+      "body": "https://community.temporal.io/t/declaring-activitystub-using-annotation-instead-of-newactivitystub/6553",
+      "createdAt": "2022-11-24T04:41:10Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1531#issuecomment-1325949580",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6E81Nm",
+      "author": {
+        "login": "yurenji"
+      },
+      "authorAssociation": "NONE",
+      "body": "+1 ",
+      "createdAt": "2024-07-16T10:19:15Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1531#issuecomment-2230539110",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-11-23T06:47:55Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1531,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Declaring ActivityStub using annotation instead of newActivityStub",
+  "updatedAt": "2024-07-16T10:19:16Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1531"
+}

@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "## Expected Behavior\r\nFrom slack:\r\n\r\n> Use-Case: If we can't start workflow for an operation in X secs, we have a fallback option. Now, the fallback option AND workflow can't run concurrently. Hence, it's important that the start workflow deterministically succeeds or fails within X secs.\r\n\r\n## Actual Behavior\r\nCurrently retry options are not configurable.\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDczMzQwNzE0NQ==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "In go we have context, and we can specify deadline in the code. If we specify deadline for 3 seconds and workflow didn't start for 3 seconds, code will return. In java we don't have that ability. We need to be able to specify override to gRPC timeout in code.",
+      "createdAt": "2020-11-25T01:37:54Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/88#issuecomment-733407145",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2020-05-19T15:39:54Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 88,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Customer needs to specify timeout for start workflow call",
+  "updatedAt": "2023-05-23T06:27:06Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/88"
+}

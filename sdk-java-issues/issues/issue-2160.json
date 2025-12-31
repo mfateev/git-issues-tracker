@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNTA0MDQ5",
+    "is_bot": false,
+    "login": "Quinn-With-Two-Ns",
+    "name": "Quinn Klassen"
+  },
+  "body": "## Expected Behavior\r\n\r\nChild workflow cancellation would not trigger the event loop without a WFT Started\r\n\r\n## Actual Behavior\r\n\r\nChild workflow cancellation can trigger SDK event loop without a WFT Started\r\n\r\n## Steps to Reproduce the Problem\r\n\r\nsee: https://github.com/temporalio/sdk-java/issues/2155\r\n\r\nhttps://github.com/temporalio/sdk-java/blob/eabd51fbdc62a7435c8f4d8dc1ac24da26f6022d/temporal-sdk/src/main/java/io/temporal/internal/statemachines/WorkflowStateMachines.java#L884\r\n\r\n\r\nFixing this would be a non deterministic change so we will need to version this change.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2024-07-30T15:25:22Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2160,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Child workflow cancellation can trigger SDK event loop without a WFT Started",
+  "updatedAt": "2024-07-30T15:25:22Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2160"
+}

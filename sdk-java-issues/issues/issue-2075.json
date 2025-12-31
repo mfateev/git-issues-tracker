@@ -1,0 +1,58 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE4NjMxOTQ1",
+    "is_bot": false,
+    "login": "mintybayleaf",
+    "name": "Bailey"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\n\nThe `WorkerFactory.shutdown` call starts killing the heartbeats like it says in the documentation with the `ActivityWorkerShutdownException` but what is the point of waiting N units of time with `WorkerFactory.awaitTermination` if right when the worker shutdown is called the heartbeats die and then the activities die off because the heartbeats are no longer going....\n\n**Describe the solution you'd like**\n\nI want the ability to keep heartbeating while the worker is shutting down so my activities can actually finish my activities work with `WorkerFactory.awaitTermination` when my activities have heartbeats. \n\nFor example: If I tell the `awaitTermination` call to wait 25 minutes my heartbeat calls should still be valid for 25 minutes and then the heartbeat call can start reporting the `ActivityWorkerShutdownException`\n\n**Describe alternatives you've considered**\n\nCall ActivityExecutionContext.useLocalManualCompletion() and then use the ManualActivityCompletionClient to heartbeat.\n\n**Additional context**\n\nSee the Temporal Java SDK slack thread here: https://temporalio.slack.com/archives/CTT84KXK9/p1716488319315099\n\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6FVHGZ",
+      "author": {
+        "login": "madhav2302"
+      },
+      "authorAssociation": "NONE",
+      "body": "Do we have a timeline for the fix? ",
+      "createdAt": "2024-07-18T15:47:47Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2075#issuecomment-2236903833",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-05-23T18:49:56Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2075,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 3
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Add the ability to keep heartbeating while the worker is shutting down",
+  "updatedAt": "2024-11-22T05:54:28Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2075"
+}

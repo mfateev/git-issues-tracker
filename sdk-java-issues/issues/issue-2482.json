@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNDkzMg==",
+    "is_bot": false,
+    "login": "antmendoza",
+    "name": "Antonio Mendoza Pérez"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\n\nMerging ActivityOptions fails  [here](https://github.com/temporalio/sdk-java/blob/d326d7ff59cd4ec9f4e422633133283707a57d2d/temporal-sdk/src/main/java/io/temporal/activity/ActivityOptions.java#L272) with UnsupportedOperationException when using immutable lists for context propagators\n\n\n\n### Steps to Reproduce the Problem\n\nCreate a worker with WorkflowImplementationOptions and set setContextPropagators as an immutable list for one of the activities. \n\n````\n WorkflowImplementationOptions options =\n        WorkflowImplementationOptions.newBuilder()\n            .setActivityOptions(\n                ImmutableMap.of(\n                    \"ActivityTypeB\",\n                    ActivityOptions.newBuilder()\n                        // Set activity exec timeout (single run)\n                        .setStartToCloseTimeout(Duration.ofSeconds(2))\n                        .setRetryOptions(\n                            RetryOptions.newBuilder()\n                                // ActivityTypeB activity type shouldn't retry on NPE\n                                .setDoNotRetry(NullPointerException.class.getName())\n                                .build())\n                        .setContextPropagators(List.of(new MDCContextPropagator()))\n                        .build()))\n            .build();\n\n````\n\nfor the same activity, set the context propagator as an immutable list in the activityStub\n```\n\n  private FailingActivities activities =\n      Workflow.newActivityStub(\n          FailingActivities.class,\n          ActivityOptions.newBuilder()\n              .setContextPropagators(List.of(new MDCContextPropagator2()))\n              .build());\n```\n\n\nThe worker throws an `UnsupportedOperationException` [here](https://github.com/temporalio/sdk-java/blob/d326d7ff59cd4ec9f4e422633133283707a57d2d/temporal-sdk/src/main/java/io/temporal/activity/ActivityOptions.java#L272) when it tries to schedule the activity. \n\n\n\n**Describe the solution you'd like**\n\nCreate a new list that combines both instead of modifying one of them. \n\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6n0DUS",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "> Describe the solution you'd like\n> Create a new list that combines both instead of modifying one of them.\n\nAlternatively, copy the list on `setContextPropagators`. Both are options are _technically_ backwards incompatible, because _technically_ today we allow a user to mutate the list they passed to `setContextPropagators` _after_ they set it (and after any merge calls), but before build. So we just have to decide if we're ok breaking that or not.",
+      "createdAt": "2025-04-18T13:21:20Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2482#issuecomment-2815440146",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-04-18T08:05:51Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2482,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Merging ActivityOptions fails with UnsupportedOperationException when using immutable lists for context propagators",
+  "updatedAt": "2025-04-18T13:22:18Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2482"
+}

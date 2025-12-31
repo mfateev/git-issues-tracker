@@ -1,0 +1,110 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOBoA9dw",
+    "is_bot": false,
+    "login": "anatoliy-pylypchuk-kg",
+    "name": "Anatoliy Pylypchuk"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\n\nCurrently, Temporal SDK [supports Spring Boot 2 and 3](https://docs.temporal.io/develop/java/spring-boot-integration). Spring Boot 4 has [already come out](https://spring.io/blog/2025/11/20/spring-boot-4-0-0-available-now), so it would be great if Temporal SDK adds support for it as well.\n\n**Describe the solution you'd like**\n\nI haven't tested it, so maybe it already works as-is, but I'm almost sure some changes will be required to support Spring Boot 4 due to [its modularization](https://spring.io/blog/2025/10/28/modularizing-spring-boot).\n\n**Describe alternatives you've considered**\n\nOf course, it's possible to use a custom Spring Boot integration layer based on the core Temporal SDK which supports Spring Boot 4, but since it was released only a week ago, it doesn't make sense to rush and upgrade instantly, so we can wait.\n\n**Additional context**\n\nSince the open-source support of Spring Boot 2 ended in 2023, I think it would be reasonable to drop support for this version in Temporal SDK and only support the latest two versions of Spring Boot. Of course, it's up to you to decide, this is just a suggestion.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM7VrnFI",
+      "author": {
+        "login": "anatoliy-pylypchuk-kg"
+      },
+      "authorAssociation": "NONE",
+      "body": "Also, while Spring Boot 4 supports Jackson 2, this support is deprecated, so in order to fully support Spring Boot 4, support for Jackson 3 will also be required.",
+      "createdAt": "2025-11-27T09:45:44Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2738#issuecomment-3584979272",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7Wcm9E",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yes Springboot 4 support is something we are interested in. Will require some investigation on what if any changes are needed and how we can maintain compatibility with previous versions. \n\nI am not aware of any Jackson 3 related issues.",
+      "createdAt": "2025-12-01T17:15:00Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 2
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2738#issuecomment-3597823812",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7W_Chu",
+      "author": {
+        "login": "GreyTeardrop"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "> I am not aware of any Jackson 3 related issues.\n\n[Jackson 3](https://github.com/FasterXML/jackson/wiki/Jackson-Release-3.0) is an entirely incompatible major version - different artifact names, different packages, different exception hierarchies, etc. Supporting Jackson 3 would probably require new `Jackson3JsonPayloadConverter`. ",
+      "createdAt": "2025-12-03T13:26:06Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2738#issuecomment-3606849646",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7YpNQS",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "> Supporting Jackson 3 would probably require new Jackson3JsonPayloadConverter.\n\nYes agree there, but Jackson 3 support in the SDK is a separate issue from Spring Boot 4 support. tracked [here](https://github.com/temporalio/sdk-java/issues/2746)",
+      "createdAt": "2025-12-09T23:11:41Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 2
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2738#issuecomment-3634680850",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-11-27T09:43:59Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2738,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 7
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Spring Boot 4 Support",
+  "updatedAt": "2025-12-09T23:15:35Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2738"
+}

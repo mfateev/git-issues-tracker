@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nWe have a framework that allows launching workflows from scratch.\r\nWe also have a way to make a full history replay using query functionality. See `WorkflowReplayer` that falls back to     `worker.queryWorkflowExecution(history, WorkflowClient.QUERY_TYPE_REPLAY_ONLY, ...)`\r\nWe don't have a way to make a replay of a partial json history and continue the execution (aka restoring from a failure).\r\nIt's supported for our state machines testing framework, but not for workflow integration testing framework.\r\nWhich limits what kind of state machines permutation we can cover with functional tests and limits our ability to test replayability by itself.\r\n\r\n**Describe the solution you'd like**\r\nAdd an ability for our TestService to load a partial workflow history from a json, restore a workflow mutable state from it and dispatch workflow tasks to continue execution on a worker simulating restoring after a failure or after a worker cache eviction.\r\n\r\n**Describe alternatives you've considered**\r\nAlternatively, to get the same result in the test, we can simulate a failure the first time at the place in a workflow we want to get a replay to. But this is a hacky way to achieve to goal and also it doesn't allow us to test compatibility with histories produced in older versions of SDKs.\r\nAlternatively, we can continue to don't have tests covering continue execution after a partial replay.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-10-11T16:25:16Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 811,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 2
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Add test framework for partial json history replay and continuing of execution",
+  "updatedAt": "2021-10-11T16:25:16Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/811"
+}

@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNTA0MDQ5",
+    "is_bot": false,
+    "login": "Quinn-With-Two-Ns",
+    "name": "Quinn Klassen"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nCurrently when the worker factory is shutdown by Springboot on close there is no wait to for the shutdown to finish. This can cause the application to close before all inflight tasks are finished.\r\n\r\n**Describe the solution you'd like**\r\nAdd a property that will control how long the workerfactory waits before continuing shutdown.\r\n\r\n**Describe alternatives you've considered**\r\nUsers can manually work around this by adding a hook to the context close event and manually shutting down the factory and waiting.\r\n\r\n**Additional context**\r\n\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2024-04-05T23:54:48Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2026,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "[SpringBoot] Add graceful shutdown wait time as property",
+  "updatedAt": "2024-04-05T23:54:48Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2026"
+}

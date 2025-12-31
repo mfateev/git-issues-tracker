@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "Right now we don't retry failed heartbeats and just ignore the error.\r\nThis may create a problem if heartbeat timeout is, for example, 20 seconds and activity heartbeats every 15 seconds. If we get a network blip, such an activity will be terminated with heartbeat timeout.\r\nWe should use heartbeatExecutor to schedule an asynchronous retry for a failed heartbeat. We can utilize an exponential backoff throttling strategy for it. ActivityContext.heartbeat() shouldn't be kept blocked because we retry.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-06-09T18:01:28Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1258,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Make activity heartbeats more robust to network outages by retrying them",
+  "updatedAt": "2023-05-23T17:45:05Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1258"
+}

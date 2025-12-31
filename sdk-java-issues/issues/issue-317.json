@@ -1,0 +1,96 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjEwODc0MQ==",
+    "is_bot": false,
+    "login": "robzienert",
+    "name": "Rob Zienert"
+  },
+  "body": "## Expected Behavior\r\n\r\nPublished artifacts should include sources and javadoc.\r\n\r\n\r\n## Actual Behavior\r\n\r\nOnly compiled class artifacts are published.\r\n\r\n## Steps to Reproduce the Problem\r\n\r\n  1. Use java SDK as dependency in any project.\r\n\r\n## Specifications\r\n\r\n  - Version: 1.0.4\r\n\r\n## Notes\r\n\r\nI see that the Gradle project is using `withJavadocJar()` and `withSourcesJar()`, and a sufficient Gradle version for these to work, however no sources or javadoc are included anyway. I was going to open a PR to do this the pre-6.x way, but wanted to verify with you folks first in case you see a more correct fix.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDc2Mzk3NzU3OQ==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Interesting, maven central has all those files:\r\nhttps://repo1.maven.org/maven2/io/temporal/temporal-sdk/1.0.4/\r\n\r\nCan you double check if your IDE is downloading sources/javadocs?\r\nYou may need to explicitly press the button to fetch them.",
+      "createdAt": "2021-01-20T22:01:04Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/317#issuecomment-763977579",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDc2Mzk4MzAwMQ==",
+      "author": {
+        "login": "GreyTeardrop"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "I was able to partially reproduce this issue. All the \"proper\" source code is present, however, the generated sources seem to be missing from the `temporal-serviceclient`:\r\n```\r\n~/Downloads/temporal-serviceclient-1.0.4-sources\r\n❯ ls -lR .\r\ntotal 0\r\ndrwxr-xr-x@ 3 mrybak  staff  96 Dec 23 21:35 META-INF\r\ndrwxr-xr-x@ 3 mrybak  staff  96 Dec 23 19:55 io\r\n\r\n./META-INF:\r\ntotal 8\r\n-rw-r--r--@ 1 mrybak  staff  25 Dec 23 21:35 MANIFEST.MF\r\n\r\n./io:\r\ntotal 0\r\ndrwxr-xr-x@ 3 mrybak  staff  96 Dec 23 19:55 temporal\r\n\r\n./io/temporal:\r\ntotal 0\r\ndrwxr-xr-x@ 12 mrybak  staff  384 Dec 23 19:55 serviceclient\r\n\r\n./io/temporal/serviceclient:\r\ntotal 128\r\n-rw-r--r--@ 1 mrybak  staff   2519 Dec 23 19:55 GrpcDeadlineInterceptor.java\r\n-rw-r--r--@ 1 mrybak  staff   4900 Dec 23 19:55 GrpcMetricsInterceptor.java\r\n-rw-r--r--@ 1 mrybak  staff   3695 Dec 23 19:55 GrpcTracingInterceptor.java\r\n-rw-r--r--@ 1 mrybak  staff   1495 Dec 23 19:55 LongPollUtil.java\r\n-rw-r--r--@ 1 mrybak  staff   2830 Dec 23 19:55 MetricsTag.java\r\n-rw-r--r--@ 1 mrybak  staff   1415 Dec 23 19:55 MetricsType.java\r\n-rw-r--r--@ 1 mrybak  staff   2404 Dec 23 19:55 Version.java\r\n-rw-r--r--@ 1 mrybak  staff   2390 Dec 23 19:55 WorkflowServiceStubs.java\r\n-rw-r--r--@ 1 mrybak  staff  10979 Dec 23 19:55 WorkflowServiceStubsImpl.java\r\n-rw-r--r--@ 1 mrybak  staff  12903 Dec 23 19:55 WorkflowServiceStubsOptions.java\r\n```",
+      "createdAt": "2021-01-20T22:11:03Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/317#issuecomment-763983001",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDc2Mzk5NzQwNQ==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "You are right, I don't see sources for the generated code. Let me update task description to be more precise.",
+      "createdAt": "2021-01-20T22:35:30Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/317#issuecomment-763997405",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDc2NDAyMzg5Mg==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "There seem to be a couple gradle plugin issues here, I was able to make generated source publishing work by adding `sourceSets.main.java.srcDirs = [\"$buildDir/generated/main/java\",\"src/main/java\"]`, but it breaks license check and I couldn't exclude that directory in the license plugin.\r\nI think the root cause is a bug in the license checker reported [here](https://github.com/hierynomus/license-gradle-plugin/issues/145) and [here](https://github.com/hierynomus/license-gradle-plugin/issues/57). \r\nOn the other hand we have a similar configuration as metioned [here](https://github.com/tbroyer/gradle-apt-plugin/issues/78#issuecomment-370219011) but for some reason doesn't work (another gradle bug?...).\r\n\r\nTo summarize our options are:\r\n1. Figure out why license plugin exclude is not working. In which case we can add generated sources to the main sourceSet and they will be published automatically.\r\n2. Debug sourceJar task and find out why it doesn't publish additional files that we've specified.",
+      "createdAt": "2021-01-20T23:30:00Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/317#issuecomment-764023892",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-01-20T21:24:21Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 317,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Published artifacts do not include sources for the generated code",
+  "updatedAt": "2024-12-17T21:27:27Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/317"
+}

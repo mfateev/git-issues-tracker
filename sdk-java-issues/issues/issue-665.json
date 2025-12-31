@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "Temporal strives to provide reasonable defaults for Retry options.\r\nAlso, we try to not expose `RpcRetryOptions` because of how easy they are to misconfigure.\r\nBut in some cases, our default choices don't work and there is no one value that fits all use cases. \r\nThe initial retry period is an example of a property that requires very different values for \r\n- microservice orchestration usecase (we want to keep it really low) \r\n- more traditional workflow or batch processing usecase where we want to avoid a snowball effect of retries and we can afford to wait.\r\n\r\nWe should come up with some ability to influence/specify RpcRetryOptions for our users to allow them to tune Temporal for their specific use case, but keeping a balance with incapsulation and enforcing the retry options to be safe.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-08-24T21:46:44Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 665,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Allow users to specify or influence RpcRetryOptions for all kinds of GrpcRetries",
+  "updatedAt": "2024-12-17T21:19:16Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/665"
+}

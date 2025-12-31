@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nJava-SDK\r\nIn the following community thread.\r\nhttps://community.temporal.io/t/workflow-await-does-it-release-thread/252\r\nTo continually process events on a specific entity in the order we received the events, we can use WorkflowQueue. To implement this solution, we need WorkflowQueue to be serializable. At this time we can not use this technique as the WorkflowQueue is not implementing Serializable. The main purpose of this technique is to avoid long running workflows.\r\n\r\n**Describe the solution you'd like**\r\nEnable Serialization on WorkflowQueue \r\n\r\n**Describe alternatives you've considered**\r\nUsing Java Queue for now\r\n\r\n**Additional context**\r\nI received the above details from @maxim in one of my conversation in slack channel. Creating this ticket to make sure this requirement is addressed as part of the future releases.\r\n\r\nCreated from https://github.com/temporalio/temporal/issues/792\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2020-10-06T16:55:53Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 227,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Enable Serialization on WorkflowQueue ",
+  "updatedAt": "2020-10-06T16:55:53Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/227"
+}

@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nPollWorkflowTaskQueueResponse has the information about the WorkflowTask and contains some pieces of information that may be needed for reporting/logging.\r\nSpecifically, the most interesting one is PollWorkflowTaskQueueResponse#attempt that may be used to log workflows that can't progress for a long time.\r\n\r\n**Describe the solution you'd like**\r\nPollWorkflowTaskQueueResponse or some parts of it should be made available to the user-configured handler/interceptor. \r\n\r\nTBD. It also can become an input of a new method of WorkflowInboundInterceptor. TBD because currently all methods of Interceptors are extremely bound to the user code lifecycle and directly connected to events in the user code, while this method would be something that interceptors are not currently observed/expose.\r\n\r\n**Describe alternatives you've considered**\r\nTo solve the specific problem of reporting a workflow that doesn't progress because of a large number of failures, we can just hardcode logging in a manner that Server currently does: https://github.com/temporalio/temporal/blob/61b9b65744e455d4a85681b117e8315287911621/service/history/workflow/workflow_task_state_machine.go#L763\r\nThis solution is not flexible and doesn't move the extensibility of the SDK forward though.\r\n\r\n**Additional context**\r\nRelated to https://github.com/temporalio/temporal/issues/2526",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM4-dOqx",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Technically this can be done with a gRPC interceptor. My concern with putting in our interceptors is we won't get to change our polling mechanism without breaking it. If it's needed for reporting/logging, maybe just making the most recent task available for a getter is good enough?\r\n\r\nIf done via our interceptors, arguably `pollWorkflowTaskQueue` should be on the outbound interceptor (and an equivalent for activities). I had considered putting it on the client interceptors, but in some languages like TypeScript that is a bit more difficult since it's Core that makes the call.\r\n\r\nAlso, we might want a general cross-SDK issue at https://github.com/temporalio/sdk-features or at least a general cross-SDK discussion because TypeScript won't be able to do this as cleanly as Go/Java.",
+      "createdAt": "2022-02-22T14:24:50Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1051#issuecomment-1047849649",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-02-22T02:48:17Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1051,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "PollWorkflowTaskQueueResponse should be available for interception",
+  "updatedAt": "2022-02-22T14:24:50Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1051"
+}

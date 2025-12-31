@@ -1,0 +1,169 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjI1MzU3MDA=",
+    "is_bot": false,
+    "login": "doruchiulan",
+    "name": "Doru Chiulan"
+  },
+  "body": "I'll go with a top-to-bottom approach with the things I encountered, and how I tried to solve them in my project.\r\n\r\n1. **WorkflowClient**\r\n - WorkflowClient.start with `io.temporal.workflow.Functions.Func` arguments\r\n - WorkflowClient.start with `io.temporal.workflow.Functions.Proc` arguments\r\n - WorkflowClient.execute with `io.temporal.workflow.Functions.Func` arguments\r\n - WorkflowClient.execute with `io.temporal.workflow.Functions.Proc` arguments\r\n\r\n> Solved this by writing some small wrappers. I don't think this is the way, but the code inside might be useful. These are the only type of functions I needed, didn't convert them all (e.g the ones that take more arguments)\r\n\r\n ```\r\ndef startAsync(f: T => Unit, arg: T): WorkflowExecution = {\r\n    WorkflowClient.start(new Proc1[T]() {\r\n      override def apply(j: T): Unit = f(j)\r\n    }, t)\r\n  }\r\n\r\n  def executeAsyncVoid(f: () => Unit): Future[Unit] = {\r\n    import scala.compat.java8.FutureConverters._\r\n\r\n    WorkflowClient.execute(new Proc {\r\n      override def apply(): Unit = f()\r\n    }).toScala.map[Unit](_ => ())\r\n  }\r\n\r\n  def executeAsync[T](f: () => T): Future[T] = {\r\n    import scala.compat.java8.FutureConverters._\r\n\r\n    WorkflowClient.execute(new Func[T] {\r\n      override def apply(): T = f()\r\n    }).toScala\r\n  }\r\n```\r\n\r\n2. **Scala specific object types serialization/deserialization**\r\n\r\n - Option\r\n - List (basically all Scala collections)\r\n\r\n> We can probably solve this when Jackson will be integrated in java-sdk\r\n\r\n3. **Workflow.await requiring a Supplier, instead of passing a function reference**\r\n\r\n> Again, solved in a simple wrapper\r\n\r\n```\r\n def await(duration: Duration, f: () => Boolean) {\r\n    Workflow.await(duration, new Supplier[lang.Boolean] {\r\n      override def get(): lang.Boolean = f()\r\n    })\r\n  }\r\n```\r\n\r\n\r\n4. **Java way of referencing some method (not sure how this syntax it's called in Java)**\r\n(Mostly the same as 1. but I put it in a different issue as it's a little bit a different problem)\r\n\r\n`WorkflowClient.execute(workflow::getGreeting, \"World\")` -> notice the double colon\r\n\r\n5. **Accepting Scala Duration type**",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDYyMTcxMzMyNg==",
+      "author": {
+        "login": "Krever"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hey, we have some experience in using cadence with scala and can contribute our experiences and maybe even some code.\r\n\r\nReg 2) Serialization is a tough topic, in general, typeclass-based serialization is more idiomatic and safer in modern scala. But this would be something to have in scala native sdk and so is out of the scope of this issue probably.\r\n\r\n1 & 3 are already solved in scala 2.12 and later -> https://www.scala-lang.org/news/2.12.0/#lambda-syntax-for-sam-types\r\n\r\n2 & 5 as proposed are not possible without adding scala stdlib as a dependency of java sdk, which doesn't sound plausible. Whereas 2) Is quite hard, the 5) is easily solved by https://github.com/scala/scala-java8-compat#converters-between-scalaconcurrentdurationfiniteduration-and-javatimeduration\r\n\r\n",
+      "createdAt": "2020-04-30T09:12:10Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-621713326",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDc5OTMxNjg1Mw==",
+      "author": {
+        "login": "grouzen"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hello!\r\n\r\nJust wondering about the progress with scala-sdk for Temporal? Any updates? \r\n",
+      "createdAt": "2021-03-15T10:46:08Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "EYES",
+          "users": {
+            "totalCount": 3
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-799316853",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDgwMjA0NDY2MQ==",
+      "author": {
+        "login": "doruchiulan"
+      },
+      "authorAssociation": "NONE",
+      "body": "Not really using cadence in my current projects, but I'm still keeping an eye on this as this is a project which I really like and which I will happily include in any project that suits it. So if somebody takes over, has a plan/architecture and leads this, I will happily contribute with pieces of code.",
+      "createdAt": "2021-03-18T15:58:35Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 2
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-802044661",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM48838Z",
+      "author": {
+        "login": "jvican"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hi. Really interested in helping this move forward by creating an integration. Is there a guide I can use to start making the integration possible?",
+      "createdAt": "2022-01-26T20:50:30Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-1022590745",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM4-XSAW",
+      "author": {
+        "login": "ktham"
+      },
+      "authorAssociation": "NONE",
+      "body": "Would love the additional support for Scala 👍 it could potentially unlock some interesting use-cases if I can pitch Temporal to my team",
+      "createdAt": "2022-02-20T18:01:25Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 7
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-1046290454",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5FUSK8",
+      "author": {
+        "login": "vitaliihonta"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hi everyone I’ve implemented Scala SDK, which supports most temporal features.\r\nhttps://github.com/vitaliihonta/zio-temporal\r\n\r\nIt also allows using protobuf format via ScalaPB.\r\n\r\nCurrently, it’s tied to ZIO",
+      "createdAt": "2022-06-22T10:49:34Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "HOORAY",
+          "users": {
+            "totalCount": 11
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-1162945212",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5Lvrqc",
+      "author": {
+        "login": "scoplin"
+      },
+      "authorAssociation": "NONE",
+      "body": "I got bit by a problem with the reflection logic that attempts to determine whether `Async.function` is being passed a method reference in `MethodReferenceDisassembler#isAsyncJava`.  Turns out that a method reference in Scala has a different result from `getImplMethodKind`.  It returns `MethodHandleInfo.REF_invokeStatic` instead of `MethodHandleInfo.REF_invokeInterface`.  We had to invoke this through a small java shim to get it to function correctly and not execute directly on the local workflow executor.\r\n\r\nI think ztemporal may have the same problem.  It also appears to me to call `Async.function` passing a Scala lambda expression.",
+      "createdAt": "2022-10-06T22:49:24Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1007#issuecomment-1270790812",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2020-04-28T21:47:27Z",
+  "labels": [],
+  "milestone": null,
+  "number": 1007,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 2
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Scala module",
+  "updatedAt": "2025-05-13T16:52:05Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1007"
+}

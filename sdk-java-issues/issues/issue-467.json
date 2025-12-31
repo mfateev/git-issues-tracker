@@ -1,0 +1,66 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjI2MzY5OTM=",
+    "is_bot": false,
+    "login": "jonsie",
+    "name": "Chris Smalley"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\n\r\nIn the event of a refactor wherein activity names are changed (prefix added, method name changed, etc) there is no clean way to migrate from one activity name to another --> if a worker picks up an activity with a name that is not registered with that worker it will throw an `ApplicationFailure`.\r\n\r\n**Describe the solution you'd like**\r\n\r\nI would like to have the ability to register multiple activity names for an activity - this way one could deploy the activity name change and then on the next deploy delete the previous activity name.\r\n\r\nIdeally there would be a mechanism to mark one activity name as deprecated.\r\n\r\nThanks!",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDgzMzczODU3Mg==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@jonsie are you asking to add name aliases into [`@ActivityMethod`](https://github.com/vitarb/java-sdk/blob/f0bbf84c496454d9909caefe6ca2784f76b8e592/temporal-sdk/src/main/java/io/temporal/activity/ActivityMethod.java#L33) annotation?",
+      "createdAt": "2021-05-06T17:58:31Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/467#issuecomment-833738572",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5aUgjW",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Design of this feature should be approached together with https://github.com/temporalio/sdk-java/issues/396",
+      "createdAt": "2023-04-19T20:17:38Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/467#issuecomment-1515325654",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-05-03T23:44:31Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 467,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Register multiple activity names for an activity",
+  "updatedAt": "2023-04-19T20:17:39Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/467"
+}

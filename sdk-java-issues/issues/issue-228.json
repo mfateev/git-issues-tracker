@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nThe workflow history contains information about the time and identity of the activity worker that started and completed an activity. But this information is not available to the workflow code.\r\n\r\n**Describe the solution you'd like**\r\nSome API to get full information about an activity execution.\r\n\r\n**Additional context**\r\nHere is a slack message that outlines one possible usage of this feature:\r\n\r\n> Hi, I am running workflows with activities and would like to track in real time when some activity types started and completed exactly and be able from other activities in my workflow to log these start and complete time (because I don't want to introduce the logging capability to all my microservices that are also written in different languages).\r\n> Right now I can tell from the workflow about the time my activity was scheduled (which is not the time it was started) and also the time it scheduled back to workflow after activity completion (which is not the actual time activity was completed).",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5aN2Pi",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Related to: https://github.com/temporalio/sdk-java/issues/1009",
+      "createdAt": "2023-04-18T17:54:44Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/228#issuecomment-1513579490",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2020-10-08T22:53:30Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 228,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Expose activity start and completion information to the workflow code.",
+  "updatedAt": "2023-04-18T17:54:44Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/228"
+}

@@ -1,0 +1,89 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "```\r\n  @WorkflowInterface\r\n  public interface CustomerWorkflow {\r\n\r\n    @WorkflowMethod\r\n    void execute(Customer customer);\r\n\r\n  }\r\n\r\n  @WorkflowInterface\r\n  public interface CustomerWorkflowWithSignal extends CustomerWorkflow {\r\n\r\n    @SignalMethod(name = \"setCustomer\")\r\n    void setCustomer(Customer customer);\r\n  }\r\n```\r\n\r\nRegistering two classes that implement the interfaces above should be possible, the second implementation should have a CustomerWorkflowWithSignal name.\r\n\r\nInstead, it causes \"java.lang.IllegalStateException: CustomerWorkflow workflow type is already registered with the worker\".\r\n\r\nSpecial consideration should be put into maintaining compatibility during the fix as it may change the workflow names for some users.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM48xXWh",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "This is supported:\r\n```\r\n  public interface CustomerWorkflow {\r\n\r\n    @WorkflowMethod\r\n    void execute(Customer customer);\r\n\r\n  }\r\n\r\n  @WorkflowInterface\r\n  public interface CustomerWorkflowWithSignal extends CustomerWorkflow {\r\n\r\n    @SignalMethod(name = \"setCustomer\")\r\n    void setCustomer(Customer customer);\r\n  }\r\n```",
+      "createdAt": "2022-01-23T21:45:47Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/995#issuecomment-1019573665",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDODN12PM48xXaS",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Currently any interface annotated with @WorkflowInterface defines a workflow type. I don't think a user would really want to have two separate workflow types CustomerWorkflow and CustomerWorkflowWithSignal in this case.\r\n\r\nSee https://docs.temporal.io/docs/java/workflows#workflow-interface-inheritance",
+      "createdAt": "2022-01-23T21:47:26Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/995#issuecomment-1019573906",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDODN12PM48xXkQ",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "> This is supported:\r\n> \r\n> ```\r\n>   public interface CustomerWorkflow {\r\n> \r\n>     @WorkflowMethod\r\n>     void execute(Customer customer);\r\n> \r\n>   }\r\n> \r\n>   @WorkflowInterface\r\n>   public interface CustomerWorkflowWithSignal extends CustomerWorkflow {\r\n> \r\n>     @SignalMethod(name = \"setCustomer\")\r\n>     void setCustomer(Customer customer);\r\n>   }\r\n> ```\r\n\r\nThe objective of the issue is \"Inheritance of workflow interfaces is not supported\". In your snippet, CustomerWorkflow is not a WorkflowInterface.",
+      "createdAt": "2022-01-23T21:51:43Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/995#issuecomment-1019574544",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM48xXtw",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "> I don't think a user would really want to have two separate workflow types CustomerWorkflow and CustomerWorkflowWithSignal in this case.\r\n\r\n^ This is how I would expect it to behave.\r\n\r\nThis should be either supported or explicitly non-supported. So, this either should work as described in the description of the issue OR it should throw an exception like \"Inheritance of workflow interfaces is not supported\". \r\n\r\nWhat definitely shouldn't happen and it happens now, when a user registers CustomerWorkflowWithSignal workflow, actually a workflow CustomerWorkflow gets registered. It's confusing, non-obiovus and error-prone.",
+      "createdAt": "2022-01-23T21:55:50Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/995#issuecomment-1019575152",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-01-21T20:53:43Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 995,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Inheritance of workflow interfaces is not supported",
+  "updatedAt": "2024-12-17T21:26:52Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/995"
+}

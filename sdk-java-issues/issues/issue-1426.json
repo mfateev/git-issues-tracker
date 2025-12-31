@@ -1,0 +1,119 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNjM5Ng==",
+    "is_bot": false,
+    "login": "cretz",
+    "name": "Chad Retz"
+  },
+  "body": "## Expected Behavior\r\n\r\nCurrent server doesn't set `WorkflowExecutionStartedEventAttributes.workflow_execution_timeout` or `PollActivityTaskQueueResponse.schedule_to_close_timeout` if the user didn't\r\n\r\n## Actual Behavior\r\n\r\nTest server sets these to 10 years when not set. While this may make sense internally to bound the timer, e.g. the API for https://www.javadoc.io/static/io.temporal/temporal-sdk/1.16.0/io/temporal/activity/ActivityInfo.html#getScheduleToCloseTimeout() should be accurate.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5M7tPO",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "This is a \"feature\". Instead of just hanging the unit test, we force the workflow to time out in the test environment if nothing would happen with it and it will hang.\r\nBut I see how this feature may be confusing. This needs a broader discussion. ",
+      "createdAt": "2022-10-25T15:07:28Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1426#issuecomment-1290720206",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5M75C8",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I can understand it makes sense to internally bound the timer, but we should make the API responses accurate though if possible",
+      "createdAt": "2022-10-25T15:42:43Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1426#issuecomment-1290768572",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6SgWo7",
+      "author": {
+        "login": "jroof88"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hello. This issue just took down all of our production workflows cause we made an incorrect assumption that all of our Workflow Tests would've caught this issue.\r\n\r\nAre there any updates on this? It feels odd to call this a feature since the test environment should mimic the production environment for proper testing. Is there a workaround where maybe instead of actually setting these values on the server we could just validate the config is correct?",
+      "createdAt": "2024-11-05T19:07:57Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1426#issuecomment-2457954875",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6SgiQP",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I am sorry to hear this caused an issue for you in production. There is no update here, but I am curious what the exact issue you hit was?\r\n\r\nI would think of the test server as a good tool to unit test workflows, but it is no replacement for testing your workflows against a real Temporal cluster with the same settings as your production cluster before going to production.\r\n\r\n>It feels odd to call this a feature since the test environment should mimic the production environment for proper testing. \r\n\r\nThe overwhelming feedback we have received from users is the test server should optimize for the test experience over mimicking exact server behaviour.\r\n\r\n>setting these values on the server we could just validate the config is correct?\r\n\r\nNot sure exact settings you are referring to, but in general the Temporal server is the authority on what settings are valid or not valid as for some things it can depend on the servers dynamic configs what values are allowed so the SDK cannot know ahead of time.",
+      "createdAt": "2024-11-05T19:33:50Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1426#issuecomment-2458002447",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6SiJXB",
+      "author": {
+        "login": "jroof88"
+      },
+      "authorAssociation": "NONE",
+      "body": "Thanks for the quick response @Quinn-With-Two-Ns!\r\n\r\nOur issue was with the need to set either the `ScheduleToStartTimeout` or `StartToCloseTimeout` for every activity invocation:\r\n```\r\nBadScheduleActivityAttributes: A valid StartToClose or ScheduleToCloseTimeout is not set on ScheduleActivityTaskCommand.\r\n```\r\n\r\n> I would think of the test server as a good tool to unit test workflows, but it is no replacement for testing your workflows against a real Temporal cluster with the same settings as your production cluster before going to production.\r\n\r\ntbh this just feels like a LOT of work to test workflows then if this is the stance you are taking\r\n\r\n> Not sure exact settings you are referring to\r\n\r\nI might have used the wrong verbiage. Referring to the ActivityOption settings for timeouts for `ScheduleToStartTimeout` or `StartToCloseTimeout`. My suggestion was maybe there could just be validation in the test server that these are set prior to activity execution:\r\n```go\r\n// Psuedo-Code\r\nfunc ExecuteActivity(...) error {\r\n  if workflowCtx.ValidateTimeout() {\r\n    // throw error\r\n  }\r\n\r\n  // Execute Activity as normal\r\n}\r\n```\r\nI don't know enough about SDK Internals to know if this is feasible. Just throwing ideas out! In the interim, we are adding this validation on our side which feels like something we shouldn't have to worry about.",
+      "createdAt": "2024-11-05T23:48:07Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1426#issuecomment-2458424769",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6SiNhT",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": ">Our issue was with the need to set either the ScheduleToStartTimeout or StartToCloseTimeout for every activity invocation:\r\n\r\nHmm, well this is an options that the SDK can validate SDK side. So the Java SDK does validate that one of these options is set https://github.com/temporalio/sdk-java/blob/c8a27ce9073164141fc1f08ac4c80456f48b3c1d/temporal-sdk/src/test/java/io/temporal/activity/ActivityOptionsTest.java#L65, the test server also has a similar [check](https://github.com/temporalio/sdk-java/blob/c8a27ce9073164141fc1f08ac4c80456f48b3c1d/temporal-test-server/src/main/java/io/temporal/internal/testservice/TestWorkflowMutableStateImpl.java#L1064) as well. Can you share how a some self contained reproduction that passes against the test server but fails against a real server?",
+      "createdAt": "2024-11-06T00:05:41Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1426#issuecomment-2458441811",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-09-14T14:11:54Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1426,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Test server timeouts improperly set to 10 years when not user set",
+  "updatedAt": "2024-12-17T21:19:10Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1426"
+}

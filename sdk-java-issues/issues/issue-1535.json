@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "When JUnit test timeouts (because a timeout was specified), the TestWorkflowRule prints out a diagnostic message that contains\r\nhistories of all workflows started by the test. This is useful, but misses a lot of useful information that could be used to troubleshoot a stuck test problem. \r\n\r\nSome of the potential additions:\r\n\r\n* Result of DescribeWorkflowExecution call for each workflow. Especially useful information about activities and workflow tasks in retry.\r\n* Stack trace query result for each open workflow.\r\n* I would also improve the formatting of the printed history",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-11-26T03:33:34Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1535,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Improve diagnostic message printed by TestWorkflowRule on timeout.",
+  "updatedAt": "2022-11-26T04:03:28Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1535"
+}

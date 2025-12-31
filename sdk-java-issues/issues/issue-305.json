@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nCurrently `Saga.compensate` is called in the current cancellation scope. It means that in the case of cancellation the compensations are not going to run. So it requires that `compensate` is called in the detached cancellation scope. But our [sample does not do it](https://github.com/temporalio/samples-java/blob/61bf7a9071fe443eb6f1722ccdb7a78fdd6ccd9b/src/main/java/io/temporal/samples/bookingsaga/TripBookingWorkflowImpl.java#L55).\r\n\r\n**Describe the solution you'd like**\r\nBy default execute compensation actions in a disconnected cancellation scope. Add Saga.Option to disable this behavior. \r\nChange [bookingsaga](https://github.com/temporalio/samples-java/tree/master/src/main/java/io/temporal/samples/bookingsaga) sample to catch TemporalFailure to support cancellation scenarios.\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDc5ODg1NzI0OA==",
+      "author": {
+        "login": "ShubhSingh"
+      },
+      "authorAssociation": "NONE",
+      "body": "hi @mfateev, is this issue still open?\r\nI tried running booking saga and when exception occurs during bookFlight compensations run as shown below.\r\n\r\ncancelling car reservation '953c8762-fc18-4e8a-8a2b-8fe468d0381e' for 'trip2'\r\ncancelling hotel reservation '0c7428dd-5357-480c-845d-1c558d3e20d4' for 'trip2'\r\n\r\nI didn't understand current and disconnected cancellation scope, \r\ndoes it mean that instead of exception if user deliberately cancels the flight after successful booking then compensations need to run? \r\nI might be wrong here so please excuse me.\r\n\r\nI checked Saga.Options to disable behavior but there's only 2 configs available as of now: parallelCompensation and continueWithError",
+      "createdAt": "2021-03-14T08:01:43Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/305#issuecomment-798857248",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-01-12T21:10:42Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 305,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Run Saga compensations in a disconnected scope",
+  "updatedAt": "2021-03-14T08:24:25Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/305"
+}

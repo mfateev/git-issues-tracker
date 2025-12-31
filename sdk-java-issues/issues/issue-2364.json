@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "When using TestWorkflowEnvironment setting search attributes in ContinueAsNewOptions does not set them with the continued exec:\r\n\r\n    ContinueAsNewOptions.newBuilder()\r\n        .setTypedSearchAttributes(\r\n            SearchAttributes.newBuilder()\r\n                .set(CustomTextAttrib, \"someValue\")\r\n                .build())\r\n            .build());\r\n\r\nsame issue for setting typed search attributes as well as the deprecated (setSearchAttributes) too",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6ZzBnt",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "(related to #2178 but not the same, but should solve both at the same time)",
+      "createdAt": "2025-01-09T14:05:55Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2364#issuecomment-2580290029",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-01-09T11:14:25Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2364,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "TestWorkflowEnvironment issue with setting search attributes in ContinueAsNewOptions",
+  "updatedAt": "2025-05-16T22:41:28Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2364"
+}

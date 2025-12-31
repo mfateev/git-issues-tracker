@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjcwMjExODc3",
+    "is_bot": false,
+    "login": "hema-kishore-gunda",
+    "name": "Hema Kishore Gunda"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nYes. currently trace-id and span-id are not being printed on logs with OpenTracingWorkerInterceptor.\r\n\r\n**Describe the solution you'd like**\r\nAdd trace-id and span-id to MDC-context.\r\n\r\n**Describe alternatives you've considered**\r\nWorkaround: Implement custom OpenTracingWorkerInterceptor, OpenTracingWorkflowInboundCallsInterceptor and OpenTracingActivityInboundCallsInterceptor\r\n\r\n**Additional context**\r\nThis feature has been discussed in slack channel thread\r\nhttps://temporalio.slack.com/archives/CTT84KXK9/p1655727317596189.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-06-21T13:00:40Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1273,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "provide an option to print trace-id and span-id on java-sdk ",
+  "updatedAt": "2022-06-21T13:00:40Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1273"
+}

@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjI2ODg0NDM3",
+    "is_bot": false,
+    "login": "natthu-stripe",
+    "name": "Natthu Bharambe"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nWe have an abstraction for starting workflows that sets some standard memo values. I have a new use case where I'd like to continue-as-new a workflow execution (started using the above mentioned abstraction) but when doing so, set a few additional memo values that the next run would read. Today, `ContinueAsNewOptions` allows setting the entire memo map (using `ContinueAsNewOptions.newBuilder().setMemo()`). Thus, in order to *add* new memo values to the next run while preserving existing values, we need to extract all the values (which requires knowing the entire key set) and then merging those with the new values. There is currently no API to either list all keys present in the memo, or to fetch the entire memo structure.\r\n\r\n**Describe the solution you'd like**\r\nIdeally, `ContinueAsNewOptions.Builder` should provide an `addMemo(key, value)` method which overrides the value in the current execution's memo if present, or else, adds it to the next workflow execution.\r\n\r\n**Describe alternatives you've considered**\r\nAlternative approaches:\r\n1/ add the memo values to the next workflow's arguments (leaky abstraction) \r\n2/ maintain a list of all known memo keys and use that to extract the entire memo when building `ContinueAsNewOptions`.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-01-25T22:51:59Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1621,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Allow setting *additional* memo values in ContinueAsNewOptions",
+  "updatedAt": "2023-01-25T22:51:59Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1621"
+}

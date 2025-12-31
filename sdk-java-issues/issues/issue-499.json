@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNDI0NzQ=",
+    "is_bot": false,
+    "login": "mobiletoly",
+    "name": "Toly Pochkin"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nBy default all exceptions are Retryable in workflows/activities and it makes troubleshooting much harder when we have to deal with a core exceptions such as NullPointerException, InvalidArgumentException, SQL errors etc during a development cycle.\r\n\r\n**Describe the solution you'd like**\r\nTEMPORAL_DEBUG env variable is already in use to assist with debugging (e.g. timeouts) and it could be reused to handle all exception as non-retryable by default.\r\n\r\nThere is some discussion here as well that might provide more context:\r\nhttps://temporalio.slack.com/archives/CTT84KXK9/p1621341005008500\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDg0NzIwNjc4Nw==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Hey @mobiletoly, `TEMPORAL_DEBUG` is intended to be used to adjust certain timeouts so that when you stop in the debugger you don't affect workflow execution. Your proposal goes slightly against this idea as it would alter workflow behavior by changing how it handles the errors. I don't like this, as it could make certain tests pass/fail with or without the flag.",
+      "createdAt": "2021-05-24T17:20:23Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/499#issuecomment-847206787",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-05-18T20:59:38Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 499,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Handle all exceptions as non-retryable when TEMPORAL_DEBUG is set",
+  "updatedAt": "2021-05-24T17:20:23Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/499"
+}

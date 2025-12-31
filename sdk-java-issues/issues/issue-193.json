@@ -1,0 +1,28 @@
+{
+  "assignees": [
+    {
+      "id": "MDQ6VXNlcjUxNzY4Mw==",
+      "login": "Sushisource",
+      "name": "Spencer Judge",
+      "databaseId": 0
+    }
+  ],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "Some workflow state machines have self transitions and additional conditional logic which is not part of the modeled state machine. For example, ActivityStateMachine has  these self transitions:\r\n\r\n```\r\nSCHEDULE_COMMAND_CREATED --> SCHEDULE_COMMAND_CREATED: SCHEDULE_ACTIVITY_TASK\r\nSTARTED_ACTIVITY_CANCEL_COMMAND_CREATED --> STARTED_ACTIVITY_CANCEL_COMMAND_CREATED: REQUEST_CANCEL_ACTIVITY_TASK\r\nSCHEDULED_ACTIVITY_CANCEL_COMMAND_CREATED --> SCHEDULED_ACTIVITY_CANCEL_COMMAND_CREATED: REQUEST_CANCEL_ACTIVITY_TASK\r\n```\r\nThese should be eliminated by introducing additional states as each of the events that cause state transition can be applied only once.\r\n\r\nActivity `cancellationType` is modeled using if/else conditions in ActivityStateMachine. This should be converted to additional states in the state machine itself.\r\n\r\nThe goal of these changes is to make sure that all of the complex logic related to activity execution is explicitly modeled. This would simplify the understanding of the logic and help with the creation of additional SDKs.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2020-08-22T23:39:12Z",
+  "labels": [],
+  "milestone": null,
+  "number": 193,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Update all state machines to avoid self transitions and hidden logic",
+  "updatedAt": "2024-12-17T21:18:11Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/193"
+}

@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjU0NTg5NzY=",
+    "is_bot": false,
+    "login": "tconley1428",
+    "name": ""
+  },
+  "body": "## Expected Behavior\nHeaders set in client interceptor appear in inbound workflow interceptor\n\n## Actual Behavior\nHeaders are blank\n\n## Steps to Reproduce the Problem\nUsing python sdk:\n```\nclass HeaderWorkerInterceptor(temporalio.worker.Interceptor):\n    def workflow_interceptor_class(\n        self, input: temporalio.worker.WorkflowInterceptorClassInput\n    ) -> Optional[Type[temporalio.worker.WorkflowInboundInterceptor]]:\n        return HeaderWorkflowInboundInterceptor\n\n\nclass HeaderWorkflowInboundInterceptor(temporalio.worker.WorkflowInboundInterceptor):\n    def init(self, outbound: temporalio.worker.WorkflowOutboundInterceptor) -> None:\n        super().init(HeaderWorkflowOutboundInterceptor(outbound))\n\n    async def handle_signal(self, input: HandleSignalInput) -> None:\n        assert input.headers[\"foo\"].data == b\"bar\"\n        await super().handle_signal(input)\n\n\nclass HeaderWorkflowOutboundInterceptor(temporalio.worker.WorkflowOutboundInterceptor):\n    def start_activity(\n        self, input: temporalio.worker.StartActivityInput\n    ) -> workflow.ActivityHandle:\n        # Add a header to the outbound activity call\n        input.headers = {\"foo\": Payload(data=b\"bar\")}\n        return super().start_activity(input)\n\n\nclass HeaderClientInterceptor(temporalio.client.Interceptor):\n    def __init__(self, header: Payload):\n        self.header = header\n        super().__init__()\n\n    def intercept_client(\n        self, next: temporalio.client.OutboundInterceptor\n    ) -> temporalio.client.OutboundInterceptor:\n        return HeaderClientOutboundInterceptor(\n            super().intercept_client(next), self.header\n        )\n\n\nclass HeaderClientOutboundInterceptor(temporalio.client.OutboundInterceptor):\n    def __init__(\n        self, next: temporalio.client.OutboundInterceptor, header: Payload\n    ) -> None:\n        self.header = header\n        super().__init__(next)\n\n    async def signal_workflow(self, input: SignalWorkflowInput) -> None:\n        input.headers = {\"foo\": self.header.__deepcopy__()}\n        return await super().signal_workflow(input)\n\n\n\n@pytest.mark.parametrize(\n    \"header_codec_behavior\",\n    [\n        HeaderCodecBehavior.NO_CODEC,\n        HeaderCodecBehavior.CODEC,\n        HeaderCodecBehavior.WORKFLOW_ONLY_CODEC,\n    ],\n)\nasync def test_workflow_headers_with_codec(\n    client: Client, env: WorkflowEnvironment, header_codec_behavior: HeaderCodecBehavior\n):\n    header_payload = Payload(data=b\"bar\")\n    if header_codec_behavior == HeaderCodecBehavior.WORKFLOW_ONLY_CODEC:\n        header_payload = (await SimpleCodec().encode([header_payload]))[0]\n\n    # Make client with this codec and run a couple of existing tests\n    config = client.config()\n    config[\"data_converter\"] = DataConverter(payload_codec=SimpleCodec())\n    config[\"interceptors\"] = [HeaderClientInterceptor(header_payload)]\n    config[\"header_codec_behavior\"] = header_codec_behavior\n    client = Client(**config)\n\n    global global_header_codec_behavior\n    global_header_codec_behavior = header_codec_behavior\n\n    async with new_worker(\n        client,\n        SimpleActivityWorkflow,\n        SignalAndQueryWorkflow,\n        activities=[say_hello],\n        interceptors=[HeaderWorkerInterceptor()],\n    ) as worker:\n        handle = await client.start_workflow(\n            SignalAndQueryWorkflow.run,\n            id=f\"workflow-{uuid.uuid4()}\",\n            task_queue=worker.task_queue,\n        )\n\n        # Simple signals and queries\n        await handle.signal(SignalAndQueryWorkflow.signal1, \"some arg\")\n        assert \"signal1: some arg\" == await handle.query(\n            SignalAndQueryWorkflow.last_event\n        )\n\n        async for e in handle.fetch_history_events():\n            if e.HasField(\"workflow_execution_signaled_event_attributes\"):\n                header = e.workflow_execution_signaled_event_attributes.header.fields[\n                    \"foo\"\n                ]\n                if header_codec_behavior == HeaderCodecBehavior.CODEC:\n                    assert \"simple-codec\" in header.metadata\n\n```\npoe test -k \"test_workflow_headers_with_codec\" --workflow-environment time-skipping\n\n## Specifications\n\n  - Version:\n  - Platform:\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-07-08T17:36:26Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2586,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Time skipping server drops headers in workflow signal",
+  "updatedAt": "2025-09-25T23:16:00Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2586"
+}

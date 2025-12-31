@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nIf users call getResultAsync on the same stub several times or if they call getResultAsync on different stubs for the same workflow execution, SDK will open a new long poll for each such request.\r\n\r\n**Describe the solution you'd like**\r\nSDK should deduplicate such calls and open only one long poll under the hood as an optimization, so users don't have to think about it in their code.\r\n\r\n**Additional context**\r\nThis task should likely be paired with https://github.com/temporalio/sdk-java/issues/1212, as both require changes in the internal structure of the same area of SDK code.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-09-10T22:30:31Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1413,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Deduplicate getResultAsync calls inside WorkflowClient or WorkflowStub",
+  "updatedAt": "2022-09-10T22:30:31Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1413"
+}

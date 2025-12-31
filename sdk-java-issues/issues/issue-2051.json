@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjEzMjM0Nzg=",
+    "is_bot": false,
+    "login": "luispollo",
+    "name": "Luis Pollo"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nIn the Java SDK, you have an `@ActivityInterface` with multiple `@ActivityMethod`s. The latter is the actual unit of execution. However, you specify retry and timeout options on the activity stub, which is based on the interface, so in order to have specific config for each activity you have to go out of your way and break up the interface into small pieces, which kinda defeats one of the nicest features of Temporal which is to just program your service as if it were native code. You can configure specific settings per method, but you have to use strings for activity names instead of strongly typed constructs, and still the activity-stub level config takes precedence.\r\n\r\nRecently, I became aware of the `@MethodRetry` annotation, which is great, but it only allows you to specify retry options, not timeouts, so it falls short of addressing the basic issue.\r\n\r\n**Describe the solution you'd like**\r\nEither an additional set of parameters in `@MethodRetry` or a new annotation (e.g. `@ActivityTimeouts`) that allows me to specify activity timeouts (start-to-close and schedule-to-close) at the method level.\r\n\r\n**Describe alternatives you've considered**\r\nSpecifying per-activity config using [WorkflowImplementationOptions](https://docs.temporal.io/dev-guide/java/foundations#required-timeout), but you have to use strings for activity names instead of strongly typed constructs, and still the activity-stub level config takes precedence.\r\n\r\n**Additional context**\r\nN/A.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2024-05-03T16:32:19Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2051,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Ability to specify activity timeouts via annotation in Java SDK",
+  "updatedAt": "2024-05-03T18:46:00Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2051"
+}

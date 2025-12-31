@@ -1,0 +1,119 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "\r\nWhen testing an activity that constantly fails (cannot recover from the failure) and has a large scheduleToClose timeout set (like days/months), or does not have one set at all\r\nthe testing framework will keep retrying in some cases thousands of times. \r\n\r\nAsking to add a feature that in those edge cases to not retry, but skip time so the excessive retries are avoided in tests.\r\n\r\n\r\nTo reproduce you can have a workflow which calls a single activity with activity options setScheduleToCloseTimeout set to 5 days for example. Set the activity to fail with for example:\r\nthrow Activity.wrap(new Exception(\"oops\"));\r\n\r\nin test you will see that it performs over 4K retries before timing out.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM41eN2D",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Linking https://github.com/temporalio/sdk-java/issues/499 as a different, but very relevant request. We should discuss the behavior of retries with our testing framework / time skipping / debugging mode.",
+      "createdAt": "2021-08-11T20:03:09Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/626#issuecomment-897113475",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM41ePK0",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@tsurdilo what is the definition of \"excessive\" retries? And how the framework should define which is excessive in each specific scenario?\r\n\r\nFrom my point of view, the described situation is not a problem and is actually expected behavior. A workflow activity should be retried the same amount of times in tests with time-skipping as it actually would be executed in 5 days before failing the workflow. And a lot of users will not be happy if it's not like that, it will be quite misleading and error-prone.\r\nWe can't just randomly decide what is extensive. For example, if activity retries every second in a normal environment and we have 5 days timeout and we have no limits for max retries - the total amount of retries in tests SHOULD be 5 * 24 * 60 * 60 = 432000\r\n\r\nThere is a way to achieve what you want though:\r\nWe basically want different `ActivityOptions#RetryOptions` in tests. So, we can modify `RetryOptions` and add `maxRetries=10` or `maxRetries=100` to `RetryOptions` if the execution happens inside unit-test (using some env var for example to define it, like proposed in the linked issue #499).\r\nAre you proposing to provide this functionality in an easier-to-use form as a part of our testing framework?",
+      "createdAt": "2021-08-11T20:11:32Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/626#issuecomment-897118900",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM41eUWR",
+      "author": {
+        "login": "tsurdilo"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "i think in a test its different as you dont in most cases fix the error on activity after a number of retries. maybe if use knows they are testing activity failure specifically then the number of retries can even be 0 . or some number in config as activity options can be specified in workflow tested so they cannot be changed in test",
+      "createdAt": "2021-08-11T20:45:25Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/626#issuecomment-897140113",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM41eU2s",
+      "author": {
+        "login": "tsurdilo"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "@mfateev wdyt?",
+      "createdAt": "2021-08-11T20:49:01Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/626#issuecomment-897142188",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM41edCd",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "We shouldn't completely cut off activity retries in tests because a lot of users would want to test and verify the retries' count, behavior, or even potential side effects.\r\nIf we don't want to have retries in tests, we can specify ActivityOptions#RetryOptions#maxRetries=1 if we are executing in a unit test as I described before.\r\nBut I agree, that having such code OR some tricky options injection/override just to get this behavior in tests can be a little annoying for the application developers. So, your proposal is to provide this functionality (limiting the number of retries to 1 for all activities) as a part of our test framework to make it handier, correct?",
+      "createdAt": "2021-08-11T21:45:49Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/626#issuecomment-897175709",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM41egTE",
+      "author": {
+        "login": "tsurdilo"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yes, I think that would be nice if possible:\r\nAbility to overwrite whole/parts of the activity options in the test (when ActivityOptions are defined inside the tested workflow code).\r\n\r\nI think this could help also with some scenarios where for example you have ActivityOptions that specify a different task queue and you have to create extra workers for it in your tests, so ability to default all task queues for tested workflow and all its activities to the one created automatically by TestWorkflowRule, but that might be asking too much, idk :) ",
+      "createdAt": "2021-08-11T21:59:25Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/626#issuecomment-897189060",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-08-11T18:40:09Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 626,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Excessive retries in test workflow environment",
+  "updatedAt": "2024-12-17T21:19:17Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/626"
+}

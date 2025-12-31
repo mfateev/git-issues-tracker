@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\nWe have logic in Deterministic Runner detecting the fact that a promise failed, but the exception or reason of the cancellation was never accessed.\r\nIf the cancellation scope is canceled, it should be normal and expected to don't access the promises created in this scope and the logic above shouldn't be noisy about it.\r\n\r\n## Actual Behavior\r\n\r\nIf cancel a cancellation scope and never read its Promises, Deterministic Runner will make a noisy log about it, while it's an expected pattern:\r\n```\r\n12:46:38.400 [...] WARN  i.t.i.sync.DeterministicRunnerImpl - Promise completed with exception and was never accessed. The ignored exception:\r\nio.temporal.failure.CanceledFailure: Canceled by request\r\n\tat java.base/java.lang.Thread.getStackTrace(Thread.java:1596)\r\n\tat io.temporal.internal.sync.CompletablePromiseImpl.throwFailure(CompletablePromiseImpl.java:136)\r\n\tat io.temporal.internal.sync.CompletablePromiseImpl.getImpl(CompletablePromiseImpl.java:95)\r\n\tat io.temporal.internal.sync.CompletablePromiseImpl.get(CompletablePromiseImpl.java:74)\r\n\tat io.temporal.internal.sync.DeterministicRunnerImpl.close(DeterministicRunnerImpl.java:309)\r\n\tat io.temporal.internal.sync.SyncWorkflow.close(SyncWorkflow.java:165)\r\n\tat io.temporal.internal.replay.ReplayWorkflowExecutor.close(ReplayWorkflowExecutor.java:145)\r\n\tat io.temporal.internal.replay.ReplayWorkflowRunTaskHandler.close(ReplayWorkflowRunTaskHandler.java:242)\r\n\tat io.temporal.internal.replay.WorkflowExecutorCache.lambda$new$0(WorkflowExecutorCache.java:56)\r\n\tat com.google.common.cache.LocalCache.processPendingNotifications(LocalCache.java:1810)\r\n\tat com.google.common.cache.LocalCache$Segment.runUnlockedCleanup(LocalCache.java:3463)\r\n\tat com.google.common.cache.LocalCache$Segment.postWriteCleanup(LocalCache.java:3439)\r\n\tat com.google.common.cache.LocalCache$Segment.remove(LocalCache.java:3073)\r\n\tat com.google.common.cache.LocalCache.remove(LocalCache.java:4247)\r\n\tat com.google.common.cache.LocalCache$LocalManualCache.invalidate(LocalCache.java:4887)\r\n\tat io.temporal.internal.replay.WorkflowExecutorCache.invalidate(WorkflowExecutorCache.java:140)\r\n\tat io.temporal.internal.replay.WorkflowExecutorCache.getOrCreate(WorkflowExecutorCache.java:75)\r\n\tat io.temporal.internal.replay.ReplayWorkflowTaskHandler.getOrCreateWorkflowExecutor(ReplayWorkflowTaskHandler.java:182)\r\n\tat io.temporal.internal.replay.ReplayWorkflowTaskHandler.handleWorkflowTaskWithEmbeddedQuery(ReplayWorkflowTaskHandler.java:200)\r\n\tat io.temporal.internal.replay.ReplayWorkflowTaskHandler.handleWorkflowTask(ReplayWorkflowTaskHandler.java:114)\r\n\tat io.temporal.internal.worker.WorkflowWorker$TaskHandlerImpl.handle(WorkflowWorker.java:319)\r\n\tat io.temporal.internal.worker.WorkflowWorker$TaskHandlerImpl.handle(WorkflowWorker.java:279)\r\n\tat io.temporal.internal.worker.PollTaskExecutor.lambda$process$0(PollTaskExecutor.java:73)\r\n```\r\n\r\n## Steps to Reproduce the Problem",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-08-15T16:57:32Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 631,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 2
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "DeterministicRunner is noisy about not accessed cancelled scopes and timers",
+  "updatedAt": "2024-12-17T21:26:56Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/631"
+}

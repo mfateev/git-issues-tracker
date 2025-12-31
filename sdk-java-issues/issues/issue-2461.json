@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNDkzMg==",
+    "is_bot": false,
+    "login": "antmendoza",
+    "name": "Antonio Mendoza Pérez"
+  },
+  "body": "### Is your feature request related to a problem? Please describe.\n\nUsers would like the ability to programmatically detect when the deadlock detector has triggered (and caused the workflow task to fail), so they can instruct their code to stop processing. This would be used to write defensive logic to prevent zombie threads or loops from running after the workflow task has failed. This typically happens when there’s a bug in user code, such as a spinning loop that runs indefinitely.\n\n<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->\n\n### Describe the solution you'd like\n\nCurrently, the SDK throws a DestroyWorkflowThreadError when a workflow API (e.g., sleep, scheduleActivity) is used after the deadlock detector has been triggered.\n\nIt would be great to have a method similar to `Thread.currentThread().isInterrupted()` that returns true (or an exception). This would allow developers to break out of loops or take alternate actions. \n\n<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->\n\n### Additional context\n\n<!-- Add any other context or screenshots about the feature request here. -->\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6kYs5L",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Alternatively we should consider an interruption point they can put in their loops (e.g. `CancellationScope.current().throwCanceled()` or equivalent). A boolean may not be good enough, we may prefer that the thrown error be bubbled out.",
+      "createdAt": "2025-03-27T12:55:45Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2461#issuecomment-2757938763",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-03-27T11:47:00Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2461,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "[Feature Request] Utility to detect when deadlock detector triggers",
+  "updatedAt": "2025-03-27T12:55:46Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2461"
+}

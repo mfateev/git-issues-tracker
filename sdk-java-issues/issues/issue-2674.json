@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjgyNjQ4NTg=",
+    "is_bot": false,
+    "login": "gauravthadani",
+    "name": "Gaurav Thadani"
+  },
+  "body": "\nTestWorkflowExtension throws diagnostics error when\n- using `useExternalService`\n- and tests Fail\n\nhttps://github.com/temporalio/sdk-java/blob/master/temporal-testing/src/main/java/io/temporal/testing/TestWorkflowEnvironmentInternal.java#L262\n\n## Expected Behavior\n\n```\n\nFailed tests\n.\n.\n.\n\n```\n\n\n## Actual Behavior\n\n```\njava.lang.IllegalStateException: getDiagnostics is not supported with the external service\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:512)\n```\n\n## Steps to Reproduce the Problem\n\n```\nclass SampleTest {\n\n  @RegisterExtension\n  public static final TestWorkflowExtension workflowExtension =\n      TestWorkflowExtension.newBuilder().setDoNotStart(true).useExternalService().build();\n\n  @Test\n  void sampleTest(TestWorkflowEnvironment environment) {\n    Assert.assertEquals(1, 2);\n  }\n}\n```\n\n## Specifications\n\n  - Version:\n  - Platform:\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM7IFsko",
+      "author": {
+        "login": "maciejdudko"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Hi @gauravthadani, thank you for opening this issue. We'll discuss it on our next triage meeting.",
+      "createdAt": "2025-10-01T15:19:54Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2674#issuecomment-3356936488",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-09-29T00:19:01Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2674,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "TestEnvironment with external service - failing tests throws IllegalStateException errors",
+  "updatedAt": "2025-10-01T15:19:54Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2674"
+}

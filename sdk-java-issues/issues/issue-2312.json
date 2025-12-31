@@ -1,0 +1,58 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNTA0MDQ5",
+    "is_bot": false,
+    "login": "Quinn-With-Two-Ns",
+    "name": "Quinn Klassen"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\n`Workflow.await(duration, condition)` should automatically cancel the timer when the condition is resolved\r\n\r\n**Describe alternatives you've considered**\r\nUser can currently do this manually with a cancellation scope around the `await`\r\n\r\n**Additional context**\r\nThis will need to be versioned with SDK flags to avoid breaking determinism.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6Yi8Mw",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Implementer should also verify that if the condition is immediately satisfied no timer is created",
+      "createdAt": "2024-12-23T09:31:55Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 2
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2312#issuecomment-2559296304",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-11-08T23:46:05Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2312,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "`Workflow.await(duration, condition)` does not automatically cancel the timer if the condition is resolved",
+  "updatedAt": "2024-12-23T09:31:57Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2312"
+}

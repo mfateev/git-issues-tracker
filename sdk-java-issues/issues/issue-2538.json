@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "https://github.com/temporalio/sdk-java/blob/master/temporal-sdk/src/main/java/io/temporal/internal/sync/DeterministicRunnerImpl.java#L336-L347\n\nWould be useful to have a counter metric for this. Would allow detection so can fix in code if was oversight not to wait on promise,or ignore warning via something like\n\npromise.exceptionally(e->null);\nor promise.handle((ex, failure) -> null);\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-05-27T20:38:43Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2538,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "[Feature Request]  Add counter metric for unaccessed failed promises",
+  "updatedAt": "2025-05-27T20:50:05Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2538"
+}

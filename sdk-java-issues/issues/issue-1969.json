@@ -1,0 +1,89 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjQ1MjM5NTU=",
+    "is_bot": false,
+    "login": "longquanzheng",
+    "name": "Quanzheng Long"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nCurrently signaling a closed workflow will throw this exception, but there are several cases:\r\n* Workflow really doesn't exist (or deleted after retention)\r\n* Workflow is completed/terminated/etc (closed)\r\n\r\nAs an application, we sometimes need to handle the two cases differently(error handling). \r\n\r\n**Describe the solution you'd like**\r\nThe exception should just return \"WorkflowStatus\" inside. \r\n\r\n**Describe alternatives you've considered**\r\nCurrently we have to make a DescribeWorkflowExecution API call to achieve this. This requires more code, more error handling, and higher latency . \r\n\r\n**Additional context**\r\nAdd any other context or screenshots about the feature request here.\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5wqiWb",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Currently the server does not send back this information on a signal to a not running workflow. So to clarify, is the ask that the Temporal server sends back the `WorkflowExecutionStatus` on a signal to a not running workflow?",
+      "createdAt": "2024-01-13T00:50:33Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1969#issuecomment-1890198939",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5wqqHC",
+      "author": {
+        "login": "longquanzheng"
+      },
+      "authorAssociation": "NONE",
+      "body": "Yes 👍 it needs server support\r\n\r\n\r\nThanks,\r\nQuanzheng\r\n\r\n\r\nOn Fri, Jan 12, 2024 at 4:50 PM Quinn Klassen ***@***.***>\r\nwrote:\r\n\r\n> Currently the server does not send back this information on a signal to a\r\n> not running workflow. So to clarify, is the ask that the Temporal server\r\n> sends back the WorkflowExecutionStatus on a signal to a not running\r\n> workflow?\r\n>\r\n> —\r\n> Reply to this email directly, view it on GitHub\r\n> <https://github.com/temporalio/sdk-java/issues/1969#issuecomment-1890198939>,\r\n> or unsubscribe\r\n> <https://github.com/notifications/unsubscribe-auth/ABCQPM3DURANKBM4NOAMTLTYOHK6HAVCNFSM6AAAAABBXCIIUWVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTQOJQGE4TQOJTHE>\r\n> .\r\n> You are receiving this because you authored the thread.Message ID:\r\n> ***@***.***>\r\n>\r\n",
+      "createdAt": "2024-01-13T01:15:13Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1969#issuecomment-1890230722",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5w4UTU",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I could transfer this issue to the https://github.com/temporalio/temporal repo, but its title and description are very Java SDK specific. Rather, can you open an issue there asking for this information to be present on the not-found details of workflow calls?",
+      "createdAt": "2024-01-16T14:07:06Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1969#issuecomment-1893811412",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5w6W_p",
+      "author": {
+        "login": "longquanzheng"
+      },
+      "authorAssociation": "NONE",
+      "body": "> I could transfer this issue to the https://github.com/temporalio/temporal repo, but its title and description are very Java SDK specific. Rather, can you open an issue there asking for this information to be present on the not-found details of workflow calls?\r\n\r\nyeah: https://github.com/temporalio/temporal/issues/5303\r\n",
+      "createdAt": "2024-01-16T19:04:32Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1969#issuecomment-1894346729",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-01-11T20:15:28Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1969,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Provide WorkflowStatus in WorkflowNotFoundException when signing a workflow",
+  "updatedAt": "2024-01-16T19:04:33Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1969"
+}

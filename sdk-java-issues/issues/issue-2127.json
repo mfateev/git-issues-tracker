@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUyMjA1",
+    "is_bot": false,
+    "login": "dandavison",
+    "name": "Dan Davison"
+  },
+  "body": "Using the Python SDK, I did\r\n\r\n1. `handle = await start_workflow()`\r\n2. `await handle.signal()`\r\n3. run worker\r\n\r\n## Expected Behavior\r\nI expect Python to process a `signal_workflow` job and then a `start_workflow` in the activation for the first WFT.\r\n\r\n## Actual Behavior\r\nNearly always, we see the expected behavior. Occasionally (on `macos-intel` builds) Python processes a `start_workflow` activation job first. Almost certainly this is because the first WFT has no signal in it, although I have not yet investigated further and actually proved that (the test in question exits immediately if it sees `start_workflow` before `signal_workflow`).\r\n\r\n## Steps to Reproduce the Problem\r\nRun the `sdk-python` test `tests/worker/test_workflow.py::test_unfinished_signal_handler_with_workflow_failure applying job` under `--workflow-environment=time-skipping` multiple times on a GitHub `macos-intel` runner until you see this failure.\r\n\r\nNote: There are two variants of the python test; one involves the workflow throwing `ApplicationError`, and the other involves the client sending a cancel request, again before starting the worker. Interestingly, I've only seen the error described in this ticket for the  `ApplicationError` variant of the test, suggesting that handling the cancel request somehow causes the test server to include all of them in the first WFT, whereas without the cancel request sometimes the signal event is omitted.\r\n\r\nSee failures in build history of https://github.com/temporalio/sdk-python/pull/556",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2024-06-26T12:38:09Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2127,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Test server sometimes fails to include signal in first WFT",
+  "updatedAt": "2024-11-20T20:59:46Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2127"
+}

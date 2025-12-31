@@ -1,0 +1,183 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNjM5Ng==",
+    "is_bot": false,
+    "login": "cretz",
+    "name": "Chad Retz"
+  },
+  "body": "**Describe the solution you'd like**\r\n\r\nNeed to several things:\r\n\r\n* May need to slightly abstract workflow concurrency impl to support (but may not)\r\n* Update Kotlin project to add support for Kotlin coroutines in workflows and activities as Kotlin `suspend fun` calls (may need to be opt-in in some way). There is an internal POC implementation from @mfateev we can leverage here.\r\n* Create a new Java 21+ only \"temporal-virtual-threads\" project that uses virtual threads for workflow concurrency and runs activities in virtual threads (may need to be opt-in in some way)\r\n\r\nThis is kinda a big project, so some discussion should happen first. The above is just speculation about what to do.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5sSuIv",
+      "author": {
+        "login": "rocketraman"
+      },
+      "authorAssociation": "NONE",
+      "body": "As a Kotlin user who is getting started with Temporal, I would love to see this. Calls like `Workflow.sleep()` block a platform thread, which isn't scalable and is annoying in principle even where its not an actual scalability issue :-)\r\n\r\nKotlin coroutines, and more recently with the release of JDK 21 and Java virtual threads, are a perfect solution to this problem as they take up almost no resources while blocked on workflow sleep or activity calls.\r\n\r\nI know nothing about the Java SDK internals, but looking at it from the outside in, the most basic abstraction of an async call is a callback. These are easy to bridge to suspending calls in Kotlin, and presumably to Java fibers. So if the SDK exposed async versions of its API that took a callback to resume the workflow execution, this would be easy to turn back into regular synchronous but non-blocking code via coroutines, and presumably fibers.\r\n\r\nIssues which are probably duplicates or at least related to this one, based on the search I just did:\r\n* https://github.com/temporalio/sdk-java/issues/1849\r\n* https://github.com/temporalio/sdk-java/issues/778\r\n",
+      "createdAt": "2023-11-17T17:50:36Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 6
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-1816846895",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6xtn8v",
+      "author": {
+        "login": "pol-osei"
+      },
+      "authorAssociation": "NONE",
+      "body": "Did anyone ever figure out a good way of doing this?",
+      "createdAt": "2025-06-17T19:03:18Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-2981527343",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6xtvcj",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "The Temporal Java SDK already supports Java Virtual Threads, there are currently no active plans to support Kotlin coroutines at this time.",
+      "createdAt": "2025-06-17T19:12:58Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-2981558051",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6xuEad",
+      "author": {
+        "login": "rocketraman"
+      },
+      "authorAssociation": "NONE",
+      "body": "> The Temporal Java SDK already supports Java Virtual Threads\n\n👍 \n\n> there are currently active plans to support Kotlin coroutines at this time.\n\n@Quinn-With-Two-Ns The \"at this time\" makes this confusing. Did you mean \"**no** active plans to support Kotlin coroutines at this time\" here?",
+      "createdAt": "2025-06-17T19:52:53Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-2981643933",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6xuPqM",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yes thank you, updated my comment",
+      "createdAt": "2025-06-17T20:07:30Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-2981689996",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7YNAPh",
+      "author": {
+        "login": "smocherla-brex"
+      },
+      "authorAssociation": "NONE",
+      "body": "I still think supporting coroutines as a first class async-primitive in the Temporal SDK would be a important/highly useful feature. The problem with using Temporal Java SDK in Kotlin is we have to bridge the workflow/activity context thread locals into a coroutine context for proper context propagation and cancellation when using it in Kotlin, and it makes it a lot more work for consumers of the SDK. It's not clear to me that using virtual threads in itself solves that problem.",
+      "createdAt": "2025-12-08T14:48:31Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-3627287521",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7buawX",
+      "author": {
+        "login": "alekseev-a-v"
+      },
+      "authorAssociation": "NONE",
+      "body": "I would like to work on this (suspend fun support)",
+      "createdAt": "2025-12-23T11:54:12Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "ROCKET",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-3686378519",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM7cPG1W",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "@alekseev-a-v Thank you for the offer, but this is not something we are accepting contributions for at this time",
+      "createdAt": "2025-12-28T18:33:03Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1845#issuecomment-3694947670",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2023-08-16T16:00:21Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1845,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 15
+      }
+    },
+    {
+      "content": "EYES",
+      "users": {
+        "totalCount": 7
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Support different coroutine models in workflows and activities",
+  "updatedAt": "2025-12-28T18:33:03Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1845"
+}

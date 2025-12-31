@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjEwODgwNDc=",
+    "is_bot": false,
+    "login": "rpost",
+    "name": "Radek Postołowicz"
+  },
+  "body": "## Expected Behavior\n\nI'm using temporal-testing and when I query running workflows:\n\n```java\n        List<WorkflowExecutionInfo> executions = client.getWorkflowServiceStubs()\n                .blockingStub()\n                .listOpenWorkflowExecutions(\n                        ListOpenWorkflowExecutionsRequest.newBuilder()\n                                .setNamespace(\"default\")\n                                .build()\n                )\n                .getExecutionsList();\n\n        executions.forEach(execution -> {\n            System.err.println(execution.getExecution().getWorkflowId());\n            System.err.println(execution.getMemo());\n        });\n```\n\nmemo is empty despite being filled in workflow.\n\n## Actual Behavior\n\nThe same piece of code run with `setUseExternalService(true)` and `temporal server start-dev` running outputs memo-s as expected. \n\n## Steps to Reproduce the Problem\n\nI prepared reproducer project: https://github.com/rpost/temporal-test-memo/blob/main/src/test/java/rpost/MemoTest.java\n\n## Specifications\n\n  - Version: io.temporal:temporal-testing:1.28.4\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-04-17T08:16:27Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2480,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Memo-s not present in listOpenWorkflowExecutions when running with temporal-testing",
+  "updatedAt": "2025-05-26T14:45:37Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2480"
+}

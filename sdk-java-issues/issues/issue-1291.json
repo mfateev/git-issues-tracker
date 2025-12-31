@@ -1,0 +1,87 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOBaJ48w",
+    "is_bot": false,
+    "login": "ddavidyuk",
+    "name": ""
+  },
+  "body": "## Expected Behavior\r\nThe unit test below should always pass\r\n\r\n## Actual Behavior\r\nSometimes the test fails with io.temporal.client.WorkflowNotFoundException. Changing `Workflow.await(condition)` to `Workflow.await(Duration.ofSeconds(100), condition)` in `TestWorkflowImpl` seems to fix the problem, but not sure why.\r\nAttached are the TRACE logs for io.temporal for when the issue reproduces: [bug.log](https://github.com/temporalio/sdk-java/files/9004428/bug.log)\r\n\r\n\r\n## Steps to Reproduce the Problem\r\nRun the following test:\r\n```java\r\nimport io.temporal.activity.ActivityOptions;\r\nimport io.temporal.client.WorkflowClient;\r\nimport io.temporal.client.WorkflowOptions;\r\nimport io.temporal.client.WorkflowStub;\r\nimport io.temporal.testing.TestWorkflowEnvironment;\r\nimport io.temporal.testing.TestWorkflowExtension;\r\nimport io.temporal.worker.Worker;\r\nimport io.temporal.worker.WorkflowImplementationOptions;\r\nimport io.temporal.workflow.*;\r\nimport org.junit.jupiter.api.BeforeEach;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.junit.jupiter.api.extension.RegisterExtension;\r\n\r\nimport java.time.Duration;\r\nimport java.util.*;\r\nimport java.util.concurrent.TimeUnit;\r\nimport java.util.concurrent.TimeoutException;\r\nimport java.util.stream.IntStream;\r\n\r\nimport static org.junit.jupiter.api.Assertions.assertEquals;\r\n\r\npublic class WorkflowExecutionTimeoutTest {\r\n    @RegisterExtension\r\n    public static final TestWorkflowExtension TEST_WORKFLOW_EXTENSION =\r\n            TestWorkflowExtension.newBuilder()\r\n                    .setDoNotStart(true)\r\n                    .build();\r\n\r\n    private ProcessEventsWorkflow processWorkflowStub;\r\n    private TestWorkflow testWorkflowStub;\r\n\r\n    @BeforeEach\r\n    public void setUpTemporal(TestWorkflowEnvironment testEnv,\r\n                              Worker worker,\r\n                              WorkflowClient workflowClient,\r\n                              WorkflowOptions workflowOptions) {\r\n        worker.registerWorkflowImplementationTypes(\r\n                WorkflowImplementationOptions.newBuilder()\r\n                        .setDefaultActivityOptions(ActivityOptions.newBuilder()\r\n                                .setStartToCloseTimeout(Duration.ofSeconds(10))\r\n                                .build())\r\n                        .build(),\r\n                ProcessEventsWorkflowImpl.class,\r\n                TestWorkflowImpl.class);\r\n\r\n        testEnv.start();\r\n\r\n        processWorkflowStub = workflowClient.newWorkflowStub(ProcessEventsWorkflow.class,\r\n                WorkflowOptions.newBuilder(workflowOptions)\r\n                        .setWorkflowId(\"ProcessEventsWorkflow\")\r\n                        .build());\r\n        testWorkflowStub = workflowClient.newWorkflowStub(TestWorkflow.class,\r\n                WorkflowOptions.newBuilder(workflowOptions)\r\n                        .setWorkflowId(\"TestWorkflow\")\r\n                        .build());\r\n    }\r\n\r\n    @Test\r\n    public void testBug() throws TimeoutException {\r\n        // create artificial load to reproduce the bug - seems to help, but still the bug does not always reproduce\r\n        IntStream.range(0, 20).forEach(index -> new Thread(this::busyWork).start());\r\n\r\n        WorkflowClient.start(testWorkflowStub::execute);\r\n\r\n        WorkflowStub.fromTyped(processWorkflowStub).signalWithStart(\"addEvent\",\r\n                new Object[]{\"testEvent\"},\r\n                new Object[]{\"TestWorkflow\", Duration.ofSeconds(1)});\r\n        WorkflowStub.fromTyped(processWorkflowStub).getResult(10, TimeUnit.SECONDS, Object.class);\r\n\r\n        testWorkflowStub.stop(); // <----- fails here\r\n        WorkflowStub.fromTyped(testWorkflowStub).getResult(10, TimeUnit.SECONDS, Object.class);\r\n\r\n        assertEquals(Arrays.asList(\"testEvent\"), testWorkflowStub.getEvents());\r\n    }\r\n\r\n    private void busyWork() {\r\n        int count = 100000000;\r\n        int sleepIndex = (int) (Math.random() * count);\r\n        while(count-- > 0) {\r\n            if (sleepIndex == count) { // yield at random intervals\r\n                try {\r\n                    Thread.sleep(100);\r\n                } catch (InterruptedException e) {\r\n                    throw new RuntimeException(e);\r\n                }\r\n            }\r\n\r\n            Math.sqrt(count);\r\n        }\r\n    }\r\n\r\n\r\n    @WorkflowInterface\r\n    public interface ProcessEventsWorkflow {\r\n        @WorkflowMethod\r\n        void execute(String targetWorkflowId, Duration keepAliveTimeout);\r\n        @SignalMethod\r\n        void addEvent(String event);\r\n    }\r\n\r\n    public static class ProcessEventsWorkflowImpl implements ProcessEventsWorkflow {\r\n        private final Queue<String> events = new LinkedList<>();\r\n\r\n        @Override\r\n        public void execute(String targetWorkflowId, Duration keepAliveTimeout) {\r\n            while (true) {\r\n                while (!events.isEmpty()) {\r\n                    String event = events.poll();\r\n                    Workflow.newExternalWorkflowStub(TestWorkflow.class, targetWorkflowId).onEvent(event);\r\n                }\r\n\r\n                Workflow.await(keepAliveTimeout, () -> !events.isEmpty());\r\n                if (events.isEmpty()) {\r\n                    return;\r\n                }\r\n            }\r\n        }\r\n\r\n        @Override\r\n        public void addEvent(String event) {\r\n            events.add(event);\r\n        }\r\n    }\r\n\r\n    @WorkflowInterface\r\n    public interface TestWorkflow {\r\n        @WorkflowMethod\r\n        void execute();\r\n\r\n        @SignalMethod\r\n        void stop();\r\n\r\n        @SignalMethod\r\n        void onEvent(String event);\r\n\r\n        @QueryMethod\r\n        List<String> getEvents();\r\n    }\r\n\r\n    public static class TestWorkflowImpl implements TestWorkflow {\r\n        private boolean stop = false;\r\n        private final List<String> events = new ArrayList<>();\r\n\r\n        @Override\r\n        public void execute() {\r\n            Workflow.await(() -> stop);\r\n        }\r\n\r\n        @Override\r\n        public void stop() {\r\n            stop = true;\r\n        }\r\n\r\n        @Override\r\n        public void onEvent(String event) {\r\n            events.add(event);\r\n        }\r\n\r\n        @Override\r\n        public List<String> getEvents() {\r\n            return events;\r\n        }\r\n    }\r\n}\r\n\r\n```\r\n\r\n## Specifications\r\n\r\n  - Version: Temporal Java SDK 1.11.0, 1.12.0, 1.13.0 (reproduces on all of these), Temporal Server 1.16.2\r\n  - Platform: Java\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5FtXOS",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Confirm the issue. It's related to the peculiarities of time skipping, how it's implemented, and an absence of total order between some operations in Temporal.\r\nWhen you create a load, the client code doesn't stop time skipping soon enough and the time gets advanced A LOT to the workflow task timeout which completed the workflow and doesn't allow the signal to pass through. And there is no way for the server to make sure that the code that is supposed to be executed by the client after a long poll is returned is actually finished executing.\r\n\r\nThe fix here is not trivial. It's also related only to the test framework and not the core functionality.\r\nI will think about the best fix here, but I have to temporarily deprioritize it behind some other tasks affecting an actual production functionality.",
+      "createdAt": "2022-06-29T04:25:42Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1291#issuecomment-1169519506",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5FtjG_",
+      "author": {
+        "login": "ddavidyuk"
+      },
+      "authorAssociation": "NONE",
+      "body": "Thank you! Could you confirm if the suggested workaround should work? If I change Workflow.await(condition) to Workflow.await(timeout, condition), the issue seems to stop reproducing at least locally. Is this a reliable workaround?",
+      "createdAt": "2022-06-29T06:02:58Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1291#issuecomment-1169568191",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5FvWDm",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "No, it's not. The same \"bug\" or... limitation will trigger your `Workflow.await(timeout, condition)` earlier than you expect it, like its triggering workflow timeout now. I think the only gentle workaround here is not to set Workflow Timeout of any kind or don't use time skipping for such a test.",
+      "createdAt": "2022-06-29T14:16:18Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1291#issuecomment-1170039014",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-06-28T20:04:01Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1291,
+  "reactionGroups": [
+    {
+      "content": "EYES",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Workflow execution with Workflow.await(condition) times out in unit tests with enabled time skipping",
+  "updatedAt": "2024-11-19T19:05:16Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1291"
+}

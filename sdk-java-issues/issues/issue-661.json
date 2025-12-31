@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "GrpcRetryer retry method by its nature is expected to throw InterruptedException because they\r\n1. perform waiting on a timer \r\n2. could get an Interrupted flag from GRPC calls with a StatusRuntimeException exception with CANCELLED status\r\n\r\nNow handling of InterruptedExceptions is brittle:\r\n1. we hide the Interrupted exceptions from the timer and we raise an Interrupted flag instead.\r\n2. We consider StatusRuntimeException with CANCELLED from GRPC as non-retryable.\r\n\r\nSo, code that uses GrpcRetryer should expect a non-Interrupted Exception + Interrupted flag if interruption happens.\r\nThere is nothing wrong with the model per se if the users are very aware of the potential interrupted flag and process it correctly.\r\nBut to make code more idiomatic and enforce the correct handling of InterruptedException and awareness of its possibility inside GrpcRetryer, we should change GrpcRetryer methods to throw explicit InterruptedExceptions.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-08-23T15:58:47Z",
+  "labels": [],
+  "milestone": null,
+  "number": 661,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Sync versions of GrpcRetryer should throw InterruptedException ",
+  "updatedAt": "2024-12-17T21:18:09Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/661"
+}

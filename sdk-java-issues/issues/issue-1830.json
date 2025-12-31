@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUyNDgz",
+    "is_bot": false,
+    "login": "tylercunnion",
+    "name": "Tyler Cunnion"
+  },
+  "body": "## Expected Behavior\r\n\r\nWhen using WorkflowReplayer with the TestWorkflowEnvironment, I expect missing/misconfigured LocalActivityOptions to throw a useful error, similar to the one presented when missing regular ActivityOptions:\r\n\r\n```\r\nCaused by: java.lang.IllegalArgumentException: Both StartToCloseTimeout and ScheduleToCloseTimeout aren't specified for ImportInitialization activity. Please set at least one of the above through the ActivityStub or WorkflowImplementationOptions.\r\n```\r\n\r\n## Actual Behavior\r\n\r\nThe exception presented is fairly cryptic:\r\n```\r\njava.lang.RuntimeException: query failure for workflow_id: \"workflow_id_in_replay\"\r\nrun_id: \"run_id_in_replay\", queryType=__replay_only, args=Optional.empty, error=java.lang.Error: closed\r\n```\r\n\r\nStepping through shows that the cause is in the [validateAndBuildWithDefaults](https://github.com/temporalio/sdk-java/blob/c2b941a0fb8b2cfe907ec1fdf9d4b9637cf32179/temporal-sdk/src/main/java/io/temporal/activity/LocalActivityOptions.java#L222) method - but this IllegalArgumentException is somehow swallowed (the next step jumps to this [finally block in CancellationScopeImpl](https://github.com/temporalio/sdk-java/blob/c2b941a0fb8b2cfe907ec1fdf9d4b9637cf32179/temporal-sdk/src/main/java/io/temporal/internal/sync/CancellationScopeImpl.java#L104) ). If this exception ended up being displayed the problem would have been pretty obvious and quick to solve.\r\n\r\n## Steps to Reproduce the Problem\r\n\r\n  1. Write and run a workflow that uses a Local Activity. (It MAY be necessary to run inside a CancellationScope, haven't tested extensively)\r\n  1. Create a TestWorkflowEnvironment that does not have default LocalActivityOptions configured, and use it with WorkflowReplayer to replay the workflow history.\r\n\r\n## Specifications\r\n\r\n  - Version: observed in SDK v1.18.2 and 1.20.1\r\n  - Platform: Mac\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-07-31T22:50:45Z",
+  "labels": [],
+  "milestone": null,
+  "number": 1830,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "WorkflowReplayer throws unclear exception when LocalActivityOptions are misconfigured",
+  "updatedAt": "2023-07-31T22:50:45Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1830"
+}

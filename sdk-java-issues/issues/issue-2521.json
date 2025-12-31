@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjI4ODU2MjQz",
+    "is_bot": false,
+    "login": "madhav2302",
+    "name": "Madhav Sodhani"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\nI would like to write unit tests on workflow code, and would like to access workflow for assertions in test env. \n\neg. \n```\nclass WorkflowImpl implements Workflow {\n    public String value = \"something\";\n\n//// more workflow code\n}\n```\n\nand the value is updated in the workflow code. I would like to add access the values. \n\nCurrently there is no easy way to access the workflow object, as we simply register workflow class as type\n\n**Describe the solution you'd like**\nI would like to access the workflow object at any point in time for test env, and it should provide me an object of workflow with latest state of workflow.\n\nLike\n\n```\nvar workflowImpl = (WorkflowImpl) testWorkflowClient.getWorkflowObject(\"workflowId\", \"workflowRunId\");\nassertThat(workflowImpl.value, is(\"some-assertion-value\"));\n```\n\n**Describe alternatives you've considered**\nThe other method we have considered is to add a QueryMethod in the workflow but we don't want to add QueryMethod in production code at all. \n\nWe can surely do it for tests as well as mentioned at https://temporalio.slack.com/archives/CTT84KXK9/p1747167261307199?thread_ts=1747086843.705119&cid=CTT84KXK9, but it can cause issues when you have multiple variables, and adding QueryMethod for each a lot, and managing QueryMethod for testing can be cumbersome. \n\n**Additional context**\nDiscussed this previously at Github - https://temporalio.slack.com/archives/CTT84KXK9/p1747086843705119\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-05-13T20:54:07Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2521,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Workflow instance should be accessible in test environment for simple assertion",
+  "updatedAt": "2025-05-13T20:54:07Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2521"
+}

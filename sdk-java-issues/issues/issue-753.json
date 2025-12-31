@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjEwODc0MQ==",
+    "is_bot": false,
+    "login": "robzienert",
+    "name": "Rob Zienert"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nTuning activity timeouts in workflows involves rebuilding and deploying an application, which can be an unacceptably long turnaround time depending on the urgency of the timeout change (e.g. in response to an incident). Some workers may also have a long startup / awaitTermination cycle, so the current methodology of updating a dynamic config and then redeploying is also too long of a loop.\r\n\r\n**Describe the solution you'd like**\r\n`ActivityOptions` provided via `WorkerImplementationOptions` to support a `Supplier<ActivityOptions>` would help allow us to plugin a dynamic config store to update workers' activity options, specifically the timeouts, on a faster cycle.\r\n\r\n**Describe alternatives you've considered**\r\n- Changing the configs in code, redeploying\r\n- Changing configs and then restarting the workers\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-09-22T17:17:11Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 753,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Offer ActivityOptions via Supplier to support dynamic configs",
+  "updatedAt": "2021-09-22T17:17:11Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/753"
+}

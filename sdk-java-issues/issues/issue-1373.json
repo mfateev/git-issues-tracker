@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nThe user starts a child workflow on a different namespace or task queue, so it will be handled by a different worker.\r\nThis different worker may have a completely different configuration of data converters.\r\nSuch a situation is pretty legit if we have two different teams developing different modules listening on different task queues.\r\nRight now there is no way for a parent workflow to specify a different data converter for such a child workflow invocation.\r\n\r\n**Describe the solution you'd like**\r\n\r\n`ChildWorkflowOptions` should allow specifying a custom data converter that may be different from the data converter of the current worker.\r\n\r\n**Describe alternatives you've considered**\r\nCurrently, users may work around this problem by creating a `PayloadConverter` that applies only to an input class of the child workflow. This approach is hacky and has limitations. \r\n\r\n**Additional context**\r\nThe same applies to ActivityOptions. Activities can't be scheduled on another namespace but could be on a different task queue. ",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5In2el",
+      "author": {
+        "login": "geirhoe"
+      },
+      "authorAssociation": "NONE",
+      "body": "We have a setup with multiple workers, hosted by different parties, using separate queues for each workflow\r\nWorker A - hosts the main workflow, having keys p1 and s1\r\nWorker B - hosts a child workflow doing work needed by the main workflow on worker A, having keys p2 and s2\r\n\r\nAll communication between the different workers and clients must be encrypted and protected.\r\n\r\nA client starts the main workflow using encrypted payload (using p1) that is decrypted on worker A using a payloadconverter with S1, giving the main workflow the information it needs.\r\nWhen the main workflow on worker A starts the child workflow on worker B, the payload needed for the child workflow must be encrypted using P2 on worker A before leaving the server.\r\nOnce worker B receives this request, it decrypts the payload using S2, and starts the child workflow to do its thing.\r\nThe result from the child workflow must then be encoded using P1, and sent back to the main workflow decrypting it using S1 once the result is back on worker A.\r\n\r\nCurrently there is no way of specifying a custom dataconverter/payloadconverter to be used for the child workflow when starting it in the main workflow on worker A, leaving me to use a hack to get it working.",
+      "createdAt": "2022-08-17T19:27:01Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1373#issuecomment-1218406309",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-08-17T19:09:57Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1373,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Child Workflow creation API should allow user to specify a custom data converter",
+  "updatedAt": "2022-10-28T21:26:36Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1373"
+}

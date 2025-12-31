@@ -1,0 +1,134 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nThe activity type name is automatically generated from its method name.  Different users of the SDK have different opinions on how this name should be generated. For example, see [this forum post](url).\r\n\r\n**Describe the solution you'd like**\r\nThe proposal is to make activity name generation pluggable through ClientOptions and WorkerOptions. This way each user can implement its own standard to name activities automatically.\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDg0ODM2Njk5Nw==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Also consider feature request made in #467 we might be able to come up with a solution that addresses both at the same time.",
+      "createdAt": "2021-05-26T00:21:35Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-848366997",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5cmH6e",
+      "author": {
+        "login": "kkuntim"
+      },
+      "authorAssociation": "NONE",
+      "body": "We also need this feature; any suggestion on how to implement the same.\r\n",
+      "createdAt": "2023-05-18T18:57:03Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-1553497758",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5cmPGq",
+      "author": {
+        "login": "kkuntim"
+      },
+      "authorAssociation": "NONE",
+      "body": "Capturing our requirement. \r\n1. Say I have a DB table migration activity (\"migrateTable\") and based on need we might end up calling the same activity multiple times for migrating n Tables \r\n2.  We would like to see the activities as \"migrateTable1\", \"migrateTable2\"... instead of \"migrateTable \r\n3. We have defined a name for Activity (using Annotation) \r\n4. We are able to change the AcvityName in Workflow Implementation code by overriding name Annotation value.\r\n5. The challenge lies in Registering and Starting workers; as we might not know how many times we will end up calling the activity (hence different Names) during workflow execution (in case we are calling the Actitvity in loop).\r\n\r\nIs there a workaround or can  we Map same Activity in Worker to Renamed Activities in Workflow Implementation call.\r\nPlease suggest... where to make this code change in Java SDk\r\n\r\nThanks in advance\r\nKrishnendu",
+      "createdAt": "2023-05-18T19:19:40Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-1553527210",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5cyTVU",
+      "author": {
+        "login": "kkuntim"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hi @mfateev Any suggestions on implementation approach. Thank you.",
+      "createdAt": "2023-05-22T07:32:45Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-1556690260",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5c5dq4",
+      "author": {
+        "login": "kkuntim"
+      },
+      "authorAssociation": "NONE",
+      "body": "I have two approach in mind:\r\n\r\n1. Instead of exact typename match for a Activity we can go for a pattern match and derive the activity Name from Activity Stub call.\r\n2. Have some kind of out of the box attribute list for Activity and have API to populate the same.\r\nPlease suggest...\r\n\r\nThank you\r\nKrishnendu",
+      "createdAt": "2023-05-23T05:46:35Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-1558567608",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5c5iwQ",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "@kkuntim From your requirements it sounds like you want activity names to be generated  dynamically base on the activity input?\r\nActivity names must be know at worker startup time for routing so this feature cannot meet your requirements. \r\n\r\nI think [this](https://github.com/temporalio/features/issues/141) issue to allow passing some metadata with commands would be a better fit. We could allow passing along a `label` metadata field for activities and child workflows that you could specify how you want and use in the UI.",
+      "createdAt": "2023-05-23T06:08:53Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-1558588432",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5de4Gk",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I believe you can implement this logic by implementing custom WorkflowOutboundCallsInterceptor.",
+      "createdAt": "2023-05-30T12:47:37Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/396#issuecomment-1568375204",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2021-03-23T17:35:41Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 396,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Pluggable activity name provider",
+  "updatedAt": "2023-05-30T12:47:37Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/396"
+}

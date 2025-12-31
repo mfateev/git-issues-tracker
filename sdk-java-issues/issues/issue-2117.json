@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNjM5Ng==",
+    "is_bot": false,
+    "login": "cretz",
+    "name": "Chad Retz"
+  },
+  "body": "**Describe the solution you'd like**\r\n\r\nGo and Python and .NET and others use `temporalWorkflowID`, `temporalRunID`, `temporalActivityID`, etc but Java uses `workflowId` and `runId` Cannot change Java's defaults for compatibility reasons, but we should allow these to be customized so users can make them the same. Some SDKs like .NET already allow these to be customized.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6Bvqlk",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Note Java right now has an open tracing interceptor, not a open telemetry interceptor. If we create a first class open telemetry interceptor we can probably change the default name.\r\n\r\nhttps://github.com/temporalio/sdk-java/tree/master/temporal-opentracing",
+      "createdAt": "2024-06-18T18:54:59Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "HEART",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2117#issuecomment-2176756068",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-06-18T18:48:27Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2117,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Allow customization of OTel span tags",
+  "updatedAt": "2024-06-18T18:55:00Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2117"
+}

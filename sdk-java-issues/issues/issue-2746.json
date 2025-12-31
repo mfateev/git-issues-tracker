@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNTA0MDQ5",
+    "is_bot": false,
+    "login": "Quinn-With-Two-Ns",
+    "name": "Quinn Klassen"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\nAdd support for Jackson 3, the next major version of the library the SDK uses for JSON serialization.  \n\n**Describe the solution you'd like**\nAdd support for Jackson 3 to the Java SDK. This would mainly involve creating a new Jackson 3 JSON data converter, and any other place the SDK calls into Jackson. Since Jackson 3 requires Java 17 at least we will need to support both for the foreseeable future.\n\n**Additional context**\n* Spring Boot 4 only has plans to support Jackson 3 long term https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring\n* https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-12-09T23:15:13Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2746,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 3
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Jackson 3 support",
+  "updatedAt": "2025-12-09T23:15:13Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2746"
+}

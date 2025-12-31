@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\n\r\nCompletableFuture returned from ```WorkflowStub#getResult``` and ```WorkflowStub#getResultAsync``` that has time skipping functionality built-in can correctly work with all CompletableFuture methods without losing time skipping functionality.\r\n\r\n## Actual Behavior\r\n\r\nCompletableFuture that is returned from ```#getResultAsync``` when we use ```TestWorkflowService``` is ```TimeLockingFuture```. It overrides ```CompletableFuture#get``` and ```CompletableFuture#join``` to provide time skipping functionality.\r\nThis implementation is extremely brittle because any chaining of this CompletableFuture will not call the overridden ```#get``` and ```#join```. So even trivial chaining completely and unexpectedly breaks the time-skipping feature.\r\n\r\n## Steps to Reproduce the Problem\r\n\r\n1. Use TestWorkflowService\r\n2. Perform any trivial chaining on the result returning from getResultAsync\r\n3. Time skipping doesn't work on ```#get``` call on a chained CompletableFuture from step 2.\r\n\r\nDemonstration of the problem: https://github.com/Spikhalskiy/java-sdk/commit/e73d574428a7001534601c3bebabb60a23612bff\r\nAdding a trivial ```result = result.thenApply(s -> s);``` chaining breaks the test and it hangs.\r\n\r\n## Proposed solution\r\nThe current solution with intercepting stub methods and extending ```CompletableFuture``` looks like a hack and I'm not sure if it's possible to make it work correctly with ```CompletableFuture``` implementation.\r\nMy proposal is to completely remove built-in time skipping from ```WorkflowStub``` and ```TimeLockingFuture```.\r\nOne of the correct and nice ways to give time-skipping to tests developers can be through exposing of method ```.skipTime``` on some helper object that would return an ```AutoCloseable``` object that will trigger disabling of time-skipping at the end. It could be used by the test writers using the following pattern:\r\n\r\n```\r\ntry (TimeSkipUtils.forStub(worflowStub).skipTimeSegment()) {\r\n    result = resultFuture.get()\r\n}\r\n\r\nTimeSkipUtils.forStub can dig into worflowStub and make a helper that is aware of specific TestWorkflowService and provides \r\n.skipTimeSegment() that returns our ```AutoCloseable``` resource described above.\r\n```\r\n\r\n## Specifications\r\n\r\n  - Version: Current master (5f2ac6133c6560984eff35cc85faafb85cbf2c94)\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-03-20T03:50:43Z",
+  "labels": [],
+  "milestone": null,
+  "number": 392,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "TimeLockingFuture implementation is incorrect and easy to break ",
+  "updatedAt": "2024-12-17T21:26:58Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/392"
+}

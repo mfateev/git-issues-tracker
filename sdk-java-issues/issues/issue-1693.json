@@ -1,0 +1,124 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUyMzA0",
+    "is_bot": false,
+    "login": "bergundy",
+    "name": "Roey Berman"
+  },
+  "body": "Test server only implements list open / closed, need support for this since all SDKs now have a high level API to list workflows that relies on this endpoint.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6BXLTQ",
+      "author": {
+        "login": "subhidh-agarwal"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hey anything yet?",
+      "createdAt": "2024-06-15T16:56:20Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1693#issuecomment-2170336464",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6Rwpla",
+      "author": {
+        "login": "rocketraman"
+      },
+      "authorAssociation": "NONE",
+      "body": "According to [the forum post that pointed me to this issue](https://community.temporal.io/t/inability-to-list-workflow-executions-with-test-environment/7471/4) we can use the `ListOpenWorkflowExecutionsRequest` or `ListClosedWorkflowExecutionsRequest` endpoints instead. Is there a way to access these endpoints via the Java SDK?\r\n",
+      "createdAt": "2024-10-29T22:34:19Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1693#issuecomment-2445449562",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6SJSmz",
+      "author": {
+        "login": "rocketraman"
+      },
+      "authorAssociation": "NONE",
+      "body": "> According to [the forum post that pointed me to this issue](https://community.temporal.io/t/inability-to-list-workflow-executions-with-test-environment/7471/4) we can use the `ListOpenWorkflowExecutionsRequest` or `ListClosedWorkflowExecutionsRequest` endpoints instead. Is there a way to access these endpoints via the Java SDK?\r\n\r\nThis is the code I used:\r\n\r\n```kotlin\r\n  fun listOpenWorkflowExecutions(client: WorkflowClient, workflowTypeName: String): List<WorkflowExecutionInfo> {\r\n    val stub = client.workflowServiceStubs.blockingStub()\r\n    val request = ListOpenWorkflowExecutionsRequest.newBuilder()\r\n      .setNamespace(client.options.namespace)\r\n      .setTypeFilter(WorkflowTypeFilter.newBuilder().setName(workflowTypeName).build())\r\n      .build()\r\n    return stub.listOpenWorkflowExecutions(request).executionsList\r\n  }\r\n```",
+      "createdAt": "2024-11-01T13:52:27Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1693#issuecomment-2451909043",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6gEFhU",
+      "author": {
+        "login": "jakubbrzeski"
+      },
+      "authorAssociation": "NONE",
+      "body": "Hi, are there any updates on this ? I need to query workflow executions with specific search attribute and then terminate and delete the execution. Test Environment doesn't support neither `workflowClient.getWorkflowServiceStubs().blockingStub().listWorkflowExecutions` nor `workflowClient.getWorkflowServiceStubs().blockingStub().listWorkflowExecutions`.",
+      "createdAt": "2025-02-26T15:33:28Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1693#issuecomment-2685425748",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6gE9Vv",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Any update would be posted on this issue. This is a large amount of work to add because the test server currently has no support for querying search attribute.",
+      "createdAt": "2025-02-26T16:57:58Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1693#issuecomment-2685654383",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2023-03-09T01:14:15Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1693,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 16
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Support listWorkflowExecutions in test server",
+  "updatedAt": "2025-02-26T16:57:59Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1693"
+}

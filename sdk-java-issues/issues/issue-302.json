@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjc5NjEzNg==",
+    "is_bot": false,
+    "login": "wolfy-j",
+    "name": "Anton Tsitou"
+  },
+  "body": "StackTrace is empty when failure comes from another SDK\r\nExpected to see trace supplied in stackTrace proto message.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5GHPhc",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Temporal can't deserialize a stacktrace from another language into a language-specific stack trace.\r\nI will think about how we could make an original stacktrace readable and accessible in this scenario.",
+      "createdAt": "2022-07-06T14:37:29Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/302#issuecomment-1176303708",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-01-11T18:50:37Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 302,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Print stacktrace coming from another language in the exception message",
+  "updatedAt": "2022-07-06T14:38:51Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/302"
+}

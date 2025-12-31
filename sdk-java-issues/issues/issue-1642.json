@@ -1,0 +1,34 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Actual Behavior\r\n\r\nCurrently, Test Server never paginates the history and returns it always in one chunk. This makes the SDK internals that are getting triggered only if the server paginates testable only with the real server. \r\n\r\n## Expected Behavior\r\n\r\nPagination of the Test Server doesn't have to match the behavior of the real server, but it should be present and it should be configurable, so SDK developers can set a mode with aggressive pagination to improve test coverage.\r\n\r\nRelated to: #1639 #1638",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-02-06T19:52:52Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1642,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Add history pagination to Test Server",
+  "updatedAt": "2024-12-17T21:26:47Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1642"
+}

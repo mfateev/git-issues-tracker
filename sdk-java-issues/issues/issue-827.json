@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "If dependency injection into the workflow is discouraged, we need to provide a way for an external code to pass all kinds of configurations into Workflow instances. A potential solution to ensure determinism could be implementing it on interceptors level and storing configuration into a (mutable?) side effect and providing a set of handy utility methods (Probably on `Workflow`) to access it in the workflow implementation.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-10-19T16:29:33Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 827,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 4
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Provide a recommended way to pass configuration into workflow ",
+  "updatedAt": "2021-10-19T17:58:24Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/827"
+}

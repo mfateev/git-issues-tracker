@@ -1,0 +1,37 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjEyMTU4ODU1",
+    "is_bot": false,
+    "login": "eye-dee",
+    "name": "Igor"
+  },
+  "body": "```\n  public ScheduleRange(int start, int end, int step) {\n    Preconditions.checkState(start >= 0 && step >= 0 && step >= 0);\n``` \n\nWhy do we need to check step twice?",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM7VAIKq",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yes that is a typo, feel free to open a PR to fix if you are inclined ",
+      "createdAt": "2025-11-25T02:55:41Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2728#issuecomment-3573580458",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-11-18T09:24:40Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2728,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "ScheduleRange to check end",
+  "updatedAt": "2025-11-25T02:55:41Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2728"
+}

@@ -1,0 +1,74 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nThere is a scenario when a workflow needs to cancel an activity if it gets an external signal.\r\n\r\nFor example, an activity sends its own id to some external code and this code has a need to cancel the activity if something happens or finishes before the activity is done. \r\nRight now the only way for an external code to cancel an activity in progress is to send a signal to the workflow that scheduled the activity and the workflow cancels the activity using a cancelation scope after that.\r\n\r\nTo do that, the activity can't use an `activityId`, the user needs to create some new correlation id and pass it from the workflow into the activity because an activity code has no way to know an `activityId` of the activity it just scheduled. \r\n\r\n**Describe the solution you'd like**\r\n1. We create some kind of `ActivityInvocationStub` for each invocation of an activity. This stub may bind an activityType and any kind of additional parameters we need to set per each invocation. This stub can also expose the `activityId`.  User may not be required to work with such stubs all the time if they don't need them, but they should be available if the user needs them (the same way as untyped `WorkflowStub`s are implemented)\r\n1. Workflow should be able to generate and pass an `activityId` into such kind of stub. We should be careful with that, because `activityId`s in JavaSDK are used to ensure determinism and identify a state machine, so duplicates should be prohibited.\r\n\r\nSuch a stub should also potentially be able to override `ActivityOptions` for the specific activity call.\r\n\r\n**Describe alternatives you've considered**\r\nChange nothing and make users pass their own additional ids (and maintain a mapping between these ids to the cancelation scopes or the activities) if they need the workflow to be able to address and cancel an activity later. But there are other reasons to have such stubs: #1009\r\n\r\n**Additional context**\r\nWhat about timers for example? Should the same apply to timers and their ids?\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM49SkOc",
+      "author": {
+        "login": "longquanzheng"
+      },
+      "authorAssociation": "NONE",
+      "body": "This is also really important for using async activity completion. On server side, activity can be completed with tasktoken or activityID. But JavaSDK only expose tasktoken.\r\n\r\nThe task token approach is problematic in some cases —\r\nBy nature user needs to set a long timeout(startToClose) because they don’t know when the external system will complete the activity.\r\nThe tasktoken can only be retrieved within the activity(for determinism) and send to the external system, before calling ctx.doNotCompleteOnReturn();\r\nHowever, there could be errors(e.g. timeout) and retry when sending the tasktoken, and then the activity worker can get restarted.\r\nAs a result, the activity will be stuck until the timeout…",
+      "createdAt": "2022-02-02T19:19:05Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1010#issuecomment-1028277148",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM49S_36",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "External code that uses async activity completion should always be triggered by the activity itself. When this happens, an activity should pass activityId/taskToken to that code.\r\nThere should be no code that uses some predefined activityId, but is not triggered by this activity itself. Activity (and its ID) is an internal entity of a workflow and not it's public API.\r\nWorkflow and its ID is a business-level entity, Activity and ActivityId is a workflow implementation detail. This implementation detail may be known by, in turn, it's own implementation detail (code that is triggered by it), but it shouldn't be known by some external code not directly triggered by the activity itself. \r\nFor that purpose, there are signals. Signals have predefined names and are exposed on the business level entity - workflow.\r\n\r\nAn activity execution already has its own id now and can pass it to the code performing the completion. Thus, this task is not a prerequisite for an activity completion in a way how it's intended to be used.\r\n",
+      "createdAt": "2022-02-02T21:49:12Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1010#issuecomment-1028390394",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM49TbB6",
+      "author": {
+        "login": "longquanzheng"
+      },
+      "authorAssociation": "NONE",
+      "body": "> An activity execution already has its own id now and can pass it to the code performing the completion.\r\n\r\nPassing the ID within the activity is not reliable. We should redesign this part for async activity completion. \r\n\r\nWhat if activity worker restarted when the RPC of sending ID/token timeout and retry?\r\nThis will cause the activity stuck forever, unless we require the activity to implement heartbeat.Implementing heartbeat will be tedious and extremely inefficient -- will cost lots of API requests to server. ",
+      "createdAt": "2022-02-03T00:56:25Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1010#issuecomment-1028501626",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-01-30T07:40:42Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1010,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Workflow should have an access to an activity id of the activity it scheduled",
+  "updatedAt": "2024-12-17T21:26:51Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1010"
+}

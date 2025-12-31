@@ -1,0 +1,33 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNDkzMg==",
+    "is_bot": false,
+    "login": "antmendoza",
+    "name": "Antonio Mendoza Pérez"
+  },
+  "body": "## Expected Behavior\r\nsetting setMaximumAttempts=0 (or not setting any value, default = 0) for local activities should make the activity retry forever.  \r\n\r\nI expect the same behavior as \"normal\" activities, where MaximumAttempts=0  implies retry forever. \r\n\r\n## Actual Behavior\r\n\r\nwhen MaximumAttempts is set to 0, local activities do not retry\r\n\r\n\r\n## Steps to Reproduce the Problem\r\n[HelloLocalActivity.java.zip](https://github.com/temporalio/sdk-java/files/11122584/HelloLocalActivity.java.zip)\r\n\r\n\r\n## Specifications\r\n\r\n  - Version:\r\n  - Platform:\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-03-31T14:01:01Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABTCzm8g",
+      "name": "good first issue",
+      "description": "",
+      "color": "37F0F1"
+    }
+  ],
+  "milestone": {
+    "number": 23,
+    "title": "1.20.0",
+    "description": "",
+    "dueOn": "2023-03-28T00:00:00Z"
+  },
+  "number": 1727,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "inconsistency on MaximumAttempts attribute between local activities and \"normal\" activities",
+  "updatedAt": "2023-06-02T05:00:07Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1727"
+}

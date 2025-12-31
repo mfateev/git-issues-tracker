@@ -1,0 +1,40 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\n\r\nWorkerOptions should enforce an amount of executors to be not less than an amount of pollers.\r\n\r\n## Actual Behavior\r\n\r\nCurrently, users can create WorkerOptions with maxConcurrentWorkflowTaskExecutionSize = 1 which is effectively an invalid configuration with the worker not being able to open at least one sticky and 1 normal queue poll. Every worker needs at least 2 executors: one to be reserved and allow polling on the main task queue and another to be reserved and allow polling on a sticky task queue.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-03-24T00:03:01Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": {
+    "number": 23,
+    "title": "1.20.0",
+    "description": "",
+    "dueOn": "2023-03-28T00:00:00Z"
+  },
+  "number": 1715,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "WorkerOptions should enforce an amount of executors to be not less than an amount of pollers",
+  "updatedAt": "2023-05-23T18:20:24Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1715"
+}

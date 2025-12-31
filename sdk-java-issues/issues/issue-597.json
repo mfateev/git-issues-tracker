@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjQ2OTQ4OTY=",
+    "is_bot": false,
+    "login": "zhxnlai",
+    "name": "Zhixuan Lai"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\n\r\nWhen assertions fail in `TestWorkflowEnvironment.registerDelayedCallback`, the errors in the callback are swallowed. This is counterintuitive.\r\n\r\nFor instance, I expect the following test to fail.\r\n```kotlin\r\nclass MyTest {\r\n\r\n  private val testEnv: TestWorkflowEnvironment\r\n  \r\n  @Test\r\n  fun thisShouldFail() {\r\n    testEnv.registerDelayedCallback(Duration.ofSeconds(1)) {\r\n      assertThat(false).isTrue()\r\n    }\r\n    testEnv.sleep(Duration.ofSeconds(10))\r\n  }\r\n}\r\n```\r\n\r\nBut it succeeds with an error log.\r\n```\r\n10:35:11.197 [Timer task] ERROR i.t.i.t.SelfAdvancingTimerImpl - Unexpected failure in timer callback\r\norg.opentest4j.AssertionFailedError: \r\nExpecting value to be true but was false\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n```\r\n\r\n**Describe the solution you'd like**\r\nPropagate the error to the test method.\r\n\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-07-20T17:55:16Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 597,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support assertions in `TestWorkflowEnvironment.registerDelayedCallback`",
+  "updatedAt": "2021-07-20T17:55:16Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/597"
+}

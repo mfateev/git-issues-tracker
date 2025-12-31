@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "During various failure/deployment scenarios especially in K8s the service IP might change. Currently a worker and client restart is needed to deal with it.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "MDEyOklzc3VlQ29tbWVudDczMzQwMTk3Ng==",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "1. We need to make sure that when new hosts are getting traffic.\r\n2. When were restart the service different IPs will be behind DNS record and this may cause problems on the client side when the client tries to reconnect.",
+      "createdAt": "2020-11-25T01:20:31Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/57#issuecomment-733401976",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2020-04-04T16:04:17Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 57,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Automatically reconnect to the service when it changes ip address",
+  "updatedAt": "2023-05-23T06:16:36Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/57"
+}

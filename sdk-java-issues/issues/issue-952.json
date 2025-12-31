@@ -1,0 +1,179 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\n\r\nIf we have the following code somewhere in workflow:\r\n\r\n```\r\nvoid execute() {\r\n  ...\r\n  withSpan(() -> {\r\n    activity.runActivity();\r\n  })\r\n  ...\r\n  //end of replay somewhere down from the above code block\r\n}\r\n```\r\n\r\nIf we replay the code above, we should ignore the span creation, because this span was already reported during the original execution.\r\n\r\n## Actual Behavior\r\n\r\nThe second span will be created during replay.\r\n\r\n## Proposed solution\r\n\r\nWe should create a thin layer on top of `Tracer`, `ScopeManager`, `Scope` or `Span` that will check if we are still replaying on span finalization and if we are - discard the span instead of finalizing it.\r\n\r\n## Notes\r\nThe issue is raised here:\r\n#951\r\nhttps://github.com/temporalio/sdk-java/pull/951#pullrequestreview-844189585\r\n\r\nAnd the solution is originally proposed here:\r\nhttps://github.com/temporalio/sdk-java/pull/951#issuecomment-1005896960",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM479STX",
+      "author": {
+        "login": "bergundy"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "> But what is true, the user-created span may be ignored during replay (depends on its location) with my original proposal. And in your sample, the activity may end up directly under the WorkflowRun span. But this is a smaller issue, let me think about it.\r\nI really believe that we can resolve it just as inside a thin Tracer wrapper that can make some smart \"buffering\" of spans during replays inside and track when isReplaying switches from true to false.\r\nOr even simpler, the tracer can always open spans when requested but check isReplaying on .finish() call and discard the span if isReplaying is still true. At first sight, it looks like it will work.\r\n\r\nSo the problem is that right now with a user created span the activity span will be parentless because the parent span (the user created one) is never emitted.\r\nThe only way to fix this is to recreate the same span with the exact same spanId on replay.",
+      "createdAt": "2022-01-05T17:20:58Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005921495",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479TKy",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@bergundy \r\n\r\n> So the problem is that right now with a user created span the activity span will be parentless because the parent span (the user created one) is never emitted.\r\n\r\nit's not. For this specific reason, JavaSDK always creates WorkflowRun span. As you can see in the test that I pointed and it's javadoc: https://github.com/temporalio/sdk-java/blob/a2bc9373201dd58a607197ac39b7f87c1c0059c2/temporal-opentracing/src/test/java/io/temporal/opentracing/ActivityFailureTest.java#L131 The activity span will not be parentless, it will have WorkflowRun span as a parent.\r\n\r\nBut yes, it will not have a user-created span as a parent. I'm fairly confident that the proposed solution will address it well.",
+      "createdAt": "2022-01-05T17:25:20Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005925042",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479T32",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@bergundy \r\n\r\n> The only way to fix this is to recreate the same span with the exact same spanId on replay.\r\n\r\nIt's not. Even more, OpenTracing and OpenTelemetry specifications don't allow this (creation of a span with a specific spanId). A span that was finished can't be just reopened for appending, it's not a part of spec. Check \r\nOT [`SpanBuilder`  interface](https://javadoc.io/doc/io.opentracing/opentracing-api/0.31.0/io/opentracing/Tracer.SpanBuilder.html).\r\n\r\nEach run/replay has its own WorkflowRun span (it's the case right now)\r\nThe user span should be duplicated under each WorkflowRun span and contain only activities that were actually executed and not replayed in that run.\r\nIf span was fully executed in the previous run - it shouldn't be recreated in the next run.\r\nThe decision if the span was fully executed in the previous run should be made on the span `.finish` call - this way we are sure if we are still replaying when the span is finishing.\r\nThis solution will be congruent with the current JavaSDK approach and OpenTracing/OpenTelemetry spec. This solution will also be good for debugging, because of the level of detail that it provides.\r\n",
+      "createdAt": "2022-01-05T17:29:00Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005927926",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479VBg",
+      "author": {
+        "login": "bergundy"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "> A span that was finished can't be just reopened for appending\r\n\r\nIn the case I've illustrated in #951 the span is unfinished (the workflow is evicted from cache before the activity can complete)",
+      "createdAt": "2022-01-05T17:35:13Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005932640",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479Wdp",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "> In the case I've illustrated in #951 the span is unfinished (the workflow is evicted from cache before the activity can complete)\r\n\r\nIn Java the [conventional code](https://github.com/opentracing/opentracing-java/blob/master/opentracing-api/src/main/java/io/opentracing/ScopeManager.java#L45) working with spans looks like:\r\n\r\n```\r\n Span span = tracer.buildSpan(\"...\").start();\r\n try (Scope scope = tracer.scopeManager().activate(span)) {\r\n     ...\r\n     activity1.execute()\r\n     activity2.execute()\r\n     ...\r\n } catch (Exception e) {\r\n     span.log(...);\r\n } finally {\r\n     span.finish();\r\n }\r\n```\r\n\r\nOpened scope and span will be finished and reported in case of eviction or any other Exception/Error halfway.\r\nAs it should. You don't really want to lose all the info collected in the spans (with potentially logs, tags, and other details that can't be restored during replay) including from the underlying activities just because the workflow got evicted. And it will be lost if the parent span is not finished.",
+      "createdAt": "2022-01-05T17:43:40Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005938537",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479YZ6",
+      "author": {
+        "login": "bergundy"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Okay, I see, it works differently than in TS where we completely discard the workflow from memory when it's evicted without running any cleanup.\r\n\r\nSo in this case if the workflow is replayed before it can execute activity2, activity2's parent span will be the root workflow span which isn't that bad.",
+      "createdAt": "2022-01-05T17:54:39Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005946490",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479ZQJ",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@bergundy Yeah, in Java you can't just nuke something without running the corresponding `.finally()` blocks.\r\nWhich has its own advantages (here) and creates its own challenges (potential non-determinism if somebody puts an activity execution in `.finally()`) for us.",
+      "createdAt": "2022-01-05T17:59:08Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005949961",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM479aaQ",
+      "author": {
+        "login": "bergundy"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "There's also another issue with this approach where if we evict the workflow the user's span will end erroneously while when looking at it from the code perspective everything seems fine.",
+      "createdAt": "2022-01-05T18:05:40Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1005954704",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM48xXtV",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I don't think that approach that doesn't create a span on replay would work. The problem is that a newly executed code can create a child span and needs a parent span. But parent span wouldn't be present on replay. The ideal solution would allow assigning span-id deterministically on replay. But unfortunately none of the tracing libraries supports assigning span ids.\r\n\r\nThe other solution is to serialize the span into the history and then recreate it from the serialized data on replay.",
+      "createdAt": "2022-01-23T21:55:36Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1019575125",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDODN12PM48xXzZ",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "> But parent span wouldn't be present on replay.\r\n\r\nDon't forget that each workflow run (and replay to this matter) has its own workflow run parent span. So, each replay-followed-by-run has its own Span. This gives us a lot of power and flexibility here.\r\n\r\nI will reiterate the solution I am convinced will work here, let's discuss this specific offer, not the objective. Because I don't see any reason why it shouldn't work and it's aligned with the current general spans structure.\r\n\r\n> Each run/replay has its own WorkflowRun span (it's the case right now)\r\n> The user span should be duplicated under each WorkflowRun span and contain only activities that were actually executed and not replayed in that run.\r\n> If span was fully executed in the previous run - it shouldn't be recreated in the next run.\r\n> The decision if the span was fully executed in the previous run should be made on the span `.finish` call - this way we are sure if we are still replaying when the span is finishing.\r\n> This solution will be congruent with the current JavaSDK approach and OpenTracing/OpenTelemetry spec. This solution will also be good for debugging, because of the level of detail that it provides.",
+      "createdAt": "2022-01-23T21:58:19Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/952#issuecomment-1019575513",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-01-05T17:05:12Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 952,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "OpenTracing duplicates user created spans during replay",
+  "updatedAt": "2024-12-17T21:26:52Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/952"
+}

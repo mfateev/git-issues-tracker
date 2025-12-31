@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjgzODMwMA==",
+    "is_bot": false,
+    "login": "nikoncode",
+    "name": "Mikita Karaliou"
+  },
+  "body": "We want to have an ability (extension point) to control default MDC keys. Now they are statically defined in workers.\r\n\r\nWhy it's important:\r\n* we have multiple stacks: Java + Python and trying to unite our services logs/metrics/traces with single naming conventions.\r\n* we have logging based integration: sentry, metrics from logs, etc.\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6JzZ38",
+      "author": {
+        "login": "nikoncode"
+      },
+      "authorAssociation": "NONE",
+      "body": "Guys, because of this we are implemented a lot of custom code in logging.",
+      "createdAt": "2024-08-27T08:58:38Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2124#issuecomment-2311953916",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-06-25T12:09:23Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2124,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "MDC custom naming convention",
+  "updatedAt": "2024-08-27T08:58:39Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2124"
+}

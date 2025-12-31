@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\nCurrently, the only way for an activity to know that it's canceled is heartbeating and getting a CancellationException from the heartbeat.\n1. Not all activities need to heartbeat and making them do it just to check for cancelation is ugly.\n2. Local Activities don't heartbeat, so now there is no way to notify them that they should cancel (for example, because there is a timeout). GoSDK has go context for it, Java has nothing. Using Interruption here is not right, because we need to distinguish it from a thread interruption during the shutdown to keep things clean. \n3. Heartbeating activities may not be able to reach the service , the SDK should keep tack of the heartbeat timeout and fail if it can't reach the server in time.\n\n**Describe the solution you'd like**\nActivityExecutionContext#isCancelled method that activity can periodically check as an alternative to listening cancelations through heart beating. This solution will be close to the native Interruption design in Java: We will have an exception if Activity calls a heartbeat and a flag otherwise.\n\n**Additional context**\nThis is related to #1004. There is no way to notify Local Activity about the cancelation.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6wHvBy",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "We should also add a more detailed method (name TBD) that returns an object that contains the reason/reasons for the activity being cancelled.",
+      "createdAt": "2025-06-09T06:38:25Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1005#issuecomment-2954817650",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-01-25T20:14:42Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1005,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Provide ActivityExecutionContext#isCancelled",
+  "updatedAt": "2025-08-27T17:56:36Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1005"
+}

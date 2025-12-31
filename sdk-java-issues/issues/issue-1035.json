@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nIf users want to set an alert for activities that keep retrying and failing, there is no appropriate metric to handle that.\r\n`activity_succeed_endtoend_latency` includes only successful executions.\r\n`activity_execution_latency` handles the execution of a single activity task only.\r\n\r\n**Describe the solution you'd like**\r\nWe should add a metric reporting how much time passed from an activity schedule to the last activity attempt. This metric should have an activity type as a tag and be SDK side.\r\n\r\n**Describe alternatives you've considered**\r\nUsers can produce their own custom metrics. But it looks like such a common concern, that Temporal SDK should provide a built-in way to detect it.\r\n\r\nGoSDK issue: https://github.com/temporalio/sdk-go/issues/718",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-02-08T17:56:18Z",
+  "labels": [],
+  "milestone": null,
+  "number": 1035,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Add metric for time passed from the activity scheduling to the last attempt",
+  "updatedAt": "2024-12-17T21:27:50Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1035"
+}

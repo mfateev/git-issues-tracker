@@ -1,0 +1,74 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Actual Behavior\r\n\r\njava-sdk builds in buildkite started to fail often on flaky `TerminatedWorkflowQueryTest#testShouldReturnQueryResultAfterWorkflowTimeout`\r\n\r\n## Stacktrace from a locally reproduced failure:\r\n\r\n```\r\nio.temporal.client.WorkflowQueryException: workflowId='fa83465b-18c6-424c-a959-0259996b2876', runId='72baee4f-8b00-4914-aace-db0d505606ed', workflowType='testActivity'}\r\n\tat io.temporal.internal.sync.WorkflowStubImpl.query(WorkflowStubImpl.java:349)\r\n\tat io.temporal.testing.TestWorkflowEnvironmentInternal$TimeLockingInterceptor$TimeLockingWorkflowStub.query(TestWorkflowEnvironmentInternal.java:369)\r\n\tat io.temporal.internal.sync.WorkflowInvocationHandler$SyncWorkflowInvocationHandler.queryWorkflow(WorkflowInvocationHandler.java:309)\r\n\tat io.temporal.internal.sync.WorkflowInvocationHandler$SyncWorkflowInvocationHandler.invoke(WorkflowInvocationHandler.java:272)\r\n\tat io.temporal.internal.sync.WorkflowInvocationHandler.invoke(WorkflowInvocationHandler.java:178)\r\n\tat com.sun.proxy.$Proxy20.getTrace(Unknown Source)\r\n\tat io.temporal.workflow.TerminatedWorkflowQueryTest.testShouldReturnQueryResultAfterWorkflowTimeout(TerminatedWorkflowQueryTest.java:64)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\r\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)\r\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\r\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)\r\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\r\n\tat io.temporal.testing.TestWorkflowRule$2.evaluate(TestWorkflowRule.java:273)\r\n\tat org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:299)\r\n\tat org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:293)\r\n\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)\r\n\tat java.base/java.lang.Thread.run(Thread.java:834)\r\nCaused by: io.grpc.StatusRuntimeException: INVALID_ARGUMENT: java.lang.IllegalArgumentException: Unknown query type: getTrace, knownTypes=[]\r\n\tat io.temporal.internal.sync.QueryDispatcher.handleQuery(QueryDispatcher.java:79)\r\n\tat io.temporal.internal.sync.SyncWorkflowContext.handleQuery(SyncWorkflowContext.java:244)\r\n\tat io.temporal.internal.sync.WorkflowExecuteRunnable.handleQuery(WorkflowExecuteRunnable.java:76)\r\n\tat io.temporal.internal.sync.SyncWorkflow.query(SyncWorkflow.java:179)\r\n\tat io.temporal.internal.replay.ReplayWorkflowExecutor.query(ReplayWorkflowExecutor.java:137)\r\n\tat io.temporal.internal.replay.ReplayWorkflowRunTaskHandler.handleQueryWorkflowTask(ReplayWorkflowRunTaskHandler.java:255)\r\n\tat io.temporal.internal.replay.ReplayWorkflowTaskHandler.handleQueryOnlyWorkflowTask(ReplayWorkflowTaskHandler.java:257)\r\n\tat io.temporal.internal.replay.ReplayWorkflowTaskHandler.handleWorkflowTask(ReplayWorkflowTaskHandler.java:112)\r\n\tat io.temporal.internal.worker.WorkflowWorker$TaskHandlerImpl.handle(WorkflowWorker.java:319)\r\n\tat io.temporal.internal.worker.WorkflowWorker$TaskHandlerImpl.handle(WorkflowWorker.java:279)\r\n\tat io.temporal.internal.worker.PollTaskExecutor.lambda$process$0(PollTaskExecutor.java:73)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\r\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\r\n\tat java.base/java.lang.Thread.run(Thread.java:834)\r\n\r\n\tat io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:262)\r\n\tat io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:243)\r\n\tat io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:156)\r\n\tat io.temporal.api.workflowservice.v1.WorkflowServiceGrpc$WorkflowServiceBlockingStub.queryWorkflow(WorkflowServiceGrpc.java:2970)\r\n\tat io.temporal.internal.external.GenericWorkflowClientExternalImpl.lambda$query$5(GenericWorkflowClientExternalImpl.java:216)\r\n\tat io.temporal.serviceclient.GrpcRetryer.retryWithResult(GrpcRetryer.java:95)\r\n\tat io.temporal.internal.external.GenericWorkflowClientExternalImpl.query(GenericWorkflowClientExternalImpl.java:209)\r\n\tat io.temporal.internal.client.RootWorkflowClientInvoker.query(RootWorkflowClientInvoker.java:142)\r\n\tat io.temporal.internal.sync.WorkflowStubImpl.query(WorkflowStubImpl.java:342)\r\n\t... 19 more\r\n```",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM42kSwG",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Related to #391 and shows that the #391 issue wasn't addressed by #531",
+      "createdAt": "2021-09-08T18:47:23Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/630#issuecomment-915483654",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM423s-z",
+      "author": {
+        "login": "vitarb"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "After some investigation, I've found that the issue is happening because when workflow task times out and we replay the history\r\n```\r\nEVENT_TYPE_WORKFLOW_EXECUTION_STARTED\r\nEVENT_TYPE_WORKFLOW_TASK_SCHEDULED\r\nEVENT_TYPE_WORKFLOW_TASK_STARTED\r\nEVENT_TYPE_WORKFLOW_TASK_FAILED\r\nEVENT_TYPE_WORKFLOW_EXECUTION_TIMED_OUT\r\n```\r\n\r\nIt creates a brand new QueryDispatcher object that doesn't have query handlers by default, and because we never run event loop [during replay](https://github.com/temporalio/sdk-java/blob/30420212a26283cf7cbe6339512058a3186074e8/temporal-sdk/src/main/java/io/temporal/internal/statemachines/WorkflowTaskStateMachine.java#L112) workflow doesn't get a chance to initialize query handlers again.\r\nHence when we run a query after workflow timed out we see no query handlers available.\r\nProposed fix is to trigger event loop somewhere during replay. Alternatively we could move out query handler initialization and call it earlier so that it gets triggered during the replay.",
+      "createdAt": "2021-09-16T04:46:29Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/630#issuecomment-920571827",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5CAPiT",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "The result depends on if workflow run times out before workflow task heartbeat (local activity is used in that test) is received by the server or after.",
+      "createdAt": "2022-04-23T04:40:48Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/630#issuecomment-1107359891",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-08-15T03:11:07Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    }
+  ],
+  "milestone": null,
+  "number": 630,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Flaky testShouldReturnQueryResultAfterWorkflowTimeout",
+  "updatedAt": "2024-12-17T21:20:59Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/630"
+}

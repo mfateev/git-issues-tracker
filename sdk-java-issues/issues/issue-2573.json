@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjgyNjQ4NTg=",
+    "is_bot": false,
+    "login": "gauravthadani",
+    "name": "Gaurav Thadani"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\n\nTesting an Activity in isolation is feasible with the TestActivityEnvironment. However is a challenge when using `ManualActivityCompletionClient`\n\n```\nvar manualActivityCompletionClient =\n          Activity.getExecutionContext().useLocalManualCompletion();\n```\n\n1. Error: Method temporal.api.workflowservice.v1.WorkflowService/RespondActivityTaskCompleted is unimplemented'\n2. Alternatively, I still couldn't test it with a Test Interceptor based approach. Down the `useLocalManualCompletion` implementation, it returns new clients, so unable to mock.\n\n\n**Describe the solution you'd like**\nEither\n- support to test with ManualCompletionClient (or)\n- ability to return a mock of `ManualActivityCompletionClient` in `useLocalManualCompletion()`.  Maybe a client supplier? (or)\n\n\n**Describe alternatives you've considered**\n- tried interceptor approach to test and with `TestEnvironment` \n\n**Additional context**\n- or should we discourage usage of ManualCompletionClient in java docs .\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6zsEFr",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "If you want to perform an end to end test with manual completion you can use the `TestWorkflowEnviorment`, if you just want to unit test the system that uses the `ManualCompletionClient ` you should pass that system a mocked `ManualCompletionClient`\n\n> or should we discourage usage of ManualCompletionClient in java docs .\n\nI am not sure there is anything in the Java docs that encourage the use of `ManualCompletionClient `, it is a niche feature for very specific use cases. Its use case is when separate system in the same process wants to complete activities. If you want to unit test that system then you can pass a mocked `ManualCompletionClient ` through the same channel your activity worker is using",
+      "createdAt": "2025-06-27T23:55:55Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2573#issuecomment-3014672747",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-06-26T06:37:03Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2573,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support for ManualCompletion in TestActivity Env",
+  "updatedAt": "2025-07-01T16:58:00Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2573"
+}

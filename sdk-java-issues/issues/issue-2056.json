@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNTA0MDQ5",
+    "is_bot": false,
+    "login": "Quinn-With-Two-Ns",
+    "name": "Quinn Klassen"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nCurrently update handlers in Java are all run in their own threads. This means that if the update handler takes a long time and multiple updates are sent the workflow execution can consume lots of threads just waiting in update handlers. \r\n\r\n**Describe the solution you'd like**\r\nSupport the ability to transform an update call into a `Promise` that can be completed later in another thread like the main workflow method .\r\n\r\n**Additional context**\r\nWe have a similar feature to support async activities https://javadoc.io/doc/io.temporal/temporal-sdk/1.0.6/io/temporal/activity/ActivityExecutionContext.html#isUseLocalManualCompletion--\r\n\r\nCurrently users can do this with the existing SDK API, but it will still consume a thread waiting for the result to return in the handle. If the SDK had a native API for this we wouldn't need to wait in the thread.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM59Pb9C",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Ideally, the same API can be reused to complete the workflow asynchronously. This would allow workflows to be implemented fully async without tying up a thread when a workflow is cached.",
+      "createdAt": "2024-05-08T18:37:01Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2056#issuecomment-2101198658",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2024-05-08T18:25:12Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2056,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Allow users to implement update asynchronously in Java natively",
+  "updatedAt": "2024-05-08T18:37:02Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2056"
+}

@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOChpTSg",
+    "is_bot": false,
+    "login": "deepika-awasthi",
+    "name": ""
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\nTraces are not propagated for the operation updateWithStart\n\nheader field is empty for the first event EVENT_TYPE_WORKFLOW_EXECUTION_STARTED\n`=== Client UpdateWithStart Interceptor Called ===\nWorkflow ID: TestInterceptorUpdateWithStartWorkflow\nWorkflow Type: MyWorkflow\nUpdate Name: updateNameAndTitle\nUpdate ID: 9adc07b0-e8ef-48f5-b4ca-0d7a67e677a7\nStart Header: {}\nStart Header size: 0\n`\n\nhttps://javadoc.io/static/io.temporal/temporal-opentracing/1.32.0/io/temporal/opentracing/internal/OpenTracingWorkflowClientCallsInterceptor.html",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-12-30T20:45:57Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2752,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present",
+  "updatedAt": "2025-12-30T20:46:22Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2752"
+}

@@ -1,0 +1,52 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "Right now we reset the sticky queue if an exception happens during workflow execution. \r\nWhile this is not an event that is needed, there is nothing bad in reexecuting on the same worker.\r\nAt the same time, we are missing resetting the sticky queue when a workflow gets evicted from the cache because SDK is at the workflow threads limit. This creates pressure on already overloaded workers and can lead to incremented delays.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM46itvL",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "It was implemented like this by design in #236. The original intentions need to be revisited though because not resetting the sticky queue on evictions from already overwhelmed workers doesn't make much sense.",
+      "createdAt": "2021-11-30T00:54:27Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/883#issuecomment-982178763",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5DBMiB",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "This matter improved with this Server change: https://github.com/temporalio/temporal/pull/2811\r\nNow if the sticky queue is obviously abandoned, Server will not wait 5 seconds trying to dispatch the workflow task into a sticky queue.",
+      "createdAt": "2022-05-11T23:41:10Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/883#issuecomment-1124386945",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-11-17T19:47:58Z",
+  "labels": [],
+  "milestone": null,
+  "number": 883,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Workers don't reset sticky queue when workflow execution is evicted from the cache",
+  "updatedAt": "2024-12-17T21:18:07Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/883"
+}

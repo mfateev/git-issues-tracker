@@ -1,0 +1,66 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNDkzMg==",
+    "is_bot": false,
+    "login": "antmendoza",
+    "name": "Antonio Mendoza Pérez"
+  },
+  "body": "## Expected Behavior\r\n\r\nThe metric activity_succeed_endtoend_latency should be reported when activity is completed with `ActivityCompletionClient.complete`\r\n\r\nI think it is missing in this method https://github.com/temporalio/sdk-java/blob/0c8073ee74984333f045b79a27da337097d7ae7a/temporal-sdk/src/main/java/io/temporal/internal/client/external/ManualActivityCompletionClientImpl.java#L101\r\n\r\n## Actual Behavior\r\n\r\nMetric is not reported, you can find a reproduction here https://github.com/antmendoza/my-temporal-pocs/tree/main/java/pocs/src/main/java/io/antmendoza/samples/_6442.  \r\n\r\n\r\n\r\n## Steps to Reproduce the Problem\r\n\r\n  1.\r\n  1.\r\n  1.\r\n\r\n## Specifications\r\n\r\n  - Version:\r\n  - Platform:\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6AAgup",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I don't believe any SDK records this metric when async activity is used. Async activity means \"I will handle completion myself\" and therefore it bypasses Temporal's completion mechanisms which includes this metric. Many users use async completion to complete activities on completely separate machines than where it was started which means it _can't_ set this value (it doesn't know the start time).",
+      "createdAt": "2024-06-04T14:01:03Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2092#issuecomment-2147617705",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6ADQ6E",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "in the case of manual completion that is intended for in process activity completion so the activity start time could be known.",
+      "createdAt": "2024-06-04T20:12:23Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/2092#issuecomment-2148339332",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-06-04T13:57:52Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2092,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "activity_succeed_endtoend_latency not reported when completing the activity with ActivityCompletionClient",
+  "updatedAt": "2024-06-04T20:12:25Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2092"
+}

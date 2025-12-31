@@ -1,0 +1,37 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjg4OTIzNw==",
+    "is_bot": false,
+    "login": "Sineaggi",
+    "name": "Clayton Walker"
+  },
+  "body": "## Expected Behavior\r\nKotlinObjectMapperFactory works\r\n\r\n## Actual Behavior\r\nKotlinObjectMapperFactory crashes with MethodNotFoundError\r\n\r\n## Steps to Reproduce the Problem\r\n\r\n  1. Use temporal kotlin\r\n  1. Upgrade jackson kotlin library\r\n  1. Crash\r\n\r\n## Specifications\r\n\r\n  - Version:\r\n  - Platform:\r\n\r\nInstead of using a deprecated method, it would have been best to try using the builder first, then fall back to the deprecated KotlinModule constructor. Alternatively, we should just use the builder as we can't even pick which KotlinModule constructor we compile against.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM7R9G2C",
+      "author": {
+        "login": "ivanmartinvalle"
+      },
+      "authorAssociation": "NONE",
+      "body": "Note the workaround:\n```kotlin\nval mapper = JacksonJsonPayloadConverter.newDefaultObjectMapper()\nmapper.registerModule(KotlinModule.Builder().build())\nreturn DefaultDataConverter.newDefaultInstance()\n    .withPayloadConverterOverrides(JacksonJsonPayloadConverter(mapper))\n```\n\nNote that I did expect temporal-kotlin to automatically configure the kotlin module, as did [this user here](https://github.com/temporalio/sdk-java/issues/1387), but unfortunately that was marked as wont-fix. The referenced issue includes the same workaround but with the `KotlinObjectMapperFactory` issue.",
+      "createdAt": "2025-11-12T15:15:39Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2071#issuecomment-3522456962",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-05-20T19:33:38Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2071,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "KotlinObjectMapperFactory is not forwards compatible",
+  "updatedAt": "2025-11-12T15:15:39Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2071"
+}

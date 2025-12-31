@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjI2NDQwMDQ0",
+    "is_bot": false,
+    "login": "AndresBena19",
+    "name": "Andres Benavides"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nNo\r\n\r\n**Describe the solution you'd like**\r\n`.setWorkflowIdConflictPolicy` were already added to `WorkflowOptions` but is not available for `ChildWorkflowOptions`\r\n\r\nReference:\r\n* https://github.com/temporalio/sdk-java/pull/2055\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6SZZ9u",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "`WorkflowIdConflictPolicy` is not supported on Child workflows by the Temporal Server. The option would need to be supported by the Temporal Server before it could be exposed on the SDK.\r\n\r\nhttps://github.com/temporalio/api/blob/5862ec7755d8c30577d76c335622b0147590e3fe/temporal/api/command/v1/message.proto#L203",
+      "createdAt": "2024-11-05T03:06:28Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2308#issuecomment-2456133486",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6Se5F-",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I created a feature issue to track this work https://github.com/temporalio/features/issues/558.\r\n",
+      "createdAt": "2024-11-05T16:00:31Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2308#issuecomment-2457571710",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-11-05T03:00:29Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2308,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Add WorkflowIdConflictPolicy in child workflow options ",
+  "updatedAt": "2024-11-05T16:00:32Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2308"
+}

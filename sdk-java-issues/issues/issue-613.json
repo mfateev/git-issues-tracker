@@ -1,0 +1,35 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nWhen a workflow is started synchronously using a typed stub it reconnects to an already running instance if `WorkflowIdReusePolicy` is not `AllowDuplicate`.\r\n\r\nWhen a workflow method is called on a stub that was created using a workflowId (see [newWorkflowStub(Class<T> workflowInterface, String workflowId)](https://github.com/temporalio/sdk-java/blob/1813f6a3f5c80196bc0c7167e1708e0dcaee217b/temporal-sdk/src/main/java/io/temporal/client/WorkflowClient.java#L155)) an exception is returned. \r\n\r\n**Describe the solution you'd like**\r\nWhen a workflow stub is created by a workflowId and the workflow method is invoked then the call should block waiting for a workflow result if a workflow with the given id is already running. The exception should be returned if no workflow with such id exists.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-07-31T18:46:12Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 613,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Calling workflow method on the workflow stub should always wait for the workflow completion.",
+  "updatedAt": "2021-07-31T18:46:12Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/613"
+}

@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE2MTY5NzMy",
+    "is_bot": false,
+    "login": "osialr",
+    "name": "Ryan Osial"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nI would like to monitor the state of Temporal Java SDK and workers through spring-boot-actuator's /health endpoint\r\n\r\n**Describe the solution you'd like**\r\nIn the `temporal-spring-boot-autoconfigure-alpha` project, create a HealthIndicator and AutoConfiguration that includes information on the connection, state of the workers, and anything else that could be of value for health.\r\n\r\nCould use [RabbitHealthIndicator](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/amqp/RabbitHealthIndicator.java) and [RabbitHealthContributorAutoConfiguration](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-actuator-autoconfigure/src/main/java/org/springframework/boot/actuate/autoconfigure/amqp/RabbitHealthContributorAutoConfiguration.java) as an starting point.\r\n\r\n**Describe alternatives you've considered**\r\nSplit monitoring health of workers and temporal connection into separate health indicators\r\n\r\n**Additional context**\r\nHealthIndicator allows external monitoring tools to check whether the application has entered a failed state and needs a restart.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-08-14T14:19:26Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1839,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Add HealthIndicator to spring-boot library",
+  "updatedAt": "2023-08-14T14:19:26Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1839"
+}

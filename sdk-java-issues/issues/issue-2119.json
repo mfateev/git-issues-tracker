@@ -1,0 +1,52 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjQ1MjM5NTU=",
+    "is_bot": false,
+    "login": "longquanzheng",
+    "name": "Quanzheng Long"
+  },
+  "body": "## Expected Behavior\r\n* `temporal_activity_succeed_endtoend_latency`\r\n* `temporal_local_activity_execution_failed`\r\nare emitted correctly\r\n\r\n## Actual Behavior\r\nThey are missing in our production\r\n<img width=\"806\" alt=\"Screenshot 2024-06-20 at 1 44 16 PM\" src=\"https://github.com/temporalio/sdk-java/assets/4523955/d165081c-68d0-4168-a013-323886e9472e\">\r\n\r\nYou can see in the graph that the LA execution metrics are reported but not end to end. In fact, this is happening most of the time. \r\nWe also pretty sure there are many cases of LA execution failure but not reported based on our workflow history. \r\n\r\n## Steps to Reproduce the Problem\r\nNA\r\n\r\n## Specifications\r\n\r\n  - Version: `1.22.3`\r\n  - Platform:\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6CYLjm",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": ">We also pretty sure there are many cases of LA execution failure but not reported based on our workflow history.\r\n\r\nCan you provide a reproduction on this scenario? Do you see the same behaviour for normal activities? We have tests for these metrics and their implementation is identical to normal activity metrics.",
+      "createdAt": "2024-06-24T20:48:10Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2119#issuecomment-2187376870",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6Csw2s",
+      "author": {
+        "login": "longquanzheng"
+      },
+      "authorAssociation": "NONE",
+      "body": "> Do you see the same behaviour for normal activities?\r\n\r\nNo regular activity is fine. It is happening in production right now but I don't know how I can produce a sample for you. ",
+      "createdAt": "2024-06-26T23:16:18Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2119#issuecomment-2192772524",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-06-20T20:43:07Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2119,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Missing metric reporting in local activity execution",
+  "updatedAt": "2024-06-26T23:16:18Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2119"
+}

@@ -1,0 +1,66 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjM2NzEzMg==",
+    "is_bot": false,
+    "login": "ghaskins",
+    "name": "Gregory Haskins"
+  },
+  "body": "An SDK function that works similarly to [await](https://javadoc.io/doc/io.temporal/temporal-sdk/1.0.0/io/temporal/workflow/Workflow.html#await-java.time.Duration-java.util.function.Supplier-) but is based on promises rather than blocking could be useful to expand developer options for coordinating mixed event classes.  For instance, coordinating an .all() on an invoked activity and receiving a signal.\n\nThis interface could be designed in several different ways.  As an example:\n\n```\nPromise until(java.time.Duration timeout, java.util.function.Supplier<java.lang.Boolean> predicate)\n```\n\nThis function would take a timeout and predicate, and return a promise.  Temporal will evaluate the predicate on each state transition (similar to .await), and will resolve the promise with \"true\" if the predicate returns true. and \"false\" if the timeout expires.\n\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5sW2Mi",
+      "author": {
+        "login": "ghaskins"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Slack reference: https://temporalio.slack.com/archives/CTT84KXK9/p1700311804161219",
+      "createdAt": "2023-11-19T17:45:28Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1937#issuecomment-1817928482",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5sW2om",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "To be consistent with existing APIs, my proposal is as follows:\r\n```\r\nclass Async {\r\n...\r\n     static Promise<Boolean> await(Duration timeout, Supplier<Boolean> unblockCondition);\r\n}\r\n```",
+      "createdAt": "2023-11-19T17:53:01Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [
+        {
+          "content": "THUMBS_UP",
+          "users": {
+            "totalCount": 1
+          }
+        }
+      ],
+      "url": "https://github.com/temporalio/sdk-java/issues/1937#issuecomment-1817930278",
+      "viewerDidAuthor": true
+    }
+  ],
+  "createdAt": "2023-11-19T17:43:10Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1937,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support a promise-based await",
+  "updatedAt": "2024-11-22T05:42:54Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1937"
+}

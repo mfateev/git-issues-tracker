@@ -1,0 +1,89 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjIwNTA0MDQ5",
+    "is_bot": false,
+    "login": "Quinn-With-Two-Ns",
+    "name": "Quinn Klassen"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nSupport Java Modules\r\n\r\n**Describe the solution you'd like**\r\nEvery relevant library should publish a `Automatic-Module-Name` in the manifest or a `module-info.java`. Currently the Java SDK cannot be used as a named Java module since some of modules implement the same packages.\r\n\r\n```\r\nerror: the unnamed module reads package io.temporal.internal.common from both temporal.sdk and temporal.serviceclient\r\nerror: the unnamed module reads package io.temporal.internal from both temporal.sdk and temporal.serviceclient\r\n```\r\n\r\nJava modules do not allow this, it is called a split package.\r\n\r\n**Describe alternatives you've considered**\r\nDon't support Jave modules\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5u4-IW",
+      "author": {
+        "login": "Riva2006"
+      },
+      "authorAssociation": "NONE",
+      "body": "It is important fix to all Java developers ,  Currently we using shadow to repack the packages , It is important to get basic support of module-info",
+      "createdAt": "2023-12-18T12:55:58Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1940#issuecomment-1860428310",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6QzNB-",
+      "author": {
+        "login": "dbiere"
+      },
+      "authorAssociation": "NONE",
+      "body": "This issue was opened nearly a year ago and is still a problem as of Temporal Java SDK 1.24.1. Is this on the roadmap to resolve? Thank you.",
+      "createdAt": "2024-10-22T13:48:16Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1940#issuecomment-2429341822",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM6QzVS8",
+      "author": {
+        "login": "Quinn-With-Two-Ns"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Yes we are aware of this issue, but I have no timeline on when this will be resolved.",
+      "createdAt": "2024-10-22T14:01:06Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1940#issuecomment-2429375676",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM68qVxW",
+      "author": {
+        "login": "inphoenitic"
+      },
+      "authorAssociation": "NONE",
+      "body": "The first step should be in this journey to stop sharing/splitting packages in different modules/jars. At this moment, there are classes spread out in multiple jars from `io.temporal.internal` and `io.temporal.internal.common.` This is an easy fix, takes no more that 10 minutes for an experienced coder. If this is solved, java's automatic module resolution does                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           most the remaining work and lets us use these as modules.\nWhat I identified, is that in the `temporal-sdk` module, the package io.temporal.interna                                             l.common should be renamed to something el, like `io.temporal.internal.utils`, and the classes `io.temporal.internal.WorkflowThreadMarker` and io.temporal.internal.BackoffThrottler should be moved to a different package (the easiest is to move them to the previous io.temporal.internal.utils. This would allow the build process to create two jars that do not share/split the two packages.\nI have tested this in my environment, but I do not want to contribute here, because I'm terrible with gradle and have no kotlin experience. Of course, I'm ready to help, if you think it is the quickest way... ",
+      "createdAt": "2025-08-07T18:03:16Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1940#issuecomment-3165215830",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2023-11-21T00:50:52Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1940,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Support Java Modules",
+  "updatedAt": "2025-08-07T18:03:16Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1940"
+}

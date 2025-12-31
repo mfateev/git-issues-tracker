@@ -1,0 +1,50 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE5NzE4ODg0",
+    "is_bot": false,
+    "login": "ksapchuk",
+    "name": "Kirill"
+  },
+  "body": "### What are you really trying to do?\r\nWe have a workflow that starts async child workflows with `startChild` that we want to test. The child workflows have delays in place and we want to sleep in the test environment to check intermediate workflow state. \r\n\r\n### Describe the bug\r\nAfter starting the workflow with `execute` calling sleep on the time skipping TestWorkflowEnvironment seems to hang despite the child workflow having finished. The same test passes if starting the workflow with `start`. \r\n\r\n### Minimal Reproduction\r\nActivities\r\n```\r\nexport const createActivities = () => ({\r\n  async runActivity(): Promise<void> {},\r\n});\r\n```\r\nWorkflows\r\n```\r\nconst { runActivity } = proxyActivities<ReturnType<typeof createActivities>>({\r\n  startToCloseTimeout: '5m',\r\n});\r\n\r\nexport async function childWorkflow(): Promise<void> {\r\n  await runActivity();\r\n}\r\n\r\nexport async function parentWorkflow(): Promise<void> {\r\n  await startChild(childWorkflow, { args: [], parentClosePolicy: ParentClosePolicy.PARENT_CLOSE_POLICY_ABANDON });\r\n}\r\n```\r\n\r\nTest\r\n```\r\n  it('sleeps correctly', async () => {\r\n    const mockActivities: ReturnType<typeof createActivities> = {\r\n      async runActivity() {\r\n        console.log('running activity');\r\n      },\r\n    };\r\n    const worker = await Worker.create({\r\n      connection: env.nativeConnection,\r\n      taskQueue: 'test',\r\n      workflowsPath: require.resolve('../workflows'),\r\n      activities: mockActivities,\r\n    });\r\n    await worker.runUntil(async () => {\r\n      await env.client.workflow.execute(parentWorkflow, {\r\n        workflowId: uuid(),\r\n        taskQueue: 'test',\r\n        args: [],\r\n      });\r\n      await env.sleep('5 minutes');\r\n    });\r\n  });\r\n```\r\n\r\n### Environment/Versions\r\n\r\n<!-- Please complete the following information where relevant. -->\r\n\r\n- OS and processor: M1 Mac,\r\n- Temporal Version: typescript sdk 1.7.2\r\n- Are you using Docker or Kubernetes or building Temporal from source?\r\nNo\r\n\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6cKjOo",
+      "author": {
+        "login": "mjameswh"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Moving to sdk-java, as this is an issue in the Time Skipping Test Server.",
+      "createdAt": "2025-01-28T20:39:36Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2392#issuecomment-2620011432",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2023-04-17T21:48:22Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2392,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "[Bug] Test environment sleep hangs on child workflows ",
+  "updatedAt": "2025-01-28T20:40:03Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2392"
+}

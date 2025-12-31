@@ -1,0 +1,50 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUyMzA0",
+    "is_bot": false,
+    "login": "bergundy",
+    "name": "Roey Berman"
+  },
+  "body": "## Steps to Reproduce the Problem\r\n\r\nhttps://github.com/temporalio/sdk-typescript/blob/0f4c391e897d833fadae54fe3b2dc9afdee47720/packages/test/src/test-testenvironment.ts#L87\r\n\r\n## Expected Behavior\r\n\r\nCalling sleep in the second activity should complete immediately\r\n\r\n## Actual Behavior\r\n\r\nThe second activity sleeps in normal time\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5NMrRY",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Here's a test where I had to make a separate test server: https://github.com/temporalio/sdk-python/blob/657a13def5d4e0e0efc8c3e20677e5958bc7da75/tests/worker/test_workflow.py#L2383-L2440. It might be related to this issue. Basically running `poe test` with `-k 'test_workflow_cancel_activity or test_workflow_cancel_signal'` will cause the unlock-and-sleep of the second test to hang.",
+      "createdAt": "2022-10-28T15:58:07Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1138#issuecomment-1295168600",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-04-12T23:33:23Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1138,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Test server does not decrement time skipping lock for outstanding activities on workflow completion",
+  "updatedAt": "2024-11-19T19:08:43Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1138"
+}

@@ -1,0 +1,50 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjExOTQyMg==",
+    "is_bot": false,
+    "login": "tsurdilo",
+    "name": "Tihomir Surdilovic"
+  },
+  "body": "Currently TestWorkflowEnvironment does support ListOpenWorkflowExecutions, but it does not apply filtering, for example:\r\n\r\nStartTimeFilter\r\n\r\n       ListOpenWorkflowExecutionsRequest req = ListOpenWorkflowExecutionsRequest\r\n                      .newBuilder()\r\n                      .setStartTimeFilter(StartTimeFilter.newBuilder()\r\n                              .setEarliestTime(Timestamp.newBuilder()\r\n                                      .setSeconds(seconds)\r\n                                      .build())\r\n                              .build())\r\n                      .setNamespace(client.getOptions().getNamespace())\r\n                      .build();\r\n\r\n\r\nWorkflowTypeFilter\r\n\r\n    ListOpenWorkflowExecutionsRequest req = ListOpenWorkflowExecutionsRequest\r\n                    .newBuilder()\r\n                    .setTypeFilter(WorkflowTypeFilter.newBuilder()\r\n                            .setName(type)\r\n                            .build())\r\n                    .setNamespace(client.getOptions().getNamespace())\r\n                    .build();\r\n\r\nare not applied when using TestWorkflowEnvironment service and client. ",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5BaIPH",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Assigning low priority. \r\nTest Server is intended for testing Workflow implementations, full on-par support of all administrative endpoints is not really a goal. Workflow logic shouldn’t trigger listopenworkflowexecutions, it's an admin/operation endpoint.\r\n\r\nLeaving it open, because it's good to have.",
+      "createdAt": "2022-04-12T23:38:05Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1139#issuecomment-1097368519",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-04-12T23:34:26Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1139,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "TestWorkflowEnvironment - add support for filtering for ListOpenWorkflowExecutions",
+  "updatedAt": "2024-12-17T21:26:50Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1139"
+}

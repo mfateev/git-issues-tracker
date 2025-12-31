@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\n\r\nWe should be able to specify QueryRejectCondition for each query or at least for each specific workflow stub to have a granular enough control.\r\n\r\n## Actual Behavior\r\n\r\nRight now the only way to specify `QueryRejectCondition` in JavaSDK is on `WorkflowClientOptions`, which means that once the rejection level is specified, it will be applied for all queries for all workflows queried from the client.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2021-10-31T16:57:08Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 851,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Allow more granular setting of QueryRejectCondition ",
+  "updatedAt": "2024-12-17T21:27:50Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/851"
+}

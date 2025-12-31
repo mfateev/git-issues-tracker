@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjY3Mjg0NzQz",
+    "is_bot": false,
+    "login": "jasonmchan",
+    "name": "Jason Chan"
+  },
+  "body": "## Expected Behavior\nWhen using ContinueAsNew with the testing server, the requested Memo and Search Attributes should be propagated into the new workflow execution.\n\nThis is what the production Temporal server does.\n\n## Actual Behavior\nThe memo and search attributes in the command are dropped. See [here](https://github.com/temporalio/sdk-java/blob/31d044cfb67a29f456d0f699296e40cd4f05eb1e/temporal-test-server/src/main/java/io/temporal/internal/testservice/TestWorkflowService.java?plain=1#L1531-L1571) for where the start request is constructed—the memo and search attributes are not extracted from the `ContinueAsNewWorkflowExecutionCommandAttributes`.\n\n## Steps to Reproduce the Problem\n  1. Start a testing server\n  2. Run a workflow that uses continue-as-new with search attributes / memo\n\n## Specifications\n  - Version: v1.31.0\n  - Platform: all\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-09-08T17:45:38Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 2655,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Testing server continue-as-new doesn't carry memo/search attributes",
+  "updatedAt": "2025-09-25T23:14:47Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2655"
+}

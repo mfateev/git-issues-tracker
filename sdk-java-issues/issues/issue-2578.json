@@ -1,0 +1,37 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjczNDg4",
+    "is_bot": false,
+    "login": "rgrochowicz",
+    "name": "Rob Grochowicz"
+  },
+  "body": "## Expected Behavior\n\nThe JavaDoc for `startUpdate` should indicate that when it's called with a `waitForStage` of `WorkflowUpdateStage.COMPLETED`, it's synchronous and blocks until the update is completed.\n\n## Actual Behavior\n\nThe JavaDoc for `startUpdate` says the following:\n\n```text\nStart a zero argument update workflow request asynchronously.\n```\n\nHowever, the following code will block until the update is completed:\n\n```kotlin\nval updateOptions =\n  UpdateOptions.newBuilder<UpdateResult>()\n    .setResultClass(UpdateResult::class.java)\n    .setWaitForStage(WorkflowUpdateStage.COMPLETED)\n    .setUpdateId(updateId)\n    .build()\nval update = WorkflowClient.startUpdate(stub::doUpdate, updateOptions) // <-- blocks here\nval result = update.getResult(5, TimeUnit.SECONDS)\n```\n\nThe JavaDoc implies that `startUpdate` would ignore the `waitForStage`, always be asynchronous, and block on the `update.getResult`.\n\n## Steps to Reproduce the Problem\n\n  1. Look at JavaDoc for `startUpdate`\n  2. Assume `startUpdate` is always asynchronous \n  1. Call `startUpdate` with a `waitForStage` of `WorkflowUpdateStage.COMPLETED`\n  1. See that the `startUpdate` call was actually synchronous\n\n## Specifications\n\n  - Version: latest [master](https://github.com/temporalio/sdk-java/blob/4afe41b6ca638775e4e6ecaa3a5171b32670f9d4/temporal-sdk/src/main/java/io/temporal/client/WorkflowClient.java#L704)\n  - Platform: n/a\n\n---\n\nRequesting that either the word `asynchronously` is removed from the JavaDoc for the `startUpdate` methods or it's clear that the function isn't asynchronous in a normal sense.\n\nThanks!",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM60hZZ8",
+      "author": {
+        "login": "Sushisource"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "This is the sort of small change we'd be more than happy to accept a PR for if you're interested!",
+      "createdAt": "2025-07-02T17:23:14Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2578#issuecomment-3028653692",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2025-06-30T21:10:59Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2578,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "`startUpdate` JavaDoc says \"asynchronously\" when it may not be",
+  "updatedAt": "2025-07-02T17:23:14Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2578"
+}

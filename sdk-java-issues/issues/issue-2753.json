@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjk1MzAwMDQ=",
+    "is_bot": false,
+    "login": "40lsgy1",
+    "name": "40lsgy1"
+  },
+  "body": "I'm encountering an issue while using Temporal to build a DSL system. In my implementation, each Activity is wrapped in a CancellationScope to enable individual cancellation handling (with retry/skip options after cancellation). The CancellationType is set to WAIT_CANCELLATION_COMPLETED. I have two related problems:\n\n1. Worker Crash During Activity Execution: I recently observed that if a worker crashes during an Activity's business logic execution and fails to recover within the StartToCloseTimeout period, the Activity does not retry its business logic after the worker recovers. According to the documentation, StartToCloseTimeout should only limit the duration of a single Activity attempt. My expectation is that after worker recovery, the Activity should retry (allowing cancellation cleanup logic to execute) rather than terminating due to timeout.\n\n2. Detecting CancellationScope Status After Exit: My Activities nest CancellationScope within Async.procedure Promises. When a CanceledFailure occurs, the WAIT_CANCELLATION_COMPLETED policy ensures the Activity's logic completes successfully before exiting the scope. After exiting the CancellationScope, I need to execute state update logic (via other Activities). Is there a way to determine whether the CancellationScope was canceled immediately after exiting it? This would allow me to conditionally execute state updates using newDetachedCancellationScope.\n\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2025-12-31T08:23:53Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2753,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check",
+  "updatedAt": "2025-12-31T08:23:53Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2753"
+}

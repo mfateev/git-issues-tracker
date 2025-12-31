@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjM4ODI4NQ==",
+    "is_bot": false,
+    "login": "yunmanger1",
+    "name": "German Ilin"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nRequest: Make it possible for test setup to override ActivityOptions set for activities in workflow. \r\n\r\nProblem:\r\nIn production code I have high retry count on activities, but in testing I want to override that to have maxAttempts=1 so that workflow gets it’s failure right away. Or in case I didn’t mock some activity properly the test will fail right away with NullPointerException instead of hanging indefinitely.\r\n\r\nAnother thing is that, when stubbing activities in workflow I hardcode the queue name, because it might not be the same the workflow is on. And in tests I need to override it to make things run, without reproducing all the queue-worker combinations in prod.\r\n\r\n**Describe the solution you'd like**\r\n\r\nSth like `overrideAllActivityOptions` or `overrideActivityOptions` in example below.\r\n\r\n```\r\nimport io.temporal.activity.ActivityOptions\r\nimport io.temporal.client.WorkflowException\r\nimport io.temporal.client.WorkflowOptions\r\nimport io.temporal.common.RetryOptions\r\nimport io.temporal.failure.ActivityFailure\r\nimport io.temporal.failure.ApplicationFailure\r\nimport io.temporal.testing.TestWorkflowEnvironment\r\nimport io.temporal.worker.WorkflowImplementationOptions\r\nimport org.junit.jupiter.api.AfterEach\r\nimport org.junit.jupiter.api.Assertions.assertEquals\r\nimport org.junit.jupiter.api.Assertions.assertTrue\r\nimport org.junit.jupiter.api.BeforeEach\r\nimport org.junit.jupiter.api.Test\r\nimport org.mockito.ArgumentMatchers.anyString\r\nimport org.mockito.kotlin.mock\r\nimport org.mockito.kotlin.whenever\r\n\r\n\r\nclass HelloWorldWorkflowImplTest {\r\n\r\n    private val taskQueue = \"TASK_QUEUE\"\r\n    private val testEnv = TestWorkflowEnvironment.newInstance();\r\n    private val testActivityOptions = ActivityOptions.newBuilder()\r\n        .setTaskQueue(taskQueue)\r\n        .setRetryOptions(RetryOptions.newBuilder().setMaximumAttempts(1).validateBuildWithDefaults())\r\n        .validateAndBuildWithDefaults()\r\n    private val opts = WorkflowImplementationOptions.newBuilder()\r\n        .setFailWorkflowExceptionTypes(\r\n            Throwable::class.java,\r\n        )\r\n        .setDefaultActivityOptions(\r\n            testActivityOptions\r\n        )\r\n        .overrideAllActivityOptions(\r\n            testActivityOptions\r\n        )\r\n        .overrideActivityOptions(\r\n            mapOf(HelloWorldActivities::class.java to testActivityOptions)\r\n        )\r\n        .build()!!\r\n    private val worker = testEnv.newWorker(taskQueue).also {\r\n        it.registerWorkflowImplementationTypes(\r\n            opts,\r\n            HelloWorldWorkflowImpl::class.java\r\n        )\r\n    }\r\n\r\n    @Test\r\n    fun `activity error should fail workflow`() {\r\n        val formatActivities = mock<HelloWorldActivities>()\r\n        var count = 1\r\n        whenever(formatActivities.composeGreeting(anyString())).then {\r\n            println(\"CALL $count\")\r\n            count += 1\r\n            error(\"test error\")\r\n        }\r\n        worker.registerActivitiesImplementations(formatActivities)\r\n        testEnv.start()\r\n\r\n        val workflow = testEnv.workflowClient.newWorkflowStub(\r\n            HelloWorldWorkflow::class.java,\r\n            WorkflowOptions.newBuilder().setTaskQueue(taskQueue).build()!!\r\n        )\r\n        try {\r\n            workflow.getGreeting(\"Mock\")\r\n            error(\"unreachable\")\r\n        } catch (e: WorkflowException) {\r\n            assertTrue(e.cause is ActivityFailure)\r\n            assertTrue(e.cause?.cause is ApplicationFailure)\r\n            assertEquals(\r\n                \"test error\",\r\n                (e.cause?.cause as ApplicationFailure).originalMessage\r\n            )\r\n        }\r\n    }\r\n}\r\n```\r\n\r\n**Describe alternatives you've considered**\r\nRight now I am flagging to code directly to use testActivityOptions when executed from test.\r\n\r\n```\r\n    @BeforeEach\r\n    fun `setup overrides`() {\r\n        GlobalWorkflowOptions.set(testActivityOptions)\r\n    }\r\n\r\n    @AfterEach\r\n    fun `reset overrides`() {\r\n        GlobalWorkflowOptions.clear()\r\n    }\r\n```\r\n\r\nand in code\r\n\r\n```\r\nclass HelloWorldWorkflowImpl : HelloWorldWorkflow {\r\n\r\n    private val activityOptions = ActivityOptions.newBuilder()\r\n        .setTaskQueue(HELLO_WORLD_TASK_QUEUE)\r\n        .setStartToCloseTimeout(Duration.ofSeconds(60))\r\n        .validateAndBuildWithDefaults()!!\r\n\r\n    private val activity = Workflow.newActivityStub(\r\n        HelloWorldActivities::class.java,\r\n        GlobalWorkflowOptions.activityOptions(activityOptions)\r\n    )\r\n\r\n    override fun getGreeting(name: String): String {\r\n        return activity.composeGreeting(name)\r\n    }\r\n\r\n}\r\n```\r\n\r\n**Additional context**\r\nhttps://community.temporal.io/t/throwing-exception-in-mocked-activity-hangs-the-test/10932\r\n\r\nRelated issues: #499 #626 ",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5zwpWO",
+      "author": {
+        "login": "cretz"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "In the meantime, can you consider having your mock activity throw a non-retryable exception?",
+      "createdAt": "2024-02-13T18:14:33Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1988#issuecomment-1942132110",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-02-13T15:50:14Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1988,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Have a built-in way to override activityOptions in tests",
+  "updatedAt": "2024-02-13T18:14:34Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1988"
+}

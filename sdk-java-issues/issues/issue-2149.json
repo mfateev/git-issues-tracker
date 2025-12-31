@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUxNzY4Mw==",
+    "is_bot": false,
+    "login": "Sushisource",
+    "name": "Spencer Judge"
+  },
+  "body": "Before slot supplier introduction, there was a backpressure semaphore for LAs sized at 2x the number of concurrent executions which, when the limit is reached, fails the WFT.\r\n\r\nAfter suppliers, this behavior is the same, but for suppliers with no defined upper-limit on slots, there is no way to pick a reasonable number, so we default to 100. See if there's anything better to be done here.",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2024-07-19T21:03:46Z",
+  "labels": [],
+  "milestone": null,
+  "number": 2149,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Revisit local activity backpressure logic w/ no-max slot suppliers",
+  "updatedAt": "2024-07-19T21:03:46Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2149"
+}

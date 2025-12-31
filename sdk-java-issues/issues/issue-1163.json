@@ -1,0 +1,51 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjYwNjc2MQ==",
+    "is_bot": false,
+    "login": "mdeinum",
+    "name": "Marten Deinum"
+  },
+  "body": "We are using Temporal to handle workflows for registrations. Those registrations are for a certain region/country. We are sending the metrics to New Relic to create a dashboard to get insights in how many workflows have started, failed, cancelled or completed. This works fine. The region is part of the input that starts the workflow. \r\n\r\nHowever we would like to split those metrics based on the region, we tried several hooks but apart from sending a custom metric on the start of a workflow we aren't able to solve this. What we want is that when a workflow starts, it contributes a tag to the metrics (in our case the region) so that we can use that as an additional dimension/facet in New Relic to group things by. \r\n\r\nWe are using the Java SDK and haven't found a foolproof way of doing that, apart from a custom metric at the start of the workflow. \r\n\r\nWhat we currently have is we have a single `WorkflowServiceStubs` which we cannot use to set the region. We tried to create a `WorkflowServiceStubs` instance per region, but that starts to break as soon as we need to react to signals, we there loose the region and cannot use the proper one. \r\n\r\nWe tried to create a `WorkflowClientInterceptor` which doesn't give us access to the correct `MetricScope` to add tags. \r\n\r\nWe also tried a `ContextPropagator` although we can pass the region around there is no way to contribute it as a tag to the metrics. \r\n\r\nAll in all the only thing that worked was a custom metric at the start of a workflow, but that still leaves out the cancelled, failed and completed events we need to have. \r\n\r\nIt would be nice to have a way that when starting a workflow, we could add custom tags to the metrics and that those would be added to all events being send to New Relic. Currently it seems to hard or to be to inflexible. \r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5B7P0h",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "It's not possible right now to set custom tags on core worker metrics from the workflow code. There is no easy, clean and reliable way to achieve and do it with Temporal distributed execution model. For example, an activity worker will somehow have to get custom tags from the workflow execution to fit your \"regions\" usecase (so, need to bring ContextPropagator here).\r\nWe don't have plans to make it possible. Too large pain, customization, and risk of unsafety for a narrow use-case. Core worker metrics should be unified and simple. Giving each workflow execution an opportunity to configure a unique scope for each execution doesn't look like a good practice or a good idea.\r\nHence, \"won't fix\".\r\nYou can set your own scope in each workflow for your custom workflow metrics though.\r\n\r\n> What we currently have is we have a single WorkflowServiceStubs which we cannot use to set the region. We tried to create a WorkflowServiceStubs instance per region, but that starts to break as soon as we need to react to signals, we there loose the region and cannot use the proper one.\r\n\r\nYou can have separate task queues for each \"region\" and start separate workers for each of them. Each worker will be configured with its own task queue and its own MetricsScope. This way signals will be routed only to the worker attributed to the right task queue and region and will get correct tags on signals.",
+      "createdAt": "2022-04-22T06:18:25Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1163#issuecomment-1106050337",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-04-21T06:57:45Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM7NRayD",
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "BFD4F2"
+    }
+  ],
+  "milestone": null,
+  "number": 1163,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 3
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "Allow contributions of tags of root worker metricsscope per workflow execution",
+  "updatedAt": "2024-12-17T21:26:49Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1163"
+}

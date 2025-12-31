@@ -1,0 +1,66 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "In addition to WorkflowReusePolicy, GoSDK has a flag\r\n\r\nhttps://github.com/temporalio/sdk-go/blob/57736850f55b2b3e17cffa0e3493c4e0d6de831f/internal/client.go#L529\r\n```\r\n// When WorkflowExecutionErrorWhenAlreadyStarted is true, Client.ExecuteWorkflow will return an error if the\r\n// workflow id has already been used and WorkflowIDReusePolicy would disallow a re-run. If it is set to false,\r\n// rather than erroring a WorkflowRun instance representing the current or last run will be returned.\r\n//\r\n// Optional: defaults to false\r\nWorkflowExecutionErrorWhenAlreadyStarted bool\r\n```\r\n\r\nThat enabled an explicit failing of the workflow start if WorkflowReusePolicy disallowed an execution instead of returning the old execution.\r\n\r\nThis has to be added to JavaSDK, otherwise, there is no way for users to get the fact that the start request was disallowed and the returned execution is an old execution.\r\n\r\nOne of the discussions on this topic:\r\n[C02E8TQA01G-1673406348.075879.txt](https://github.com/temporalio/sdk-java/files/10396892/C02E8TQA01G-1673406348.075879.txt)\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM49T1vY",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "No need for such flag in Java. The solution is to make two API calls:\r\n1. StartWorkflow which is going to throw \"already running\"\r\n2. Wait for workflow result",
+      "createdAt": "2022-02-03T05:15:54Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1025#issuecomment-1028611032",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDODN12PM5CslmZ",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@mfateev This makes users use exceptions as a part of their normal code flow. It is bad practice especially when we already have all the underlying APIs to make it possible without exceptions.\r\nAlso, it's messy and counterintuitive that sync API in case of a duplicate returns an existing execution, while async execution throws an exception.\r\nIt looks like we have to preserve backward compatibility, but we need to give users a choice in both APIs to error out or just to attach to existing execution if there is one.",
+      "createdAt": "2022-05-05T19:48:33Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1025#issuecomment-1118984601",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-02-02T18:19:27Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1025,
+  "reactionGroups": [
+    {
+      "content": "THUMBS_UP",
+      "users": {
+        "totalCount": 1
+      }
+    }
+  ],
+  "state": "OPEN",
+  "title": "In case of existing workflow both sync and async executions should have an option to error out or return an existing execution",
+  "updatedAt": "2023-01-12T00:04:26Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1025"
+}

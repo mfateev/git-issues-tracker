@@ -1,0 +1,65 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "## Expected Behavior\r\n\r\nWorkflow code should be able to catch `CancellationFailure`, handle or ignore it and be able to finish executing successfully.\r\nTest https://github.com/Spikhalskiy/java-sdk/commit/eada50399b6d24c77d4b6e37cd500907594a189a#diff-a2baafb2fd6213bafb49077bd60c8efeedc6c15df86437e9c8e2ef87ce23625cR58\r\nexpected to pass\r\n\r\n## Actual Behavior\r\n\r\nTest fails. Workflow doesn't get a chance to fully swallow and ignore `CancellationFailure` and is forced to finish with `EVENT_TYPE_WORKFLOW_EXECUTION_CANCELED`",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM46Phw6",
+      "author": {
+        "login": "bergundy"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "We did the exact thing in TypeScript a while ago.\r\nWe only complete with cancelled if cancellation of the Workflow was requested and the workflow propagates an exception that is considered cancellation.\r\nhttps://github.com/temporalio/sdk-typescript/blob/733b01ee9913c255cea8913222c1232bf1bda3a4/packages/workflow/src/errors.ts#L38",
+      "createdAt": "2021-11-23T20:35:14Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/896#issuecomment-977148986",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5AHjy5",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "After discussion with @mfateev we decided that it's too much of the breaking change to the current concept of scopes. It's not a bug, it's designed this way right now. Once the scope is requested to be canceled, it's considered canceled new commands have to be scheduled in the detached scope. We may reconsider this decision and design in the future, but when we design JavaSDK 2.x which will not strive to maintain compatibility and will revisit all the existing concepts and APIs. ",
+      "createdAt": "2022-03-22T22:42:42Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/896#issuecomment-1075723449",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-11-23T19:30:23Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM7NRayD",
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "BFD4F2"
+    },
+    {
+      "id": "LA_kwDODN12PM7rzxsQ",
+      "name": "next-gen",
+      "description": "Tasks postponed for a major future breaking release",
+      "color": "0e8a16"
+    }
+  ],
+  "milestone": null,
+  "number": 896,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Workflow should be able to ignore CancellationFailure and finish successfully",
+  "updatedAt": "2024-12-17T21:19:13Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/896"
+}

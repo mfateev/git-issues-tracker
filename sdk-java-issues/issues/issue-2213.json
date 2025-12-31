@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "U_kgDOCeuzXQ",
+    "is_bot": false,
+    "login": "drewhoskins-temporal",
+    "name": "Drew Hoskins"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nBatchRequest is [hard to use](https://github.com/temporalio/samples-java/blob/ec1c615074eaf63d6b09caabff80e374ab507841/core/src/main/java/io/temporal/samples/moneybatch/TransferRequester.java#L51-L54), i.e. it has some affordances that would be illegal.\r\n* First item must be the workflow start\r\n* Second must be signal\r\nWe've never added support for other operations to it, such as Update, which means it might mislead people into thinking it could be used for an Update.\r\n\r\n**Describe the solution you'd like**\r\nSuggest deprecating it and replacing it with something \r\n* easier to use\r\n* more consistent with `updateWithStart`.\r\n\r\n**Describe alternatives you've considered**\r\nA clear and concise description of any alternative solutions or features you've considered.\r\n\r\n**Additional context**\r\nAdd any other context or screenshots about the feature request here.\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM6PO-fG",
+      "author": {
+        "login": "drewhoskins-temporal"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "Related: https://github.com/temporalio/sdk-java/issues/915",
+      "createdAt": "2024-10-09T18:46:06Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/2213#issuecomment-2403067846",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2024-09-12T21:22:00Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 2213,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Signal w/ Start API Improvements - Java",
+  "updatedAt": "2024-10-09T18:46:07Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/2213"
+}

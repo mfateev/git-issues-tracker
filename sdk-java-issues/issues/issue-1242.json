@@ -1,0 +1,21 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\n`WorkflowHistoryIterator` implementation related to deadline (using calculations on curentTimeMilles), exceptions handling and error/expiration reporting requires a revisit and polishing.\r\nLogging should include more information about the workflow task timeout and how much time elapsed.\r\n\r\nAs a part of this task it's also a good idea to build-in protection from the server returning events in a loop that never ends that we have in Core:\r\nhttps://github.com/temporalio/sdk-core/blob/a72ebed19ec1e7b3fe37fbcbe846deafb1820f33/core/src/worker/workflow/history_update.rs#L281",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-06-01T21:23:54Z",
+  "labels": [],
+  "milestone": null,
+  "number": 1242,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Revisit history pagination ",
+  "updatedAt": "2024-12-17T21:20:31Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1242"
+}

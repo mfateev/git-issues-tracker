@@ -1,0 +1,80 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjE0NjM2MjI=",
+    "is_bot": false,
+    "login": "mfateev",
+    "name": "Maxim Fateev"
+  },
+  "body": "## Expected Behavior\r\n\r\nWorkflow.sleep in a child workflow uses time skipping with a test service.\r\n\r\n## Actual Behavior\r\nWhen a parent calls continue-as-new time skipping in a child is not happening.\r\n\r\n## Steps to Reproduce the Problem\r\n\r\nSee https://github.com/temporalio/sdk-java/pull/1539 for reproduction.\r\n",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5T8OYC",
+      "author": {
+        "login": "pompalive"
+      },
+      "authorAssociation": "NONE",
+      "body": "@Spikhalskiy Would you please suggest on the plan to fix this issue and #1618?",
+      "createdAt": "2023-01-30T09:48:37Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1540#issuecomment-1408296450",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5UMcHU",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "@pompalive We don't typically provide timelines, especially for issues related to the testing framework. Temporal is open source and we do accept contributions. ",
+      "createdAt": "2023-02-01T18:45:12Z",
+      "includesCreatedEdit": true,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1540#issuecomment-1412547028",
+      "viewerDidAuthor": false
+    },
+    {
+      "id": "IC_kwDODN12PM5UUVMw",
+      "author": {
+        "login": "pompalive"
+      },
+      "authorAssociation": "NONE",
+      "body": "Thanks for the reply. I will wait for fix.",
+      "createdAt": "2023-02-03T01:52:36Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1540#issuecomment-1414615856",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2022-11-26T20:32:01Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQx",
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "id": "LA_kwDODN12PM8AAAABzzHCJQ",
+      "name": "test server",
+      "description": "Related to the test server",
+      "color": "A71076"
+    }
+  ],
+  "milestone": null,
+  "number": 1540,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Test service time skipping broken in a child workflow",
+  "updatedAt": "2025-05-15T02:20:22Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1540"
+}

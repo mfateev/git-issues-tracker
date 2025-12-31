@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "Temporal JavaSDK has an untyped `WorkflowStub` that is bound to a specific method invocation (workflow method), while a currently existing ActivityStub is bound to the AcitivityInterface and not to the specific activity type. \r\n\r\nThe source of the inconsistency is that one `WorkflowInterface` has always only one \"entry\" workflow method, while an ActivityInterface can have several `ActivityMethod`.\r\n\r\nTo keep things consistent, we should have a variation of the ActivityStub that binds an execution of the activity to a specific type the same way as WorkflowStub. There also should be an `ActivityStub.fromTyped` method working similarly with `WorkflowStub.fromTyped` (but probably taking a method reference instead of a pointer to an instance)\r\n\r\nThe current Activity stub that we have in JavaSDK looks like\r\n```\r\npublic interface ActivityStub {\r\n  <R> R execute(String activityName, Class<R> resultClass, Object... args);\r\n\r\n  <R> R execute(String activityName, Class<R> resultClass, Type resultType, Object... args);\r\n\r\n  <R> Promise<R> executeAsync(String activityName, Class<R> resultClass, Object... args);\r\n\r\n  <R> Promise<R> executeAsync(\r\n      String activityName, Class<R> resultClass, Type resultType, Object... args);\r\n}```\r\nwhich is inconsistent with WorkflowStub and makes it harder to work with untyped ActivityStubs.\r\n",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-01-29T21:39:47Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1009,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Provide ActivityStub that is bound to the specific activityType or a specific invocation",
+  "updatedAt": "2024-12-17T21:19:12Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1009"
+}

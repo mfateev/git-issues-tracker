@@ -1,0 +1,59 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "Currently, if our workflow executor / control code throws an exception, it's a subject for `WorkflowImplementationOptions#failWorkflowExceptionTypes` logic and users can set up their system in a way that such exceptions may fail the workflow execution.\r\n\r\nAn example:\r\nWorkflow Executor throws `java.lang.IllegalStateException: History is out of order` if it received a sticky task and its cached instance is outdated. Our expectation is that this exception will fail WFT and cause a full replay and an execution on another (or the same) worker.\r\n\r\nIn reality, users may set `failWorkflowExceptionTypes` into a broad category like `Exception` and such an internal exception will start to fail workflow executions. Doing this, users expect `failWorkflowExceptionTypes` to be applied only to the workflow exceptions, but it's also applied to the workflow executor exception.\r\n\r\nProposed solution:\r\n\r\nDon't apply `WorkflowImplementationOptions#failWorkflowExceptionTypes` to the exceptions from the control code.\r\nExceptions thrown by the control code should always fail Workflow Task, not a Workflow Execution.\r\nThere needs to be one (?at least one?) exception from this new rule - `io.temporal.worker.NonDeterministicException`. We have users that explicitly want to fail executions if a non-deterministic error happens.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5WXS0r",
+      "author": {
+        "login": "mfateev"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "I think we should keep the current logic of applying `failWorkflowExceptionTypes` to any unexpected error from the control code. But for situations that we know are intermittent we should try to retry. \r\n\r\nAnother option is to apply `failWorkflowExceptionTypes` on a second or (Nth) task attempt. This way, intermittent failures would not lead to workflow failures.  ",
+      "createdAt": "2023-02-28T21:31:48Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1681#issuecomment-1448946987",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDODN12PM5aaE06",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "We should be throwing an explicit FailWorkflowTaskException of something like this from the SDK internals if we expect that this exception should always be failing the WFT only and never follow the user-specified criteria.",
+      "createdAt": "2023-04-20T18:43:56Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/1681#issuecomment-1516784954",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2023-02-28T20:50:53Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1681,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Exceptions thrown from workflow executor code shouldn't be subject to failWorkflowExceptionTypes",
+  "updatedAt": "2024-12-17T21:19:09Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1681"
+}

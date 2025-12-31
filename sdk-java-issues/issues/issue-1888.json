@@ -1,0 +1,26 @@
+{
+  "assignees": [],
+  "author": {
+    "is_bot": true,
+    "login": "app/mend-for-github-com"
+  },
+  "body": "<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>kotlin-klib-commonizer-embeddable-1.5.32.jar</b></p></summary>\n\n<p></p>\n<p>Path to dependency file: /temporal-kotlin/build.gradle</p>\n<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.5.32/a1f8a73f899b85e6eb4337dff7e81b8b914bd2c9/kotlin-stdlib-1.5.32.jar</p>\n<p>\n\n\n<p>Found in HEAD commit: <a href=\"https://github.com/temporalio/sdk-java/commit/f389bd8e9cd8956213466e705d5e2a36978aea65\">f389bd8e9cd8956213466e705d5e2a36978aea65</a></p></details>\n\n## Vulnerabilities\n\n| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (kotlin-klib-commonizer-embeddable version) | Remediation Possible** |\n| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |\n| [CVE-2022-24329](https://www.mend.io/vulnerability-database/CVE-2022-24329) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png?' width=19 height=20> Medium | 5.3 | kotlin-stdlib-1.5.32.jar | Transitive | 1.6.0 | &#9989; |\n<p>**In some cases, Remediation PR cannot be created automatically for a vulnerability despite the availability of remediation</p>\n\n## Details\n\n<details>\n\n<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png?' width=19 height=20> CVE-2022-24329</summary>\n\n\n###  Vulnerable Library - <b>kotlin-stdlib-1.5.32.jar</b></p>\n\n<p>Kotlin Standard Library for JVM</p>\n<p>Library home page: <a href=\"https://kotlinlang.org/\">https://kotlinlang.org/</a></p>\n<p>Path to dependency file: /temporal-kotlin/build.gradle</p>\n<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.5.32/a1f8a73f899b85e6eb4337dff7e81b8b914bd2c9/kotlin-stdlib-1.5.32.jar</p>\n<p>\n\nDependency Hierarchy:\n  - kotlin-klib-commonizer-embeddable-1.5.32.jar (Root Library)\n    - :x: **kotlin-stdlib-1.5.32.jar** (Vulnerable Library)\n<p>Found in HEAD commit: <a href=\"https://github.com/temporalio/sdk-java/commit/f389bd8e9cd8956213466e705d5e2a36978aea65\">f389bd8e9cd8956213466e705d5e2a36978aea65</a></p>\n<p>Found in base branch: <b>master</b></p>\n</p>\n\n<p></p>\n\n###  Vulnerability Details\n<p>  \n  \nIn JetBrains Kotlin before 1.6.0, it was not possible to lock dependencies for Multiplatform Gradle Projects.\n\n<p>Publish Date: 2022-02-25\n<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-24329>CVE-2022-24329</a></p>\n</p>\n\n<p></p>\n\n###  CVSS 3 Score Details (<b>5.3</b>)\n<p>\n\nBase Score Metrics:\n- Exploitability Metrics:\n  - Attack Vector: Network\n  - Attack Complexity: Low\n  - Privileges Required: None\n  - User Interaction: None\n  - Scope: Unchanged\n- Impact Metrics:\n  - Confidentiality Impact: None\n  - Integrity Impact: Low\n  - Availability Impact: None\n</p>\nFor more information on CVSS3 Scores, click <a href=\"https://www.first.org/cvss/calculator/3.0\">here</a>.\n</p>\n\n<p></p>\n\n###  Suggested Fix\n<p>\n\n<p>Type: Upgrade version</p>\n<p>Origin: <a href=\"https://github.com/advisories/GHSA-2qp4-g3q3-f92w\">https://github.com/advisories/GHSA-2qp4-g3q3-f92w</a></p>\n<p>Release Date: 2022-02-25</p>\n<p>Fix Resolution (org.jetbrains.kotlin:kotlin-stdlib): 1.6.0-M1</p>\n<p>Direct dependency fix Resolution (org.jetbrains.kotlin:kotlin-klib-commonizer-embeddable): 1.6.0</p>\n\n</p>\n\n<p></p>\n\n\n:rescue_worker_helmet: Automatic Remediation will be attempted for this issue.\n</details>\n\n***\n\n<p>:rescue_worker_helmet:Automatic Remediation will be attempted for this issue.</p>",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2023-10-10T17:07:36Z",
+  "labels": [
+    {
+      "id": "LA_kwDODN12PM7tOe3c",
+      "name": "Mend: dependency security vulnerability",
+      "description": "Security vulnerability detected by WhiteSource",
+      "color": "d1260f"
+    }
+  ],
+  "milestone": null,
+  "number": 1888,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "kotlin-klib-commonizer-embeddable-1.5.32.jar: 1 vulnerabilities (highest severity is: 5.3)",
+  "updatedAt": "2023-10-10T17:07:37Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1888"
+}

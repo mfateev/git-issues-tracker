@@ -1,0 +1,44 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "Right now the caller can set a timeout on getResult by working directly with  WorkflowStub using the following method:\r\nhttps://github.com/temporalio/sdk-java/blob/b0199150b69bb5a4eaf6c13ba4b89c2a8746a113/temporal-sdk/src/main/java/io/temporal/internal/sync/WorkflowStubImpl.java#L232\r\n\r\nBut if the caller is not using the low-level stub API and just calls the workflow method of a workflow proxy (which most of our users for sure do) a method with `Integer.MAX_VALUE` timeout is used by default:\r\nhttps://github.com/temporalio/sdk-java/blob/b0199150b69bb5a4eaf6c13ba4b89c2a8746a113/temporal-sdk/src/main/java/io/temporal/internal/sync/WorkflowStubImpl.java#L222\r\n\r\nWe should allow defining the `#getResult` timeout on WorkflowOptions to allow the neat proxy API to enforce reasonable timeouts.",
+  "closedAt": null,
+  "comments": [
+    {
+      "id": "IC_kwDODN12PM5aUmsv",
+      "author": {
+        "login": "Spikhalskiy"
+      },
+      "authorAssociation": "CONTRIBUTOR",
+      "body": "Related to #88. All methods of WorkflowStub and/or WorkflowClient should have some way to be limited by a user-supplied timeout.",
+      "createdAt": "2023-04-19T20:40:23Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/temporalio/sdk-java/issues/652#issuecomment-1515350831",
+      "viewerDidAuthor": false
+    }
+  ],
+  "createdAt": "2021-08-19T18:58:42Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 652,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Make WorkflowStub#getResult timeout configurable on WorkflowOptions",
+  "updatedAt": "2023-04-19T20:40:24Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/652"
+}

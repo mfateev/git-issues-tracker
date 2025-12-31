@@ -1,0 +1,28 @@
+{
+  "assignees": [],
+  "author": {
+    "id": "MDQ6VXNlcjUzMjEwOA==",
+    "is_bot": false,
+    "login": "Spikhalskiy",
+    "name": "Dmitry Spikhalsky"
+  },
+  "body": "**Is your feature request related to a problem? Please describe.**\r\nRight now Local Activity Execution is not aware of the lifecycle of the Workflow Task that started this execution.\r\nIf Workflow Task (or one of its subsequent heartbeats) is already failed, Local Activity will continue execution.\r\nIf there is no `scheduleToClose` timeout set or `scheduleToClose` is long, such an orphan local activity can retry for a long time. \r\n\r\n**Describe the solution you'd like**\r\nLocal Activity Execution should stop making new attempts if the workflow task caused this execution is failed.\r\n\r\n**Additional context**\r\nThis task should likely be coupled with the implementation of Local Activity Cancelations: #1303",
+  "closedAt": null,
+  "comments": [],
+  "createdAt": "2022-12-08T05:59:54Z",
+  "labels": [
+    {
+      "id": "MDU6TGFiZWwxNjIyNzE5ODQ0",
+      "name": "enhancement",
+      "description": "User experience",
+      "color": "a2eeef"
+    }
+  ],
+  "milestone": null,
+  "number": 1563,
+  "reactionGroups": [],
+  "state": "OPEN",
+  "title": "Local Activity Execution should stop making attempts if Workflow Task or subsequent heartbeat fails",
+  "updatedAt": "2022-12-08T05:59:54Z",
+  "url": "https://github.com/temporalio/sdk-java/issues/1563"
+}
