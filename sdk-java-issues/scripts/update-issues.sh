@@ -1,0 +1,116 @@
+#!/bin/bash
+# Incrementally update issues for a repository (only changed since last sync)
+# Usage: ./update-issues.sh <owner/repo> or ./update-issues.sh <repo-dir-name>
+# Example: ./update-issues.sh temporalio/sdk-java
+
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <owner/repo> or <repo-dir-name>"
+    echo "Example: $0 temporalio/sdk-java"
+    echo "Example: $0 temporalio-sdk-java"
+    exit 1
+fi
+
+BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Handle both owner/repo and repo-dir-name formats
+if [[ "$1" == *"/"* ]]; then
+    REPO="$1"
+    REPO_DIR_NAME=$(echo "$REPO" | tr '/' '-')
+else
+    REPO_DIR_NAME="$1"
+    # Try to get repo name from metadata
+    METADATA_FILE="$BASE_DIR/repos/$REPO_DIR_NAME/sync-metadata.json"
+    if [ -f "$METADATA_FILE" ]; then
+        REPO=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$METADATA_FILE')).repository)")
+    else
+        echo "Error: Cannot find metadata for $REPO_DIR_NAME"
+        echo "Run fetch-issues.sh first to do initial download"
+        exit 1
+    fi
+fi
+
+REPO_DIR="$BASE_DIR/repos/$REPO_DIR_NAME"
+OUTPUT_DIR="$REPO_DIR/issues"
+METADATA_FILE="$REPO_DIR/sync-metadata.json"
+
+if [ ! -f "$METADATA_FILE" ]; then
+    echo "No sync metadata found for $REPO_DIR_NAME"
+    echo "Run fetch-issues.sh first to do initial download"
+    exit 1
+fi
+
+LAST_SYNC=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$METADATA_FILE')).last_sync)")
+echo "Repository: $REPO"
+echo "Last sync: $LAST_SYNC"
+echo ""
+
+# Get issues updated since last sync
+echo "Checking for updates since $LAST_SYNC..."
+UPDATED_ISSUES=$(gh issue list --repo "$REPO" --state all --limit 1000 --json number,updatedAt --jq ".[] | select(.updatedAt > \"$LAST_SYNC\") | .number")
+
+if [ -z "$UPDATED_ISSUES" ]; then
+    echo "No issues have been updated since last sync."
+    # Update metadata
+    node -e "
+    const fs = require('fs');
+    const data = JSON.parse(fs.readFileSync('$METADATA_FILE'));
+    data.last_sync = new Date().toISOString();
+    data.sync_type = 'incremental';
+    data.last_update_stats = { updated: 0, new: 0 };
+    fs.writeFileSync('$METADATA_FILE', JSON.stringify(data, null, 2));
+    "
+    exit 0
+fi
+
+total=$(echo "$UPDATED_ISSUES" | wc -l | tr -d ' ')
+echo "Found $total issues to update"
+echo ""
+
+count=0
+new_issues=0
+updated_issues=0
+
+for num in $UPDATED_ISSUES; do
+    count=$((count + 1))
+    output_file="$OUTPUT_DIR/issue-${num}.json"
+
+    if [ -f "$output_file" ]; then
+        updated_issues=$((updated_issues + 1))
+        status="updated"
+    else
+        new_issues=$((new_issues + 1))
+        status="new"
+    fi
+
+    gh issue view "$num" --repo "$REPO" --json \
+        number,title,body,state,author,labels,assignees,milestone,comments,createdAt,updatedAt,closedAt,url,reactionGroups \
+        > "$output_file" 2>/dev/null
+    echo "[$count/$total] Downloaded #$num ($status)"
+    sleep 0.2
+done
+
+# Update metadata
+CURRENT_COUNT=$(ls -1 "$OUTPUT_DIR" 2>/dev/null | wc -l | tr -d ' ')
+node -e "
+const fs = require('fs');
+const data = JSON.parse(fs.readFileSync('$METADATA_FILE'));
+data.last_sync = new Date().toISOString();
+data.issue_count = $CURRENT_COUNT;
+data.sync_type = 'incremental';
+data.last_update_stats = {
+    new_issues: $new_issues,
+    updated_issues: $updated_issues,
+    total_processed: $count
+};
+fs.writeFileSync('$METADATA_FILE', JSON.stringify(data, null, 2));
+"
+
+echo ""
+echo "=== Sync Complete ==="
+echo "New issues: $new_issues"
+echo "Updated issues: $updated_issues"
+echo "Total in database: $CURRENT_COUNT"
+echo ""
+echo "Run: node scripts/build-index.js $REPO_DIR_NAME"
