@@ -6,9 +6,9 @@
 
 ## Related Documents
 
-← [Summary](summary.md) · [Contributors](contributors.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [All Stats](stats-all.md)
 
-**Per-Repository:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md)
+**Per-Repository Analysis:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [API](api.md)
 
 ---
 

@@ -113,11 +113,11 @@ function generateContributors() {
 
     // Navigation
     md += `## Related Documents\n\n`;
-    md += `← [Summary](summary.md) · [Recent Issues](recent.md)\n\n`;
-    md += `**Per-Repository:** `;
+    md += `← [Summary](summary.md) · [Recent Issues](stats-recent.md) · [All Stats](stats-all.md)\n\n`;
+    md += `**Per-Repository Analysis:** `;
     md += `[Server](server.md) · [Features](features.md) · `;
     md += `[Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · `;
-    md += `[Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md)\n\n`;
+    md += `[Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [API](api.md)\n\n`;
     md += `---\n\n`;
 
     // Issues by author (with links to detail sections)
