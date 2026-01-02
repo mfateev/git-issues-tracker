@@ -84,7 +84,7 @@ function main() {
       categorizeByLabel(issues, 'feature')
     );
     const totalUpvotes = issues.reduce((sum, i) => sum + (i.upvotes || 0), 0);
-    const totalComments = issues.reduce((sum, i) => sum + (i.comments || 0), 0);
+    const totalComments = issues.reduce((sum, i) => sum + (i.commentCount || i.comments || 0), 0);
     const staleIssues = getStaleIssues(issues, 12);
     const avgAgeDays = issues.length > 0
       ? Math.round(issues.reduce((sum, i) => {
@@ -126,7 +126,7 @@ function main() {
     .slice(0, 25);
 
   const topByPriority = [...allIssues]
-    .map(i => ({ ...i, priority: (i.upvotes || 0) * 2 + (i.comments || 0) }))
+    .map(i => ({ ...i, priority: (i.upvotes || 0) * 2 + (i.commentCount || i.comments || 0) }))
     .filter(i => i.priority > 0)
     .sort((a, b) => b.priority - a.priority)
     .slice(0, 25);
@@ -204,7 +204,7 @@ function main() {
 
   topByUpvotes.forEach((issue, idx) => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -220,7 +220,7 @@ Priority = Upvotes × 2 + Comments
 
   topByPriority.forEach((issue, idx) => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.priority} | ${issue.upvotes || 0} | ${issue.comments || 0} | ${issue.title.substring(0, 45)}${issue.title.length > 45 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.priority} | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 45)}${issue.title.length > 45 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -234,7 +234,7 @@ Priority = Upvotes × 2 + Comments
 
   topBugs.forEach((issue, idx) => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
   });
 
   md += `

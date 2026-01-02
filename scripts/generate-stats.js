@@ -102,7 +102,7 @@ function getTopByUpvotes(issues, limit = 20) {
 
 function getTopByPriority(issues, limit = 20) {
   return [...issues]
-    .map(i => ({ ...i, priority: (i.upvotes || 0) * 2 + (i.comments || 0) }))
+    .map(i => ({ ...i, priority: (i.upvotes || 0) * 2 + (i.commentCount || i.comments || 0) }))
     .filter(i => i.priority > 0)
     .sort((a, b) => b.priority - a.priority)
     .slice(0, limit);
@@ -110,8 +110,8 @@ function getTopByPriority(issues, limit = 20) {
 
 function getTopByComments(issues, limit = 20) {
   return [...issues]
-    .filter(i => (i.comments || 0) > 0)
-    .sort((a, b) => (b.comments || 0) - (a.comments || 0))
+    .filter(i => (i.commentCount || i.comments || 0) > 0)
+    .sort((a, b) => (b.commentCount || b.comments || 0) - (a.commentCount || a.comments || 0))
     .slice(0, limit);
 }
 
@@ -153,9 +153,9 @@ function generateRepoStats(repoName) {
 
   // Engagement
   const totalUpvotes = issues.reduce((sum, i) => sum + (i.upvotes || 0), 0);
-  const totalComments = issues.reduce((sum, i) => sum + (i.comments || 0), 0);
+  const totalComments = issues.reduce((sum, i) => sum + (i.commentCount || i.comments || 0), 0);
   const issuesWithUpvotes = issues.filter(i => (i.upvotes || 0) > 0).length;
-  const issuesWithComments = issues.filter(i => (i.comments || 0) > 0).length;
+  const issuesWithComments = issues.filter(i => (i.commentCount || i.comments || 0) > 0).length;
 
   // Age
   const ageDistribution = getAgeDistribution(issues);
@@ -222,7 +222,7 @@ function generateRepoStats(repoName) {
 `;
 
   topByUpvotes.forEach((issue, idx) => {
-    md += `| ${idx + 1} | [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.comments || 0} | ${issue.title.substring(0, 60)}${issue.title.length > 60 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 60)}${issue.title.length > 60 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -237,7 +237,7 @@ Priority = Upvotes × 2 + Comments
 `;
 
   topByPriority.forEach((issue, idx) => {
-    md += `| ${idx + 1} | [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.priority} | ${issue.upvotes || 0} | ${issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.priority} | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -250,7 +250,7 @@ Priority = Upvotes × 2 + Comments
 `;
 
   topByComments.forEach((issue, idx) => {
-    md += `| ${idx + 1} | [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.comments || 0} | ${issue.upvotes || 0} | ${issue.title.substring(0, 60)}${issue.title.length > 60 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.commentCount || issue.comments || 0} | ${issue.upvotes || 0} | ${issue.title.substring(0, 60)}${issue.title.length > 60 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -300,7 +300,7 @@ Priority = Upvotes × 2 + Comments
 |-------|-----|-----|-------|
 `;
     sortedBugs.slice(0, 30).forEach(issue => {
-      md += `| [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.comments || 0} | ${issue.title.substring(0, 60)}${issue.title.length > 60 ? '...' : ''} |\n`;
+      md += `| [#${issue.number}](../repos/${repoName}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 60)}${issue.title.length > 60 ? '...' : ''} |\n`;
     });
     if (bugs.length > 30) {
       md += `\n*...and ${bugs.length - 30} more bugs*\n`;
