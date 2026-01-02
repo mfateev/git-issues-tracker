@@ -24,12 +24,7 @@ See [analysis/summary.md](analysis/summary.md) for cross-SDK insights including 
 ## Quick Start
 
 ```bash
-# Sync all repos and regenerate analysis
-claude -p "/update"
-
-# Track a new repository
-./scripts/fetch-issues.sh owner/repo
-node scripts/build-index.js owner-repo
+claude -p "/update"   # Sync all repos and regenerate analysis
 ```
 
 ## Structure
