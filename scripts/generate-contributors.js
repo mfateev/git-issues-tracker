@@ -45,7 +45,15 @@ function loadAllIssues() {
 }
 
 function slugify(text) {
-    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    // Match GitHub's anchor generation:
+    // 1. Lowercase
+    // 2. Remove anything that isn't letter, number, space, or hyphen
+    // 3. Replace spaces with hyphens
+    return text
+        .toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/ +/g, '-')
+        .replace(/^-|-$/g, '');
 }
 
 function generateContributors() {

@@ -1,6 +1,6 @@
 # Contributor Statistics
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Issues:** 1537
 **Total Comments:** 2366
 **Unique Issue Authors:** 501
@@ -26,7 +26,7 @@
 | 14 | [longquanzheng](#longquanzheng-23-issues) | 23 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 15 | [antmendoza](#antmendoza-13-issues) | 13 | temporalio/features, temporalio/sdk-java, temporalio/sdk-python... |
 | 16 | [mastermanu](#mastermanu-12-issues) | 12 | temporalio/features, temporalio/sdk-go, temporalio/temporal |
-| 17 | [app/mend-for-github-com](#app-mend-for-github-com-11-issues) | 11 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 17 | [app/mend-for-github-com](#appmend-for-github-com-11-issues) | 11 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 18 | [roxblnfk](#roxblnfk-11-issues) | 11 | temporalio/sdk-php |
 | 19 | [samarabbas](#samarabbas-10-issues) | 10 | temporalio/sdk-go, temporalio/temporal |
 | 20 | [drewhoskins-temporal](#drewhoskins-temporal-9-issues) | 9 | temporalio/features, temporalio/sdk-java, temporalio/sdk-php |
