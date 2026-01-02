@@ -185,15 +185,23 @@ Output: `analysis/recent.md` with issues from last 30 days.
   "title": "Issue title",
   "body": "Full description...",
   "state": "OPEN",
-  "author": { "login": "username", "name": "Full Name" },
+  "author": {
+    "id": "MDQ6VXNlcjEyMzQ1",
+    "is_bot": false,
+    "login": "username",
+    "name": "Full Name"
+  },
   "labels": ["bug", "priority:high"],
   "assignees": [],
   "milestone": null,
   "comments": [
     {
-      "author": { "login": "user", "name": "Name" },
+      "id": "IC_kwDOxxxxxxxx",
+      "author": { "login": "user" },
+      "authorAssociation": "MEMBER",
       "body": "Comment text...",
-      "createdAt": "2024-01-15T10:30:00Z"
+      "createdAt": "2024-01-15T10:30:00Z",
+      "url": "https://github.com/org/repo/issues/123#issuecomment-xxx"
     }
   ],
   "createdAt": "2024-01-10T08:00:00Z",
@@ -201,7 +209,7 @@ Output: `analysis/recent.md` with issues from last 30 days.
   "closedAt": null,
   "url": "https://github.com/org/repo/issues/123",
   "reactionGroups": [
-    { "content": "THUMBS_UP", "totalCount": 5 }
+    { "content": "THUMBS_UP", "users": { "totalCount": 5 } }
   ]
 }
 ```
@@ -210,19 +218,22 @@ Output: `analysis/recent.md` with issues from last 30 days.
 
 ```json
 {
-  "repository": "temporalio/sdk-java",
-  "generated": "2024-01-20T12:00:00Z",
-  "totalIssues": 215,
+  "generated_at": "2024-01-20T12:00:00Z",
+  "total_count": 215,
   "issues": [
     {
       "number": 123,
       "title": "Issue title",
       "state": "OPEN",
+      "author": "username",
       "labels": ["bug"],
       "upvotes": 5,
-      "comments": 3,
+      "commentCount": 3,
+      "totalReactions": 5,
       "createdAt": "2024-01-10T08:00:00Z",
-      "updatedAt": "2024-01-20T14:00:00Z"
+      "updatedAt": "2024-01-20T14:00:00Z",
+      "closedAt": null,
+      "url": "https://github.com/org/repo/issues/123"
     }
   ],
   "stats": {
@@ -262,7 +273,7 @@ jq '.top_by_upvotes' issues-index.json
 jq '.issues[] | select(.upvotes >= 3) | {number, title, upvotes}' issues-index.json
 
 # Sort by priority score
-jq '[.issues[] | . + {score: (.upvotes * 2 + .comments)}] | sort_by(-.score) | .[:10]' issues-index.json
+jq '[.issues[] | . + {score: (.upvotes * 2 + .commentCount)}] | sort_by(-.score) | .[:10]' issues-index.json
 
 # Read full details of a specific issue
 cat issues/issue-123.json | jq .
@@ -277,7 +288,7 @@ const index = JSON.parse(fs.readFileSync('repos/temporalio-sdk-java/issues-index
 // Calculate priority score
 const prioritized = index.issues.map(i => ({
     ...i,
-    priority: i.upvotes * 2 + i.comments
+    priority: i.upvotes * 2 + i.commentCount
 })).sort((a, b) => b.priority - a.priority);
 
 // Find stale issues
