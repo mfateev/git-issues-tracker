@@ -26,6 +26,13 @@ Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.m
 
 For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issues file (`repos/<sdk>/issues.md`), then update or create `analysis/<sdk>.md` with:
 
+**Deep Analysis:** For top issues (high upvotes, high engagement, or critical bugs), use the `get-issue.js` script to read full issue content including all comments:
+```bash
+node scripts/get-issue.js <repo> <issue-number>
+# Example: node scripts/get-issue.js temporalio-temporal 680
+```
+This provides full context for understanding the issue's importance and community discussion.
+
 - Executive summary of key findings
 - Categorized issues (bugs, enhancements, security, etc.)
 - Priority recommendations based on upvotes and engagement
@@ -77,7 +84,13 @@ Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping
 
 ### 6. Generate Recent Issues Analysis (LLM)
 
-Read `analysis/stats-recent.md` (the raw list of recent issues), then update `analysis/recent.md` with deep analysis:
+Read `analysis/stats-recent.md` (the raw list of recent issues), then update `analysis/recent.md` with deep analysis.
+
+**Deep Analysis:** For urgent or high-impact issues, use `get-issue.js` to read full issue content:
+```bash
+node scripts/get-issue.js <repo> <issue-number>
+```
+This helps understand the full scope of bugs, security issues, and user-reported problems.
 
 - **Urgent Issues:** Identify security vulnerabilities, production-impacting bugs, and crashes that need immediate attention
 - **Emerging Themes:** Look for patterns across the new issues (e.g., multiple issues in same SDK version, common problem areas)

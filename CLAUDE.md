@@ -53,6 +53,13 @@ node scripts/analyze-all.js <command>
 
 Analysis commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, `comments`, `engagement`, `priority`, `recent`, `stale`, `categories`, `report`
 
+```bash
+# Get full issue content (for deep analysis)
+node scripts/get-issue.js <repo> <issue-number>
+node scripts/get-issue.js temporalio-temporal 680
+node scripts/get-issue.js sdk-typescript 1334   # 'temporalio-' prefix optional
+```
+
 ## Architecture
 
 ```
@@ -91,7 +98,8 @@ scripts/
 ├── generate-aggregate-stats.js # Generate cross-repo statistics
 ├── generate-readable.js        # Generate issues.md files
 ├── generate-contributors.js    # Generate contributors.md
-└── generate-recent.js          # Generate stats-recent.md
+├── generate-recent.js          # Generate stats-recent.md
+└── get-issue.js                # Get full content of single issue
 ```
 
 ## Key Patterns
