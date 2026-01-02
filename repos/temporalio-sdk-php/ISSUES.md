@@ -1,6 +1,6 @@
 # temporalio/sdk-php - Complete Issue Dump
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Issues:** 47
 **Total Upvotes:** 12
 **Total Comments:** 66
@@ -38,7 +38,7 @@
 |---|-----|-----|-------|
 | [#592](#592-docs-document-sdk-marshaller) | 5 | 6 | [Docs] Document SDK marshaller |
 | [#103](#103-question-sentry-integration-for-error-logging) | 0 | 11 | [Question] Sentry Integration for error logging |
-| [#577](#577-bug-can-t-run-the-tests-of-updatemethod) | 0 | 7 | [Bug] Can't run the tests of UpdateMethod |
+| [#577](#577-bug-cant-run-the-tests-of-updatemethod) | 0 | 7 | [Bug] Can't run the tests of UpdateMethod |
 | [#495](#495-discussion-define-a-backwards-compatibility-promise) | 0 | 6 | [Discussion] Define a backwards compatibility promise |
 | [#573](#573-bug-workerfactoryinterface-seems-to-be-missing-arguments-for-newworker-method) | 1 | 3 | [Bug] WorkerFactoryInterface seems to be missing argument... |
 | [#529](#529-feature-request-registerdelayedcallback-for-tests) | 2 | 1 | [Feature Request] registerDelayedCallback for tests |
@@ -46,11 +46,11 @@
 | [#123](#123-bug-withenablesessionworker-causes-to-activitynotregisterederror) | 0 | 4 | [Bug] withEnableSessionWorker causes to ActivityNotRegist... |
 | [#640](#640-enable-discussions) | 1 | 1 | Enable `Discussions` |
 | [#635](#635-bug-memory-leak-workflow-worker) | 0 | 3 | [Bug] Memory leak workflow worker |
-| [#580](#580-initial-nexus-implementation-php) | 1 | 1 | Initial Nexus implementation - PHP |
+| [#580](#580-initial-nexus-implementation---php) | 1 | 1 | Initial Nexus implementation - PHP |
 | [#428](#428-bug-unit-test-hangs-with-unit-under-test-has-runtime-or-compile-time-exception) | 0 | 3 | [Bug] Unit test hangs with unit under test has runtime or... |
-| [#399](#399-not-a-bug-await-doesn-t-interrupts-on-the-activity-with-error) | 0 | 3 | [Not a Bug] await doesn't interrupts on the activity with... |
+| [#399](#399-not-a-bug-await-doesnt-interrupts-on-the-activity-with-error) | 0 | 3 | [Not a Bug] await doesn't interrupts on the activity with... |
 | [#642](#642-feature-request-add-first-execution-run-id-to-workflow-info) | 0 | 2 | [Feature Request] Add first execution run ID to workflow ... |
-| [#623](#623-feature-request-in-test-env-i-can-t-unserialize-object-structure) | 0 | 2 | [Feature Request] In test env - I can't unserialize objec... |
+| [#623](#623-feature-request-in-test-env---i-cant-unserialize-object-structure) | 0 | 2 | [Feature Request] In test env - I can't unserialize objec... |
 | [#568](#568-question-how-to-debug-the-activity-task-starttoclose-timeout-error) | 0 | 2 | [Question] How to debug the activity task startToClose ti... |
 | [#554](#554-ensure-better-sdk-support-in-ide) | 1 | 0 | Ensure better SDK support in IDE |
 | [#532](#532-question-asynchronous-child-workflow-execution-problem) | 0 | 2 | [Question] Asynchronous child workflow execution problem |
@@ -59,7 +59,7 @@
 | [#654](#654-bug-upserttypedsearchattributes-in-test-server) | 0 | 1 | [Bug] upsertTypedSearchAttributes in test server |
 | [#382](#382-bug-methods-without-activitymethod-attribute-are-registered-as-activities-even-magic) | 0 | 1 | [Bug] Methods without ActivityMethod attribute are regist... |
 | [#244](#244-feature-request-failureconverter-allow-more-context-in-ordinary-exceptions) | 0 | 1 | [Feature Request] FailureConverter allow more context in ... |
-| [#670](#670-feature-request-symfony-8-0-support) | 0 | 0 | [Feature Request] Symfony 8.0 support |
+| [#670](#670-feature-request-symfony-80-support) | 0 | 0 | [Feature Request] Symfony 8.0 support |
 | [#668](#668-feature-request-implement-setcurrentdetails-for-dynamic-workflow-details) | 0 | 0 | [Feature Request] Implement `SetCurrentDetails` for dynam... |
 | [#648](#648-feature-request-reclassify-benign-application-errors-in-opentelemetry) | 0 | 0 | [Feature Request] Reclassify Benign Application errors in... |
 | [#644](#644-feature-request-plugin-support) | 0 | 0 | [Feature Request] Plugin support |
@@ -67,11 +67,11 @@
 | [#636](#636-bug-suppressed-exception-in-worfklow-child) | 0 | 0 | [Bug] Suppressed exception in worfklow child |
 | [#624](#624-bug-facade-methods-throw-wrong-exception) | 0 | 0 | [Bug] Facade methods throw wrong exception |
 | [#605](#605-php-sdk-support-for-activity-reset) | 0 | 0 | [php] SDK support for activity reset  |
-| [#601](#601-feature-request-expose-workflowinboundcallinterceptor-init) | 0 | 0 | [Feature Request] Expose `WorkflowInboundCallInterceptor:... |
+| [#601](#601-feature-request-expose-workflowinboundcallinterceptorinit) | 0 | 0 | [Feature Request] Expose `WorkflowInboundCallInterceptor:... |
 | [#595](#595-bug-incorrect-generic-extends-of-rulefactoryinterface) | 0 | 0 | [Bug] Incorrect generic extends of RuleFactoryInterface |
 | [#587](#587-feature-request-serialization-context-for-codecs-and-converters) | 0 | 0 | [Feature Request] Serialization context for codecs and co... |
 | [#574](#574-feature-request-support-rawvalue-non-converted-values) | 0 | 0 | [Feature Request] Support "RawValue" non-converted values |
-| [#567](#567-expose-workflow-cancel-cause-reason) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#567](#567-expose-workflow-cancel-causereason) | 0 | 0 | Expose Workflow cancel cause/reason |
 | [#558](#558-add-patched-and-deprecatepatch-apis) | 0 | 0 | Add `Patched()` and `DeprecatePatch()` APIs |
 | [#545](#545-feature-request-provide-workflow-local) | 0 | 0 | [Feature Request] Provide "workflow local" |
 | [#524](#524-feature-request-allow-mocking-child-workflows-like-activites) | 0 | 0 | [Feature Request] Allow mocking child workflows like acti... |
@@ -81,7 +81,7 @@
 | [#454](#454-encode-failures-using-encodedattributes) | 0 | 0 | Encode Failures using EncodedAttributes |
 | [#400](#400-feature-request-expose-operatorserviceclient) | 0 | 0 | [Feature Request] Expose OperatorServiceClient  |
 | [#318](#318-improve-php-files-generated-from-proto) | 0 | 0 | Improve PHP files generated from proto |
-| [#285](#285-use-temporal-download-server-to-download-temporalite-or-temporal-test-sever) | 0 | 0 | Use temporal.download server to download `temporalite` or... |
+| [#285](#285-use-temporaldownload-server-to-download-temporalite-or-temporal-test-sever) | 0 | 0 | Use temporal.download server to download `temporalite` or... |
 | [#269](#269-feature-request-use-mapworkflowfailuretoexception-for-all-workflow-methods) | 0 | 0 | [Feature Request] Use `mapWorkflowFailureToException` for... |
 
 ---
@@ -2345,7 +2345,7 @@ interface HasFailureInfo
 | **URL** | https://github.com/temporalio/sdk-php/issues/670 |
 | **State** | OPEN |
 | **Author** | xepozz (Dmitrii Derepko) |
-| **Created** | 2025-12-18 18:07:27.000 UTC (13 days ago) |
+| **Created** | 2025-12-18 18:07:27.000 UTC (14 days ago) |
 | **Updated** | 2025-12-18 18:07:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2386,7 +2386,7 @@ It would be great to support symfony 8.0 packages, there are some in the sdk's "
 | **URL** | https://github.com/temporalio/sdk-php/issues/668 |
 | **State** | OPEN |
 | **Author** | FluffyDiscord (Honk) |
-| **Created** | 2025-12-06 18:03:27.000 UTC (25 days ago) |
+| **Created** | 2025-12-06 18:03:27.000 UTC (26 days ago) |
 | **Updated** | 2025-12-06 18:03:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

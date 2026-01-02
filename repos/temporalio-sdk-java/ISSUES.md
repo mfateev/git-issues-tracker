@@ -1,6 +1,6 @@
 # temporalio/sdk-java - Complete Issue Dump
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Issues:** 215
 **Total Upvotes:** 104
 **Total Comments:** 203
@@ -51,19 +51,19 @@
 | [#827](#827-provide-a-recommended-way-to-pass-configuration-into-workflow) | 4 | 0 | Provide a recommended way to pass configuration into work... |
 | [#2075](#2075-add-the-ability-to-keep-heartbeating-while-the-worker-is-shutting-down) | 3 | 1 | Add the ability to keep heartbeating while the worker is ... |
 | [#2046](#2046-failed-promise-before-calling-allof-is-not-failing-the-wrapped-promise) | 2 | 3 | Failed promise before calling allOf is not failing the wr... |
-| [#1698](#1698-workflowimplementationoptions-failworkflowexceptiontypes-ignored-for-service-failures) | 0 | 7 | WorkflowImplementationOptions.FailWorkflowExceptionTypes ... |
+| [#1698](#1698-workflowimplementationoptionsfailworkflowexceptiontypes-ignored-for-service-failures) | 0 | 7 | WorkflowImplementationOptions.FailWorkflowExceptionTypes ... |
 | [#1163](#1163-allow-contributions-of-tags-of-root-worker-metricsscope-per-workflow-execution) | 3 | 1 | Allow contributions of tags of root worker metricsscope p... |
 | [#396](#396-pluggable-activity-name-provider) | 0 | 7 | Pluggable activity name provider |
 | [#2746](#2746-jackson-3-support) | 3 | 0 | Jackson 3 support |
 | [#2042](#2042-activity-options-merging-logic-is-not-correct) | 0 | 6 | Activity options merging logic is not correct |
 | [#1426](#1426-test-server-timeouts-improperly-set-to-10-years-when-not-user-set) | 0 | 6 | Test server timeouts improperly set to 10 years when not ... |
-| [#806](#806-workflow-retry-that-takes-a-function-to-decide-if-retry-is-needed) | 0 | 6 | Workflow.retry that takes a function to decide if retry i... |
+| [#806](#806-workflowretry-that-takes-a-function-to-decide-if-retry-is-needed) | 0 | 6 | Workflow.retry that takes a function to decide if retry i... |
 | [#626](#626-excessive-retries-in-test-workflow-environment) | 0 | 6 | Excessive retries in test workflow environment |
 | [#2642](#2642-testworkflowenvironment-sleep-incorrect-behaviour) | 2 | 0 | TestWorkflowEnvironment sleep incorrect behaviour |
 | [#2412](#2412-marker-commands-being-sent-with-empty-names-in-the-wild) | 1 | 2 | Marker Commands being sent with empty names in the wild |
 | [#2394](#2394-pure-opentelemetry-based-tracing-support-instead-of-using-tracershim) | 2 | 0 | Pure opentelemetry based tracing support instead of using... |
-| [#2391](#2391-bug-cancelling-an-activity-results-in-failedprecondition-activity-unknown-error-on-time-skipping-server) | 1 | 2 | [Bug] Cancelling an activity results in `FailedPreconditi... |
-| [#2092](#2092-activity-succeed-endtoend-latency-not-reported-when-completing-the-activity-with-activitycompletionclient) | 1 | 2 | activity_succeed_endtoend_latency not reported when compl... |
+| [#2391](#2391-bug-cancelling-an-activity-results-in-failedprecondition-activityunknown-error-on-time-skipping-server) | 1 | 2 | [Bug] Cancelling an activity results in `FailedPreconditi... |
+| [#2092](#2092-activitysucceedendtoendlatency-not-reported-when-completing-the-activity-with-activitycompletionclient) | 1 | 2 | activity_succeed_endtoend_latency not reported when compl... |
 | [#1969](#1969-provide-workflowstatus-in-workflownotfoundexception-when-signing-a-workflow) | 0 | 4 | Provide WorkflowStatus in WorkflowNotFoundException when ... |
 | [#1940](#1940-support-java-modules) | 0 | 4 | Support Java Modules |
 | [#1025](#1025-in-case-of-existing-workflow-both-sync-and-async-executions-should-have-an-option-to-error-out-or-return-an-existing-execution) | 1 | 2 | In case of existing workflow both sync and async executio... |
@@ -74,11 +74,11 @@
 | [#467](#467-register-multiple-activity-names-for-an-activity) | 1 | 2 | Register multiple activity names for an activity |
 | [#317](#317-published-artifacts-do-not-include-sources-for-the-generated-code) | 0 | 4 | Published artifacts do not include sources for the genera... |
 | [#86](#86-support-passing-activityid-to-an-activity-invocation) | 0 | 4 | Support passing activityId to an activity invocation |
-| [#2312](#2312-workflow-await-duration-condition-does-not-automatically-cancel-the-timer-if-the-condition-is-resolved) | 1 | 1 | `Workflow.await(duration, condition)` does not automatica... |
+| [#2312](#2312-workflowawaitduration-condition-does-not-automatically-cancel-the-timer-if-the-condition-is-resolved) | 1 | 1 | `Workflow.await(duration, condition)` does not automatica... |
 | [#2056](#2056-allow-users-to-implement-update-asynchronously-in-java-natively) | 1 | 1 | Allow users to implement update asynchronously in Java na... |
 | [#1988](#1988-have-a-built-in-way-to-override-activityoptions-in-tests) | 1 | 1 | Have a built-in way to override activityOptions in tests |
 | [#1540](#1540-test-service-time-skipping-broken-in-a-child-workflow) | 0 | 3 | Test service time skipping broken in a child workflow |
-| [#1291](#1291-workflow-execution-with-workflow-await-condition-times-out-in-unit-tests-with-enabled-time-skipping) | 0 | 3 | Workflow execution with Workflow.await(condition) times o... |
+| [#1291](#1291-workflow-execution-with-workflowawaitcondition-times-out-in-unit-tests-with-enabled-time-skipping) | 0 | 3 | Workflow execution with Workflow.await(condition) times o... |
 | [#1246](#1246-query-is-not-picked-up-by-the-worker-executing-local-activity-for-more-than-a-minute) | 1 | 1 | Query is not picked up by the worker executing local acti... |
 | [#1093](#1093-add-resetworkflowexecution-support-in-test-server) | 0 | 3 | Add ResetWorkflowExecution support in Test Server |
 | [#1010](#1010-workflow-should-have-an-access-to-an-activity-id-of-the-activity-it-scheduled) | 0 | 3 | Workflow should have an access to an activity id of the a... |
@@ -94,21 +94,21 @@
 | [#2034](#2034-provide-way-to-populate-activity-execution-context-for-activity-unit-tests) | 0 | 2 | Provide way to populate activity execution context for ac... |
 | [#1937](#1937-support-a-promise-based-await) | 0 | 2 | Support a promise-based await |
 | [#1715](#1715-workeroptions-should-enforce-an-amount-of-executors-to-be-not-less-than-an-amount-of-pollers) | 1 | 0 | WorkerOptions should enforce an amount of executors to be... |
-| [#1681](#1681-exceptions-thrown-from-workflow-executor-code-shouldn-t-be-subject-to-failworkflowexceptiontypes) | 0 | 2 | Exceptions thrown from workflow executor code shouldn't b... |
+| [#1681](#1681-exceptions-thrown-from-workflow-executor-code-shouldnt-be-subject-to-failworkflowexceptiontypes) | 0 | 2 | Exceptions thrown from workflow executor code shouldn't b... |
 | [#1531](#1531-declaring-activitystub-using-annotation-instead-of-newactivitystub) | 0 | 2 | Declaring ActivityStub using annotation instead of newAct... |
 | [#1358](#1358-add-ci-testing-for-the-native-test-server) | 1 | 0 | Add CI testing for the native test server |
-| [#1346](#1346-await-on-local-activities-shouldn-t-occupy-workflow-executor-thread) | 1 | 0 | Await on Local Activities shouldn't occupy workflow execu... |
+| [#1346](#1346-await-on-local-activities-shouldnt-occupy-workflow-executor-thread) | 1 | 0 | Await on Local Activities shouldn't occupy workflow execu... |
 | [#1303](#1303-cancelation-of-local-activities) | 0 | 2 | Cancelation of Local Activities |
-| [#1211](#1211-mdc-context-logging-properties-not-propagating-inside-promise-handle) | 1 | 0 | MDC context logging properties not propagating inside pro... |
+| [#1211](#1211-mdc-context-logging-properties-not-propagating-inside-promisehandle) | 1 | 0 | MDC context logging properties not propagating inside pro... |
 | [#896](#896-workflow-should-be-able-to-ignore-cancellationfailure-and-finish-successfully) | 0 | 2 | Workflow should be able to ignore CancellationFailure and... |
-| [#883](#883-workers-don-t-reset-sticky-queue-when-workflow-execution-is-evicted-from-the-cache) | 0 | 2 | Workers don't reset sticky queue when workflow execution ... |
+| [#883](#883-workers-dont-reset-sticky-queue-when-workflow-execution-is-evicted-from-the-cache) | 0 | 2 | Workers don't reset sticky queue when workflow execution ... |
 | [#696](#696-port-fix-for-following-execution-chain-from-go-sdk) | 0 | 2 | Port fix for following execution chain from Go SDK |
 | [#613](#613-calling-workflow-method-on-the-workflow-stub-should-always-wait-for-the-workflow-completion) | 1 | 0 | Calling workflow method on the workflow stub should alway... |
 | [#2](#2-refactor-replayworkflowcontext-out-of-workflowthread) | 0 | 2 | Refactor ReplayWorkflowContext out of WorkflowThread |
-| [#2733](#2733-activity-schedule-to-start-latency-reports-activity-type-unexpectedly) | 0 | 1 | activity_schedule_to_start_latency reports activity_type ... |
+| [#2733](#2733-activityscheduletostartlatency-reports-activitytype-unexpectedly) | 0 | 1 | activity_schedule_to_start_latency reports activity_type ... |
 | [#2728](#2728-schedulerange-to-check-end) | 0 | 1 | ScheduleRange to check end |
-| [#2674](#2674-testenvironment-with-external-service-failing-tests-throws-illegalstateexception-errors) | 0 | 1 | TestEnvironment with external service - failing tests thr... |
-| [#2670](#2670-testworkflowenvironment-sleep-hangs-indefinitely) | 0 | 1 | TestWorkflowEnvironment#sleep hangs indefinitely |
+| [#2674](#2674-testenvironment-with-external-service---failing-tests-throws-illegalstateexception-errors) | 0 | 1 | TestEnvironment with external service - failing tests thr... |
+| [#2670](#2670-testworkflowenvironmentsleep-hangs-indefinitely) | 0 | 1 | TestWorkflowEnvironment#sleep hangs indefinitely |
 | [#2578](#2578-startupdate-javadoc-says-asynchronously-when-it-may-not-be) | 0 | 1 | `startUpdate` JavaDoc says "asynchronously" when it may n... |
 | [#2573](#2573-support-for-manualcompletion-in-testactivity-env) | 0 | 1 | Support for ManualCompletion in TestActivity Env |
 | [#2499](#2499-support-pluggable-workflow-caches) | 0 | 1 | Support pluggable workflow caches |
@@ -117,44 +117,44 @@
 | [#2392](#2392-bug-test-environment-sleep-hangs-on-child-workflows) | 0 | 1 | [Bug] Test environment sleep hangs on child workflows  |
 | [#2364](#2364-testworkflowenvironment-issue-with-setting-search-attributes-in-continueasnewoptions) | 0 | 1 | TestWorkflowEnvironment issue with setting search attribu... |
 | [#2321](#2321-testworkflowenvironment-does-not-allow-signalwithstart-when-workflow-already-exists) | 0 | 1 | TestWorkflowEnvironment does not allow signalWithStart wh... |
-| [#2213](#2213-signal-w-start-api-improvements-java) | 0 | 1 | Signal w/ Start API Improvements - Java |
+| [#2213](#2213-signal-w-start-api-improvements---java) | 0 | 1 | Signal w/ Start API Improvements - Java |
 | [#2124](#2124-mdc-custom-naming-convention) | 0 | 1 | MDC custom naming convention |
 | [#2117](#2117-allow-customization-of-otel-span-tags) | 0 | 1 | Allow customization of OTel span tags |
 | [#2071](#2071-kotlinobjectmapperfactory-is-not-forwards-compatible) | 0 | 1 | KotlinObjectMapperFactory is not forwards compatible |
 | [#1963](#1963-schedule-creation-should-create-tracing-span-by-default) | 0 | 1 | Schedule creation should create tracing span by default |
 | [#1914](#1914-support-cancellation-of-long-client-calls) | 0 | 1 | Support cancellation of long client calls |
-| [#1913](#1913-remove-workflowclientcallsinterceptor-pollworkflowupdate) | 0 | 1 | Remove WorkflowClientCallsInterceptor.pollWorkflowUpdate |
+| [#1913](#1913-remove-workflowclientcallsinterceptorpollworkflowupdate) | 0 | 1 | Remove WorkflowClientCallsInterceptor.pollWorkflowUpdate |
 | [#1707](#1707-serviceworkflowhistoryiterator-should-eagerly-request-the-next-page) | 0 | 1 | ServiceWorkflowHistoryIterator should eagerly request the... |
 | [#1374](#1374-external-workflow-signal-from-a-workflow-code-throws-incorrect-exceptions) | 0 | 1 | External workflow signal from a workflow code throws inco... |
 | [#1373](#1373-child-workflow-creation-api-should-allow-user-to-specify-a-custom-data-converter) | 0 | 1 | Child Workflow creation API should allow user to specify ... |
-| [#1201](#1201-revisit-continue-as-new-that-doesn-t-carry-over-some-attributes-of-parent-run-if-not-set-explicitly) | 0 | 1 | Revisit continue-as-new that doesn't carry over some attr... |
-| [#1139](#1139-testworkflowenvironment-add-support-for-filtering-for-listopenworkflowexecutions) | 0 | 1 | TestWorkflowEnvironment - add support for filtering for L... |
+| [#1201](#1201-revisit-continue-as-new-that-doesnt-carry-over-some-attributes-of-parent-run-if-not-set-explicitly) | 0 | 1 | Revisit continue-as-new that doesn't carry over some attr... |
+| [#1139](#1139-testworkflowenvironment---add-support-for-filtering-for-listopenworkflowexecutions) | 0 | 1 | TestWorkflowEnvironment - add support for filtering for L... |
 | [#1138](#1138-test-server-does-not-decrement-time-skipping-lock-for-outstanding-activities-on-workflow-completion) | 0 | 1 | Test server does not decrement time skipping lock for out... |
 | [#1107](#1107-workflow-metadata-resolution-code-registers-an-overridden-method-from-parent-class-as-a-second-query) | 0 | 1 | Workflow metadata resolution code registers an overridden... |
 | [#1051](#1051-pollworkflowtaskqueueresponse-should-be-available-for-interception) | 0 | 1 | PollWorkflowTaskQueueResponse should be available for int... |
-| [#1005](#1005-provide-activityexecutioncontext-iscancelled) | 0 | 1 | Provide ActivityExecutionContext#isCancelled |
-| [#856](#856-workflowclient-execute-doesn-t-pair-correctly-with-workflowstub-getresult) | 0 | 1 | WorkflowClient#execute doesn't pair correctly with workfl... |
-| [#652](#652-make-workflowstub-getresult-timeout-configurable-on-workflowoptions) | 0 | 1 | Make WorkflowStub#getResult timeout configurable on Workf... |
-| [#499](#499-handle-all-exceptions-as-non-retryable-when-temporal-debug-is-set) | 0 | 1 | Handle all exceptions as non-retryable when TEMPORAL_DEBU... |
+| [#1005](#1005-provide-activityexecutioncontextiscancelled) | 0 | 1 | Provide ActivityExecutionContext#isCancelled |
+| [#856](#856-workflowclientexecute-doesnt-pair-correctly-with-workflowstubgetresult) | 0 | 1 | WorkflowClient#execute doesn't pair correctly with workfl... |
+| [#652](#652-make-workflowstubgetresult-timeout-configurable-on-workflowoptions) | 0 | 1 | Make WorkflowStub#getResult timeout configurable on Workf... |
+| [#499](#499-handle-all-exceptions-as-non-retryable-when-temporaldebug-is-set) | 0 | 1 | Handle all exceptions as non-retryable when TEMPORAL_DEBU... |
 | [#341](#341-support-robfig-style-cron-defs-in-testworkflowenvironment) | 0 | 1 | Support robfig style cron defs in TestWorkflowEnvironment |
 | [#305](#305-run-saga-compensations-in-a-disconnected-scope) | 0 | 1 | Run Saga compensations in a disconnected scope |
 | [#302](#302-print-stacktrace-coming-from-another-language-in-the-exception-message) | 0 | 1 | Print stacktrace coming from another language in the exce... |
 | [#88](#88-customer-needs-to-specify-timeout-for-start-workflow-call) | 0 | 1 | Customer needs to specify timeout for start workflow call |
 | [#57](#57-automatically-reconnect-to-the-service-when-it-changes-ip-address) | 0 | 1 | Automatically reconnect to the service when it changes ip... |
 | [#2753](#2753-unexpected-activity-timeout-behavior-after-worker-crash-need-for-cancellationscope-status-check) | 0 | 0 | Unexpected Activity Timeout Behavior After Worker Crash &... |
-| [#2752](#2752-opentracingworkflowclientcallsinterceptor-support-for-updatewithstart-is-not-present) | 0 | 0 | OpenTracingWorkflowClientCallsInterceptor - support for u... |
+| [#2752](#2752-opentracingworkflowclientcallsinterceptor---support-for-updatewithstart-is-not-present) | 0 | 0 | OpenTracingWorkflowClientCallsInterceptor - support for u... |
 | [#2750](#2750-tests-not-passing-teststatsreporter-flush-not-flushing) | 0 | 0 | Tests not passing: TestStatsReporter Flush not flushing |
-| [#2747](#2747-workflowimpl-workers-should-support-spring-property-placeholders-like-taskqueues-does) | 0 | 0 | @WorkflowImpl(workers = "...") should support Spring prop... |
+| [#2747](#2747-workflowimplworkers-should-support-spring-property-placeholders-like-taskqueues-does) | 0 | 0 | @WorkflowImpl(workers = "...") should support Spring prop... |
 | [#2745](#2745-workeroptions-isusingvirtualthreadsonworkflowworker-issue) | 0 | 0 | WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue |
 | [#2726](#2726-allow-overriding-of-the-worker-deployment-version-when-invoking-a-child-workflow) | 0 | 0 | Allow overriding of the Worker Deployment Version when in... |
 | [#2716](#2716-worker-heartbeating) | 0 | 0 | Worker Heartbeating |
 | [#2661](#2661-set-history-size-and-suggest-continue-as-new-on-task-start-attributes-in-test-server) | 0 | 0 | Set history size and suggest continue as new on task star... |
 | [#2656](#2656-springboot-multi-namespace-add-annotation-to-specify-namespace-a-bean-belongs-too) | 0 | 0 | Springboot Multi Namespace: Add annotation to specify Nam... |
-| [#2655](#2655-testing-server-continue-as-new-doesn-t-carry-memo-search-attributes) | 0 | 0 | Testing server continue-as-new doesn't carry memo/search ... |
+| [#2655](#2655-testing-server-continue-as-new-doesnt-carry-memosearch-attributes) | 0 | 0 | Testing server continue-as-new doesn't carry memo/search ... |
 | [#2650](#2650-ensure-tests-exist-to-confirm-custom-slot-supplier-slot-info-has-proper-fields) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot i... |
 | [#2626](#2626-plugin-support) | 0 | 0 | Plugin support |
 | [#2620](#2620-opentracingclientinterceptor-add-support-for-updatewithstart) | 0 | 0 | OpenTracingClientInterceptor add support for updateWithStart |
-| [#2606](#2606-testworkflowmutablestateimpl-race-condition-between-timerfired-event-and-canceltimer-command) | 0 | 0 | TestWorkflowMutableStateImpl - race condition between Tim... |
+| [#2606](#2606-testworkflowmutablestateimpl---race-condition-between-timerfired-event-and-canceltimer-command) | 0 | 0 | TestWorkflowMutableStateImpl - race condition between Tim... |
 | [#2598](#2598-allow-specifying-activity-options-for-specific-activity-call) | 0 | 0 | Allow specifying activity options for specific activity call |
 | [#2592](#2592-python-nexus-tests-failing-under-java-test-server) | 0 | 0 | Python Nexus tests failing under Java test server |
 | [#2586](#2586-time-skipping-server-drops-headers-in-workflow-signal) | 0 | 0 | Time skipping server drops headers in workflow signal |
@@ -166,28 +166,28 @@
 | [#2393](#2393-add-patched-and-deprecatepatch-apis) | 0 | 0 | Add `patched()` and `deprecatePatch()` APIs |
 | [#2359](#2359-clarify-unabletoacquirelockexception) | 0 | 0 | Clarify `UnableToAcquireLockException` |
 | [#2333](#2333-tasktimeoutwillreschedulethetaskonthegloballist-on-the-test-server-is-flaky) | 0 | 0 | `taskTimeoutWillRescheduleTheTaskOnTheGlobalList ` on the... |
-| [#2307](#2307-removing-a-workflow-getversion-call-can-cause-nde-if-there-are-multiple-parallel-workflow-threads-running) | 0 | 0 | Removing a `Workflow.GetVersion` call can cause NDE if th... |
+| [#2307](#2307-removing-a-workflowgetversion-call-can-cause-nde-if-there-are-multiple-parallel-workflow-threads-running) | 0 | 0 | Removing a `Workflow.GetVersion` call can cause NDE if th... |
 | [#2283](#2283-auto-skip-time-in-time-skipping-testing-environment-when-waiting-on-update-result) | 0 | 0 | Auto-skip time in time-skipping testing environment when ... |
-| [#2246](#2246-time-skipping-past-activity-s-starttoclosetimeout-causes-worker-not-to-close) | 0 | 0 | Time-skipping past activity’s startToCloseTimeout causes ... |
+| [#2246](#2246-time-skipping-past-activitys-starttoclosetimeout-causes-worker-not-to-close) | 0 | 0 | Time-skipping past activity’s startToCloseTimeout causes ... |
 | [#2232](#2232-fix-inconsistency-in-javadoc-for-workflowinterface) | 0 | 0 | Fix inconsistency in javadoc for WorkflowInterface |
 | [#2229](#2229-add-testnexusenvironment-similar-to-testactivityenvironment) | 0 | 0 | Add TestNexusEnvironment similar to TestActivityEnvironment |
 | [#2160](#2160-child-workflow-cancellation-can-trigger-sdk-event-loop-without-a-wft-started) | 0 | 0 | Child workflow cancellation can trigger SDK event loop wi... |
 | [#2149](#2149-revisit-local-activity-backpressure-logic-w-no-max-slot-suppliers) | 0 | 0 | Revisit local activity backpressure logic w/ no-max slot ... |
 | [#2148](#2148-better-tostring-representations-on-service-stub-options) | 0 | 0 | Better toString representations on service stub options |
 | [#2127](#2127-test-server-sometimes-fails-to-include-signal-in-first-wft) | 0 | 0 | Test server sometimes fails to include signal in first WFT |
-| [#2077](#2077-testworkflowenvironment-testworkflowrule-testworkflowextension-auto-register-search-attributes-from-workflowstub) | 0 | 0 | TestWorkflowEnvironment, TestWorkflowRule, TestWorkflowEx... |
+| [#2077](#2077-testworkflowenvironment-testworkflowrule-testworkflowextension---auto-register-search-attributes-from-workflowstub) | 0 | 0 | TestWorkflowEnvironment, TestWorkflowRule, TestWorkflowEx... |
 | [#2051](#2051-ability-to-specify-activity-timeouts-via-annotation-in-java-sdk) | 0 | 0 | Ability to specify activity timeouts via annotation in Ja... |
-| [#2031](#2031-add-springboot-integration-for-slotsupplier-s) | 0 | 0 | Add SpringBoot integration for `SlotSupplier`s |
+| [#2031](#2031-add-springboot-integration-for-slotsuppliers) | 0 | 0 | Add SpringBoot integration for `SlotSupplier`s |
 | [#2030](#2030-add-pauseableslotsupplier) | 0 | 0 | Add `PauseableSlotSupplier` |
 | [#2026](#2026-springboot-add-graceful-shutdown-wait-time-as-property) | 0 | 0 | [SpringBoot] Add graceful shutdown wait time as property |
-| [#2017](#2017-feature-request-use-macos-m1-arm-runners-for-all-sdk-ci) | 0 | 0 | [Feature Request] Use macOS M1/ARM runners for all SDK CI |
+| [#2017](#2017-feature-request-use-macos-m1arm-runners-for-all-sdk-ci) | 0 | 0 | [Feature Request] Use macOS M1/ARM runners for all SDK CI |
 | [#1987](#1987-configurable-workflow-exception-types-at-the-worker-level) | 0 | 0 | Configurable workflow exception types at the worker level |
 | [#1981](#1981-add-source-code-to-shaded-library) | 0 | 0 | Add source code to shaded library |
-| [#1952](#1952-ktlint-0-47-1-jar-2-vulnerabilities-highest-severity-is-7-5) | 0 | 0 | ktlint-0.47.1.jar: 2 vulnerabilities (highest severity is... |
-| [#1951](#1951-spring-boot-dependencies-2-7-12-pom-1-vulnerabilities-highest-severity-is-7-5) | 0 | 0 | spring-boot-dependencies-2.7.12.pom: 1 vulnerabilities (h... |
+| [#1952](#1952-ktlint-0471jar-2-vulnerabilities-highest-severity-is-75) | 0 | 0 | ktlint-0.47.1.jar: 2 vulnerabilities (highest severity is... |
+| [#1951](#1951-spring-boot-dependencies-2712pom-1-vulnerabilities-highest-severity-is-75) | 0 | 0 | spring-boot-dependencies-2.7.12.pom: 1 vulnerabilities (h... |
 | [#1920](#1920-support-bind-address-for-test-server) | 0 | 0 | Support bind address for test server |
-| [#1890](#1890-spring-boot-starter-2-7-12-jar-9-vulnerabilities-highest-severity-is-9-8) | 0 | 0 | spring-boot-starter-2.7.12.jar: 9 vulnerabilities (highes... |
-| [#1888](#1888-kotlin-klib-commonizer-embeddable-1-5-32-jar-1-vulnerabilities-highest-severity-is-5-3) | 0 | 0 | kotlin-klib-commonizer-embeddable-1.5.32.jar: 1 vulnerabi... |
+| [#1890](#1890-spring-boot-starter-2712jar-9-vulnerabilities-highest-severity-is-98) | 0 | 0 | spring-boot-starter-2.7.12.jar: 9 vulnerabilities (highes... |
+| [#1888](#1888-kotlin-klib-commonizer-embeddable-1532jar-1-vulnerabilities-highest-severity-is-53) | 0 | 0 | kotlin-klib-commonizer-embeddable-1.5.32.jar: 1 vulnerabi... |
 | [#1839](#1839-add-healthindicator-to-spring-boot-library) | 0 | 0 | Add HealthIndicator to spring-boot library |
 | [#1830](#1830-workflowreplayer-throws-unclear-exception-when-localactivityoptions-are-misconfigured) | 0 | 0 | WorkflowReplayer throws unclear exception when LocalActiv... |
 | [#1825](#1825-support-the-certificate-with-linebreak-strings-from-env-variable) | 0 | 0 | Support the certificate with linebreak strings from env v... |
@@ -212,7 +212,7 @@
 | [#1413](#1413-deduplicate-getresultasync-calls-inside-workflowclient-or-workflowstub) | 0 | 0 | Deduplicate getResultAsync calls inside WorkflowClient or... |
 | [#1403](#1403-test-server-should-add-warning-logging-if-no-workers-listen-on-a-task-queue-with-tasks) | 0 | 0 | Test Server should add warning logging if no workers list... |
 | [#1377](#1377-predictable-log-statement-when-test-server-is-ready-for-use) | 0 | 0 | Predictable log statement when test server is ready for use |
-| [#1354](#1354-unit-test-for-activitycompletionclient-methods-that-don-t-use-tasktoken) | 0 | 0 | Unit Test for  ActivityCompletionClient methods that don'... |
+| [#1354](#1354-unit-test-for-activitycompletionclient-methods-that-dont-use-tasktoken) | 0 | 0 | Unit Test for  ActivityCompletionClient methods that don'... |
 | [#1273](#1273-provide-an-option-to-print-trace-id-and-span-id-on-java-sdk) | 0 | 0 | provide an option to print trace-id and span-id on java-sdk  |
 | [#1266](#1266-add-unit-test-covering-scenario-of-server-outage-during-worker-sending-workflow-task-execution-result) | 0 | 0 | Add unit test covering scenario of Server outage during W... |
 | [#1258](#1258-make-activity-heartbeats-more-robust-to-network-outages-by-retrying-them) | 0 | 0 | Make activity heartbeats more robust to network outages b... |
@@ -223,7 +223,7 @@
 | [#1212](#1212-cancel-long-poll-if-a-future-returned-from-getresultasync-is-not-referenced-anymore-by-the-user-code) | 0 | 0 | Cancel long poll if a Future returned from getResultAsync... |
 | [#1141](#1141-deadlock-detector-unexpectedly-firing-on-a-cold-jvm) | 0 | 0 | Deadlock Detector unexpectedly firing on a cold JVM |
 | [#1113](#1113-unbalance-external-workflow-configuration) | 0 | 0 | Unbalance external workflow configuration? |
-| [#1098](#1098-provide-activitystub-fromtyped) | 0 | 0 | Provide ActivityStub#fromTyped |
+| [#1098](#1098-provide-activitystubfromtyped) | 0 | 0 | Provide ActivityStub#fromTyped |
 | [#1081](#1081-test-flakes-with-real-temporal-server-leading-to-infinite-activity-retry) | 0 | 0 | Test flakes with Real Temporal Server leading to infinite... |
 | [#1079](#1079-issue-with-testworkflowenvironment-and-parentclosepolicy) | 0 | 0 | Issue with TestWorkflowEnvironment and ParentClosePolicy |
 | [#1069](#1069-testworkflowenvironment-schedules-the-first-activity-retry-immediately) | 0 | 0 | TestWorkflowEnvironment schedules the first activity retr... |
@@ -234,23 +234,23 @@
 | [#902](#902-exception-in-one-of-several-parallel-workflow-async-functions-leads-to-non-deterministic-execution) | 0 | 0 | Exception in one of several "parallel" workflow async fun... |
 | [#862](#862-make-tracing-tags-consistent-across-sdks) | 0 | 0 | Make tracing tags consistent across SDKs |
 | [#860](#860-passing-too-large-blob-as-an-activity-input-ends-with-non-descriptive-grpc-error) | 0 | 0 | Passing too large blob as an Activity input ends with non... |
-| [#857](#857-expose-signalexternalworkflowexecutioncommandattributes-childworkflowonly-in-sdk-api) | 0 | 0 | Expose SignalExternalWorkflowExecutionCommandAttributes.C... |
+| [#857](#857-expose-signalexternalworkflowexecutioncommandattributeschildworkflowonly-in-sdk-api) | 0 | 0 | Expose SignalExternalWorkflowExecutionCommandAttributes.C... |
 | [#851](#851-allow-more-granular-setting-of-queryrejectcondition) | 0 | 0 | Allow more granular setting of QueryRejectCondition  |
 | [#818](#818-automatically-supply-binarychecksum) | 0 | 0 | Automatically supply binaryChecksum |
 | [#794](#794-report-replay-metrics) | 0 | 0 | Report replay metrics |
 | [#753](#753-offer-activityoptions-via-supplier-to-support-dynamic-configs) | 0 | 0 | Offer ActivityOptions via Supplier to support dynamic con... |
 | [#748](#748-provide-a-way-to-inject-options-into-workflow-instances) | 0 | 0 | Provide a way to inject options into Workflow instances |
 | [#746](#746-reuse-of-activitystubs-from-another-workflow-should-produce-a-usable-diagnostic-or-be-allowed) | 0 | 0 | Reuse of ActivityStubs from another workflow should produ... |
-| [#732](#732-remove-testworkflowrule-testtimeoutseconds) | 0 | 0 | Remove TestWorkflowRule#testTimeoutSeconds |
+| [#732](#732-remove-testworkflowruletesttimeoutseconds) | 0 | 0 | Remove TestWorkflowRule#testTimeoutSeconds |
 | [#731](#731-activities-that-return-with-interrupted-flag-should-be-successfully-reported-as-completed) | 0 | 0 | Activities that return with interrupted flag should be su... |
 | [#665](#665-allow-users-to-specify-or-influence-rpcretryoptions-for-all-kinds-of-grpcretries) | 0 | 0 | Allow users to specify or influence RpcRetryOptions for a... |
 | [#661](#661-sync-versions-of-grpcretryer-should-throw-interruptedexception) | 0 | 0 | Sync versions of GrpcRetryer should throw InterruptedExce... |
 | [#608](#608-grpc-falling-into-in-process-server-long-polls-after-interruption-breaks-graceful-worker-pollers-shutdown) | 0 | 0 | GRPC falling into in-process server long polls after inte... |
-| [#597](#597-support-assertions-in-testworkflowenvironment-registerdelayedcallback) | 0 | 0 | Support assertions in `TestWorkflowEnvironment.registerDe... |
-| [#456](#456-duplicate-concurrent-workflow-hangs-on-completion) | 0 | 0 | Duplicate concurrent workflow - hangs on completion |
+| [#597](#597-support-assertions-in-testworkflowenvironmentregisterdelayedcallback) | 0 | 0 | Support assertions in `TestWorkflowEnvironment.registerDe... |
+| [#456](#456-duplicate-concurrent-workflow---hangs-on-completion) | 0 | 0 | Duplicate concurrent workflow - hangs on completion |
 | [#392](#392-timelockingfuture-implementation-is-incorrect-and-easy-to-break) | 0 | 0 | TimeLockingFuture implementation is incorrect and easy to... |
 | [#262](#262-testworkflowenvironment-set-close-time-on-the-visibility-record) | 0 | 0 | TestWorkflowEnvironment: Set close time on the visibility... |
-| [#235](#235-make-polleroptions-uncaughtexceptionhandler-from-workflowoptions-etc) | 0 | 0 | Make PollerOptions.uncaughtExceptionHandler from workflow... |
+| [#235](#235-make-polleroptionsuncaughtexceptionhandler-from-workflowoptions-etc) | 0 | 0 | Make PollerOptions.uncaughtExceptionHandler from workflow... |
 | [#227](#227-enable-serialization-on-workflowqueue) | 0 | 0 | Enable Serialization on WorkflowQueue  |
 | [#193](#193-update-all-state-machines-to-avoid-self-transitions-and-hidden-logic) | 0 | 0 | Update all state machines to avoid self transitions and h... |
 
@@ -380,7 +380,7 @@ Reactions: 🚀 1
 | **URL** | https://github.com/temporalio/sdk-java/issues/1693 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2023-03-09 01:14:15.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-09 01:14:15.000 UTC (2y 10m ago) |
 | **Updated** | 2025-02-26 16:57:59.000 UTC |
 | **Upvotes** | 16 |
 | **Comments** | 5 |
@@ -1955,7 +1955,7 @@ I believe you can implement this logic by implementing custom WorkflowOutboundCa
 | **URL** | https://github.com/temporalio/sdk-java/issues/2746 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-12-09 23:15:13.000 UTC (21 days ago) |
+| **Created** | 2025-12-09 23:15:13.000 UTC (23 days ago) |
 | **Updated** | 2025-12-09 23:15:13.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 0 |
@@ -4359,7 +4359,7 @@ Related to: https://github.com/temporalio/sdk-java/issues/1009
 | **URL** | https://github.com/temporalio/sdk-java/issues/2741 |
 | **State** | OPEN |
 | **Author** | maciejdudko (Maciej Dudkowski) |
-| **Created** | 2025-12-02 17:20:21.000 UTC (29 days ago) |
+| **Created** | 2025-12-02 17:20:21.000 UTC (1 months ago) |
 | **Updated** | 2025-12-02 17:20:21.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -7098,7 +7098,7 @@ We should also add a more detailed method (name TBD) that returns an object that
 | **URL** | https://github.com/temporalio/sdk-java/issues/856 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2021-11-03 22:36:18.000 UTC (4y 1m ago) |
+| **Created** | 2021-11-03 22:36:18.000 UTC (4y 2m ago) |
 | **Updated** | 2022-04-13 22:05:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7537,7 +7537,7 @@ During various failure/deployment scenarios especially in K8s the service IP mig
 | **URL** | https://github.com/temporalio/sdk-java/issues/2753 |
 | **State** | OPEN |
 | **Author** | 40lsgy1 (40lsgy1) |
-| **Created** | 2025-12-31 08:23:53.000 UTC (0 days ago) |
+| **Created** | 2025-12-31 08:23:53.000 UTC (1 days ago) |
 | **Updated** | 2025-12-31 08:23:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7566,7 +7566,7 @@ I'm encountering an issue while using Temporal to build a DSL system. In my impl
 | **URL** | https://github.com/temporalio/sdk-java/issues/2752 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-30 20:45:57.000 UTC (1 days ago) |
+| **Created** | 2025-12-30 20:45:57.000 UTC (2 days ago) |
 | **Updated** | 2025-12-30 20:46:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7602,7 +7602,7 @@ https://javadoc.io/static/io.temporal/temporal-opentracing/1.32.0/io/temporal/op
 | **URL** | https://github.com/temporalio/sdk-java/issues/2750 |
 | **State** | OPEN |
 | **Author** | TbirdDuncan |
-| **Created** | 2025-12-28 18:26:55.000 UTC (3 days ago) |
+| **Created** | 2025-12-28 18:26:55.000 UTC (4 days ago) |
 | **Updated** | 2025-12-28 19:04:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7685,7 +7685,7 @@ java.lang.AssertionError: No metric 'temporal_workflow_failed [namespace=UnitTes
 | **URL** | https://github.com/temporalio/sdk-java/issues/2747 |
 | **State** | OPEN |
 | **Author** | karunagoyal (Karuna Goyal) |
-| **Created** | 2025-12-12 17:25:42.000 UTC (19 days ago) |
+| **Created** | 2025-12-12 17:25:42.000 UTC (20 days ago) |
 | **Updated** | 2025-12-12 17:25:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7729,7 +7729,7 @@ Add placeholder resolution in configureWorkflowImplementationsByWorkerName(), co
 | **URL** | https://github.com/temporalio/sdk-java/issues/2745 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-12-08 19:43:12.000 UTC (23 days ago) |
+| **Created** | 2025-12-08 19:43:12.000 UTC (24 days ago) |
 | **Updated** | 2025-12-08 19:43:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8263,7 +8263,7 @@ poe test -k "test_workflow_headers_with_codec" --workflow-environment time-skipp
 | **URL** | https://github.com/temporalio/sdk-java/issues/2582 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2025-07-05 22:53:44.000 UTC (5 months ago) |
+| **Created** | 2025-07-05 22:53:44.000 UTC (6 months ago) |
 | **Updated** | 2025-07-06 13:40:18.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9053,7 +9053,7 @@ Add an implementation of `SlotSupplier` that wraps another implementation adding
 | **URL** | https://github.com/temporalio/sdk-java/issues/2026 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-04-05 23:54:48.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-05 23:54:48.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-05 23:54:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10600,7 +10600,7 @@ The right approach would be a creation of a completely new `ContextPropagator` i
 | **URL** | https://github.com/temporalio/sdk-java/issues/1642 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2023-02-06 19:52:52.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-06 19:52:52.000 UTC (2y 11m ago) |
 | **Updated** | 2024-12-17 21:26:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

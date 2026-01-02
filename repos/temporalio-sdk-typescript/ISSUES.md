@@ -1,6 +1,6 @@
 # temporalio/sdk-typescript - Complete Issue Dump
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Issues:** 148
 **Total Upvotes:** 177
 **Total Comments:** 347
@@ -38,7 +38,7 @@
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
 | [#1334](#1334-feature-request-run-temporal-worker-in-bun) | 46 | 46 | [Feature Request] Run temporal worker in bun |
-| [#1755](#1755-feature-request-temporal-integration-for-openai-agents) | 19 | 7 | [Feature Request] Temporal integration for `@openai/agents` |
+| [#1755](#1755-feature-request-temporal-integration-for-openaiagents) | 19 | 7 | [Feature Request] Temporal integration for `@openai/agents` |
 | [#483](#483-feature-request-nestjs-transport-integration) | 4 | 37 | [Feature Request] NestJS Transport / Integration? |
 | [#928](#928-bug-jest-detects-open-handles) | 7 | 26 | [Bug] Jest detects open handles |
 | [#1658](#1658-feature-request-add-support-for-opentelemetry-v2) | 19 | 1 | [Feature Request] Add support for opentelemetry v2 |
@@ -58,60 +58,60 @@
 | [#1621](#1621-feature-request-include-musl-based-shared-library-in-package) | 4 | 0 | [Feature Request] Include musl-based shared library in pa... |
 | [#1587](#1587-bug-using-async-functions-degrades-performance) | 1 | 6 | [Bug] Using async functions degrades performance |
 | [#1557](#1557-feature-request-allow-opt-out-of-workflow-isolation) | 0 | 8 | [Feature Request] allow opt-out of workflow isolation |
-| [#1362](#1362-feature-request-worker-runreplayhistory-should-accept-a-serialized-history-object-fetched-using-fetchhistory) | 2 | 4 | [Feature Request] Worker.runReplayHistory() should accept... |
+| [#1362](#1362-feature-request-workerrunreplayhistory-should-accept-a-serialized-history-object-fetched-using-fetchhistory) | 2 | 4 | [Feature Request] Worker.runReplayHistory() should accept... |
 | [#1292](#1292-bug-esm-custom-payload-converters-cannot-be-loaded) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
 | [#1021](#1021-feature-request-async-generator-for-cancellationscope) | 0 | 8 | [Feature Request] async generator for cancellationScope |
-| [#1866](#1866-bug-signal-caused-condition-to-fail-with-cancelledfailure-on-1-14-0) | 1 | 5 | [Bug] Signal caused `condition` to fail with `CancelledFa... |
+| [#1866](#1866-bug-signal-caused-condition-to-fail-with-cancelledfailure-on-1140) | 1 | 5 | [Bug] Signal caused `condition` to fail with `CancelledFa... |
 | [#1325](#1325-bug-throwing-an-exception-from-a-workflow-may-result-in-failed-to-activate-workflow-due-to-datacloneerror) | 2 | 3 | [Bug] Throwing an exception from a workflow may result in... |
 | [#1008](#1008-feature-request-provide-more-output-when-webpack-fails) | 2 | 3 | [Feature Request] Provide more output when webpack fails |
 | [#665](#665-feature-request-allow-for-easy-mocking) | 0 | 7 | [Feature Request] Allow for easy mocking  |
 | [#1351](#1351-feature-request-support-updating-schedule-by-cronexpression) | 2 | 2 | [Feature Request] Support updating schedule by cronExpres... |
 | [#915](#915-feature-request-emit-metrics-from-client-connection) | 3 | 0 | [Feature Request] Emit metrics from client connection |
-| [#1668](#1668-bug-common-package-not-importing-types-ms) | 2 | 1 | [Bug] common package not importing @types/ms |
-| [#1663](#1663-bug-can-t-use-structuredclone-in-workflow-code) | 0 | 5 | [Bug] Can't use structuredClone in workflow code |
+| [#1668](#1668-bug-common-package-not-importing-typesms) | 2 | 1 | [Bug] common package not importing @types/ms |
+| [#1663](#1663-bug-cant-use-structuredclone-in-workflow-code) | 0 | 5 | [Bug] Can't use structuredClone in workflow code |
 | [#1458](#1458-feature-request-support-passing-preloaded-data-converters-to-client) | 2 | 1 | [Feature Request] Support passing preloaded data converte... |
 | [#1308](#1308-chore-add-tests-to-assert-proper-type-rules-on-all-user-defined-function-with-args-apis) | 0 | 5 | [Chore] Add tests to assert proper type rules on all "use... |
-| [#1800](#1800-feature-request-provide-a-way-to-distinguish-error-types-in-logs-from-typescript-sdk-errors-lose-type-info-across-worker-workflow) | 2 | 0 | [Feature Request] Provide a way to distinguish error type... |
+| [#1800](#1800-feature-request-provide-a-way-to-distinguish-error-types-in-logs-from-typescript-sdk-errors-lose-type-info-across-worker---workflow) | 2 | 0 | [Feature Request] Provide a way to distinguish error type... |
 | [#1738](#1738-bug-opentelemetry-tracestate-is-handled-properly-in-makeworkflowexporter) | 0 | 4 | [Bug] opentelemetry traceState is handled properly in  ma... |
 | [#1718](#1718-feature-request-lazily-load-webpack) | 0 | 4 | [Feature Request] Lazily load webpack |
-| [#1177](#1177-feature-request-forward-core-s-metrics-to-typescript-land) | 0 | 4 | [Feature Request] Forward Core's metrics to TypeScript-land |
+| [#1177](#1177-feature-request-forward-cores-metrics-to-typescript-land) | 0 | 4 | [Feature Request] Forward Core's metrics to TypeScript-land |
 | [#564](#564-bug-heartbeat-details-should-be-array) | 0 | 4 | [Bug] Heartbeat details should be array? |
 | [#561](#561-docs-versionize-documentation) | 0 | 4 | [Docs] Versionize documentation |
 | [#472](#472-feature-request-eslint-plugin) | 0 | 4 | [Feature Request] eslint plugin |
 | [#1772](#1772-extractsourcemap-takes-a-huge-amount-of-ram-on-boot) | 0 | 3 | extractSourceMap takes a huge amount of RAM on boot |
-| [#1740](#1740-bug-webpackconfighook-doesn-t-seem-to-suppress-all-webpack-output) | 1 | 1 | [Bug] webpackConfigHook doesn't seem to suppress all webp... |
-| [#1601](#1601-result-of-env-run-is-not-inferring-type-returning-unknown) | 0 | 3 | result of env.run is not inferring type, returning `unknown` |
+| [#1740](#1740-bug-webpackconfighook-doesnt-seem-to-suppress-all-webpack-output) | 1 | 1 | [Bug] webpackConfigHook doesn't seem to suppress all webp... |
+| [#1601](#1601-result-of-envrun-is-not-inferring-type-returning-unknown) | 0 | 3 | result of env.run is not inferring type, returning `unknown` |
 | [#1489](#1489-bug-critical-dependency-the-request-of-a-dependency-is-an-expression) | 0 | 3 | [Bug] Critical dependency: the request of a dependency is... |
 | [#1332](#1332-feature-request-testworkflowenvironment-should-support-non-spawned-servers) | 1 | 1 | [Feature Request] `TestWorkflowEnvironment` should suppor... |
-| [#1309](#1309-bug-comment-unclear-on-when-activities-are-cancelled-after-calling-worker-shutdown) | 0 | 3 | [Bug] Comment unclear on when activities are cancelled af... |
+| [#1309](#1309-bug-comment-unclear-on-when-activities-are-cancelled-after-calling-workershutdown) | 0 | 3 | [Bug] Comment unclear on when activities are cancelled af... |
 | [#998](#998-feature-request-add-built-in-support-for-context-propagators) | 0 | 3 | [Feature Request] Add built-in support for context propag... |
-| [#740](#740-feature-request-add-childworkflowhandle-cancel) | 1 | 1 | [Feature Request] Add `ChildWorkflowHandle.cancel()` |
+| [#740](#740-feature-request-add-childworkflowhandlecancel) | 1 | 1 | [Feature Request] Add `ChildWorkflowHandle.cancel()` |
 | [#1864](#1864-feature-request-update-ai-sdk-integration-to-v6) | 1 | 0 | [Feature Request] Update AI SDK integration to v6 |
-| [#1859](#1859-bug-high-cpu-usage-with-otel-instrumentation-when-updating-to-v1-13-x) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updat... |
-| [#1796](#1796-bug-changes-in-type-inference-of-activity-return-type-in-sdk-1-12-2) | 1 | 0 | [Bug] Changes in type inference of activity return type i... |
+| [#1859](#1859-bug-high-cpu-usage-with-otel-instrumentation-when-updating-to-v113x) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updat... |
+| [#1796](#1796-bug-changes-in-type-inference-of-activity-return-type-in-sdk-1122) | 1 | 0 | [Bug] Changes in type inference of activity return type i... |
 | [#1744](#1744-bug-nde-replaying-nested-promises) | 1 | 0 | [Bug] NDE replaying nested promises |
-| [#1736](#1736-feature-request-mask-sanitize-client-sensitive-data-references) | 1 | 0 | [Feature Request] Mask/sanitize client sensitive data ref... |
-| [#1733](#1733-bug-retrypolicy-maximumattempt-0-throws-while-it-is-documented-as-a-valid-value-for-unlimited) | 0 | 2 | [Bug] `RetryPolicy.maximumAttempt === 0` throws, while it... |
+| [#1736](#1736-feature-request-masksanitize-client-sensitive-data-references) | 1 | 0 | [Feature Request] Mask/sanitize client sensitive data ref... |
+| [#1733](#1733-bug-retrypolicymaximumattempt-0-throws-while-it-is-documented-as-a-valid-value-for-unlimited) | 0 | 2 | [Bug] `RetryPolicy.maximumAttempt === 0` throws, while it... |
 | [#1700](#1700-feature-request-executechild-to-use-passed-headers) | 1 | 0 | [Feature Request] executeChild to use passed headers |
 | [#1675](#1675-feature-request-support-aggregateerror) | 1 | 0 | [Feature Request] support AggregateError |
-| [#1594](#1594-bug-first-schedule-action-started-using-triggerimmediately-flag-does-not-honor-the-schedule-s-overlap-policy) | 1 | 0 | [Bug] First schedule action started using triggerImmediat... |
+| [#1594](#1594-bug-first-schedule-action-started-using-triggerimmediately-flag-does-not-honor-the-schedules-overlap-policy) | 1 | 0 | [Bug] First schedule action started using triggerImmediat... |
 | [#1580](#1580-bug-workflows-getting-stuck-after-cancellation-spurious-workflowtaskfailed-errors) | 0 | 2 | [Bug] Workflows getting stuck after cancellation (spuriou... |
-| [#1578](#1578-bug-worker-fails-to-start-if-node-option-abort-on-uncaught-exception-is-set) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-unc... |
+| [#1578](#1578-bug-worker-fails-to-start-if-node-option---abort-on-uncaught-exception-is-set) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-unc... |
 | [#1537](#1537-bug-workflow-lifecycle-logging-is-misleading) | 0 | 2 | [Bug] Workflow lifecycle logging is misleading |
 | [#1389](#1389-bug-inconsistent-type-definition-of-workflow-arguments) | 0 | 2 | [Bug] Inconsistent Type Definition of Workflow Arguments |
 | [#1375](#1375-feature-request-queueing-a-workflow) | 0 | 2 | [Feature Request] Queueing a workflow |
 | [#1144](#1144-feature-request-add-support-for-capturing-workflow-test-coverage-data-using-jest) | 0 | 2 | [Feature Request] Add support for capturing Workflow test... |
-| [#1113](#1113-feature-request-create-a-npx-temporalio-doctor-command) | 1 | 0 | [Feature Request] Create a `npx @temporalio/doctor` command |
+| [#1113](#1113-feature-request-create-a-npx-temporaliodoctor-command) | 1 | 0 | [Feature Request] Create a `npx @temporalio/doctor` command |
 | [#1112](#1112-bug-workflow-bundler-does-not-deny-usage-of-the-process-global-variable) | 0 | 2 | [Bug] Workflow Bundler does not deny usage of the `proces... |
 | [#982](#982-incompatible-with-allowsyntheticdefaultimports-set-to-false) | 0 | 2 | Incompatible with allowSyntheticDefaultImports set to false |
 | [#959](#959-bug-broken-links-and-hierarchy) | 0 | 2 | [Bug] Broken links and hierarchy |
 | [#813](#813-feature-request-less-boiler-plate) | 0 | 2 | [Feature Request] Less boiler plate. |
 | [#783](#783-feature-request-better-nx-support) | 1 | 0 | [Feature Request] Better Nx support |
-| [#773](#773-bug-payloadtojson-from-from-temporalio-common-lib-proto-utils-does-not-generate-vaild-proto-json) | 0 | 2 | [Bug] payloadToJSON from from @temporalio/common/lib/prot... |
+| [#773](#773-bug-payloadtojson-from-from-temporaliocommonlibproto-utils-does-not-generate-vaild-proto-json) | 0 | 2 | [Bug] payloadToJSON from from @temporalio/common/lib/prot... |
 | [#470](#470-feature-request-terminatedfailure-missing-details) | 0 | 2 | [Feature Request] TerminatedFailure missing "details" |
 | [#1756](#1756-bug-hostname-is-overly-restrictive) | 0 | 1 | [Bug] Hostname is overly restrictive |
 | [#1661](#1661-feature-request-serialization-context-for-codecs-and-converters) | 0 | 1 | [Feature Request] Serialization context for codecs and co... |
-| [#1660](#1660-bug-resource-exhausted-error-while-describing-workflow-schedule) | 0 | 1 | [Bug] RESOURCE_EXHAUSTED error while describing workflow ... |
+| [#1660](#1660-bug-resourceexhausted-error-while-describing-workflow-schedule) | 0 | 1 | [Bug] RESOURCE_EXHAUSTED error while describing workflow ... |
 | [#1656](#1656-bug-workflow-type-is-incorrectly-deduced-when-using-bind-on-workflow-function) | 0 | 1 | [Bug] Workflow type is incorrectly deduced when using `bi... |
 | [#1652](#1652-bug-throw-on-usage-of-workflow-apis-that-modify-state-from-non-replayable-context) | 0 | 1 | [Bug] Throw on usage of Workflow APIs that modify state f... |
 | [#1431](#1431-feature-request-make-it-easier-to-diagnose-failures-to-connect-to-temporal-cloud-due-to-incorrect-serverrootcacertificate) | 0 | 1 | [Feature Request] Make it easier to diagnose failures to ... |
@@ -124,29 +124,29 @@
 | [#938](#938-feature-request-formally-validate-public-api-modification-between-releases) | 0 | 1 | [Feature Request] Formally validate public API modificati... |
 | [#776](#776-feature-request-expose-internal-non-workflow-common-functionality) | 0 | 1 | [Feature Request] Expose internal-non-workflow-common fun... |
 | [#739](#739-docs-rank-functions-higher-in-search) | 0 | 1 | [Docs] Rank functions higher in search |
-| [#668](#668-feature-request-provide-workflowinfo-initiator) | 0 | 1 | [Feature Request] Provide WorkflowInfo.initiator? |
+| [#668](#668-feature-request-provide-workflowinfoinitiator) | 0 | 1 | [Feature Request] Provide WorkflowInfo.initiator? |
 | [#384](#384-feature-request-add-actual-span-time-to-spans-create-by-workflow-otel-interceptors) | 0 | 1 | [Feature Request] Add actual span time to spans create by... |
 | [#1867](#1867-feature-request-per-worker-logger) | 0 | 0 | [Feature Request] Per-Worker Logger |
 | [#1862](#1862-feature-request-importing-workflow-into-activity-dependency-causes-grpc-failed-to-connect-before-the-deadline-error) | 0 | 0 | [Feature Request] importing workflow into activity depend... |
-| [#1860](#1860-bug-performance-regression-from-1-13-1-1-13-2) | 0 | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
+| [#1860](#1860-bug-performance-regression-from-1131---1132) | 0 | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
 | [#1858](#1858-bug-unable-to-import-reflect-metadata-within-workflow-bundle) | 0 | 0 | [Bug] unable to import reflect-metadata within workflow b... |
 | [#1854](#1854-feature-request-correct-docs-for-otelcollectorexporter) | 0 | 0 | [Feature Request] Correct docs for OtelCollectorExporter |
 | [#1851](#1851-feature-request-support-non-workflow-activities) | 0 | 0 | [Feature Request] Support non-workflow activities |
 | [#1850](#1850-feature-request-implement-otel-interceptors-v1-as-plugin) | 0 | 0 | [Feature Request] Implement OTel interceptors v1 as Plugin |
-| [#1843](#1843-default-maxcachedworkflows-calculation-doesn-t-account-for-vm-isolate-memory-being-outside-v8-heap) | 0 | 0 | Default maxCachedWorkflows calculation doesn't account fo... |
+| [#1843](#1843-default-maxcachedworkflows-calculation-doesnt-account-for-vm-isolate-memory-being-outside-v8-heap) | 0 | 0 | Default maxCachedWorkflows calculation doesn't account fo... |
 | [#1838](#1838-bug-workflowexecutionalreadystartederror-should-contain-runid-if-provided-by-server) | 0 | 0 | [Bug] `WorkflowExecutionAlreadyStartedError` should conta... |
 | [#1824](#1824-feature-request-allow-overriding-of-the-worker-deployment-version-when-invoking-a-child-workflow) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployme... |
 | [#1782](#1782-feature-request-ensure-tests-exist-to-confirm-custom-slot-supplier-slot-info-has-proper-fields) | 0 | 0 | [Feature Request] Ensure tests exist to confirm custom sl... |
-| [#1779](#1779-bug-temporalio-interceptors-opentelemetry-otel-bypasses-a-required-sdk-component) | 0 | 0 | [Bug] `@temporalio/interceptors-opentelemetry` OTEL bypas... |
+| [#1779](#1779-bug-temporaliointerceptors-opentelemetry-otel-bypasses-a-required-sdk-component) | 0 | 0 | [Bug] `@temporalio/interceptors-opentelemetry` OTEL bypas... |
 | [#1775](#1775-feature-request-support-for-creating-v7-uuids-from-within-workflow-tasks) | 0 | 0 | [Feature Request] Support for creating v7 UUIDs from with... |
-| [#1739](#1739-feature-request-add-activitycontext-workershuttingdown) | 0 | 0 | [Feature Request] Add `ActivityContext.workerShuttingDown` |
+| [#1739](#1739-feature-request-add-activitycontextworkershuttingdown) | 0 | 0 | [Feature Request] Add `ActivityContext.workerShuttingDown` |
 | [#1722](#1722-feature-request-include-error-details-on-every-errors-thrown-from-client-api) | 0 | 0 | [Feature Request] Include error details on every errors t... |
-| [#1721](#1721-bug-error-thrown-from-client-s-update-with-start-doesn-t-show-proper-message) | 0 | 0 | [Bug] Error thrown from Client's Update-with-Start doesn'... |
-| [#1717](#1717-bug-protobuf-payload-converter-is-broken-after-upgrading-to-protobufjs-7-5-2) | 0 | 0 | [Bug] Protobuf Payload Converter is broken after upgradin... |
+| [#1721](#1721-bug-error-thrown-from-clients-update-with-start-doesnt-show-proper-message) | 0 | 0 | [Bug] Error thrown from Client's Update-with-Start doesn'... |
+| [#1717](#1717-bug-protobuf-payload-converter-is-broken-after-upgrading-to-protobufjs-752) | 0 | 0 | [Bug] Protobuf Payload Converter is broken after upgradin... |
 | [#1716](#1716-typescript-worker-versioning-high-level-client) | 0 | 0 | [TypeScript] Worker Versioning high level client |
 | [#1715](#1715-if-a-serializable-value-is-provided-as-a-searchattribute-serialize-it-instead-of-throwing-the-error-searchattribute-values-must-arrays-of-strings-numbers-booleans-or-dates-the-value-at-index-0-is-of-type-object) | 0 | 0 | If a serializable value is provided as a SearchAttribute,... |
 | [#1713](#1713-feature-request-pass-webpack-obj-as-the-second-parameter-when-calling-webpackconfighook) | 0 | 0 | [Feature Request] Pass webpack obj as the second paramete... |
-| [#1710](#1710-feature-request-better-type-inference-for-mockactivityenvironment-run) | 0 | 0 | [Feature Request] Better type inference for `MockActivity... |
+| [#1710](#1710-feature-request-better-type-inference-for-mockactivityenvironmentrun) | 0 | 0 | [Feature Request] Better type inference for `MockActivity... |
 | [#1703](#1703-feature-request-complete-work-on-supporting-client-over-nativeconnection) | 0 | 0 | [Feature Request] Complete work on supporting `Client` ov... |
 | [#1702](#1702-bug-test-suite-timeout-on-first-run) | 0 | 0 | [Bug] Test suite timeout on first run |
 | [#1696](#1696-feature-request-otel-exporter-error-handling) | 0 | 0 | [Feature Request] Otel exporter error handling |
@@ -155,8 +155,8 @@
 | [#1653](#1653-bug-broken-documentation-link) | 0 | 0 | [Bug] Broken Documentation Link |
 | [#1647](#1647-feature-request-add-summary-to-nexus-operation) | 0 | 0 | [Feature Request] Add summary to Nexus operation |
 | [#1635](#1635-feature-request-rehydrate-typedsearchattributes-for-sinks-or-provide-workflowinfo-variant) | 0 | 0 | [Feature Request] Rehydrate TypedSearchAttributes for sin... |
-| [#1626](#1626-expose-workflow-cancel-cause-reason) | 0 | 0 | Expose Workflow cancel cause/reason |
-| [#1616](#1616-feature-request-add-memoization-support-to-the-patched-api) | 0 | 0 | [Feature Request] Add memoization support to the`patched(... |
+| [#1626](#1626-expose-workflow-cancel-causereason) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#1616](#1616-feature-request-add-memoization-support-to-thepatched-api) | 0 | 0 | [Feature Request] Add memoization support to the`patched(... |
 | [#1549](#1549-feature-request-auto-skip-time-in-time-skipping-testing-environment-when-waiting-on-update-result) | 0 | 0 | [Feature Request] Auto-skip time in time-skipping testing... |
 | [#1542](#1542-feature-request-allow-update-validators-to-be-async) | 0 | 0 | [Feature Request] Allow Update Validators to be async |
 | [#1512](#1512-bug-payload-converter-error-can-crash-worker) | 0 | 0 | [Bug] Payload converter error can crash worker |
@@ -173,10 +173,10 @@
 | [#1258](#1258-feature-request-provide-nicer-error-messages-on-tls-ca-cert-not-found-errors) | 0 | 0 | [Feature Request] Provide nicer error messages on TLS CA ... |
 | [#1174](#1174-bug-sdk-should-drop-signals-for-which-it-cannot-decode-payloads) | 0 | 0 | [Bug] SDK should drop signals for which it cannot decode ... |
 | [#1139](#1139-feature-request-temporalfailure-from-converters-and-codecs-should-be-able-to-fail-the-workflow-not-task) | 0 | 0 | [Feature Request] TemporalFailure from converters and cod... |
-| [#1054](#1054-add-telemetryoptions-logging-object-format-to-api-ref) | 0 | 0 | Add `TelemetryOptions.logging` object format to API ref |
+| [#1054](#1054-add-telemetryoptionslogging-object-format-to-api-ref) | 0 | 0 | Add `TelemetryOptions.logging` object format to API ref |
 | [#1010](#1010-validate-single-version-of-packages) | 0 | 0 | Validate single version of packages |
 | [#962](#962-feature-request-allow-creating-patches-before-the-workflow-has-started) | 0 | 0 | [Feature Request] Allow creating patches before the workf... |
-| [#945](#945-feature-request-add-client-interceptor-for-list-and-fetch-history) | 0 | 0 | [Feature Request] Add client interceptor for `list` and `... |
+| [#945](#945-feature-request-add-client-interceptor-for-list-and-fetchhistory) | 0 | 0 | [Feature Request] Add client interceptor for `list` and `... |
 | [#830](#830-feature-request-remove-sourcemap-and-sourcemappath) | 0 | 0 | [Feature Request] Remove `sourceMap` and `sourceMapPath` |
 | [#828](#828-feature-request-throw-when-heartbeat-is-called-from-local-activities) | 0 | 0 | [Feature Request] Throw when `heartbeat()` is called from... |
 | [#730](#730-docs-make-method-overloads-more-obvious-in-docs) | 0 | 0 | [Docs] Make method overloads more obvious in docs |
@@ -3964,7 +3964,7 @@ Please see #1557.
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1280 |
 | **State** | OPEN |
 | **Author** | gajus (Gajus Kuizinas) |
-| **Created** | 2023-11-03 17:23:53.000 UTC (2y 1m ago) |
+| **Created** | 2023-11-03 17:23:53.000 UTC (2y 2m ago) |
 | **Updated** | 2023-11-09 04:16:41.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 5 |
@@ -5045,7 +5045,7 @@ Query builder inspiration: https://twitter.com/leeerob/status/161769925264553984
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1621 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-02-05 22:38:08.000 UTC (10 months ago) |
+| **Created** | 2025-02-05 22:38:08.000 UTC (11 months ago) |
 | **Updated** | 2025-02-05 22:38:08.000 UTC |
 | **Upvotes** | 4 |
 | **Comments** | 0 |
@@ -6030,7 +6030,7 @@ Worked around it for now by going out of the scope to do the yield ending up in 
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1866 |
 | **State** | OPEN |
 | **Author** | justinadkins (Justin Adkins) |
-| **Created** | 2025-12-23 14:18:56.000 UTC (8 days ago) |
+| **Created** | 2025-12-23 14:18:56.000 UTC (9 days ago) |
 | **Updated** | 2025-12-30 14:59:27.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 5 |
@@ -6704,7 +6704,7 @@ await worker.runUntil(async () => {
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1351 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2024-02-06 22:53:09.000 UTC (1y 10m ago) |
+| **Created** | 2024-02-06 22:53:09.000 UTC (1y 11m ago) |
 | **Updated** | 2025-02-05 16:39:28.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 2 |
@@ -8423,7 +8423,7 @@ Two possible work arounds:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1864 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-12-22 18:27:09.000 UTC (9 days ago) |
+| **Created** | 2025-12-22 18:27:09.000 UTC (10 days ago) |
 | **Updated** | 2025-12-22 18:27:29.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -8458,7 +8458,7 @@ https://vercel.com/blog/ai-sdk-6
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1859 |
 | **State** | OPEN |
 | **Author** | daniellockyer (Daniel Lockyer) |
-| **Created** | 2025-12-08 10:39:51.000 UTC (23 days ago) |
+| **Created** | 2025-12-08 10:39:51.000 UTC (24 days ago) |
 | **Updated** | 2025-12-10 09:38:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -9366,7 +9366,7 @@ Is it correct that throwing a `CancelledFailure` error should lead to an event t
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1578 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2024-12-02 19:19:16.000 UTC (1 years ago) |
+| **Created** | 2024-12-02 19:19:16.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-02 19:19:16.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -11417,7 +11417,7 @@ Use `workflowInfo().unsafe.now()`
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1867 |
 | **State** | OPEN |
 | **Author** | TastyPi (Graham Rogers) |
-| **Created** | 2025-12-30 10:57:00.000 UTC (1 days ago) |
+| **Created** | 2025-12-30 10:57:00.000 UTC (2 days ago) |
 | **Updated** | 2025-12-30 10:58:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11461,7 +11461,7 @@ Allow the Logger to be configured at the Worker level. This would allow us to cr
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1862 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-12 19:10:26.000 UTC (19 days ago) |
+| **Created** | 2025-12-12 19:10:26.000 UTC (20 days ago) |
 | **Updated** | 2025-12-12 19:10:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11491,7 +11491,7 @@ attached issue :- https://app.usepylon.com/issues?conversationID=aa9077dd-17e0-4
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1860 |
 | **State** | OPEN |
 | **Author** | mnahkies (Michael Nahkies) |
-| **Created** | 2025-12-10 09:32:18.000 UTC (21 days ago) |
+| **Created** | 2025-12-10 09:32:18.000 UTC (22 days ago) |
 | **Updated** | 2025-12-10 09:40:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11544,7 +11544,7 @@ Semi-related: https://github.com/temporalio/sdk-typescript/issues/1859
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1858 |
 | **State** | OPEN |
 | **Author** | hmvien (Hien Vien) |
-| **Created** | 2025-12-05 23:25:41.000 UTC (25 days ago) |
+| **Created** | 2025-12-05 23:25:41.000 UTC (27 days ago) |
 | **Updated** | 2025-12-08 18:01:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11668,7 +11668,7 @@ Execute with
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1854 |
 | **State** | OPEN |
 | **Author** | clintonb (Clinton Blackburn) |
-| **Created** | 2025-12-04 01:17:12.000 UTC (27 days ago) |
+| **Created** | 2025-12-04 01:17:12.000 UTC (29 days ago) |
 | **Updated** | 2025-12-04 01:17:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11709,7 +11709,7 @@ N/A
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1851 |
 | **State** | OPEN |
 | **Author** | maciejdudko (Maciej Dudkowski) |
-| **Created** | 2025-12-02 17:20:06.000 UTC (29 days ago) |
+| **Created** | 2025-12-02 17:20:06.000 UTC (1 months ago) |
 | **Updated** | 2025-12-02 17:20:06.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11738,7 +11738,7 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1850 |
 | **State** | OPEN |
 | **Author** | chris-olszewski (Chris Olszewski) |
-| **Created** | 2025-12-02 15:09:54.000 UTC (29 days ago) |
+| **Created** | 2025-12-02 15:09:54.000 UTC (1 months ago) |
 | **Updated** | 2025-12-02 15:09:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13362,7 +13362,7 @@ Currently it's just `Object`:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1010 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2023-01-03 03:02:38.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-03 03:02:38.000 UTC (3 years ago) |
 | **Updated** | 2025-02-07 03:50:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13571,7 +13571,7 @@ https://github.com/temporalio/sdk-go/blob/706516c7077ba2e9b40304aeddbed47e25b2a6
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/514 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-03-07 23:33:47.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-07 23:33:47.000 UTC (3y 10m ago) |
 | **Updated** | 2022-06-30 17:08:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13656,7 +13656,7 @@ Note that this isn't an issue for queries. `await handle.query(unregisterdQuery)
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/417 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2021-12-03 15:33:47.000 UTC (4 years ago) |
+| **Created** | 2021-12-03 15:33:47.000 UTC (4y 1m ago) |
 | **Updated** | 2024-12-10 19:29:46.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
