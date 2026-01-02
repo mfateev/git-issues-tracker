@@ -1,6 +1,6 @@
 # Temporal Java SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 215
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 

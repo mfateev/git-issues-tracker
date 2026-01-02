@@ -1,6 +1,6 @@
 # Temporal PHP SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 47
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 

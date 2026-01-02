@@ -1497,7 +1497,7 @@ Is there already a timetable for when this feature will be released? We are very
 | **URL** | https://github.com/temporalio/sdk-php/issues/428 |
 | **State** | OPEN |
 | **Author** | suityou01 (Charlie Benger-Stevenson) |
-| **Created** | 2024-05-07 10:00:56.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-07 10:00:56.000 UTC (1y 8m ago) |
 | **Updated** | 2025-12-22 16:58:55.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -1967,7 +1967,7 @@ Workflow
 | **URL** | https://github.com/temporalio/sdk-php/issues/532 |
 | **State** | OPEN |
 | **Author** | Muz4k (Muz4k) |
-| **Created** | 2024-12-03 17:40:33.000 UTC (1 years ago) |
+| **Created** | 2024-12-03 17:40:33.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-09 19:39:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -2393,7 +2393,7 @@ interface HasFailureInfo
 | **URL** | https://github.com/temporalio/sdk-php/issues/670 |
 | **State** | OPEN |
 | **Author** | xepozz (Dmitrii Derepko) |
-| **Created** | 2025-12-18 18:07:27.000 UTC (14 days ago) |
+| **Created** | 2025-12-18 18:07:27.000 UTC (15 days ago) |
 | **Updated** | 2025-12-18 18:07:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2436,7 +2436,7 @@ It would be great to support symfony 8.0 packages, there are some in the sdk's "
 | **URL** | https://github.com/temporalio/sdk-php/issues/668 |
 | **State** | OPEN |
 | **Author** | FluffyDiscord (Honk) |
-| **Created** | 2025-12-06 18:03:27.000 UTC (26 days ago) |
+| **Created** | 2025-12-06 18:03:27.000 UTC (27 days ago) |
 | **Updated** | 2025-12-06 18:03:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3249,7 +3249,7 @@ See temporalio/features#591 for details.
 | **URL** | https://github.com/temporalio/sdk-php/issues/545 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 14:03:22.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 14:03:22.000 UTC (12 months ago) |
 | **Updated** | 2025-01-07 14:03:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

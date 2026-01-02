@@ -2,8 +2,8 @@
 
 **Generated:** 2026-01-02
 **Total Issues:** 148
-**Total Upvotes:** 177
-**Total Comments:** 347
+**Total Upvotes:** 178
+**Total Comments:** 348
 
 ## Table of Contents
 
@@ -18,8 +18,8 @@
 |--------|-------|
 | Open Issues | 148 |
 | Issues with Upvotes | 40 (27%) |
-| Total Upvotes | 177 |
-| Total Comments | 347 |
+| Total Upvotes | 178 |
+| Total Comments | 348 |
 
 ## Top Labels
 
@@ -52,6 +52,7 @@
 | [#1432](#1432) | 5 | 1 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` in Workflow context |
 | [#1280](#1280) | 3 | 5 | Bundle using Vite |
 | [#868](#868) | 0 | 11 | [Feature Request] Add lint rule that prevents Query handlers from mutating state |
+| [#1866](#1866) | 2 | 6 | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
 | [#939](#939) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout |
 | [#1790](#1790) | 0 | 9 | [Bug] Replay workflow history fails with nondeterminism error, child workflow ids do not match |
 | [#754](#754) | 1 | 7 | [Feature Request] Add friendly version of listWorkflowExecutions |
@@ -61,7 +62,6 @@
 | [#1362](#1362) | 2 | 4 | [Feature Request] Worker.runReplayHistory() should accept a serialized History object fetched using fetchHistory() |
 | [#1292](#1292) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
 | [#1021](#1021) | 0 | 8 | [Feature Request] async generator for cancellationScope |
-| [#1866](#1866) | 1 | 5 | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
 | [#1325](#1325) | 2 | 3 | [Bug] Throwing an exception from a workflow may result in `Failed to activate workflow` due to `DataCloneError` |
 | [#1008](#1008) | 2 | 3 | [Feature Request] Provide more output when webpack fails |
 | [#665](#665) | 0 | 7 | [Feature Request] Allow for easy mocking  |
@@ -4628,6 +4628,123 @@ setHandler(isBlockedQuery, handler);
 
 ---
 
+<a id="1866"></a>
+
+### #1866: [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-typescript/issues/1866 |
+| **State** | OPEN |
+| **Author** | justinadkins (Justin Adkins) |
+| **Created** | 2025-12-23 14:18:56.000 UTC (10 days ago) |
+| **Updated** | 2026-01-02 10:15:43.000 UTC |
+| **Upvotes** | 2 |
+| **Comments** | 6 |
+| **Priority Score** | 10 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 2 |
+
+#### Description
+
+### What are you really trying to do?
+
+We bumped our Temporal dependencies to `1.14.0` today from `1.13.1` and upon deploying started seeing workflows fail due to the following error:
+```ts
+CancelledFailure: Workflow cancelled
+    at RootCancellationScope.cancel (/tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/cancellation-scope.ts:264:16)
+    at /tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/workflow.ts:1171:36
+```
+
+Rolling back to `1.13.1` resolves the issue. We've reset the effected workflows to the signal event and they now run correctly. A race condition seems to have been introduced since we do observe some of our workflows succeeding with a signal and `condition`.
+
+### Describe the bug
+We started seeing phantom `CancelledFailure` errors surface in our workflows after updating to `1.14.0` that seem to be coming from `condition`. Nothing else about our code has changed. An example of the code where this appears to be failing:
+
+<img width="1382" height="652" alt="Image" src="https://github.com/user-attachments/assets/a07f3f62-9b47-4438-825e-b81cec6d9930" />
+
+<!-- If applicable, add screenshots or code blocks to help explain your problem. You can also use [Loom](http://loom.com/) to do short, free video bug reports. -->
+
+### Minimal Reproduction
+
+Unable to reproduce locally so far. We have over 30 workflows in production that have experienced this.
+
+<!-- 
+Modify our hello world templates to demonstrate:
+
+- TypeScript: https://github.com/temporalio/samples-typescript/tree/main/hello-world
+- Go: https://github.com/temporalio/money-transfer-project-template-go
+- Java: https://github.com/temporalio/money-transfer-project-template-java
+- PHP: https://github.com/temporalio/samples-php#samples
+-->
+
+### Environment/Versions
+
+<!-- Please complete the following information where relevant. -->
+
+- OS and processor: Linux
+- Temporal Version: 1.14.0
+- Are you using Docker or Kubernetes or building Temporal from source? From source
+
+
+#### Comments (6)
+
+<details>
+<summary><strong>yosefrev</strong> commented on 2025-12-25 15:03:46.000 UTC</summary>
+
+We’re experiencing this as well ➕ 
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>yardenli</strong> commented on 2025-12-29 13:37:21.000 UTC</summary>
+
+We also started experiencing it as well with updates. 
+We have an update with timeout, and experienced it in some workflows right after the update was accepted, and in some after the update reached it's timeout. 
+It is important to mention that it happened in some workflows while other succeeded, and we couldn't find a clear pattern.
+
+</details>
+
+<details>
+<summary><strong>chris-olszewski</strong> commented on 2025-12-29 16:08:55.000 UTC</summary>
+
+For those affected by this:
+ - Have you observed this with `1.13.2` or exclusively with `1.14.0`?
+ - Do you have interceptors setup such as `@temporalio/interceptors-opentelemetry`?
+
+</details>
+
+<details>
+<summary><strong>yardenli</strong> commented on 2025-12-30 08:38:33.000 UTC</summary>
+
+@chris-olszewski we observed it exclusively with `1.14.0`. After going back to `1.13.2` we observed no issues.
+We do have interceptor set up using `@temporalio/interceptors-opentelemetry` (we are using `OpenTelemetryWorkflowClientInterceptor`).
+
+</details>
+
+<details>
+<summary><strong>justinadkins</strong> commented on 2025-12-30 14:59:27.000 UTC</summary>
+
+@chris-olszewski We only observe this on `1.14.0`. We are not using an interceptor. However, for activities we have this custom wrapper used for creating spans with Datadog.
+
+<img width="1338" height="1336" alt="Image" src="https://github.com/user-attachments/assets/71ef9bc9-4199-4fe8-8f85-d5470aae90b9" />
+
+</details>
+
+<details>
+<summary><strong>Stereobit</strong> commented on 2026-01-02 10:15:43.000 UTC</summary>
+
+Same issue here, no `interceptors`
+
+</details>
+
+
+---
+
 <a id="939"></a>
 
 ### #939: [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout
@@ -5317,7 +5434,7 @@ Reactions: 😕 1 👀 1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1557 |
 | **State** | OPEN |
 | **Author** | neelance (Richard Musiol) |
-| **Created** | 2024-11-03 13:08:22.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-03 13:08:22.000 UTC (1y 2m ago) |
 | **Updated** | 2025-07-24 07:52:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 8 |
@@ -6065,116 +6182,6 @@ I can see why wrapping the generator with `storage.run` might not work properly 
 <summary><strong>Irvenae</strong> commented on 2023-03-09 07:28:06.000 UTC</summary>
 
 Worked around it for now by going out of the scope to do the yield ending up in ugly code...
-
-</details>
-
-
----
-
-<a id="1866"></a>
-
-### #1866: [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/sdk-typescript/issues/1866 |
-| **State** | OPEN |
-| **Author** | justinadkins (Justin Adkins) |
-| **Created** | 2025-12-23 14:18:56.000 UTC (9 days ago) |
-| **Updated** | 2025-12-30 14:59:27.000 UTC |
-| **Upvotes** | 1 |
-| **Comments** | 5 |
-| **Priority Score** | 7 |
-| **Labels** | bug |
-| **Assignees** | None |
-| **Milestone** | None |
-| **Reactions** | 👍 1 |
-
-#### Description
-
-### What are you really trying to do?
-
-We bumped our Temporal dependencies to `1.14.0` today from `1.13.1` and upon deploying started seeing workflows fail due to the following error:
-```ts
-CancelledFailure: Workflow cancelled
-    at RootCancellationScope.cancel (/tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/cancellation-scope.ts:264:16)
-    at /tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/workflow.ts:1171:36
-```
-
-Rolling back to `1.13.1` resolves the issue. We've reset the effected workflows to the signal event and they now run correctly. A race condition seems to have been introduced since we do observe some of our workflows succeeding with a signal and `condition`.
-
-### Describe the bug
-We started seeing phantom `CancelledFailure` errors surface in our workflows after updating to `1.14.0` that seem to be coming from `condition`. Nothing else about our code has changed. An example of the code where this appears to be failing:
-
-<img width="1382" height="652" alt="Image" src="https://github.com/user-attachments/assets/a07f3f62-9b47-4438-825e-b81cec6d9930" />
-
-<!-- If applicable, add screenshots or code blocks to help explain your problem. You can also use [Loom](http://loom.com/) to do short, free video bug reports. -->
-
-### Minimal Reproduction
-
-Unable to reproduce locally so far. We have over 30 workflows in production that have experienced this.
-
-<!-- 
-Modify our hello world templates to demonstrate:
-
-- TypeScript: https://github.com/temporalio/samples-typescript/tree/main/hello-world
-- Go: https://github.com/temporalio/money-transfer-project-template-go
-- Java: https://github.com/temporalio/money-transfer-project-template-java
-- PHP: https://github.com/temporalio/samples-php#samples
--->
-
-### Environment/Versions
-
-<!-- Please complete the following information where relevant. -->
-
-- OS and processor: Linux
-- Temporal Version: 1.14.0
-- Are you using Docker or Kubernetes or building Temporal from source? From source
-
-
-#### Comments (5)
-
-<details>
-<summary><strong>yosefrev</strong> commented on 2025-12-25 15:03:46.000 UTC</summary>
-
-We’re experiencing this as well ➕ 
-
-Reactions: 👍 1
-
-</details>
-
-<details>
-<summary><strong>yardenli</strong> commented on 2025-12-29 13:37:21.000 UTC</summary>
-
-We also started experiencing it as well with updates. 
-We have an update with timeout, and experienced it in some workflows right after the update was accepted, and in some after the update reached it's timeout. 
-It is important to mention that it happened in some workflows while other succeeded, and we couldn't find a clear pattern.
-
-</details>
-
-<details>
-<summary><strong>chris-olszewski</strong> commented on 2025-12-29 16:08:55.000 UTC</summary>
-
-For those affected by this:
- - Have you observed this with `1.13.2` or exclusively with `1.14.0`?
- - Do you have interceptors setup such as `@temporalio/interceptors-opentelemetry`?
-
-</details>
-
-<details>
-<summary><strong>yardenli</strong> commented on 2025-12-30 08:38:33.000 UTC</summary>
-
-@chris-olszewski we observed it exclusively with `1.14.0`. After going back to `1.13.2` we observed no issues.
-We do have interceptor set up using `@temporalio/interceptors-opentelemetry` (we are using `OpenTelemetryWorkflowClientInterceptor`).
-
-</details>
-
-<details>
-<summary><strong>justinadkins</strong> commented on 2025-12-30 14:59:27.000 UTC</summary>
-
-@chris-olszewski We only observe this on `1.14.0`. We are not using an interceptor. However, for activities we have this custom wrapper used for creating spans with Datadog.
-
-<img width="1338" height="1336" alt="Image" src="https://github.com/user-attachments/assets/71ef9bc9-4199-4fe8-8f85-d5470aae90b9" />
 
 </details>
 
@@ -8523,7 +8530,7 @@ Two possible work arounds:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1864 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-12-22 18:27:09.000 UTC (10 days ago) |
+| **Created** | 2025-12-22 18:27:09.000 UTC (11 days ago) |
 | **Updated** | 2025-12-22 18:27:29.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -8560,7 +8567,7 @@ https://vercel.com/blog/ai-sdk-6
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1859 |
 | **State** | OPEN |
 | **Author** | daniellockyer (Daniel Lockyer) |
-| **Created** | 2025-12-08 10:39:51.000 UTC (24 days ago) |
+| **Created** | 2025-12-08 10:39:51.000 UTC (25 days ago) |
 | **Updated** | 2025-12-10 09:38:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -10449,7 +10456,7 @@ Note, we should probably also accept arguments as part of `WorkflowHandle.termin
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1756 |
 | **State** | OPEN |
 | **Author** | Dispersia (Aaron Housh) |
-| **Created** | 2025-08-05 20:21:45.000 UTC (4 months ago) |
+| **Created** | 2025-08-05 20:21:45.000 UTC (5 months ago) |
 | **Updated** | 2025-08-05 20:56:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -11597,7 +11604,7 @@ Use `workflowInfo().unsafe.now()`
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1867 |
 | **State** | OPEN |
 | **Author** | TastyPi (Graham Rogers) |
-| **Created** | 2025-12-30 10:57:00.000 UTC (2 days ago) |
+| **Created** | 2025-12-30 10:57:00.000 UTC (3 days ago) |
 | **Updated** | 2025-12-30 10:58:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11643,7 +11650,7 @@ Allow the Logger to be configured at the Worker level. This would allow us to cr
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1862 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-12 19:10:26.000 UTC (20 days ago) |
+| **Created** | 2025-12-12 19:10:26.000 UTC (21 days ago) |
 | **Updated** | 2025-12-12 19:10:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11675,7 +11682,7 @@ attached issue :- https://app.usepylon.com/issues?conversationID=aa9077dd-17e0-4
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1860 |
 | **State** | OPEN |
 | **Author** | mnahkies (Michael Nahkies) |
-| **Created** | 2025-12-10 09:32:18.000 UTC (22 days ago) |
+| **Created** | 2025-12-10 09:32:18.000 UTC (23 days ago) |
 | **Updated** | 2025-12-10 09:40:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

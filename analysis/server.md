@@ -1,6 +1,6 @@
 # Temporal Server - Issues Analysis & Remediation Proposal
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 530
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 

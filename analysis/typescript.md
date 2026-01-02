@@ -1,6 +1,6 @@
 # Temporal TypeScript SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 148
 **Repository:** [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript)
 
@@ -12,7 +12,7 @@
 
 ## Executive Summary
 
-The TypeScript SDK has 148 open issues with strong community engagement (177 upvotes, 347 comments). The #1 user request is **Bun runtime support** with 46 upvotes - by far the most upvoted issue. Framework integrations (NestJS, NextJS) and modern tooling (OpenTelemetry v2, Vite) are significant themes.
+The TypeScript SDK has 148 open issues with strong community engagement (178 upvotes, 347 comments). The #1 user request is **Bun runtime support** with 46 upvotes - by far the most upvoted issue. Framework integrations (NestJS, NextJS) and modern tooling (OpenTelemetry v2, Vite) are significant themes.
 
 ### Key Findings
 
@@ -27,7 +27,7 @@ The TypeScript SDK has 148 open issues with strong community engagement (177 upv
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes (👍) | 177 |
+| Total Upvotes (👍) | 178 |
 | Total Comments | 347 |
 | Issues with Upvotes | 40 (27%) |
 | Issues with Comments | 75 (51%) |

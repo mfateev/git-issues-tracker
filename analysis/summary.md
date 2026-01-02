@@ -1,6 +1,6 @@
 # Temporal - Cross-Repository Analysis Summary
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 1,537 across 9 repositories
 
 ## Related Documents
@@ -33,12 +33,12 @@
 | [**Features**](features.md) | 247 | 106 | 399 | 6 | 216 |
 | [Java SDK](java.md) | 215 | 104 | 203 | 33 | 126 |
 | [Go SDK](go.md) | 163 | 112 | 214 | 60 | 89 |
-| [TypeScript SDK](typescript.md) | 148 | 177 | 347 | 50 | 87 |
+| [TypeScript SDK](typescript.md) | 148 | 178 | 347 | 50 | 87 |
 | [Python SDK](python.md) | 115 | 31 | 206 | 46 | 65 |
 | [.NET SDK](dotnet.md) | 48 | 13 | 51 | 12 | 31 |
 | [PHP SDK](php.md) | 47 | 12 | 66 | 7 | 29 |
 | [Ruby SDK](ruby.md) | 24 | 3 | 15 | 4 | 19 |
-| **Total** | **1,537** | **1,457** | **2,366** | | |
+| **Total** | **1,537** | **1,458** | **2,366** | | |
 
 ---
 
@@ -174,7 +174,7 @@ Testing is the #1 pain point across every SDK:
 | Repository | Upvotes | Comments | Engagement |
 |------------|---------|----------|------------|
 | Server | 899 | 865 | Highest |
-| TypeScript SDK | 177 | 347 | Very High |
+| TypeScript SDK | 178 | 347 | Very High |
 | Go SDK | 112 | 214 | High |
 | Features | 106 | 399 | High |
 | Java SDK | 104 | 203 | Medium-High |

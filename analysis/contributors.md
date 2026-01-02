@@ -2,9 +2,9 @@
 
 **Generated:** 2026-01-02
 **Total Issues:** 1537
-**Total Comments:** 2366
+**Total Comments:** 2368
 **Unique Issue Authors:** 501
-**Unique Commenters:** 728
+**Unique Commenters:** 729
 
 ## Related Documents
 
@@ -81,7 +81,7 @@
 | 6 | mfateev | 50 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 7 | dnr | 43 | temporalio/features, temporalio/temporal |
 | 8 | Spikhalskiy | 43 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
-| 9 | Sushisource | 32 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 9 | Sushisource | 33 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 10 | lorensr | 30 | temporalio/features, temporalio/sdk-typescript, temporalio/temporal |
 | 11 | yycptt | 24 | temporalio/temporal |
 | 12 | roxblnfk | 22 | temporalio/features, temporalio/sdk-php |
@@ -137,7 +137,7 @@
 | 7 | yiminc | 23 | 61 | 84 |
 | 8 | lorensr | 46 | 30 | 76 |
 | 9 | tsurdilo | 58 | 16 | 74 |
-| 10 | Sushisource | 33 | 32 | 65 |
+| 10 | Sushisource | 33 | 33 | 66 |
 | 11 | wxing1292 | 34 | 15 | 49 |
 | 12 | yycptt | 25 | 24 | 49 |
 | 13 | longquanzheng | 23 | 21 | 44 |

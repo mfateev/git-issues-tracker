@@ -1,6 +1,6 @@
 # Temporal .NET SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 48
 **Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 

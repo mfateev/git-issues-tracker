@@ -8519,7 +8519,7 @@ Thanks
 | **URL** | https://github.com/temporalio/temporal/issues/196 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-03-09 17:03:34.000 UTC (5y 9m ago) |
+| **Created** | 2020-03-09 17:03:34.000 UTC (5y 10m ago) |
 | **Updated** | 2023-10-20 22:17:58.000 UTC |
 | **Upvotes** | 4 |
 | **Comments** | 1 |
@@ -8775,7 +8775,7 @@ This becomes problematic because people want to use ChildWorkflow naturally. tod
 | **URL** | https://github.com/temporalio/temporal/issues/954 |
 | **State** | OPEN |
 | **Author** | robinbraemer (Robin Brämer) |
-| **Created** | 2020-11-04 13:42:08.000 UTC (5y 1m ago) |
+| **Created** | 2020-11-04 13:42:08.000 UTC (5y 2m ago) |
 | **Updated** | 2022-11-22 19:06:35.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 2 |
@@ -10813,7 +10813,7 @@ Either way, would like to get away from compiling temporal and simply pull an im
 | **URL** | https://github.com/temporalio/temporal/issues/8284 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-09-04 18:25:12.000 UTC (3 months ago) |
+| **Created** | 2025-09-04 18:25:12.000 UTC (4 months ago) |
 | **Updated** | 2025-11-07 18:44:11.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 1 |
@@ -11510,7 +11510,7 @@ If I could add another use case in here it'd be making activities retry only aft
 | **URL** | https://github.com/temporalio/temporal/issues/4038 |
 | **State** | OPEN |
 | **Author** | p4p4 (Patrick Klampfl) |
-| **Created** | 2023-03-09 20:27:01.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-09 20:27:01.000 UTC (2y 10m ago) |
 | **Updated** | 2023-09-02 01:26:25.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 1 |
@@ -13370,7 +13370,7 @@ The proposal is to support an option to continue-as-new to change WorkflowID. Th
 | **URL** | https://github.com/temporalio/temporal/issues/5873 |
 | **State** | OPEN |
 | **Author** | longquanzheng (Quanzheng Long) |
-| **Created** | 2024-05-07 18:47:41.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-07 18:47:41.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-28 21:10:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -13744,7 +13744,7 @@ Hi @bergundy, @vaibhavyadav-dev, and Temporal team! I’m new to contributing to
 | **URL** | https://github.com/temporalio/temporal/issues/3769 |
 | **State** | OPEN |
 | **Author** | raymondsze (Sze Ka Wai Raymond) |
-| **Created** | 2023-01-03 13:58:55.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-03 13:58:55.000 UTC (3 years ago) |
 | **Updated** | 2024-03-23 17:03:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -14439,7 +14439,7 @@ I don't think workflow task timeout is the best solution. I would make this the 
 | **URL** | https://github.com/temporalio/temporal/issues/8764 |
 | **State** | OPEN |
 | **Author** | albertom-pirovano-mck (Alberto Mario Pirovano) |
-| **Created** | 2025-12-05 19:30:23.000 UTC (27 days ago) |
+| **Created** | 2025-12-05 19:30:23.000 UTC (28 days ago) |
 | **Updated** | 2025-12-12 00:08:56.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -17476,7 +17476,7 @@ Thank you @mfateev !
 | **URL** | https://github.com/temporalio/temporal/issues/503 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-07-07 18:50:28.000 UTC (5y 5m ago) |
+| **Created** | 2020-07-07 18:50:28.000 UTC (5y 6m ago) |
 | **Updated** | 2023-03-03 20:23:03.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -18200,7 +18200,7 @@ N/A
 | **URL** | https://github.com/temporalio/temporal/issues/6479 |
 | **State** | OPEN |
 | **Author** | Nyuuk (Nyuuk) |
-| **Created** | 2024-09-04 14:02:26.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-04 14:02:26.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-04 14:39:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -20925,7 +20925,7 @@ It would be good if debug log is opt-in instead of default. Also, it should defa
 | **URL** | https://github.com/temporalio/temporal/issues/8909 |
 | **State** | OPEN |
 | **Author** | andropler |
-| **Created** | 2025-12-29 08:19:57.000 UTC (3 days ago) |
+| **Created** | 2025-12-29 08:19:57.000 UTC (4 days ago) |
 | **Updated** | 2025-12-30 05:12:01.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -21358,7 +21358,7 @@ It's a bit involved but not too much of a heavy lift, there's some information t
 | **URL** | https://github.com/temporalio/temporal/issues/8431 |
 | **State** | OPEN |
 | **Author** | beddows (Michael Beddows) |
-| **Created** | 2025-10-04 15:54:52.000 UTC (2 months ago) |
+| **Created** | 2025-10-04 15:54:52.000 UTC (3 months ago) |
 | **Updated** | 2025-12-16 11:10:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -21582,7 +21582,7 @@ PR: #8308 for first task.
 | **URL** | https://github.com/temporalio/temporal/issues/8235 |
 | **State** | OPEN |
 | **Author** | loicsaintroch (Loïc Saint-Roch) |
-| **Created** | 2021-08-06 08:22:53.000 UTC (4y 4m ago) |
+| **Created** | 2021-08-06 08:22:53.000 UTC (4y 5m ago) |
 | **Updated** | 2025-08-25 15:40:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -23619,7 +23619,7 @@ Current work around is to start services in the following sequence: history, mat
 | **URL** | https://github.com/temporalio/temporal/issues/4600 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2023-07-07 18:50:35.000 UTC (2y 5m ago) |
+| **Created** | 2023-07-07 18:50:35.000 UTC (2y 6m ago) |
 | **Updated** | 2023-07-07 18:52:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -25497,7 +25497,7 @@ Can you use systemd or another process manager that doesn't use pid files? Pid f
 | **URL** | https://github.com/temporalio/temporal/issues/1891 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2021-09-05 07:51:09.000 UTC (4y 3m ago) |
+| **Created** | 2021-09-05 07:51:09.000 UTC (4y 4m ago) |
 | **Updated** | 2023-03-03 20:21:38.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -26073,7 +26073,7 @@ The second option in this proposal is interesting, which is to change heartbeat 
 | **URL** | https://github.com/temporalio/temporal/issues/8902 |
 | **State** | OPEN |
 | **Author** | hafiz-qasim (Hafiz Qasim) |
-| **Created** | 2025-12-24 10:03:38.000 UTC (8 days ago) |
+| **Created** | 2025-12-24 10:03:38.000 UTC (9 days ago) |
 | **Updated** | 2025-12-24 10:05:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26139,7 +26139,7 @@ Thanks in advance!
 | **URL** | https://github.com/temporalio/temporal/issues/8901 |
 | **State** | OPEN |
 | **Author** | Tomlord1122 (Hsiu-Chi Liu (Tomlord)) |
-| **Created** | 2025-12-24 09:43:00.000 UTC (8 days ago) |
+| **Created** | 2025-12-24 09:43:00.000 UTC (9 days ago) |
 | **Updated** | 2025-12-24 09:43:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26266,7 +26266,7 @@ I’m new to Temporal and may be misinterpreting some aspects. Thank you for you
 | **URL** | https://github.com/temporalio/temporal/issues/8889 |
 | **State** | OPEN |
 | **Author** | RomirJ |
-| **Created** | 2025-12-20 08:03:21.000 UTC (12 days ago) |
+| **Created** | 2025-12-20 08:03:21.000 UTC (13 days ago) |
 | **Updated** | 2025-12-20 08:03:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26309,7 +26309,7 @@ I’d love to offer a two-week trial of Hikaflow on Temporal to see if these fea
 | **URL** | https://github.com/temporalio/temporal/issues/8866 |
 | **State** | OPEN |
 | **Author** | roshchha (Roshni Chhabria) |
-| **Created** | 2025-12-18 12:17:09.000 UTC (14 days ago) |
+| **Created** | 2025-12-18 12:17:09.000 UTC (15 days ago) |
 | **Updated** | 2025-12-18 12:17:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26334,7 +26334,7 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61729](https://nvd.ni
 | **URL** | https://github.com/temporalio/temporal/issues/8865 |
 | **State** | OPEN |
 | **Author** | roshchha (Roshni Chhabria) |
-| **Created** | 2025-12-18 12:15:27.000 UTC (14 days ago) |
+| **Created** | 2025-12-18 12:15:27.000 UTC (15 days ago) |
 | **Updated** | 2025-12-18 12:15:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26359,7 +26359,7 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61727](https://nvd.ni
 | **URL** | https://github.com/temporalio/temporal/issues/8864 |
 | **State** | OPEN |
 | **Author** | vy-kauppinen (Vy Kauppinen) |
-| **Created** | 2025-12-18 09:00:33.000 UTC (14 days ago) |
+| **Created** | 2025-12-18 09:00:33.000 UTC (15 days ago) |
 | **Updated** | 2025-12-18 09:00:33.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26543,7 +26543,7 @@ kubectl port-forward services/temporal-web 8080:8080
 | **URL** | https://github.com/temporalio/temporal/issues/8833 |
 | **State** | OPEN |
 | **Author** | AlexMog (AlexMog) |
-| **Created** | 2025-12-16 16:56:49.000 UTC (16 days ago) |
+| **Created** | 2025-12-16 16:56:49.000 UTC (17 days ago) |
 | **Updated** | 2025-12-16 17:02:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26610,7 +26610,7 @@ console.log((await client.schedule.getHandle(scheduleId).describe()).info.runnin
 | **URL** | https://github.com/temporalio/temporal/issues/8790 |
 | **State** | OPEN |
 | **Author** | xtyinbiao (尹彪) |
-| **Created** | 2025-12-10 10:43:07.000 UTC (22 days ago) |
+| **Created** | 2025-12-10 10:43:07.000 UTC (23 days ago) |
 | **Updated** | 2025-12-10 10:48:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27104,7 +27104,7 @@ environment:
 | **URL** | https://github.com/temporalio/temporal/issues/7721 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-05-07 15:12:07.000 UTC (7 months ago) |
+| **Created** | 2025-05-07 15:12:07.000 UTC (8 months ago) |
 | **Updated** | 2025-05-07 15:12:18.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27609,7 +27609,7 @@ To fix the issue before state-based replication, we can:
 | **URL** | https://github.com/temporalio/temporal/issues/6924 |
 | **State** | OPEN |
 | **Author** | darshan-au (Darshan Pandhi) |
-| **Created** | 2024-12-03 20:48:54.000 UTC (1 years ago) |
+| **Created** | 2024-12-03 20:48:54.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-03 20:48:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27983,7 +27983,7 @@ Scalability: Cassandra provides horizontal scalability, allowing it to store hug
 | **URL** | https://github.com/temporalio/temporal/issues/6600 |
 | **State** | OPEN |
 | **Author** | alexdavis24 (Alex Davis) |
-| **Created** | 2024-10-04 13:59:16.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-04 13:59:16.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-04 13:59:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -31415,7 +31415,7 @@ There is a proposal to create a long poll query. But I can see the need for quer
 | **URL** | https://github.com/temporalio/temporal/issues/3912 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2023-02-07 18:18:17.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-07 18:18:17.000 UTC (2y 11m ago) |
 | **Updated** | 2023-03-03 18:02:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -32745,7 +32745,7 @@ Add any other context or screenshots about the feature request here.
 | **URL** | https://github.com/temporalio/temporal/issues/2968 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2022-06-07 19:23:42.000 UTC (3y 6m ago) |
+| **Created** | 2022-06-07 19:23:42.000 UTC (3y 7m ago) |
 | **Updated** | 2023-03-03 20:19:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

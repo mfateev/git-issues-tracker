@@ -895,7 +895,7 @@ The best solution may be a `WorkflowSafeObject` type of mixin that surrounds eve
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/333 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-04 13:51:41.000 UTC (3 months ago) |
+| **Created** | 2025-09-04 13:51:41.000 UTC (4 months ago) |
 | **Updated** | 2025-09-04 13:51:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -1173,7 +1173,7 @@ In Java workflows today, if a future that fails is never waited on, we warn on w
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/179 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:59:25.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 13:59:25.000 UTC (12 months ago) |
 | **Updated** | 2025-01-07 13:59:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

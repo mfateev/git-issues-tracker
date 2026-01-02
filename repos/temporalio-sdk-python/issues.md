@@ -5093,7 +5093,7 @@ Something using it to export via OTel could I think be added to contrib here: ht
 | **URL** | https://github.com/temporalio/sdk-python/issues/891 |
 | **State** | OPEN |
 | **Author** | Kilo59 (Gabriel) |
-| **Created** | 2025-06-06 17:54:34.000 UTC (6 months ago) |
+| **Created** | 2025-06-06 17:54:34.000 UTC (7 months ago) |
 | **Updated** | 2025-06-09 20:47:20.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -5863,7 +5863,7 @@ No, because the wait condition is resolved after a second which can be on anothe
 | **URL** | https://github.com/temporalio/sdk-python/issues/601 |
 | **State** | OPEN |
 | **Author** | burbaljaka (Timur Kapitonov) |
-| **Created** | 2024-08-05 10:06:36.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-05 10:06:36.000 UTC (1y 5m ago) |
 | **Updated** | 2024-08-05 13:32:40.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6504,7 +6504,7 @@ We don't think this is relevant, because we're only reserving well-known/already
 | **URL** | https://github.com/temporalio/sdk-python/issues/719 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:47:42.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 13:47:42.000 UTC (12 months ago) |
 | **Updated** | 2025-07-24 15:57:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7030,7 +7030,7 @@ So maybe this limitation worth to be mentioned in README, somewhere around `@wor
 | **URL** | https://github.com/temporalio/sdk-python/issues/1262 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-29 15:19:00.000 UTC (3 days ago) |
+| **Created** | 2025-12-29 15:19:00.000 UTC (4 days ago) |
 | **Updated** | 2025-12-29 15:19:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7524,7 +7524,7 @@ When python 3.9 is EOL, we should remove the dependency on `eval_type_backport` 
 | **URL** | https://github.com/temporalio/sdk-python/issues/892 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-06-06 20:26:24.000 UTC (6 months ago) |
+| **Created** | 2025-06-06 20:26:24.000 UTC (7 months ago) |
 | **Updated** | 2025-06-06 20:26:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

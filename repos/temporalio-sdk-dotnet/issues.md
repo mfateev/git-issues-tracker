@@ -2386,7 +2386,7 @@ But we intentionally did not include a cancellation token on connect because we 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/584 |
 | **State** | OPEN |
 | **Author** | maciejdudko (Maciej Dudkowski) |
-| **Created** | 2025-12-26 16:59:31.000 UTC (6 days ago) |
+| **Created** | 2025-12-26 16:59:31.000 UTC (7 days ago) |
 | **Updated** | 2025-12-26 16:59:31.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2445,7 +2445,7 @@ Looks like `ClientEnvConfig.Tls.ToTlsOptions` only reads `Data` and ignores  `Pa
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/578 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-17 17:36:14.000 UTC (15 days ago) |
+| **Created** | 2025-12-17 17:36:14.000 UTC (16 days ago) |
 | **Updated** | 2025-12-17 17:36:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2472,7 +2472,7 @@ When Nexus was added, tests specific to the time-skipping test server were not a
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/576 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-12 15:31:49.000 UTC (20 days ago) |
+| **Created** | 2025-12-12 15:31:49.000 UTC (21 days ago) |
 | **Updated** | 2025-12-12 15:39:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2773,7 +2773,7 @@ See temporalio/features#591 for details.
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/387 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:52:13.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 13:52:13.000 UTC (12 months ago) |
 | **Updated** | 2025-01-07 13:52:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

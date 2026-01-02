@@ -12,6 +12,10 @@ Update all tracked GitHub repositories and regenerate analysis documents.
 
 2. Run `node scripts/generate-readable.js --all` to regenerate all issues.md files with latest data
 
-3. Show a summary of what was updated
+3. Run `node scripts/analyze-all.js stats` to get current statistics for all repositories
 
-4. If any changes were made, ask if the user wants to commit them
+4. For each SDK update the corresponding document in the analysis folder. Keep the document structure. If you think that you can improve the structure explain the proposed change to the use and ask for confirmation.
+Issue links in the documents must point to the issue in the repos/<sdk>/issues.md.
+
+5. Update the analysis/summary.md based on all the findings. Keep the document structure. If you think that you can improve the structure explain the proposed change to the use and ask for confirmation. Issue links in the documents must point to the issue in the repos/<sdk>/issues.md. 
+

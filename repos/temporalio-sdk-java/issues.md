@@ -7745,7 +7745,7 @@ During various failure/deployment scenarios especially in K8s the service IP mig
 | **URL** | https://github.com/temporalio/sdk-java/issues/2753 |
 | **State** | OPEN |
 | **Author** | 40lsgy1 (40lsgy1) |
-| **Created** | 2025-12-31 08:23:53.000 UTC (1 days ago) |
+| **Created** | 2025-12-31 08:23:53.000 UTC (2 days ago) |
 | **Updated** | 2025-12-31 08:23:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7776,7 +7776,7 @@ I'm encountering an issue while using Temporal to build a DSL system. In my impl
 | **URL** | https://github.com/temporalio/sdk-java/issues/2752 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-30 20:45:57.000 UTC (2 days ago) |
+| **Created** | 2025-12-30 20:45:57.000 UTC (3 days ago) |
 | **Updated** | 2025-12-30 20:46:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7814,7 +7814,7 @@ https://javadoc.io/static/io.temporal/temporal-opentracing/1.32.0/io/temporal/op
 | **URL** | https://github.com/temporalio/sdk-java/issues/2750 |
 | **State** | OPEN |
 | **Author** | TbirdDuncan |
-| **Created** | 2025-12-28 18:26:55.000 UTC (4 days ago) |
+| **Created** | 2025-12-28 18:26:55.000 UTC (5 days ago) |
 | **Updated** | 2025-12-28 19:04:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7899,7 +7899,7 @@ java.lang.AssertionError: No metric 'temporal_workflow_failed [namespace=UnitTes
 | **URL** | https://github.com/temporalio/sdk-java/issues/2747 |
 | **State** | OPEN |
 | **Author** | karunagoyal (Karuna Goyal) |
-| **Created** | 2025-12-12 17:25:42.000 UTC (20 days ago) |
+| **Created** | 2025-12-12 17:25:42.000 UTC (21 days ago) |
 | **Updated** | 2025-12-12 17:25:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7945,7 +7945,7 @@ Add placeholder resolution in configureWorkflowImplementationsByWorkerName(), co
 | **URL** | https://github.com/temporalio/sdk-java/issues/2745 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-12-08 19:43:12.000 UTC (24 days ago) |
+| **Created** | 2025-12-08 19:43:12.000 UTC (25 days ago) |
 | **Updated** | 2025-12-08 19:43:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8746,7 +8746,7 @@ See temporalio/features#591 for details.
 | **URL** | https://github.com/temporalio/sdk-java/issues/2359 |
 | **State** | OPEN |
 | **Author** | GSmithApps (Grant) |
-| **Created** | 2025-01-07 10:51:25.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 10:51:25.000 UTC (12 months ago) |
 | **Updated** | 2025-01-07 10:59:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12868,7 +12868,7 @@ io.grpc.internal.AbstractClientStream$TransportState.inboundDataReceived Receive
 | **URL** | https://github.com/temporalio/sdk-java/issues/857 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2021-11-04 16:55:23.000 UTC (4y 1m ago) |
+| **Created** | 2021-11-04 16:55:23.000 UTC (4y 2m ago) |
 | **Updated** | 2024-12-17 21:26:55.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

@@ -3,7 +3,7 @@
 **Generated:** 2026-01-02
 **Total Issues:** 247
 **Total Upvotes:** 106
-**Total Comments:** 399
+**Total Comments:** 400
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@
 | Open Issues | 247 |
 | Issues with Upvotes | 32 (13%) |
 | Total Upvotes | 106 |
-| Total Comments | 399 |
+| Total Comments | 400 |
 
 ## Top Labels
 
@@ -89,6 +89,7 @@
 | [#498](#498) | 0 | 3 | Allow listing and filtering workflows based on current failures. |
 | [#417](#417) | 0 | 3 | RestartWorkflow on workflow task failure |
 | [#402](#402) | 0 | 3 | [Feature Request] WorkflowService API to update activity rate limit on a task queue |
+| [#400](#400) | 0 | 3 | [Feature Request] Workflow-init support |
 | [#195](#195) | 0 | 3 | Standardize unregistered Activity Type behavior |
 | [#168](#168) | 0 | 3 | [Feature Request] Always flush completed local work when nearing the workflow task timeout |
 | [#96](#96) | 0 | 3 | [Feature Request] Backoff more on resource exhausted error |
@@ -107,7 +108,6 @@
 | [#455](#455) | 1 | 0 | [Feature Request] Consider TLS handshake failures as worker-fatal errors |
 | [#451](#451) | 0 | 2 | [Feature Request] Feature test confirming unhandled-command update behavior |
 | [#439](#439) | 0 | 2 | Stack traces with source mappings in the UI |
-| [#400](#400) | 0 | 2 | [Feature Request] Workflow-init support |
 | [#394](#394) | 0 | 2 | [Feature Request] Worker tracing should upsert header with outer span |
 | [#383](#383) | 0 | 2 | [Feature Request] Dynamic Display Name for Activities in Temporal Go |
 | [#378](#378) | 0 | 2 | [Feature Request] Timer duration "jitter" out of box utility |
@@ -5744,6 +5744,77 @@ We'll also want to take versioning and build IDs into account when working on th
 
 ---
 
+<a id="400"></a>
+
+### #400: [Feature Request] Workflow-init support
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/400 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-01-12 14:55:52.000 UTC (1y 11m ago) |
+| **Updated** | 2026-01-02 18:51:07.000 UTC |
+| **Closed** | 2026-01-02 18:51:07.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Workflows need a way to run code before start to setup handlers and anything else they may want. This would accept the same input as the workflow, but can only error not return a value. Right now, especially in our languages that let you predefine handlers, it is tough to have an update/signal handler rely on workflow input.
+
+* [x] php https://github.com/temporalio/sdk-php/issues/480
+* [x] typescript https://github.com/temporalio/sdk-typescript/issues/1483
+  * Completely unsure how to do this, maybe not worth it. But maybe we can encourage people to do file-level code.
+ 
+* [x] java https://github.com/temporalio/sdk-java/issues/865
+  * Implementation class would have a `@WorkflowInitMethod` or `@WorkflowConstructor` or something on the constructor
+
+* [x] python https://github.com/temporalio/sdk-python/issues/600
+  * `@workflow.init` can be put on `__init__` of the workflow class
+
+* [x] go https://github.com/temporalio/sdk-go/issues/1576
+  * Not _needed_ in Go but people may like it. Can either be a register option, or maybe we can start accepting structs as workflows that must have a `Run()` call, but if they also have an `Init()` call we invoke that. Unsure, may not even be wanted
+
+* [x] .NET - Done
+  * `[WorkflowInit]` already supported in this manner on .NET workflow class constructors
+
+NOTE: This is still conceptual and subject to architectural and value discussions on whether we even want to do this much less how.
+
+#### Comments (3)
+
+<details>
+<summary><strong>roxblnfk</strong> commented on 2024-08-02 08:17:33.000 UTC</summary>
+
+Is it implied that tasks can be run in the init method?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-08-05 13:50:18.000 UTC</summary>
+
+While it technically would work, it is discouraged. I do not believe init should be async in languages that differentiate. This should just be for state. I think PHP should wait for Go and to even see where we want to do this in Go.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2026-01-02 18:51:07.000 UTC</summary>
+
+Looks like this was done a while ago
+
+Reactions: 👍 1
+
+</details>
+
+
+---
+
 <a id="195"></a>
 
 ### #195: Standardize unregistered Activity Type behavior
@@ -6841,67 +6912,6 @@ New language implementations should adhere to that same interface when serving t
 :+1: Though I think this task is more for like a query that will give a stack trace for every command upon replay (or every task complete or something). This needs to be discussed and a more proper proposal needs to be made to understand exactly what's wanted and will be done.
 
 (ideally for specific data types we want to return from certain queries, we should add them as protos in the SDK package of the API repo, and we should document the query name and discuss how it may affect actions)
-
-</details>
-
-
----
-
-<a id="400"></a>
-
-### #400: [Feature Request] Workflow-init support
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/features/issues/400 |
-| **State** | OPEN |
-| **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-12 14:55:52.000 UTC (1y 11m ago) |
-| **Updated** | 2024-12-30 15:36:37.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 2 |
-| **Priority Score** | 2 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-### Describe the solution you'd like
-
-Workflows need a way to run code before start to setup handlers and anything else they may want. This would accept the same input as the workflow, but can only error not return a value. Right now, especially in our languages that let you predefine handlers, it is tough to have an update/signal handler rely on workflow input.
-
-* [ ] php https://github.com/temporalio/sdk-php/issues/480
-* [x] typescript https://github.com/temporalio/sdk-typescript/issues/1483
-  * Completely unsure how to do this, maybe not worth it. But maybe we can encourage people to do file-level code.
- 
-* [x] java https://github.com/temporalio/sdk-java/issues/865
-  * Implementation class would have a `@WorkflowInitMethod` or `@WorkflowConstructor` or something on the constructor
-
-* [x] python https://github.com/temporalio/sdk-python/issues/600
-  * `@workflow.init` can be put on `__init__` of the workflow class
-
-* [x] go https://github.com/temporalio/sdk-go/issues/1576
-  * Not _needed_ in Go but people may like it. Can either be a register option, or maybe we can start accepting structs as workflows that must have a `Run()` call, but if they also have an `Init()` call we invoke that. Unsure, may not even be wanted
-
-* [x] .NET - Done
-  * `[WorkflowInit]` already supported in this manner on .NET workflow class constructors
-
-NOTE: This is still conceptual and subject to architectural and value discussions on whether we even want to do this much less how.
-
-#### Comments (2)
-
-<details>
-<summary><strong>roxblnfk</strong> commented on 2024-08-02 08:17:33.000 UTC</summary>
-
-Is it implied that tasks can be run in the init method?
-
-</details>
-
-<details>
-<summary><strong>cretz</strong> commented on 2024-08-05 13:50:18.000 UTC</summary>
-
-While it technically would work, it is discouraged. I do not believe init should be async in languages that differentiate. This should just be for state. I think PHP should wait for Go and to even see where we want to do this in Go.
 
 </details>
 
@@ -8979,7 +8989,7 @@ Disallowing reserved prefixes on Task Queues should happen in Core for those SDK
 | **URL** | https://github.com/temporalio/features/issues/572 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:33:37.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 13:33:37.000 UTC (12 months ago) |
 | **Updated** | 2025-01-14 17:55:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9027,7 +9037,7 @@ Also need to do this for Nexus as well (for Java, and for other langs once ready
 | **URL** | https://github.com/temporalio/features/issues/571 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:26:12.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 13:26:12.000 UTC (12 months ago) |
 | **Updated** | 2025-01-14 17:58:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9427,7 +9437,7 @@ This sounds like you want to just expose the internal concept we have called wor
 | **URL** | https://github.com/temporalio/features/issues/396 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-08 13:39:23.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-08 13:39:23.000 UTC (1y 12m ago) |
 | **Updated** | 2025-02-11 20:53:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9840,7 +9850,7 @@ For implementers - please make sure the parameters of these handlers are "raw pa
 | **URL** | https://github.com/temporalio/features/issues/178 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2022-12-04 17:28:45.000 UTC (3 years ago) |
+| **Created** | 2022-12-04 17:28:45.000 UTC (3y 1m ago) |
 | **Updated** | 2024-07-13 01:07:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -10508,7 +10518,7 @@ I like it, let’s do that
 | **URL** | https://github.com/temporalio/features/issues/715 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-22 17:24:50.000 UTC (10 days ago) |
+| **Created** | 2025-12-22 17:24:50.000 UTC (11 days ago) |
 | **Updated** | 2025-12-28 18:34:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10548,7 +10558,7 @@ Describe alternatives you've considered
 | **URL** | https://github.com/temporalio/features/issues/712 |
 | **State** | OPEN |
 | **Author** | THardy98 (Thomas Hardy) |
-| **Created** | 2025-12-18 07:29:14.000 UTC (14 days ago) |
+| **Created** | 2025-12-18 07:29:14.000 UTC (15 days ago) |
 | **Updated** | 2025-12-18 07:31:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11590,7 +11600,7 @@ Also, although it's technically an array in history/Core, langs should treat thi
 | **URL** | https://github.com/temporalio/features/issues/634 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-06-06 15:39:52.000 UTC (6 months ago) |
+| **Created** | 2025-06-06 15:39:52.000 UTC (7 months ago) |
 | **Updated** | 2025-06-06 15:39:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

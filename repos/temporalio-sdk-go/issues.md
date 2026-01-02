@@ -249,7 +249,7 @@ Add something like `TestWorkflow.OnSideEffect` and `TestWorkflow.OnMutableSideEf
 | **URL** | https://github.com/temporalio/sdk-go/issues/181 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-07-07 15:40:12.000 UTC (5y 5m ago) |
+| **Created** | 2020-07-07 15:40:12.000 UTC (5y 6m ago) |
 | **Updated** | 2020-07-07 15:40:12.000 UTC |
 | **Upvotes** | 16 |
 | **Comments** | 0 |
@@ -4823,7 +4823,7 @@ Yes, I unfortunately haven't been able to prioritize this issue, hoping I can ge
 | **URL** | https://github.com/temporalio/sdk-go/issues/1906 |
 | **State** | OPEN |
 | **Author** | Bysmyyr (Olli Raula) |
-| **Created** | 2025-04-07 06:57:09.000 UTC (8 months ago) |
+| **Created** | 2025-04-07 06:57:09.000 UTC (9 months ago) |
 | **Updated** | 2025-04-07 13:00:38.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -5629,7 +5629,7 @@ There are a lot of ways to auto heartbeat and no one size fits all. Here's a sim
 | **URL** | https://github.com/temporalio/sdk-go/issues/2131 |
 | **State** | OPEN |
 | **Author** | ganlvtech (Ganlv) |
-| **Created** | 2025-12-08 10:41:26.000 UTC (24 days ago) |
+| **Created** | 2025-12-08 10:41:26.000 UTC (25 days ago) |
 | **Updated** | 2025-12-19 02:18:32.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -8888,7 +8888,7 @@ See https://github.com/temporalio/features/issues/564
 | **URL** | https://github.com/temporalio/sdk-go/issues/1760 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:40:36.000 UTC (11 months ago) |
+| **Created** | 2025-01-07 13:40:36.000 UTC (12 months ago) |
 | **Updated** | 2025-01-07 13:48:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9491,7 +9491,7 @@ Anonymous functions as local activities are ripe for data races because they can
 | **URL** | https://github.com/temporalio/sdk-go/issues/1315 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-12-04 19:11:59.000 UTC (2 years ago) |
+| **Created** | 2023-12-04 19:11:59.000 UTC (2y 1m ago) |
 | **Updated** | 2023-12-04 19:11:59.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10405,7 +10405,7 @@ Basically we need this functionality opt-in. The best solution is probably some 
 | **URL** | https://github.com/temporalio/sdk-go/issues/1131 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-06-07 15:28:47.000 UTC (2y 6m ago) |
+| **Created** | 2023-06-07 15:28:47.000 UTC (2y 7m ago) |
 | **Updated** | 2023-06-07 15:28:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

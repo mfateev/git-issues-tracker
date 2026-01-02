@@ -1,6 +1,6 @@
 # Temporal Features - Issues Analysis & Remediation Proposal
 
-**Generated:** 2025-12-31
+**Generated:** 2026-01-02
 **Total Open Issues:** 247
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
