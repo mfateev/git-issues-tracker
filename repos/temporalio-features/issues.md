@@ -37,253 +37,253 @@
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
-| [#399](#399-custom-markers-for-workflow-historytimeline) | 15 | 12 | Custom Markers for Workflow History/Timeline |
-| [#118](#118-feature-request-declarative-schedules-upsert-sync-terraform-etc) | 8 | 22 | [Feature Request] Declarative schedules: upsert, sync, terraform, etc. |
-| [#649](#649-add-support-for-unit-testing-workflow-versioning) | 14 | 4 | Add support for unit testing workflow versioning |
-| [#558](#558-add-workflowidconflictpolicy-in-child-workflow-options) | 3 | 21 | Add WorkflowIdConflictPolicy in child workflow options |
-| [#562](#562-feature-request-session-support) | 7 | 6 | [Feature Request] Session support |
-| [#443](#443-feature-request-implement-activity-task-poll-limit) | 0 | 17 | [Feature Request] Implement activity task poll limit |
-| [#434](#434-feature-request-serialization-context-for-codecs-and-converters) | 6 | 1 | [Feature Request] Serialization context for codecs and converters |
-| [#51](#51-feature-request-standardize-method-for-listing-workflow-queriessignals-and-maybe-other-things-like-registered-activitiesworkflows-and-other-metadata) | 0 | 13 | [Feature Request] Standardize method for listing workflow queries/signals (and maybe other things like registered activities/workflows and other metadata) |
-| [#563](#563-tag-workflowfailed-counter-metric-with-exception-type) | 0 | 12 | Tag workflow_failed counter metric with exception type |
-| [#456](#456-feature-request-provide-worker-status) | 5 | 2 | [Feature Request] Provide worker status |
-| [#257](#257-update-api-support-not-writing-history-when-calling-external-failure) | 0 | 12 | Update API: support not writing history when calling external failure |
-| [#229](#229-feature-request-auto-heartbeating) | 6 | 0 | [Feature Request] Auto heartbeating |
-| [#69](#69-feature-request-specify-reset-point-in-workflow-code) | 0 | 10 | [Feature Request] Specify reset point in workflow code |
-| [#463](#463-customize-activity-failure-logging-and-more) | 2 | 5 | Customize activity failure logging (and more?) |
-| [#377](#377-support-an-option-to-disable-close-timeouts-for-indefinitely-running-activities) | 0 | 9 | Support an option to disable "Close" timeouts for indefinitely running Activities |
-| [#119](#119-add-upsertmemo-command) | 1 | 7 | Add upsertMemo command |
-| [#25](#25-feature-request-sdk-should-expose-workflowstarted-metric) | 2 | 5 | [Feature Request] SDK should expose workflow_started metric |
-| [#624](#624-gracefully-fail-grpc-message-too-large-issues-in-worker) | 2 | 4 | Gracefully fail gRPC-message-too-large issues in worker |
-| [#363](#363-feature-request-work-around-grpc-message-size-limit-for-task-completion) | 4 | 0 | [Feature Request] Work around gRPC message size limit for task completion |
-| [#223](#223-feature-request-sdk-metric-for-activity-failure-exhausting-retries) | 2 | 4 | [Feature Request] SDK metric for activity failure exhausting retries |
-| [#9](#9-feature-request-enhance-error-message-add-error-code-for-expired-client-cert) | 0 | 8 | [Feature Request] Enhance error message & add error code for expired client cert |
-| [#515](#515-expose-start-delay-in-child-workflow-options) | 3 | 1 | Expose start delay in child workflow options |
-| [#503](#503-cancel-and-signal-should-still-propagate-to-child-workflows-after-child-caned) | 3 | 1 | Cancel and Signal should still propagate to child workflows after child CAN'ed |
-| [#422](#422-bug-incomplete-span-reporting-only-runactivity-spans-sent-when-workflow-triggered-via-scheduler) | 0 | 7 | [Bug] Incomplete Span Reporting: Only RunActivity Spans Sent When Workflow Triggered via scheduler |
-| [#322](#322-feature-request-configurable-workflow-failure-exception-types) | 2 | 3 | [Feature Request] Configurable workflow failure exception types |
-| [#268](#268-feature-request-add-sdk-side-metrics-for-update) | 0 | 7 | [Feature Request] Add SDK side metrics for Update |
-| [#146](#146-feature-request-eagerly-initialize-workflowactivity-counters) | 0 | 7 | [Feature Request] Eagerly initialize workflow/activity counters |
-| [#142](#142-feature-request-sdks-should-send-client-capabilities-in-grpc-metadata) | 0 | 7 | [Feature Request] SDKs should send client capabilities in gRPC metadata |
-| [#380](#380-feature-request-every-sdk-needs-a-datadog-sample-for-sending-metrics-and-traces-to-datadog-agent) | 2 | 2 | [Feature Request] Every SDK needs a DataDog sample for sending metrics and traces to DataDog agent |
-| [#203](#203-feature-request-provide-client-from-an-activity) | 2 | 2 | [Feature Request] Provide client from an activity |
-| [#175](#175-feature-request-endtoend-latency-metric-for-cron-executions) | 3 | 0 | [Feature Request] Endtoend latency metric for cron executions |
-| [#98](#98-feature-request-new-metric-workertaskslotstotal) | 3 | 0 | [Feature Request] New metric: worker_task_slots_total |
-| [#685](#685-feature-request-omit-hostedmcptool-headers-from-serialized-activity-input) | 0 | 5 | [Feature Request] Omit HostedMCPTool headers from serialized activity input? |
-| [#561](#561-feature-request-add-mutable-side-effect-in-core-based-sdks) | 0 | 5 | [Feature Request] Add Mutable Side Effect in Core based SDKs |
-| [#392](#392-feature-request-add-temporalworkertaskslotstotal-metric) | 1 | 3 | [Feature Request] Add temporal_worker_task_slots_total metric |
-| [#138](#138-feature-request-sdks-should-have-built-in-contextual-logging) | 1 | 3 | [Feature Request] SDKs should have built-in contextual logging |
-| [#568](#568-sdk-should-provide-a-native-query-builder) | 0 | 4 | SDK should provide a native query builder |
-| [#564](#564-provide-flag-to-tell-the-update-handler-that-the-handling-is-from-a-re-apply) | 0 | 4 | Provide flag to tell the update handler that the handling is from a re-apply |
-| [#489](#489-provide-sample-to-show-per-workflow-interceptor-instead-of-global) | 0 | 4 | Provide sample to show  per workflow interceptor instead of global |
-| [#441](#441-feature-request-environment-configuration) | 0 | 4 | [Feature Request] Environment configuration |
-| [#323](#323-feature-request-support-for-http-connect-proxies-in-sdks) | 0 | 4 | [Feature Request] Support for HTTP CONNECT proxies in SDKs |
-| [#243](#243-feature-request-expose-schedule-specific-info-in-workflows-through-a-api) | 0 | 4 | [Feature Request] Expose schedule specific info in Workflows through a API |
-| [#150](#150-nightly-ci-against-server-and-sdk-master) | 0 | 4 | Nightly CI against server and SDK `master` |
-| [#140](#140-feature-request-expose-history-size-bytes-to-workflow-execution-info) | 0 | 4 | [Feature Request] Expose history size bytes to workflow execution info |
-| [#114](#114-feature-request-setting-namespace-and-task-queue-during-replay) | 1 | 2 | [Feature Request] Setting namespace and task queue during replay |
-| [#46](#46-sdks-should-default-set-grpc-max-receive-message-size-to-128mb) | 0 | 4 | SDKs should default set gRPC max receive message size to 128MB |
-| [#702](#702-add-activityfailendtoendlatency-metric) | 1 | 1 | Add activity_fail_endtoend_latency metric |
-| [#633](#633-treat-activity-start-as-the-first-heartbeat-time) | 0 | 3 | Treat Activity start as the first heartbeat time |
-| [#525](#525-high-level-task-queue-describe-call-with-default-build-id-stats) | 1 | 1 | High-level task queue describe call with default-build-ID stats |
-| [#498](#498-allow-listing-and-filtering-workflows-based-on-current-failures) | 0 | 3 | Allow listing and filtering workflows based on current failures. |
-| [#417](#417-restartworkflow-on-workflow-task-failure) | 0 | 3 | RestartWorkflow on workflow task failure |
-| [#402](#402-feature-request-workflowservice-api-to-update-activity-rate-limit-on-a-task-queue) | 0 | 3 | [Feature Request] WorkflowService API to update activity rate limit on a task queue |
-| [#195](#195-standardize-unregistered-activity-type-behavior) | 0 | 3 | Standardize unregistered Activity Type behavior |
-| [#168](#168-feature-request-always-flush-completed-local-work-when-nearing-the-workflow-task-timeout) | 0 | 3 | [Feature Request] Always flush completed local work when nearing the workflow task timeout |
-| [#96](#96-feature-request-backoff-more-on-resource-exhausted-error) | 0 | 3 | [Feature Request] Backoff more on resource exhausted error |
-| [#54](#54-workflowinfolastcompletionresult) | 0 | 3 | WorkflowInfo.lastCompletionResult |
-| [#45](#45-lazy-connectivity-for-temporal-client-and-healthcheck) | 0 | 3 | Lazy connectivity for Temporal client and healthCheck |
-| [#3](#3-feature-request-add-feature-tests-for-sdk-side-validation-of-different-server-commands) | 0 | 3 | [Feature Request] Add feature tests for SDK side validation of different server commands |
-| [#696](#696-worker-heartbeating) | 1 | 0 | Worker Heartbeating |
-| [#675](#675-feature-request-optionally-hide-server-startup-banner) | 0 | 2 | [Feature Request] Optionally hide server startup banner |
-| [#602](#602-heartbeating-activities-should-be-interrupted-when-the-activities-are-paused) | 0 | 2 | Heartbeating activities should be interrupted when the activities are paused. |
-| [#594](#594-natively-support-musl-based-environments) | 1 | 0 | Natively support musl-based environments |
-| [#592](#592-add-temporalnamespace-tag-to-all-tracing-spans) | 1 | 0 | Add `temporalNamespace` tag to all tracing spans |
-| [#573](#573-add-fine-control-for-workflow-cache-eviction) | 0 | 2 | Add fine control for workflow cache eviction |
-| [#553](#553-allow-reset-api-to-bring-new-signals-as-atomic-operation) | 0 | 2 | allow reset API to bring new signals as atomic operation |
-| [#486](#486-user-metadata-and-workflow-metadata-query) | 0 | 2 | User metadata and workflow metadata query |
-| [#464](#464-sample-add-samples-showing-certificate-replacement) | 0 | 2 | [Sample] Add samples showing certificate replacement |
-| [#455](#455-feature-request-consider-tls-handshake-failures-as-worker-fatal-errors) | 1 | 0 | [Feature Request] Consider TLS handshake failures as worker-fatal errors |
-| [#451](#451-feature-request-feature-test-confirming-unhandled-command-update-behavior) | 0 | 2 | [Feature Request] Feature test confirming unhandled-command update behavior |
-| [#439](#439-stack-traces-with-source-mappings-in-the-ui) | 0 | 2 | Stack traces with source mappings in the UI |
-| [#400](#400-feature-request-workflow-init-support) | 0 | 2 | [Feature Request] Workflow-init support |
-| [#394](#394-feature-request-worker-tracing-should-upsert-header-with-outer-span) | 0 | 2 | [Feature Request] Worker tracing should upsert header with outer span |
-| [#383](#383-feature-request-dynamic-display-name-for-activities-in-temporal-go) | 0 | 2 | [Feature Request] Dynamic Display Name for Activities in Temporal Go |
-| [#378](#378-feature-request-timer-duration-jitter-out-of-box-utility) | 0 | 2 | [Feature Request] Timer duration "jitter" out of box utility |
-| [#376](#376-add-metric-for-payload-size-for-inputoutputsignal-of-workflowactivity) | 0 | 2 | Add metric for payload size for input/output/signal of workflow/activity  |
-| [#343](#343-feature-request-worker-pause) | 0 | 2 | [Feature Request] Worker Pause |
-| [#339](#339-feature-request-add-encryption-codec-to-sdk) | 0 | 2 | [Feature Request] Add encryption codec to SDK |
-| [#334](#334-feature-request-worker-slot-polling-auto-tuning) | 0 | 2 | [Feature Request] Worker Slot & Polling Auto-Tuning |
-| [#293](#293-feature-request-expose-updateid-in-an-update-handler) | 0 | 2 | [Feature Request] Expose UpdateID in an update handler |
-| [#206](#206-feature-request-add-context-propagators-in-all-sdks) | 1 | 0 | [Feature Request] Add context propagators in all SDKs |
-| [#204](#204-feature-request-expose-currently-configured-payload-converter-to-workflow-code) | 1 | 0 | [Feature Request] Expose currently configured payload converter to workflow code |
-| [#193](#193-set-identity-to-clientoptionsidentity-in-all-possible-client-calls) | 0 | 2 | Set identity to `ClientOptions.identity` in all possible client calls |
-| [#174](#174-feature-request-consider-higher-level-activity-options-for-some-languages) | 0 | 2 | [Feature Request] Consider higher-level activity options for some languages |
-| [#164](#164-support-valid-proto-json-in-sdk-replayers) | 0 | 2 | Support valid proto JSON in SDK replayers |
-| [#116](#116-githubcomuber-gotallyv4-v411-2-vulnerabilities-highest-severity-is-75) | 0 | 2 | github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5) |
-| [#111](#111-emit-warning-log-if-a-supplied-client-certificate-has-already-expired) | 0 | 2 | Emit warning log if a supplied client certificate has already expired |
-| [#92](#92-feature-request-provide-details-of-previous-activity-task-failure) | 0 | 2 | [Feature Request] Provide details of previous Activity Task failure |
-| [#30](#30-add-support-for-workflowsignalexternalworkflowwithstart-will-probably-also-require-server-changes) | 0 | 2 | Add support for workflow.SignalExternalWorkflowWithStart (will probably also require server changes) |
-| [#22](#22-feature-request-spec-for-expected-client-behavior-when-using-handle-or-stub-methods) | 0 | 2 | [Feature Request] Spec for expected client behavior when using handle or stub methods |
-| [#17](#17-sdk-api-for-describing-workflow) | 0 | 2 | SDK API for describing workflow |
-| [#670](#670-feature-request-reclassify-benign-application-errors-in-opentelemetry) | 0 | 1 | [Feature Request] Reclassify Benign Application errors in OpenTelemetry |
-| [#666](#666-add-badscheduleactivityattributes-failurereason-to-temporalworkflowtaskexecutionfailed-metric) | 0 | 1 | Add BadScheduleActivityAttributes failure_reason to temporal_workflow_task_execution_failed metric |
-| [#663](#663-setting-headers-on-localactivities-not-recorded-on-eventhistory) | 0 | 1 | Setting headers on LocalActivities not recorded on EventHistory |
-| [#652](#652-plugins-to-support-controlling-multiple-configuration-points-at-once) | 0 | 1 | Plugins to support controlling multiple configuration points at once |
-| [#650](#650-add-ability-to-complete-workflow-from-any-line) | 0 | 1 | Add ability to complete workflow from any line |
-| [#639](#639-add-unregisteredactivityinvocation) | 0 | 1 | Add unregistered_activity_invocation |
-| [#637](#637-add-summary-to-localactivityoptions) | 0 | 1 | Add Summary to LocalActivityOptions |
-| [#619](#619-expose-startworkflowexecutionresponse-fields-to-executeworkflow-api) | 0 | 1 | Expose `StartWorkflowExecutionResponse` fields to `ExecuteWorkflow` API |
-| [#615](#615-show-retry-policy-on-activity-info) | 0 | 1 | Show retry policy on activity info |
-| [#614](#614-apply-application-failure-logging-and-metrics-behaviour-according-to-applicationerrorcategory) | 0 | 1 | Apply application failure logging and metrics behaviour according to `ApplicationErrorCategory` |
-| [#608](#608-sdk-should-try-to-check-if-activity-is-completed-before-sending-last-buffered-heartbeat) | 0 | 1 | SDK should try to check if activity is completed before sending last buffered heartbeat |
-| [#607](#607-standardize-where-desirable-metrics-across-sdk-languages) | 0 | 1 | Standardize (where desirable) metrics across SDK languages |
-| [#605](#605-expose-root-workflow-execution) | 0 | 1 | Expose root workflow execution |
-| [#604](#604-built-in-query-responses-should-use-rawvalue) | 0 | 1 | Built-in query responses should use "RawValue" |
-| [#597](#597-researchsolve-truncating-failure-stack-traces-sdk-side-so-they-dont-get-truncated-server-side) | 0 | 1 | Research/solve truncating failure stack traces SDK-side so they don't get truncated server side |
-| [#596](#596-expose-workflow-cancel-causereason) | 0 | 1 | Expose Workflow cancel cause/reason |
-| [#576](#576-special-behavior-for-temporal-built-in-prefixes) | 0 | 1 | Special behavior for Temporal built-in prefixes |
-| [#572](#572-access-to-workflowactivity-instance-created-by-temporal-from-workflowactivity-context-where-applicable) | 0 | 1 | Access to workflow/activity instance created by Temporal from workflow/activity context where applicable |
-| [#571](#571-concept-of-workflow-local-value) | 0 | 1 | Concept of "workflow local" value |
-| [#559](#559-include-structured-commandevent-diffitems-in-non-determinism-error) | 0 | 1 | Include structured command/event diff/items in non-determinism error |
-| [#551](#551-waiting-on-update-result-should-auto-skip-time-in-time-skipping-environments) | 0 | 1 | Waiting on update result should auto-skip time in time-skipping environments |
-| [#501](#501-warn-when-activities-dangle) | 0 | 1 | Warn when activities dangle |
-| [#494](#494-easy-search-attributes-in-dev-server) | 0 | 1 | Easy search attributes in dev server |
-| [#472](#472-testworkflowenvironment---fail-tests-on-workflow-task-failures) | 0 | 1 | TestWorkflowEnvironment - fail tests on workflow task failures |
-| [#428](#428-feature-request-workflow-update-get-status-and-wait-for-stage-capability) | 0 | 1 | [Feature Request] Workflow Update Get-Status (and Wait-For-Stage) Capability |
-| [#424](#424-feature-request-allow-force-complete-current-workflow-task-when-localactivity-is-completed-or-failed) | 0 | 1 | [Feature Request] Allow force complete current workflow task when localActivity is completed or failed |
-| [#396](#396-feature-request-use-macos-m1arm-runners-for-all-sdk-ci) | 0 | 1 | [Feature Request] Use macOS M1/ARM runners for all SDK CI  |
-| [#381](#381-feature-request-expose-api-to-list-enabled-features-for-a-namespace) | 0 | 1 | [Feature Request] Expose API to list enabled features for a namespace  |
-| [#338](#338-feature-request-add-delay-to-workflow-start-options) | 0 | 1 | Feature Request] Add delay to workflow start options |
-| [#331](#331-feature-request-use-codecs-for-headers-in-all-sdks) | 0 | 1 | [Feature Request] Use codecs for headers in all SDKs |
-| [#273](#273-feature-request-temporal-exceptions-from-converters-and-codecs-should-fail-the-workflow-not-task) | 0 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
-| [#256](#256-feature-request-return-input-when-describing-we) | 0 | 1 | [Feature Request] Return input when describing WE |
-| [#228](#228-feature-request-test-workflow-changes-are-deterministicnondeterministic) | 0 | 1 | [Feature Request] Test workflow changes are deterministic/nondeterministic |
-| [#219](#219-feature-request-sdk-workers-should-not-intentionally-time-out-failed-workflow-tasks-if-server-supports-backoff) | 0 | 1 | [Feature Request] SDK workers should not intentionally time out failed workflow tasks if server supports backoff |
-| [#201](#201-feature-request-support-dynamic-workflows-activities-signals-queries-and-updates-in-all-sdks) | 0 | 1 | [Feature Request] Support dynamic workflows, activities, signals, queries, and updates in all SDKs |
-| [#178](#178-feature-request-add-getsignalinfo) | 0 | 1 | [Feature Request] Add GetSignalInfo |
-| [#177](#177-feature-request-dont-allow-apis-that-generate-commands-to-be-invoked-from-side-effects) | 0 | 1 | [Feature Request] Don't allow apis that generate commands to be invoked from side effects |
-| [#167](#167-feature-request-align-localactivityexecutionfailed-across-sdks) | 0 | 1 | [Feature Request] Align local_activity_execution_failed across SDKs |
-| [#145](#145-feature-request-workfow-sleepawait-with-0-duration) | 0 | 1 | [Feature Request] Workfow sleep/await with 0 duration |
-| [#137](#137-feature-request-run-a-stress-test-to-understand-implications-of-eager-activity-dispatch) | 0 | 1 | [Feature Request] Run a stress test to understand implications of eager activity dispatch |
-| [#78](#78-feature-request-implement-signal-features) | 0 | 1 | [Feature Request] Implement signal features |
-| [#77](#77-feature-request-implement-activity-features) | 0 | 1 | [Feature Request] Implement activity features |
-| [#75](#75-feature-request-friendly-version-of-listworkflowexecutions) | 0 | 1 | [Feature Request] Friendly version of listWorkflowExecutions |
-| [#67](#67-activity-heartbeat-throttling) | 0 | 1 | ✅ Activity Heartbeat Throttling |
-| [#66](#66-feature-request-allow-running-failure-fields-through-codec) | 0 | 1 | [Feature Request] Allow running failure fields through codec |
-| [#65](#65-feature-request-attach-info-about-unresolved-commands-to-wft-completions) | 0 | 1 | [Feature Request] Attach info about unresolved commands to WFT completions |
-| [#47](#47-feature-request-sdks-should-differentiate-between-namespaceinvalidstate-and-namespacenotfound-errors) | 0 | 1 | [Feature Request] SDKs should differentiate between `NamespaceInvalidState` and `NamespaceNotFound` errors |
-| [#19](#19-feature-request-call-resetstickytaskqueue-on-worker-shutdown) | 0 | 1 | [Feature Request] Call ResetStickyTaskQueue on worker shutdown |
-| [#12](#12-feature-request-add-a-metric-to-track-certificate-expiration) | 0 | 1 | [Feature Request] Add a metric to track certificate expiration |
-| [#4](#4-feature-request-rename-features-to-spec) | 0 | 1 | [Feature Request] Rename features/ to spec/ |
-| [#715](#715-custom-metadata-support-for-workers-in-temporal-ui-and-cli) | 0 | 0 | Custom Metadata Support for Workers in Temporal UI and CLI |
-| [#712](#712-bug-use-pnpm-when-building-ts-worker-from-source) | 0 | 0 | [Bug] Use `pnpm` when building TS worker from source |
-| [#706](#706-support-non-workflow-activities) | 0 | 0 | Support non-workflow activities |
-| [#705](#705-warn-if-sdk-detects-a-workflow-history-over-a-certain-size) | 0 | 0 | Warn if SDK detects a workflow history over a certain size |
-| [#701](#701-warn-if-the-sdk-tried-to-send-a-payload-above-a-specific-size) | 0 | 0 | Warn if the SDK tried to send a payload above a specific size |
-| [#694](#694-allow-overriding-of-the-worker-deployment-version-when-invoking-a-child-workflow) | 0 | 0 | Allow overriding of the Worker Deployment Version when invoking a Child Workflow. |
-| [#692](#692-nexus-samples-and-docs-should-not-encourage-using-request-id-for-workflow-id) | 0 | 0 | Nexus samples and docs should not encourage using request ID for workflow ID |
-| [#691](#691-deployment-feature-tests-failing-in-go-docker-build) | 0 | 0 | Deployment feature tests failing in Go docker build |
-| [#687](#687-assume-tls-enabled-if-api-key-provided-in-sdks) | 0 | 0 | Assume TLS enabled if API key provided in SDKs |
-| [#684](#684-provide-plugin-implementations-for-contribextra-integrations) | 0 | 0 | Provide plugin implementations for contrib/extra integrations |
-| [#678](#678-nexus-serialization-context) | 0 | 0 | Nexus serialization context |
-| [#677](#677-feature-request-idempotency-token-for-activity) | 0 | 0 | [Feature request] Idempotency token for activity |
-| [#676](#676-append-some-details-to-error-messages) | 0 | 0 | Append some details to error messages |
-| [#674](#674-ts-expose-temporal-nexus-operation-info-to-temporal-nexus-operation-authors) | 0 | 0 | [TS] Expose Temporal Nexus operation info to Temporal Nexus operation authors |
-| [#673](#673-sdks-should-expose-nexus-request-deadline) | 0 | 0 | SDKs should expose Nexus request deadline |
-| [#672](#672-ensure-tests-exist-to-confirm-custom-slot-supplier-slot-info-has-proper-fields) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot info has proper fields |
-| [#671](#671-ensure-grpc-binary-metadata-keys-are-supported-by-clients) | 0 | 0 | Ensure gRPC binary metadata keys are supported by clients |
-| [#669](#669-add-ability-to-set-timer-options-like-summary-on-higher-level-timer-calls) | 0 | 0 | Add ability to set timer options like summary on higher-level timer calls |
-| [#664](#664-nexus-samples-and-dev-guide-docs-for-sync-nexus-ops-that-use-signal-signal-with-start-update-query) | 0 | 0 | Nexus samples and dev guide docs for sync Nexus ops that use signal, signal-with-start, update, query, ... |
-| [#658](#658-nexus-operation-testing-environment) | 0 | 0 | Nexus operation testing environment |
-| [#657](#657-provide-extraadvanced-details-on-startexecute-workflow) | 0 | 0 | Provide extra/advanced details on start/execute workflow |
-| [#656](#656-make-metrics-concerning-unregistered-activities-and-maybe-other-things-consistent) | 0 | 0 | Make metrics concerning unregistered activities (and maybe other things) consistent |
-| [#651](#651-add-metric-to-indicate-that-poll-rate-is-limited-by-client) | 0 | 0 | Add metric to indicate that poll rate is limited by client |
-| [#636](#636-add-taskqueue-information-to-longrequestlatency) | 0 | 0 | Add task_queue information to long_request_latency |
-| [#635](#635-provide-last-result-and-last-failure-to-workflows) | 0 | 0 | Provide last result and last failure to workflows |
-| [#634](#634-add-failurereasonunhandledcommand-to-workflowtaskexecutionfailed-metric) | 0 | 0 | Add failure_reason=UnhandledCommand to workflow_task_execution_failed metric |
-| [#632](#632-add-startdelay-to-continueasnewoptions) | 0 | 0 | Add StartDelay to ContinueAsNewOptions |
-| [#620](#620-sdk-support-for-activity-reset) | 0 | 0 | SDK support for activity reset |
-| [#613](#613-explore-ways-of-testing-pre-patched-code-in-sdks) | 0 | 0 | Explore ways of testing pre-patched code in SDKs |
-| [#610](#610-add-summary-to-nexus-operation) | 0 | 0 | Add summary to Nexus operation |
-| [#609](#609-initial-nexus-implementation) | 0 | 0 | Initial Nexus implementation |
-| [#603](#603-rawvalue-support-for-non-converted-payloads) | 0 | 0 | "RawValue" support for non-converted payloads |
-| [#598](#598-research-and-implement-a-way-to-test-and-make-sure-history-is-still-compatible-across-sdk-versions) | 0 | 0 | Research and implement a way to test and make sure history is still compatible across SDK versions |
-| [#595](#595-add-features-test-for-cloud-api-key-over-data-plane) | 0 | 0 | Add features test for cloud API key over data plane |
-| [#591](#591-uniformize-patched-api-in-all-sdks) | 0 | 0 | Uniformize `patched()` API in all SDKs |
-| [#589](#589-add-utility-function-to-classify-exceptions-as-failing-the-workflow-vs-failing-the-task) | 0 | 0 | Add utility function to classify exceptions as failing the workflow vs failing the task |
-| [#588](#588-allow-ui-port-to-be-specified-in-programmatic-dev-server) | 0 | 0 | Allow UI port to be specified in programmatic dev server |
-| [#585](#585-support-ruby-in-this-features-repo) | 0 | 0 | Support Ruby in this features repo |
-| [#581](#581-features-platform-remove-temporalfeaturesdisableworkflowcompletioncheck-workaround) | 0 | 0 | [Features Platform] Remove TEMPORAL_FEATURES_DISABLE_WORKFLOW_COMPLETION_CHECK workaround |
-| [#566](#566-support-full-query-failure-structure) | 0 | 0 | Support full query failure structure |
-| [#560](#560-add-workflowexecutioninfopendingactivities) | 0 | 0 | Add `WorkflowExecutionInfo.pendingActivities` |
-| [#550](#550-allow-queries-to-target-a-certain-event-number-in-replayers-and-maybe-other-interactions) | 0 | 0 | Allow queries to target a certain event number in replayers (and maybe other interactions) |
-| [#538](#538-allow-sdks-to-support-connecting-to-multiple-endpoints-for-multi-region-namespaces) | 0 | 0 | Allow SDKs to support connecting to multiple endpoints for Multi-region Namespaces |
-| [#534](#534-bidirectional-linking-of-workflows-through-activity) | 0 | 0 | Bidirectional linking of workflows through activity |
-| [#512](#512-support-schedule-search-attribute-update) | 0 | 0 | Support schedule search attribute update |
-| [#506](#506-support-replaying-past-last-successful-workflow-task-completion) | 0 | 0 | Support replaying past last successful workflow task completion |
-| [#499](#499-warn-or-error-when-update-handlers-dangle-across-can-or-workflow-exit) | 0 | 0 | Warn or error when update handlers dangle across CAN or workflow exit |
-| [#492](#492-feature-test-for-update-workflow-reset) | 0 | 0 | Feature test for Update + Workflow Reset  |
-| [#487](#487-getworkflowhistory-payload-size-exceeds-limit-for-a-single-page) | 0 | 0 | GetWorkflowHistory payload size exceeds limit for a single page |
-| [#482](#482-decideapplyclarify-ambiguous-failure-behavior-in-signals-and-workflows) | 0 | 0 | Decide/apply/clarify ambiguous failure behavior in signals and workflows |
-| [#481](#481-do-not-set-workflow-completion-until-after-all-coroutines-have-settled-in-the-task) | 0 | 0 | Do not set workflow completion until after all coroutines have settled in the task |
-| [#477](#477-call-describe-namespace-on-worker-start) | 0 | 0 | Call describe namespace on worker start |
-| [#470](#470-tests-to-ensure-dev-servertest-server-processes-properly-shut-down) | 0 | 0 | Tests to ensure dev-server/test-server processes properly shut down |
-| [#468](#468-full-history-decode-utility) | 0 | 0 | Full history decode utility |
-| [#462](#462-expose-attempts-in-activityfailure) | 0 | 0 | Expose attempts in `ActivityFailure` |
-| [#460](#460-stickytaskqueuedraintimeout) | 0 | 0 | StickyTaskQueueDrainTimeout |
-| [#446](#446-feature-request-provide-a-way-to-create-a-temporal-schedule-which-runs-every-last-day-of-the-month) | 0 | 0 | [Feature Request] provide a way to create a Temporal schedule which runs every last day of the month |
-| [#429](#429-add-sla-dashboard-using-sdkclient-metrics) | 0 | 0 | Add SLA dashboard using SDK/client metrics |
-| [#427](#427-feature-request-unknown-sdk-flag-should-behave-consistently-across-sdk) | 0 | 0 | [Feature Request] Unknown SDK flag should behave consistently across SDK |
-| [#419](#419-feature-request-expose-next-retry-delay-on-application-failure-in-all-sdks) | 0 | 0 | [Feature Request] Expose next retry delay on Application Failure in all SDKs |
-| [#384](#384-logback-classic-129jar-2-vulnerabilities-highest-severity-is-75) | 0 | 0 | logback-classic-1.2.9.jar: 2 vulnerabilities (highest severity is: 7.5) |
-| [#366](#366-xunitassert253nupkg-2-vulnerabilities-highest-severity-is-75) | 0 | 0 | xunit.assert.2.5.3.nupkg: 2 vulnerabilities (highest severity is: 7.5) |
-| [#353](#353-features-platform-make-it-possible-to-configure-client-interceptors-in-typescript) | 0 | 0 | [Features Platform] Make it possible to configure client interceptors in typescript |
-| [#330](#330-bug-bugsgochildworkflowcancelpanic-flaky) | 0 | 0 | [Bug] bugs/go/child_workflow_cancel_panic flaky |
-| [#325](#325-feature-request-support-reason-for-cancel-and-terminate-workflow-api) | 0 | 0 | [Feature Request] Support reason for Cancel and Terminate workflow API |
-| [#315](#315-bug-stale-workflows-in-sdk-cia2dd6-namespace) | 0 | 0 | [Bug] Stale workflows in sdk-ci.a2dd6 namespace |
-| [#314](#314-feature-request-add-client-method-for-non-blocking-try-get-result) | 0 | 0 | [Feature Request] Add Client method for non blocking try-get-result |
-| [#305](#305-feature-request-block-when-workflow-commands-are-produced-in-a-read-only-context) | 0 | 0 | [Feature Request] Block when workflow commands are produced in a read only context |
-| [#294](#294-safe-deploys-api---public-preview) | 0 | 0 | Safe Deploys API - Public Preview |
-| [#288](#288-guava-311-jrejar-1-vulnerabilities-highest-severity-is-71) | 0 | 0 | guava-31.1-jre.jar: 1 vulnerabilities (highest severity is: 7.1) |
-| [#279](#279-feature-request-harness-history-checker-should-have-easier-way-to-ignore-new-fields) | 0 | 0 | [Feature Request] Harness history checker should have easier way to ignore new fields |
-| [#254](#254-json-path-260jar-2-vulnerabilities-highest-severity-is-75) | 0 | 0 | json-path-2.6.0.jar: 2 vulnerabilities (highest severity is: 7.5) |
-| [#241](#241-feature-request-support-lastheartbeatdetails-on-respondactivitytaskfailedrequest) | 0 | 0 | [Feature Request] Support LastHeartbeatDetails on RespondActivityTaskFailedRequest |
-| [#240](#240-feature-request-ensure-every-sdk-fails-the-workflow-not-the-task-on-invalid-workflow-argument) | 0 | 0 | [Feature Request] Ensure every SDK fails the workflow not the task on invalid workflow argument |
-| [#233](#233-feature-request-replayer-api-should-return-result-of-replayed-workflow) | 0 | 0 | [Feature Request] Replayer API should return result of replayed workflow |
-| [#222](#222-workflowcompleted-and-workflowcontinueasnew-counters-should-be-logged-after-a-successful-reporting-to-the-server) | 0 | 0 | workflow_completed and workflow_continue_as_new counters should be logged after a successful reporting to the server |
-| [#218](#218-feature-request-sdks-should-not-fatal-the-worker-on-any-error-without-a-retry-period) | 0 | 0 | [Feature Request] SDKs should not fatal the worker on any error without a retry period |
-| [#202](#202-feature-request-test-schedule-workflows-have-all-required-information-set-in-their-execution) | 0 | 0 | [Feature Request] Test schedule workflows have all required information set in their execution |
-| [#194](#194-feature-request-schedule-timers-even-if-duration-is-0) | 0 | 0 | [Feature Request] Schedule timers even if duration is <= 0 |
-| [#182](#182-document-that-list-workflowschedule-calls-are-eventually-consistent-in-specs) | 0 | 0 | Document that list workflow/schedule calls are eventually consistent in specs |
-| [#166](#166-feature-request-support---version-latest) | 0 | 0 | [Feature Request] Support --version latest |
-| [#160](#160-feature-request-workflow-only-worker-specs) | 0 | 0 | [Feature Request] Workflow only worker specs |
-| [#159](#159-feature-request-update-encryption-samples-to-encrypt-failure-attributes) | 0 | 0 | [Feature Request] Update encryption samples to encrypt failure attributes |
-| [#155](#155-feature-request-failure-converter) | 0 | 0 | [Feature Request] Failure Converter |
-| [#153](#153-feature-request-schedule-api-features) | 0 | 0 | [Feature Request] Schedule API features |
-| [#143](#143-feature-request-sdk-should-fail-a-workflow-task-if-it-receives-non-ignorable-events-that-it-doesnt-handle) | 0 | 0 | [Feature Request] SDK should fail a workflow task if it receives non-ignorable events that it doesn't handle |
-| [#133](#133-feature-request-add-spec-tests-for-workflow-handles-with-different-run-id-types) | 0 | 0 | [Feature Request] Add spec tests for workflow handles with different run ID types |
-| [#130](#130-feature-request-ability-to-intercept-client-result-fetching) | 0 | 0 | [Feature Request] Ability to intercept client result fetching |
-| [#122](#122-set-larger-maxinboundmetadatasize-to-accommodate-unbounded-server-error-messages) | 0 | 0 | Set larger maxInboundMetadataSize to accommodate unbounded Server error messages |
-| [#121](#121-feature-request-no-history-json-conversion-if-already-done) | 0 | 0 | [Feature Request] No history JSON conversion if already done |
-| [#113](#113-documentation-testing-feedback-request) | 0 | 0 | [Documentation] Testing feedback request |
-| [#105](#105-feature-request-auto-timeout-activity-after-heartbeat-timeout) | 0 | 0 | [Feature Request] Auto timeout activity after heartbeat timeout |
-| [#94](#94-feature-request-group-temporal-specific-log-tags) | 0 | 0 | [Feature Request] Group Temporal-specific log tags |
-| [#93](#93-feature-request-prefix-span-and-span-tag-names) | 0 | 0 | [Feature Request] Prefix span and span tag names  |
-| [#91](#91-feature-request-sdks-should-set-supported-features-header) | 0 | 0 | [Feature Request] SDKs should set `supported-features` header |
-| [#83](#83-feature-request-implement-timer-features) | 0 | 0 | [Feature Request] Implement timer features |
-| [#80](#80-feature-request-implement-continueasnew-features) | 0 | 0 | [Feature Request] Implement continue_as_new features |
-| [#79](#79-feature-request-implement-childworkflow-features) | 0 | 0 | [Feature Request] Implement child_workflow features |
-| [#76](#76-feature-request-friendly-version-of-getworkflowexecutionhistory) | 0 | 0 | [Feature Request] Friendly version of `getWorkflowExecutionHistory` |
-| [#53](#53-metrics-for-consecutive-workflow-and-activity-task-failures) | 0 | 0 | Metrics for consecutive workflow and activity task failures |
-| [#42](#42-feature-request-add-higher-level-activity-abstractions) | 0 | 0 | [Feature Request] Add higher-level Activity abstractions |
-| [#29](#29-add-firstexecutionrunid-to-apis-where-its-missing) | 0 | 0 | Add `first_execution_run_id` to APIs where it’s missing |
-| [#27](#27-feature-request-unified-grpc-retry-logic) | 0 | 0 | [Feature Request] Unified gRPC retry logic |
-| [#13](#13-feature-request-sdk-should-allow-configurable-long-poll-timeouts) | 0 | 0 | [Feature Request] SDK should allow configurable long-poll timeouts |
-| [#11](#11-feature-request-sdks-users-should-have-a-way-to-inject-new-certificates-to-a-connection-instance) | 0 | 0 | [Feature Request] SDKs users should have a way to inject new certificates to a connection instance |
-| [#10](#10-confirm-behavior-of-manually-returning-cancellation-errors-in-all-sdks-from-workfows-and-activities) | 0 | 0 | Confirm behavior of manually returning cancellation errors in all SDKs from workfows and activities |
-| [#8](#8-feature-request-sdks-should-backoff-aggressively-on-resourceexhaustederror) | 0 | 0 | [Feature Request] SDKs should backoff aggressively on `ResourceExhaustedError` |
+| [#399](#399) | 15 | 12 | Custom Markers for Workflow History/Timeline |
+| [#118](#118) | 8 | 22 | [Feature Request] Declarative schedules: upsert, sync, terraform, etc. |
+| [#649](#649) | 14 | 4 | Add support for unit testing workflow versioning |
+| [#558](#558) | 3 | 21 | Add WorkflowIdConflictPolicy in child workflow options |
+| [#562](#562) | 7 | 6 | [Feature Request] Session support |
+| [#443](#443) | 0 | 17 | [Feature Request] Implement activity task poll limit |
+| [#434](#434) | 6 | 1 | [Feature Request] Serialization context for codecs and converters |
+| [#51](#51) | 0 | 13 | [Feature Request] Standardize method for listing workflow queries/signals (and maybe other things like registered activities/workflows and other metadata) |
+| [#563](#563) | 0 | 12 | Tag workflow_failed counter metric with exception type |
+| [#456](#456) | 5 | 2 | [Feature Request] Provide worker status |
+| [#257](#257) | 0 | 12 | Update API: support not writing history when calling external failure |
+| [#229](#229) | 6 | 0 | [Feature Request] Auto heartbeating |
+| [#69](#69) | 0 | 10 | [Feature Request] Specify reset point in workflow code |
+| [#463](#463) | 2 | 5 | Customize activity failure logging (and more?) |
+| [#377](#377) | 0 | 9 | Support an option to disable "Close" timeouts for indefinitely running Activities |
+| [#119](#119) | 1 | 7 | Add upsertMemo command |
+| [#25](#25) | 2 | 5 | [Feature Request] SDK should expose workflow_started metric |
+| [#624](#624) | 2 | 4 | Gracefully fail gRPC-message-too-large issues in worker |
+| [#363](#363) | 4 | 0 | [Feature Request] Work around gRPC message size limit for task completion |
+| [#223](#223) | 2 | 4 | [Feature Request] SDK metric for activity failure exhausting retries |
+| [#9](#9) | 0 | 8 | [Feature Request] Enhance error message & add error code for expired client cert |
+| [#515](#515) | 3 | 1 | Expose start delay in child workflow options |
+| [#503](#503) | 3 | 1 | Cancel and Signal should still propagate to child workflows after child CAN'ed |
+| [#422](#422) | 0 | 7 | [Bug] Incomplete Span Reporting: Only RunActivity Spans Sent When Workflow Triggered via scheduler |
+| [#322](#322) | 2 | 3 | [Feature Request] Configurable workflow failure exception types |
+| [#268](#268) | 0 | 7 | [Feature Request] Add SDK side metrics for Update |
+| [#146](#146) | 0 | 7 | [Feature Request] Eagerly initialize workflow/activity counters |
+| [#142](#142) | 0 | 7 | [Feature Request] SDKs should send client capabilities in gRPC metadata |
+| [#380](#380) | 2 | 2 | [Feature Request] Every SDK needs a DataDog sample for sending metrics and traces to DataDog agent |
+| [#203](#203) | 2 | 2 | [Feature Request] Provide client from an activity |
+| [#175](#175) | 3 | 0 | [Feature Request] Endtoend latency metric for cron executions |
+| [#98](#98) | 3 | 0 | [Feature Request] New metric: worker_task_slots_total |
+| [#685](#685) | 0 | 5 | [Feature Request] Omit HostedMCPTool headers from serialized activity input? |
+| [#561](#561) | 0 | 5 | [Feature Request] Add Mutable Side Effect in Core based SDKs |
+| [#392](#392) | 1 | 3 | [Feature Request] Add temporal_worker_task_slots_total metric |
+| [#138](#138) | 1 | 3 | [Feature Request] SDKs should have built-in contextual logging |
+| [#568](#568) | 0 | 4 | SDK should provide a native query builder |
+| [#564](#564) | 0 | 4 | Provide flag to tell the update handler that the handling is from a re-apply |
+| [#489](#489) | 0 | 4 | Provide sample to show  per workflow interceptor instead of global |
+| [#441](#441) | 0 | 4 | [Feature Request] Environment configuration |
+| [#323](#323) | 0 | 4 | [Feature Request] Support for HTTP CONNECT proxies in SDKs |
+| [#243](#243) | 0 | 4 | [Feature Request] Expose schedule specific info in Workflows through a API |
+| [#150](#150) | 0 | 4 | Nightly CI against server and SDK `master` |
+| [#140](#140) | 0 | 4 | [Feature Request] Expose history size bytes to workflow execution info |
+| [#114](#114) | 1 | 2 | [Feature Request] Setting namespace and task queue during replay |
+| [#46](#46) | 0 | 4 | SDKs should default set gRPC max receive message size to 128MB |
+| [#702](#702) | 1 | 1 | Add activity_fail_endtoend_latency metric |
+| [#633](#633) | 0 | 3 | Treat Activity start as the first heartbeat time |
+| [#525](#525) | 1 | 1 | High-level task queue describe call with default-build-ID stats |
+| [#498](#498) | 0 | 3 | Allow listing and filtering workflows based on current failures. |
+| [#417](#417) | 0 | 3 | RestartWorkflow on workflow task failure |
+| [#402](#402) | 0 | 3 | [Feature Request] WorkflowService API to update activity rate limit on a task queue |
+| [#195](#195) | 0 | 3 | Standardize unregistered Activity Type behavior |
+| [#168](#168) | 0 | 3 | [Feature Request] Always flush completed local work when nearing the workflow task timeout |
+| [#96](#96) | 0 | 3 | [Feature Request] Backoff more on resource exhausted error |
+| [#54](#54) | 0 | 3 | WorkflowInfo.lastCompletionResult |
+| [#45](#45) | 0 | 3 | Lazy connectivity for Temporal client and healthCheck |
+| [#3](#3) | 0 | 3 | [Feature Request] Add feature tests for SDK side validation of different server commands |
+| [#696](#696) | 1 | 0 | Worker Heartbeating |
+| [#675](#675) | 0 | 2 | [Feature Request] Optionally hide server startup banner |
+| [#602](#602) | 0 | 2 | Heartbeating activities should be interrupted when the activities are paused. |
+| [#594](#594) | 1 | 0 | Natively support musl-based environments |
+| [#592](#592) | 1 | 0 | Add `temporalNamespace` tag to all tracing spans |
+| [#573](#573) | 0 | 2 | Add fine control for workflow cache eviction |
+| [#553](#553) | 0 | 2 | allow reset API to bring new signals as atomic operation |
+| [#486](#486) | 0 | 2 | User metadata and workflow metadata query |
+| [#464](#464) | 0 | 2 | [Sample] Add samples showing certificate replacement |
+| [#455](#455) | 1 | 0 | [Feature Request] Consider TLS handshake failures as worker-fatal errors |
+| [#451](#451) | 0 | 2 | [Feature Request] Feature test confirming unhandled-command update behavior |
+| [#439](#439) | 0 | 2 | Stack traces with source mappings in the UI |
+| [#400](#400) | 0 | 2 | [Feature Request] Workflow-init support |
+| [#394](#394) | 0 | 2 | [Feature Request] Worker tracing should upsert header with outer span |
+| [#383](#383) | 0 | 2 | [Feature Request] Dynamic Display Name for Activities in Temporal Go |
+| [#378](#378) | 0 | 2 | [Feature Request] Timer duration "jitter" out of box utility |
+| [#376](#376) | 0 | 2 | Add metric for payload size for input/output/signal of workflow/activity  |
+| [#343](#343) | 0 | 2 | [Feature Request] Worker Pause |
+| [#339](#339) | 0 | 2 | [Feature Request] Add encryption codec to SDK |
+| [#334](#334) | 0 | 2 | [Feature Request] Worker Slot & Polling Auto-Tuning |
+| [#293](#293) | 0 | 2 | [Feature Request] Expose UpdateID in an update handler |
+| [#206](#206) | 1 | 0 | [Feature Request] Add context propagators in all SDKs |
+| [#204](#204) | 1 | 0 | [Feature Request] Expose currently configured payload converter to workflow code |
+| [#193](#193) | 0 | 2 | Set identity to `ClientOptions.identity` in all possible client calls |
+| [#174](#174) | 0 | 2 | [Feature Request] Consider higher-level activity options for some languages |
+| [#164](#164) | 0 | 2 | Support valid proto JSON in SDK replayers |
+| [#116](#116) | 0 | 2 | github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5) |
+| [#111](#111) | 0 | 2 | Emit warning log if a supplied client certificate has already expired |
+| [#92](#92) | 0 | 2 | [Feature Request] Provide details of previous Activity Task failure |
+| [#30](#30) | 0 | 2 | Add support for workflow.SignalExternalWorkflowWithStart (will probably also require server changes) |
+| [#22](#22) | 0 | 2 | [Feature Request] Spec for expected client behavior when using handle or stub methods |
+| [#17](#17) | 0 | 2 | SDK API for describing workflow |
+| [#670](#670) | 0 | 1 | [Feature Request] Reclassify Benign Application errors in OpenTelemetry |
+| [#666](#666) | 0 | 1 | Add BadScheduleActivityAttributes failure_reason to temporal_workflow_task_execution_failed metric |
+| [#663](#663) | 0 | 1 | Setting headers on LocalActivities not recorded on EventHistory |
+| [#652](#652) | 0 | 1 | Plugins to support controlling multiple configuration points at once |
+| [#650](#650) | 0 | 1 | Add ability to complete workflow from any line |
+| [#639](#639) | 0 | 1 | Add unregistered_activity_invocation |
+| [#637](#637) | 0 | 1 | Add Summary to LocalActivityOptions |
+| [#619](#619) | 0 | 1 | Expose `StartWorkflowExecutionResponse` fields to `ExecuteWorkflow` API |
+| [#615](#615) | 0 | 1 | Show retry policy on activity info |
+| [#614](#614) | 0 | 1 | Apply application failure logging and metrics behaviour according to `ApplicationErrorCategory` |
+| [#608](#608) | 0 | 1 | SDK should try to check if activity is completed before sending last buffered heartbeat |
+| [#607](#607) | 0 | 1 | Standardize (where desirable) metrics across SDK languages |
+| [#605](#605) | 0 | 1 | Expose root workflow execution |
+| [#604](#604) | 0 | 1 | Built-in query responses should use "RawValue" |
+| [#597](#597) | 0 | 1 | Research/solve truncating failure stack traces SDK-side so they don't get truncated server side |
+| [#596](#596) | 0 | 1 | Expose Workflow cancel cause/reason |
+| [#576](#576) | 0 | 1 | Special behavior for Temporal built-in prefixes |
+| [#572](#572) | 0 | 1 | Access to workflow/activity instance created by Temporal from workflow/activity context where applicable |
+| [#571](#571) | 0 | 1 | Concept of "workflow local" value |
+| [#559](#559) | 0 | 1 | Include structured command/event diff/items in non-determinism error |
+| [#551](#551) | 0 | 1 | Waiting on update result should auto-skip time in time-skipping environments |
+| [#501](#501) | 0 | 1 | Warn when activities dangle |
+| [#494](#494) | 0 | 1 | Easy search attributes in dev server |
+| [#472](#472) | 0 | 1 | TestWorkflowEnvironment - fail tests on workflow task failures |
+| [#428](#428) | 0 | 1 | [Feature Request] Workflow Update Get-Status (and Wait-For-Stage) Capability |
+| [#424](#424) | 0 | 1 | [Feature Request] Allow force complete current workflow task when localActivity is completed or failed |
+| [#396](#396) | 0 | 1 | [Feature Request] Use macOS M1/ARM runners for all SDK CI  |
+| [#381](#381) | 0 | 1 | [Feature Request] Expose API to list enabled features for a namespace  |
+| [#338](#338) | 0 | 1 | Feature Request] Add delay to workflow start options |
+| [#331](#331) | 0 | 1 | [Feature Request] Use codecs for headers in all SDKs |
+| [#273](#273) | 0 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
+| [#256](#256) | 0 | 1 | [Feature Request] Return input when describing WE |
+| [#228](#228) | 0 | 1 | [Feature Request] Test workflow changes are deterministic/nondeterministic |
+| [#219](#219) | 0 | 1 | [Feature Request] SDK workers should not intentionally time out failed workflow tasks if server supports backoff |
+| [#201](#201) | 0 | 1 | [Feature Request] Support dynamic workflows, activities, signals, queries, and updates in all SDKs |
+| [#178](#178) | 0 | 1 | [Feature Request] Add GetSignalInfo |
+| [#177](#177) | 0 | 1 | [Feature Request] Don't allow apis that generate commands to be invoked from side effects |
+| [#167](#167) | 0 | 1 | [Feature Request] Align local_activity_execution_failed across SDKs |
+| [#145](#145) | 0 | 1 | [Feature Request] Workfow sleep/await with 0 duration |
+| [#137](#137) | 0 | 1 | [Feature Request] Run a stress test to understand implications of eager activity dispatch |
+| [#78](#78) | 0 | 1 | [Feature Request] Implement signal features |
+| [#77](#77) | 0 | 1 | [Feature Request] Implement activity features |
+| [#75](#75) | 0 | 1 | [Feature Request] Friendly version of listWorkflowExecutions |
+| [#67](#67) | 0 | 1 | ✅ Activity Heartbeat Throttling |
+| [#66](#66) | 0 | 1 | [Feature Request] Allow running failure fields through codec |
+| [#65](#65) | 0 | 1 | [Feature Request] Attach info about unresolved commands to WFT completions |
+| [#47](#47) | 0 | 1 | [Feature Request] SDKs should differentiate between `NamespaceInvalidState` and `NamespaceNotFound` errors |
+| [#19](#19) | 0 | 1 | [Feature Request] Call ResetStickyTaskQueue on worker shutdown |
+| [#12](#12) | 0 | 1 | [Feature Request] Add a metric to track certificate expiration |
+| [#4](#4) | 0 | 1 | [Feature Request] Rename features/ to spec/ |
+| [#715](#715) | 0 | 0 | Custom Metadata Support for Workers in Temporal UI and CLI |
+| [#712](#712) | 0 | 0 | [Bug] Use `pnpm` when building TS worker from source |
+| [#706](#706) | 0 | 0 | Support non-workflow activities |
+| [#705](#705) | 0 | 0 | Warn if SDK detects a workflow history over a certain size |
+| [#701](#701) | 0 | 0 | Warn if the SDK tried to send a payload above a specific size |
+| [#694](#694) | 0 | 0 | Allow overriding of the Worker Deployment Version when invoking a Child Workflow. |
+| [#692](#692) | 0 | 0 | Nexus samples and docs should not encourage using request ID for workflow ID |
+| [#691](#691) | 0 | 0 | Deployment feature tests failing in Go docker build |
+| [#687](#687) | 0 | 0 | Assume TLS enabled if API key provided in SDKs |
+| [#684](#684) | 0 | 0 | Provide plugin implementations for contrib/extra integrations |
+| [#678](#678) | 0 | 0 | Nexus serialization context |
+| [#677](#677) | 0 | 0 | [Feature request] Idempotency token for activity |
+| [#676](#676) | 0 | 0 | Append some details to error messages |
+| [#674](#674) | 0 | 0 | [TS] Expose Temporal Nexus operation info to Temporal Nexus operation authors |
+| [#673](#673) | 0 | 0 | SDKs should expose Nexus request deadline |
+| [#672](#672) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot info has proper fields |
+| [#671](#671) | 0 | 0 | Ensure gRPC binary metadata keys are supported by clients |
+| [#669](#669) | 0 | 0 | Add ability to set timer options like summary on higher-level timer calls |
+| [#664](#664) | 0 | 0 | Nexus samples and dev guide docs for sync Nexus ops that use signal, signal-with-start, update, query, ... |
+| [#658](#658) | 0 | 0 | Nexus operation testing environment |
+| [#657](#657) | 0 | 0 | Provide extra/advanced details on start/execute workflow |
+| [#656](#656) | 0 | 0 | Make metrics concerning unregistered activities (and maybe other things) consistent |
+| [#651](#651) | 0 | 0 | Add metric to indicate that poll rate is limited by client |
+| [#636](#636) | 0 | 0 | Add task_queue information to long_request_latency |
+| [#635](#635) | 0 | 0 | Provide last result and last failure to workflows |
+| [#634](#634) | 0 | 0 | Add failure_reason=UnhandledCommand to workflow_task_execution_failed metric |
+| [#632](#632) | 0 | 0 | Add StartDelay to ContinueAsNewOptions |
+| [#620](#620) | 0 | 0 | SDK support for activity reset |
+| [#613](#613) | 0 | 0 | Explore ways of testing pre-patched code in SDKs |
+| [#610](#610) | 0 | 0 | Add summary to Nexus operation |
+| [#609](#609) | 0 | 0 | Initial Nexus implementation |
+| [#603](#603) | 0 | 0 | "RawValue" support for non-converted payloads |
+| [#598](#598) | 0 | 0 | Research and implement a way to test and make sure history is still compatible across SDK versions |
+| [#595](#595) | 0 | 0 | Add features test for cloud API key over data plane |
+| [#591](#591) | 0 | 0 | Uniformize `patched()` API in all SDKs |
+| [#589](#589) | 0 | 0 | Add utility function to classify exceptions as failing the workflow vs failing the task |
+| [#588](#588) | 0 | 0 | Allow UI port to be specified in programmatic dev server |
+| [#585](#585) | 0 | 0 | Support Ruby in this features repo |
+| [#581](#581) | 0 | 0 | [Features Platform] Remove TEMPORAL_FEATURES_DISABLE_WORKFLOW_COMPLETION_CHECK workaround |
+| [#566](#566) | 0 | 0 | Support full query failure structure |
+| [#560](#560) | 0 | 0 | Add `WorkflowExecutionInfo.pendingActivities` |
+| [#550](#550) | 0 | 0 | Allow queries to target a certain event number in replayers (and maybe other interactions) |
+| [#538](#538) | 0 | 0 | Allow SDKs to support connecting to multiple endpoints for Multi-region Namespaces |
+| [#534](#534) | 0 | 0 | Bidirectional linking of workflows through activity |
+| [#512](#512) | 0 | 0 | Support schedule search attribute update |
+| [#506](#506) | 0 | 0 | Support replaying past last successful workflow task completion |
+| [#499](#499) | 0 | 0 | Warn or error when update handlers dangle across CAN or workflow exit |
+| [#492](#492) | 0 | 0 | Feature test for Update + Workflow Reset  |
+| [#487](#487) | 0 | 0 | GetWorkflowHistory payload size exceeds limit for a single page |
+| [#482](#482) | 0 | 0 | Decide/apply/clarify ambiguous failure behavior in signals and workflows |
+| [#481](#481) | 0 | 0 | Do not set workflow completion until after all coroutines have settled in the task |
+| [#477](#477) | 0 | 0 | Call describe namespace on worker start |
+| [#470](#470) | 0 | 0 | Tests to ensure dev-server/test-server processes properly shut down |
+| [#468](#468) | 0 | 0 | Full history decode utility |
+| [#462](#462) | 0 | 0 | Expose attempts in `ActivityFailure` |
+| [#460](#460) | 0 | 0 | StickyTaskQueueDrainTimeout |
+| [#446](#446) | 0 | 0 | [Feature Request] provide a way to create a Temporal schedule which runs every last day of the month |
+| [#429](#429) | 0 | 0 | Add SLA dashboard using SDK/client metrics |
+| [#427](#427) | 0 | 0 | [Feature Request] Unknown SDK flag should behave consistently across SDK |
+| [#419](#419) | 0 | 0 | [Feature Request] Expose next retry delay on Application Failure in all SDKs |
+| [#384](#384) | 0 | 0 | logback-classic-1.2.9.jar: 2 vulnerabilities (highest severity is: 7.5) |
+| [#366](#366) | 0 | 0 | xunit.assert.2.5.3.nupkg: 2 vulnerabilities (highest severity is: 7.5) |
+| [#353](#353) | 0 | 0 | [Features Platform] Make it possible to configure client interceptors in typescript |
+| [#330](#330) | 0 | 0 | [Bug] bugs/go/child_workflow_cancel_panic flaky |
+| [#325](#325) | 0 | 0 | [Feature Request] Support reason for Cancel and Terminate workflow API |
+| [#315](#315) | 0 | 0 | [Bug] Stale workflows in sdk-ci.a2dd6 namespace |
+| [#314](#314) | 0 | 0 | [Feature Request] Add Client method for non blocking try-get-result |
+| [#305](#305) | 0 | 0 | [Feature Request] Block when workflow commands are produced in a read only context |
+| [#294](#294) | 0 | 0 | Safe Deploys API - Public Preview |
+| [#288](#288) | 0 | 0 | guava-31.1-jre.jar: 1 vulnerabilities (highest severity is: 7.1) |
+| [#279](#279) | 0 | 0 | [Feature Request] Harness history checker should have easier way to ignore new fields |
+| [#254](#254) | 0 | 0 | json-path-2.6.0.jar: 2 vulnerabilities (highest severity is: 7.5) |
+| [#241](#241) | 0 | 0 | [Feature Request] Support LastHeartbeatDetails on RespondActivityTaskFailedRequest |
+| [#240](#240) | 0 | 0 | [Feature Request] Ensure every SDK fails the workflow not the task on invalid workflow argument |
+| [#233](#233) | 0 | 0 | [Feature Request] Replayer API should return result of replayed workflow |
+| [#222](#222) | 0 | 0 | workflow_completed and workflow_continue_as_new counters should be logged after a successful reporting to the server |
+| [#218](#218) | 0 | 0 | [Feature Request] SDKs should not fatal the worker on any error without a retry period |
+| [#202](#202) | 0 | 0 | [Feature Request] Test schedule workflows have all required information set in their execution |
+| [#194](#194) | 0 | 0 | [Feature Request] Schedule timers even if duration is <= 0 |
+| [#182](#182) | 0 | 0 | Document that list workflow/schedule calls are eventually consistent in specs |
+| [#166](#166) | 0 | 0 | [Feature Request] Support --version latest |
+| [#160](#160) | 0 | 0 | [Feature Request] Workflow only worker specs |
+| [#159](#159) | 0 | 0 | [Feature Request] Update encryption samples to encrypt failure attributes |
+| [#155](#155) | 0 | 0 | [Feature Request] Failure Converter |
+| [#153](#153) | 0 | 0 | [Feature Request] Schedule API features |
+| [#143](#143) | 0 | 0 | [Feature Request] SDK should fail a workflow task if it receives non-ignorable events that it doesn't handle |
+| [#133](#133) | 0 | 0 | [Feature Request] Add spec tests for workflow handles with different run ID types |
+| [#130](#130) | 0 | 0 | [Feature Request] Ability to intercept client result fetching |
+| [#122](#122) | 0 | 0 | Set larger maxInboundMetadataSize to accommodate unbounded Server error messages |
+| [#121](#121) | 0 | 0 | [Feature Request] No history JSON conversion if already done |
+| [#113](#113) | 0 | 0 | [Documentation] Testing feedback request |
+| [#105](#105) | 0 | 0 | [Feature Request] Auto timeout activity after heartbeat timeout |
+| [#94](#94) | 0 | 0 | [Feature Request] Group Temporal-specific log tags |
+| [#93](#93) | 0 | 0 | [Feature Request] Prefix span and span tag names  |
+| [#91](#91) | 0 | 0 | [Feature Request] SDKs should set `supported-features` header |
+| [#83](#83) | 0 | 0 | [Feature Request] Implement timer features |
+| [#80](#80) | 0 | 0 | [Feature Request] Implement continue_as_new features |
+| [#79](#79) | 0 | 0 | [Feature Request] Implement child_workflow features |
+| [#76](#76) | 0 | 0 | [Feature Request] Friendly version of `getWorkflowExecutionHistory` |
+| [#53](#53) | 0 | 0 | Metrics for consecutive workflow and activity task failures |
+| [#42](#42) | 0 | 0 | [Feature Request] Add higher-level Activity abstractions |
+| [#29](#29) | 0 | 0 | Add `first_execution_run_id` to APIs where it’s missing |
+| [#27](#27) | 0 | 0 | [Feature Request] Unified gRPC retry logic |
+| [#13](#13) | 0 | 0 | [Feature Request] SDK should allow configurable long-poll timeouts |
+| [#11](#11) | 0 | 0 | [Feature Request] SDKs users should have a way to inject new certificates to a connection instance |
+| [#10](#10) | 0 | 0 | Confirm behavior of manually returning cancellation errors in all SDKs from workfows and activities |
+| [#8](#8) | 0 | 0 | [Feature Request] SDKs should backoff aggressively on `ResourceExhaustedError` |
 
 ---
 
@@ -292,6 +292,8 @@
 Issues are sorted by priority score (upvotes × 2 + comments).
 
 ---
+
+<a id="399"></a>
 
 ### #399: Custom Markers for Workflow History/Timeline
 
@@ -461,6 +463,8 @@ ah okay, I understand.
 
 
 ---
+
+<a id="118"></a>
 
 ### #118: [Feature Request] Declarative schedules: upsert, sync, terraform, etc.
 
@@ -820,6 +824,8 @@ Checking in on this, is this still being discussed or worked on? This issue has 
 
 ---
 
+<a id="649"></a>
+
 ### #649: Add support for unit testing workflow versioning
 
 | Field | Value |
@@ -886,6 +892,8 @@ This enhancement would be very helpful for us.
 
 
 ---
+
+<a id="558"></a>
 
 ### #558: Add WorkflowIdConflictPolicy in child workflow options
 
@@ -1203,6 +1211,8 @@ Any input on this workaround is appreciated.
 
 
 ---
+
+<a id="562"></a>
 
 ### #562: [Feature Request] Session support
 
@@ -1538,6 +1548,8 @@ Thank you for considering this feedback @mjameswh, and I look forward to contrib
 
 ---
 
+<a id="443"></a>
+
 ### #443: [Feature Request] Implement activity task poll limit
 
 | Field | Value |
@@ -1754,6 +1766,8 @@ Reactions: 👍 1 🎉 1
 
 ---
 
+<a id="434"></a>
+
 ### #434: [Feature Request] Serialization context for codecs and converters
 
 | Field | Value |
@@ -1807,6 +1821,8 @@ A solution similar to the Java SDK in other languages, see https://github.com/te
 
 
 ---
+
+<a id="51"></a>
 
 ### #51: [Feature Request] Standardize method for listing workflow queries/signals (and maybe other things like registered activities/workflows and other metadata)
 
@@ -2064,6 +2080,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="563"></a>
+
 ### #563: Tag workflow_failed counter metric with exception type
 
 | Field | Value |
@@ -2229,6 +2247,8 @@ i think this could work but not sure how it would be set in scenario where user 
 
 ---
 
+<a id="456"></a>
+
 ### #456: [Feature Request] Provide worker status
 
 | Field | Value |
@@ -2293,6 +2313,8 @@ Reactions: ❤️ 1
 
 
 ---
+
+<a id="257"></a>
 
 ### #257: Update API: support not writing history when calling external failure
 
@@ -2487,6 +2509,8 @@ I think we'd need to allow update validators to call local activities in some fo
 
 ---
 
+<a id="229"></a>
+
 ### #229: [Feature Request] Auto heartbeating
 
 | Field | Value |
@@ -2534,6 +2558,8 @@ func MyActivity(ctx context.Context) error {
 
 
 ---
+
+<a id="69"></a>
 
 ### #69: [Feature Request] Specify reset point in workflow code
 
@@ -2713,6 +2739,8 @@ Seems pretty straight forward to do with just a replayer and a special exception
 
 ---
 
+<a id="463"></a>
+
 ### #463: Customize activity failure logging (and more?)
 
 | Field | Value |
@@ -2835,6 +2863,8 @@ Users may also want to be able to customize error logs from Workflow or Nexus ta
 
 ---
 
+<a id="377"></a>
+
 ### #377: Support an option to disable "Close" timeouts for indefinitely running Activities
 
 | Field | Value |
@@ -2950,6 +2980,8 @@ Per https://github.com/temporalio/features/issues/397, would it be possible to r
 
 ---
 
+<a id="119"></a>
+
 ### #119: Add upsertMemo command
 
 | Field | Value |
@@ -3054,6 +3086,8 @@ PHP: implemented in [v2.13.0](https://github.com/temporalio/sdk-php/releases/tag
 
 ---
 
+<a id="25"></a>
+
 ### #25: [Feature Request] SDK should expose workflow_started metric
 
 | Field | Value |
@@ -3123,6 +3157,8 @@ Has value in both places. This specific request is to track specific-worker work
 
 
 ---
+
+<a id="624"></a>
 
 ### #624: Gracefully fail gRPC-message-too-large issues in worker
 
@@ -3202,6 +3238,8 @@ maybe we will still see workflow task failed event but sdk tells server not to r
 
 ---
 
+<a id="363"></a>
+
 ### #363: [Feature Request] Work around gRPC message size limit for task completion
 
 | Field | Value |
@@ -3228,6 +3266,8 @@ Task completion of many medium-input-payload activities in one task will cause i
 
 
 ---
+
+<a id="223"></a>
 
 ### #223: [Feature Request] SDK metric for activity failure exhausting retries
 
@@ -3289,6 +3329,8 @@ Is my understanding right from the release notes ?
 
 
 ---
+
+<a id="9"></a>
 
 ### #9: [Feature Request] Enhance error message & add error code for expired client cert
 
@@ -3429,6 +3471,8 @@ I do not know, but it probably should. It is the server that knows why it's clos
 
 ---
 
+<a id="515"></a>
+
 ### #515: Expose start delay in child workflow options
 
 | Field | Value |
@@ -3488,6 +3532,8 @@ Hi @lina-temporal, any chance of an update on this?  I have a usecase which this
 
 
 ---
+
+<a id="503"></a>
 
 ### #503: Cancel and Signal should still propagate to child workflows after child CAN'ed
 
@@ -3553,6 +3599,8 @@ Hi @mjameswh, we seem to be running into the same issue (TS SDK) - I was wonderi
 
 
 ---
+
+<a id="422"></a>
 
 ### #422: [Bug] Incomplete Span Reporting: Only RunActivity Spans Sent When Workflow Triggered via scheduler
 
@@ -3689,6 +3737,8 @@ class IdempotentIdGenerator(IdGenerator):
 
 ---
 
+<a id="322"></a>
+
 ### #322: [Feature Request] Configurable workflow failure exception types
 
 | Field | Value |
@@ -3768,6 +3818,8 @@ Also more note for SDK implementers:
 
 
 ---
+
+<a id="268"></a>
 
 ### #268: [Feature Request] Add SDK side metrics for Update
 
@@ -3857,6 +3909,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="146"></a>
 
 ### #146: [Feature Request] Eagerly initialize workflow/activity counters
 
@@ -3984,6 +4038,8 @@ Was this actually completed?  I don't see any linked PRs.
 
 ---
 
+<a id="142"></a>
+
 ### #142: [Feature Request] SDKs should send client capabilities in gRPC metadata
 
 | Field | Value |
@@ -4076,6 +4132,8 @@ I'd personally like to wait until the case where a value cannot be put into the 
 
 ---
 
+<a id="380"></a>
+
 ### #380: [Feature Request] Every SDK needs a DataDog sample for sending metrics and traces to DataDog agent
 
 | Field | Value |
@@ -4127,6 +4185,8 @@ So this task is more about Temporal confirming behavior and how it looks and the
 
 
 ---
+
+<a id="203"></a>
 
 ### #203: [Feature Request] Provide client from an activity
 
@@ -4181,6 +4241,8 @@ Thanks!
 
 ---
 
+<a id="175"></a>
+
 ### #175: [Feature Request] Endtoend latency metric for cron executions
 
 | Field | Value |
@@ -4222,6 +4284,8 @@ or workflow_cron_execution_latency
 
 ---
 
+<a id="98"></a>
+
 ### #98: [Feature Request] New metric: worker_task_slots_total
 
 | Field | Value |
@@ -4255,6 +4319,8 @@ An alternative would be to emit a metric worker_task_slots_usage showing the cur
 
 
 ---
+
+<a id="685"></a>
 
 ### #685: [Feature Request] Omit HostedMCPTool headers from serialized activity input?
 
@@ -4331,6 +4397,8 @@ Received some new information from other folks on the team actually. Since you h
 
 
 ---
+
+<a id="561"></a>
 
 ### #561: [Feature Request] Add Mutable Side Effect in Core based SDKs
 
@@ -4415,6 +4483,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="392"></a>
+
 ### #392: [Feature Request] Add temporal_worker_task_slots_total metric
 
 | Field | Value |
@@ -4479,6 +4549,8 @@ Well, it's known somewhere.  But it's not conveniently accessible to metrics/das
 
 
 ---
+
+<a id="138"></a>
 
 ### #138: [Feature Request] SDKs should have built-in contextual logging
 
@@ -4561,6 +4633,8 @@ Python differences from TS:
 
 
 ---
+
+<a id="568"></a>
 
 ### #568: SDK should provide a native query builder
 
@@ -4650,6 +4724,8 @@ For now, https://github.com/OpeOnikute/temporal-go-querybuilder remains availabl
 
 ---
 
+<a id="564"></a>
+
 ### #564: Provide flag to tell the update handler that the handling is from a re-apply
 
 | Field | Value |
@@ -4730,6 +4806,8 @@ That's true. So that workflow context is less ideal. But should be enough if I w
 
 
 ---
+
+<a id="489"></a>
 
 ### #489: Provide sample to show  per workflow interceptor instead of global
 
@@ -4826,6 +4904,8 @@ On Thu, Jun 20, 2024 at 1:43 PM Chad Retz ***@***.***> wrote:
 
 ---
 
+<a id="441"></a>
+
 ### #441: [Feature Request] Environment configuration
 
 | Field | Value |
@@ -4916,6 +4996,8 @@ Developers henceforth can use Python's impl at https://github.com/temporalio/sdk
 
 ---
 
+<a id="323"></a>
+
 ### #323: [Feature Request] Support for HTTP CONNECT proxies in SDKs
 
 | Field | Value |
@@ -4978,6 +5060,8 @@ HTTP proxies should be stable in java grpc https://github.com/grpc/grpc-java/iss
 
 
 ---
+
+<a id="243"></a>
 
 ### #243: [Feature Request] Expose schedule specific info in Workflows through a API
 
@@ -5062,6 +5146,8 @@ Interesting, thanks for keeping us posted.
 
 ---
 
+<a id="150"></a>
+
 ### #150: Nightly CI against server and SDK `master`
 
 | Field | Value |
@@ -5116,6 +5202,8 @@ I wouldn't consider this the highest priority but the additional coverage will g
 
 
 ---
+
+<a id="140"></a>
 
 ### #140: [Feature Request] Expose history size bytes to workflow execution info
 
@@ -5189,6 +5277,8 @@ Or if you really just mean copying a value to a struct in the describe/list apis
 
 ---
 
+<a id="114"></a>
+
 ### #114: [Feature Request] Setting namespace and task queue during replay
 
 | Field | Value |
@@ -5234,6 +5324,8 @@ Yes, this needs to be assigned at least to confirm behavior. We probably need to
 
 
 ---
+
+<a id="46"></a>
 
 ### #46: SDKs should default set gRPC max receive message size to 128MB
 
@@ -5294,6 +5386,8 @@ To fix my statement above, server limit only applies to requests I think, but se
 
 ---
 
+<a id="702"></a>
+
 ### #702: Add activity_fail_endtoend_latency metric
 
 | Field | Value |
@@ -5336,6 +5430,8 @@ Does that work?
 
 
 ---
+
+<a id="633"></a>
 
 ### #633: Treat Activity start as the first heartbeat time
 
@@ -5395,6 +5491,8 @@ I believe adding a "force heartbeat" option and not emitting the first heartbeat
 
 ---
 
+<a id="525"></a>
+
 ### #525: High-level task queue describe call with default-build-ID stats
 
 | Field | Value |
@@ -5450,6 +5548,8 @@ Note, enhanced is deprecated.
 
 
 ---
+
+<a id="498"></a>
 
 ### #498: Allow listing and filtering workflows based on current failures.
 
@@ -5525,6 +5625,8 @@ Hey @drewhoskins-temporal I think we can revise this now that we have visibility
 
 ---
 
+<a id="417"></a>
+
 ### #417: RestartWorkflow on workflow task failure
 
 | Field | Value |
@@ -5588,6 +5690,8 @@ Non-determinism errors should not be blindly subject to retry anyways IMO.
 
 ---
 
+<a id="402"></a>
+
 ### #402: [Feature Request] WorkflowService API to update activity rate limit on a task queue
 
 | Field | Value |
@@ -5640,6 +5744,8 @@ We'll also want to take versioning and build IDs into account when working on th
 
 ---
 
+<a id="195"></a>
+
 ### #195: Standardize unregistered Activity Type behavior
 
 | Field | Value |
@@ -5687,6 +5793,8 @@ Works for me
 
 
 ---
+
+<a id="168"></a>
 
 ### #168: [Feature Request] Always flush completed local work when nearing the workflow task timeout
 
@@ -5739,6 +5847,8 @@ I don’t see an issue with this, it’s a matter of timing. Can you elaborate w
 
 
 ---
+
+<a id="96"></a>
 
 ### #96: [Feature Request] Backoff more on resource exhausted error
 
@@ -5819,6 +5929,8 @@ So we'd replace the `NextBackOff()` method with a `Backoff(attempt)` method.
 
 ---
 
+<a id="54"></a>
+
 ### #54: WorkflowInfo.lastCompletionResult
 
 | Field | Value |
@@ -5874,6 +5986,8 @@ IIRC no SDKs support returning multiple values, and some subset of [SDKs, UI, CL
 
 
 ---
+
+<a id="45"></a>
 
 ### #45: Lazy connectivity for Temporal client and healthCheck
 
@@ -5932,6 +6046,8 @@ Thanks @cretz I checked Go off the list
 
 ---
 
+<a id="3"></a>
+
 ### #3: [Feature Request] Add feature tests for SDK side validation of different server commands
 
 | Field | Value |
@@ -5982,6 +6098,8 @@ This is for client side options validation
 
 ---
 
+<a id="696"></a>
+
 ### #696: Worker Heartbeating
 
 | Field | Value |
@@ -6026,6 +6144,8 @@ This requires a new background nexus worker that will send runtime+namespace+cli
 
 
 ---
+
+<a id="675"></a>
 
 ### #675: [Feature Request] Optionally hide server startup banner
 
@@ -6099,6 +6219,8 @@ Hi thanks for the quick response, yes I agree we should ideally reuse the same w
 
 
 ---
+
+<a id="602"></a>
 
 ### #602: Heartbeating activities should be interrupted when the activities are paused.
 
@@ -6174,6 +6296,8 @@ Reasoning:
 
 ---
 
+<a id="594"></a>
+
 ### #594: Natively support musl-based environments
 
 | Field | Value |
@@ -6217,6 +6341,8 @@ Reasoning:
 
 ---
 
+<a id="592"></a>
+
 ### #592: Add `temporalNamespace` tag to all tracing spans
 
 | Field | Value |
@@ -6255,6 +6381,8 @@ Spans have several tags but not the namespace. Based on user request, we should 
 
 
 ---
+
+<a id="573"></a>
 
 ### #573: Add fine control for workflow cache eviction
 
@@ -6336,6 +6464,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="553"></a>
+
 ### #553: allow reset API to bring new signals as atomic operation
 
 | Field | Value |
@@ -6395,6 +6525,8 @@ Yeah that looks very similar: https://github.com/temporalio/temporal/issues/1203
 
 
 ---
+
+<a id="486"></a>
 
 ### #486: User metadata and workflow metadata query
 
@@ -6460,6 +6592,8 @@ Yes, I think it basically is (or rather this includes that).
 
 ---
 
+<a id="464"></a>
+
 ### #464: [Sample] Add samples showing certificate replacement
 
 | Field | Value |
@@ -6523,6 +6657,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="455"></a>
+
 ### #455: [Feature Request] Consider TLS handshake failures as worker-fatal errors
 
 | Field | Value |
@@ -6559,6 +6695,8 @@ On any TLS failure do the normal retry we should do for all worker poll calls, t
 
 
 ---
+
+<a id="451"></a>
 
 ### #451: [Feature Request] Feature test confirming unhandled-command update behavior
 
@@ -6653,6 +6791,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="439"></a>
+
 ### #439: Stack traces with source mappings in the UI
 
 | Field | Value |
@@ -6706,6 +6846,8 @@ New language implementations should adhere to that same interface when serving t
 
 
 ---
+
+<a id="400"></a>
 
 ### #400: [Feature Request] Workflow-init support
 
@@ -6766,6 +6908,8 @@ While it technically would work, it is discouraged. I do not believe init should
 
 ---
 
+<a id="394"></a>
+
 ### #394: [Feature Request] Worker tracing should upsert header with outer span
 
 | Field | Value |
@@ -6812,6 +6956,8 @@ After discussion, there is just no place for an interceptor in all SDKs to persi
 
 
 ---
+
+<a id="383"></a>
 
 ### #383: [Feature Request] Dynamic Display Name for Activities in Temporal Go
 
@@ -6869,6 +7015,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="378"></a>
+
 ### #378: [Feature Request] Timer duration "jitter" out of box utility
 
 | Field | Value |
@@ -6910,6 +7058,8 @@ I think this is more of a sample than an SDK feature. If a user uses non-determi
 
 
 ---
+
+<a id="376"></a>
 
 ### #376: Add metric for payload size for input/output/signal of workflow/activity 
 
@@ -6962,6 +7112,8 @@ Moving out of the java SDK since this feature isn't specific to that SDK
 
 ---
 
+<a id="343"></a>
+
 ### #343: [Feature Request] Worker Pause
 
 | Field | Value |
@@ -7011,6 +7163,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="339"></a>
 
 ### #339: [Feature Request] Add encryption codec to SDK
 
@@ -7062,6 +7216,8 @@ I agree with @cretz that it isn't as simple as saying "key and algorithm". That 
 
 
 ---
+
+<a id="334"></a>
 
 ### #334: [Feature Request] Worker Slot & Polling Auto-Tuning
 
@@ -7116,6 +7272,8 @@ Whups my bad, I missed that this was about pollers AND slots. Reopening.
 
 
 ---
+
+<a id="293"></a>
 
 ### #293: [Feature Request] Expose UpdateID in an update handler
 
@@ -7200,6 +7358,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="206"></a>
+
 ### #206: [Feature Request] Add context propagators in all SDKs
 
 | Field | Value |
@@ -7236,6 +7396,8 @@ It's unclear if we'd require users to instantiate a context propagating intercep
 
 ---
 
+<a id="204"></a>
+
 ### #204: [Feature Request] Expose currently configured payload converter to workflow code
 
 | Field | Value |
@@ -7267,6 +7429,8 @@ SDKs:
 
 
 ---
+
+<a id="193"></a>
 
 ### #193: Set identity to `ClientOptions.identity` in all possible client calls
 
@@ -7315,6 +7479,8 @@ Put it in this repo so that we'd ensure consistent behavior across SDKs (just di
 
 
 ---
+
+<a id="174"></a>
 
 ### #174: [Feature Request] Consider higher-level activity options for some languages
 
@@ -7374,6 +7540,8 @@ As concepts of Go get potentially redesigned, I think it's clear that invoking a
 
 ---
 
+<a id="164"></a>
+
 ### #164: Support valid proto JSON in SDK replayers
 
 | Field | Value |
@@ -7423,6 +7591,8 @@ I think for us as a product it's better in a long run to have our own stable Tem
 
 
 ---
+
+<a id="116"></a>
 
 ### #116: github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5)
 
@@ -7620,6 +7790,8 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 
 ---
 
+<a id="111"></a>
+
 ### #111: Emit warning log if a supplied client certificate has already expired
 
 | Field | Value |
@@ -7669,6 +7841,8 @@ I am moving this to SDK features so that all SDKs have to do it.
 
 
 ---
+
+<a id="92"></a>
 
 ### #92: [Feature Request] Provide details of previous Activity Task failure
 
@@ -7732,6 +7906,8 @@ This has come up a couple more times, server FR here: https://github.com/tempora
 
 ---
 
+<a id="30"></a>
+
 ### #30: Add support for workflow.SignalExternalWorkflowWithStart (will probably also require server changes)
 
 | Field | Value |
@@ -7775,6 +7951,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="22"></a>
 
 ### #22: [Feature Request] Spec for expected client behavior when using handle or stub methods
 
@@ -7822,6 +8000,8 @@ This issue is to test and document the behavior across sdks
 
 ---
 
+<a id="17"></a>
+
 ### #17: SDK API for describing workflow
 
 | Field | Value |
@@ -7865,6 +8045,8 @@ Describe is the only call I think that applies to across all SDKs atm. Granted i
 
 
 ---
+
+<a id="670"></a>
 
 ### #670: [Feature Request] Reclassify Benign Application errors in OpenTelemetry
 
@@ -7913,6 +8095,8 @@ Exceptions should still be recorded, but not marked as error.
 
 ---
 
+<a id="666"></a>
+
 ### #666: Add BadScheduleActivityAttributes failure_reason to temporal_workflow_task_execution_failed metric
 
 | Field | Value |
@@ -7944,6 +8128,8 @@ I think the SDKs have limited this tag in the metrics to only two values and hav
 
 
 ---
+
+<a id="663"></a>
 
 ### #663: Setting headers on LocalActivities not recorded on EventHistory
 
@@ -8003,6 +8189,8 @@ Can you give information on why users need local activity headers to be visible 
 
 
 ---
+
+<a id="652"></a>
 
 ### #652: Plugins to support controlling multiple configuration points at once
 
@@ -8107,6 +8295,8 @@ Note to implementers - there are also replayer behaviors that have to be account
 
 ---
 
+<a id="650"></a>
+
 ### #650: Add ability to complete workflow from any line
 
 | Field | Value |
@@ -8156,6 +8346,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="639"></a>
+
 ### #639: Add unregistered_activity_invocation
 
 | Field | Value |
@@ -8195,6 +8387,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="637"></a>
 
 ### #637: Add Summary to LocalActivityOptions
 
@@ -8242,6 +8436,8 @@ Appears that this needs to be done in every language
 
 
 ---
+
+<a id="619"></a>
 
 ### #619: Expose `StartWorkflowExecutionResponse` fields to `ExecuteWorkflow` API
 
@@ -8321,6 +8517,8 @@ For links, we need to first wait on https://github.com/temporalio/api/pull/563 t
 
 ---
 
+<a id="615"></a>
+
 ### #615: Show retry policy on activity info
 
 | Field | Value |
@@ -8367,6 +8565,8 @@ Blocked by https://github.com/temporalio/temporal/issues/6502
 
 
 ---
+
+<a id="614"></a>
 
 ### #614: Apply application failure logging and metrics behaviour according to `ApplicationErrorCategory`
 
@@ -8419,6 +8619,8 @@ Consequently, we need to apply the corresponding logging and metrics from the gi
 
 ---
 
+<a id="608"></a>
+
 ### #608: SDK should try to check if activity is completed before sending last buffered heartbeat
 
 | Field | Value |
@@ -8451,6 +8653,8 @@ Can you give some more details of the scenario? How can SDK know if an activity 
 
 
 ---
+
+<a id="607"></a>
 
 ### #607: Standardize (where desirable) metrics across SDK languages
 
@@ -8500,6 +8704,8 @@ We want to do a cross-SDK look at where we have unintentional deviation between 
 
 
 ---
+
+<a id="605"></a>
 
 ### #605: Expose root workflow execution
 
@@ -8551,6 +8757,8 @@ FYI the API is missing the root workflow's namespace which may be different. All
 
 ---
 
+<a id="604"></a>
+
 ### #604: Built-in query responses should use "RawValue"
 
 | Field | Value |
@@ -8599,6 +8807,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="597"></a>
 
 ### #597: Research/solve truncating failure stack traces SDK-side so they don't get truncated server side
 
@@ -8665,6 +8875,8 @@ Also:
 
 ---
 
+<a id="596"></a>
+
 ### #596: Expose Workflow cancel cause/reason
 
 | Field | Value |
@@ -8703,6 +8915,8 @@ Core done here: https://github.com/temporalio/sdk-core/pull/875
 
 
 ---
+
+<a id="576"></a>
 
 ### #576: Special behavior for Temporal built-in prefixes
 
@@ -8756,6 +8970,8 @@ Disallowing reserved prefixes on Task Queues should happen in Core for those SDK
 
 ---
 
+<a id="572"></a>
+
 ### #572: Access to workflow/activity instance created by Temporal from workflow/activity context where applicable
 
 | Field | Value |
@@ -8801,6 +9017,8 @@ Also need to do this for Nexus as well (for Java, and for other langs once ready
 
 
 ---
+
+<a id="571"></a>
 
 ### #571: Concept of "workflow local" value
 
@@ -8852,6 +9070,8 @@ Use cases:
 
 
 ---
+
+<a id="559"></a>
 
 ### #559: Include structured command/event diff/items in non-determinism error
 
@@ -8911,6 +9131,8 @@ AIUI it should be more like
 
 ---
 
+<a id="551"></a>
+
 ### #551: Waiting on update result should auto-skip time in time-skipping environments
 
 | Field | Value |
@@ -8961,6 +9183,8 @@ A couple approaches here:
 
 
 ---
+
+<a id="501"></a>
 
 ### #501: Warn when activities dangle
 
@@ -9020,6 +9244,8 @@ Same for child workflows (at least starting), external signals, nexus, and any o
 
 ---
 
+<a id="494"></a>
+
 ### #494: Easy search attributes in dev server
 
 | Field | Value |
@@ -9069,6 +9295,8 @@ Adding this to SDKs needs to wait on https://github.com/temporalio/temporal/issu
 
 ---
 
+<a id="472"></a>
+
 ### #472: TestWorkflowEnvironment - fail tests on workflow task failures
 
 | Field | Value |
@@ -9100,6 +9328,8 @@ Unsure if this issue is referring to all SDKs (does not have checkboxes from htt
 
 
 ---
+
+<a id="428"></a>
 
 ### #428: [Feature Request] Workflow Update Get-Status (and Wait-For-Stage) Capability
 
@@ -9136,6 +9366,8 @@ We may want to call this "describe" instead
 
 
 ---
+
+<a id="424"></a>
 
 ### #424: [Feature Request] Allow force complete current workflow task when localActivity is completed or failed
 
@@ -9186,6 +9418,8 @@ This sounds like you want to just expose the internal concept we have called wor
 
 ---
 
+<a id="396"></a>
+
 ### #396: [Feature Request] Use macOS M1/ARM runners for all SDK CI 
 
 | Field | Value |
@@ -9228,6 +9462,8 @@ M1 runners are now available https://github.blog/changelog/2024-01-30-github-act
 
 ---
 
+<a id="381"></a>
+
 ### #381: [Feature Request] Expose API to list enabled features for a namespace 
 
 | Field | Value |
@@ -9268,6 +9504,8 @@ May not need every SDK issue opened at this time, but may make sense to open ser
 
 
 ---
+
+<a id="338"></a>
 
 ### #338: Feature Request] Add delay to workflow start options
 
@@ -9322,6 +9560,8 @@ A new field named something like `WorkflowOptions.delay` or `WorkflowOptions.del
 
 ---
 
+<a id="331"></a>
+
 ### #331: [Feature Request] Use codecs for headers in all SDKs
 
 | Field | Value |
@@ -9364,6 +9604,8 @@ We need to align behavior with what we're doing in .Net and Ruby.
 
 ---
 
+<a id="273"></a>
+
 ### #273: [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task
 
 | Field | Value |
@@ -9404,6 +9646,8 @@ Not sure this should include codec which is often at the edge and out of the wor
 
 
 ---
+
+<a id="256"></a>
 
 ### #256: [Feature Request] Return input when describing WE
 
@@ -9469,6 +9713,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="228"></a>
+
 ### #228: [Feature Request] Test workflow changes are deterministic/nondeterministic
 
 | Field | Value |
@@ -9505,6 +9751,8 @@ Add feature test that the same changes to a workflow written in different langua
 
 ---
 
+<a id="219"></a>
+
 ### #219: [Feature Request] SDK workers should not intentionally time out failed workflow tasks if server supports backoff
 
 | Field | Value |
@@ -9540,6 +9788,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="201"></a>
 
 ### #201: [Feature Request] Support dynamic workflows, activities, signals, queries, and updates in all SDKs
 
@@ -9581,6 +9831,8 @@ For implementers - please make sure the parameters of these handlers are "raw pa
 
 ---
 
+<a id="178"></a>
+
 ### #178: [Feature Request] Add GetSignalInfo
 
 | Field | Value |
@@ -9621,6 +9873,8 @@ We also don't provide this information for timer completion, activity completion
 
 ---
 
+<a id="177"></a>
+
 ### #177: [Feature Request] Don't allow apis that generate commands to be invoked from side effects
 
 | Field | Value |
@@ -9655,6 +9909,8 @@ More operations may have to be restricted. Not just the ones that generate comma
 
 ---
 
+<a id="167"></a>
+
 ### #167: [Feature Request] Align local_activity_execution_failed across SDKs
 
 | Field | Value |
@@ -9687,6 +9943,8 @@ Note: this is done for [Go](https://github.com/temporalio/sdk-go/pull/966), stil
 
 
 ---
+
+<a id="145"></a>
 
 ### #145: [Feature Request] Workfow sleep/await with 0 duration
 
@@ -9736,6 +9994,8 @@ Can you confirm this is happening in all SDKs or is this server behavior? I woul
 
 ---
 
+<a id="137"></a>
+
 ### #137: [Feature Request] Run a stress test to understand implications of eager activity dispatch
 
 | Field | Value |
@@ -9778,6 +10038,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="78"></a>
+
 ### #78: [Feature Request] Implement signal features
 
 | Field | Value |
@@ -9809,6 +10071,8 @@ https://github.com/temporalio/sdk-features/pull/101 for first sub-feature
 
 
 ---
+
+<a id="77"></a>
 
 ### #77: [Feature Request] Implement activity features
 
@@ -9844,6 +10108,8 @@ This has already found two bugs:
 
 
 ---
+
+<a id="75"></a>
 
 ### #75: [Feature Request] Friendly version of listWorkflowExecutions
 
@@ -9891,6 +10157,8 @@ Also, I am not sure you can make pagination that much easier (no you don't want 
 
 
 ---
+
+<a id="67"></a>
 
 ### #67: ✅ Activity Heartbeat Throttling
 
@@ -9953,6 +10221,8 @@ Leaving it open to add a feature in this repo.
 
 
 ---
+
+<a id="66"></a>
 
 ### #66: [Feature Request] Allow running failure fields through codec
 
@@ -10025,6 +10295,8 @@ https://github.com/temporalio/sdk-php/blob/f2963de47cef6188fd7634f7b0ba6ef26cf7d
 
 ---
 
+<a id="65"></a>
+
 ### #65: [Feature Request] Attach info about unresolved commands to WFT completions
 
 | Field | Value |
@@ -10073,6 +10345,8 @@ Concur. My specific proto suggestion would be adding needed fields on `temporal.
 
 ---
 
+<a id="47"></a>
+
 ### #47: [Feature Request] SDKs should differentiate between `NamespaceInvalidState` and `NamespaceNotFound` errors
 
 | Field | Value |
@@ -10116,6 +10390,8 @@ And specifically, the worker should consider `NamespaceNotFound` error a fatal e
 
 ---
 
+<a id="19"></a>
+
 ### #19: [Feature Request] Call ResetStickyTaskQueue on worker shutdown
 
 | Field | Value |
@@ -10150,6 +10426,8 @@ Typescript issue https://github.com/temporalio/sdk-core/issues/464
 
 
 ---
+
+<a id="12"></a>
 
 ### #12: [Feature Request] Add a metric to track certificate expiration
 
@@ -10187,6 +10465,8 @@ I think this is a bit unreasonable. Certificates, at least in Go, can be lazily 
 
 ---
 
+<a id="4"></a>
+
 ### #4: [Feature Request] Rename features/ to spec/
 
 | Field | Value |
@@ -10218,6 +10498,8 @@ I like it, let’s do that
 
 
 ---
+
+<a id="715"></a>
 
 ### #715: Custom Metadata Support for Workers in Temporal UI and CLI
 
@@ -10256,6 +10538,8 @@ Describe alternatives you've considered
 
 
 ---
+
+<a id="712"></a>
 
 ### #712: [Bug] Use `pnpm` when building TS worker from source
 
@@ -10296,6 +10580,8 @@ We should fix this to use `pnpm` instead of `npm`
 
 
 ---
+
+<a id="706"></a>
 
 ### #706: Support non-workflow activities
 
@@ -10340,6 +10626,8 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 
 
 ---
+
+<a id="705"></a>
 
 ### #705: Warn if SDK detects a workflow history over a certain size
 
@@ -10389,6 +10677,8 @@ Add a warning on the SDK when the SDK detects a large history. This warning shou
 
 ---
 
+<a id="701"></a>
+
 ### #701: Warn if the SDK tried to send a payload above a specific size
 
 | Field | Value |
@@ -10436,6 +10726,8 @@ https://docs.temporal.io/cloud/limits#transaction-payload-size-limit
 
 
 ---
+
+<a id="694"></a>
 
 ### #694: Allow overriding of the Worker Deployment Version when invoking a Child Workflow.
 
@@ -10486,6 +10778,8 @@ Users want to override the target version on a workflow, especially when doing p
 
 ---
 
+<a id="692"></a>
+
 ### #692: Nexus samples and docs should not encourage using request ID for workflow ID
 
 | Field | Value |
@@ -10524,6 +10818,8 @@ Today Nexus samples and docs use request ID for workflow ID even though they doc
 
 ---
 
+<a id="691"></a>
+
 ### #691: Deployment feature tests failing in Go docker build
 
 | Field | Value |
@@ -10553,6 +10849,8 @@ Feature deployment_versioning/routing_with_ramp failed: timeout waiting for cond
 
 
 ---
+
+<a id="687"></a>
 
 ### #687: Assume TLS enabled if API key provided in SDKs
 
@@ -10595,6 +10893,8 @@ This is a backwards incompatible change, but only for self-hosting users with no
 
 ---
 
+<a id="684"></a>
+
 ### #684: Provide plugin implementations for contrib/extra integrations
 
 | Field | Value |
@@ -10632,6 +10932,8 @@ Most (all?) SDKs have contrib/extra libraries for, say, OpenTelemetry or other a
 
 
 ---
+
+<a id="678"></a>
 
 ### #678: Nexus serialization context
 
@@ -10671,6 +10973,8 @@ As an add on to #434 (and therefore after that), in addition to contextual workf
 
 ---
 
+<a id="677"></a>
+
 ### #677: [Feature request] Idempotency token for activity
 
 | Field | Value |
@@ -10701,6 +11005,8 @@ By all means this can be considered a business logic and should be implemented o
 
 
 ---
+
+<a id="676"></a>
 
 ### #676: Append some details to error messages
 
@@ -10742,6 +11048,8 @@ May need to discuss if this is something we want to do with application failure 
 
 ---
 
+<a id="674"></a>
+
 ### #674: [TS] Expose Temporal Nexus operation info to Temporal Nexus operation authors
 
 | Field | Value |
@@ -10780,6 +11088,8 @@ Like we provide activity info to activity authors and workflow info to workflow 
 
 
 ---
+
+<a id="673"></a>
 
 ### #673: SDKs should expose Nexus request deadline
 
@@ -10827,6 +11137,8 @@ __Temporal SDK__
 
 ---
 
+<a id="672"></a>
+
 ### #672: Ensure tests exist to confirm custom slot supplier slot info has proper fields
 
 | Field | Value |
@@ -10864,6 +11176,8 @@ In many (all?) SDKs, there are not tests confirming that the fields are properly
 
 
 ---
+
+<a id="671"></a>
 
 ### #671: Ensure gRPC binary metadata keys are supported by clients
 
@@ -10905,6 +11219,8 @@ We need to accept bytes as RPC metadata values and need to update code to have T
 
 ---
 
+<a id="669"></a>
+
 ### #669: Add ability to set timer options like summary on higher-level timer calls
 
 | Field | Value |
@@ -10930,6 +11246,8 @@ Currently timer options are available on `.newTimer` which allows setting summar
 
 
 ---
+
+<a id="664"></a>
 
 ### #664: Nexus samples and dev guide docs for sync Nexus ops that use signal, signal-with-start, update, query, ...
 
@@ -11037,6 +11355,8 @@ Working examples would make it more discoverable and easier for new users to get
 
 ---
 
+<a id="658"></a>
+
 ### #658: Nexus operation testing environment
 
 | Field | Value |
@@ -11082,6 +11402,8 @@ Nexus operation authors, like activity authors, need an environment to test thei
 
 ---
 
+<a id="657"></a>
+
 ### #657: Provide extra/advanced details on start/execute workflow
 
 | Field | Value |
@@ -11122,6 +11444,8 @@ Requires some research, but early thoughts are that start options in different S
 
 ---
 
+<a id="656"></a>
+
 ### #656: Make metrics concerning unregistered activities (and maybe other things) consistent
 
 | Field | Value |
@@ -11160,6 +11484,8 @@ Make metrics concerning unregistered activities (and maybe other things) consist
 
 ---
 
+<a id="651"></a>
+
 ### #651: Add metric to indicate that poll rate is limited by client
 
 | Field | Value |
@@ -11185,6 +11511,8 @@ There are multiple reasons for polls being slowed down. I'm not sure if we need 
 
 ---
 
+<a id="636"></a>
+
 ### #636: Add task_queue information to long_request_latency
 
 | Field | Value |
@@ -11208,6 +11536,8 @@ It would be great to have the task_queue name in the metrics, as it helps identi
 
 
 ---
+
+<a id="635"></a>
 
 ### #635: Provide last result and last failure to workflows
 
@@ -11251,6 +11581,8 @@ Also, although it's technically an array in history/Core, langs should treat thi
 
 ---
 
+<a id="634"></a>
+
 ### #634: Add failure_reason=UnhandledCommand to workflow_task_execution_failed metric
 
 | Field | Value |
@@ -11276,6 +11608,8 @@ high signal rate to executions for example
 
 ---
 
+<a id="632"></a>
+
 ### #632: Add StartDelay to ContinueAsNewOptions
 
 | Field | Value |
@@ -11299,6 +11633,8 @@ Request is to add it also to continue-as-new options.
 
 
 ---
+
+<a id="620"></a>
 
 ### #620: SDK support for activity reset
 
@@ -11343,6 +11679,8 @@ Requirements:
 
 ---
 
+<a id="613"></a>
+
 ### #613: Explore ways of testing pre-patched code in SDKs
 
 | Field | Value |
@@ -11379,6 +11717,8 @@ SDKs today only tests new workflow runs which means only the newer patch/getVers
 
 
 ---
+
+<a id="610"></a>
 
 ### #610: Add summary to Nexus operation
 
@@ -11425,6 +11765,8 @@ SDKs should expose the `Summary` similar to how it was exposed for child workflo
 
 ---
 
+<a id="609"></a>
+
 ### #609: Initial Nexus implementation
 
 | Field | Value |
@@ -11466,6 +11808,8 @@ See the many docs, Nexus specs, and existing implementations as guidance. This i
 
 
 ---
+
+<a id="603"></a>
 
 ### #603: "RawValue" support for non-converted payloads
 
@@ -11514,6 +11858,8 @@ This is useful for a couple of use cases:
 
 ---
 
+<a id="598"></a>
+
 ### #598: Research and implement a way to test and make sure history is still compatible across SDK versions
 
 | Field | Value |
@@ -11543,6 +11889,8 @@ So long as the basic goal of confirming older histories are compatible on newer 
 
 
 ---
+
+<a id="595"></a>
 
 ### #595: Add features test for cloud API key over data plane
 
@@ -11581,6 +11929,8 @@ In this repo, when a `TEMPORAL_CLIENT_CLOUD_API_KEY` env var (set via org level 
 
 
 ---
+
+<a id="591"></a>
 
 ### #591: Uniformize `patched()` API in all SDKs
 
@@ -11649,6 +11999,8 @@ All SDKs already provide some form of Workflow command to record versioning mark
 
 ---
 
+<a id="589"></a>
+
 ### #589: Add utility function to classify exceptions as failing the workflow vs failing the task
 
 | Field | Value |
@@ -11685,6 +12037,8 @@ def is_workflow_exit_exception(e: BaseException) -> bool:
 
 
 ---
+
+<a id="588"></a>
 
 ### #588: Allow UI port to be specified in programmatic dev server
 
@@ -11724,6 +12078,8 @@ Most (all?) SDKs with dev server allow enabling the UI but do not allow customiz
 
 ---
 
+<a id="585"></a>
+
 ### #585: Support Ruby in this features repo
 
 | Field | Value |
@@ -11746,6 +12102,8 @@ Add Ruby support to the repo as a first-class citizen (and implement a couple of
 
 
 ---
+
+<a id="581"></a>
 
 ### #581: [Features Platform] Remove TEMPORAL_FEATURES_DISABLE_WORKFLOW_COMPLETION_CHECK workaround
 
@@ -11775,6 +12133,8 @@ https://github.com/temporalio/features/pull/579 has updated to use the preferred
 
 
 ---
+
+<a id="566"></a>
 
 ### #566: Support full query failure structure
 
@@ -11817,6 +12177,8 @@ Work cannot commence until https://github.com/temporalio/temporal/pull/6947 is r
 
 ---
 
+<a id="560"></a>
+
 ### #560: Add `WorkflowExecutionInfo.pendingActivities`
 
 | Field | Value |
@@ -11842,6 +12204,8 @@ Add [WorkflowExecutionInfo](https://typescript.temporal.io/api/interfaces/client
 
 
 ---
+
+<a id="550"></a>
 
 ### #550: Allow queries to target a certain event number in replayers (and maybe other interactions)
 
@@ -11883,6 +12247,8 @@ Replayers should allow users to provide a query and a certain task boundary to r
 
 ---
 
+<a id="538"></a>
+
 ### #538: Allow SDKs to support connecting to multiple endpoints for Multi-region Namespaces
 
 | Field | Value |
@@ -11918,6 +12284,8 @@ TBA
 
 
 ---
+
+<a id="534"></a>
 
 ### #534: Bidirectional linking of workflows through activity
 
@@ -11972,6 +12340,8 @@ There should also be a server / SDK side config to limit the number of links tra
 
 ---
 
+<a id="512"></a>
+
 ### #512: Support schedule search attribute update
 
 | Field | Value |
@@ -12008,6 +12378,8 @@ Schedules can have their search attributes updated (not to be confused with thei
 
 
 ---
+
+<a id="506"></a>
 
 ### #506: Support replaying past last successful workflow task completion
 
@@ -12058,6 +12430,8 @@ The value of the `isReplaying` flag may need to be adjusted and the SDK should n
 
 ---
 
+<a id="499"></a>
+
 ### #499: Warn or error when update handlers dangle across CAN or workflow exit
 
 | Field | Value |
@@ -12105,6 +12479,8 @@ The value of the `isReplaying` flag may need to be adjusted and the SDK should n
 
 ---
 
+<a id="492"></a>
+
 ### #492: Feature test for Update + Workflow Reset 
 
 | Field | Value |
@@ -12141,6 +12517,8 @@ Add feature tests in this repo for all SDKs for Update + Workflow Reset. Should 
 
 
 ---
+
+<a id="487"></a>
 
 ### #487: GetWorkflowHistory payload size exceeds limit for a single page
 
@@ -12194,6 +12572,8 @@ Dunno.  Try pagination through smaller pages if there's a size problem?  Impleme
 
 ---
 
+<a id="482"></a>
+
 ### #482: Decide/apply/clarify ambiguous failure behavior in signals and workflows
 
 | Field | Value |
@@ -12234,6 +12614,8 @@ TODO - pending outcome
 
 
 ---
+
+<a id="481"></a>
 
 ### #481: Do not set workflow completion until after all coroutines have settled in the task
 
@@ -12302,6 +12684,8 @@ We're going with the first approach above. And core doesn't need to do anything,
 
 ---
 
+<a id="477"></a>
+
 ### #477: Call describe namespace on worker start
 
 | Field | Value |
@@ -12338,6 +12722,8 @@ Worker start should call describe namespace on start just to make sure user has 
 
 
 ---
+
+<a id="470"></a>
 
 ### #470: Tests to ensure dev-server/test-server processes properly shut down
 
@@ -12378,6 +12764,8 @@ CI tests for all SDKs that have these subprocesses need to confirm that after sh
 
 ---
 
+<a id="468"></a>
+
 ### #468: Full history decode utility
 
 | Field | Value |
@@ -12417,6 +12805,8 @@ Today if a user is in Go, they can use to visit payloads and decrypt them: https
 
 
 ---
+
+<a id="462"></a>
 
 ### #462: Expose attempts in `ActivityFailure`
 
@@ -12463,6 +12853,8 @@ The field should be populated in case the activity ended up as failed or cancele
 
 ---
 
+<a id="460"></a>
+
 ### #460: StickyTaskQueueDrainTimeout
 
 | Field | Value |
@@ -12504,6 +12896,8 @@ Add an option to drain sticky task queue during graceful shutdown. Worker will s
 
 ---
 
+<a id="446"></a>
+
 ### #446: [Feature Request] provide a way to create a Temporal schedule which runs every last day of the month
 
 | Field | Value |
@@ -12543,6 +12937,8 @@ We have the same ask from customers
 
 ---
 
+<a id="429"></a>
+
 ### #429: Add SLA dashboard using SDK/client metrics
 
 | Field | Value |
@@ -12568,6 +12964,8 @@ It would be great to have a metrics dashboard here https://github.com/temporalio
 
 
 ---
+
+<a id="427"></a>
 
 ### #427: [Feature Request] Unknown SDK flag should behave consistently across SDK
 
@@ -12599,6 +12997,8 @@ Originally when we added SDK flags we said the SDK should fail on an unknown fla
 
 
 ---
+
+<a id="419"></a>
 
 ### #419: [Feature Request] Expose next retry delay on Application Failure in all SDKs
 
@@ -12638,6 +13038,8 @@ We also need to support this in local activities:
 
 
 ---
+
+<a id="384"></a>
 
 ### #384: logback-classic-1.2.9.jar: 2 vulnerabilities (highest severity is: 7.5)
 
@@ -12829,6 +13231,8 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 
 ---
 
+<a id="366"></a>
+
 ### #366: xunit.assert.2.5.3.nupkg: 2 vulnerabilities (highest severity is: 7.5)
 
 | Field | Value |
@@ -13008,6 +13412,8 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 
 ---
 
+<a id="353"></a>
+
 ### #353: [Features Platform] Make it possible to configure client interceptors in typescript
 
 | Field | Value |
@@ -13032,6 +13438,8 @@ Currently, the features harness for Typescript instantiates the client when inst
 
 
 ---
+
+<a id="330"></a>
 
 ### #330: [Bug] bugs/go/child_workflow_cancel_panic flaky
 
@@ -13072,6 +13480,8 @@ In case link goes stale:
 
 ---
 
+<a id="325"></a>
+
 ### #325: [Feature Request] Support reason for Cancel and Terminate workflow API
 
 | Field | Value |
@@ -13105,6 +13515,8 @@ It would be nice to support:
 
 ---
 
+<a id="315"></a>
+
 ### #315: [Bug] Stale workflows in sdk-ci.a2dd6 namespace
 
 | Field | Value |
@@ -13131,6 +13543,8 @@ Do both those things.
 
 
 ---
+
+<a id="314"></a>
 
 ### #314: [Feature Request] Add Client method for non blocking try-get-result
 
@@ -13182,6 +13596,8 @@ Workaround: Call raw `GetWorkflowHistory` w/ the filter type set to close event 
 
 ---
 
+<a id="305"></a>
+
 ### #305: [Feature Request] Block when workflow commands are produced in a read only context
 
 | Field | Value |
@@ -13220,6 +13636,8 @@ In Go I would expect the workflow task processing to panic. In java probably thr
 
 ---
 
+<a id="294"></a>
+
 ### #294: Safe Deploys API - Public Preview
 
 | Field | Value |
@@ -13251,6 +13669,8 @@ SDK checklist:
 
 
 ---
+
+<a id="288"></a>
 
 ### #288: guava-31.1-jre.jar: 1 vulnerabilities (highest severity is: 7.1)
 
@@ -13372,6 +13792,8 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 
 ---
 
+<a id="279"></a>
+
 ### #279: [Feature Request] Harness history checker should have easier way to ignore new fields
 
 | Field | Value |
@@ -13405,6 +13827,8 @@ An easy way to mark certain fields as "it's ok if this is present in current his
 
 
 ---
+
+<a id="254"></a>
 
 ### #254: json-path-2.6.0.jar: 2 vulnerabilities (highest severity is: 7.5)
 
@@ -13585,6 +14009,8 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 
 ---
 
+<a id="241"></a>
+
 ### #241: [Feature Request] Support LastHeartbeatDetails on RespondActivityTaskFailedRequest
 
 | Field | Value |
@@ -13611,6 +14037,8 @@ Support this field in all SDKs https://github.com/temporalio/api/blame/44e439726
 
 ---
 
+<a id="240"></a>
+
 ### #240: [Feature Request] Ensure every SDK fails the workflow not the task on invalid workflow argument
 
 | Field | Value |
@@ -13635,6 +14063,8 @@ Workflows should fail if the arguments cannot be converted. For concerns where t
 
 
 ---
+
+<a id="233"></a>
 
 ### #233: [Feature Request] Replayer API should return result of replayed workflow
 
@@ -13666,6 +14096,8 @@ A new replayer API that returns the replayed workflow result.
 
 
 ---
+
+<a id="222"></a>
 
 ### #222: workflow_completed and workflow_continue_as_new counters should be logged after a successful reporting to the server
 
@@ -13705,6 +14137,8 @@ The same problem is present for `workflow_continue_as_new` counter.
 
 ---
 
+<a id="218"></a>
+
 ### #218: [Feature Request] SDKs should not fatal the worker on any error without a retry period
 
 | Field | Value |
@@ -13733,6 +14167,8 @@ Every SDK should react the same to seeing a worker error. They should probably m
 
 
 ---
+
+<a id="202"></a>
 
 ### #202: [Feature Request] Test schedule workflows have all required information set in their execution
 
@@ -13779,6 +14215,8 @@ Verify this information is present and accessible on all SDKs
 
 ---
 
+<a id="194"></a>
+
 ### #194: [Feature Request] Schedule timers even if duration is <= 0
 
 | Field | Value |
@@ -13814,6 +14252,8 @@ https://github.com/temporalio/features/issues/378
 
 ---
 
+<a id="182"></a>
+
 ### #182: Document that list workflow/schedule calls are eventually consistent in specs
 
 | Field | Value |
@@ -13846,6 +14286,8 @@ This could very well be a cloud issue, but this issue serves to track the remova
 
 ---
 
+<a id="166"></a>
+
 ### #166: [Feature Request] Support --version latest
 
 | Field | Value |
@@ -13871,6 +14313,8 @@ Need `--version latest` support for all SDKs. This should use language-dependent
 
 ---
 
+<a id="160"></a>
+
 ### #160: [Feature Request] Workflow only worker specs
 
 | Field | Value |
@@ -13894,6 +14338,8 @@ The worker should not poll for activities or request eager activity executions.
 
 
 ---
+
+<a id="159"></a>
 
 ### #159: [Feature Request] Update encryption samples to encrypt failure attributes
 
@@ -13924,6 +14370,8 @@ Update the encryption sample in all of the sample repos to opt-in to encrypted f
 
 ---
 
+<a id="155"></a>
+
 ### #155: [Feature Request] Failure Converter
 
 | Field | Value |
@@ -13952,6 +14400,8 @@ sdk-feature test for encoding attributes.
 
 
 ---
+
+<a id="153"></a>
 
 ### #153: [Feature Request] Schedule API features
 
@@ -13983,6 +14433,8 @@ Features for https://github.com/temporalio/sdk-features/issues/73.
 
 ---
 
+<a id="143"></a>
+
 ### #143: [Feature Request] SDK should fail a workflow task if it receives non-ignorable events that it doesn't handle
 
 | Field | Value |
@@ -14007,6 +14459,8 @@ SDKs should start using this flag to enable adding new events that are safe to i
 
 
 ---
+
+<a id="133"></a>
 
 ### #133: [Feature Request] Add spec tests for workflow handles with different run ID types
 
@@ -14036,6 +14490,8 @@ We're missing the spec for how those are used.
 
 ---
 
+<a id="130"></a>
+
 ### #130: [Feature Request] Ability to intercept client result fetching
 
 | Field | Value |
@@ -14064,6 +14520,8 @@ Allow interception of workflow results. Considered, at least for Python/TS, to a
 
 
 ---
+
+<a id="122"></a>
 
 ### #122: Set larger maxInboundMetadataSize to accommodate unbounded Server error messages
 
@@ -14097,6 +14555,8 @@ The proposed value is maxInboundMetadataSize = 4Mb
 
 
 ---
+
+<a id="121"></a>
 
 ### #121: [Feature Request] No history JSON conversion if already done
 
@@ -14136,6 +14596,8 @@ Make sure all SDKs only perform the enum conversion if not already done. Meaning
 
 
 ---
+
+<a id="113"></a>
 
 ### #113: [Documentation] Testing feedback request
 
@@ -14184,6 +14646,8 @@ The following is the suggested TOC:
 
 ---
 
+<a id="105"></a>
+
 ### #105: [Feature Request] Auto timeout activity after heartbeat timeout
 
 | Field | Value |
@@ -14218,6 +14682,8 @@ SDK should set a heartbeat timeout, and cancel the context so activity could fai
 
 ---
 
+<a id="94"></a>
+
 ### #94: [Feature Request] Group Temporal-specific log tags
 
 | Field | Value |
@@ -14249,6 +14715,8 @@ cc @jlegrone
 
 ---
 
+<a id="93"></a>
+
 ### #93: [Feature Request] Prefix span and span tag names 
 
 | Field | Value |
@@ -14279,6 +14747,8 @@ cc @jlegrone
 
 
 ---
+
+<a id="91"></a>
 
 ### #91: [Feature Request] SDKs should set `supported-features` header
 
@@ -14318,6 +14788,8 @@ https://github.com/temporalio/temporal/blob/c2a3a2bdfb6377a633928203ffe577281da2
 
 ---
 
+<a id="83"></a>
+
 ### #83: [Feature Request] Implement timer features
 
 | Field | Value |
@@ -14340,6 +14812,8 @@ https://github.com/temporalio/temporal/blob/c2a3a2bdfb6377a633928203ffe577281da2
 
 
 ---
+
+<a id="80"></a>
 
 ### #80: [Feature Request] Implement continue_as_new features
 
@@ -14364,6 +14838,8 @@ https://github.com/temporalio/temporal/blob/c2a3a2bdfb6377a633928203ffe577281da2
 
 ---
 
+<a id="79"></a>
+
 ### #79: [Feature Request] Implement child_workflow features
 
 | Field | Value |
@@ -14386,6 +14862,8 @@ https://github.com/temporalio/temporal/blob/c2a3a2bdfb6377a633928203ffe577281da2
 
 
 ---
+
+<a id="76"></a>
 
 ### #76: [Feature Request] Friendly version of `getWorkflowExecutionHistory`
 
@@ -14438,6 +14916,8 @@ and throwing `WorkflowNotFoundError`
 
 ---
 
+<a id="53"></a>
+
 ### #53: Metrics for consecutive workflow and activity task failures
 
 | Field | Value |
@@ -14481,6 +14961,8 @@ Make a full-blown histogram with wide buckets that should be formatted according
 
 ---
 
+<a id="42"></a>
+
 ### #42: [Feature Request] Add higher-level Activity abstractions
 
 | Field | Value |
@@ -14505,6 +14987,8 @@ For example:
 
 
 ---
+
+<a id="29"></a>
 
 ### #29: Add `first_execution_run_id` to APIs where it’s missing
 
@@ -14537,6 +15021,8 @@ Add "first execution run ID" to workflow info
 
 ---
 
+<a id="27"></a>
+
 ### #27: [Feature Request] Unified gRPC retry logic
 
 | Field | Value |
@@ -14565,6 +15051,8 @@ Each SDK's gRPC retry logic is a bit different and should be unified.
 
 
 ---
+
+<a id="13"></a>
 
 ### #13: [Feature Request] SDK should allow configurable long-poll timeouts
 
@@ -14599,6 +15087,8 @@ Java SDK has an issue open at https://github.com/temporalio/sdk-java/issues/988
 
 
 ---
+
+<a id="11"></a>
 
 ### #11: [Feature Request] SDKs users should have a way to inject new certificates to a connection instance
 
@@ -14648,6 +15138,8 @@ EDIT: This can be done via entire client replacement
 
 ---
 
+<a id="10"></a>
+
 ### #10: Confirm behavior of manually returning cancellation errors in all SDKs from workfows and activities
 
 | Field | Value |
@@ -14677,6 +15169,8 @@ It is unclear how SDKs behave in the face of manually returned cancellation erro
 
 
 ---
+
+<a id="8"></a>
 
 ### #8: [Feature Request] SDKs should backoff aggressively on `ResourceExhaustedError`
 

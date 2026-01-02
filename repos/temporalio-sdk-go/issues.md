@@ -36,169 +36,169 @@
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
-| [#916](#916-ability-to-mockintercept-side-effect-calls-in-test-suite) | 21 | 0 | Ability to mock/intercept side effect calls in test suite |
-| [#181](#181-add-ability-for-a-clean-worker-shutdown-that-waits-for-a-session-completion) | 16 | 0 | Add ability for a clean worker shutdown that waits for a session completion. |
-| [#829](#829-use-interceptor-logger-for-all-logs-related-to-a-workflow-or-activity-execution) | 6 | 5 | Use interceptor logger for all logs related to a workflow or activity execution |
-| [#1282](#1282-heartbeat-timeout-not-raised-while-testing) | 5 | 5 | Heartbeat timeout not raised while testing |
-| [#89](#89-refactor-sdk-to-avoid-type-aliasing) | 7 | 1 | Refactor SDK to avoid type aliasing |
-| [#1352](#1352-serialization-context-for-codecs-and-converters) | 4 | 6 | Serialization context for codecs and converters |
-| [#1149](#1149-allow-custom-trace-attribute-keys) | 4 | 3 | Allow custom trace attribute keys |
-| [#313](#313-allow-including-local-activity-input-into-the-history) | 4 | 2 | Allow including local activity input into the history |
-| [#866](#866-testworkflowenvironment-doesnt-enforce-workflowexecutiontimeout) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTimeout |
-| [#642](#642-inconsistent-behavior-when-asserting-invocations) | 1 | 7 | Inconsistent behavior when asserting invocations |
-| [#475](#475-panic-when-querying-during-workflow-failure-retry) | 0 | 9 | Panic when querying during Workflow failure + retry  |
-| [#1330](#1330-add-taskqueue-to-tracerstartspanoptions) | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
-| [#1114](#1114-support-activity-functions-with-variadic-arguments) | 1 | 6 | Support activity functions with variadic arguments   |
-| [#986](#986-awaitwithtimeout-does-not-cancel-its-timer-when-condition-is-satisfied) | 1 | 5 | AwaitWithTimeout does not cancel its timer when condition is satisfied |
-| [#937](#937-add-ability-to-keep-session-open-in-case-of-a-worker-restart) | 0 | 7 | Add ability to keep session open in case of a worker restart. |
-| [#884](#884-feature-request-add-ability-to-support-passing-sessions-from-parent-to-child-wf) | 2 | 3 | [Feature Request] Add ability to support passing sessions from parent to child wf |
-| [#167](#167-activity-times-out-in-test-environment-with-child-workflow) | 2 | 3 | Activity times out in test environment with child workflow |
-| [#1208](#1208-canceling-a-context-with-multiple-child-contexts-can-be-non-deterministic) | 2 | 2 | Canceling a context with multiple child contexts can be non deterministic |
-| [#982](#982-cannot-register-mock-activity-with-string-name-on-test-workflow-environment) | 1 | 4 | Cannot register mock activity with string name on test workflow environment |
-| [#2109](#2109-mutablesideeffect-in-test-framework-ignores-cmp-function) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
-| [#1351](#1351-support-interceptor-on-workflowrunget) | 1 | 3 | Support interceptor on WorkflowRun.Get |
-| [#718](#718-add-metric-for-time-passed-from-the-activity-scheduling-to-the-last-attempt) | 2 | 1 | Add metric for time passed from the activity scheduling to the last attempt |
-| [#659](#659-possibility-to-deprecate-attribute-control) | 0 | 5 | Possibility to deprecate attribute `Control` |
-| [#495](#495-calling-getchildworkflowexecution-for-a-mocked-workflow-in-a-test-causes-the-runner-to-complete-the-child-workflow) | 0 | 5 | Calling `GetChildWorkflowExecution` for a mocked workflow in a test causes the runner to complete the child workflow. |
-| [#61](#61-remove-mocks-package) | 2 | 1 | Remove mocks package |
-| [#2065](#2065-newtestactivityenvironment-no-longer-implements-workeractivityregistry) | 1 | 2 | NewTestActivityEnvironment no longer implements worker.ActivityRegistry |
-| [#1976](#1976-continueasnew-should-create-new-root-span) | 0 | 4 | ContinueAsNew should create new root span |
-| [#1895](#1895-support-simulating-race-conditions-during-signal-draining) | 0 | 4 | Support simulating race conditions during signal draining |
-| [#1716](#1716-make-it-possible-to-keep-workflows-in-worker-cache-also-if-theyre-only-queried) | 0 | 4 | Make it possible to keep workflows in worker cache also if they're only queried |
-| [#1582](#1582-updated-context-functions-to-match-context-library) | 2 | 0 | Updated context functions to match context library |
-| [#1410](#1410-consider-migrating-away-from-golangmock) | 2 | 0 | Consider migrating away from golang/mock |
-| [#1397](#1397-add-support-for-replayworkflowhistoryoptions-to-replayworkflowhistoryfromjsonfile-replaypartialworkflowhistoryfromjsonfile) | 1 | 2 | Add Support for `ReplayWorkflowHistoryOptions` to `ReplayWorkflowHistoryFromJSONFile` & `ReplayPartialWorkflowHistoryFromJSONFile` |
-| [#1167](#1167-allow-setting-activity-timeouts-in-testactivityenvironment) | 0 | 4 | Allow setting activity timeouts in TestActivityEnvironment |
-| [#1100](#1100-testworkflowenvironment-should-surface-errors-and-respect-failure-signal-surfaced-by-underlying-mock) | 1 | 2 | TestWorkflowEnvironment should surface errors and respect failure signal surfaced by underlying mock |
-| [#949](#949-allow-user-to-override-default-maximum-activity-attempts-in-test-suite) | 1 | 2 | Allow user to override default maximum activity attempts in test suite |
-| [#533](#533-continueasnew-which-transfers-all-unprocessed-signals-to-new-run) | 0 | 4 | ContinueAsNew which transfers all unprocessed signals to new run |
-| [#444](#444-maxrpctimeout-value-is-too-long) | 0 | 4 | maxRPCTimeout value is too long |
-| [#351](#351-testing-cancellation-of-parent-workflow-with-child-workflow-panics) | 2 | 0 | [Testing] Cancellation of Parent Workflow with Child Workflow Panics |
-| [#70](#70-refactor-newworker-and-remove-downcast) | 1 | 2 | Refactor NewWorker and remove downcast |
-| [#2103](#2103-cosmetic-bug-in-logger) | 0 | 3 | Cosmetic bug in logger |
-| [#2097](#2097-feature-request-add-context-to-metricshandler-for-exemplar-support) | 0 | 3 | Feature Request: Add Context to MetricsHandler for Exemplar Support |
-| [#2066](#2066-lost-messages-from-workflownewchannelctx) | 0 | 3 | Lost messages from workflow.NewChannel(ctx) |
-| [#1961](#1961-getting-a-strange-error-when-writing-tests-which-does-not-occur-in-real-temporal-deployment) | 0 | 3 | Getting a strange error when writing tests which does not occur in real temporal deployment |
-| [#1906](#1906-workflowcheck-crash-index-out-of-range) | 1 | 1 | workflowcheck crash (index out of range) |
-| [#1759](#1759-change-activity-error-to-warn-or-allow-it-to-be-configurable) | 1 | 1 | Change activity error to warn, or allow it to be configurable  |
-| [#1609](#1609-support-contextaware-for-failure-converters) | 1 | 1 | Support ContextAware for failure converters |
-| [#1177](#1177-switch-to-a-new-clock-library) | 0 | 3 | Switch to a new clock library |
-| [#1037](#1037-calling-a-value-receiver-method-with-a-pointer-type-causes-a-panic-when-used-through-executeactivity) | 0 | 3 | Calling a value receiver method with a pointer type causes a panic when used through `ExecuteActivity` |
-| [#1035](#1035-workflowcheck-should-check-that-serialized-objects-do-not-have-unexported-non-json-ignored-fields) | 0 | 3 | Workflowcheck should check that serialized objects do not have unexported, non-json-ignored fields |
-| [#955](#955-suppress-worker-stopping-polling-errors) | 0 | 3 | Suppress "worker stopping" polling errors |
-| [#875](#875-safer-queries-and-update-validators) | 0 | 3 | Safer queries (and update validators) |
-| [#842](#842-support-custom-object-processing-in-codec-grpc-interceptor) | 0 | 3 | Support custom object processing in codec gRPC interceptor |
-| [#813](#813-weird-workflow-task-failure) | 0 | 3 | Weird workflow task failure |
-| [#458](#458-testworkflowenvironment-fail-registerdelayedcallback-after-executeworkflow) | 1 | 1 | TestWorkflowEnvironment: Fail RegisterDelayedCallback after ExecuteWorkflow |
-| [#126](#126-add-autoheartbeating-of-activities) | 0 | 3 | Add autoheartbeating of activities |
-| [#2131](#2131-configurable-minrpctimeout-for-activity-worker-instead-of-using-maxheartbeatthrottleinterval-for-rpc-timeout-and-allow-retry-manually-when-network-error) | 0 | 2 | Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error.. |
-| [#2107](#2107-panic-in-temporal-unit-test-framework) | 1 | 0 | Panic in temporal unit test framework. |
-| [#1980](#1980-feature-request-include-version-in-workflowcheck--vfull-output) | 0 | 2 | Feature Request: Include Version in workflowcheck -V=full Output |
-| [#1954](#1954-ability-to-get-original-logger-from-activitygetloggerctx-workflowgetloggerctx) | 1 | 0 | Ability to get original Logger from activity.GetLogger(ctx) / workflow.GetLogger(ctx) |
-| [#1929](#1929-otel-emitted-metrics-do-not-match-behavior-described-in-the-docs) | 0 | 2 | OTel emitted metrics do not match behavior described in the docs |
-| [#1646](#1646-setstarttime-for-activity-test-env) | 1 | 0 | SetStartTime for activity test env |
-| [#1593](#1593-consider-potential-range-over-func-apis) | 0 | 2 | Consider potential range-over-func APIs |
-| [#1468](#1468-interceptors-are-skipped-for-mocked-activities) | 0 | 2 | Interceptors are skipped for mocked activities |
-| [#1086](#1086-add-support-for-a-graceful-shutdown-of-go-workers-where-all-activities-are-finished-before-the-worker-returns) | 0 | 2 | Add support for a graceful shutdown of go workers where all activities are finished before the worker returns |
-| [#1033](#1033-onupsertsearchattributes-and-onupsertmemo-unclear-about-mocking-ability) | 0 | 2 | OnUpsertSearchAttributes and OnUpsertMemo unclear about mocking ability |
-| [#933](#933-no-problem-indicators-on-failed-workflow-input-deserialization-during-queries) | 0 | 2 | No problem indicators on failed workflow input deserialization during queries |
-| [#899](#899-githubcomuber-gotallyv4-v411-2-vulnerabilities-highest-severity-is-75) | 0 | 2 | github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5) |
-| [#754](#754-grpc-proxy-integration-test) | 1 | 0 | gRPC Proxy Integration Test |
-| [#616](#616-investigate-options-around-latency-reporting-and-comparison-with-server) | 0 | 2 | Investigate options around latency reporting and comparison with server |
-| [#497](#497-test-suite-query-after-signal-works-in-sdk-but-not-in-test-suite) | 1 | 0 | [Test suite] Query after signal works in SDK, but not in Test Suite |
-| [#439](#439-include-a-way-to-perform-assertions-on-the-workflow-signal-channel-in-the-testing-environment) | 1 | 0 | Include a way to perform assertions on the workflow signal channel in the testing environment |
-| [#358](#358-bug-the-json-input-is-invalid-in-the-workflow-history-and-with-a-wrong-encoding-for-accents) | 0 | 2 | [Bug] the json input is invalid in the workflow history and with a wrong encoding for accents |
-| [#266](#266-expose-activity-start-and-completion-information-to-the-workflow-code) | 1 | 0 | Expose activity start and completion information to the workflow code |
-| [#101](#101-add-ability-to-pass-channel-as-a-parameter-to-child-workflow-and-activity) | 1 | 0 | Add ability to pass Channel as a parameter to Child workflow and activity |
-| [#35](#35-add-ability-to-pass-configuration-to-a-workflow) | 1 | 0 | Add ability to pass configuration to a workflow |
-| [#2098](#2098-update-childworkflowoptions-comment-to-indicate-the-default-workflowidreusepolicy-and-workflowidconflictpolicy) | 0 | 1 | Update ChildWorkflowOptions comment to indicate the default WorkflowIDReusePolicy and WorkflowIdConflictPolicy |
-| [#2039](#2039-joining-errors-causes-testworkflowenvironment-to-hide-panics-and-pass-test) | 0 | 1 | Joining errors causes TestWorkflowEnvironment to hide panics and pass test |
-| [#1705](#1705-user-defined-requestid-for-signalworkflow) | 0 | 1 | User-defined RequestId for SignalWorkflow |
-| [#1624](#1624-signal-sent-to-selector-can-be-lost-if-default-path-blocks) | 0 | 1 | Signal sent to Selector can be lost if Default path blocks  |
-| [#1574](#1574-batched-heartbeat-got-canceled-due-to-caller-context-cancellation) | 0 | 1 | Batched heartbeat got canceled due to caller context cancellation |
-| [#1471](#1471-support-new-versioning-in-workflowinfogetcurrentbuildid) | 0 | 1 | Support New Versioning in WorkflowInfo.GetCurrentBuildID() |
-| [#1445](#1445-otel-metric-handler-improvements) | 0 | 1 | OTel metric handler improvements |
-| [#1395](#1395-make-testworkflowenvironment-return-errors-with-stack-traces) | 0 | 1 | Make TestWorkflowEnvironment return errors with stack traces |
-| [#1334](#1334-allow-opting-out-of-tracer-span-creation-on-schedule-create) | 0 | 1 | Allow opting out of tracer span creation on schedule create |
-| [#1300](#1300-better-task-failures-when-passing-incorrect-options-to-executelocalactivity) | 0 | 1 | Better Task Failures when passing incorrect options to Execute[Local]Activity |
-| [#1227](#1227-worker-versioning-workflow-session) | 0 | 1 | Worker versioning + workflow session |
-| [#1104](#1104-context-timeout-is-halved-on-clientexecuteworkflow) | 0 | 1 | Context timeout is halved on client.ExecuteWorkflow |
-| [#1099](#1099-testworkflowenvironment-timeouts-run-defer-statements) | 0 | 1 | TestWorkflowEnvironment timeouts run defer statements |
-| [#1045](#1045-memo-does-not-go-through-user-provided-data-coverter) | 0 | 1 | Memo does not go through user provided data coverter |
-| [#996](#996-opt-in-to-having-stack-trace-query-use-custom-data-converter) | 0 | 1 | Opt-in to having stack trace query use custom data converter |
-| [#975](#975-missing-mock-invocation-causes-panicerror-in-a-test-but-the-test-succeeds-with-exit-code-0) | 0 | 1 | Missing mock invocation causes PanicError in a test but the test succeeds with exit code 0. |
-| [#968](#968-remove-deprecated-metrics) | 0 | 1 | Remove deprecated metrics |
-| [#967](#967-testsuitetestworkflowenvironment-does-not-complete-workflows-synchronously-when-activities-create-new-environments-to-start-nested-workflows) | 0 | 1 | testsuite.TestWorkflowEnvironment does not complete workflows synchronously when activities create new environments to start nested workflows |
-| [#935](#935-testing-be-able-to-unit-test-a-workflow-with-a-populated-continuedexecutionrunid) | 0 | 1 | Testing: Be Able to Unit Test a Workflow with a Populated `ContinuedExecutionRunID` |
-| [#922](#922-testworkflowenvironmentsignalexternalworkflow-data-race-on-signal-data) | 0 | 1 | TestWorkflowEnvironment.SignalExternalWorkflow data race on signal data |
-| [#912](#912-change-default-prometheus-santitize-options-to-not-change-values) | 0 | 1 | Change default Prometheus santitize options to not change values |
-| [#716](#716-if-a-workflow-is-terminated-while-processing-it-can-leak-coroutines) | 0 | 1 | If a workflow is terminated while processing, it can leak coroutines |
-| [#698](#698-allow-unable-to-find-workflow-type-error-to-be-configured-to-hard-fail-the-workflow) | 0 | 1 | Allow "unable to find workflow type" error to be configured to hard-fail the workflow |
-| [#194](#194-support-seamless-cleanup-during-session-cancellation) | 0 | 1 | Support seamless cleanup during session cancellation |
-| [#50](#50-make-testworkflowenvironment-support-test-multiple-workflows) | 0 | 1 | Make TestWorkflowEnvironment support test multiple workflows |
-| [#2124](#2124-support-non-workflow-activities) | 0 | 0 | Support non-workflow activities |
-| [#2123](#2123-api-go-proxy-allow-payload-visitor-to-run-in-parallel) | 0 | 0 | [api-go] Proxy: allow payload visitor to run in parallel |
-| [#2094](#2094-worker-heartbeating) | 0 | 0 | Worker Heartbeating |
-| [#2090](#2090-starting-a-child-workflow-in-tests-leaks-goroutines) | 0 | 0 | Starting a child workflow in tests leaks goroutines |
-| [#2085](#2085-add-support-for-firstexecutionrunid-to-cancel-and-terminate) | 0 | 0 | Add support for firstExecutionRunId to cancel and terminate |
-| [#2045](#2045-ensure-tests-exist-to-confirm-custom-slot-supplier-slot-info-has-proper-fields) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot info has proper fields |
-| [#2025](#2025-fix-describetaskqueueenhanced-w-stats-to-use-non-deprecated-apis) | 0 | 0 | Fix DescribeTaskQueueEnhanced w/ stats to use non-deprecated APIs |
-| [#2020](#2020-plugin-support) | 0 | 0 | Plugin support |
-| [#2005](#2005-onworkflow-test-mocker-doesnt-propagate-context-headers) | 0 | 0 | OnWorkflow test mocker doesn't propagate context headers |
-| [#1869](#1869-setonchildworkflowcompletedlistener-doesnt-work-as-expected) | 0 | 0 | SetOnChildWorkflowCompletedListener doesn't work as expected |
-| [#1846](#1846-astime-on-a-nil-pointer-converts-to-jan-1st-1970-at-midnight-utc) | 0 | 0 | AsTime() on a nil pointer converts to  Jan. 1st, 1970 at midnight UTC |
-| [#1838](#1838-non-deterministic-workflow-code-can-send-incorrect-wft-completion-without-task-failure) | 0 | 0 | Non-deterministic workflow code can send incorrect WFT completion without task failure |
-| [#1817](#1817-expose-workflow-cancel-causereason) | 0 | 0 | Expose Workflow cancel cause/reason |
-| [#1796](#1796-add-patched-and-deprecatepatch-apis) | 0 | 0 | Add `Patched()` and `DeprecatePatch()` APIs |
-| [#1778](#1778-rename-worker-deployment-api-interfaces) | 0 | 0 | Rename Worker Deployment API interfaces |
-| [#1777](#1777-add-ramp-to-worker-deployments) | 0 | 0 | Add ramp to Worker Deployments |
-| [#1776](#1776-provide-flag-to-tell-the-update-handler-that-the-handling-is-from-a-re-apply) | 0 | 0 | Provide flag to tell the update handler that the handling is from a re-apply |
-| [#1760](#1760-provide-workflow-local) | 0 | 0 | Provide "workflow local" |
-| [#1693](#1693-provide-details-and-actionable-info-about-non-deterministic-errors) | 0 | 0 | Provide details and actionable info about Non Deterministic Errors |
-| [#1668](#1668-when-deserializing-typed-search-attributes-invalid-values-should-be-ignored) | 0 | 0 | When deserializing typed search attributes, invalid values should be ignored |
-| [#1650](#1650-list-of-flaky-tests) | 0 | 0 | List of flaky tests |
-| [#1633](#1633-modify-test-suite-to-dump-junit-xml) | 0 | 0 | Modify test suite to dump junit XML |
-| [#1610](#1610-provide-access-to-the-workflow-results-from-workerworkflowreplayer) | 0 | 0 | Provide access to the workflow results from worker.WorkflowReplayer |
-| [#1564](#1564-test-nexus-with-cloud) | 0 | 0 | Test Nexus with Cloud |
-| [#1536](#1536-terminateifrunning-doesnt-work-for-duplicate-child-workflows) | 0 | 0 | TERMINATE_IF_RUNNING doesn't work for duplicate child workflows |
-| [#1496](#1496-workflow-outcome-is-inconsistent-between-test-env-and-real-server) | 0 | 0 | Workflow outcome is inconsistent between test env and real server |
-| [#1469](#1469-allow-specifying-attempt-in-testworkflowenvironment) | 0 | 0 | Allow specifying attempt in TestWorkflowEnvironment |
-| [#1427](#1427-testworkflowenvironment-workflow-context-does-not-block-when-canceled) | 0 | 0 | TestWorkflowEnvironment workflow Context does not block when canceled |
-| [#1387](#1387-configurable-panic-policy-at-the-workflow-level) | 0 | 0 | Configurable panic policy at the workflow level |
-| [#1360](#1360-testsuitedevserver-occasionally-does-not-stop) | 0 | 0 | `testsuite.DevServer` occasionally does not stop |
-| [#1349](#1349-workflowrunget-does-not-use-a-context-aware-data-converter) | 0 | 0 | WorkflowRun.Get does not use a context aware data converter |
-| [#1341](#1341-workflowchecker-should-flag-anonymous-functions-in-local-activities-as-non-deterministic) | 0 | 0 | WorkflowChecker should flag anonymous functions in local activities as non deterministic |
-| [#1315](#1315-deprecate-update-related-sdk-flags) | 0 | 0 | Deprecate Update related SDK flags |
-| [#1283](#1283-remove-clientoutboundinterceptorpollworkflowupdate) | 0 | 0 | Remove ClientOutboundInterceptor.PollWorkflowUpdate |
-| [#1240](#1240-data-race-after-deadlock-detector-fired) | 0 | 0 | Data race after deadlock detector fired |
-| [#1197](#1197-drain-polled-tasks-on-shutdown) | 0 | 0 | Drain polled tasks on shutdown |
-| [#1173](#1173-enable-testing-with-onactivity-and-non-retryable-errors-to-verify-options-are-set-correctly) | 0 | 0 | Enable testing with OnActivity and non-retryable errors to verify options are set correctly |
-| [#1157](#1157-support-localactivityoptionswaitforcancellation) | 0 | 0 | Support LocalActivityOptions.WaitForCancellation |
-| [#1132](#1132-add-support-for-visiting-all-payloads-at-once-in-proxy-visitor-interceptor) | 0 | 0 | Add support for visiting all payloads at once in proxy visitor interceptor |
-| [#1131](#1131-workeroptionsworkeractivitiespersecond-applies-after-poll-is-received) | 0 | 0 | worker.Options.WorkerActivitiesPerSecond applies after poll is received |
-| [#1054](#1054-encodedfailureattributes-capability-should-be-respected) | 0 | 0 | EncodedFailureAttributes capability should be respected |
-| [#997](#997-support-dynamic-query-and-update-handler) | 0 | 0 | Support dynamic query and update handler |
-| [#909](#909-fatal-poll-error-on-worker-start-isnt-stopping-activity-poller) | 0 | 0 | Fatal poll error on worker start isn't stopping activity poller |
-| [#900](#900-log-warning-on-failed-serialization-of-signal-input) | 0 | 0 | Log warning on failed serialization of signal input |
-| [#873](#873-ensure-slots-available-metric-is-updated-on-worker-stop) | 0 | 0 | Ensure slots available metric is updated on worker stop |
-| [#755](#755-sticky-query-invalid-state-machine-transition-error) | 0 | 0 | Sticky query invalid state machine transition error |
-| [#728](#728-add-await-branch-to-selector) | 0 | 0 | Add Await branch to Selector |
-| [#705](#705-make-workflowservicestubsoptionsrpclongpolltimeout-configurable) | 0 | 0 | Make WorkflowServiceStubsOptions#rpcLongPollTimeout configurable |
-| [#676](#676-document-dangers-with-workflowwithchildoptions-and-workflowwithworkflowruntimeout-using-continue-as-new) | 0 | 0 | Document dangers with workflow.WithChildOptions and workflow.WithWorkflowRunTimeout using continue as new |
-| [#619](#619-make-tracing-tags-consistent-across-sdks) | 0 | 0 | Make tracing tags consistent across SDKs |
-| [#514](#514-testactivityenvironmentexecuteactivity-requires-registeractivity-when-invoking-activity-by-function) | 0 | 0 | TestActivityEnvironment.ExecuteActivity requires RegisterActivity when invoking activity by function |
-| [#505](#505-non-retryable-errors-in-sessions) | 0 | 0 | Non-retryable errors in sessions |
-| [#491](#491-testsuite-workflow-retry-not-working) | 0 | 0 | Testsuite Workflow Retry not working |
-| [#482](#482-workflow-query-hangs-if-the-temporal-workflow-execution-panics-is-not-available) | 0 | 0 | Workflow query hangs if the temporal workflow execution panics (is not available) |
-| [#346](#346-requestcancelexternalworkflowgetctx-nil-blocks-forever-with-workflow-exits-with-errcanceled) | 0 | 0 | RequestCancelExternalWorkflow(...).Get(ctx, nil) blocks forever with workflow exits with ErrCanceled |
-| [#335](#335-original-failure-source-is-lost-when-convertfailuretoerror-invoked) | 0 | 0 | Original Failure source is lost when ConvertFailureToError invoked |
-| [#277](#277-expose-access-to-grpcserviceclient-so-we-can-create-default-golang-client-and-get-access-to-underlying-grpc-client) | 0 | 0 | Expose access to grpc.ServiceClient so we can create default golang client and get access to underlying GRPC client |
-| [#247](#247-retrieved-string-search-attribute-includes-quotation-characters) | 0 | 0 | Retrieved String Search Attribute includes quotation characters |
-| [#238](#238-recordactivityheartbeat-signature-should-be-modified-to-return-an-error-if-activity-has-been-canceled) | 0 | 0 | RecordActivityHeartbeat signature should be modified to return an error if activity has been canceled |
-| [#198](#198-add-support-for-doing-backward-incompatible-changes-to-workflow-and-activity-function-signatures) | 0 | 0 | Add support for doing backward incompatible changes to workflow and activity function signatures |
-| [#186](#186-worker-reports-validation-error-on-processing-of-transient-decision) | 0 | 0 | Worker reports validation error on processing of transient decision |
-| [#125](#125-remove-need-to-register-mocked-activity) | 0 | 0 | Remove need to register mocked activity |
-| [#108](#108-fix-race-condition-in-testworkflowenvironmentimpl) | 0 | 0 | Fix race condition in testWorkflowEnvironmentImpl |
+| [#916](#916) | 21 | 0 | Ability to mock/intercept side effect calls in test suite |
+| [#181](#181) | 16 | 0 | Add ability for a clean worker shutdown that waits for a session completion. |
+| [#829](#829) | 6 | 5 | Use interceptor logger for all logs related to a workflow or activity execution |
+| [#1282](#1282) | 5 | 5 | Heartbeat timeout not raised while testing |
+| [#89](#89) | 7 | 1 | Refactor SDK to avoid type aliasing |
+| [#1352](#1352) | 4 | 6 | Serialization context for codecs and converters |
+| [#1149](#1149) | 4 | 3 | Allow custom trace attribute keys |
+| [#313](#313) | 4 | 2 | Allow including local activity input into the history |
+| [#866](#866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTimeout |
+| [#642](#642) | 1 | 7 | Inconsistent behavior when asserting invocations |
+| [#475](#475) | 0 | 9 | Panic when querying during Workflow failure + retry  |
+| [#1330](#1330) | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
+| [#1114](#1114) | 1 | 6 | Support activity functions with variadic arguments   |
+| [#986](#986) | 1 | 5 | AwaitWithTimeout does not cancel its timer when condition is satisfied |
+| [#937](#937) | 0 | 7 | Add ability to keep session open in case of a worker restart. |
+| [#884](#884) | 2 | 3 | [Feature Request] Add ability to support passing sessions from parent to child wf |
+| [#167](#167) | 2 | 3 | Activity times out in test environment with child workflow |
+| [#1208](#1208) | 2 | 2 | Canceling a context with multiple child contexts can be non deterministic |
+| [#982](#982) | 1 | 4 | Cannot register mock activity with string name on test workflow environment |
+| [#2109](#2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
+| [#1351](#1351) | 1 | 3 | Support interceptor on WorkflowRun.Get |
+| [#718](#718) | 2 | 1 | Add metric for time passed from the activity scheduling to the last attempt |
+| [#659](#659) | 0 | 5 | Possibility to deprecate attribute `Control` |
+| [#495](#495) | 0 | 5 | Calling `GetChildWorkflowExecution` for a mocked workflow in a test causes the runner to complete the child workflow. |
+| [#61](#61) | 2 | 1 | Remove mocks package |
+| [#2065](#2065) | 1 | 2 | NewTestActivityEnvironment no longer implements worker.ActivityRegistry |
+| [#1976](#1976) | 0 | 4 | ContinueAsNew should create new root span |
+| [#1895](#1895) | 0 | 4 | Support simulating race conditions during signal draining |
+| [#1716](#1716) | 0 | 4 | Make it possible to keep workflows in worker cache also if they're only queried |
+| [#1582](#1582) | 2 | 0 | Updated context functions to match context library |
+| [#1410](#1410) | 2 | 0 | Consider migrating away from golang/mock |
+| [#1397](#1397) | 1 | 2 | Add Support for `ReplayWorkflowHistoryOptions` to `ReplayWorkflowHistoryFromJSONFile` & `ReplayPartialWorkflowHistoryFromJSONFile` |
+| [#1167](#1167) | 0 | 4 | Allow setting activity timeouts in TestActivityEnvironment |
+| [#1100](#1100) | 1 | 2 | TestWorkflowEnvironment should surface errors and respect failure signal surfaced by underlying mock |
+| [#949](#949) | 1 | 2 | Allow user to override default maximum activity attempts in test suite |
+| [#533](#533) | 0 | 4 | ContinueAsNew which transfers all unprocessed signals to new run |
+| [#444](#444) | 0 | 4 | maxRPCTimeout value is too long |
+| [#351](#351) | 2 | 0 | [Testing] Cancellation of Parent Workflow with Child Workflow Panics |
+| [#70](#70) | 1 | 2 | Refactor NewWorker and remove downcast |
+| [#2103](#2103) | 0 | 3 | Cosmetic bug in logger |
+| [#2097](#2097) | 0 | 3 | Feature Request: Add Context to MetricsHandler for Exemplar Support |
+| [#2066](#2066) | 0 | 3 | Lost messages from workflow.NewChannel(ctx) |
+| [#1961](#1961) | 0 | 3 | Getting a strange error when writing tests which does not occur in real temporal deployment |
+| [#1906](#1906) | 1 | 1 | workflowcheck crash (index out of range) |
+| [#1759](#1759) | 1 | 1 | Change activity error to warn, or allow it to be configurable  |
+| [#1609](#1609) | 1 | 1 | Support ContextAware for failure converters |
+| [#1177](#1177) | 0 | 3 | Switch to a new clock library |
+| [#1037](#1037) | 0 | 3 | Calling a value receiver method with a pointer type causes a panic when used through `ExecuteActivity` |
+| [#1035](#1035) | 0 | 3 | Workflowcheck should check that serialized objects do not have unexported, non-json-ignored fields |
+| [#955](#955) | 0 | 3 | Suppress "worker stopping" polling errors |
+| [#875](#875) | 0 | 3 | Safer queries (and update validators) |
+| [#842](#842) | 0 | 3 | Support custom object processing in codec gRPC interceptor |
+| [#813](#813) | 0 | 3 | Weird workflow task failure |
+| [#458](#458) | 1 | 1 | TestWorkflowEnvironment: Fail RegisterDelayedCallback after ExecuteWorkflow |
+| [#126](#126) | 0 | 3 | Add autoheartbeating of activities |
+| [#2131](#2131) | 0 | 2 | Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error.. |
+| [#2107](#2107) | 1 | 0 | Panic in temporal unit test framework. |
+| [#1980](#1980) | 0 | 2 | Feature Request: Include Version in workflowcheck -V=full Output |
+| [#1954](#1954) | 1 | 0 | Ability to get original Logger from activity.GetLogger(ctx) / workflow.GetLogger(ctx) |
+| [#1929](#1929) | 0 | 2 | OTel emitted metrics do not match behavior described in the docs |
+| [#1646](#1646) | 1 | 0 | SetStartTime for activity test env |
+| [#1593](#1593) | 0 | 2 | Consider potential range-over-func APIs |
+| [#1468](#1468) | 0 | 2 | Interceptors are skipped for mocked activities |
+| [#1086](#1086) | 0 | 2 | Add support for a graceful shutdown of go workers where all activities are finished before the worker returns |
+| [#1033](#1033) | 0 | 2 | OnUpsertSearchAttributes and OnUpsertMemo unclear about mocking ability |
+| [#933](#933) | 0 | 2 | No problem indicators on failed workflow input deserialization during queries |
+| [#899](#899) | 0 | 2 | github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5) |
+| [#754](#754) | 1 | 0 | gRPC Proxy Integration Test |
+| [#616](#616) | 0 | 2 | Investigate options around latency reporting and comparison with server |
+| [#497](#497) | 1 | 0 | [Test suite] Query after signal works in SDK, but not in Test Suite |
+| [#439](#439) | 1 | 0 | Include a way to perform assertions on the workflow signal channel in the testing environment |
+| [#358](#358) | 0 | 2 | [Bug] the json input is invalid in the workflow history and with a wrong encoding for accents |
+| [#266](#266) | 1 | 0 | Expose activity start and completion information to the workflow code |
+| [#101](#101) | 1 | 0 | Add ability to pass Channel as a parameter to Child workflow and activity |
+| [#35](#35) | 1 | 0 | Add ability to pass configuration to a workflow |
+| [#2098](#2098) | 0 | 1 | Update ChildWorkflowOptions comment to indicate the default WorkflowIDReusePolicy and WorkflowIdConflictPolicy |
+| [#2039](#2039) | 0 | 1 | Joining errors causes TestWorkflowEnvironment to hide panics and pass test |
+| [#1705](#1705) | 0 | 1 | User-defined RequestId for SignalWorkflow |
+| [#1624](#1624) | 0 | 1 | Signal sent to Selector can be lost if Default path blocks  |
+| [#1574](#1574) | 0 | 1 | Batched heartbeat got canceled due to caller context cancellation |
+| [#1471](#1471) | 0 | 1 | Support New Versioning in WorkflowInfo.GetCurrentBuildID() |
+| [#1445](#1445) | 0 | 1 | OTel metric handler improvements |
+| [#1395](#1395) | 0 | 1 | Make TestWorkflowEnvironment return errors with stack traces |
+| [#1334](#1334) | 0 | 1 | Allow opting out of tracer span creation on schedule create |
+| [#1300](#1300) | 0 | 1 | Better Task Failures when passing incorrect options to Execute[Local]Activity |
+| [#1227](#1227) | 0 | 1 | Worker versioning + workflow session |
+| [#1104](#1104) | 0 | 1 | Context timeout is halved on client.ExecuteWorkflow |
+| [#1099](#1099) | 0 | 1 | TestWorkflowEnvironment timeouts run defer statements |
+| [#1045](#1045) | 0 | 1 | Memo does not go through user provided data coverter |
+| [#996](#996) | 0 | 1 | Opt-in to having stack trace query use custom data converter |
+| [#975](#975) | 0 | 1 | Missing mock invocation causes PanicError in a test but the test succeeds with exit code 0. |
+| [#968](#968) | 0 | 1 | Remove deprecated metrics |
+| [#967](#967) | 0 | 1 | testsuite.TestWorkflowEnvironment does not complete workflows synchronously when activities create new environments to start nested workflows |
+| [#935](#935) | 0 | 1 | Testing: Be Able to Unit Test a Workflow with a Populated `ContinuedExecutionRunID` |
+| [#922](#922) | 0 | 1 | TestWorkflowEnvironment.SignalExternalWorkflow data race on signal data |
+| [#912](#912) | 0 | 1 | Change default Prometheus santitize options to not change values |
+| [#716](#716) | 0 | 1 | If a workflow is terminated while processing, it can leak coroutines |
+| [#698](#698) | 0 | 1 | Allow "unable to find workflow type" error to be configured to hard-fail the workflow |
+| [#194](#194) | 0 | 1 | Support seamless cleanup during session cancellation |
+| [#50](#50) | 0 | 1 | Make TestWorkflowEnvironment support test multiple workflows |
+| [#2124](#2124) | 0 | 0 | Support non-workflow activities |
+| [#2123](#2123) | 0 | 0 | [api-go] Proxy: allow payload visitor to run in parallel |
+| [#2094](#2094) | 0 | 0 | Worker Heartbeating |
+| [#2090](#2090) | 0 | 0 | Starting a child workflow in tests leaks goroutines |
+| [#2085](#2085) | 0 | 0 | Add support for firstExecutionRunId to cancel and terminate |
+| [#2045](#2045) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot info has proper fields |
+| [#2025](#2025) | 0 | 0 | Fix DescribeTaskQueueEnhanced w/ stats to use non-deprecated APIs |
+| [#2020](#2020) | 0 | 0 | Plugin support |
+| [#2005](#2005) | 0 | 0 | OnWorkflow test mocker doesn't propagate context headers |
+| [#1869](#1869) | 0 | 0 | SetOnChildWorkflowCompletedListener doesn't work as expected |
+| [#1846](#1846) | 0 | 0 | AsTime() on a nil pointer converts to  Jan. 1st, 1970 at midnight UTC |
+| [#1838](#1838) | 0 | 0 | Non-deterministic workflow code can send incorrect WFT completion without task failure |
+| [#1817](#1817) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#1796](#1796) | 0 | 0 | Add `Patched()` and `DeprecatePatch()` APIs |
+| [#1778](#1778) | 0 | 0 | Rename Worker Deployment API interfaces |
+| [#1777](#1777) | 0 | 0 | Add ramp to Worker Deployments |
+| [#1776](#1776) | 0 | 0 | Provide flag to tell the update handler that the handling is from a re-apply |
+| [#1760](#1760) | 0 | 0 | Provide "workflow local" |
+| [#1693](#1693) | 0 | 0 | Provide details and actionable info about Non Deterministic Errors |
+| [#1668](#1668) | 0 | 0 | When deserializing typed search attributes, invalid values should be ignored |
+| [#1650](#1650) | 0 | 0 | List of flaky tests |
+| [#1633](#1633) | 0 | 0 | Modify test suite to dump junit XML |
+| [#1610](#1610) | 0 | 0 | Provide access to the workflow results from worker.WorkflowReplayer |
+| [#1564](#1564) | 0 | 0 | Test Nexus with Cloud |
+| [#1536](#1536) | 0 | 0 | TERMINATE_IF_RUNNING doesn't work for duplicate child workflows |
+| [#1496](#1496) | 0 | 0 | Workflow outcome is inconsistent between test env and real server |
+| [#1469](#1469) | 0 | 0 | Allow specifying attempt in TestWorkflowEnvironment |
+| [#1427](#1427) | 0 | 0 | TestWorkflowEnvironment workflow Context does not block when canceled |
+| [#1387](#1387) | 0 | 0 | Configurable panic policy at the workflow level |
+| [#1360](#1360) | 0 | 0 | `testsuite.DevServer` occasionally does not stop |
+| [#1349](#1349) | 0 | 0 | WorkflowRun.Get does not use a context aware data converter |
+| [#1341](#1341) | 0 | 0 | WorkflowChecker should flag anonymous functions in local activities as non deterministic |
+| [#1315](#1315) | 0 | 0 | Deprecate Update related SDK flags |
+| [#1283](#1283) | 0 | 0 | Remove ClientOutboundInterceptor.PollWorkflowUpdate |
+| [#1240](#1240) | 0 | 0 | Data race after deadlock detector fired |
+| [#1197](#1197) | 0 | 0 | Drain polled tasks on shutdown |
+| [#1173](#1173) | 0 | 0 | Enable testing with OnActivity and non-retryable errors to verify options are set correctly |
+| [#1157](#1157) | 0 | 0 | Support LocalActivityOptions.WaitForCancellation |
+| [#1132](#1132) | 0 | 0 | Add support for visiting all payloads at once in proxy visitor interceptor |
+| [#1131](#1131) | 0 | 0 | worker.Options.WorkerActivitiesPerSecond applies after poll is received |
+| [#1054](#1054) | 0 | 0 | EncodedFailureAttributes capability should be respected |
+| [#997](#997) | 0 | 0 | Support dynamic query and update handler |
+| [#909](#909) | 0 | 0 | Fatal poll error on worker start isn't stopping activity poller |
+| [#900](#900) | 0 | 0 | Log warning on failed serialization of signal input |
+| [#873](#873) | 0 | 0 | Ensure slots available metric is updated on worker stop |
+| [#755](#755) | 0 | 0 | Sticky query invalid state machine transition error |
+| [#728](#728) | 0 | 0 | Add Await branch to Selector |
+| [#705](#705) | 0 | 0 | Make WorkflowServiceStubsOptions#rpcLongPollTimeout configurable |
+| [#676](#676) | 0 | 0 | Document dangers with workflow.WithChildOptions and workflow.WithWorkflowRunTimeout using continue as new |
+| [#619](#619) | 0 | 0 | Make tracing tags consistent across SDKs |
+| [#514](#514) | 0 | 0 | TestActivityEnvironment.ExecuteActivity requires RegisterActivity when invoking activity by function |
+| [#505](#505) | 0 | 0 | Non-retryable errors in sessions |
+| [#491](#491) | 0 | 0 | Testsuite Workflow Retry not working |
+| [#482](#482) | 0 | 0 | Workflow query hangs if the temporal workflow execution panics (is not available) |
+| [#346](#346) | 0 | 0 | RequestCancelExternalWorkflow(...).Get(ctx, nil) blocks forever with workflow exits with ErrCanceled |
+| [#335](#335) | 0 | 0 | Original Failure source is lost when ConvertFailureToError invoked |
+| [#277](#277) | 0 | 0 | Expose access to grpc.ServiceClient so we can create default golang client and get access to underlying GRPC client |
+| [#247](#247) | 0 | 0 | Retrieved String Search Attribute includes quotation characters |
+| [#238](#238) | 0 | 0 | RecordActivityHeartbeat signature should be modified to return an error if activity has been canceled |
+| [#198](#198) | 0 | 0 | Add support for doing backward incompatible changes to workflow and activity function signatures |
+| [#186](#186) | 0 | 0 | Worker reports validation error on processing of transient decision |
+| [#125](#125) | 0 | 0 | Remove need to register mocked activity |
+| [#108](#108) | 0 | 0 | Fix race condition in testWorkflowEnvironmentImpl |
 
 ---
 
@@ -207,6 +207,8 @@
 Issues are sorted by priority score (upvotes × 2 + comments).
 
 ---
+
+<a id="916"></a>
 
 ### #916: Ability to mock/intercept side effect calls in test suite
 
@@ -237,6 +239,8 @@ Add something like `TestWorkflow.OnSideEffect` and `TestWorkflow.OnMutableSideEf
 
 
 ---
+
+<a id="181"></a>
 
 ### #181: Add ability for a clean worker shutdown that waits for a session completion.
 
@@ -269,6 +273,8 @@ Do not provide such a feature.
 
 
 ---
+
+<a id="829"></a>
 
 ### #829: Use interceptor logger for all logs related to a workflow or activity execution
 
@@ -457,6 +463,8 @@ For example, aggregating workflow error logs by [dd.trace_id](https://github.com
 
 
 ---
+
+<a id="1282"></a>
 
 ### #1282: Heartbeat timeout not raised while testing
 
@@ -689,6 +697,8 @@ Some timeouts we do respect in the workflow environment however, but are on time
 
 ---
 
+<a id="89"></a>
+
 ### #89: Refactor SDK to avoid type aliasing
 
 | Field | Value |
@@ -727,6 +737,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1352"></a>
 
 ### #1352: Serialization context for codecs and converters
 
@@ -805,6 +817,8 @@ I updated the title to more accurately represent what this is
 
 
 ---
+
+<a id="1149"></a>
 
 ### #1149: Allow custom trace attribute keys
 
@@ -918,6 +932,8 @@ unfortunate that this issue didn't get any attention. It makes tracing in Tempor
 
 ---
 
+<a id="313"></a>
+
 ### #313: Allow including local activity input into the history
 
 | Field | Value |
@@ -973,6 +989,8 @@ The relevant Java PR: https://github.com/temporalio/sdk-java/pull/441
 
 ---
 
+<a id="866"></a>
+
 ### #866: TestWorkflowEnvironment doesn't enforce WorkflowExecutionTimeout
 
 | Field | Value |
@@ -1023,6 +1041,8 @@ temporal version 0.0.0-DEV (Server 1.26.2, UI 2.34.0)
 
 
 ---
+
+<a id="642"></a>
 
 ### #642: Inconsistent behavior when asserting invocations
 
@@ -1196,6 +1216,8 @@ Concur. And on a general best-practices note, the ease of adding counts can temp
 
 
 ---
+
+<a id="475"></a>
 
 ### #475: Panic when querying during Workflow failure + retry 
 
@@ -1499,6 +1521,8 @@ This may be solved with https://github.com/temporalio/temporal/pull/2826. Once r
 
 ---
 
+<a id="1330"></a>
+
 ### #1330: Add TaskQueue to TracerStartSpanOptions
 
 | Field | Value |
@@ -1627,6 +1651,8 @@ This is currently the architecture I'm working with, a single queue for each wor
 
 
 ---
+
+<a id="1114"></a>
 
 ### #1114: Support activity functions with variadic arguments  
 
@@ -1788,6 +1814,8 @@ Our way is to create a wrapper around the rpcs just to have the method signature
 
 ---
 
+<a id="986"></a>
+
 ### #986: AwaitWithTimeout does not cancel its timer when condition is satisfied
 
 | Field | Value |
@@ -1883,6 +1911,8 @@ This seems to be a duplicate post that was also made at https://github.com/tempo
 
 
 ---
+
+<a id="937"></a>
 
 ### #937: Add ability to keep session open in case of a worker restart.
 
@@ -2000,6 +2030,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="884"></a>
+
 ### #884: [Feature Request] Add ability to support passing sessions from parent to child wf
 
 | Field | Value |
@@ -2050,6 +2082,8 @@ Ah, true, ok that is not reuse but an actual recreation.
 
 
 ---
+
+<a id="167"></a>
 
 ### #167: Activity times out in test environment with child workflow
 
@@ -2113,6 +2147,8 @@ Any progress on this? i am seeing the same error in `1.9.0`
 
 
 ---
+
+<a id="1208"></a>
 
 ### #1208: Canceling a context with multiple child contexts can be non deterministic
 
@@ -2270,6 +2306,8 @@ No since the keys of the map cannot be sorted. Likely we would just copy what `C
 
 ---
 
+<a id="982"></a>
+
 ### #982: Cannot register mock activity with string name on test workflow environment
 
 | Field | Value |
@@ -2356,6 +2394,8 @@ That works! Thanks for the explanation :)
 
 ---
 
+<a id="2109"></a>
+
 ### #2109: MutableSideEffect in test framework ignores cmp function
 
 | Field | Value |
@@ -2436,6 +2476,8 @@ A small note, from your second call to `MutableSideEffect`, you are putting the 
 
 ---
 
+<a id="1351"></a>
+
 ### #1351: Support interceptor on WorkflowRun.Get
 
 | Field | Value |
@@ -2502,6 +2544,8 @@ Maybe not every call, but any call specifically to a workflow execution should b
 
 ---
 
+<a id="718"></a>
+
 ### #718: Add metric for time passed from the activity scheduling to the last attempt
 
 | Field | Value |
@@ -2546,6 +2590,8 @@ In case I want to add additional tags to metric.
 
 
 ---
+
+<a id="659"></a>
 
 ### #659: Possibility to deprecate attribute `Control`
 
@@ -2622,6 +2668,8 @@ Marking this as something for the next-gen SDK.
 
 
 ---
+
+<a id="495"></a>
 
 ### #495: Calling `GetChildWorkflowExecution` for a mocked workflow in a test causes the runner to complete the child workflow.
 
@@ -2869,6 +2917,8 @@ RegisterWorkflowWithOptions didn't work for me.
 
 ---
 
+<a id="61"></a>
+
 ### #61: Remove mocks package
 
 | Field | Value |
@@ -2905,6 +2955,8 @@ https://github.com/uber-go/cadence-client/issues/928
 
 
 ---
+
+<a id="2065"></a>
 
 ### #2065: NewTestActivityEnvironment no longer implements worker.ActivityRegistry
 
@@ -3082,6 +3134,8 @@ exit status 1
 
 ---
 
+<a id="1976"></a>
+
 ### #1976: ContinueAsNew should create new root span
 
 | Field | Value |
@@ -3172,6 +3226,8 @@ It might be possible to wrap each `RunWorkflow` in 2 spans, one in the parent tr
 
 ---
 
+<a id="1895"></a>
+
 ### #1895: Support simulating race conditions during signal draining
 
 | Field | Value |
@@ -3250,6 +3306,8 @@ I like that idea a lot actually.
 
 
 ---
+
+<a id="1716"></a>
 
 ### #1716: Make it possible to keep workflows in worker cache also if they're only queried
 
@@ -3334,6 +3392,8 @@ Ok, but with the change I tried there was no replay after the first query - it's
 
 ---
 
+<a id="1582"></a>
+
 ### #1582: Updated context functions to match context library
 
 | Field | Value |
@@ -3371,6 +3431,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="1410"></a>
+
 ### #1410: Consider migrating away from golang/mock
 
 | Field | Value |
@@ -3401,6 +3463,8 @@ The change is entirely a search-and-replace at the code level.
 
 
 ---
+
+<a id="1397"></a>
 
 ### #1397: Add Support for `ReplayWorkflowHistoryOptions` to `ReplayWorkflowHistoryFromJSONFile` & `ReplayPartialWorkflowHistoryFromJSONFile`
 
@@ -3497,6 +3561,8 @@ func TestExampleWorkflow_UsingHistory(t *testing.T) {
 
 ---
 
+<a id="1167"></a>
+
 ### #1167: Allow setting activity timeouts in TestActivityEnvironment
 
 | Field | Value |
@@ -3564,6 +3630,8 @@ Not sure about "boilerplate". It starts a real server you can do real integratio
 
 
 ---
+
+<a id="1100"></a>
 
 ### #1100: TestWorkflowEnvironment should surface errors and respect failure signal surfaced by underlying mock
 
@@ -3649,6 +3717,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="949"></a>
+
 ### #949: Allow user to override default maximum activity attempts in test suite
 
 | Field | Value |
@@ -3702,6 +3772,8 @@ I am just suggesting allowing it to be configurable from the default of 10 inste
 
 
 ---
+
+<a id="533"></a>
 
 ### #533: ContinueAsNew which transfers all unprocessed signals to new run
 
@@ -3768,6 +3840,8 @@ If you are using a selector for receiving signals, the best way is to continuall
 
 
 ---
+
+<a id="444"></a>
 
 ### #444: maxRPCTimeout value is too long
 
@@ -3846,6 +3920,8 @@ Related issue: https://github.com/temporalio/sdk-go/issues/1104
 
 ---
 
+<a id="351"></a>
+
 ### #351: [Testing] Cancellation of Parent Workflow with Child Workflow Panics
 
 | Field | Value |
@@ -3917,6 +3993,8 @@ This results in no error, and the workflow isn't canceled.
 
 ---
 
+<a id="70"></a>
+
 ### #70: Refactor NewWorker and remove downcast
 
 | Field | Value |
@@ -3958,6 +4036,8 @@ As part of the new interceptors proposal at https://github.com/temporalio/propos
 
 
 ---
+
+<a id="2103"></a>
 
 ### #2103: Cosmetic bug in logger
 
@@ -4033,6 +4113,8 @@ For otel + slog a user should be using https://github.com/open-telemetry/opentel
 
 
 ---
+
+<a id="2097"></a>
 
 ### #2097: Feature Request: Add Context to MetricsHandler for Exemplar Support
 
@@ -4328,6 +4410,8 @@ Please is there any issue at hand that you would like me to contribute then? I w
 
 ---
 
+<a id="2066"></a>
+
 ### #2066: Lost messages from workflow.NewChannel(ctx)
 
 | Field | Value |
@@ -4477,6 +4561,8 @@ This turns out to be a new bug created from my fixing of the linked bug.
 
 
 ---
+
+<a id="1961"></a>
 
 ### #1961: Getting a strange error when writing tests which does not occur in real temporal deployment
 
@@ -4728,6 +4814,8 @@ Yes, I unfortunately haven't been able to prioritize this issue, hoping I can ge
 
 ---
 
+<a id="1906"></a>
+
 ### #1906: workflowcheck crash (index out of range)
 
 | Field | Value |
@@ -4828,6 +4916,8 @@ Looks like this may be a bug in the Golang repo on code that assumes a file is p
 
 ---
 
+<a id="1759"></a>
+
 ### #1759: Change activity error to warn, or allow it to be configurable 
 
 | Field | Value |
@@ -4870,6 +4960,8 @@ https://github.com/temporalio/sdk-go/blob/master/internal/internal_task_handlers
 
 ---
 
+<a id="1609"></a>
+
 ### #1609: Support ContextAware for failure converters
 
 | Field | Value |
@@ -4909,6 +5001,8 @@ Thank you!
 
 
 ---
+
+<a id="1177"></a>
 
 ### #1177: Switch to a new clock library
 
@@ -4994,6 +5088,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1037"></a>
 
 ### #1037: Calling a value receiver method with a pointer type causes a panic when used through `ExecuteActivity`
 
@@ -5111,6 +5207,8 @@ But it's probably OK. Also, you'll have to make some assumptions or do advanced 
 
 ---
 
+<a id="1035"></a>
+
 ### #1035: Workflowcheck should check that serialized objects do not have unexported, non-json-ignored fields
 
 | Field | Value |
@@ -5174,6 +5272,8 @@ $ go vet .
 
 ---
 
+<a id="955"></a>
+
 ### #955: Suppress "worker stopping" polling errors
 
 | Field | Value |
@@ -5231,6 +5331,8 @@ Any updates on this one? I see this still when stopping a worker (or using the S
 
 ---
 
+<a id="875"></a>
+
 ### #875: Safer queries (and update validators)
 
 | Field | Value |
@@ -5286,6 +5388,8 @@ Queries, and other read only contexts can no longer perform any mutating operati
 
 
 ---
+
+<a id="842"></a>
 
 ### #842: Support custom object processing in codec gRPC interceptor
 
@@ -5362,6 +5466,8 @@ No reason to make it purposefully less flexible. For example, what if you wanted
 
 ---
 
+<a id="813"></a>
+
 ### #813: Weird workflow task failure
 
 | Field | Value |
@@ -5413,6 +5519,8 @@ Still unable to replicate, can anyone else?
 
 ---
 
+<a id="458"></a>
+
 ### #458: TestWorkflowEnvironment: Fail RegisterDelayedCallback after ExecuteWorkflow
 
 | Field | Value |
@@ -5453,6 +5561,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="126"></a>
 
 ### #126: Add autoheartbeating of activities
 
@@ -5509,6 +5619,8 @@ There are a lot of ways to auto heartbeat and no one size fits all. Here's a sim
 
 
 ---
+
+<a id="2131"></a>
 
 ### #2131: Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error..
 
@@ -5570,6 +5682,8 @@ I want to stop this activity as soon as possible, because `ctx.Done()` in an act
 
 
 ---
+
+<a id="2107"></a>
 
 ### #2107: Panic in temporal unit test framework.
 
@@ -5672,6 +5786,8 @@ orchestration/internal/orchworker_test.init.func3.4.3()
 
 ---
 
+<a id="1980"></a>
+
 ### #1980: Feature Request: Include Version in workflowcheck -V=full Output
 
 | Field | Value |
@@ -5733,6 +5849,8 @@ Hi is this issue still available? I'm interested in contributing as a first time
 
 ---
 
+<a id="1954"></a>
+
 ### #1954: Ability to get original Logger from activity.GetLogger(ctx) / workflow.GetLogger(ctx)
 
 | Field | Value |
@@ -5781,6 +5899,8 @@ P.S: I'd gladly consider other solutions if you have such. The main goal is to b
 
 
 ---
+
+<a id="1929"></a>
 
 ### #1929: OTel emitted metrics do not match behavior described in the docs
 
@@ -5920,6 +6040,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="1646"></a>
+
 ### #1646: SetStartTime for activity test env
 
 | Field | Value |
@@ -5954,6 +6076,8 @@ passing in start time for activity as parameter, but this is not encouraged as i
 
 
 ---
+
+<a id="1593"></a>
 
 ### #1593: Consider potential range-over-func APIs
 
@@ -6011,6 +6135,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1468"></a>
 
 ### #1468: Interceptors are skipped for mocked activities
 
@@ -6099,6 +6225,8 @@ Thanks! Meanwhile I have been looking into this issue and I created a commit - h
 
 ---
 
+<a id="1086"></a>
+
 ### #1086: Add support for a graceful shutdown of go workers where all activities are finished before the worker returns
 
 | Field | Value |
@@ -6152,6 +6280,8 @@ For instance, if you have an activity that needs ~30mins more to finish and have
 
 ---
 
+<a id="1033"></a>
+
 ### #1033: OnUpsertSearchAttributes and OnUpsertMemo unclear about mocking ability
 
 | Field | Value |
@@ -6198,6 +6328,8 @@ We should document that `OnUpsertSearchAttributes` and `OnUpsertMemo` are just `
 
 
 ---
+
+<a id="933"></a>
 
 ### #933: No problem indicators on failed workflow input deserialization during queries
 
@@ -6250,6 +6382,8 @@ That might be the ideal logic: If the workflow went into an error state after re
 
 
 ---
+
+<a id="899"></a>
 
 ### #899: github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5)
 
@@ -6447,6 +6581,8 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 
 ---
 
+<a id="754"></a>
+
 ### #754: gRPC Proxy Integration Test
 
 | Field | Value |
@@ -6478,6 +6614,8 @@ Noticed when reviewing https://github.com/temporalio/samples-go/pull/179
 
 
 ---
+
+<a id="616"></a>
 
 ### #616: Investigate options around latency reporting and comparison with server
 
@@ -6531,6 +6669,8 @@ Will wait for feedback/updates on how to proceed.
 
 ---
 
+<a id="497"></a>
+
 ### #497: [Test suite] Query after signal works in SDK, but not in Test Suite
 
 | Field | Value |
@@ -6567,6 +6707,8 @@ In https://docs.temporal.io/blog/build-an-ecommerce-app-with-temporal-part-3-tes
 
 ---
 
+<a id="439"></a>
+
 ### #439: Include a way to perform assertions on the workflow signal channel in the testing environment
 
 | Field | Value |
@@ -6594,6 +6736,8 @@ I'm unable to find a workaround for this situation without modifying workflow co
 
 
 ---
+
+<a id="358"></a>
 
 ### #358: [Bug] the json input is invalid in the workflow history and with a wrong encoding for accents
 
@@ -6656,6 +6800,8 @@ Temporal encoding doesn't support accents in the input too.
 
 ---
 
+<a id="266"></a>
+
 ### #266: Expose activity start and completion information to the workflow code
 
 | Field | Value |
@@ -6679,6 +6825,8 @@ Same request for Java: https://github.com/temporalio/sdk-java/issues/228
 
 
 ---
+
+<a id="101"></a>
 
 ### #101: Add ability to pass Channel as a parameter to Child workflow and activity
 
@@ -6720,6 +6868,8 @@ The similar approach should work for child workflows as well.
 
 ---
 
+<a id="35"></a>
+
 ### #35: Add ability to pass configuration to a workflow
 
 | Field | Value |
@@ -6751,6 +6901,8 @@ The GetConfiguration should either use `SideEffect`, `MutableSideEffect` or loca
 
 
 ---
+
+<a id="2098"></a>
 
 ### #2098: Update ChildWorkflowOptions comment to indicate the default WorkflowIDReusePolicy and WorkflowIdConflictPolicy
 
@@ -6793,6 +6945,8 @@ N/A
 
 
 ---
+
+<a id="2039"></a>
 
 ### #2039: Joining errors causes TestWorkflowEnvironment to hide panics and pass test
 
@@ -6853,6 +7007,8 @@ Looks like this was user error. The correct way to return a joined error is `tem
 
 ---
 
+<a id="1705"></a>
+
 ### #1705: User-defined RequestId for SignalWorkflow
 
 | Field | Value |
@@ -6892,6 +7048,8 @@ Long term server side deduplication of signals by `RequestId` is not a stable fe
 
 
 ---
+
+<a id="1624"></a>
 
 ### #1624: Signal sent to Selector can be lost if Default path blocks 
 
@@ -6939,6 +7097,8 @@ When re-enabling the flag, must address the issue described in https://github.co
 
 
 ---
+
+<a id="1574"></a>
 
 ### #1574: Batched heartbeat got canceled due to caller context cancellation
 
@@ -7017,6 +7177,8 @@ Talked offline discussed we should:
 
 ---
 
+<a id="1471"></a>
+
 ### #1471: Support New Versioning in WorkflowInfo.GetCurrentBuildID()
 
 | Field | Value |
@@ -7053,6 +7215,8 @@ Currently we are duplicating the Build ID and adding it to both WFTStarted and W
 
 
 ---
+
+<a id="1445"></a>
 
 ### #1445: OTel metric handler improvements
 
@@ -7092,6 +7256,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="1395"></a>
+
 ### #1395: Make TestWorkflowEnvironment return errors with stack traces
 
 | Field | Value |
@@ -7129,6 +7295,8 @@ Are you setting logging in this test environment? Go errors are often short on t
 
 ---
 
+<a id="1334"></a>
+
 ### #1334: Allow opting out of tracer span creation on schedule create
 
 | Field | Value |
@@ -7162,6 +7330,8 @@ Today the tracing interceptor always creates a span and attaches to workflow act
 
 
 ---
+
+<a id="1300"></a>
 
 ### #1300: Better Task Failures when passing incorrect options to Execute[Local]Activity
 
@@ -7198,6 +7368,8 @@ The problem here is that you're not "passing" things to these calls, they are ju
 
 
 ---
+
+<a id="1227"></a>
 
 ### #1227: Worker versioning + workflow session
 
@@ -7294,6 +7466,8 @@ Unfortunately worker versioning and sessions are not compatible at this time bec
 
 ---
 
+<a id="1104"></a>
+
 ### #1104: Context timeout is halved on client.ExecuteWorkflow
 
 | Field | Value |
@@ -7372,6 +7546,8 @@ To add clarification, we halve the user-provided timeout so we can retry within 
 
 ---
 
+<a id="1099"></a>
+
 ### #1099: TestWorkflowEnvironment timeouts run defer statements
 
 | Field | Value |
@@ -7410,6 +7586,8 @@ Hrmm, I don't think this is possible in Go without leaking goroutines/memory. Pa
 
 
 ---
+
+<a id="1045"></a>
 
 ### #1045: Memo does not go through user provided data coverter
 
@@ -7454,6 +7632,8 @@ https://github.com/temporalio/sdk-go/blob/5cd20cf09a022d3cda9edef9376054df46b200
 
 ---
 
+<a id="996"></a>
+
 ### #996: Opt-in to having stack trace query use custom data converter
 
 | Field | Value |
@@ -7487,6 +7667,8 @@ We need to discuss how this affects the proxy now in api-go. Do we need to have 
 
 
 ---
+
+<a id="975"></a>
 
 ### #975: Missing mock invocation causes PanicError in a test but the test succeeds with exit code 0.
 
@@ -7557,6 +7739,8 @@ Your workflow is written to run regardless of that activity, so one could argue 
 
 ---
 
+<a id="968"></a>
+
 ### #968: Remove deprecated metrics
 
 | Field | Value |
@@ -7591,6 +7775,8 @@ These types of removals are mostly unreasonable unless a reason beyond normal de
 
 
 ---
+
+<a id="967"></a>
 
 ### #967: testsuite.TestWorkflowEnvironment does not complete workflows synchronously when activities create new environments to start nested workflows
 
@@ -7701,6 +7887,8 @@ Note, our public Slack threads are regularly culled so this link may not be vali
 
 ---
 
+<a id="935"></a>
+
 ### #935: Testing: Be Able to Unit Test a Workflow with a Populated `ContinuedExecutionRunID`
 
 | Field | Value |
@@ -7742,6 +7930,8 @@ Hrmm, there are several other things on workflow info one might want to set as w
 
 
 ---
+
+<a id="922"></a>
 
 ### #922: TestWorkflowEnvironment.SignalExternalWorkflow data race on signal data
 
@@ -7866,6 +8056,8 @@ Thanks! This is similar to #908. Some of the test environment was not developed 
 
 ---
 
+<a id="912"></a>
+
 ### #912: Change default Prometheus santitize options to not change values
 
 | Field | Value |
@@ -7905,6 +8097,8 @@ I think it might be sufficient to change the `Characters` option to something li
 
 
 ---
+
+<a id="716"></a>
 
 ### #716: If a workflow is terminated while processing, it can leak coroutines
 
@@ -7994,6 +8188,8 @@ This may be fixed by #779, but we will have to test after that is merged.
 
 ---
 
+<a id="698"></a>
+
 ### #698: Allow "unable to find workflow type" error to be configured to hard-fail the workflow
 
 | Field | Value |
@@ -8031,6 +8227,8 @@ The best approach for this may be to go ahead and support #543 so a catch-all wo
 
 
 ---
+
+<a id="194"></a>
 
 ### #194: Support seamless cleanup during session cancellation
 
@@ -8071,6 +8269,8 @@ Cleanup in session cannot finished correctly in cancellation of workflow, maybe 
 
 ---
 
+<a id="50"></a>
+
 ### #50: Make TestWorkflowEnvironment support test multiple workflows
 
 | Field | Value |
@@ -8103,6 +8303,8 @@ Ported from: Uber Cadence GO: Issue 616
 
 ---
 
+<a id="2124"></a>
+
 ### #2124: Support non-workflow activities
 
 | Field | Value |
@@ -8132,6 +8334,8 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 
 ---
 
+<a id="2123"></a>
+
 ### #2123: [api-go] Proxy: allow payload visitor to run in parallel
 
 | Field | Value |
@@ -8160,6 +8364,8 @@ Add an option to the proxy visitor to allow paralleziation. Users should be able
 
 
 ---
+
+<a id="2094"></a>
 
 ### #2094: Worker Heartbeating
 
@@ -8193,6 +8399,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="2090"></a>
 
 ### #2090: Starting a child workflow in tests leaks goroutines
 
@@ -8268,6 +8476,8 @@ func (s *TestSuite) TestChildWorkflow() {
 
 ---
 
+<a id="2085"></a>
+
 ### #2085: Add support for firstExecutionRunId to cancel and terminate
 
 | Field | Value |
@@ -8296,6 +8506,8 @@ add methods like `cancelWithOptions` and `terminateWithOptions` that take an opt
 
 ---
 
+<a id="2045"></a>
+
 ### #2045: Ensure tests exist to confirm custom slot supplier slot info has proper fields
 
 | Field | Value |
@@ -8320,6 +8532,8 @@ See https://github.com/temporalio/features/issues/672
 
 
 ---
+
+<a id="2025"></a>
 
 ### #2025: Fix DescribeTaskQueueEnhanced w/ stats to use non-deprecated APIs
 
@@ -8346,6 +8560,8 @@ Currently, this call is still using a variety of now-deprecated APIs. Fix it to 
 
 ---
 
+<a id="2020"></a>
+
 ### #2020: Plugin support
 
 | Field | Value |
@@ -8370,6 +8586,8 @@ See https://github.com/temporalio/features/issues/652
 
 
 ---
+
+<a id="2005"></a>
 
 ### #2005: OnWorkflow test mocker doesn't propagate context headers
 
@@ -8414,6 +8632,8 @@ Darwin Xinyis-Laptop.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54
 
 ---
 
+<a id="1869"></a>
+
 ### #1869: SetOnChildWorkflowCompletedListener doesn't work as expected
 
 | Field | Value |
@@ -8457,6 +8677,8 @@ go.temporal.io/sdk v1.33.0
 
 ---
 
+<a id="1846"></a>
+
 ### #1846: AsTime() on a nil pointer converts to  Jan. 1st, 1970 at midnight UTC
 
 | Field | Value |
@@ -8484,6 +8706,8 @@ The solution is to check with `IsValid()` before calling `AsTime()`
 
 
 ---
+
+<a id="1838"></a>
 
 ### #1838: Non-deterministic workflow code can send incorrect WFT completion without task failure
 
@@ -8516,6 +8740,8 @@ However, when responding to WFT2, the SDK re-sends acceptance and completion mes
 
 ---
 
+<a id="1817"></a>
+
 ### #1817: Expose Workflow cancel cause/reason
 
 | Field | Value |
@@ -8538,6 +8764,8 @@ WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be
 
 
 ---
+
+<a id="1796"></a>
 
 ### #1796: Add `Patched()` and `DeprecatePatch()` APIs
 
@@ -8570,6 +8798,8 @@ See temporalio/features#591 for details.
 
 ---
 
+<a id="1778"></a>
+
 ### #1778: Rename Worker Deployment API interfaces
 
 | Field | Value |
@@ -8596,6 +8826,8 @@ Some interfaces of the Worker Deployment API are changing to reflect the embeddi
 
 ---
 
+<a id="1777"></a>
+
 ### #1777: Add ramp to Worker Deployments
 
 | Field | Value |
@@ -8621,6 +8853,8 @@ Activity tasks between two implementations.
 
 ---
 
+<a id="1776"></a>
+
 ### #1776: Provide flag to tell the update handler that the handling is from a re-apply
 
 | Field | Value |
@@ -8644,6 +8878,8 @@ See https://github.com/temporalio/features/issues/564
 
 
 ---
+
+<a id="1760"></a>
 
 ### #1760: Provide "workflow local"
 
@@ -8677,6 +8913,8 @@ This is basically just type-safe sugar for top-level context value. See https://
 
 
 ---
+
+<a id="1693"></a>
 
 ### #1693: Provide details and actionable info about Non Deterministic Errors
 
@@ -8736,6 +8974,8 @@ NA
 
 ---
 
+<a id="1668"></a>
+
 ### #1668: When deserializing typed search attributes, invalid values should be ignored
 
 | Field | Value |
@@ -8766,6 +9006,8 @@ This was most obvious when a user used the TypeScript SDK to create a schedule t
 
 
 ---
+
+<a id="1650"></a>
 
 ### #1650: List of flaky tests
 
@@ -8798,6 +9040,8 @@ New as of Go 1.24
 
 ---
 
+<a id="1633"></a>
+
 ### #1633: Modify test suite to dump junit XML
 
 | Field | Value |
@@ -8820,6 +9064,8 @@ As in https://github.com/temporalio/sdk-python/pull/617 and https://github.com/t
 
 
 ---
+
+<a id="1610"></a>
 
 ### #1610: Provide access to the workflow results from worker.WorkflowReplayer
 
@@ -8871,6 +9117,8 @@ I think the first one is probably the optimal one from a user standpoint, but th
 
 ---
 
+<a id="1564"></a>
+
 ### #1564: Test Nexus with Cloud
 
 | Field | Value |
@@ -8897,6 +9145,8 @@ The tricky part to test this would be to allow tests to run concurrently since a
 
 
 ---
+
+<a id="1536"></a>
 
 ### #1536: TERMINATE_IF_RUNNING doesn't work for duplicate child workflows
 
@@ -8930,6 +9180,8 @@ https://github.com/temporalio/samples-go/pull/356
 
 
 ---
+
+<a id="1496"></a>
 
 ### #1496: Workflow outcome is inconsistent between test env and real server
 
@@ -8989,6 +9241,8 @@ The test env is consistent with the behavior of other SDKs, but it's likely too 
 
 ---
 
+<a id="1469"></a>
+
 ### #1469: Allow specifying attempt in TestWorkflowEnvironment
 
 | Field | Value |
@@ -9013,6 +9267,8 @@ Users may have different logic based on the attempt count of a workflow or activ
 
 
 ---
+
+<a id="1427"></a>
 
 ### #1427: TestWorkflowEnvironment workflow Context does not block when canceled
 
@@ -9065,6 +9321,8 @@ The test issues a cancelation request using a delayed callback, and the activity
 
 ---
 
+<a id="1387"></a>
+
 ### #1387: Configurable panic policy at the workflow level
 
 | Field | Value |
@@ -9090,6 +9348,8 @@ See https://github.com/temporalio/features/issues/322. May be determined we don'
 
 
 ---
+
+<a id="1360"></a>
 
 ### #1360: `testsuite.DevServer` occasionally does not stop
 
@@ -9147,6 +9407,8 @@ ogle.golang.org/grpc.(*Server).serveStreams.func1.1\n\t/home/runner/go/pkg/mod/g
 
 ---
 
+<a id="1349"></a>
+
 ### #1349: WorkflowRun.Get does not use a context aware data converter
 
 | Field | Value |
@@ -9177,6 +9439,8 @@ https://github.com/temporalio/sdk-go/blob/5ca9a4dfd4c37a56f0dd886596494be4599f01
 
 
 ---
+
+<a id="1341"></a>
 
 ### #1341: WorkflowChecker should flag anonymous functions in local activities as non deterministic
 
@@ -9218,6 +9482,8 @@ Anonymous functions as local activities are ripe for data races because they can
 
 ---
 
+<a id="1315"></a>
+
 ### #1315: Deprecate Update related SDK flags
 
 | Field | Value |
@@ -9241,6 +9507,8 @@ To preserve history compatibility we introduced a couple update related flags `S
 
 
 ---
+
+<a id="1283"></a>
 
 ### #1283: Remove ClientOutboundInterceptor.PollWorkflowUpdate
 
@@ -9266,6 +9534,8 @@ This does not need to be interceptable any more than getting a workflow result d
 
 
 ---
+
+<a id="1240"></a>
 
 ### #1240: Data race after deadlock detector fired
 
@@ -9930,6 +10200,8 @@ Goroutine 6062 (running) created at:
 
 ---
 
+<a id="1197"></a>
+
 ### #1197: Drain polled tasks on shutdown
 
 | Field | Value |
@@ -9959,6 +10231,8 @@ https://github.com/temporalio/sdk-go/pull/1195
 
 
 ---
+
+<a id="1173"></a>
 
 ### #1173: Enable testing with OnActivity and non-retryable errors to verify options are set correctly
 
@@ -9995,6 +10269,8 @@ None
 
 ---
 
+<a id="1157"></a>
+
 ### #1157: Support LocalActivityOptions.WaitForCancellation
 
 | Field | Value |
@@ -10019,6 +10295,8 @@ Local activities need to be able to react to worker stop cancellation if they wa
 
 
 ---
+
+<a id="1132"></a>
 
 ### #1132: Add support for visiting all payloads at once in proxy visitor interceptor
 
@@ -10118,6 +10396,8 @@ Basically we need this functionality opt-in. The best solution is probably some 
 
 ---
 
+<a id="1131"></a>
+
 ### #1131: worker.Options.WorkerActivitiesPerSecond applies after poll is received
 
 | Field | Value |
@@ -10144,6 +10424,8 @@ We should either fix this (hard) or at least document this warning on the field.
 
 
 ---
+
+<a id="1054"></a>
 
 ### #1054: EncodedFailureAttributes capability should be respected
 
@@ -10175,6 +10457,8 @@ Go SDK ignores `EncodedFailureAttributes`.
 
 ---
 
+<a id="997"></a>
+
 ### #997: Support dynamic query and update handler
 
 | Field | Value |
@@ -10199,6 +10483,8 @@ Need to allow a dynamic query or update handler that is called when no other que
 
 
 ---
+
+<a id="909"></a>
 
 ### #909: Fatal poll error on worker start isn't stopping activity poller
 
@@ -10233,6 +10519,8 @@ Maybe try to start a worker and have the first poll immediately give back a name
 
 ---
 
+<a id="900"></a>
+
 ### #900: Log warning on failed serialization of signal input
 
 | Field | Value |
@@ -10264,6 +10552,8 @@ We also need to confirm and document behavior in selectors when that receive cal
 
 ---
 
+<a id="873"></a>
+
 ### #873: Ensure slots available metric is updated on worker stop
 
 | Field | Value |
@@ -10292,6 +10582,8 @@ Glancing at the code, these may not be removed properly
 
 
 ---
+
+<a id="755"></a>
 
 ### #755: Sticky query invalid state machine transition error
 
@@ -10351,6 +10643,8 @@ Running the test directly will give the following error message
 
 ---
 
+<a id="728"></a>
+
 ### #728: Add Await branch to Selector
 
 | Field | Value |
@@ -10392,6 +10686,8 @@ When `Selector.Select` is called, `f` will be called if `condition` returns true
 
 ---
 
+<a id="705"></a>
+
 ### #705: Make WorkflowServiceStubsOptions#rpcLongPollTimeout configurable
 
 | Field | Value |
@@ -10414,6 +10710,8 @@ The original issue in JavaSDK: https://github.com/temporalio/sdk-java/issues/988
 
 
 ---
+
+<a id="676"></a>
 
 ### #676: Document dangers with workflow.WithChildOptions and workflow.WithWorkflowRunTimeout using continue as new
 
@@ -10443,6 +10741,8 @@ Since we likely can't change this, we need to document the issue and discourage 
 
 
 ---
+
+<a id="619"></a>
 
 ### #619: Make tracing tags consistent across SDKs
 
@@ -10479,6 +10779,8 @@ Make tracing tags consistent across SDKs.
 
 
 ---
+
+<a id="514"></a>
 
 ### #514: TestActivityEnvironment.ExecuteActivity requires RegisterActivity when invoking activity by function
 
@@ -10535,6 +10837,8 @@ The above results in a test panic:
 
 ---
 
+<a id="505"></a>
+
 ### #505: Non-retryable errors in sessions
 
 | Field | Value |
@@ -10557,6 +10861,8 @@ Some errors need to be non-retryable in sessions, for example heartbeat failures
 
 
 ---
+
+<a id="491"></a>
 
 ### #491: Testsuite Workflow Retry not working
 
@@ -10637,6 +10943,8 @@ Error:
 
 ---
 
+<a id="482"></a>
+
 ### #482: Workflow query hangs if the temporal workflow execution panics (is not available)
 
 | Field | Value |
@@ -10678,6 +10986,8 @@ Interestingly, making the same query through `tctl` will timeout in 5 seconds. T
 
 
 ---
+
+<a id="346"></a>
 
 ### #346: RequestCancelExternalWorkflow(...).Get(ctx, nil) blocks forever with workflow exits with ErrCanceled
 
@@ -10780,6 +11090,8 @@ func TestWorkflow(ctx workflow.Context) error {
 
 ---
 
+<a id="335"></a>
+
 ### #335: Original Failure source is lost when ConvertFailureToError invoked
 
 | Field | Value |
@@ -10806,6 +11118,8 @@ Sets GoSDK
 
 
 ---
+
+<a id="277"></a>
 
 ### #277: Expose access to grpc.ServiceClient so we can create default golang client and get access to underlying GRPC client
 
@@ -10838,6 +11152,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="247"></a>
+
 ### #247: Retrieved String Search Attribute includes quotation characters
 
 | Field | Value |
@@ -10861,6 +11177,8 @@ All details are here: https://github.com/temporalio/temporal/issues/524.
 
 ---
 
+<a id="238"></a>
+
 ### #238: RecordActivityHeartbeat signature should be modified to return an error if activity has been canceled
 
 | Field | Value |
@@ -10883,6 +11201,8 @@ Currently RecordActivityHeartbeat doesn't return an error and is basically a "no
 
 
 ---
+
+<a id="198"></a>
 
 ### #198: Add support for doing backward incompatible changes to workflow and activity function signatures
 
@@ -10917,6 +11237,8 @@ https://community.temporal.io/t/migrating-a-workflow-activity-argument-to-a-prop
 
 
 ---
+
+<a id="186"></a>
 
 ### #186: Worker reports validation error on processing of transient decision
 
@@ -10959,6 +11281,8 @@ https://pastebin.com/raw/zjZUNhyV
 
 ---
 
+<a id="125"></a>
+
 ### #125: Remove need to register mocked activity
 
 | Field | Value |
@@ -10994,6 +11318,8 @@ func (s *KubernetesWorkflowTestSuite) SetupSuite() {
 
 
 ---
+
+<a id="108"></a>
 
 ### #108: Fix race condition in testWorkflowEnvironmentImpl
 

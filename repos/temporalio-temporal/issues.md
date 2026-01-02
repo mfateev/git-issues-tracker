@@ -45,536 +45,536 @@
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
-| [#680](#680-add-ability-for-workflow-to-wait-for-completion-of-an-external-workflow) | 70 | 14 | Add ability for workflow to wait for completion of an external workflow |
-| [#1507](#1507-provide-priority-task-queues) | 50 | 27 | Provide priority task queues |
-| [#2668](#2668-document-postgresseeds-or-better-yet-use-a-descriptive-var-name) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a descriptive var name) |
-| [#2318](#2318-mongodb-as-persistent) | 46 | 7 | MongoDB as Persistent |
-| [#5680](#5680-official-support-for-opensearch) | 30 | 14 | Official support for Opensearch |
-| [#537](#537-add-signalwithstartupdatewithstart-command) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
-| [#131](#131-different-retry-options-based-on-failure-type) | 28 | 4 | Different retry options based on failure type |
-| [#328](#328-try-to-run-temporal-on-top-of-amazon-keyspaces) | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
-| [#2609](#2609-add-ability-to-transfer-child-workflows-to-new-parent-run-when-parent-calls-continue-as-new) | 23 | 7 | Add ability to transfer child workflows to new parent run when parent calls continue as new |
-| [#2582](#2582-add-health-check-handler-for-worker-service) | 18 | 13 | Add health check handler for worker service |
-| [#5302](#5302-ydb-temporal-support) | 23 | 2 | YDB Temporal support. |
-| [#1797](#1797-ability-to-get-all-task-queues-per-namespace) | 22 | 4 | Ability to get all task queues per namespace |
-| [#1460](#1460-add-task-queue-query) | 16 | 11 | Add task queue query |
-| [#3228](#3228-metadata-for-timers) | 16 | 6 | Metadata for Timers |
-| [#3366](#3366-support-sqlite-in-production) | 16 | 4 | Support sqlite in production. |
-| [#4795](#4795-schedules---add-option-for-execution-workflowid-to-be-as-is-not-unique-per-run) | 14 | 6 | Schedules - add option for execution workflowid to be "as-is" (not unique per run) |
-| [#1988](#1988-implement-dynamic-task-queue-routing) | 15 | 3 | Implement dynamic task queue routing |
-| [#298](#298-support-embedded-version-of-the-service) | 14 | 4 | Support embedded version of the service |
-| [#4180](#4180-official-cockroachdb-crdb-support) | 13 | 1 | Official CockroachDB (CRDB) support |
-| [#1492](#1492-optimize-large-payload-fan-out-to-activities-and-child-workflows) | 12 | 1 | Optimize large payload fan-out to activities and child workflows |
-| [#5811](#5811-support-last-day-of-month-as-a-recurring-schedule-option) | 12 | 0 | Support last day of month as a recurring schedule option |
-| [#3056](#3056-support-wildcard-search-for-workflows) | 11 | 2 | Support wildcard search for workflows |
-| [#2617](#2617-allow-retention-period-to-be-set-per-workflow-completion-type) | 9 | 6 | Allow retention period to be set per workflow completion type |
-| [#1428](#1428-aim-for-error-free-rolling-bounces-and-upgrades-of-temporal) | 11 | 2 | Aim for error free rolling bounces and upgrades of Temporal |
-| [#4386](#4386-add-new-workflow-id-reuse-policy-allow-duplicate-with-queueing) | 6 | 11 | Add new Workflow Id Reuse Policy: Allow Duplicate with Queueing |
-| [#130](#130-add-cron-activity) | 6 | 11 | Add cron activity |
-| [#4383](#4383-support-log-less-graceful-shutdown-without-error-looking-up-host-for-shardid-errors) | 10 | 2 | Support log-less graceful shutdown without "Error looking up host for shardID" errors |
-| [#685](#685-delay-workflow-completion-until-abandoned-children-start) | 9 | 4 | Delay workflow completion until abandoned children start  |
-| [#3709](#3709-workflowsactivities-to-post-event-notifications-that-could-be-listened-to) | 8 | 5 | Workflows/activities to post event notifications that could be listened to |
-| [#3383](#3383-schema-name-selection-for-postgres) | 4 | 13 | Schema name selection for postgres |
-| [#2941](#2941-host-level-cache-for-history) | 9 | 3 | Host level cache for history |
-| [#4233](#4233-too-high-memory-usage-on-history-service) | 6 | 7 | Too high memory usage on history service  |
-| [#3006](#3006-workflow-pause-unpause) | 0 | 18 | Workflow Pause / Unpause |
-| [#487](#487-consider-separating-retention-period-from-uniqueness-guarantee-period) | 8 | 2 | Consider separating retention period from uniqueness guarantee period |
-| [#7037](#7037-bug-viewing-schedule-throws-a-504-context-deadline-exceeded) | 5 | 7 | [bug] Viewing schedule throws a 504 "context deadline exceeded" |
-| [#4105](#4105-full-support-for-scylladb-as-persistence-layer) | 8 | 1 | Full support for scylladb as persistence layer |
-| [#4829](#4829-allow-to-specify-task-queue-when-resetting-an-execution) | 8 | 0 | Allow to specify task queue when resetting an execution |
-| [#6995](#6995-error-during-visibilitydeleteexecution) | 6 | 3 | Error during VisibilityDeleteExecution |
-| [#6323](#6323-frontend-service---goroutine-cpu-memory-leak) | 0 | 15 | Frontend Service - goroutine (CPU & Memory) Leak |
-| [#5516](#5516-support-for-azure-blob-storage-for-archival) | 7 | 1 | Support for Azure Blob Storage for Archival |
-| [#4902](#4902-custom-authentication-between-frontend-and-other-services) | 0 | 15 | Custom authentication between frontend and other services |
-| [#3309](#3309-notify-all-workers-on-a-task-queue) | 7 | 1 | Notify all workers on a task queue |
-| [#1412](#1412-add-soft-workflow-timeout) | 7 | 1 | Add soft workflow timeout |
-| [#804](#804-synchronous-start) | 5 | 5 | Synchronous Start |
-| [#7930](#7930-replace-githubcomolivereelasticv7-with-the-official-client-githubcomelasticgo-elasticsearch) | 0 | 14 | Replace "github.com/olivere/elastic/v7" with the official client "github.com/elastic/go-elasticsearch" |
-| [#3468](#3468-add-ability-to-list-task-queues-for-a-given-namespace) | 6 | 2 | Add ability to list task queues for a given namespace |
-| [#351](#351-list-workflow-executions-ignoring-previous-runs) | 5 | 4 | List Workflow Executions ignoring previous runs |
-| [#8724](#8724-support-azure-entra-id-authentication-for-postgresql-backend) | 6 | 1 | Support Azure Entra ID Authentication for PostgreSQL Backend |
-| [#8356](#8356-resource-aware-worker-concurrency) | 6 | 1 | Resource-Aware Worker Concurrency |
-| [#6799](#6799-support-workflowidconflictpolicy-for-child-workflow) | 3 | 7 | Support `WorkflowIdConflictPolicy` for child workflow |
-| [#8110](#8110-v1280-vulnerabilities) | 1 | 10 | v1.28.0 vulnerabilities |
-| [#5156](#5156-allow-configuration-of-expected-audience-value-for-temporal-authorization) | 4 | 4 | Allow configuration of expected audience value for Temporal authorization |
-| [#4044](#4044-postgres-schema-support-partition-table-feature) | 5 | 2 | Postgres schema support partition table feature |
-| [#2426](#2426-feature-request-add-reason-field-to-requestcancelworkflowexecutionrequest) | 1 | 10 | [Feature Request] Add reason field to RequestCancelWorkflowExecutionRequest |
-| [#1289](#1289-do-not-fail-continue-as-new-on-a-new-signal) | 5 | 2 | Do not fail continue as new on a new signal |
-| [#983](#983-logggingexception-stack-trace-not-capturing-underlying-errors) | 5 | 1 | loggging/exception stack trace not capturing underlying errors |
-| [#5455](#5455-docker-compose-multirole-sometimes-stuck-on-boot) | 5 | 0 | docker-compose multirole sometimes stuck on boot |
-| [#4000](#4000-bug-concurrent-map-read-and-map-write) | 2 | 6 | bug: concurrent map read and map write |
-| [#2621](#2621-align-tls-enable-env-var-names-between-temporal-sql-tool-and-auto-setup) | 5 | 0 | Align TLS enable env var names between temporal-sql-tool and auto-setup  |
-| [#1499](#1499-ability-to-update-workflow-config-including-cron-schedule-retry-policy-etc) | 4 | 2 | Ability to update workflow config, including cron schedule, retry policy, etc |
-| [#1203](#1203-add-signalwithreset) | 5 | 0 | Add SignalWithReset |
-| [#6806](#6806-workflowtasktimedout-if-submiting-a-large-number-of-activiteis-within-one-workflow) | 3 | 3 | WorkflowTaskTimedOut if submiting a large number of activiteis within one workflow |
-| [#5741](#5741-addressing-a-lot-of-security-vulnerabilities-in-the-latest-temporal-admin-tools-release-1230) | 0 | 9 | Addressing a lot of security vulnerabilities in the latest Temporal admin-tools release 1.23.0 |
-| [#5286](#5286-slack-notification-integration-or-other-messaging-platform) | 3 | 3 | Slack Notification Integration (or other messaging platform) |
-| [#5022](#5022-cant-display-archived-workflows-which-have-past-the-retention) | 2 | 5 | Can't display archived workflows which have past the retention |
-| [#4387](#4387-add-blacklistwhitelist-of-signal-and-synchronous-update-types) | 2 | 5 | Add blacklist/whitelist of signal and synchronous update types |
-| [#3624](#3624-reset-should-be-allowed-with-pending-childwf-in-current-run-if-current-run-is-already-closed) | 2 | 5 | Reset should be allowed with pending childWF in current run, if current run is already closed |
-| [#2691](#2691-support-for-workflow-chain-ids-in-all-apis-that-are-able-to-address-the-latest-run) | 0 | 9 | Support for "workflow chain IDs" in all APIs that are able to address the "latest" run |
-| [#471](#471-temporal-docker-fails-to-bind-on-multiple-interfaces) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
-| [#453](#453-feature-implement-docker-healthcheck) | 2 | 5 | Feature: implement docker healthcheck |
-| [#421](#421-add-admin-command-to-dump-dynamic-config-values) | 4 | 1 | Add admin command to dump dynamic config value[s] |
-| [#196](#196-task-list-with-rate-limiting-per-key) | 4 | 1 | Task list with rate limiting per key |
-| [#8205](#8205-improve-dst-handling-in-schedules) | 2 | 4 | Improve DST handling in schedules |
-| [#7666](#7666-oncurrency-limit-built-in-semaphore-per-workflow-type) | 3 | 2 | Сoncurrency limit (built-in semaphore) per Workflow type |
-| [#3517](#3517-provide-a-way-to-retrieve-the-list-of-failures-for-one-activity) | 3 | 2 | Provide a way to retrieve the list of failures for one activity |
-| [#3141](#3141-support-reset-to-any-point-with-pending-childworkflows) | 4 | 0 | Support reset to any point with pending ChildWorkflows |
-| [#954](#954-docs-add-multi-region-deployment-documentation) | 3 | 2 | docs: Add multi-region deployment documentation |
-| [#8719](#8719-stale-internode-grpc-connections-after-pod-termination-when-using-kubernetes-deployments) | 3 | 1 | Stale internode gRPC connections after pod termination when using Kubernetes Deployments |
-| [#8461](#8461-adding-documentation-for-self-hosting-temporal-on-cloud-environments) | 2 | 3 | Adding documentation for self-hosting temporal on cloud environments. |
-| [#7777](#7777-support-workflow-task-completions-larger-than-grpc-max-message-size) | 3 | 1 | Support workflow task completions larger than gRPC max message size |
-| [#7421](#7421-migration-to-aws-sdk-for-go-v2-needed) | 2 | 3 | Migration to AWS SDK for Go v2 needed |
-| [#6193](#6193-cannot-load-archived-s3-provider-workflow-history-on-ui) | 2 | 3 | Cannot load archived (s3 provider) workflow history on UI |
-| [#1119](#1119-parentexecution-not-set-in-workflowexecutioninfo) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
-| [#785](#785-workflow-less-activity) | 3 | 1 | Workflow-less activity |
-| [#682](#682-signal-to-self-error-in-workflow-code) | 0 | 7 | Signal to self error in Workflow code |
-| [#8490](#8490-scheduled-actions-doesnt-clear-continuedfailure-on-null-success-payloads) | 2 | 2 | Scheduled Actions doesn't clear ContinuedFailure on null success payloads |
-| [#7894](#7894-cannot-load-archived-workflows-on-ui-even-archived-are-present-in-s3) | 2 | 2 | Cannot load Archived Workflows on UI even archived are present in S3 |
-| [#7600](#7600-startworkflowexecution-fails-with-duplicate-key-error-despite-terminateexisting-policy-possible-db-inconsistency) | 0 | 6 | start_workflow_execution fails with duplicate key error despite TERMINATE_EXISTING policy (possible DB inconsistency) |
-| [#6664](#6664-request-unauthorized-for-sql-search-attributes-claims-are-not-passed) | 1 | 4 | Request unauthorized for SQL search-attributes (claims are not passed) |
-| [#5874](#5874-provide-extra-info-of-the-received-signal-for-re-apply-from-reset-and-others) | 0 | 6 | Provide extra info of the received signal for re-apply from reset, and others |
-| [#5725](#5725-add-parentclosepolicydisconnected) | 3 | 0 | Add PARENT_CLOSE_POLICY_DISCONNECTED |
-| [#4919](#4919-allow-internal-frontend-to-registerupdate-namespace-and-other-methods) | 0 | 6 | Allow Internal-Frontend to Register/Update Namespace (and other methods) |
-| [#3503](#3503-dynamic-task-queue-rate-limiting) | 2 | 2 | Dynamic Task Queue rate limiting |
-| [#2729](#2729-temporal-is-not-able-to-connect-to-cassandra-even-when-one-node-is-down-in-a-cluster) | 0 | 6 | Temporal Is not able to connect to Cassandra even when one node is down in a cluster |
-| [#2341](#2341-config-strict-mode-for-configuration-parsing) | 1 | 4 | config: strict mode for configuration parsing |
-| [#2230](#2230-add-a-feature-flag-to-enable-the-self-signed-certificates-for-the-elasticsearch-transport) | 3 | 0 | Add a feature flag to enable the self-signed certificates for the Elasticsearch transport |
-| [#1994](#1994-cron-tailgate-like-workflow-triggering-start-a-workflow-in-some-time-after-it-completes-and-not-according-to-cron-schedule-java) | 0 | 6 | Cron tailgate-like workflow triggering (start a workflow in some time after it completes and not according to cron schedule) [Java] |
-| [#1485](#1485-provide-default-mapping-for-authorizer-roles-to-api-names) | 3 | 0 | Provide default mapping for authorizer roles to API names |
-| [#245](#245-cassandra-timestamp-type) | 0 | 6 | Cassandra timestamp type |
-| [#8636](#8636-auth-plugin-design) | 1 | 3 | Auth plugin design |
-| [#8284](#8284-carry-over-signal-to-retry-execution-if-original-was-created-via-signalwithstart) | 2 | 1 | Carry over signal to retry execution if original was created via SignalWithStart |
-| [#6805](#6805-scaling-temporal-workers) | 2 | 1 | Scaling Temporal Workers |
-| [#6307](#6307-panic-when-upgrading-from-1204-to-1216) | 1 | 3 | Panic When Upgrading From 1.20.4 To 1.21.6 |
-| [#6146](#6146-temporal-on-arm64-linux-is-not-working-correctly-amd64-binaries) | 0 | 5 | temporal on arm64 Linux is not working correctly ...amd64 binaries? |
-| [#5693](#5693-multiple-hosts-in-connection-string-are-not-handled-properly-postgresseeds-accepts-only-single-host) | 0 | 5 | Multiple Hosts in connection string are not handled properly (POSTGRES_SEEDS accepts only single host?) |
-| [#5364](#5364-inconsistent-tctl-workflow-list-behaviour) | 2 | 1 | Inconsistent tctl workflow list behaviour |
-| [#4151](#4151-allow-update-timeoutretry-config-for-started-activities-with-retry) | 2 | 1 | Allow update timeout/retry config for started activities with retry |
-| [#4038](#4038-partitioned-activity-taskqueue-based-on-workflowid-for-better-caching-performance-in-activity-workers) | 2 | 1 | partitioned activity taskQueue based on workflowId, for better caching performance in activity workers |
-| [#3502](#3502-add-metric-for-number-of-open-workflow-executions) | 0 | 5 | Add metric for number of open Workflow Executions |
-| [#2891](#2891-document-configuration-developmentyaml-dynamicconfig) | 0 | 5 | Document configuration (development.yaml, dynamicconfig) |
-| [#2630](#2630-dns-name-in-broadcastaddress) | 0 | 5 | DNS name in BroadcastAddress  |
-| [#2320](#2320-thrift-version-update-and-unification) | 0 | 5 | Thrift version update and unification |
-| [#1895](#1895-use-nobody-account-to-run-binaries-in-the-docker) | 0 | 5 | Use "nobody" account to run binaries in the docker |
-| [#1882](#1882-support-manual-retries) | 0 | 5 | support manual retries |
-| [#1739](#1739-return-more-accurate-error-codes) | 2 | 1 | Return more accurate error codes |
-| [#469](#469-limit-depth-of-child-workflows) | 2 | 1 | Limit depth of child workflows |
-| [#8581](#8581-scheduled-actions---update-schedule-memo) | 1 | 2 | [Scheduled Actions] - Update Schedule memo |
-| [#8202](#8202-crashloopbackoff-on-gke-cluster) | 0 | 4 | CrashLoopBackOff on GKE cluster. |
-| [#8109](#8109-support-for-naming-timers-in-temporal-workflows) | 2 | 0 | Support for Naming Timers in Temporal Workflows |
-| [#7947](#7947-cliwebui-option-to-list-out-dynamic-configs) | 2 | 0 | CLI/WebUI option to list out dynamic configs |
-| [#7200](#7200-temporal-cli-works-but-hit-deadline-exceeded-error-for-sample-code) | 1 | 2 | temporal cli works but hit deadline-exceeded error for sample code |
-| [#6977](#6977-addressing-a-lot-of-security-vulnerabilities-in-the-temporalioadmin-tools-release-1252-tctl-1181-cli-112) | 2 | 0 | Addressing a lot of security vulnerabilities in the Temporalio/admin-tools release 1.25.2-tctl-1.18.1-cli-1.1.2 |
-| [#6976](#6976-addressing-a-lot-of-security-vulnerabilities-in-the-temporalioserver-release-12520) | 2 | 0 | Addressing a lot of security vulnerabilities in the Temporalio/server release 1.25.2.0 |
-| [#6845](#6845-support-full-structured-failures-for-queries) | 0 | 4 | Support full, structured failures for queries |
-| [#6611](#6611-expose-anonymous-httphttps-health-endpoint-on-frontend) | 2 | 0 | Expose anonymous HTTP/HTTPS health endpoint on Frontend |
-| [#6338](#6338-error-in-prometheus-reporter-accesshistorynew-counter) | 0 | 4 | error in prometheus reporter: AccessHistoryNew counter |
-| [#6201](#6201-tdbg-diagnose-command-for-stuck-workflow) | 2 | 0 | tdbg diagnose command for stuck workflow |
-| [#6100](#6100-fr-add-support-for-multi-az-postgres-with-read-only-replication) | 0 | 4 | fr: add support for multi-az postgres with read-only replication |
-| [#5881](#5881-continue-as-new-with-a-different-workflowid) | 2 | 0 | Continue-as-new with a different WorkflowID |
-| [#5873](#5873-workflowcontext-provides-whether-the-current-workflow-task-is-from-a-reset) | 0 | 4 | WorkflowContext provides whether the current workflow task is from a reset |
-| [#4845](#4845-add-ability-to-reject-signals-by-type) | 2 | 0 | Add ability to reject signals by type |
-| [#4715](#4715-unable-to-start-1214-cluster-with-archival-disabled) | 0 | 4 | Unable to start 1.21.4 cluster with archival disabled |
-| [#4542](#4542-support-activity-caching-through-sticky-routing-by-user-provided-key) | 2 | 0 | Support activity caching through sticky routing by user provided key |
-| [#4094](#4094-bug-version-info-upgrade-notification-does-not-get-cleared-after-cluster-version-upgrade) | 0 | 4 | [Bug] Version info upgrade notification does not get cleared after cluster version upgrade |
-| [#3769](#3769-any-plan-to-support-ms-sql-server) | 0 | 4 | Any plan to support MS SQL Server? |
-| [#2905](#2905-access-and-configure-underlying-grpc-connection-for-core-components) | 2 | 0 | Access and configure underlying gRPC connection for core components |
-| [#2698](#2698-internode-tls-certificates-dual-used-as-both-client-and-server-certificates) | 0 | 4 | Internode TLS certificates dual used as both client and server certificates |
-| [#2685](#2685-interpreter-proposal-new-way-to-write-workflow-using-temporal) | 0 | 4 | [Interpreter Proposal] New way to write workflow using Temporal |
-| [#1904](#1904-create-visibility-reconciler-workflow) | 2 | 0 | Create visibility reconciler workflow |
-| [#1844](#1844-taskqueue-scavenger-emits-persistence-errors) | 0 | 4 | Taskqueue scavenger emits persistence errors |
-| [#1821](#1821-document-the-elasticsearch-permissions-required-by-temporal) | 2 | 0 | Document the Elasticsearch permissions required by Temporal |
-| [#1700](#1700-simple-way-to-handle-a-single-concurrent-workflow) | 0 | 4 | Simple way to handle a single concurrent workflow |
-| [#960](#960-support-for-in-memory-db-and-setup-for-running-temporal-with-limited-resources) | 2 | 0 | Support for in memory db and setup for running temporal with limited resources |
-| [#778](#778-add-scheduletostart-timeout-to-workflowtaskscheduledevent) | 0 | 4 | Add ScheduleToStart timeout to WorkflowTaskScheduledEvent |
-| [#674](#674-heartbeat-workflowtask-during-history-pagination) | 0 | 4 | Heartbeat WorkflowTask during history pagination |
-| [#8764](#8764-listing-workflows-and-activities-from-temporal-sdk) | 1 | 1 | Listing workflows and activities from temporal sdk |
-| [#8611](#8611-allowing-workflow-to-specify-max-retry-attempts-duration-before-an-activity-starts-throwing-non-benign-errors) | 0 | 3 | Allowing workflow to specify max retry attempts / duration before an activity starts throwing non-BENIGN errors |
-| [#8432](#8432-set-log-level-of-dynamic-config-updated-message-in-filebasedclient-to-warn-instead-of-info) | 0 | 3 | Set log level of dynamic config updated message in file_based_client to warn instead of info |
-| [#8153](#8153-address-security-vulnerability-cve-2025-22871-for-golangnethttpinternal) | 1 | 1 | Address security vulnerability CVE-2025-22871 for golang:net/http/internal |
-| [#8113](#8113-add-activity-support-for-worker-versioning) | 0 | 3 | Add Activity support for Worker Versioning |
-| [#8087](#8087-scheduled-actions-skipped-action-metric) | 1 | 1 | [Scheduled Actions] Skipped Action Metric |
-| [#7882](#7882-support-for-selecting-workflow-id-conflict-policy-for-child-workflows) | 1 | 1 | Support for selecting "Workflow Id Conflict Policy" for child workflows |
-| [#7866](#7866-aws-sts-for-connecting-s3-for-archival) | 0 | 3 | AWS STS for connecting S3 for archival |
-| [#7741](#7741-workflow-update-causing-wft-failure-with-premature-end-of-stream) | 0 | 3 | Workflow Update causing WFT Failure with `Premature end of stream` |
-| [#7640](#7640-unable-to-use-passthrough-prefix-in-temporal-operator-command) | 0 | 3 | Unable to use passthrough:/// prefix in temporal operator command |
-| [#7637](#7637-add-a-dedicated-metric-for-corrupted-workflows) | 0 | 3 | Add a dedicated metric for corrupted workflows |
-| [#7623](#7623-feature-delayed-schedule-for-activity-tasks) | 1 | 1 | Feature: Delayed schedule for activity tasks |
-| [#7560](#7560-default-jwt-claim-mapper-support-for-permissions-parsing-using-regular-expression) | 0 | 3 | Default JWT claim mapper support for permissions parsing using regular expression |
-| [#7551](#7551-atomic-workflow-reset-update) | 0 | 3 | Atomic workflow reset & update |
-| [#6633](#6633-feature-request-support-exponentialnative-histograms-in-temporal-serversdks) | 1 | 1 | [Feature Request] Support exponential/native histograms in Temporal Server/SDKs |
-| [#6546](#6546-allow-to-disable-workflow-deadlock-detector) | 0 | 3 | Allow to disable workflow deadlock detector |
-| [#6375](#6375-completeupdate-message-is-sometimes-not-honored-when-in-same-wft-completion-as-continueasnew) | 0 | 3 | CompleteUpdate message is sometimes not honored when in same WFT completion as ContinueAsNew |
-| [#5877](#5877-address-force-completion-when-make-a-request-through-completebyid-with-a-failure) | 0 | 3 | Address force completion when make a request through CompleteByID with a failure. |
-| [#5768](#5768-metric-specific-to-workflow-retries-per-namespace) | 0 | 3 | Metric specific to workflow retries per namespace |
-| [#5475](#5475-temporal-frontend-unable-to-connect-to-elasticsearch-visibilitystore) | 0 | 3 | temporal frontend unable to connect to elasticsearch visibilitystore |
-| [#5436](#5436-503-in-apiv1namespacesyournamespacesearch-attributes-sometime) | 0 | 3 | 503 in api/v1/namespaces/<your_namespace>/search-attributes? sometime |
-| [#5171](#5171-timeout-on-complete-when-invalid-task-token-passed) | 0 | 3 | Timeout on complete when invalid task token passed |
-| [#5135](#5135-support-more-directimmediate-notification-of-a-cancelled-activity) | 0 | 3 | Support more direct/immediate notification of a cancelled activity |
-| [#4887](#4887-prepopulate-runid-in-schedule-futureactiontimes) | 0 | 3 | Prepopulate run_id in schedule future_action_times |
-| [#4778](#4778-i-want-to-be-able-to-print-log-files-separately-by-date) | 0 | 3 | I want to be able to print log files separately by date |
-| [#4463](#4463-cache-event-history-from-query-tasks) | 1 | 1 | Cache event history from query tasks |
-| [#4193](#4193-high-frequency-query-mysql) | 0 | 3 | High frequency query mysql |
-| [#4020](#4020-unexpected-lag-between-timerstarted-and-timerfired-when-switching-a-namespaces-active-cluster) | 0 | 3 | Unexpected lag between TimerStarted and TimerFired when switching a namespace's active cluster |
-| [#3863](#3863-pin-a-particular-workflow-run-to-prevent-it-from-getting-purged) | 0 | 3 | Pin a particular workflow run to prevent it from getting purged |
-| [#3665](#3665-update-workflow-search-attributes-outside-of-workflow-context) | 0 | 3 | Update workflow search attributes outside of workflow context  |
-| [#3532](#3532-remove-unused-methods-in-clientbean) | 0 | 3 | Remove unused methods in ClientBean |
-| [#3104](#3104-surprising-clustermetadata-override) | 0 | 3 | Surprising clusterMetadata override |
-| [#3015](#3015-possibility-to-exclude-metrics-tags-when-emitting-metrics) | 0 | 3 | Possibility to exclude metrics tags when emitting metrics? |
-| [#2598](#2598-allow-configurable-time-for-historyvisibility-archiving) | 1 | 1 | Allow configurable time for history/visibility archiving |
-| [#1338](#1338-workflow-reset-add-logic-of-determining-the-reset-point-to-the-service) | 0 | 3 | Workflow Reset: add logic of determining the reset point to the service |
-| [#1311](#1311-make-workflow-state-not-status-available-via-api) | 0 | 3 | Make workflow state (not status) available via API |
-| [#1024](#1024-add-a-cli-and-tab-in-the-web-dashboard-to-display-all-taskqueues-list-pollers) | 1 | 1 | Add a CLI and tab in the web dashboard to display all taskQueues list / pollers |
-| [#996](#996-request-api-needs-for-temporal-web) | 0 | 3 | [request] API needs for Temporal Web |
-| [#787](#787-frequent-timeouts-while-archiving-to-s3) | 1 | 1 | Frequent timeouts while archiving to S3 |
-| [#518](#518-add-support-for-passing-large-arguments-between-activities) | 1 | 1 | Add support for passing large arguments between activities |
-| [#503](#503-record-activity-started-and-failed-event-for-activity-in-retry-on-workflow-completion) | 1 | 1 | Record activity started and failed event for activity in retry on workflow completion |
-| [#8606](#8606-schedules---allow-triggerimmediatelyrequest-to-define-arguments) | 0 | 2 | Schedules - allow TriggerImmediatelyRequest to define arguments |
-| [#8072](#8072-adding-sql-metric-stats) | 0 | 2 | Adding sql metric stats |
-| [#8013](#8013-list-workflows-by-custom-search-attributes-sometimes-returns-wrong-value) | 1 | 0 | List workflows by custom search attributes sometimes returns wrong value |
-| [#7821](#7821-bug-workflow-list-takes-differnt-query-for-hot-and-archieved) | 0 | 2 | [Bug]  workflow list takes differnt query for hot and archieved |
-| [#7625](#7625-additional-tuning-configs-for-scavenger-jobs) | 0 | 2 | Additional tuning configs for scavenger jobs |
-| [#6946](#6946-postgresql-password-in-config-file) | 0 | 2 | PostgreSQL password in config file |
-| [#6834](#6834-support-start-delay-in-continue-as-new-options) | 1 | 0 | Support start delay in continue-as-new options |
-| [#6827](#6827-support-environment-variable-substitution-for-clustermetadata-in-temporal-configuration-templates) | 1 | 0 | Support Environment Variable Substitution for clusterMetadata in Temporal Configuration Templates |
-| [#6758](#6758-api-for-setting-rps-limits-for-activity-tasks-dispatch) | 0 | 2 | API for setting RPS limits for activity tasks dispatch |
-| [#6754](#6754-adding-a-custom-label-to-temporal-out-of-the-box-metric) | 1 | 0 | Adding a custom label to Temporal out-of-the-box metric |
-| [#6724](#6724-more-batch-reset-types) | 1 | 0 | More batch reset types |
-| [#6561](#6561-simple-configuration-structure) | 0 | 2 | Simple configuration structure |
-| [#6481](#6481-support-wait-for-signal-in-execution-history-api) | 1 | 0 | Support wait for signal in execution history API |
-| [#6479](#6479-gke-web-ui-404-archival-using-bucket) | 0 | 2 | GKE Web UI 404 Archival Using bucket |
-| [#6467](#6467-cve-2024-24790) | 1 | 0 | CVE-2024-24790 |
-| [#6333](#6333-do-not-consume-rate-limit-token-on-invalid-tasks) | 0 | 2 | Do not consume rate limit token on invalid tasks |
-| [#6273](#6273-postgresql-schema-update-fails-on-busy-temporal-instances) | 1 | 0 | PostgreSQL schema update fails on busy Temporal instances |
-| [#6255](#6255-add-support-for-a-final-workflow-state-retention-on-successful-exit-optimization) | 0 | 2 | Add support for a "final workflow state retention" on successful exit optimization |
-| [#6239](#6239-allow-sdks-to-change-workflow-task-max-retry-interval-in-workeroptions) | 1 | 0 | Allow SDKs to change workflow task max retry interval in WorkerOptions |
-| [#6226](#6226-flag-provided-but-not-defined-when-trying-to-specify-config-path) | 0 | 2 | "Flag provided but not defined" when trying to specify config path |
-| [#6173](#6173-schedule-startat-not-used-when-calculating-intervals) | 1 | 0 | Schedule "StartAt" not used when calculating intervals? |
-| [#5785](#5785-deleted-schedule-showing) | 0 | 2 | deleted schedule showing |
-| [#5729](#5729-temporal-fails-to-connect-to-google-cloud-sql-postgres-when-password-contains-certain-characters) | 0 | 2 | Temporal fails to connect to Google Cloud SQL Postgres when password contains certain characters |
-| [#5624](#5624-archival-does-not-show-list-of-archived-workflows) | 0 | 2 | Archival does not show list of archived workflows |
-| [#5105](#5105-add-support-to-create-elasticsearch-rolling-indexes-in-visibility) | 0 | 2 | Add support to create Elasticsearch rolling indexes in visibility |
-| [#5026](#5026-when-i-tested-with-more-than-200-workers-connectedtoo-high-memory-usage-on-matching-service) | 0 | 2 | When I tested with more than 200 workers connected，Too high memory usage on matching service |
-| [#4947](#4947-add-fields-to-listbatchoperations-and-describebatchoperation-api-responses) | 1 | 0 | Add fields to `ListBatchOperations` and `DescribeBatchOperation` API responses |
-| [#4823](#4823-bearer-token-not-passed-to-remote-cluster-when-adding-or-upserting-remote-cluster) | 1 | 0 | Bearer token not passed to remote cluster when adding or upserting remote cluster |
-| [#4802](#4802-increase-the-number-of-pre-allocated-custom-search-attributes) | 0 | 2 | Increase the number of pre-allocated custom search attributes |
-| [#4389](#4389-do-not-record-activity-input-in-the-workflow-history) | 0 | 2 | Do not record activity input in the workflow history |
-| [#4201](#4201-allow-to-configure-max-concurrency-of-a-workflow-with-the-same-id) | 0 | 2 | Allow to configure max concurrency of a workflow with the same id |
-| [#4179](#4179-header-propagation-on-activityworkflow-results) | 0 | 2 | Header propagation on activity/workflow results |
-| [#3885](#3885-like-is-not-working-as-expected-in-visibility-query) | 0 | 2 | LIKE is not working as expected in visibility query |
-| [#3633](#3633-cassandra-schema-should-use-default-sizetieredcompactionstrategy) | 0 | 2 | Cassandra schema should use default SizeTieredCompactionStrategy  |
-| [#3614](#3614-cannot-triggerrun-multiple-schedule-actions-immediately) | 0 | 2 | Cannot trigger/run multiple schedule actions immediately |
-| [#3212](#3212-add-query-param-to-listnamespacesrequest) | 0 | 2 | Add query param to ListNamespacesRequest |
-| [#3086](#3086-do-not-emit-metrics-when-acquire-shard-rw-lock) | 0 | 2 | Do not emit metrics when acquire shard r/w lock |
-| [#2929](#2929-update-namespace-replication-task-cleanup-logic-with-connected-clusters) | 1 | 0 | Update namespace replication task cleanup logic with connected clusters |
-| [#2695](#2695-workflow-id-size-check-mismatch) | 0 | 2 | Workflow ID size check mismatch |
-| [#2688](#2688-support-signalexternalworkflowexecutionwithstart) | 1 | 0 | Support SignalExternalWorkflowExecutionWithStart |
-| [#2526](#2526-metric-on-workflows-not-progressing-because-of-repetitive-workflow-task-timeouts-failures) | 0 | 2 | Metric on workflows not progressing because of repetitive Workflow Task Timeouts / Failures |
-| [#2491](#2491-throttled-logger-should-not-throttle-errors-that-happens-rarely) | 0 | 2 | Throttled logger should not throttle errors that happens rarely |
-| [#2482](#2482-ability-to-disable-dynamic-config-in-auto-setup-docker-image) | 1 | 0 | Ability to disable dynamic config in auto-setup docker image |
-| [#2470](#2470-temporal-assumes-the-credentials-of-storage-service-used-for-archival-will-stay-the-same-through-out-the-life-cycle-of-the-application) | 0 | 2 | Temporal assumes the credentials of storage service used for archival will stay the same through out the life cycle of the application. |
-| [#2405](#2405-use-sticky-task-queue-on-querying-close-workflow) | 0 | 2 | Use sticky task queue on querying close workflow |
-| [#2342](#2342-add-api-to-allow-operator-to-add-custom-system-workflows-to-worker-role) | 1 | 0 | Add API to allow operator to add custom system workflows to worker role |
-| [#1893](#1893-include-tarball-with-versioned-schema-in-release) | 1 | 0 | Include tarball with versioned schema in release |
-| [#1847](#1847-xdc-workers-connected-to-standby-cluster-not-picking-up-tasks-after-failover) | 0 | 2 | [xdc] Workers connected to standby cluster not picking up tasks after  failover  |
-| [#1423](#1423-make-output-streams-of-logger-configurable-perfectly) | 1 | 0 | Make output streams of logger configurable perfectly |
-| [#1018](#1018-add-cancelrequested-status) | 1 | 0 | Add CANCEL_REQUESTED status |
-| [#845](#845-generate-a-signed-token-for-each-workflow-activity) | 0 | 2 | Generate a signed token for each workflow activity |
-| [#773](#773-session-and-childworkflow) | 0 | 2 | session and childworkflow |
-| [#705](#705-support-reset-with-pending-child-workflows) | 0 | 2 | Support reset with pending child workflows |
-| [#607](#607-add-proper-unit-integration-tests-for-parentclosepolicy-workflow) | 0 | 2 | Add proper unit / integration tests for parentclosepolicy workflow |
-| [#515](#515-expose-zap-logger-encoding-to-config) | 1 | 0 | Expose zap logger encoding to config |
-| [#455](#455-if-a-temporal-service-fails-to-start-due-to-a-missing-config-key-log-the-missing-key) | 1 | 0 | If a temporal service fails to start due to a missing config key, log the missing key |
-| [#109](#109-docker-docker-image-with-schema-loaded) | 0 | 2 | Docker: Docker image with schema loaded |
-| [#108](#108-make-temporal-docker-to-not-emit-noisy-logs) | 0 | 2 | Make temporal docker to not emit noisy logs |
-| [#8909](#8909-deprecation-error-log-in-v1291-with-elasticsearch-8192) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
-| [#8698](#8698-security-review-fix-multiple-cves-affecting-go-standard-libraries) | 0 | 1 | [Security] Review & Fix Multiple CVEs affecting Go standard libraries |
-| [#8655](#8655-addressing-security-vulnerabilities-in-the-temporalioadmin-tools1291) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-tools:1.29.1 |
-| [#8654](#8654-unable-to-view-workflows-in-ui) | 0 | 1 | Unable to view workflows in UI |
-| [#8608](#8608-support-opt-in-ability-to-get-workflow-input-and-output-if-closed-on-describe-workflow) | 0 | 1 | Support opt-in ability to get workflow input and output (if closed) on describe workflow |
-| [#8537](#8537-add-first-execution-run-id-for-already-started-start-workflow-results) | 0 | 1 | Add first execution run ID for already-started start workflow results |
-| [#8431](#8431-docker-deployment-temporaladmintoolsversion) | 0 | 1 | Docker deployment TEMPORAL_ADMINTOOLS_VERSION |
-| [#8349](#8349-support-relative-time-in-the-visibility-store) | 0 | 1 | Support relative time in the visibility store |
-| [#8322](#8322-dont-log-a-warning-when-task-queue-kind-is-unspecified) | 0 | 1 | Don't log a warning when task queue kind is unspecified |
-| [#8298](#8298-make-nexus-work-out-of-the-box-with-zero-config) | 0 | 1 | Make Nexus work out of the box with zero config |
-| [#8235](#8235-getworkflow-doesnt-find-archived-one) | 0 | 1 | GetWorkflow doesn't find archived one |
-| [#8220](#8220-addressing-security-vulnerabilities-in-the-temporalioserver-v1281) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/server v1.28.1 |
-| [#8219](#8219-addressing-security-vulnerabilities-in-the-temporalioadmin-tools1281-tctl-1184-cli-141) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-tools:1.28.1-tctl-1.18.4-cli-1.4.1 |
-| [#8101](#8101-improve-record-activity-started-implementation) | 0 | 1 | Improve record activity started implementation |
-| [#7916](#7916-allow-multiple-task-queues-to-a-worker---enables-throttling-of-specific-activities) | 0 | 1 | Allow multiple task queues to a worker - enables throttling of specific activities |
-| [#7869](#7869-temporal-frontend-unable-to-connect-to-elasticsearch-visibilitystore) | 0 | 1 | temporal frontend unable to connect to elasticsearch visibilitystore |
-| [#7800](#7800-sso-and-system-worker) | 0 | 1 | SSO and system worker |
-| [#7780](#7780-support-for-https-metrics-endpoint-on-oss-temporal) | 0 | 1 | Support for HTTPS metrics endpoint on OSS Temporal |
-| [#7658](#7658-allow-configurable-prefixes-for-temporal-schema-table-names) | 0 | 1 | Allow Configurable Prefixes for Temporal Schema Table Names |
-| [#7657](#7657-rename-visibility-schemas-version-table-to-avoid-conflict-with-temporal-schema) | 0 | 1 | Rename Visibility schema's version table to avoid conflict with Temporal schema |
-| [#7591](#7591-1271---multiple-childworkflowstarted-events-written-for-same-child-workflow) | 0 | 1 | 1.27.1 - Multiple ChildWorkflowStarted events written for same child workflow |
-| [#7577](#7577-add-retries-for-temporal-having-connectivity-failures-for-persistence-database) | 0 | 1 | Add retries for Temporal having connectivity failures for persistence database |
-| [#7515](#7515-retry-interval-is-not-always-respected) | 0 | 1 | Retry interval is not always respected |
-| [#7506](#7506-start-child-with-workflowid-longer-than-255-with-sql-as-persistence-would-stuck) | 0 | 1 | Start child with WorkflowID longer than 255 with SQL as persistence would stuck |
-| [#7503](#7503-does-temporal-support-sharing-database) | 0 | 1 | Does temporal support sharing database? |
-| [#7480](#7480-addressing-a-lot-of-security-vulnerabilities-in-the-temporalioserver-release-v1271) | 0 | 1 | Addressing a lot of security vulnerabilities in the Temporalio/server release v1.27.1 |
-| [#7405](#7405-strange-workflow-task-timeout) | 0 | 1 | strange workflow task timeout |
-| [#7390](#7390-feature-integrate-needle-rag-api-as-a-component) | 0 | 1 | Feature: Integrate Needle RAG API as a component. |
-| [#7367](#7367-do-not-truncate-activity-failure-info-if-there-is-not-many-of-them) | 0 | 1 | Do not truncate activity failure info if there is not many of them |
-| [#6819](#6819-why-is-the-default-value-of-the-sdk-client-grpc-maxsendmsgsize-inconsistent-with-the-server-grpc-maxrecvmsgsize) | 0 | 1 | Why is the default value of the SDK client grpc "MaxSendMsgSize" inconsistent with the server grpc "MaxRecvMsgSize"? |
-| [#6647](#6647-make-option-for-upsertsearchattribute-command-to-fail-if-sa-does-not-exists) | 0 | 1 | Make option for UpsertSearchAttribute command to fail if SA does not exists |
-| [#6527](#6527-workflowcache-inconsistency-upon-workflow-force-deletion) | 0 | 1 | WorkflowCache inconsistency upon workflow (force) deletion |
-| [#6525](#6525-rare-test-failure-in-cli-current-branch-token-and-request-branch-token-doesnt-match) | 0 | 1 | Rare test failure in CLI: "Current branch token and request branch token doesn't match." |
-| [#6459](#6459-excessive-new-connections-to-postgres) | 0 | 1 | Excessive new connections to Postgres  |
-| [#6378](#6378-unknown-method-getworkflowexecutionhistoryreverse-for-service-temporalserverapi) | 0 | 1 | unknown method GetWorkflowExecutionHistoryReverse for service temporal.server.api |
-| [#6329](#6329-ability-to-attach-a-local-debugger-to-local-temporal-worker) | 0 | 1 | Ability to attach a local debugger to Local Temporal Worker |
-| [#6319](#6319-schedule-list-with-query-times-out-on-server-1250-rc0) | 0 | 1 | Schedule list with query times out on server 1.25.0-rc.0 |
-| [#6188](#6188-createschedule-with-empty-workflowid-should-not-be-allowed) | 0 | 1 | CreateSchedule with empty workflowID should not be allowed |
-| [#6000](#6000-how-to-ensure-that-activities-belonging-to-the-same-workflow-can-be-prioritized-and-executed-to-avoid-hunger-when-a-batch-of-tasks-is-initiated-for-a-workflow-containing-multiple-activities) | 0 | 1 | How to ensure that activities belonging to the same workflow can be prioritized and executed to avoid hunger when a batch of tasks is initiated for a workflow containing multiple activities. |
-| [#5796](#5796-application-error-with-a-suggested-retry-interval-duration) | 0 | 1 | Application Error with a Suggested Retry Interval Duration |
-| [#5763](#5763-limit-failure-cause-depth) | 0 | 1 | Limit failure cause depth |
-| [#5372](#5372-trigger-one-workflow-from-another-workflow) | 0 | 1 | trigger one workflow from another workflow  |
-| [#5324](#5324-access-from-one-temporal-namespace-to-another) | 0 | 1 | access from one temporal namespace to another |
-| [#4816](#4816-elasticsearch-legacy-index-template) | 0 | 1 | Elasticsearch legacy index template  |
-| [#4692](#4692-could-taskreader-persistacklevel-check-last-persist-acklevel-avoid-persist-duplicate-acklevel) | 0 | 1 | Could taskReader persistAckLevel check last persist ackLevel avoid persist duplicate ackLevel |
-| [#4612](#4612-matching-task-dispatch-busy-loop-when-history-service-is-not-available) | 0 | 1 | Matching task dispatch busy loop when history service is not available |
-| [#4600](#4600-use-different-task-queue-for-activity-and-workflow-task-retries) | 0 | 1 | Use different task queue for activity and workflow task retries |
-| [#4502](#4502-support-data-references-to-avoid-storing-the-same-payload-multiple-times) | 0 | 1 | Support data references to avoid storing the same Payload multiple times |
-| [#4348](#4348-replication-tasks-referencing-archived-workflow-executions-cant-be-processed-blocking-all-replication) | 0 | 1 | Replication tasks referencing archived workflow executions can't be processed, blocking all replication |
-| [#4247](#4247-add-firstexecutionrunid-to-system-search-attribute) | 0 | 1 | Add firstExecutionRunId to system search attribute |
-| [#4246](#4246-consider-adding-heartbeat-details-to-other-failure-modes-of-an-activity) | 0 | 1 | Consider adding Heartbeat Details to other Failure modes of an Activity |
-| [#4131](#4131-issue-with-mariadb-1069-galera-cluster) | 0 | 1 | Issue with MariaDB 10.6.9.  (Galera cluster) |
-| [#4021](#4021-expiration-policy-for-signal-requestids-in-mutable-state) | 0 | 1 | Expiration policy for signal requestIDs in mutable state |
-| [#3987](#3987-named-timers) | 0 | 1 | Named Timers |
-| [#3983](#3983-unused-gethistorytask-persistence-api) | 0 | 1 | Unused `GetHistoryTask` persistence API |
-| [#3682](#3682-taskqueue-scavenger-does-not-work-for-cassandra) | 0 | 1 | Taskqueue scavenger does not work for cassandra |
-| [#3667](#3667-temporal-server-returns-incorrect-retrystate-in-some-cases-of-scheduletoclose-timeout) | 0 | 1 | Temporal Server returns incorrect RetryState in some cases of scheduleToClose timeout |
-| [#3666](#3666-add-ability-to-invoke-the-parentclosepolicy-on-chain-completion-not-the-run-completion) | 0 | 1 | Add ability to invoke the ParentClosePolicy on chain completion not the run completion. |
-| [#3417](#3417-deleteworkflowexecution-failure-response-leaks-implementation-details) | 0 | 1 | deleteWorkflowExecution failure response leaks implementation details |
-| [#3177](#3177-add-input-validation-that-request-id-size-is-below-threshold) | 0 | 1 | Add input validation that request ID size is below threshold |
-| [#3165](#3165-sync-search-attributes-and-es-schema) | 0 | 1 | Sync search attributes and ES schema |
-| [#3134](#3134-do-not-block-shard-ownership-assertion-if-acquireshards-is-blocked) | 0 | 1 | Do not block shard ownership assertion if `acquireShards` is blocked |
-| [#3065](#3065-i-get-taskqueue-history-meticsit-has-abort-all-80000-activities-metricsit-is-to-large-for-promethues-to-pull) | 0 | 1 | i get taskqueue history metics,it has abort all  80000 activities metrics.it is to large for promethues to pull |
-| [#3008](#3008-continue-workflow-as-new-and-signal-in-a-single-transaction) | 0 | 1 | Continue workflow as new and signal in a single transaction |
-| [#2829](#2829-support-starting-abandoned-child-after-parent-workflow-is-closed) | 0 | 1 | Support starting abandoned child after parent workflow is closed  |
-| [#2707](#2707-admin-cli-to-update-mutable-state-directly) | 0 | 1 | Admin CLI to update mutable state directly |
-| [#2687](#2687-populate-identity-for-child-workflows) | 0 | 1 | Populate identity for child workflows |
-| [#2615](#2615-auto-setup-does-not-use-dbport-for-mysql-and-cassandra) | 0 | 1 | auto-setup does not use DB_PORT for mysql and cassandra  |
-| [#2565](#2565-consider-adding-an-option-for-bidirectional-grpc-streaming-instead-of-unary-rpc) | 0 | 1 | Consider adding an option for bidirectional gRPC streaming instead of unary RPC |
-| [#2403](#2403-import-of-githubcomcactusgo-statsd-client-is-ambiguous-in-gotemporalioserver) | 0 | 1 | import of github.com/cactus/go-statsd-client is ambiguous in go.temporal.io/server |
-| [#2283](#2283-add-well-known-indicatorlabeltag-to-log-output-for-temporal) | 0 | 1 | Add well known indicator/label/tag to log output for temporal |
-| [#2252](#2252-improve-error-messages-returned-when-failing-to-meet-database-constraints) | 0 | 1 | Improve error message(s) returned when failing to meet database constraints |
-| [#2101](#2101-history-server-should-emit-cache-size-capacity-metrics) | 0 | 1 | History server should emit cache size / capacity metrics |
-| [#2054](#2054-expose-disableinitialhostlookup-for-temporal-cassandra-tool) | 0 | 1 | Expose disableInitialHostLookup for temporal-cassandra-tool  |
-| [#1979](#1979-worker-identity-from-task-heartbeats-is-not-exposed-anyhow-in-api) | 0 | 1 | Worker identity from task heartbeats is not exposed anyhow in API |
-| [#1898](#1898-add-pid-file-configuration-option) | 0 | 1 | Add pid file configuration option |
-| [#1891](#1891-worker-heartbeat) | 0 | 1 | Worker heartbeat |
-| [#1714](#1714-activity-dispatching-optimization) | 0 | 1 | Activity dispatching optimization |
-| [#1468](#1468-add-activitytaskstarted-event-immediately-if-retryoptionsmaximumattempts-is-set-to-1) | 0 | 1 | Add ActivityTaskStarted event immediately if RetryOptions.maximumAttempts is set to 1. |
-| [#1057](#1057-on-first-start-temporal-should-not-accept-connections-until-default-namespace-is-setup) | 0 | 1 | On first start Temporal should not accept connections until Default namespace is setup |
-| [#746](#746-workflow-loses-cron-when-also-using-newcontinueasnewerror) | 0 | 1 | Workflow loses cron when also using NewContinueAsNewError |
-| [#266](#266-matching-service-degradation-due-to-large-number-of-task-lists) | 0 | 1 | Matching service degradation due to large number of task lists |
-| [#19](#19-clear-indication-that-service-is-up-and-running) | 0 | 1 | Clear indication that service is up and running |
-| [#13](#13-multi-phase-activities) | 0 | 1 | Multi-phase activities |
-| [#8902](#8902-history-service-memory-usage-upward-trend) | 0 | 0 | History service memory usage upward trend |
-| [#8901](#8901-skip-re-executing-completed-activities-on-workflow-retry-replay-on-retry-option) | 0 | 0 | Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option) |
-| [#8889](#8889-enhancing-temporal-pr-review-and-release-confidence-with-hikaflow) | 0 | 0 | Enhancing Temporal PR Review and Release Confidence with Hikaflow |
-| [#8866](#8866-address-security-vulnerability-cve-2025-61729-for-golangcryptox509) | 0 | 0 | Address security vulnerability CVE-2025-61729 for golang:crypto/x509 |
-| [#8865](#8865-address-security-vulnerability-cve-2025-61727-for-golangcryptox509) | 0 | 0 | Address security vulnerability CVE-2025-61727 for golang:crypto/x509 |
-| [#8864](#8864-workflow-cannot-run-with-the-dedicated-cloud-postgresql-unable-to-query-workflow-due-to-workflow-task-in-failed-state) | 0 | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state." |
-| [#8833](#8833-scheduler-does-not-list-workflows-runned-when-using-triggerimmediately) | 0 | 0 | Scheduler does not list workflows runned when using "triggerImmediately" |
-| [#8790](#8790-historynode-table-keeps-growing) | 0 | 0 | history_node table keeps growing |
-| [#8652](#8652-documenting-the-current-state-of-scylladb-as-a-cassandra-compatible-backend) | 0 | 0 | Documenting the current state of ScyllaDB as a Cassandra-compatible Backend |
-| [#8648](#8648-add-executionstatus-to-visibility-columns-for-archived-executions) | 0 | 0 | Add ExecutionStatus to visibility columns for archived executions |
-| [#8631](#8631-trying-to-create-search-attribute-that-already-exists-should-return-error) | 0 | 0 | Trying to create search attribute that already exists should return error |
-| [#8579](#8579-addressing-security-vulnerabilities-in-the-temporalioserver129-1291) | 0 | 0 | Addressing security vulnerabilities in the Temporalio/server:1.29 1.29.1 |
-| [#8538](#8538-provide-user-identity-on-user-initiated-events) | 0 | 0 | Provide user identity on user-initiated events |
-| [#8097](#8097-carryover-instead-of-reject-incoming-signals-upon-continueasnew) | 0 | 0 | Carryover instead of reject incoming signals upon continueAsNew |
-| [#8074](#8074-fr---resetwithsignal) | 0 | 0 | [FR] - ResetWithSignal |
-| [#8039](#8039-expose-activity-last-failure-info-via-pollactivitytaskqueueresponse) | 0 | 0 | Expose activity last failure info via PollActivityTaskQueueResponse |
-| [#8006](#8006-is-it-possible-to-dynamially-customize-what-labels-are-shown-for-activities-in-the-event-history-diagram) | 0 | 0 | Is it possible to dynamially customize what labels are shown for activities in the Event History diagram? |
-| [#7940](#7940-allow-auth-headers-to-be-sent-to-http-on-localhost) | 0 | 0 | Allow auth headers to be sent to HTTP on localhost |
-| [#7933](#7933-workflow-reset-add-ability-to-set-workflow-runexecution-timeout) | 0 | 0 | Workflow reset: add ability to set workflow run/execution timeout |
-| [#7867](#7867-golang-upgrade) | 0 | 0 | Golang Upgrade |
-| [#7845](#7845-for-enabling-ssl-in-temporal-engine-will-below-properties-are-sufficent) | 0 | 0 | for enabling SSL in temporal engine will below properties are sufficent |
-| [#7721](#7721-expose-api-version-to-api-users) | 0 | 0 | Expose API version to API users |
-| [#7708](#7708-dev-mode-improvements-insights-from-aws-hackathon) | 0 | 0 | Dev Mode Improvements (Insights from AWS Hackathon) |
-| [#7576](#7576-security-vulnarablity-issues-in-1272-latest-version-as-of-05-apr-2025) | 0 | 0 | security vulnarablity issues in 1.27.2 (latest version) as of 05 apr 2025 |
-| [#7566](#7566-a-workflow-task-following-shutdownworker-should-not-time-out-if-no-workers-are-available) | 0 | 0 | A workflow task following ShutdownWorker should not time out if no workers are available |
-| [#7487](#7487-grpc-status-response-to-query-errors-contains-malformed-details) | 0 | 0 | grpc Status response to query errors contains malformed details |
-| [#7481](#7481-addressing-a-lot-of-security-vulnerabilities-in-the-temporalioadmin-tools-release-temporalioadmin-tools1271) | 0 | 0 | Addressing a lot of security vulnerabilities in the Temporalio/admin-tools release temporalio/admin-tools:1.27.1 |
-| [#7164](#7164-confirm-aborted-update-retries-schedule-responsible-for-robustness-of-update-to-can) | 0 | 0 | Confirm aborted update retries schedule responsible for robustness of update to CAN |
-| [#7048](#7048-handle-permission-errors-in-getconfigfiles-function) | 0 | 0 | Handle Permission Errors in getConfigFiles Function |
-| [#7011](#7011-support-markdown-in-result-panel) | 0 | 0 | Support Markdown in Result panel |
-| [#6961](#6961-provide-already-existing-run-id-on-startchildworkflowexecutionfailedeventattributes-if-it-failed-for-already-exists) | 0 | 0 | Provide already-existing run ID on StartChildWorkflowExecutionFailedEventAttributes if it failed for "already exists" |
-| [#6954](#6954-isterminatedbyresetter-should-not-be-used-for-checking-if-child-workflow-should-report-to-parent) | 0 | 0 | IsTerminatedByResetter should not be used for checking if child workflow should report to parent |
-| [#6952](#6952-extend-activity-retry-expiration-time-upon-reset) | 0 | 0 | Extend activity retry expiration time upon reset |
-| [#6924](#6924-support-custom-search-attributes-of-type-duration) | 0 | 0 | Support custom search attributes of type Duration |
-| [#6896](#6896-include-command-info-when-command-fails-validation) | 0 | 0 | Include command info when command fails validation |
-| [#6844](#6844-temporal-1241---1231-upgrade-error) | 0 | 0 | Temporal 1.24.1 <- 1.23.1 upgrade error |
-| [#6843](#6843-add-small-jitter-timeout-to-the-long-poll-empty-response) | 0 | 0 | Add small jitter timeout to the long poll empty response  |
-| [#6800](#6800-support-activity-task-queue-maxtaskspersecond-even-when-requesteagerexecution-is-set) | 0 | 0 | Support activity task queue `max_tasks_per_second` even when `request_eager_execution` is set |
-| [#6760](#6760-include-in-memory-sync-match-backlog-in-approximatebacklogcount) | 0 | 0 | Include in-memory (sync match) backlog in `ApproximateBacklogCount` |
-| [#6695](#6695-disable-xdc-cache-when-not-using-multi-cluster-replication) | 0 | 0 | disable XDC cache when not using multi-cluster replication |
-| [#6680](#6680-coordinate-ci-step-timeout-minutes-with-go-test--timeout-flag) | 0 | 0 | Coordinate CI step timeout-minutes with `go test -timeout` flag |
-| [#6618](#6618-cassandra-5-support) | 0 | 0 | Cassandra 5 support |
-| [#6617](#6617-hybrid-architecture-for-temporal) | 0 | 0 | hybrid architecture for Temporal |
-| [#6600](#6600-standardized-documentation-format-a-la-swagger) | 0 | 0 | Standardized Documentation Format a la Swagger |
-| [#6585](#6585-record-a-history-event-indicating-that-a-nexus-operation-request-was-delivered-to-the-handler) | 0 | 0 | Record a history event indicating that a Nexus operation request was delivered to the handler |
-| [#6555](#6555-add-eddsa-support-to-default-jwt-claimmapper) | 0 | 0 | Add `EdDSA` support to default JWT ClaimMapper |
-| [#6542](#6542-temporal-history-panic) | 0 | 0 | temporal-history panic |
-| [#6541](#6541-getanyclient-with-cachingredirector-problem) | 0 | 0 | getAnyClient with cachingRedirector problem |
-| [#6529](#6529-certificate-filters-in-self-hosted-version-of-temporal) | 0 | 0 | Certificate-filters in self-hosted version of Temporal |
-| [#6521](#6521-optional-activities) | 0 | 0 | Optional Activities |
-| [#6512](#6512-update-latency-increases-with-number-of-updates-sent-to-workflow) | 0 | 0 | Update latency increases with number of updates sent to workflow |
-| [#6501](#6501-access-original-run-id-in-mutable-state) | 0 | 0 | Access original run id in mutable state |
-| [#6475](#6475-support-registering-search-attributes-as-an-optionconfig) | 0 | 0 | Support registering search attributes as an option/config |
-| [#6471](#6471-angie-testing-something-to-delete) | 0 | 0 | Angie testing something (to delete) |
-| [#6468](#6468-generatereplicationtasks-activity-of-forcereplicationworkflow-should-only-log-not-found-errors-opposed-to-returning-the-error-as-well) | 0 | 0 | GenerateReplicationTasks activity of ForceReplicationWorkflow should only log not found errors opposed to returning the error as well |
-| [#6411](#6411-error-cannot-query-workflow-due-to-workflow-task-in-failed-state) | 0 | 0 | Error: Cannot query workflow due to Workflow Task in failed state  |
-| [#6403](#6403-introducing-quarkus-temporal) | 0 | 0 | Introducing quarkus-temporal |
-| [#6364](#6364-add-temporalscheduledstarttime-and-temporalscheduledbyid-to-the-startworkflow-event-message) | 0 | 0 | Add TemporalScheduledStartTime and TemporalScheduledById to the StartWorkflow Event message |
-| [#6339](#6339-updatetriggeretc-activities-via-client) | 0 | 0 | Update/trigger/etc activities via client |
-| [#6336](#6336-expose-start-delay-in-child-workflow-options) | 0 | 0 | Expose start delay in child workflow options |
-| [#6328](#6328-unit-test-error-in-v1242) | 0 | 0 | Unit test error in v1.24.2 |
-| [#6320](#6320-multiple-versioning-related-flakes-in-go-sdk-test-suite-after-upgrading-to-server-1250-rc0) | 0 | 0 | Multiple versioning related flakes in Go SDK test suite after upgrading to server 1.25.0-rc.0 |
-| [#6275](#6275-is-there-a-way-to-detect-when-workflow-is-in-a-failed-state-but-is-still-running) | 0 | 0 | Is there a way to detect when workflow is in a Failed State but is still "Running" |
-| [#6259](#6259-support-validatedauthenticated-payloads) | 0 | 0 | Support validated/authenticated payloads |
-| [#6253](#6253-expand-configuration-for-elastic-to-support-serverless) | 0 | 0 | Expand configuration for Elastic to support serverless |
-| [#6237](#6237-enable-wildcard-namespace-definition-when-setting-namespace-rps) | 0 | 0 | Enable wildcard namespace definition when setting namespace RPS |
-| [#6227](#6227-metric-for-complete-workflowactivity-failure) | 0 | 0 | Metric for Complete Workflow/Activity Failure |
-| [#6212](#6212-allow-configurable-root-path-for-http-api) | 0 | 0 | Allow configurable root path for HTTP API |
-| [#6211](#6211-flaky-versioning-issue-when-querying-since-124) | 0 | 0 | Flaky versioning issue when querying since 1.24 |
-| [#6210](#6210-lots-of-log-noise-on-restarting-server-with-sqlite-persistence) | 0 | 0 | Lots of log noise on restarting server with sqlite persistence |
-| [#6192](#6192-support-externally-provided-unique-async-completion-token-for-async-activities) | 0 | 0 | Support externally-provided unique async completion token for async activities |
-| [#6144](#6144-activitystatereplicator-should-trigger-history-resend-when-mutable-state-is-no-found) | 0 | 0 | ActivityStateReplicator should trigger history resend when mutable state is no found |
-| [#6104](#6104-include-linux-arm-macos-x64arm-and-windows-x64-in-ci) | 0 | 0 | Include Linux ARM, macOS x64/ARM, and Windows x64 in CI |
-| [#5853](#5853-cross-replicated-search-attributes-are-not-persistent) | 0 | 0 | Cross-replicated search attributes are not persistent |
-| [#5743](#5743-dlqv2-operator-tooling-should-print-categoryid-source-cluster-and-target-cluster-instead-of-internal-queue-name) | 0 | 0 | DLQv2 operator tooling should print categoryID, source cluster, and target cluster instead of internal queue name |
-| [#5642](#5642-dynamic-config-value-invalid-json-value-for-key) | 0 | 0 | dynamic-config-value invalid JSON value for key  |
-| [#5634](#5634-use-the-new-clis-rewrite-branch-when-building-temporal-images) | 0 | 0 | Use the new CLI's rewrite branch when building temporal images |
-| [#5604](#5604-temporalioserver-image-1230-reports-rc-version) | 0 | 0 | `temporalio/server` image 1.23.0 reports RC version |
-| [#5589](#5589-command-missing-in-new-temporal-cli) | 0 | 0 | command missing in new Temporal CLI |
-| [#5587](#5587-dev-server-crash-on-addorupdateremotecluster-rpc-with-invalid-frontend-address) | 0 | 0 | dev-server crash on AddOrUpdateRemoteCluster RPC with invalid frontend address |
-| [#5553](#5553-update-license-check-script-to-verify-current-year-is-used-in-new-files) | 0 | 0 | Update license check script to verify current year is used in new files |
-| [#5544](#5544-use-different-error-when-signalname-is-empty-than-errsignalnametoolong) | 0 | 0 | Use different error when signalName is empty than errSignalNameTooLong |
-| [#5543](#5543-remove-indexes-from-schema-temporal-in-cassandra) | 0 | 0 | Remove indexes from schema Temporal in cassandra |
-| [#5541](#5541-support-for-nestjs) | 0 | 0 | Support for nestjs |
-| [#5510](#5510-ability-to-update-schedule-memo-via-python-sdk) | 0 | 0 | Ability to update schedule memo via Python SDK |
-| [#5493](#5493-automatically-split-history-event-batches-when-size-of-reapplied-events-are-too-large) | 0 | 0 | Automatically split history event batches when size of reapplied events are too large |
-| [#5489](#5489-secondaryvisbilitystore-validation-failed) | 0 | 0 | SecondaryVisbilityStore validation failed |
-| [#5461](#5461-add-programmatic-way-to-extract-metrics-port-when-passing-0-in-config) | 0 | 0 | Add programmatic way to extract metrics port when passing `0` in config |
-| [#5454](#5454-identifiers-length-validation) | 0 | 0 | Identifiers length validation |
-| [#5439](#5439-worker-cache-handover) | 0 | 0 | Worker cache handover |
-| [#5352](#5352-refinement-of-resourceexhausted-reasons) | 0 | 0 | Refinement of ResourceExhausted reasons |
-| [#5310](#5310-allowoptionally-omit-activity-argumentinput-in-the-activity-task-scheduled-event-to-save-the-storage-cost) | 0 | 0 | Allow(optionally) omit activity argument/input in the activity task scheduled event to save the storage cost |
-| [#5306](#5306-defining-a-storage-class-on-s3-archival) | 0 | 0 | Defining a storage class on S3 archival |
-| [#5303](#5303-provide-workflowstatus-in-when-signing-a-workflow-that-is-closed) | 0 | 0 | Provide WorkflowStatus in when signing a workflow that is closed |
-| [#5299](#5299-check-db-connectivity-in-liveness-probe) | 0 | 0 | Check DB Connectivity in Liveness probe |
-| [#5298](#5298-can-child-workflows-inherit-search-attributes-from-a-parent-workflow) | 0 | 0 | Can Child workflows inherit search attributes from a parent workflow? |
-| [#5249](#5249-retry-policy-should-be-copied-to-the-continued-as-new-workflow) | 0 | 0 | Retry Policy should be copied to the continued as new workflow. |
-| [#5245](#5245-schedulesclientlistoptions-is-missing-searchattributes-param) | 0 | 0 | SchedulesClientListOptions is missing SearchAttributes param |
-| [#5133](#5133-failed-workflow-list-for-batch-operations) | 0 | 0 | Failed workflow list for batch operations |
-| [#5063](#5063-workflow-task-timeout-not-always-respected) | 0 | 0 | Workflow Task Timeout not always respected |
-| [#5047](#5047-config-option-to-turn-off-ignoring-permission-in-unexpected-format-error-message) | 0 | 0 | Config option to turn off "ignoring permission in unexpected format" error message |
-| [#5005](#5005-schedules-allow-overriding-search-attributes-when-backfilling) | 0 | 0 | Schedules: Allow overriding search attributes when backfilling |
-| [#4984](#4984-schedules-make-it-possible-to-list-buffered-executions) | 0 | 0 | Schedules: Make it possible to list buffered executions |
-| [#4979](#4979-support-waiting-for-admitted-stage-on-updateworkflowexecution) | 0 | 0 | Support waiting for Admitted stage on UpdateWorkflowExecution |
-| [#4958](#4958-getmutablestaterequest-is-used-in-poll-mutable-state) | 0 | 0 | GetMutableStateRequest is used in poll mutable state  |
-| [#4957](#4957-currentbranchchanged-error-should-use-event-id-version-as-branch-id) | 0 | 0 | CurrentBranchChanged Error should use event id + version as branch id |
-| [#4934](#4934-the-rate-and-burst-functions-of-dynamicratelimiterimpl-are-unsafe) | 0 | 0 | The Rate and Burst functions of DynamicRateLimiterImpl are unsafe |
-| [#4870](#4870-allow-static-jwks-for-jwtkeyprovider) | 0 | 0 | Allow static JWKS for `jwtKeyProvider` |
-| [#4749](#4749-support-listening-on-both-ipv4-and-ipv6-networks-in-dual-stack-environments) | 0 | 0 | Support listening on both IPv4 and IPv6 networks in dual stack environments |
-| [#4745](#4745-replicate-search-attributes-together-with-namespace) | 0 | 0 | Replicate search attributes together with namespace |
-| [#4703](#4703-add-a-list-of-datetimes-to-schedulespec) | 0 | 0 | Add a list of datetimes to `ScheduleSpec` |
-| [#4638](#4638-history-queue-deletion-life-cycle) | 0 | 0 | History Queue Deletion & Life Cycle |
-| [#4435](#4435-deprecate-old-archival-logic) | 0 | 0 | Deprecate old archival logic |
-| [#4428](#4428-support-fixed-deadline-timers) | 0 | 0 | Support fixed deadline timers |
-| [#4171](#4171-add-metrics-when-history-service-writes-activity-task-failed-to-even-history) | 0 | 0 | Add metrics when history service writes activity task failed to even history |
-| [#4149](#4149-version-v1201-had-slow-query-in-temporalvisibility) | 0 | 0 | ​ Version v1.20.1 had slow query in temporal_visibility |
-| [#4117](#4117-take-additional-factors-into-account-for-suggesting-continue-as-new) | 0 | 0 | Take additional factors into account for suggesting continue-as-new |
-| [#4059](#4059-system-search-attributes-to-find-workflows-that-are-backoff-retrying-an-activity) | 0 | 0 | System search attributes to find workflows that are backoff retrying an activity  |
-| [#4052](#4052-non-expired-jwt-rejected-as-expired-by-temporal-frontend) | 0 | 0 | Non-expired JWT rejected as expired by Temporal Frontend |
-| [#4045](#4045-expose-current-worker-identity-for-started-pending-activity) | 0 | 0 | Expose current worker identity for started pending activity |
-| [#4030](#4030-query-at-a-specific-workflowtaskstarted-eventid) | 0 | 0 | Query at a specific WorkflowTaskStarted eventId |
-| [#4029](#4029-clear-signal-requestid-on-workflow-close) | 0 | 0 | Clear signal requestID on workflow close |
-| [#4028](#4028-signal-requestid-dropped-upon-workflow-reset) | 0 | 0 | Signal requestID dropped upon workflow reset |
-| [#3990](#3990-blacklisting-workers-by-version-and-identity) | 0 | 0 | Blacklisting workers by version and identity |
-| [#3988](#3988-add-query-result-caching) | 0 | 0 | Add query result caching |
-| [#3912](#3912-matching-with-cassandra-encounters-lots-of-tombstone-for-expired-tasks) | 0 | 0 | Matching with Cassandra encounters lots of tombstone for expired tasks |
-| [#3700](#3700-archival---add-executionstatus-to-archival-visibility-syntax) | 0 | 0 | Archival - add ExecutionStatus to archival visibility syntax |
-| [#3688](#3688-read-only-workflow-worker) | 0 | 0 | Read only workflow worker |
-| [#3597](#3597-add-a-cancellation-request-status-to-describeworkflowexecution-api) | 0 | 0 | Add a Cancellation Request status to DescribeWorkflowExecution API |
-| [#3590](#3590-grpcsslciphersuites-not-respected) | 0 | 0 | GRPC_SSL_CIPHER_SUITES not respected |
-| [#3543](#3543-better-memory-management-for-zap-logger) | 0 | 0 | Better memory management for zap logger |
-| [#3536](#3536-allow-admin-deleteworkflowexecution-delete-by-namespace-id) | 0 | 0 | Allow Admin DeleteWorkflowExecution Delete by namespace ID |
-| [#3453](#3453-build-docker-images-with-integer-uidgid-and-use-the-same-one-on-all-images) | 0 | 0 | Build docker images with integer UID/GID and use the same one on all images |
-| [#3436](#3436-integration-test-for-metrics) | 0 | 0 | Integration test for metrics |
-| [#3435](#3435-add-api-for-worker-to-signal-that-it-is-shutting-down) | 0 | 0 | Add API for worker to signal that it is shutting down |
-| [#3381](#3381-causal-consistency-guarantee-in-replication) | 0 | 0 | Causal consistency guarantee in replication |
-| [#3367](#3367-single-active-timer-task-per-workflow) | 0 | 0 | Single active timer task per workflow |
-| [#3296](#3296-ensure-ordering-of-child-workflow-sent-signal-and-child-workflow-complete-to-the-same-workflow) | 0 | 0 | Ensure ordering of child-workflow-sent signal and child workflow complete to the same workflow |
-| [#3288](#3288-add-api-for-setting-task-queue-rate-limiting) | 0 | 0 | Add API for setting task queue rate limiting |
-| [#3284](#3284-server-returns-status-messages-over-metadata-limit-leading-to-connection-drops-and-cryptic-errors) | 0 | 0 | Server returns status messages over metadata limit leading to connection drops and cryptic errors |
-| [#3261](#3261-add-command-describeexternalworkflowexecution) | 0 | 0 | Add command: DescribeExternalWorkflowExecution |
-| [#3258](#3258-allow-option-for-reset-to-terminate-any-currently-pending-child-workflows) | 0 | 0 | Allow option for reset to terminate any currently pending child workflows |
-| [#3223](#3223-panic-assignment-to-entry-in-nil-map-in-loadclusterinformationfromstore) | 0 | 0 | panic: assignment to entry in nil map in `loadClusterInformationFromStore` |
-| [#3183](#3183-replace-metrics-and-retryable-client-with-client-interceptors) | 0 | 0 | Replace metrics and retryable client with client interceptors |
-| [#3168](#3168-matching-service-optimization---do-not-persist-sticky-workflow-task) | 0 | 0 | Matching service optimization - Do not persist sticky workflow task |
-| [#3154](#3154-tdbg-workflow-show-does-not-support-pagination) | 0 | 0 | tdbg workflow show does not support pagination |
-| [#3145](#3145-per-task-queue-ratelimiting-should-only-count-valid-activity-tasks) | 0 | 0 | Per task queue ratelimiting should only count valid activity tasks |
-| [#3143](#3143-improved-per-task-queue-metrics) | 0 | 0 | Improved per task queue metrics |
-| [#3133](#3133-publish-sizenumber-of-history-events-for-closed-workflow) | 0 | 0 | Publish size/number of history events for closed workflow |
-| [#3062](#3062-new-error-type-for-workflow-already-completed) | 0 | 0 | New error type for workflow already completed? |
-| [#3060](#3060-validate-num-of-matching-task-queue-partition-can-be-decreased) | 0 | 0 | Validate num of matching task queue partition can be decreased |
-| [#3025](#3025-ability-to-define-execution-order-of-async-activity-invocations) | 0 | 0 | Ability to define execution order of async activity invocations |
-| [#3004](#3004-support-bypass-of-autoforwarding-with-special-header) | 0 | 0 | Support bypass of autoforwarding with special header |
-| [#2995](#2995-task-predicate-equivalence-check) | 0 | 0 | Task Predicate Equivalence Check |
-| [#2991](#2991-dynamically-generate-task-type-tag-value-in-timertransfer-queue-processing) | 0 | 0 | Dynamically generate task type tag value in timer/transfer queue processing |
-| [#2968](#2968-support-changing-system-workflow-cron-schedule) | 0 | 0 | Support changing system workflow cron schedule |
-| [#2918](#2918-persistent-coroutine-workflows) | 0 | 0 | Persistent Coroutine Workflows |
-| [#2915](#2915-dynamic-config-change-listener) | 0 | 0 | Dynamic config change listener  |
-| [#2849](#2849-do-not-load-all-persistence-libraries-unless-needed) | 0 | 0 | Do not load all persistence libraries unless needed |
-| [#2800](#2800-do-not-write-repeated-workflow-task-heartbeat-to-the-history) | 0 | 0 | Do not write repeated workflow task heartbeat to the history |
-| [#2730](#2730-use-broadcast-shutdown-channel) | 0 | 0 | Use broadcast shutdown channel |
-| [#2528](#2528-sql-delete-workflow-execution-does-not-delete-all-data) | 0 | 0 | SQL delete workflow execution does not delete all data |
-| [#2435](#2435-need-detailed-server-internal-resource-exhausted-metrics) | 0 | 0 | Need detailed server-internal resource exhausted metrics |
-| [#2406](#2406-wire-up-transactioncreateworkflowexecution) | 0 | 0 | Wire up Transaction.CreateWorkflowExecution |
-| [#2375](#2375-reduce-unnecessary-duplicated-data-encoding) | 0 | 0 | Reduce unnecessary & duplicated data encoding |
-| [#2282](#2282-flush-transient-activitytaskstarted-events-before-closing-a-workflow) | 0 | 0 | Flush transient ActivityTaskStarted events before closing a workflow |
-| [#2059](#2059-embed-schema-content-within-schema-tool) | 0 | 0 | Embed schema content within schema tool |
-| [#1966](#1966-split-resource-limit-exceed-error-into-user-facing-internal-facing-error-types) | 0 | 0 | Split resource limit exceed error into user facing & internal facing error types |
-| [#1903](#1903-add-workflowsizeinbytes-as-visibility-attribute) | 0 | 0 | Add WorkflowSizeInBytes as Visibility Attribute |
-| [#1867](#1867-temporal-server-hang-during-sigterm-after-loss-of-cassandra-connection) | 0 | 0 | temporal-server "hang" during SIGTERM after loss of Cassandra connection |
-| [#1840](#1840-temporal-elasticsearch-support-for-custom-index-creation) | 0 | 0 | Temporal Elasticsearch support for custom index creation |
-| [#1757](#1757-document-dynamic-config-behavior) | 0 | 0 | Document dynamic config behavior |
-| [#1579](#1579-continued-submission-of-tasks-to-an-orphaned-task-queue-can-lead-to-cassandra-tombstone-scanning-issues) | 0 | 0 | Continued submission of tasks to an orphaned task queue can lead to Cassandra tombstone scanning issues |
-| [#1552](#1552-better-resource-limit-exceeded-error-message) | 0 | 0 | Better resource limit exceeded error message |
-| [#1080](#1080-use-workflow-raw-history-events-api) | 0 | 0 | Use workflow raw history events API  |
-| [#1041](#1041-ensure-majorminorpatch-to-majorminor1patch-upgrade) | 0 | 0 | Ensure major.minor.patch to major.minor+1.patch upgrade |
-| [#1021](#1021-maintenance-workflow-cleanup-stale-queue-tasks) | 0 | 0 | Maintenance workflow cleanup stale queue tasks |
-| [#973](#973-support-of-batch-activity) | 0 | 0 | Support of batch activity |
-| [#972](#972-have-a-deleted-state-for-entities-state-machine-in-mutable-state) | 0 | 0 | Have a Deleted state for entities state machine in mutable state |
-| [#940](#940-unify-all-persistence-ttl-handling-logic) | 0 | 0 | Unify all persistence TTL handling logic |
-| [#939](#939-persistence-layer-unified-serialization-deserialization) | 0 | 0 | Persistence Layer Unified Serialization / Deserialization |
-| [#926](#926-add-configurable-initialdelay-for-cron-job-setup-for-the-first-run) | 0 | 0 | Add configurable initialDelay for Cron job setup for the first run |
-| [#891](#891-history-service-should-pause-accepting-new-signals-if-worker-cannot-keep-up) | 0 | 0 | History service should pause accepting new signals if worker cannot keep up. |
-| [#881](#881-matching-service-task-queue-metadata-management) | 0 | 0 | Matching Service Task Queue Metadata Management |
-| [#852](#852-support-in-mem-tls-configuration-data-for-postgresql) | 0 | 0 | Support in mem TLS configuration / data for PostgreSQL |
-| [#848](#848-support-bluegreen-cluster-deployment-with-incompatible-cluster-membership-changes) | 0 | 0 | Support blue/green cluster deployment with incompatible cluster membership changes |
-| [#810](#810-revisit-persistence-interface-sql-nosql-before-modularization) | 0 | 0 | Revisit persistence interface (SQL / NoSQL) before modularization |
-| [#791](#791-revisit-matching-engine-listtaskqueue-functionality) | 0 | 0 | Revisit matching engine ListTaskQueue functionality |
-| [#741](#741-support-reset-starting-from-an-activity-of-a-specific-type) | 0 | 0 | Support reset starting from an activity of a specific type. |
-| [#699](#699-history-engine-refactoring) | 0 | 0 | History Engine refactoring |
-| [#689](#689-add-dynamic-config-knob-to-limit-maximum-duration-for-timers) | 0 | 0 | Add dynamic config knob to limit maximum duration for Timers |
-| [#677](#677-support-for-loading-history-events-using-size-of-batches-rather-than-count) | 0 | 0 | Support for loading history events using size of batches rather than count |
-| [#675](#675-rate-limiting-pagination-based-on-history-sizes) | 0 | 0 | Rate limiting pagination based on history sizes |
-| [#595](#595-allow-configuration-of-archival-config-through-docker) | 0 | 0 | Allow configuration of archival config through docker |
-| [#589](#589-listtaskqueuepartitions-in-matchingservice-matching-engine-needs-unit-tests) | 0 | 0 | listTaskQueuePartitions in MatchingService matching engine needs unit tests |
-| [#574](#574-background-scan-to-remove-unnecessary-timers) | 0 | 0 | Background scan to remove unnecessary timers |
-| [#550](#550-creating-a-dev-environment-using-podman-instead-of-docker-compose) | 0 | 0 | creating a dev environment using podman instead of docker-compose |
-| [#373](#373-change-parentclosepolicy-to-struct-and-add-applyonparentcontinueasnew) | 0 | 0 | Change ParentClosePolicy to struct and add applyOnParentContinueAsNew |
-| [#309](#309-make-long-poll-interval-configurable-through-the-service-config) | 0 | 0 | Make long poll interval configurable through the service config |
-| [#294](#294-return-longpollexpirationinterval-on-poll-call-results) | 0 | 0 | Return LongPollExpirationInterval on poll call results |
-| [#293](#293-fix-names-of-dynamic-config-properties) | 0 | 0 | Fix names of dynamic config properties |
-| [#84](#84-group-and-categorize-tests) | 0 | 0 | Group and categorize tests |
+| [#680](#680) | 70 | 14 | Add ability for workflow to wait for completion of an external workflow |
+| [#1507](#1507) | 50 | 27 | Provide priority task queues |
+| [#2668](#2668) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a descriptive var name) |
+| [#2318](#2318) | 46 | 7 | MongoDB as Persistent |
+| [#5680](#5680) | 30 | 14 | Official support for Opensearch |
+| [#537](#537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
+| [#131](#131) | 28 | 4 | Different retry options based on failure type |
+| [#328](#328) | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
+| [#2609](#2609) | 23 | 7 | Add ability to transfer child workflows to new parent run when parent calls continue as new |
+| [#2582](#2582) | 18 | 13 | Add health check handler for worker service |
+| [#5302](#5302) | 23 | 2 | YDB Temporal support. |
+| [#1797](#1797) | 22 | 4 | Ability to get all task queues per namespace |
+| [#1460](#1460) | 16 | 11 | Add task queue query |
+| [#3228](#3228) | 16 | 6 | Metadata for Timers |
+| [#3366](#3366) | 16 | 4 | Support sqlite in production. |
+| [#4795](#4795) | 14 | 6 | Schedules - add option for execution workflowid to be "as-is" (not unique per run) |
+| [#1988](#1988) | 15 | 3 | Implement dynamic task queue routing |
+| [#298](#298) | 14 | 4 | Support embedded version of the service |
+| [#4180](#4180) | 13 | 1 | Official CockroachDB (CRDB) support |
+| [#1492](#1492) | 12 | 1 | Optimize large payload fan-out to activities and child workflows |
+| [#5811](#5811) | 12 | 0 | Support last day of month as a recurring schedule option |
+| [#3056](#3056) | 11 | 2 | Support wildcard search for workflows |
+| [#2617](#2617) | 9 | 6 | Allow retention period to be set per workflow completion type |
+| [#1428](#1428) | 11 | 2 | Aim for error free rolling bounces and upgrades of Temporal |
+| [#4386](#4386) | 6 | 11 | Add new Workflow Id Reuse Policy: Allow Duplicate with Queueing |
+| [#130](#130) | 6 | 11 | Add cron activity |
+| [#4383](#4383) | 10 | 2 | Support log-less graceful shutdown without "Error looking up host for shardID" errors |
+| [#685](#685) | 9 | 4 | Delay workflow completion until abandoned children start  |
+| [#3709](#3709) | 8 | 5 | Workflows/activities to post event notifications that could be listened to |
+| [#3383](#3383) | 4 | 13 | Schema name selection for postgres |
+| [#2941](#2941) | 9 | 3 | Host level cache for history |
+| [#4233](#4233) | 6 | 7 | Too high memory usage on history service  |
+| [#3006](#3006) | 0 | 18 | Workflow Pause / Unpause |
+| [#487](#487) | 8 | 2 | Consider separating retention period from uniqueness guarantee period |
+| [#7037](#7037) | 5 | 7 | [bug] Viewing schedule throws a 504 "context deadline exceeded" |
+| [#4105](#4105) | 8 | 1 | Full support for scylladb as persistence layer |
+| [#4829](#4829) | 8 | 0 | Allow to specify task queue when resetting an execution |
+| [#6995](#6995) | 6 | 3 | Error during VisibilityDeleteExecution |
+| [#6323](#6323) | 0 | 15 | Frontend Service - goroutine (CPU & Memory) Leak |
+| [#5516](#5516) | 7 | 1 | Support for Azure Blob Storage for Archival |
+| [#4902](#4902) | 0 | 15 | Custom authentication between frontend and other services |
+| [#3309](#3309) | 7 | 1 | Notify all workers on a task queue |
+| [#1412](#1412) | 7 | 1 | Add soft workflow timeout |
+| [#804](#804) | 5 | 5 | Synchronous Start |
+| [#7930](#7930) | 0 | 14 | Replace "github.com/olivere/elastic/v7" with the official client "github.com/elastic/go-elasticsearch" |
+| [#3468](#3468) | 6 | 2 | Add ability to list task queues for a given namespace |
+| [#351](#351) | 5 | 4 | List Workflow Executions ignoring previous runs |
+| [#8724](#8724) | 6 | 1 | Support Azure Entra ID Authentication for PostgreSQL Backend |
+| [#8356](#8356) | 6 | 1 | Resource-Aware Worker Concurrency |
+| [#6799](#6799) | 3 | 7 | Support `WorkflowIdConflictPolicy` for child workflow |
+| [#8110](#8110) | 1 | 10 | v1.28.0 vulnerabilities |
+| [#5156](#5156) | 4 | 4 | Allow configuration of expected audience value for Temporal authorization |
+| [#4044](#4044) | 5 | 2 | Postgres schema support partition table feature |
+| [#2426](#2426) | 1 | 10 | [Feature Request] Add reason field to RequestCancelWorkflowExecutionRequest |
+| [#1289](#1289) | 5 | 2 | Do not fail continue as new on a new signal |
+| [#983](#983) | 5 | 1 | loggging/exception stack trace not capturing underlying errors |
+| [#5455](#5455) | 5 | 0 | docker-compose multirole sometimes stuck on boot |
+| [#4000](#4000) | 2 | 6 | bug: concurrent map read and map write |
+| [#2621](#2621) | 5 | 0 | Align TLS enable env var names between temporal-sql-tool and auto-setup  |
+| [#1499](#1499) | 4 | 2 | Ability to update workflow config, including cron schedule, retry policy, etc |
+| [#1203](#1203) | 5 | 0 | Add SignalWithReset |
+| [#6806](#6806) | 3 | 3 | WorkflowTaskTimedOut if submiting a large number of activiteis within one workflow |
+| [#5741](#5741) | 0 | 9 | Addressing a lot of security vulnerabilities in the latest Temporal admin-tools release 1.23.0 |
+| [#5286](#5286) | 3 | 3 | Slack Notification Integration (or other messaging platform) |
+| [#5022](#5022) | 2 | 5 | Can't display archived workflows which have past the retention |
+| [#4387](#4387) | 2 | 5 | Add blacklist/whitelist of signal and synchronous update types |
+| [#3624](#3624) | 2 | 5 | Reset should be allowed with pending childWF in current run, if current run is already closed |
+| [#2691](#2691) | 0 | 9 | Support for "workflow chain IDs" in all APIs that are able to address the "latest" run |
+| [#471](#471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
+| [#453](#453) | 2 | 5 | Feature: implement docker healthcheck |
+| [#421](#421) | 4 | 1 | Add admin command to dump dynamic config value[s] |
+| [#196](#196) | 4 | 1 | Task list with rate limiting per key |
+| [#8205](#8205) | 2 | 4 | Improve DST handling in schedules |
+| [#7666](#7666) | 3 | 2 | Сoncurrency limit (built-in semaphore) per Workflow type |
+| [#3517](#3517) | 3 | 2 | Provide a way to retrieve the list of failures for one activity |
+| [#3141](#3141) | 4 | 0 | Support reset to any point with pending ChildWorkflows |
+| [#954](#954) | 3 | 2 | docs: Add multi-region deployment documentation |
+| [#8719](#8719) | 3 | 1 | Stale internode gRPC connections after pod termination when using Kubernetes Deployments |
+| [#8461](#8461) | 2 | 3 | Adding documentation for self-hosting temporal on cloud environments. |
+| [#7777](#7777) | 3 | 1 | Support workflow task completions larger than gRPC max message size |
+| [#7421](#7421) | 2 | 3 | Migration to AWS SDK for Go v2 needed |
+| [#6193](#6193) | 2 | 3 | Cannot load archived (s3 provider) workflow history on UI |
+| [#1119](#1119) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
+| [#785](#785) | 3 | 1 | Workflow-less activity |
+| [#682](#682) | 0 | 7 | Signal to self error in Workflow code |
+| [#8490](#8490) | 2 | 2 | Scheduled Actions doesn't clear ContinuedFailure on null success payloads |
+| [#7894](#7894) | 2 | 2 | Cannot load Archived Workflows on UI even archived are present in S3 |
+| [#7600](#7600) | 0 | 6 | start_workflow_execution fails with duplicate key error despite TERMINATE_EXISTING policy (possible DB inconsistency) |
+| [#6664](#6664) | 1 | 4 | Request unauthorized for SQL search-attributes (claims are not passed) |
+| [#5874](#5874) | 0 | 6 | Provide extra info of the received signal for re-apply from reset, and others |
+| [#5725](#5725) | 3 | 0 | Add PARENT_CLOSE_POLICY_DISCONNECTED |
+| [#4919](#4919) | 0 | 6 | Allow Internal-Frontend to Register/Update Namespace (and other methods) |
+| [#3503](#3503) | 2 | 2 | Dynamic Task Queue rate limiting |
+| [#2729](#2729) | 0 | 6 | Temporal Is not able to connect to Cassandra even when one node is down in a cluster |
+| [#2341](#2341) | 1 | 4 | config: strict mode for configuration parsing |
+| [#2230](#2230) | 3 | 0 | Add a feature flag to enable the self-signed certificates for the Elasticsearch transport |
+| [#1994](#1994) | 0 | 6 | Cron tailgate-like workflow triggering (start a workflow in some time after it completes and not according to cron schedule) [Java] |
+| [#1485](#1485) | 3 | 0 | Provide default mapping for authorizer roles to API names |
+| [#245](#245) | 0 | 6 | Cassandra timestamp type |
+| [#8636](#8636) | 1 | 3 | Auth plugin design |
+| [#8284](#8284) | 2 | 1 | Carry over signal to retry execution if original was created via SignalWithStart |
+| [#6805](#6805) | 2 | 1 | Scaling Temporal Workers |
+| [#6307](#6307) | 1 | 3 | Panic When Upgrading From 1.20.4 To 1.21.6 |
+| [#6146](#6146) | 0 | 5 | temporal on arm64 Linux is not working correctly ...amd64 binaries? |
+| [#5693](#5693) | 0 | 5 | Multiple Hosts in connection string are not handled properly (POSTGRES_SEEDS accepts only single host?) |
+| [#5364](#5364) | 2 | 1 | Inconsistent tctl workflow list behaviour |
+| [#4151](#4151) | 2 | 1 | Allow update timeout/retry config for started activities with retry |
+| [#4038](#4038) | 2 | 1 | partitioned activity taskQueue based on workflowId, for better caching performance in activity workers |
+| [#3502](#3502) | 0 | 5 | Add metric for number of open Workflow Executions |
+| [#2891](#2891) | 0 | 5 | Document configuration (development.yaml, dynamicconfig) |
+| [#2630](#2630) | 0 | 5 | DNS name in BroadcastAddress  |
+| [#2320](#2320) | 0 | 5 | Thrift version update and unification |
+| [#1895](#1895) | 0 | 5 | Use "nobody" account to run binaries in the docker |
+| [#1882](#1882) | 0 | 5 | support manual retries |
+| [#1739](#1739) | 2 | 1 | Return more accurate error codes |
+| [#469](#469) | 2 | 1 | Limit depth of child workflows |
+| [#8581](#8581) | 1 | 2 | [Scheduled Actions] - Update Schedule memo |
+| [#8202](#8202) | 0 | 4 | CrashLoopBackOff on GKE cluster. |
+| [#8109](#8109) | 2 | 0 | Support for Naming Timers in Temporal Workflows |
+| [#7947](#7947) | 2 | 0 | CLI/WebUI option to list out dynamic configs |
+| [#7200](#7200) | 1 | 2 | temporal cli works but hit deadline-exceeded error for sample code |
+| [#6977](#6977) | 2 | 0 | Addressing a lot of security vulnerabilities in the Temporalio/admin-tools release 1.25.2-tctl-1.18.1-cli-1.1.2 |
+| [#6976](#6976) | 2 | 0 | Addressing a lot of security vulnerabilities in the Temporalio/server release 1.25.2.0 |
+| [#6845](#6845) | 0 | 4 | Support full, structured failures for queries |
+| [#6611](#6611) | 2 | 0 | Expose anonymous HTTP/HTTPS health endpoint on Frontend |
+| [#6338](#6338) | 0 | 4 | error in prometheus reporter: AccessHistoryNew counter |
+| [#6201](#6201) | 2 | 0 | tdbg diagnose command for stuck workflow |
+| [#6100](#6100) | 0 | 4 | fr: add support for multi-az postgres with read-only replication |
+| [#5881](#5881) | 2 | 0 | Continue-as-new with a different WorkflowID |
+| [#5873](#5873) | 0 | 4 | WorkflowContext provides whether the current workflow task is from a reset |
+| [#4845](#4845) | 2 | 0 | Add ability to reject signals by type |
+| [#4715](#4715) | 0 | 4 | Unable to start 1.21.4 cluster with archival disabled |
+| [#4542](#4542) | 2 | 0 | Support activity caching through sticky routing by user provided key |
+| [#4094](#4094) | 0 | 4 | [Bug] Version info upgrade notification does not get cleared after cluster version upgrade |
+| [#3769](#3769) | 0 | 4 | Any plan to support MS SQL Server? |
+| [#2905](#2905) | 2 | 0 | Access and configure underlying gRPC connection for core components |
+| [#2698](#2698) | 0 | 4 | Internode TLS certificates dual used as both client and server certificates |
+| [#2685](#2685) | 0 | 4 | [Interpreter Proposal] New way to write workflow using Temporal |
+| [#1904](#1904) | 2 | 0 | Create visibility reconciler workflow |
+| [#1844](#1844) | 0 | 4 | Taskqueue scavenger emits persistence errors |
+| [#1821](#1821) | 2 | 0 | Document the Elasticsearch permissions required by Temporal |
+| [#1700](#1700) | 0 | 4 | Simple way to handle a single concurrent workflow |
+| [#960](#960) | 2 | 0 | Support for in memory db and setup for running temporal with limited resources |
+| [#778](#778) | 0 | 4 | Add ScheduleToStart timeout to WorkflowTaskScheduledEvent |
+| [#674](#674) | 0 | 4 | Heartbeat WorkflowTask during history pagination |
+| [#8764](#8764) | 1 | 1 | Listing workflows and activities from temporal sdk |
+| [#8611](#8611) | 0 | 3 | Allowing workflow to specify max retry attempts / duration before an activity starts throwing non-BENIGN errors |
+| [#8432](#8432) | 0 | 3 | Set log level of dynamic config updated message in file_based_client to warn instead of info |
+| [#8153](#8153) | 1 | 1 | Address security vulnerability CVE-2025-22871 for golang:net/http/internal |
+| [#8113](#8113) | 0 | 3 | Add Activity support for Worker Versioning |
+| [#8087](#8087) | 1 | 1 | [Scheduled Actions] Skipped Action Metric |
+| [#7882](#7882) | 1 | 1 | Support for selecting "Workflow Id Conflict Policy" for child workflows |
+| [#7866](#7866) | 0 | 3 | AWS STS for connecting S3 for archival |
+| [#7741](#7741) | 0 | 3 | Workflow Update causing WFT Failure with `Premature end of stream` |
+| [#7640](#7640) | 0 | 3 | Unable to use passthrough:/// prefix in temporal operator command |
+| [#7637](#7637) | 0 | 3 | Add a dedicated metric for corrupted workflows |
+| [#7623](#7623) | 1 | 1 | Feature: Delayed schedule for activity tasks |
+| [#7560](#7560) | 0 | 3 | Default JWT claim mapper support for permissions parsing using regular expression |
+| [#7551](#7551) | 0 | 3 | Atomic workflow reset & update |
+| [#6633](#6633) | 1 | 1 | [Feature Request] Support exponential/native histograms in Temporal Server/SDKs |
+| [#6546](#6546) | 0 | 3 | Allow to disable workflow deadlock detector |
+| [#6375](#6375) | 0 | 3 | CompleteUpdate message is sometimes not honored when in same WFT completion as ContinueAsNew |
+| [#5877](#5877) | 0 | 3 | Address force completion when make a request through CompleteByID with a failure. |
+| [#5768](#5768) | 0 | 3 | Metric specific to workflow retries per namespace |
+| [#5475](#5475) | 0 | 3 | temporal frontend unable to connect to elasticsearch visibilitystore |
+| [#5436](#5436) | 0 | 3 | 503 in api/v1/namespaces/<your_namespace>/search-attributes? sometime |
+| [#5171](#5171) | 0 | 3 | Timeout on complete when invalid task token passed |
+| [#5135](#5135) | 0 | 3 | Support more direct/immediate notification of a cancelled activity |
+| [#4887](#4887) | 0 | 3 | Prepopulate run_id in schedule future_action_times |
+| [#4778](#4778) | 0 | 3 | I want to be able to print log files separately by date |
+| [#4463](#4463) | 1 | 1 | Cache event history from query tasks |
+| [#4193](#4193) | 0 | 3 | High frequency query mysql |
+| [#4020](#4020) | 0 | 3 | Unexpected lag between TimerStarted and TimerFired when switching a namespace's active cluster |
+| [#3863](#3863) | 0 | 3 | Pin a particular workflow run to prevent it from getting purged |
+| [#3665](#3665) | 0 | 3 | Update workflow search attributes outside of workflow context  |
+| [#3532](#3532) | 0 | 3 | Remove unused methods in ClientBean |
+| [#3104](#3104) | 0 | 3 | Surprising clusterMetadata override |
+| [#3015](#3015) | 0 | 3 | Possibility to exclude metrics tags when emitting metrics? |
+| [#2598](#2598) | 1 | 1 | Allow configurable time for history/visibility archiving |
+| [#1338](#1338) | 0 | 3 | Workflow Reset: add logic of determining the reset point to the service |
+| [#1311](#1311) | 0 | 3 | Make workflow state (not status) available via API |
+| [#1024](#1024) | 1 | 1 | Add a CLI and tab in the web dashboard to display all taskQueues list / pollers |
+| [#996](#996) | 0 | 3 | [request] API needs for Temporal Web |
+| [#787](#787) | 1 | 1 | Frequent timeouts while archiving to S3 |
+| [#518](#518) | 1 | 1 | Add support for passing large arguments between activities |
+| [#503](#503) | 1 | 1 | Record activity started and failed event for activity in retry on workflow completion |
+| [#8606](#8606) | 0 | 2 | Schedules - allow TriggerImmediatelyRequest to define arguments |
+| [#8072](#8072) | 0 | 2 | Adding sql metric stats |
+| [#8013](#8013) | 1 | 0 | List workflows by custom search attributes sometimes returns wrong value |
+| [#7821](#7821) | 0 | 2 | [Bug]  workflow list takes differnt query for hot and archieved |
+| [#7625](#7625) | 0 | 2 | Additional tuning configs for scavenger jobs |
+| [#6946](#6946) | 0 | 2 | PostgreSQL password in config file |
+| [#6834](#6834) | 1 | 0 | Support start delay in continue-as-new options |
+| [#6827](#6827) | 1 | 0 | Support Environment Variable Substitution for clusterMetadata in Temporal Configuration Templates |
+| [#6758](#6758) | 0 | 2 | API for setting RPS limits for activity tasks dispatch |
+| [#6754](#6754) | 1 | 0 | Adding a custom label to Temporal out-of-the-box metric |
+| [#6724](#6724) | 1 | 0 | More batch reset types |
+| [#6561](#6561) | 0 | 2 | Simple configuration structure |
+| [#6481](#6481) | 1 | 0 | Support wait for signal in execution history API |
+| [#6479](#6479) | 0 | 2 | GKE Web UI 404 Archival Using bucket |
+| [#6467](#6467) | 1 | 0 | CVE-2024-24790 |
+| [#6333](#6333) | 0 | 2 | Do not consume rate limit token on invalid tasks |
+| [#6273](#6273) | 1 | 0 | PostgreSQL schema update fails on busy Temporal instances |
+| [#6255](#6255) | 0 | 2 | Add support for a "final workflow state retention" on successful exit optimization |
+| [#6239](#6239) | 1 | 0 | Allow SDKs to change workflow task max retry interval in WorkerOptions |
+| [#6226](#6226) | 0 | 2 | "Flag provided but not defined" when trying to specify config path |
+| [#6173](#6173) | 1 | 0 | Schedule "StartAt" not used when calculating intervals? |
+| [#5785](#5785) | 0 | 2 | deleted schedule showing |
+| [#5729](#5729) | 0 | 2 | Temporal fails to connect to Google Cloud SQL Postgres when password contains certain characters |
+| [#5624](#5624) | 0 | 2 | Archival does not show list of archived workflows |
+| [#5105](#5105) | 0 | 2 | Add support to create Elasticsearch rolling indexes in visibility |
+| [#5026](#5026) | 0 | 2 | When I tested with more than 200 workers connected，Too high memory usage on matching service |
+| [#4947](#4947) | 1 | 0 | Add fields to `ListBatchOperations` and `DescribeBatchOperation` API responses |
+| [#4823](#4823) | 1 | 0 | Bearer token not passed to remote cluster when adding or upserting remote cluster |
+| [#4802](#4802) | 0 | 2 | Increase the number of pre-allocated custom search attributes |
+| [#4389](#4389) | 0 | 2 | Do not record activity input in the workflow history |
+| [#4201](#4201) | 0 | 2 | Allow to configure max concurrency of a workflow with the same id |
+| [#4179](#4179) | 0 | 2 | Header propagation on activity/workflow results |
+| [#3885](#3885) | 0 | 2 | LIKE is not working as expected in visibility query |
+| [#3633](#3633) | 0 | 2 | Cassandra schema should use default SizeTieredCompactionStrategy  |
+| [#3614](#3614) | 0 | 2 | Cannot trigger/run multiple schedule actions immediately |
+| [#3212](#3212) | 0 | 2 | Add query param to ListNamespacesRequest |
+| [#3086](#3086) | 0 | 2 | Do not emit metrics when acquire shard r/w lock |
+| [#2929](#2929) | 1 | 0 | Update namespace replication task cleanup logic with connected clusters |
+| [#2695](#2695) | 0 | 2 | Workflow ID size check mismatch |
+| [#2688](#2688) | 1 | 0 | Support SignalExternalWorkflowExecutionWithStart |
+| [#2526](#2526) | 0 | 2 | Metric on workflows not progressing because of repetitive Workflow Task Timeouts / Failures |
+| [#2491](#2491) | 0 | 2 | Throttled logger should not throttle errors that happens rarely |
+| [#2482](#2482) | 1 | 0 | Ability to disable dynamic config in auto-setup docker image |
+| [#2470](#2470) | 0 | 2 | Temporal assumes the credentials of storage service used for archival will stay the same through out the life cycle of the application. |
+| [#2405](#2405) | 0 | 2 | Use sticky task queue on querying close workflow |
+| [#2342](#2342) | 1 | 0 | Add API to allow operator to add custom system workflows to worker role |
+| [#1893](#1893) | 1 | 0 | Include tarball with versioned schema in release |
+| [#1847](#1847) | 0 | 2 | [xdc] Workers connected to standby cluster not picking up tasks after  failover  |
+| [#1423](#1423) | 1 | 0 | Make output streams of logger configurable perfectly |
+| [#1018](#1018) | 1 | 0 | Add CANCEL_REQUESTED status |
+| [#845](#845) | 0 | 2 | Generate a signed token for each workflow activity |
+| [#773](#773) | 0 | 2 | session and childworkflow |
+| [#705](#705) | 0 | 2 | Support reset with pending child workflows |
+| [#607](#607) | 0 | 2 | Add proper unit / integration tests for parentclosepolicy workflow |
+| [#515](#515) | 1 | 0 | Expose zap logger encoding to config |
+| [#455](#455) | 1 | 0 | If a temporal service fails to start due to a missing config key, log the missing key |
+| [#109](#109) | 0 | 2 | Docker: Docker image with schema loaded |
+| [#108](#108) | 0 | 2 | Make temporal docker to not emit noisy logs |
+| [#8909](#8909) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
+| [#8698](#8698) | 0 | 1 | [Security] Review & Fix Multiple CVEs affecting Go standard libraries |
+| [#8655](#8655) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-tools:1.29.1 |
+| [#8654](#8654) | 0 | 1 | Unable to view workflows in UI |
+| [#8608](#8608) | 0 | 1 | Support opt-in ability to get workflow input and output (if closed) on describe workflow |
+| [#8537](#8537) | 0 | 1 | Add first execution run ID for already-started start workflow results |
+| [#8431](#8431) | 0 | 1 | Docker deployment TEMPORAL_ADMINTOOLS_VERSION |
+| [#8349](#8349) | 0 | 1 | Support relative time in the visibility store |
+| [#8322](#8322) | 0 | 1 | Don't log a warning when task queue kind is unspecified |
+| [#8298](#8298) | 0 | 1 | Make Nexus work out of the box with zero config |
+| [#8235](#8235) | 0 | 1 | GetWorkflow doesn't find archived one |
+| [#8220](#8220) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/server v1.28.1 |
+| [#8219](#8219) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-tools:1.28.1-tctl-1.18.4-cli-1.4.1 |
+| [#8101](#8101) | 0 | 1 | Improve record activity started implementation |
+| [#7916](#7916) | 0 | 1 | Allow multiple task queues to a worker - enables throttling of specific activities |
+| [#7869](#7869) | 0 | 1 | temporal frontend unable to connect to elasticsearch visibilitystore |
+| [#7800](#7800) | 0 | 1 | SSO and system worker |
+| [#7780](#7780) | 0 | 1 | Support for HTTPS metrics endpoint on OSS Temporal |
+| [#7658](#7658) | 0 | 1 | Allow Configurable Prefixes for Temporal Schema Table Names |
+| [#7657](#7657) | 0 | 1 | Rename Visibility schema's version table to avoid conflict with Temporal schema |
+| [#7591](#7591) | 0 | 1 | 1.27.1 - Multiple ChildWorkflowStarted events written for same child workflow |
+| [#7577](#7577) | 0 | 1 | Add retries for Temporal having connectivity failures for persistence database |
+| [#7515](#7515) | 0 | 1 | Retry interval is not always respected |
+| [#7506](#7506) | 0 | 1 | Start child with WorkflowID longer than 255 with SQL as persistence would stuck |
+| [#7503](#7503) | 0 | 1 | Does temporal support sharing database? |
+| [#7480](#7480) | 0 | 1 | Addressing a lot of security vulnerabilities in the Temporalio/server release v1.27.1 |
+| [#7405](#7405) | 0 | 1 | strange workflow task timeout |
+| [#7390](#7390) | 0 | 1 | Feature: Integrate Needle RAG API as a component. |
+| [#7367](#7367) | 0 | 1 | Do not truncate activity failure info if there is not many of them |
+| [#6819](#6819) | 0 | 1 | Why is the default value of the SDK client grpc "MaxSendMsgSize" inconsistent with the server grpc "MaxRecvMsgSize"? |
+| [#6647](#6647) | 0 | 1 | Make option for UpsertSearchAttribute command to fail if SA does not exists |
+| [#6527](#6527) | 0 | 1 | WorkflowCache inconsistency upon workflow (force) deletion |
+| [#6525](#6525) | 0 | 1 | Rare test failure in CLI: "Current branch token and request branch token doesn't match." |
+| [#6459](#6459) | 0 | 1 | Excessive new connections to Postgres  |
+| [#6378](#6378) | 0 | 1 | unknown method GetWorkflowExecutionHistoryReverse for service temporal.server.api |
+| [#6329](#6329) | 0 | 1 | Ability to attach a local debugger to Local Temporal Worker |
+| [#6319](#6319) | 0 | 1 | Schedule list with query times out on server 1.25.0-rc.0 |
+| [#6188](#6188) | 0 | 1 | CreateSchedule with empty workflowID should not be allowed |
+| [#6000](#6000) | 0 | 1 | How to ensure that activities belonging to the same workflow can be prioritized and executed to avoid hunger when a batch of tasks is initiated for a workflow containing multiple activities. |
+| [#5796](#5796) | 0 | 1 | Application Error with a Suggested Retry Interval Duration |
+| [#5763](#5763) | 0 | 1 | Limit failure cause depth |
+| [#5372](#5372) | 0 | 1 | trigger one workflow from another workflow  |
+| [#5324](#5324) | 0 | 1 | access from one temporal namespace to another |
+| [#4816](#4816) | 0 | 1 | Elasticsearch legacy index template  |
+| [#4692](#4692) | 0 | 1 | Could taskReader persistAckLevel check last persist ackLevel avoid persist duplicate ackLevel |
+| [#4612](#4612) | 0 | 1 | Matching task dispatch busy loop when history service is not available |
+| [#4600](#4600) | 0 | 1 | Use different task queue for activity and workflow task retries |
+| [#4502](#4502) | 0 | 1 | Support data references to avoid storing the same Payload multiple times |
+| [#4348](#4348) | 0 | 1 | Replication tasks referencing archived workflow executions can't be processed, blocking all replication |
+| [#4247](#4247) | 0 | 1 | Add firstExecutionRunId to system search attribute |
+| [#4246](#4246) | 0 | 1 | Consider adding Heartbeat Details to other Failure modes of an Activity |
+| [#4131](#4131) | 0 | 1 | Issue with MariaDB 10.6.9.  (Galera cluster) |
+| [#4021](#4021) | 0 | 1 | Expiration policy for signal requestIDs in mutable state |
+| [#3987](#3987) | 0 | 1 | Named Timers |
+| [#3983](#3983) | 0 | 1 | Unused `GetHistoryTask` persistence API |
+| [#3682](#3682) | 0 | 1 | Taskqueue scavenger does not work for cassandra |
+| [#3667](#3667) | 0 | 1 | Temporal Server returns incorrect RetryState in some cases of scheduleToClose timeout |
+| [#3666](#3666) | 0 | 1 | Add ability to invoke the ParentClosePolicy on chain completion not the run completion. |
+| [#3417](#3417) | 0 | 1 | deleteWorkflowExecution failure response leaks implementation details |
+| [#3177](#3177) | 0 | 1 | Add input validation that request ID size is below threshold |
+| [#3165](#3165) | 0 | 1 | Sync search attributes and ES schema |
+| [#3134](#3134) | 0 | 1 | Do not block shard ownership assertion if `acquireShards` is blocked |
+| [#3065](#3065) | 0 | 1 | i get taskqueue history metics,it has abort all  80000 activities metrics.it is to large for promethues to pull |
+| [#3008](#3008) | 0 | 1 | Continue workflow as new and signal in a single transaction |
+| [#2829](#2829) | 0 | 1 | Support starting abandoned child after parent workflow is closed  |
+| [#2707](#2707) | 0 | 1 | Admin CLI to update mutable state directly |
+| [#2687](#2687) | 0 | 1 | Populate identity for child workflows |
+| [#2615](#2615) | 0 | 1 | auto-setup does not use DB_PORT for mysql and cassandra  |
+| [#2565](#2565) | 0 | 1 | Consider adding an option for bidirectional gRPC streaming instead of unary RPC |
+| [#2403](#2403) | 0 | 1 | import of github.com/cactus/go-statsd-client is ambiguous in go.temporal.io/server |
+| [#2283](#2283) | 0 | 1 | Add well known indicator/label/tag to log output for temporal |
+| [#2252](#2252) | 0 | 1 | Improve error message(s) returned when failing to meet database constraints |
+| [#2101](#2101) | 0 | 1 | History server should emit cache size / capacity metrics |
+| [#2054](#2054) | 0 | 1 | Expose disableInitialHostLookup for temporal-cassandra-tool  |
+| [#1979](#1979) | 0 | 1 | Worker identity from task heartbeats is not exposed anyhow in API |
+| [#1898](#1898) | 0 | 1 | Add pid file configuration option |
+| [#1891](#1891) | 0 | 1 | Worker heartbeat |
+| [#1714](#1714) | 0 | 1 | Activity dispatching optimization |
+| [#1468](#1468) | 0 | 1 | Add ActivityTaskStarted event immediately if RetryOptions.maximumAttempts is set to 1. |
+| [#1057](#1057) | 0 | 1 | On first start Temporal should not accept connections until Default namespace is setup |
+| [#746](#746) | 0 | 1 | Workflow loses cron when also using NewContinueAsNewError |
+| [#266](#266) | 0 | 1 | Matching service degradation due to large number of task lists |
+| [#19](#19) | 0 | 1 | Clear indication that service is up and running |
+| [#13](#13) | 0 | 1 | Multi-phase activities |
+| [#8902](#8902) | 0 | 0 | History service memory usage upward trend |
+| [#8901](#8901) | 0 | 0 | Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option) |
+| [#8889](#8889) | 0 | 0 | Enhancing Temporal PR Review and Release Confidence with Hikaflow |
+| [#8866](#8866) | 0 | 0 | Address security vulnerability CVE-2025-61729 for golang:crypto/x509 |
+| [#8865](#8865) | 0 | 0 | Address security vulnerability CVE-2025-61727 for golang:crypto/x509 |
+| [#8864](#8864) | 0 | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state." |
+| [#8833](#8833) | 0 | 0 | Scheduler does not list workflows runned when using "triggerImmediately" |
+| [#8790](#8790) | 0 | 0 | history_node table keeps growing |
+| [#8652](#8652) | 0 | 0 | Documenting the current state of ScyllaDB as a Cassandra-compatible Backend |
+| [#8648](#8648) | 0 | 0 | Add ExecutionStatus to visibility columns for archived executions |
+| [#8631](#8631) | 0 | 0 | Trying to create search attribute that already exists should return error |
+| [#8579](#8579) | 0 | 0 | Addressing security vulnerabilities in the Temporalio/server:1.29 1.29.1 |
+| [#8538](#8538) | 0 | 0 | Provide user identity on user-initiated events |
+| [#8097](#8097) | 0 | 0 | Carryover instead of reject incoming signals upon continueAsNew |
+| [#8074](#8074) | 0 | 0 | [FR] - ResetWithSignal |
+| [#8039](#8039) | 0 | 0 | Expose activity last failure info via PollActivityTaskQueueResponse |
+| [#8006](#8006) | 0 | 0 | Is it possible to dynamially customize what labels are shown for activities in the Event History diagram? |
+| [#7940](#7940) | 0 | 0 | Allow auth headers to be sent to HTTP on localhost |
+| [#7933](#7933) | 0 | 0 | Workflow reset: add ability to set workflow run/execution timeout |
+| [#7867](#7867) | 0 | 0 | Golang Upgrade |
+| [#7845](#7845) | 0 | 0 | for enabling SSL in temporal engine will below properties are sufficent |
+| [#7721](#7721) | 0 | 0 | Expose API version to API users |
+| [#7708](#7708) | 0 | 0 | Dev Mode Improvements (Insights from AWS Hackathon) |
+| [#7576](#7576) | 0 | 0 | security vulnarablity issues in 1.27.2 (latest version) as of 05 apr 2025 |
+| [#7566](#7566) | 0 | 0 | A workflow task following ShutdownWorker should not time out if no workers are available |
+| [#7487](#7487) | 0 | 0 | grpc Status response to query errors contains malformed details |
+| [#7481](#7481) | 0 | 0 | Addressing a lot of security vulnerabilities in the Temporalio/admin-tools release temporalio/admin-tools:1.27.1 |
+| [#7164](#7164) | 0 | 0 | Confirm aborted update retries schedule responsible for robustness of update to CAN |
+| [#7048](#7048) | 0 | 0 | Handle Permission Errors in getConfigFiles Function |
+| [#7011](#7011) | 0 | 0 | Support Markdown in Result panel |
+| [#6961](#6961) | 0 | 0 | Provide already-existing run ID on StartChildWorkflowExecutionFailedEventAttributes if it failed for "already exists" |
+| [#6954](#6954) | 0 | 0 | IsTerminatedByResetter should not be used for checking if child workflow should report to parent |
+| [#6952](#6952) | 0 | 0 | Extend activity retry expiration time upon reset |
+| [#6924](#6924) | 0 | 0 | Support custom search attributes of type Duration |
+| [#6896](#6896) | 0 | 0 | Include command info when command fails validation |
+| [#6844](#6844) | 0 | 0 | Temporal 1.24.1 <- 1.23.1 upgrade error |
+| [#6843](#6843) | 0 | 0 | Add small jitter timeout to the long poll empty response  |
+| [#6800](#6800) | 0 | 0 | Support activity task queue `max_tasks_per_second` even when `request_eager_execution` is set |
+| [#6760](#6760) | 0 | 0 | Include in-memory (sync match) backlog in `ApproximateBacklogCount` |
+| [#6695](#6695) | 0 | 0 | disable XDC cache when not using multi-cluster replication |
+| [#6680](#6680) | 0 | 0 | Coordinate CI step timeout-minutes with `go test -timeout` flag |
+| [#6618](#6618) | 0 | 0 | Cassandra 5 support |
+| [#6617](#6617) | 0 | 0 | hybrid architecture for Temporal |
+| [#6600](#6600) | 0 | 0 | Standardized Documentation Format a la Swagger |
+| [#6585](#6585) | 0 | 0 | Record a history event indicating that a Nexus operation request was delivered to the handler |
+| [#6555](#6555) | 0 | 0 | Add `EdDSA` support to default JWT ClaimMapper |
+| [#6542](#6542) | 0 | 0 | temporal-history panic |
+| [#6541](#6541) | 0 | 0 | getAnyClient with cachingRedirector problem |
+| [#6529](#6529) | 0 | 0 | Certificate-filters in self-hosted version of Temporal |
+| [#6521](#6521) | 0 | 0 | Optional Activities |
+| [#6512](#6512) | 0 | 0 | Update latency increases with number of updates sent to workflow |
+| [#6501](#6501) | 0 | 0 | Access original run id in mutable state |
+| [#6475](#6475) | 0 | 0 | Support registering search attributes as an option/config |
+| [#6471](#6471) | 0 | 0 | Angie testing something (to delete) |
+| [#6468](#6468) | 0 | 0 | GenerateReplicationTasks activity of ForceReplicationWorkflow should only log not found errors opposed to returning the error as well |
+| [#6411](#6411) | 0 | 0 | Error: Cannot query workflow due to Workflow Task in failed state  |
+| [#6403](#6403) | 0 | 0 | Introducing quarkus-temporal |
+| [#6364](#6364) | 0 | 0 | Add TemporalScheduledStartTime and TemporalScheduledById to the StartWorkflow Event message |
+| [#6339](#6339) | 0 | 0 | Update/trigger/etc activities via client |
+| [#6336](#6336) | 0 | 0 | Expose start delay in child workflow options |
+| [#6328](#6328) | 0 | 0 | Unit test error in v1.24.2 |
+| [#6320](#6320) | 0 | 0 | Multiple versioning related flakes in Go SDK test suite after upgrading to server 1.25.0-rc.0 |
+| [#6275](#6275) | 0 | 0 | Is there a way to detect when workflow is in a Failed State but is still "Running" |
+| [#6259](#6259) | 0 | 0 | Support validated/authenticated payloads |
+| [#6253](#6253) | 0 | 0 | Expand configuration for Elastic to support serverless |
+| [#6237](#6237) | 0 | 0 | Enable wildcard namespace definition when setting namespace RPS |
+| [#6227](#6227) | 0 | 0 | Metric for Complete Workflow/Activity Failure |
+| [#6212](#6212) | 0 | 0 | Allow configurable root path for HTTP API |
+| [#6211](#6211) | 0 | 0 | Flaky versioning issue when querying since 1.24 |
+| [#6210](#6210) | 0 | 0 | Lots of log noise on restarting server with sqlite persistence |
+| [#6192](#6192) | 0 | 0 | Support externally-provided unique async completion token for async activities |
+| [#6144](#6144) | 0 | 0 | ActivityStateReplicator should trigger history resend when mutable state is no found |
+| [#6104](#6104) | 0 | 0 | Include Linux ARM, macOS x64/ARM, and Windows x64 in CI |
+| [#5853](#5853) | 0 | 0 | Cross-replicated search attributes are not persistent |
+| [#5743](#5743) | 0 | 0 | DLQv2 operator tooling should print categoryID, source cluster, and target cluster instead of internal queue name |
+| [#5642](#5642) | 0 | 0 | dynamic-config-value invalid JSON value for key  |
+| [#5634](#5634) | 0 | 0 | Use the new CLI's rewrite branch when building temporal images |
+| [#5604](#5604) | 0 | 0 | `temporalio/server` image 1.23.0 reports RC version |
+| [#5589](#5589) | 0 | 0 | command missing in new Temporal CLI |
+| [#5587](#5587) | 0 | 0 | dev-server crash on AddOrUpdateRemoteCluster RPC with invalid frontend address |
+| [#5553](#5553) | 0 | 0 | Update license check script to verify current year is used in new files |
+| [#5544](#5544) | 0 | 0 | Use different error when signalName is empty than errSignalNameTooLong |
+| [#5543](#5543) | 0 | 0 | Remove indexes from schema Temporal in cassandra |
+| [#5541](#5541) | 0 | 0 | Support for nestjs |
+| [#5510](#5510) | 0 | 0 | Ability to update schedule memo via Python SDK |
+| [#5493](#5493) | 0 | 0 | Automatically split history event batches when size of reapplied events are too large |
+| [#5489](#5489) | 0 | 0 | SecondaryVisbilityStore validation failed |
+| [#5461](#5461) | 0 | 0 | Add programmatic way to extract metrics port when passing `0` in config |
+| [#5454](#5454) | 0 | 0 | Identifiers length validation |
+| [#5439](#5439) | 0 | 0 | Worker cache handover |
+| [#5352](#5352) | 0 | 0 | Refinement of ResourceExhausted reasons |
+| [#5310](#5310) | 0 | 0 | Allow(optionally) omit activity argument/input in the activity task scheduled event to save the storage cost |
+| [#5306](#5306) | 0 | 0 | Defining a storage class on S3 archival |
+| [#5303](#5303) | 0 | 0 | Provide WorkflowStatus in when signing a workflow that is closed |
+| [#5299](#5299) | 0 | 0 | Check DB Connectivity in Liveness probe |
+| [#5298](#5298) | 0 | 0 | Can Child workflows inherit search attributes from a parent workflow? |
+| [#5249](#5249) | 0 | 0 | Retry Policy should be copied to the continued as new workflow. |
+| [#5245](#5245) | 0 | 0 | SchedulesClientListOptions is missing SearchAttributes param |
+| [#5133](#5133) | 0 | 0 | Failed workflow list for batch operations |
+| [#5063](#5063) | 0 | 0 | Workflow Task Timeout not always respected |
+| [#5047](#5047) | 0 | 0 | Config option to turn off "ignoring permission in unexpected format" error message |
+| [#5005](#5005) | 0 | 0 | Schedules: Allow overriding search attributes when backfilling |
+| [#4984](#4984) | 0 | 0 | Schedules: Make it possible to list buffered executions |
+| [#4979](#4979) | 0 | 0 | Support waiting for Admitted stage on UpdateWorkflowExecution |
+| [#4958](#4958) | 0 | 0 | GetMutableStateRequest is used in poll mutable state  |
+| [#4957](#4957) | 0 | 0 | CurrentBranchChanged Error should use event id + version as branch id |
+| [#4934](#4934) | 0 | 0 | The Rate and Burst functions of DynamicRateLimiterImpl are unsafe |
+| [#4870](#4870) | 0 | 0 | Allow static JWKS for `jwtKeyProvider` |
+| [#4749](#4749) | 0 | 0 | Support listening on both IPv4 and IPv6 networks in dual stack environments |
+| [#4745](#4745) | 0 | 0 | Replicate search attributes together with namespace |
+| [#4703](#4703) | 0 | 0 | Add a list of datetimes to `ScheduleSpec` |
+| [#4638](#4638) | 0 | 0 | History Queue Deletion & Life Cycle |
+| [#4435](#4435) | 0 | 0 | Deprecate old archival logic |
+| [#4428](#4428) | 0 | 0 | Support fixed deadline timers |
+| [#4171](#4171) | 0 | 0 | Add metrics when history service writes activity task failed to even history |
+| [#4149](#4149) | 0 | 0 | ​ Version v1.20.1 had slow query in temporal_visibility |
+| [#4117](#4117) | 0 | 0 | Take additional factors into account for suggesting continue-as-new |
+| [#4059](#4059) | 0 | 0 | System search attributes to find workflows that are backoff retrying an activity  |
+| [#4052](#4052) | 0 | 0 | Non-expired JWT rejected as expired by Temporal Frontend |
+| [#4045](#4045) | 0 | 0 | Expose current worker identity for started pending activity |
+| [#4030](#4030) | 0 | 0 | Query at a specific WorkflowTaskStarted eventId |
+| [#4029](#4029) | 0 | 0 | Clear signal requestID on workflow close |
+| [#4028](#4028) | 0 | 0 | Signal requestID dropped upon workflow reset |
+| [#3990](#3990) | 0 | 0 | Blacklisting workers by version and identity |
+| [#3988](#3988) | 0 | 0 | Add query result caching |
+| [#3912](#3912) | 0 | 0 | Matching with Cassandra encounters lots of tombstone for expired tasks |
+| [#3700](#3700) | 0 | 0 | Archival - add ExecutionStatus to archival visibility syntax |
+| [#3688](#3688) | 0 | 0 | Read only workflow worker |
+| [#3597](#3597) | 0 | 0 | Add a Cancellation Request status to DescribeWorkflowExecution API |
+| [#3590](#3590) | 0 | 0 | GRPC_SSL_CIPHER_SUITES not respected |
+| [#3543](#3543) | 0 | 0 | Better memory management for zap logger |
+| [#3536](#3536) | 0 | 0 | Allow Admin DeleteWorkflowExecution Delete by namespace ID |
+| [#3453](#3453) | 0 | 0 | Build docker images with integer UID/GID and use the same one on all images |
+| [#3436](#3436) | 0 | 0 | Integration test for metrics |
+| [#3435](#3435) | 0 | 0 | Add API for worker to signal that it is shutting down |
+| [#3381](#3381) | 0 | 0 | Causal consistency guarantee in replication |
+| [#3367](#3367) | 0 | 0 | Single active timer task per workflow |
+| [#3296](#3296) | 0 | 0 | Ensure ordering of child-workflow-sent signal and child workflow complete to the same workflow |
+| [#3288](#3288) | 0 | 0 | Add API for setting task queue rate limiting |
+| [#3284](#3284) | 0 | 0 | Server returns status messages over metadata limit leading to connection drops and cryptic errors |
+| [#3261](#3261) | 0 | 0 | Add command: DescribeExternalWorkflowExecution |
+| [#3258](#3258) | 0 | 0 | Allow option for reset to terminate any currently pending child workflows |
+| [#3223](#3223) | 0 | 0 | panic: assignment to entry in nil map in `loadClusterInformationFromStore` |
+| [#3183](#3183) | 0 | 0 | Replace metrics and retryable client with client interceptors |
+| [#3168](#3168) | 0 | 0 | Matching service optimization - Do not persist sticky workflow task |
+| [#3154](#3154) | 0 | 0 | tdbg workflow show does not support pagination |
+| [#3145](#3145) | 0 | 0 | Per task queue ratelimiting should only count valid activity tasks |
+| [#3143](#3143) | 0 | 0 | Improved per task queue metrics |
+| [#3133](#3133) | 0 | 0 | Publish size/number of history events for closed workflow |
+| [#3062](#3062) | 0 | 0 | New error type for workflow already completed? |
+| [#3060](#3060) | 0 | 0 | Validate num of matching task queue partition can be decreased |
+| [#3025](#3025) | 0 | 0 | Ability to define execution order of async activity invocations |
+| [#3004](#3004) | 0 | 0 | Support bypass of autoforwarding with special header |
+| [#2995](#2995) | 0 | 0 | Task Predicate Equivalence Check |
+| [#2991](#2991) | 0 | 0 | Dynamically generate task type tag value in timer/transfer queue processing |
+| [#2968](#2968) | 0 | 0 | Support changing system workflow cron schedule |
+| [#2918](#2918) | 0 | 0 | Persistent Coroutine Workflows |
+| [#2915](#2915) | 0 | 0 | Dynamic config change listener  |
+| [#2849](#2849) | 0 | 0 | Do not load all persistence libraries unless needed |
+| [#2800](#2800) | 0 | 0 | Do not write repeated workflow task heartbeat to the history |
+| [#2730](#2730) | 0 | 0 | Use broadcast shutdown channel |
+| [#2528](#2528) | 0 | 0 | SQL delete workflow execution does not delete all data |
+| [#2435](#2435) | 0 | 0 | Need detailed server-internal resource exhausted metrics |
+| [#2406](#2406) | 0 | 0 | Wire up Transaction.CreateWorkflowExecution |
+| [#2375](#2375) | 0 | 0 | Reduce unnecessary & duplicated data encoding |
+| [#2282](#2282) | 0 | 0 | Flush transient ActivityTaskStarted events before closing a workflow |
+| [#2059](#2059) | 0 | 0 | Embed schema content within schema tool |
+| [#1966](#1966) | 0 | 0 | Split resource limit exceed error into user facing & internal facing error types |
+| [#1903](#1903) | 0 | 0 | Add WorkflowSizeInBytes as Visibility Attribute |
+| [#1867](#1867) | 0 | 0 | temporal-server "hang" during SIGTERM after loss of Cassandra connection |
+| [#1840](#1840) | 0 | 0 | Temporal Elasticsearch support for custom index creation |
+| [#1757](#1757) | 0 | 0 | Document dynamic config behavior |
+| [#1579](#1579) | 0 | 0 | Continued submission of tasks to an orphaned task queue can lead to Cassandra tombstone scanning issues |
+| [#1552](#1552) | 0 | 0 | Better resource limit exceeded error message |
+| [#1080](#1080) | 0 | 0 | Use workflow raw history events API  |
+| [#1041](#1041) | 0 | 0 | Ensure major.minor.patch to major.minor+1.patch upgrade |
+| [#1021](#1021) | 0 | 0 | Maintenance workflow cleanup stale queue tasks |
+| [#973](#973) | 0 | 0 | Support of batch activity |
+| [#972](#972) | 0 | 0 | Have a Deleted state for entities state machine in mutable state |
+| [#940](#940) | 0 | 0 | Unify all persistence TTL handling logic |
+| [#939](#939) | 0 | 0 | Persistence Layer Unified Serialization / Deserialization |
+| [#926](#926) | 0 | 0 | Add configurable initialDelay for Cron job setup for the first run |
+| [#891](#891) | 0 | 0 | History service should pause accepting new signals if worker cannot keep up. |
+| [#881](#881) | 0 | 0 | Matching Service Task Queue Metadata Management |
+| [#852](#852) | 0 | 0 | Support in mem TLS configuration / data for PostgreSQL |
+| [#848](#848) | 0 | 0 | Support blue/green cluster deployment with incompatible cluster membership changes |
+| [#810](#810) | 0 | 0 | Revisit persistence interface (SQL / NoSQL) before modularization |
+| [#791](#791) | 0 | 0 | Revisit matching engine ListTaskQueue functionality |
+| [#741](#741) | 0 | 0 | Support reset starting from an activity of a specific type. |
+| [#699](#699) | 0 | 0 | History Engine refactoring |
+| [#689](#689) | 0 | 0 | Add dynamic config knob to limit maximum duration for Timers |
+| [#677](#677) | 0 | 0 | Support for loading history events using size of batches rather than count |
+| [#675](#675) | 0 | 0 | Rate limiting pagination based on history sizes |
+| [#595](#595) | 0 | 0 | Allow configuration of archival config through docker |
+| [#589](#589) | 0 | 0 | listTaskQueuePartitions in MatchingService matching engine needs unit tests |
+| [#574](#574) | 0 | 0 | Background scan to remove unnecessary timers |
+| [#550](#550) | 0 | 0 | creating a dev environment using podman instead of docker-compose |
+| [#373](#373) | 0 | 0 | Change ParentClosePolicy to struct and add applyOnParentContinueAsNew |
+| [#309](#309) | 0 | 0 | Make long poll interval configurable through the service config |
+| [#294](#294) | 0 | 0 | Return LongPollExpirationInterval on poll call results |
+| [#293](#293) | 0 | 0 | Fix names of dynamic config properties |
+| [#84](#84) | 0 | 0 | Group and categorize tests |
 
 ---
 
@@ -583,6 +583,8 @@
 Issues are sorted by priority score (upvotes × 2 + comments).
 
 ---
+
+<a id="680"></a>
 
 ### #680: Add ability for workflow to wait for completion of an external workflow
 
@@ -777,6 +779,8 @@ We should also allow similar behavior without going through a Nexus handler thou
 
 
 ---
+
+<a id="1507"></a>
 
 ### #1507: Provide priority task queues
 
@@ -1434,6 +1438,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="2668"></a>
+
 ### #2668: Document POSTGRES_SEEDS (or better yet, use a descriptive var name)
 
 | Field | Value |
@@ -1580,6 +1586,8 @@ Reactions: 😄 2
 
 ---
 
+<a id="2318"></a>
+
 ### #2318: MongoDB as Persistent
 
 | Field | Value |
@@ -1673,6 +1681,8 @@ Hi there, I have completed the mongodb persistence implementation. You can check
 
 
 ---
+
+<a id="5680"></a>
 
 ### #5680: Official support for Opensearch
 
@@ -1854,6 +1864,8 @@ When should we expect Opensearch support to be implemented?
 
 ---
 
+<a id="537"></a>
+
 ### #537: Add SignalWithStart\UpdateWithStart command
 
 | Field | Value |
@@ -1914,6 +1926,8 @@ but the first operation is not, as far as I know, exposed via the sdk (only Exec
 
 
 ---
+
+<a id="131"></a>
 
 ### #131: Different retry options based on failure type
 
@@ -1976,6 +1990,8 @@ Is there any workaround?
 
 
 ---
+
+<a id="328"></a>
 
 ### #328: Try to run temporal on top of  Amazon Keyspaces
 
@@ -2182,6 +2198,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="2609"></a>
+
 ### #2609: Add ability to transfer child workflows to new parent run when parent calls continue as new
 
 | Field | Value |
@@ -2273,6 +2291,8 @@ Take a look at https://www.npmjs.com/package/chrono-forge?activeTab=readme#handl
 
 
 ---
+
+<a id="2582"></a>
 
 ### #2582: Add health check handler for worker service
 
@@ -2412,6 +2432,8 @@ EDIT: I suspect lots of users would be happy if there was a flag we could set du
 
 ---
 
+<a id="5302"></a>
+
 ### #5302: YDB Temporal support.
 
 | Field | Value |
@@ -2470,6 +2492,8 @@ Reactions: 👍 10
 
 
 ---
+
+<a id="1797"></a>
 
 ### #1797: Ability to get all task queues per namespace
 
@@ -2547,6 +2571,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1460"></a>
 
 ### #1460: Add task queue query
 
@@ -2742,6 +2768,8 @@ Reactions: 👍 2
 
 ---
 
+<a id="3228"></a>
+
 ### #3228: Metadata for Timers
 
 | Field | Value |
@@ -2829,6 +2857,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="3366"></a>
 
 ### #3366: Support sqlite in production.
 
@@ -2930,6 +2960,8 @@ I can configure a litestream to periodically backup the data to s3 compatible st
 
 ---
 
+<a id="4795"></a>
+
 ### #4795: Schedules - add option for execution workflowid to be "as-is" (not unique per run)
 
 | Field | Value |
@@ -3011,6 +3043,8 @@ Hello. Any progress on this optional suffix scheduled workflow id?
 
 
 ---
+
+<a id="1988"></a>
 
 ### #1988: Implement dynamic task queue routing
 
@@ -3141,6 +3175,8 @@ Reactions: 👍 3 👀 2
 
 ---
 
+<a id="298"></a>
+
 ### #298: Support embedded version of the service
 
 | Field | Value |
@@ -3208,6 +3244,8 @@ Reactions: 👍 6 ❤️ 6
 
 ---
 
+<a id="4180"></a>
+
 ### #4180: Official CockroachDB (CRDB) support
 
 | Field | Value |
@@ -3244,6 +3282,8 @@ It would be great if we could get the official cockroachdb support. Please consi
 
 
 ---
+
+<a id="1492"></a>
 
 ### #1492: Optimize large payload fan-out to activities and child workflows
 
@@ -3291,6 +3331,8 @@ I wanted to add that the idea of "payload deduplication by storing large payload
 
 ---
 
+<a id="5811"></a>
+
 ### #5811: Support last day of month as a recurring schedule option
 
 | Field | Value |
@@ -3324,6 +3366,8 @@ https://temporalio.slack.com/?redir=%2Farchives%2FCTT84KXK9%2Fp1710480826848909%
 
 
 ---
+
+<a id="3056"></a>
 
 ### #3056: Support wildcard search for workflows
 
@@ -3399,6 +3443,8 @@ Reactions: 👍 3 ❤️ 1
 
 
 ---
+
+<a id="2617"></a>
 
 ### #2617: Allow retention period to be set per workflow completion type
 
@@ -3480,6 +3526,8 @@ I'm up for it as well, would be nice :-) the reasoning is very similar to sampli
 
 ---
 
+<a id="1428"></a>
+
 ### #1428: Aim for error free rolling bounces and upgrades of Temporal
 
 | Field | Value |
@@ -3544,6 +3592,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="4386"></a>
 
 ### #4386: Add new Workflow Id Reuse Policy: Allow Duplicate with Queueing
 
@@ -3754,6 +3804,8 @@ This needs to work for millions of users (and growing).
 
 ---
 
+<a id="130"></a>
+
 ### #130: Add cron activity
 
 | Field | Value |
@@ -3870,6 +3922,8 @@ If you just want to execute it immediately one time call StartWorkflow without c
 
 ---
 
+<a id="4383"></a>
+
 ### #4383: Support log-less graceful shutdown without "Error looking up host for shardID" errors
 
 | Field | Value |
@@ -3937,6 +3991,8 @@ And by "full trace", @cretz means a V E R Y full trace 😅
 
 
 ---
+
+<a id="685"></a>
 
 ### #685: Delay workflow completion until abandoned children start 
 
@@ -4009,6 +4065,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="3709"></a>
 
 ### #3709: Workflows/activities to post event notifications that could be listened to
 
@@ -4090,6 +4148,8 @@ Proxy and interceptors are not a complete solution for this issue since they are
 
 
 ---
+
+<a id="3383"></a>
 
 ### #3383: Schema name selection for postgres
 
@@ -4277,6 +4337,8 @@ edit: fwiw i'm using the helm chart
 
 ---
 
+<a id="2941"></a>
+
 ### #2941: Host level cache for history
 
 | Field | Value |
@@ -4338,6 +4400,8 @@ cc @prathyushpv
 
 
 ---
+
+<a id="4233"></a>
 
 ### #4233: Too high memory usage on history service 
 
@@ -4511,6 +4575,8 @@ I see there was an MR for this, but now it's been marked as stale, is there any 
 
 
 ---
+
+<a id="3006"></a>
 
 ### #3006: Workflow Pause / Unpause
 
@@ -4702,6 +4768,8 @@ Reactions: 👍 2
 
 ---
 
+<a id="487"></a>
+
 ### #487: Consider separating retention period from uniqueness guarantee period
 
 | Field | Value |
@@ -4751,6 +4819,8 @@ Would it be feasible to add a timestamp to each workflow that records the last t
 
 
 ---
+
+<a id="7037"></a>
 
 ### #7037: [bug] Viewing schedule throws a 504 "context deadline exceeded"
 
@@ -4903,6 +4973,8 @@ In my case where I could not Describe only some of the schedules in a namespace,
 
 ---
 
+<a id="4105"></a>
+
 ### #4105: Full support for scylladb as persistence layer
 
 | Field | Value |
@@ -4951,6 +5023,8 @@ is there any update for enhancement?
 
 ---
 
+<a id="4829"></a>
+
 ### #4829: Allow to specify task queue when resetting an execution
 
 | Field | Value |
@@ -4974,6 +5048,8 @@ Request is for adding ability to specify task queue for reset api
 
 
 ---
+
+<a id="6995"></a>
 
 ### #6995: Error during VisibilityDeleteExecution
 
@@ -5058,6 +5134,8 @@ Temporal Server Version: 1.26.2
 
 
 ---
+
+<a id="6323"></a>
 
 ### #6323: Frontend Service - goroutine (CPU & Memory) Leak
 
@@ -5290,6 +5368,8 @@ Hi Team, any update on the fix for this as we are also observing continuously in
 
 ---
 
+<a id="5516"></a>
+
 ### #5516: Support for Azure Blob Storage for Archival
 
 | Field | Value |
@@ -5331,6 +5411,8 @@ Reactions: 👍 3
 
 
 ---
+
+<a id="4902"></a>
 
 ### #4902: Custom authentication between frontend and other services
 
@@ -5491,6 +5573,8 @@ Default authorizer require "sub" claim which should be optional and not mandator
 
 ---
 
+<a id="3309"></a>
+
 ### #3309: Notify all workers on a task queue
 
 | Field | Value |
@@ -5542,6 +5626,8 @@ Reactions: 👍 3
 
 ---
 
+<a id="1412"></a>
+
 ### #1412: Add soft workflow timeout
 
 | Field | Value |
@@ -5582,6 +5668,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="804"></a>
 
 ### #804: Synchronous Start
 
@@ -5667,6 +5755,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="7930"></a>
 
 ### #7930: Replace "github.com/olivere/elastic/v7" with the official client "github.com/elastic/go-elasticsearch"
 
@@ -5855,6 +5945,8 @@ I already asked about making the driver pluggable related to OpenSearch, but the
 
 ---
 
+<a id="3468"></a>
+
 ### #3468: Add ability to list task queues for a given namespace
 
 | Field | Value |
@@ -5906,6 +5998,8 @@ This seems like it may duplicate https://github.com/temporalio/temporal/issues/1
 
 
 ---
+
+<a id="351"></a>
 
 ### #351: List Workflow Executions ignoring previous runs
 
@@ -5972,6 +6066,8 @@ Looks like we need additional index on current run.
 
 ---
 
+<a id="8724"></a>
+
 ### #8724: Support Azure Entra ID Authentication for PostgreSQL Backend
 
 | Field | Value |
@@ -6033,6 +6129,8 @@ This might apply to MySQL as well on the big 3 clouds / other clouds.
 
 
 ---
+
+<a id="8356"></a>
 
 ### #8356: Resource-Aware Worker Concurrency
 
@@ -6119,6 +6217,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="6799"></a>
 
 ### #6799: Support `WorkflowIdConflictPolicy` for child workflow
 
@@ -6226,6 +6326,8 @@ How we can achieve "terminate existing" without this? I want to achieve the foll
 
 
 ---
+
+<a id="8110"></a>
 
 ### #8110: v1.28.0 vulnerabilities
 
@@ -6337,6 +6439,8 @@ Can we have an timeline of that?
 
 ---
 
+<a id="5156"></a>
+
 ### #5156: Allow configuration of expected audience value for Temporal authorization
 
 | Field | Value |
@@ -6405,6 +6509,8 @@ We would definitely consider a config interface to set this.
 
 ---
 
+<a id="4044"></a>
+
 ### #4044: Postgres schema support partition table feature
 
 | Field | Value |
@@ -6462,6 +6568,8 @@ Instead of switching to Cassandra, both Postgres and MySql can benefit from the 
 
 
 ---
+
+<a id="2426"></a>
 
 ### #2426: [Feature Request] Add reason field to RequestCancelWorkflowExecutionRequest
 
@@ -6576,6 +6684,8 @@ we would love to have this too
 
 ---
 
+<a id="1289"></a>
+
 ### #1289: Do not fail continue as new on a new signal
 
 | Field | Value |
@@ -6637,6 +6747,8 @@ Reactions: 👍 1 👀 1
 
 
 ---
+
+<a id="983"></a>
 
 ### #983: loggging/exception stack trace not capturing underlying errors
 
@@ -6703,6 +6815,8 @@ Just happened to me as well. Thank god for this issue, I was puzzled about why I
 
 
 ---
+
+<a id="5455"></a>
 
 ### #5455: docker-compose multirole sometimes stuck on boot
 
@@ -6815,6 +6929,8 @@ temporal-history        | Waiting for Temporal server to start...
 
 
 ---
+
+<a id="4000"></a>
 
 ### #4000: bug: concurrent map read and map write
 
@@ -6935,6 +7051,8 @@ Reactions: 👍 3
 
 ---
 
+<a id="2621"></a>
+
 ### #2621: Align TLS enable env var names between temporal-sql-tool and auto-setup 
 
 | Field | Value |
@@ -6962,6 +7080,8 @@ Related issue: https://github.com/temporalio/temporal/issues/2293#
 
 
 ---
+
+<a id="1499"></a>
 
 ### #1499: Ability to update workflow config, including cron schedule, retry policy, etc
 
@@ -7005,6 +7125,8 @@ Is there any sort of API design docs available to see how this might look like? 
 
 ---
 
+<a id="1203"></a>
+
 ### #1203: Add SignalWithReset
 
 | Field | Value |
@@ -7034,6 +7156,8 @@ I propose adding `SignalWithReset` API. When called the service is going to rese
 
 
 ---
+
+<a id="6806"></a>
 
 ### #6806: WorkflowTaskTimedOut if submiting a large number of activiteis within one workflow
 
@@ -7178,6 +7302,8 @@ There's a feature request open for a possible fix to this issue: https://github.
 
 
 ---
+
+<a id="5741"></a>
 
 ### #5741: Addressing a lot of security vulnerabilities in the latest Temporal admin-tools release 1.23.0
 
@@ -7459,6 +7585,8 @@ Total: 76 (UNKNOWN: 4, LOW: 8, MEDIUM: 42, HIGH: 18, CRITICAL: 4)
 
 ---
 
+<a id="5286"></a>
+
 ### #5286: Slack Notification Integration (or other messaging platform)
 
 | Field | Value |
@@ -7516,6 +7644,8 @@ Any updates on this? Would love to have Slack integration out of the box in Temp
 
 
 ---
+
+<a id="5022"></a>
 
 ### #5022: Can't display archived workflows which have past the retention
 
@@ -7673,6 +7803,8 @@ strange that it was ok in the past. I redeployed my k8 cluster and reinstall the
 
 ---
 
+<a id="4387"></a>
+
 ### #4387: Add blacklist/whitelist of signal and synchronous update types
 
 | Field | Value |
@@ -7741,6 +7873,8 @@ Yeah problem with that is mixing timeouts and such becomes hacky, but it’s a w
 
 
 ---
+
+<a id="3624"></a>
 
 ### #3624: Reset should be allowed with pending childWF in current run, if current run is already closed
 
@@ -7812,6 +7946,8 @@ Hi @yiminc , do we have any plans to address this issue? I'm also stuck on this 
 
 
 ---
+
+<a id="2691"></a>
 
 ### #2691: Support for "workflow chain IDs" in all APIs that are able to address the "latest" run
 
@@ -7999,6 +8135,8 @@ Ability to reuse ID is very important for many user facing scenarios.
 
 
 ---
+
+<a id="471"></a>
 
 ### #471: temporal Docker fails to bind on multiple interfaces
 
@@ -8199,6 +8337,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="453"></a>
+
 ### #453: Feature: implement docker healthcheck
 
 | Field | Value |
@@ -8332,6 +8472,8 @@ this would be very helpful, especially for running ECS Task healthchecks inside 
 
 ---
 
+<a id="421"></a>
+
 ### #421: Add admin command to dump dynamic config value[s]
 
 | Field | Value |
@@ -8367,6 +8509,8 @@ Thanks
 
 
 ---
+
+<a id="196"></a>
 
 ### #196: Task list with rate limiting per key
 
@@ -8406,6 +8550,8 @@ I think the X field could be this key. And then if there were a concurrent-execu
 
 
 ---
+
+<a id="8205"></a>
 
 ### #8205: Improve DST handling in schedules
 
@@ -8474,6 +8620,8 @@ Agreed, always schedule in UTC when you can (and especially for sys-admin based 
 
 ---
 
+<a id="7666"></a>
+
 ### #7666: Сoncurrency limit (built-in semaphore) per Workflow type
 
 | Field | Value |
@@ -8529,6 +8677,8 @@ Reactions: 👍 6
 
 
 ---
+
+<a id="3517"></a>
 
 ### #3517: Provide a way to retrieve the list of failures for one activity
 
@@ -8587,6 +8737,8 @@ I think it would have helped if Temporal kept the details for the first failure 
 
 ---
 
+<a id="3141"></a>
+
 ### #3141: Support reset to any point with pending ChildWorkflows
 
 | Field | Value |
@@ -8613,6 +8765,8 @@ This becomes problematic because people want to use ChildWorkflow naturally. tod
 
 
 ---
+
+<a id="954"></a>
 
 ### #954: docs: Add multi-region deployment documentation
 
@@ -8665,6 +8819,8 @@ Personally, I have a use case where it's required to execute a global workflow. 
 
 
 ---
+
+<a id="8719"></a>
 
 ### #8719: Stale internode gRPC connections after pod termination when using Kubernetes Deployments
 
@@ -8723,6 +8879,8 @@ Is there a workaround people are currently using to handle this issue?
 
 
 ---
+
+<a id="8461"></a>
 
 ### #8461: Adding documentation for self-hosting temporal on cloud environments.
 
@@ -8792,6 +8950,8 @@ Can I take this?, I just deployed Self hoted Temporal on EKS
 
 ---
 
+<a id="7777"></a>
+
 ### #7777: Support workflow task completions larger than gRPC max message size
 
 | Field | Value |
@@ -8826,6 +8986,8 @@ Today when a > 4MB gRPC request is sent, server fails. SDK side is making the fa
 
 
 ---
+
+<a id="7421"></a>
 
 ### #7421: Migration to AWS SDK for Go v2 needed
 
@@ -8887,6 +9049,8 @@ Related activities:
 
 
 ---
+
+<a id="6193"></a>
 
 ### #6193: Cannot load archived (s3 provider) workflow history on UI
 
@@ -8966,6 +9130,8 @@ ya. its broken in web-ui, used to work with old ui.
 
 
 ---
+
+<a id="1119"></a>
 
 ### #1119: ParentExecution not set in WorkflowExecutionInfo
 
@@ -9055,6 +9221,8 @@ After offline discussion we decided to proceed with (3). I will add missing fiel
 
 ---
 
+<a id="785"></a>
+
 ### #785: Workflow-less activity
 
 | Field | Value |
@@ -9104,6 +9272,8 @@ Any timeline?
 
 
 ---
+
+<a id="682"></a>
 
 ### #682: Signal to self error in Workflow code
 
@@ -9237,6 +9407,8 @@ Hi @samarabbas, any movement on this? I've just encountered the same problem, an
 
 ---
 
+<a id="8490"></a>
+
 ### #8490: Scheduled Actions doesn't clear ContinuedFailure on null success payloads
 
 | Field | Value |
@@ -9287,6 +9459,8 @@ This was closed by mistake (due to a faulty integration). Reopening it.
 
 
 ---
+
+<a id="7894"></a>
 
 ### #7894: Cannot load Archived Workflows on UI even archived are present in S3
 
@@ -9367,6 +9541,8 @@ Temporal UI Version | 2.38.3
 
 
 ---
+
+<a id="7600"></a>
 
 ### #7600: start_workflow_execution fails with duplicate key error despite TERMINATE_EXISTING policy (possible DB inconsistency)
 
@@ -9493,6 +9669,8 @@ We tried to use pgBouncer, but there were issues with transaction mode and we sw
 
 
 ---
+
+<a id="6664"></a>
 
 ### #6664: Request unauthorized for SQL search-attributes (claims are not passed)
 
@@ -9709,6 +9887,8 @@ so this isn't a "big deal" but it make my authorizer logic more complex than it 
 
 ---
 
+<a id="5874"></a>
+
 ### #5874: Provide extra info of the received signal for re-apply from reset, and others
 
 | Field | Value |
@@ -9807,6 +9987,8 @@ Transferring to the server repo...
 
 ---
 
+<a id="5725"></a>
+
 ### #5725: Add PARENT_CLOSE_POLICY_DISCONNECTED
 
 | Field | Value |
@@ -9839,6 +10021,8 @@ Add DISCONNECTED to the ParentClosePolicy. When a child is created with this pol
 
 
 ---
+
+<a id="4919"></a>
 
 ### #4919: Allow Internal-Frontend to Register/Update Namespace (and other methods)
 
@@ -9977,6 +10161,8 @@ Yes, that makes sense. What about point 2 (`It looks this is only a problem if a
 
 ---
 
+<a id="3503"></a>
+
 ### #3503: Dynamic Task Queue rate limiting
 
 | Field | Value |
@@ -10021,6 +10207,8 @@ Not sure if there is already an issue for this, but an alternative/adjacent idea
 
 
 ---
+
+<a id="2729"></a>
 
 ### #2729: Temporal Is not able to connect to Cassandra even when one node is down in a cluster
 
@@ -10163,6 +10351,8 @@ From the error message, it seems even if the config provided multiple IP address
 
 ---
 
+<a id="2341"></a>
+
 ### #2341: config: strict mode for configuration parsing
 
 | Field | Value |
@@ -10287,6 +10477,8 @@ I agree with @dnr - I don't like ignoring unknown top-level fields. If you want 
 
 ---
 
+<a id="2230"></a>
+
 ### #2230: Add a feature flag to enable the self-signed certificates for the Elasticsearch transport
 
 | Field | Value |
@@ -10325,6 +10517,8 @@ Updating the Temporal startup script to import CAs from the mounted folder autom
 
 
 ---
+
+<a id="1994"></a>
 
 ### #1994: Cron tailgate-like workflow triggering (start a workflow in some time after it completes and not according to cron schedule) [Java]
 
@@ -10411,6 +10605,8 @@ I think we can address this in the new experience, so I'll keep it open until th
 
 ---
 
+<a id="1485"></a>
+
 ### #1485: Provide default mapping for authorizer roles to API names
 
 | Field | Value |
@@ -10434,6 +10630,8 @@ In defining a custom authorizer implementation, it would be nice if there was a 
 
 
 ---
+
+<a id="245"></a>
 
 ### #245: Cassandra timestamp type
 
@@ -10527,6 +10725,8 @@ If this issue is not addressed, later (now?) the business logic will do all kind
 
 ---
 
+<a id="8636"></a>
+
 ### #8636: Auth plugin design
 
 | Field | Value |
@@ -10604,6 +10804,8 @@ Either way, would like to get away from compiling temporal and simply pull an im
 
 ---
 
+<a id="8284"></a>
+
 ### #8284: Carry over signal to retry execution if original was created via SignalWithStart
 
 | Field | Value |
@@ -10640,6 +10842,8 @@ We could add an option to RetryOptions of a workflow to copy all signals from th
 
 ---
 
+<a id="6805"></a>
+
 ### #6805: Scaling Temporal Workers
 
 | Field | Value |
@@ -10675,6 +10879,8 @@ I'm not associated with temporal, just a user....
 
 
 ---
+
+<a id="6307"></a>
 
 ### #6307: Panic When Upgrading From 1.20.4 To 1.21.6
 
@@ -10795,6 +11001,8 @@ If you don't care about archival task is executed or not, I guess just enabled t
 
 ---
 
+<a id="6146"></a>
+
 ### #6146: temporal on arm64 Linux is not working correctly ...amd64 binaries?
 
 | Field | Value |
@@ -10913,6 +11121,8 @@ I have a different issue, specifically unsymbolicated issues with temporal swift
 
 ---
 
+<a id="5693"></a>
+
 ### #5693: Multiple Hosts in connection string are not handled properly (POSTGRES_SEEDS accepts only single host?)
 
 | Field | Value |
@@ -11004,6 +11214,8 @@ I'm really not sure what would be the best architectural/design solution in this
 
 
 ---
+
+<a id="5364"></a>
 
 ### #5364: Inconsistent tctl workflow list behaviour
 
@@ -11207,6 +11419,8 @@ Let's close this since tctl is deprecated. cc @bergundy for confirmation to clos
 
 ---
 
+<a id="4151"></a>
+
 ### #4151: Allow update timeout/retry config for started activities with retry
 
 | Field | Value |
@@ -11287,6 +11501,8 @@ If I could add another use case in here it'd be making activities retry only aft
 
 ---
 
+<a id="4038"></a>
+
 ### #4038: partitioned activity taskQueue based on workflowId, for better caching performance in activity workers
 
 | Field | Value |
@@ -11350,6 +11566,8 @@ It seems what you needed is https://docs.temporal.io/workers#worker-session
 
 
 ---
+
+<a id="3502"></a>
 
 ### #3502: Add metric for number of open Workflow Executions
 
@@ -11421,6 +11639,8 @@ For self-hosted, the recommendation is still to query visibility to get this val
 
 
 ---
+
+<a id="2891"></a>
 
 ### #2891: Document configuration (development.yaml, dynamicconfig)
 
@@ -11510,6 +11730,8 @@ Has there been any progress here? I'm also a new temporal user looking to set it
 
 
 ---
+
+<a id="2630"></a>
 
 ### #2630: DNS name in BroadcastAddress 
 
@@ -11633,6 +11855,8 @@ Reactions: ❤️ 2
 
 ---
 
+<a id="2320"></a>
+
 ### #2320: Thrift version update and unification
 
 | Field | Value |
@@ -11724,6 +11948,8 @@ This should be done now with https://github.com/temporalio/temporal/pull/3250
 
 
 ---
+
+<a id="1895"></a>
 
 ### #1895: Use "nobody" account to run binaries in the docker
 
@@ -11850,6 +12076,8 @@ We have a similar requirement for passing security scans that require UID/GID > 
 
 ---
 
+<a id="1882"></a>
+
 ### #1882: support manual retries
 
 | Field | Value |
@@ -11928,6 +12156,8 @@ So you should be able to do this already.
 
 ---
 
+<a id="1739"></a>
+
 ### #1739: Return more accurate error codes
 
 | Field | Value |
@@ -11985,6 +12215,8 @@ I did an utility method to determine if this exception is caused because executi
 
 ---
 
+<a id="469"></a>
+
 ### #469: Limit depth of child workflows
 
 | Field | Value |
@@ -12025,6 +12257,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="8581"></a>
 
 ### #8581: [Scheduled Actions] - Update Schedule memo
 
@@ -12069,6 +12303,8 @@ This was closed by mistake (due to a faulty integration). Reopening it.
 
 
 ---
+
+<a id="8202"></a>
 
 ### #8202: CrashLoopBackOff on GKE cluster.
 
@@ -12214,6 +12450,8 @@ This was closed by mistake (due to a faulty integration). Reopening it.
 
 ---
 
+<a id="8109"></a>
+
 ### #8109: Support for Naming Timers in Temporal Workflows
 
 | Field | Value |
@@ -12252,6 +12490,8 @@ However, these alternatives do not solve the core issue of timers lacking explic
 
 
 ---
+
+<a id="7947"></a>
 
 ### #7947: CLI/WebUI option to list out dynamic configs
 
@@ -12292,6 +12532,8 @@ Alternatives is doing what the doc recommends. i'e cross referencing against rel
 
 
 ---
+
+<a id="7200"></a>
 
 ### #7200: temporal cli works but hit deadline-exceeded error for sample code
 
@@ -12452,6 +12694,8 @@ You should try to run the sample with grpc debugging enabled, there may be some 
 
 ---
 
+<a id="6977"></a>
+
 ### #6977: Addressing a lot of security vulnerabilities in the Temporalio/admin-tools release 1.25.2-tctl-1.18.1-cli-1.1.2
 
 | Field | Value |
@@ -12592,6 +12836,8 @@ Compliance threshold check results: PASS
 
 
 ---
+
+<a id="6976"></a>
 
 ### #6976: Addressing a lot of security vulnerabilities in the Temporalio/server release 1.25.2.0
 
@@ -12757,6 +13003,8 @@ Vulnerability threshold check results: PASS
 
 ---
 
+<a id="6845"></a>
+
 ### #6845: Support full, structured failures for queries
 
 | Field | Value |
@@ -12818,6 +13066,8 @@ This may have already been done in https://github.com/temporalio/api/pull/503 an
 
 ---
 
+<a id="6611"></a>
+
 ### #6611: Expose anonymous HTTP/HTTPS health endpoint on Frontend
 
 | Field | Value |
@@ -12852,6 +13102,8 @@ Enable a health endpoint without auth so the load balancer can use it for health
 
 
 ---
+
+<a id="6338"></a>
 
 ### #6338: error in prometheus reporter: AccessHistoryNew counter
 
@@ -12946,6 +13198,8 @@ pub const WORKFLOW_TASK_SCHED_TO_START_LATENCY_HISTOGRAM_NAME: &str =
 
 ---
 
+<a id="6201"></a>
+
 ### #6201: tdbg diagnose command for stuck workflow
 
 | Field | Value |
@@ -12983,6 +13237,8 @@ Check if there is worker polling the right task queue.
 
 
 ---
+
+<a id="6100"></a>
 
 ### #6100: fr: add support for multi-az postgres with read-only replication
 
@@ -13071,6 +13327,8 @@ A quick temporary fix for this problem could be that when we initiate a connecti
 
 ---
 
+<a id="5881"></a>
+
 ### #5881: Continue-as-new with a different WorkflowID
 
 | Field | Value |
@@ -13102,6 +13360,8 @@ The proposal is to support an option to continue-as-new to change WorkflowID. Th
 
 
 ---
+
+<a id="5873"></a>
 
 ### #5873: WorkflowContext provides whether the current workflow task is from a reset
 
@@ -13200,6 +13460,8 @@ I agree that soft timeout would be a great feature to have in the platform.
 
 ---
 
+<a id="4845"></a>
+
 ### #4845: Add ability to reject signals by type
 
 | Field | Value |
@@ -13234,6 +13496,8 @@ An update can be rejected, but it requires workers to run. This feature will gen
 
 
 ---
+
+<a id="4715"></a>
 
 ### #4715: Unable to start 1.21.4 cluster with archival disabled
 
@@ -13322,6 +13586,8 @@ Oh sorry, just saw that archival is not enable before. Plz ignore my commit belo
 
 ---
 
+<a id="4542"></a>
+
 ### #4542: Support activity caching through sticky routing by user provided key
 
 | Field | Value |
@@ -13352,6 +13618,8 @@ Support worker options to enable this feature. Support activity invocation optio
 
 
 ---
+
+<a id="4094"></a>
 
 ### #4094: [Bug] Version info upgrade notification does not get cleared after cluster version upgrade
 
@@ -13467,6 +13735,8 @@ Hi @bergundy, @vaibhavyadav-dev, and Temporal team! I’m new to contributing to
 
 ---
 
+<a id="3769"></a>
+
 ### #3769: Any plan to support MS SQL Server?
 
 | Field | Value |
@@ -13531,6 +13801,8 @@ This would serve the same purpose as a golang plugin architecture but allow the 
 
 ---
 
+<a id="2905"></a>
+
 ### #2905: Access and configure underlying gRPC connection for core components
 
 | Field | Value |
@@ -13566,6 +13838,8 @@ As far as I've been able to tell, no implementation exists in Temporal Server fo
 
 
 ---
+
+<a id="2698"></a>
 
 ### #2698: Internode TLS certificates dual used as both client and server certificates
 
@@ -13657,6 +13931,8 @@ For something more strict a service mesh side car is going to be the recommended
 
 
 ---
+
+<a id="2685"></a>
 
 ### #2685: [Interpreter Proposal] New way to write workflow using Temporal
 
@@ -13751,6 +14027,8 @@ the project is now moved to IndeedEng: https://github.com/indeedeng/iwf and just
 
 ---
 
+<a id="1904"></a>
+
 ### #1904: Create visibility reconciler workflow
 
 | Field | Value |
@@ -13779,6 +14057,8 @@ System workflow which is started with `tctl` command would be the best solution.
 
 
 ---
+
+<a id="1844"></a>
 
 ### #1844: Taskqueue scavenger emits persistence errors
 
@@ -13882,6 +14162,8 @@ https://github.com/temporalio/temporal/blob/fe05751305b1cb50b68efa23f8aa5f1b34f4
 
 ---
 
+<a id="1821"></a>
+
 ### #1821: Document the Elasticsearch permissions required by Temporal
 
 | Field | Value |
@@ -13916,6 +14198,8 @@ Original slack thread: https://temporalio.slack.com/archives/CTRCR8RBP/p16275093
 
 
 ---
+
+<a id="1700"></a>
 
 ### #1700: Simple way to handle a single concurrent workflow
 
@@ -13991,6 +14275,8 @@ Designing such a limit might be nontrivial at scale. So we need to weight it aga
 
 ---
 
+<a id="960"></a>
+
 ### #960: Support for in memory db and setup for running temporal with limited resources
 
 | Field | Value |
@@ -14015,6 +14301,8 @@ My organization has a use case (IoT, Edge) where We need our app to be reliable 
 
 
 ---
+
+<a id="778"></a>
 
 ### #778: Add ScheduleToStart timeout to WorkflowTaskScheduledEvent
 
@@ -14075,6 +14363,8 @@ I think UI should show only what's present on the event. I don't see a problem i
 
 
 ---
+
+<a id="674"></a>
 
 ### #674: Heartbeat WorkflowTask during history pagination
 
@@ -14140,6 +14430,8 @@ I don't think workflow task timeout is the best solution. I would make this the 
 
 ---
 
+<a id="8764"></a>
+
 ### #8764: Listing workflows and activities from temporal sdk
 
 | Field | Value |
@@ -14189,6 +14481,8 @@ Given the limitations of the second approach do you think it's going to still be
 
 
 ---
+
+<a id="8611"></a>
 
 ### #8611: Allowing workflow to specify max retry attempts / duration before an activity starts throwing non-BENIGN errors
 
@@ -14253,6 +14547,8 @@ This was closed by mistake (due to a faulty integration). Reopening it.
 
 ---
 
+<a id="8432"></a>
+
 ### #8432: Set log level of dynamic config updated message in file_based_client to warn instead of info
 
 | Field | Value |
@@ -14307,6 +14603,8 @@ I agree with @mfateev that using warn could dilute its meaning and that creating
 
 ---
 
+<a id="8153"></a>
+
 ### #8153: Address security vulnerability CVE-2025-22871 for golang:net/http/internal
 
 | Field | Value |
@@ -14339,6 +14637,8 @@ Any update on this?
 
 
 ---
+
+<a id="8113"></a>
 
 ### #8113: Add Activity support for Worker Versioning
 
@@ -14415,6 +14715,8 @@ This is surprising to hear because the workflow client has the ability to specif
 
 ---
 
+<a id="8087"></a>
+
 ### #8087: [Scheduled Actions] Skipped Action Metric
 
 | Field | Value |
@@ -14460,6 +14762,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="7882"></a>
 
 ### #7882: Support for selecting "Workflow Id Conflict Policy" for child workflows
 
@@ -14507,6 +14811,8 @@ This is a reasonable request. Note that this assumes each child has an explicitl
 
 
 ---
+
+<a id="7866"></a>
 
 ### #7866: AWS STS for connecting S3 for archival
 
@@ -14599,6 +14905,8 @@ Also you will need access key and secret to assume into the role with STS in any
 
 ---
 
+<a id="7741"></a>
+
 ### #7741: Workflow Update causing WFT Failure with `Premature end of stream`
 
 | Field | Value |
@@ -14668,6 +14976,8 @@ Hey there. We are still getting this problem. Any chance of trying to get this f
 
 
 ---
+
+<a id="7640"></a>
 
 ### #7640: Unable to use passthrough:/// prefix in temporal operator command
 
@@ -14742,6 +15052,8 @@ Created a [PR](https://github.com/temporalio/temporal/pull/7744), please review
 
 
 ---
+
+<a id="7637"></a>
 
 ### #7637: Add a dedicated metric for corrupted workflows
 
@@ -14826,6 +15138,8 @@ Since that scanner workflow is also a workflow, I believe you can simply trigger
 
 ---
 
+<a id="7623"></a>
+
 ### #7623: Feature: Delayed schedule for activity tasks
 
 | Field | Value |
@@ -14861,6 +15175,8 @@ One approach to support this is reuse today's activity retry timer for the first
 
 
 ---
+
+<a id="7560"></a>
 
 ### #7560: Default JWT claim mapper support for permissions parsing using regular expression
 
@@ -14935,6 +15251,8 @@ Hi @yycptt did you have a chance to discuss this issue with team already? Thanks
 
 ---
 
+<a id="7551"></a>
+
 ### #7551: Atomic workflow reset & update
 
 | Field | Value |
@@ -14994,6 +15312,8 @@ Any update on this?
 
 ---
 
+<a id="6633"></a>
+
 ### #6633: [Feature Request] Support exponential/native histograms in Temporal Server/SDKs
 
 | Field | Value |
@@ -15045,6 +15365,8 @@ https://temporalio.slack.com/archives/CTT84RS0P/p1734356128801839
 
 
 ---
+
+<a id="6546"></a>
 
 ### #6546: Allow to disable workflow deadlock detector
 
@@ -15140,6 +15462,8 @@ Proposed https://github.com/temporalio/sdk-go/pull/1647.
 
 
 ---
+
+<a id="6375"></a>
 
 ### #6375: CompleteUpdate message is sometimes not honored when in same WFT completion as ContinueAsNew
 
@@ -15329,6 +15653,8 @@ Updates are different in a sense that **any** error with workflow (in the @danda
 
 ---
 
+<a id="5877"></a>
+
 ### #5877: Address force completion when make a request through CompleteByID with a failure.
 
 | Field | Value |
@@ -15405,6 +15731,8 @@ There is a feature request to retry activity immediately when waiting for the ne
 
 ---
 
+<a id="5768"></a>
+
 ### #5768: Metric specific to workflow retries per namespace
 
 | Field | Value |
@@ -15455,6 +15783,8 @@ Hi folks, @tsurdilo was kind enough to make this issue from a [conversation we w
 
 
 ---
+
+<a id="5475"></a>
 
 ### #5475: temporal frontend unable to connect to elasticsearch visibilitystore
 
@@ -15623,6 +15953,8 @@ After changing the index name from temporal-visibility to temporal_visibility_v1
 
 ---
 
+<a id="5436"></a>
+
 ### #5436: 503 in api/v1/namespaces/<your_namespace>/search-attributes? sometime
 
 | Field | Value |
@@ -15690,6 +16022,8 @@ Fixed typo here https://github.com/temporalio/temporal/pull/5473
 
 
 ---
+
+<a id="5171"></a>
 
 ### #5171: Timeout on complete when invalid task token passed
 
@@ -15767,6 +16101,8 @@ I think the simplest fix is for server to return a different status code like `I
 
 ---
 
+<a id="5135"></a>
+
 ### #5135: Support more direct/immediate notification of a cancelled activity
 
 | Field | Value |
@@ -15824,6 +16160,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="4887"></a>
 
 ### #4887: Prepopulate run_id in schedule future_action_times
 
@@ -15936,6 +16274,8 @@ That said, in configurations where we do enforce exclusion, we could reuse the w
 
 ---
 
+<a id="4778"></a>
+
 ### #4778: I want to be able to print log files separately by date
 
 | Field | Value |
@@ -15982,6 +16322,8 @@ This can be helpful: https://dhwaneetbhatt.com/blog/time-based-log-file-rotation
 
 ---
 
+<a id="4463"></a>
+
 ### #4463: Cache event history from query tasks
 
 | Field | Value |
@@ -16020,6 +16362,8 @@ Just realized one workaround of the issue is to set a repeating Workflow timer w
 
 
 ---
+
+<a id="4193"></a>
 
 ### #4193: High frequency query mysql
 
@@ -16217,6 +16561,8 @@ same as https://community.temporal.io/t/large-number-of-database-calls-by-tempor
 
 ---
 
+<a id="4020"></a>
+
 ### #4020: Unexpected lag between TimerStarted and TimerFired when switching a namespace's active cluster
 
 | Field | Value |
@@ -16349,6 +16695,8 @@ bd3df70b564a   elasticsearch:7.10.1            "/tini -- /usr/local…"   29 min
 
 ---
 
+<a id="3863"></a>
+
 ### #3863: Pin a particular workflow run to prevent it from getting purged
 
 | Field | Value |
@@ -16403,6 +16751,8 @@ Yes @yiminc. This feature ask indeed is for a closed workflow to prevent it from
 
 
 ---
+
+<a id="3665"></a>
 
 ### #3665: Update workflow search attributes outside of workflow context 
 
@@ -16465,6 +16815,8 @@ When I add a new search attribute I'd like to migrate past workflows by setting 
 
 ---
 
+<a id="3532"></a>
+
 ### #3532: Remove unused methods in ClientBean
 
 | Field | Value |
@@ -16523,6 +16875,8 @@ https://github.com/temporalio/temporal/pull/5000
 
 
 ---
+
+<a id="3104"></a>
 
 ### #3104: Surprising clusterMetadata override
 
@@ -16607,6 +16961,8 @@ Silent failure is misleading, either complete deprecate the cluster metadata by 
 
 ---
 
+<a id="3015"></a>
+
 ### #3015: Possibility to exclude metrics tags when emitting metrics?
 
 | Field | Value |
@@ -16661,6 +17017,8 @@ sample pic which shows that tagsToMap function may create too many objects
 
 ---
 
+<a id="2598"></a>
+
 ### #2598: Allow configurable time for history/visibility archiving
 
 | Field | Value |
@@ -16697,6 +17055,8 @@ s3 archival limitation of doing only = search should be addressed.
 
 
 ---
+
+<a id="1338"></a>
 
 ### #1338: Workflow Reset: add logic of determining the reset point to the service
 
@@ -16805,6 +17165,8 @@ if req.GetWorkflowTaskFinishEventId() == 0 {
 
 ---
 
+<a id="1311"></a>
+
 ### #1311: Make workflow state (not status) available via API
 
 | Field | Value |
@@ -16869,6 +17231,8 @@ Hey @dnr, second one, ```Schedule "future action times" should respect limited a
 
 ---
 
+<a id="1024"></a>
+
 ### #1024: Add a CLI and tab in the web dashboard to display all taskQueues list / pollers
 
 | Field | Value |
@@ -16919,6 +17283,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="996"></a>
 
 ### #996: [request] API needs for Temporal Web
 
@@ -16995,6 +17361,8 @@ was discussed today at onsite. we agree on parent -> child thing with Yimin.
 
 ---
 
+<a id="787"></a>
+
 ### #787: Frequent timeouts while archiving to S3
 
 | Field | Value |
@@ -17057,6 +17425,8 @@ Noisy error messages need to be fixed though. For now you can try to increase ti
 
 ---
 
+<a id="518"></a>
+
 ### #518: Add support for passing large arguments between activities
 
 | Field | Value |
@@ -17097,6 +17467,8 @@ Thank you @mfateev !
 
 ---
 
+<a id="503"></a>
+
 ### #503: Record activity started and failed event for activity in retry on workflow completion
 
 | Field | Value |
@@ -17135,6 +17507,8 @@ Is this still useful? Would be happy to look into that
 
 
 ---
+
+<a id="8606"></a>
 
 ### #8606: Schedules - allow TriggerImmediatelyRequest to define arguments
 
@@ -17179,6 +17553,8 @@ Just adding a drive by test comment.
 
 
 ---
+
+<a id="8072"></a>
 
 ### #8072: Adding sql metric stats
 
@@ -17225,6 +17601,8 @@ ref: https://github.com/temporalio/temporal/pull/8071
 
 
 ---
+
+<a id="8013"></a>
 
 ### #8013: List workflows by custom search attributes sometimes returns wrong value
 
@@ -17295,6 +17673,8 @@ While we understand that the visibility store is eventually consistent, it is un
 
 ---
 
+<a id="7821"></a>
+
 ### #7821: [Bug]  workflow list takes differnt query for hot and archieved
 
 | Field | Value |
@@ -17352,6 +17732,8 @@ We should be able to fix/translate the filter name. But the query capability on 
 
 
 ---
+
+<a id="7625"></a>
 
 ### #7625: Additional tuning configs for scavenger jobs
 
@@ -17411,6 +17793,8 @@ i'm waiting on some internal stuff at my company to sign off on the CLA so haven
 
 
 ---
+
+<a id="6946"></a>
 
 ### #6946: PostgreSQL password in config file
 
@@ -17488,6 +17872,8 @@ persistence:
 
 ---
 
+<a id="6834"></a>
+
 ### #6834: Support start delay in continue-as-new options
 
 | Field | Value |
@@ -17529,6 +17915,8 @@ https://restate.dev/blog/code-that-sleeps-for-a-month/#control-loops describes a
 
 ---
 
+<a id="6827"></a>
+
 ### #6827: Support Environment Variable Substitution for clusterMetadata in Temporal Configuration Templates
 
 | Field | Value |
@@ -17563,6 +17951,8 @@ clusterMetadata:
 
 
 ---
+
+<a id="6758"></a>
 
 ### #6758: API for setting RPS limits for activity tasks dispatch
 
@@ -17624,6 +18014,8 @@ Care will also be taken to have an "unset" feature for the API for those users w
 
 ---
 
+<a id="6754"></a>
+
 ### #6754: Adding a custom label to Temporal out-of-the-box metric
 
 | Field | Value |
@@ -17661,6 +18053,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="6724"></a>
+
 ### #6724: More batch reset types
 
 | Field | Value |
@@ -17697,6 +18091,8 @@ NA
 
 
 ---
+
+<a id="6561"></a>
 
 ### #6561: Simple configuration structure
 
@@ -17756,6 +18152,8 @@ Overall SGTM. I'd maybe just call the top level key `dynamic` because you're alr
 
 ---
 
+<a id="6481"></a>
+
 ### #6481: Support wait for signal in execution history API
 
 | Field | Value |
@@ -17792,6 +18190,8 @@ N/A
 
 
 ---
+
+<a id="6479"></a>
 
 ### #6479: GKE Web UI 404 Archival Using bucket
 
@@ -17963,6 +18363,8 @@ what's your environment do you use? docker, local, or kubernetes?
 
 ---
 
+<a id="6467"></a>
+
 ### #6467: CVE-2024-24790
 
 | Field | Value |
@@ -17989,6 +18391,8 @@ Updating Go to 1.21.11 or newer would fix the issue.
 
 
 ---
+
+<a id="6333"></a>
 
 ### #6333: Do not consume rate limit token on invalid tasks
 
@@ -18037,6 +18441,8 @@ For 1 (returning the token after delivery failure), it turns out that the rate l
 
 
 ---
+
+<a id="6273"></a>
 
 ### #6273: PostgreSQL schema update fails on busy Temporal instances
 
@@ -18128,6 +18534,8 @@ ALTER TABLE executions_visibility ADD COLUMN root_run_id      VARCHAR(255) NOT N
 
 ---
 
+<a id="6255"></a>
+
 ### #6255: Add support for a "final workflow state retention" on successful exit optimization
 
 | Field | Value |
@@ -18187,6 +18595,8 @@ This would be similar to https://github.com/temporalio/temporal/issues/487
 
 ---
 
+<a id="6239"></a>
+
 ### #6239: Allow SDKs to change workflow task max retry interval in WorkerOptions
 
 | Field | Value |
@@ -18213,6 +18623,8 @@ Feature request is to add ability to set this via WorkerOptions in SDKs
 
 
 ---
+
+<a id="6226"></a>
 
 ### #6226: "Flag provided but not defined" when trying to specify config path
 
@@ -18273,6 +18685,8 @@ Ah, gotcha. We should probably change the CLI help messages then, since this isn
 
 ---
 
+<a id="6173"></a>
+
 ### #6173: Schedule "StartAt" not used when calculating intervals?
 
 | Field | Value |
@@ -18330,6 +18744,8 @@ When I pick 365 days as the interval, I seem to be getting a date 6 months in th
 
 
 ---
+
+<a id="5785"></a>
 
 ### #5785: deleted schedule showing
 
@@ -18407,6 +18823,8 @@ Hi, thanks for the response - we're using postgres + Elasticsearch. I haven't no
 
 
 ---
+
+<a id="5729"></a>
 
 ### #5729: Temporal fails to connect to Google Cloud SQL Postgres when password contains certain characters
 
@@ -18490,6 +18908,8 @@ Ran into the issue as well, I believe it'll get fixed by https://github.com/temp
 
 
 ---
+
+<a id="5624"></a>
 
 ### #5624: Archival does not show list of archived workflows
 
@@ -18803,6 +19223,8 @@ Any clues?
 
 ---
 
+<a id="5105"></a>
+
 ### #5105: Add support to create Elasticsearch rolling indexes in visibility
 
 | Field | Value |
@@ -18856,6 +19278,8 @@ In order for this feature to be useful and idempotent, the date needs to come fr
 
 ---
 
+<a id="5026"></a>
+
 ### #5026: When I tested with more than 200 workers connected，Too high memory usage on matching service
 
 | Field | Value |
@@ -18895,6 +19319,8 @@ Your server might be too small for that many workers. Usually you don't need tha
 
 ---
 
+<a id="4947"></a>
+
 ### #4947: Add fields to `ListBatchOperations` and `DescribeBatchOperation` API responses
 
 | Field | Value |
@@ -18933,6 +19359,8 @@ Currently the information we receive in the `ListBatchOperations` API response i
 
 
 ---
+
+<a id="4823"></a>
 
 ### #4823: Bearer token not passed to remote cluster when adding or upserting remote cluster
 
@@ -18984,6 +19412,8 @@ Set up:
 
 
 ---
+
+<a id="4802"></a>
 
 ### #4802: Increase the number of pre-allocated custom search attributes
 
@@ -19038,6 +19468,8 @@ Docker version and Prod environment does support more than 3 KeywordList search 
 
 ---
 
+<a id="4389"></a>
+
 ### #4389: Do not record activity input in the workflow history
 
 | Field | Value |
@@ -19088,6 +19520,8 @@ Workflow can implement a special query to produce these inputs through replay.
 
 
 ---
+
+<a id="4201"></a>
 
 ### #4201: Allow to configure max concurrency of a workflow with the same id
 
@@ -19158,6 +19592,8 @@ I have a very similar usecase : https://temporalio.slack.com/archives/CTT84KXK9/
 
 ---
 
+<a id="4179"></a>
+
 ### #4179: Header propagation on activity/workflow results
 
 | Field | Value |
@@ -19210,6 +19646,8 @@ That's correct Yimin, do you think it can be implemented?
 
 
 ---
+
+<a id="3885"></a>
 
 ### #3885: LIKE is not working as expected in visibility query
 
@@ -19272,6 +19710,8 @@ However after fixing it locally, LIKE does not appear to be working as expected.
 
 ---
 
+<a id="3633"></a>
+
 ### #3633: Cassandra schema should use default SizeTieredCompactionStrategy 
 
 | Field | Value |
@@ -19320,6 +19760,8 @@ Hello again! Thanks for answer, but why rest of tables indeed have old LevelTier
 
 
 ---
+
+<a id="3614"></a>
 
 ### #3614: Cannot trigger/run multiple schedule actions immediately
 
@@ -19385,6 +19827,8 @@ It can happen for manually triggering. If I trigger a workflow that starts at `0
 
 ---
 
+<a id="3212"></a>
+
 ### #3212: Add query param to ListNamespacesRequest
 
 | Field | Value |
@@ -19434,6 +19878,8 @@ message NamespaceInfo {
 
 
 ---
+
+<a id="3086"></a>
 
 ### #3086: Do not emit metrics when acquire shard r/w lock
 
@@ -19486,6 +19932,8 @@ cc @yiminc
 
 ---
 
+<a id="2929"></a>
+
 ### #2929: Update namespace replication task cleanup logic with connected clusters
 
 | Field | Value |
@@ -19530,6 +19978,8 @@ In 1.16, we allow remove clusters from namespace cluster list. We should update 
 
 
 ---
+
+<a id="2695"></a>
 
 ### #2695: Workflow ID size check mismatch
 
@@ -19584,6 +20034,8 @@ Please let me know if I am missing something obvious. Thank you.
 
 ---
 
+<a id="2688"></a>
+
 ### #2688: Support SignalExternalWorkflowExecutionWithStart
 
 | Field | Value |
@@ -19609,6 +20061,8 @@ SignalExternalExecutionWithStart would make this experience a lot easier
 
 
 ---
+
+<a id="2526"></a>
 
 ### #2526: Metric on workflows not progressing because of repetitive Workflow Task Timeouts / Failures
 
@@ -19659,6 +20113,8 @@ The number of workflows can probably be estimated by the rate of a certain histo
 
 ---
 
+<a id="2491"></a>
+
 ### #2491: Throttled logger should not throttle errors that happens rarely
 
 | Field | Value |
@@ -19700,6 +20156,8 @@ Can I work on this?
 
 ---
 
+<a id="2482"></a>
+
 ### #2482: Ability to disable dynamic config in auto-setup docker image
 
 | Field | Value |
@@ -19737,6 +20195,8 @@ Ready for PR.
 
 
 ---
+
+<a id="2470"></a>
 
 ### #2470: Temporal assumes the credentials of storage service used for archival will stay the same through out the life cycle of the application.
 
@@ -19803,6 +20263,8 @@ Not sure that this use case is supported by the aws go sdk yet. See this discuss
 
 ---
 
+<a id="2405"></a>
+
 ### #2405: Use sticky task queue on querying close workflow
 
 | Field | Value |
@@ -19856,6 +20318,8 @@ But from SDK side, we would need to stop evict close workflow and only rely on L
 
 ---
 
+<a id="2342"></a>
+
 ### #2342: Add API to allow operator to add custom system workflows to worker role
 
 | Field | Value |
@@ -19884,6 +20348,8 @@ We would probably need the ability to specify the workflow id of these custom wo
 
 
 ---
+
+<a id="1893"></a>
 
 ### #1893: Include tarball with versioned schema in release
 
@@ -19919,6 +20385,8 @@ Downloads the schemas from the github tag
 
 
 ---
+
+<a id="1847"></a>
 
 ### #1847: [xdc] Workers connected to standby cluster not picking up tasks after  failover 
 
@@ -19990,6 +20458,8 @@ i get  "cluster is not active " action, is this because i have
 
 ---
 
+<a id="1423"></a>
+
 ### #1423: Make output streams of logger configurable perfectly
 
 | Field | Value |
@@ -20035,6 +20505,8 @@ I think we should leave it at that for compatibility.
 
 ---
 
+<a id="1018"></a>
+
 ### #1018: Add CANCEL_REQUESTED status
 
 | Field | Value |
@@ -20065,6 +20537,8 @@ https://community.temporal.io/t/workflow-status-canceled-vs-canceling/1050
 
 
 ---
+
+<a id="845"></a>
 
 ### #845: Generate a signed token for each workflow activity
 
@@ -20113,6 +20587,8 @@ Any update about this? We need such a feature and we can contribute code if you 
 
 ---
 
+<a id="773"></a>
+
 ### #773: session and childworkflow
 
 | Field | Value |
@@ -20158,6 +20634,8 @@ The workaround is to use child workflows to keep the whole workflow state in a s
 
 
 ---
+
+<a id="705"></a>
 
 ### #705: Support reset with pending child workflows
 
@@ -20206,6 +20684,8 @@ Reactions: 👍 3
 
 ---
 
+<a id="607"></a>
+
 ### #607: Add proper unit / integration tests for parentclosepolicy workflow
 
 | Field | Value |
@@ -20251,6 +20731,8 @@ Thanks for your patience!
 
 ---
 
+<a id="515"></a>
+
 ### #515: Expose zap logger encoding to config
 
 | Field | Value |
@@ -20285,6 +20767,8 @@ None.
 
 
 ---
+
+<a id="455"></a>
 
 ### #455: If a temporal service fails to start due to a missing config key, log the missing key
 
@@ -20338,6 +20822,8 @@ This problem was brought to my attention by Ringo in Temporal slack chat:  https
 
 ---
 
+<a id="109"></a>
+
 ### #109: Docker: Docker image with schema loaded
 
 | Field | Value |
@@ -20381,6 +20867,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="108"></a>
 
 ### #108: Make temporal docker to not emit noisy logs
 
@@ -20427,6 +20915,8 @@ It would be good if debug log is opt-in instead of default. Also, it should defa
 
 
 ---
+
+<a id="8909"></a>
 
 ### #8909: Deprecation error log in v1.29.1 with Elasticsearch 8.19.2
 
@@ -20550,6 +21040,8 @@ go.temporal.io/server/common/rpc/interceptor.(*TelemetryInterceptor).UnaryInterc
 
 ---
 
+<a id="8698"></a>
+
 ### #8698: [Security] Review & Fix Multiple CVEs affecting Go standard libraries
 
 | Field | Value |
@@ -20625,6 +21117,8 @@ CVE-2025-61729 | MEDIUM
 
 
 ---
+
+<a id="8655"></a>
 
 ### #8655: Addressing security vulnerabilities in the Temporalio/admin-tools:1.29.1
 
@@ -20710,6 +21204,8 @@ I'd be happy to submit a PR with these fixes if the maintainers agree this shoul
 
 ---
 
+<a id="8654"></a>
+
 ### #8654: Unable to view workflows in UI
 
 | Field | Value |
@@ -20777,6 +21273,8 @@ Once you confirm, we would be able to narrow down our investigation and forward 
 
 ---
 
+<a id="8608"></a>
+
 ### #8608: Support opt-in ability to get workflow input and output (if closed) on describe workflow
 
 | Field | Value |
@@ -20813,6 +21311,8 @@ Reactions: ❤️ 1
 
 ---
 
+<a id="8537"></a>
+
 ### #8537: Add first execution run ID for already-started start workflow results
 
 | Field | Value |
@@ -20848,6 +21348,8 @@ It's a bit involved but not too much of a heavy lift, there's some information t
 
 
 ---
+
+<a id="8431"></a>
 
 ### #8431: Docker deployment TEMPORAL_ADMINTOOLS_VERSION
 
@@ -20900,6 +21402,8 @@ Alternatively, if the Temporal team wants to change the Docker tagging strategy 
 
 ---
 
+<a id="8349"></a>
+
 ### #8349: Support relative time in the visibility store
 
 | Field | Value |
@@ -20946,6 +21450,8 @@ Edit: Pending further design discussion before making changes.
 
 
 ---
+
+<a id="8322"></a>
 
 ### #8322: Don't log a warning when task queue kind is unspecified
 
@@ -21010,6 +21516,8 @@ temporal version 1.3.0 (Server 1.27.1, UI 2.36.0)
 
 ---
 
+<a id="8298"></a>
+
 ### #8298: Make Nexus work out of the box with zero config
 
 | Field | Value |
@@ -21064,6 +21572,8 @@ PR: #8308 for first task.
 
 
 ---
+
+<a id="8235"></a>
 
 ### #8235: GetWorkflow doesn't find archived one
 
@@ -21185,6 +21695,8 @@ Not sure if this is best / idiomatic way to achieve this, but it fits perfectly 
 
 ---
 
+<a id="8220"></a>
+
 ### #8220: Addressing security vulnerabilities in the Temporalio/server v1.28.1
 
 | Field | Value |
@@ -21244,6 +21756,8 @@ We will be taking action on all of these.
 
 
 ---
+
+<a id="8219"></a>
 
 ### #8219: Addressing security vulnerabilities in the Temporalio/admin-tools:1.28.1-tctl-1.18.4-cli-1.4.1
 
@@ -21309,6 +21823,8 @@ Reactions: 👍 2
 
 ---
 
+<a id="8101"></a>
+
 ### #8101: Improve record activity started implementation
 
 | Field | Value |
@@ -21358,6 +21874,8 @@ so loading them inside workflow lock is probably not an big deal. Need some extr
 
 
 ---
+
+<a id="7916"></a>
 
 ### #7916: Allow multiple task queues to a worker - enables throttling of specific activities
 
@@ -21439,6 +21957,8 @@ In the meantime, you could implement the multiple task queue solution without ex
 
 
 ---
+
+<a id="7869"></a>
 
 ### #7869: temporal frontend unable to connect to elasticsearch visibilitystore
 
@@ -21545,6 +22065,8 @@ Also @rodrigozhou have you seen this before?
 
 ---
 
+<a id="7800"></a>
+
 ### #7800: SSO and system worker
 
 | Field | Value |
@@ -21584,6 +22106,8 @@ You probably want to use internal-frontend. This isn't documented that well, see
 
 
 ---
+
+<a id="7780"></a>
 
 ### #7780: Support for HTTPS metrics endpoint on OSS Temporal
 
@@ -21631,6 +22155,8 @@ We don't currently have plans to work on this but you're welcome to contribute.
 
 ---
 
+<a id="7658"></a>
+
 ### #7658: Allow Configurable Prefixes for Temporal Schema Table Names
 
 | Field | Value |
@@ -21676,6 +22202,8 @@ This is low priority for us since most users can use separate schemas for their 
 
 ---
 
+<a id="7657"></a>
+
 ### #7657: Rename Visibility schema's version table to avoid conflict with Temporal schema
 
 | Field | Value |
@@ -21720,6 +22248,8 @@ Related issue: #7658
 
 
 ---
+
+<a id="7591"></a>
 
 ### #7591: 1.27.1 - Multiple ChildWorkflowStarted events written for same child workflow
 
@@ -21803,6 +22333,8 @@ issue seems related to Cassandra 5 which is not supported as of yet
 
 ---
 
+<a id="7577"></a>
+
 ### #7577: Add retries for Temporal having connectivity failures for persistence database
 
 | Field | Value |
@@ -21845,6 +22377,8 @@ We would like to not manually fork and update a gigantic codebase so that good n
 
 
 ---
+
+<a id="7515"></a>
 
 ### #7515: Retry interval is not always respected
 
@@ -21962,6 +22496,8 @@ https://temporalio.slack.com/archives/CTDTU3J4T/p1742508774924669
 
 ---
 
+<a id="7506"></a>
+
 ### #7506: Start child with WorkflowID longer than 255 with SQL as persistence would stuck
 
 | Field | Value |
@@ -22000,6 +22536,8 @@ I think either the maxIDLength should not be a dynamic config, but hardcoded val
 
 ---
 
+<a id="7503"></a>
+
 ### #7503: Does temporal support sharing database?
 
 | Field | Value |
@@ -22035,6 +22573,8 @@ Please join our community forum or slack channel (link in repo README) which are
 
 
 ---
+
+<a id="7480"></a>
 
 ### #7480: Addressing a lot of security vulnerabilities in the Temporalio/server release v1.27.1
 
@@ -22091,6 +22631,8 @@ We are also seeing these security vulnerabilities in temporalio/server:1.27.1, w
 
 ---
 
+<a id="7405"></a>
+
 ### #7405: strange workflow task timeout
 
 | Field | Value |
@@ -22130,6 +22672,8 @@ If workflow task is failing, there should be some error logs on the sdk worker s
 
 
 ---
+
+<a id="7390"></a>
 
 ### #7390: Feature: Integrate Needle RAG API as a component.
 
@@ -22172,6 +22716,8 @@ Would you DM me at [Temporal Slack](https://join.slack.com/t/temporalio/shared_i
 
 
 ---
+
+<a id="7367"></a>
 
 ### #7367: Do not truncate activity failure info if there is not many of them
 
@@ -22218,6 +22764,8 @@ Some ideas:
 
 
 ---
+
+<a id="6819"></a>
 
 ### #6819: Why is the default value of the SDK client grpc "MaxSendMsgSize" inconsistent with the server grpc "MaxRecvMsgSize"?
 
@@ -22290,6 +22838,8 @@ I suggest if the server codes can be improved to use the same grpc "MaxRecvMsgSi
 
 ---
 
+<a id="6647"></a>
+
 ### #6647: Make option for UpsertSearchAttribute command to fail if SA does not exists
 
 | Field | Value |
@@ -22333,6 +22883,8 @@ Given that there's a workaround, we have put this on the backlog for now and wil
 
 
 ---
+
+<a id="6527"></a>
 
 ### #6527: WorkflowCache inconsistency upon workflow (force) deletion
 
@@ -22386,6 +22938,8 @@ After deleting the workflow, it will still be displayed in the Temporal WEB UI l
 
 
 ---
+
+<a id="6525"></a>
 
 ### #6525: Rare test failure in CLI: "Current branch token and request branch token doesn't match."
 
@@ -22497,6 +23051,8 @@ Backtrace:
 
 ---
 
+<a id="6459"></a>
+
 ### #6459: Excessive new connections to Postgres 
 
 | Field | Value |
@@ -22551,6 +23107,8 @@ I believe the defaults for `maxIdleConns` are pretty low; we initially saw a lot
 
 ---
 
+<a id="6378"></a>
+
 ### #6378: unknown method GetWorkflowExecutionHistoryReverse for service temporal.server.api
 
 | Field | Value |
@@ -22589,6 +23147,8 @@ Do you have proxy in between the UI and the server?
 
 ---
 
+<a id="6329"></a>
+
 ### #6329: Ability to attach a local debugger to Local Temporal Worker
 
 | Field | Value |
@@ -22624,6 +23184,8 @@ If this functionality exists, please send me the documentation and I can close o
 
 ---
 
+<a id="6319"></a>
+
 ### #6319: Schedule list with query times out on server 1.25.0-rc.0
 
 | Field | Value |
@@ -22657,6 +23219,8 @@ May no longer be relevant, requires reproduction.
 
 
 ---
+
+<a id="6188"></a>
 
 ### #6188: CreateSchedule with empty workflowID should not be allowed
 
@@ -22709,6 +23273,8 @@ This cause some of them to succeed, but others to fail with workflow ID conflict
 
 ---
 
+<a id="6000"></a>
+
 ### #6000: How to ensure that activities belonging to the same workflow can be prioritized and executed to avoid hunger when a batch of tasks is initiated for a workflow containing multiple activities.
 
 | Field | Value |
@@ -22740,6 +23306,8 @@ Depending on your application, you might consider using local activities for som
 
 
 ---
+
+<a id="5796"></a>
 
 ### #5796: Application Error with a Suggested Retry Interval Duration
 
@@ -22787,6 +23355,8 @@ Reactions: ❤️ 1
 
 ---
 
+<a id="5763"></a>
+
 ### #5763: Limit failure cause depth
 
 | Field | Value |
@@ -22820,6 +23390,8 @@ Server is not crack open those failure and just pass it along. It would be hard 
 
 
 ---
+
+<a id="5372"></a>
 
 ### #5372: trigger one workflow from another workflow 
 
@@ -22855,6 +23427,8 @@ If you are wondering from a security perspective, you should definitely use two 
 
 
 ---
+
+<a id="5324"></a>
 
 ### #5324: access from one temporal namespace to another
 
@@ -22894,6 +23468,8 @@ Cross namespace invocation will be supported by nexus service. See more: https:/
 
 
 ---
+
+<a id="4816"></a>
 
 ### #4816: Elasticsearch legacy index template 
 
@@ -22935,6 +23511,8 @@ Can you provide more details what's the new format? What's the difference?
 
 
 ---
+
+<a id="4692"></a>
 
 ### #4692: Could taskReader persistAckLevel check last persist ackLevel avoid persist duplicate ackLevel
 
@@ -22979,6 +23557,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="4612"></a>
 
 ### #4612: Matching task dispatch busy loop when history service is not available
 
@@ -23030,6 +23610,8 @@ Current work around is to start services in the following sequence: history, mat
 
 ---
 
+<a id="4600"></a>
+
 ### #4600: Use different task queue for activity and workflow task retries
 
 | Field | Value |
@@ -23077,6 +23659,8 @@ This can also solve the problem of workflow tasks that are constantly failing, a
 
 
 ---
+
+<a id="4502"></a>
 
 ### #4502: Support data references to avoid storing the same Payload multiple times
 
@@ -23131,6 +23715,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="4348"></a>
 
 ### #4348: Replication tasks referencing archived workflow executions can't be processed, blocking all replication
 
@@ -23277,6 +23863,8 @@ Then, to see what would happen with newly started workflows with both clusters r
 
 ---
 
+<a id="4247"></a>
+
 ### #4247: Add firstExecutionRunId to system search attribute
 
 | Field | Value |
@@ -23328,6 +23916,8 @@ Similar issue: https://github.com/temporalio/temporal/issues/351
 
 ---
 
+<a id="4246"></a>
+
 ### #4246: Consider adding Heartbeat Details to other Failure modes of an Activity
 
 | Field | Value |
@@ -23360,6 +23950,8 @@ I think it can just be on `ActivityFailure`
 
 
 ---
+
+<a id="4131"></a>
 
 ### #4131: Issue with MariaDB 10.6.9.  (Galera cluster)
 
@@ -23417,6 +24009,8 @@ So easy fix could be to upgrade to latest mysql go driver?
 
 ---
 
+<a id="4021"></a>
+
 ### #4021: Expiration policy for signal requestIDs in mutable state
 
 | Field | Value |
@@ -23464,6 +24058,8 @@ Same as https://github.com/temporalio/temporal/issues/4191
 
 
 ---
+
+<a id="3987"></a>
 
 ### #3987: Named Timers
 
@@ -23532,6 +24128,8 @@ There was a similar request for activities from a customer. We don't want to use
 
 ---
 
+<a id="3983"></a>
+
 ### #3983: Unused `GetHistoryTask` persistence API
 
 | Field | Value |
@@ -23572,6 +24170,8 @@ The only case batch read can’t cover is when there’re multiple tasks with sa
 
 ---
 
+<a id="3682"></a>
+
 ### #3682: Taskqueue scavenger does not work for cassandra
 
 | Field | Value |
@@ -23608,6 +24208,8 @@ https://github.com/temporalio/temporal/issues/1021
 
 
 ---
+
+<a id="3667"></a>
 
 ### #3667: Temporal Server returns incorrect RetryState in some cases of scheduleToClose timeout
 
@@ -23682,6 +24284,8 @@ ActivityFailure
 
 ---
 
+<a id="3666"></a>
+
 ### #3666: Add ability to invoke the ParentClosePolicy on chain completion not the run completion.
 
 | Field | Value |
@@ -23722,6 +24326,8 @@ The scope also needs to be passed down when doing ContinueAsNew.
 
 
 ---
+
+<a id="3417"></a>
 
 ### #3417: deleteWorkflowExecution failure response leaks implementation details
 
@@ -23770,6 +24376,8 @@ Error: unable to delete workflow: operation GetCurrentExecution encountered not 
 
 ---
 
+<a id="3177"></a>
+
 ### #3177: Add input validation that request ID size is below threshold
 
 | Field | Value |
@@ -23805,6 +24413,8 @@ Input validation for request_ID has to be uuid as it is required by persistence 
 
 
 ---
+
+<a id="3165"></a>
 
 ### #3165: Sync search attributes and ES schema
 
@@ -23850,6 +24460,8 @@ I did explore using Elasticsearch's [Elasticsearch's "Dynamic Mapping"](https://
 
 
 ---
+
+<a id="3134"></a>
 
 ### #3134: Do not block shard ownership assertion if `acquireShards` is blocked
 
@@ -23949,6 +24561,8 @@ I like that idea, I agree there's no reason to wait for one "wave" to finish bef
 
 ---
 
+<a id="3065"></a>
+
 ### #3065: i get taskqueue history metics,it has abort all  80000 activities metrics.it is to large for promethues to pull
 
 | Field | Value |
@@ -23996,6 +24610,8 @@ Could you provide more details.
 
 
 ---
+
+<a id="3008"></a>
 
 ### #3008: Continue workflow as new and signal in a single transaction
 
@@ -24067,6 +24683,8 @@ Any reason why this was closed?
 
 ---
 
+<a id="2829"></a>
+
 ### #2829: Support starting abandoned child after parent workflow is closed 
 
 | Field | Value |
@@ -24111,6 +24729,8 @@ This applies to signalExternalWorkflow as well.
 
 ---
 
+<a id="2707"></a>
+
 ### #2707: Admin CLI to update mutable state directly
 
 | Field | Value |
@@ -24143,6 +24763,8 @@ This applies to signalExternalWorkflow as well.
 
 
 ---
+
+<a id="2687"></a>
 
 ### #2687: Populate identity for child workflows
 
@@ -24410,6 +25032,8 @@ Below is the child workflow history. You can clearly  see that `identity=""` for
 
 ---
 
+<a id="2615"></a>
+
 ### #2615: auto-setup does not use DB_PORT for mysql and cassandra 
 
 | Field | Value |
@@ -24469,6 +25093,8 @@ Thanks for the issue, we are going to track this under a larger effort to refact
 
 ---
 
+<a id="2565"></a>
+
 ### #2565: Consider adding an option for bidirectional gRPC streaming instead of unary RPC
 
 | Field | Value |
@@ -24509,6 +25135,8 @@ How might traffic management/connection policies be improved with streaming? My 
 
 
 ---
+
+<a id="2403"></a>
 
 ### #2403: import of github.com/cactus/go-statsd-client is ambiguous in go.temporal.io/server
 
@@ -24583,6 +25211,8 @@ The issue can be fixed, using go mod tidy -compat=1.17 , but this is undesirable
 
 ---
 
+<a id="2283"></a>
+
 ### #2283: Add well known indicator/label/tag to log output for temporal
 
 | Field | Value |
@@ -24625,6 +25255,8 @@ Oh - one thing I just realized, this might need to be in sdk-go. We're on the cl
 
 
 ---
+
+<a id="2252"></a>
 
 ### #2252: Improve error message(s) returned when failing to meet database constraints
 
@@ -24683,6 +25315,8 @@ dup of #2122
 
 ---
 
+<a id="2101"></a>
+
 ### #2101: History server should emit cache size / capacity metrics
 
 | Field | Value |
@@ -24715,6 +25349,8 @@ current size and cache capacity.
 
 
 ---
+
+<a id="2054"></a>
 
 ### #2054: Expose disableInitialHostLookup for temporal-cassandra-tool 
 
@@ -24749,6 +25385,8 @@ I'm working on getting approval from my employer's legal team for the CLA, but I
 
 
 ---
+
+<a id="1979"></a>
 
 ### #1979: Worker identity from task heartbeats is not exposed anyhow in API
 
@@ -24797,6 +25435,8 @@ Especially relevant with async completion of activities.
 
 
 ---
+
+<a id="1898"></a>
 
 ### #1898: Add pid file configuration option
 
@@ -24847,6 +25487,8 @@ Can you use systemd or another process manager that doesn't use pid files? Pid f
 
 
 ---
+
+<a id="1891"></a>
 
 ### #1891: Worker heartbeat
 
@@ -24911,6 +25553,8 @@ Relates to https://github.com/temporalio/sdk-go/issues/126.
 
 ---
 
+<a id="1714"></a>
+
 ### #1714: Activity dispatching optimization
 
 | Field | Value |
@@ -24945,6 +25589,8 @@ Leaving this here to be considered, the rest has already been implemented.
 
 
 ---
+
+<a id="1468"></a>
 
 ### #1468: Add ActivityTaskStarted event immediately if RetryOptions.maximumAttempts is set to 1.
 
@@ -24988,6 +25634,8 @@ Started showing Pending activities as Activity Task Started history event. In PR
 
 
 ---
+
+<a id="1057"></a>
 
 ### #1057: On first start Temporal should not accept connections until Default namespace is setup
 
@@ -25228,6 +25876,8 @@ Another similar issue about that: https://github.com/temporalio/temporal/issues/
 
 ---
 
+<a id="746"></a>
+
 ### #746: Workflow loses cron when also using NewContinueAsNewError
 
 | Field | Value |
@@ -25281,6 +25931,8 @@ was this issue solved?
 
 ---
 
+<a id="266"></a>
+
 ### #266: Matching service degradation due to large number of task lists
 
 | Field | Value |
@@ -25315,6 +25967,8 @@ Is this problem still happening @yiminc? I would like to help with this.
 
 
 ---
+
+<a id="19"></a>
 
 ### #19: Clear indication that service is up and running
 
@@ -25360,6 +26014,8 @@ Docker Configuration link: https://docs.docker.com/config/containers/logging/con
 
 
 ---
+
+<a id="13"></a>
 
 ### #13: Multi-phase activities
 
@@ -25407,6 +26063,8 @@ The second option in this proposal is interesting, which is to change heartbeat 
 
 
 ---
+
+<a id="8902"></a>
 
 ### #8902: History service memory usage upward trend
 
@@ -25471,6 +26129,8 @@ Thanks in advance!
 
 
 ---
+
+<a id="8901"></a>
 
 ### #8901: Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option)
 
@@ -25597,6 +26257,8 @@ I’m new to Temporal and may be misinterpreting some aspects. Thank you for you
 
 ---
 
+<a id="8889"></a>
+
 ### #8889: Enhancing Temporal PR Review and Release Confidence with Hikaflow
 
 | Field | Value |
@@ -25638,6 +26300,8 @@ I’d love to offer a two-week trial of Hikaflow on Temporal to see if these fea
 
 ---
 
+<a id="8866"></a>
+
 ### #8866: Address security vulnerability CVE-2025-61729 for golang:crypto/x509
 
 | Field | Value |
@@ -25661,6 +26325,8 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61729](https://nvd.ni
 
 ---
 
+<a id="8865"></a>
+
 ### #8865: Address security vulnerability CVE-2025-61727 for golang:crypto/x509
 
 | Field | Value |
@@ -25683,6 +26349,8 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61727](https://nvd.ni
 
 
 ---
+
+<a id="8864"></a>
 
 ### #8864: Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state."
 
@@ -25866,6 +26534,8 @@ kubectl port-forward services/temporal-web 8080:8080
 
 ---
 
+<a id="8833"></a>
+
 ### #8833: Scheduler does not list workflows runned when using "triggerImmediately"
 
 | Field | Value |
@@ -25931,6 +26601,8 @@ console.log((await client.schedule.getHandle(scheduleId).describe()).info.runnin
 
 ---
 
+<a id="8790"></a>
+
 ### #8790: history_node table keeps growing
 
 | Field | Value |
@@ -25967,6 +26639,8 @@ but , history_node table keep growing, now has 19402165 count
 
 
 ---
+
+<a id="8652"></a>
 
 ### #8652: Documenting the current state of ScyllaDB as a Cassandra-compatible Backend
 
@@ -26019,6 +26693,8 @@ Thanks a lot in advance!
 
 ---
 
+<a id="8648"></a>
+
 ### #8648: Add ExecutionStatus to visibility columns for archived executions
 
 | Field | Value |
@@ -26044,6 +26720,8 @@ Ask is to please add ExecutionStatus as one of the exported search attributes fo
 
 
 ---
+
+<a id="8631"></a>
 
 ### #8631: Trying to create search attribute that already exists should return error
 
@@ -26081,6 +26759,8 @@ Ask is to change this code on server to return serviceError instead that tells c
 
 
 ---
+
+<a id="8579"></a>
 
 ### #8579: Addressing security vulnerabilities in the Temporalio/server:1.29 1.29.1
 
@@ -26128,6 +26808,8 @@ CVE-2025-9231 | LOW | None | openssl | 3.5.0-r0 | 3.5.4-r0
 
 ---
 
+<a id="8538"></a>
+
 ### #8538: Provide user identity on user-initiated events
 
 | Field | Value |
@@ -26152,6 +26834,8 @@ Need something like `HistoryEvent.user_identity` that is set for any events that
 
 
 ---
+
+<a id="8097"></a>
 
 ### #8097: Carryover instead of reject incoming signals upon continueAsNew
 
@@ -26189,6 +26873,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="8074"></a>
+
 ### #8074: [FR] - ResetWithSignal
 
 | Field | Value |
@@ -26217,6 +26903,8 @@ Use case would be to be able to add some extra information with reset with this 
 
 ---
 
+<a id="8039"></a>
+
 ### #8039: Expose activity last failure info via PollActivityTaskQueueResponse
 
 | Field | Value |
@@ -26243,6 +26931,8 @@ Would allow users to check last failure info within their activity code and able
 
 ---
 
+<a id="8006"></a>
+
 ### #8006: Is it possible to dynamially customize what labels are shown for activities in the Event History diagram?
 
 | Field | Value |
@@ -26265,6 +26955,8 @@ Let's say I have a workflow with 100 calls to the same activity. I want each act
 
 
 ---
+
+<a id="7940"></a>
 
 ### #7940: Allow auth headers to be sent to HTTP on localhost
 
@@ -26308,6 +27000,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="7933"></a>
+
 ### #7933: Workflow reset: add ability to set workflow run/execution timeout
 
 | Field | Value |
@@ -26331,6 +27025,8 @@ This would either override the currently set one(s) or set them if none were def
 
 
 ---
+
+<a id="7867"></a>
 
 ### #7867: Golang Upgrade
 
@@ -26356,6 +27052,8 @@ Following are the CVE id's for ref
 
 
 ---
+
+<a id="7845"></a>
 
 ### #7845: for enabling SSL in temporal engine will below properties are sufficent
 
@@ -26397,6 +27095,8 @@ environment:
 
 ---
 
+<a id="7721"></a>
+
 ### #7721: Expose API version to API users
 
 | Field | Value |
@@ -26428,6 +27128,8 @@ The first step here is to research possibilities and get consensus on how to do 
 
 ---
 
+<a id="7708"></a>
+
 ### #7708: Dev Mode Improvements (Insights from AWS Hackathon)
 
 | Field | Value |
@@ -26458,6 +27160,8 @@ Issues were from the hackathon repo https://github.com/temporal-community/tempor
 
 
 ---
+
+<a id="7576"></a>
 
 ### #7576: security vulnarablity issues in 1.27.2 (latest version) as of 05 apr 2025
 
@@ -26526,6 +27230,8 @@ temporalio/admin-tools:latest | alpine | 3.21.3 | 3.21.3 | amd64 | vulnerability
 
 ---
 
+<a id="7566"></a>
+
 ### #7566: A workflow task following ShutdownWorker should not time out if no workers are available
 
 | Field | Value |
@@ -26563,6 +27269,8 @@ The bug here is mostly cosmetic, as if there *are* other workers available on th
 
 
 ---
+
+<a id="7487"></a>
 
 ### #7487: grpc Status response to query errors contains malformed details
 
@@ -26606,6 +27314,8 @@ From my reading of the binary it looks like it's just directly serializing a htt
 
 
 ---
+
+<a id="7481"></a>
 
 ### #7481: Addressing a lot of security vulnerabilities in the Temporalio/admin-tools release temporalio/admin-tools:1.27.1
 
@@ -26678,6 +27388,8 @@ temporalio/admin-tools:1.27.1-tctl-1.18.2-cli-1.3.0
 
 ---
 
+<a id="7164"></a>
+
 ### #7164: Confirm aborted update retries schedule responsible for robustness of update to CAN
 
 | Field | Value |
@@ -26706,6 +27418,8 @@ This behavior relies on the update being aborted, and retried (our intention is 
 
 ---
 
+<a id="7048"></a>
+
 ### #7048: Handle Permission Errors in getConfigFiles Function
 
 | Field | Value |
@@ -26730,6 +27444,8 @@ https://github.com/temporalio/temporal/blob/2d8afd44c413a25c53f5fe8eecff3cbbbb78
 
 
 ---
+
+<a id="7011"></a>
 
 ### #7011: Support Markdown in Result panel
 
@@ -26764,6 +27480,8 @@ I think this would be simple to implement and be a very nice feature
 
 ---
 
+<a id="6961"></a>
+
 ### #6961: Provide already-existing run ID on StartChildWorkflowExecutionFailedEventAttributes if it failed for "already exists"
 
 | Field | Value |
@@ -26788,6 +27506,8 @@ Need the already-exists run ID on `StartChildWorkflowExecutionFailedEventAttribu
 
 
 ---
+
+<a id="6954"></a>
 
 ### #6954: IsTerminatedByResetter should not be used for checking if child workflow should report to parent
 
@@ -26837,6 +27557,8 @@ To fix the issue before state-based replication, we can:
 
 ---
 
+<a id="6952"></a>
+
 ### #6952: Extend activity retry expiration time upon reset
 
 | Field | Value |
@@ -26878,6 +27600,8 @@ To fix the issue before state-based replication, we can:
 
 ---
 
+<a id="6924"></a>
+
 ### #6924: Support custom search attributes of type Duration
 
 | Field | Value |
@@ -26912,6 +27636,8 @@ Being able to use search attributes of type `Duration` would be very useful in s
 
 ---
 
+<a id="6896"></a>
+
 ### #6896: Include command info when command fails validation
 
 | Field | Value |
@@ -26939,6 +27665,8 @@ here err does not include any info about the offending activity, would be great 
 
 
 ---
+
+<a id="6844"></a>
 
 ### #6844: Temporal 1.24.1 <- 1.23.1 upgrade error
 
@@ -27008,6 +27736,8 @@ temporal-frontend logs-
 
 ---
 
+<a id="6843"></a>
+
 ### #6843: Add small jitter timeout to the long poll empty response 
 
 | Field | Value |
@@ -27030,6 +27760,8 @@ When matching service restarts, it kills all long poll connections, and SDK woul
 
 
 ---
+
+<a id="6800"></a>
 
 ### #6800: Support activity task queue `max_tasks_per_second` even when `request_eager_execution` is set
 
@@ -27058,6 +27790,8 @@ We should support both of these working together. In the meantime, SDKs will con
 
 ---
 
+<a id="6760"></a>
+
 ### #6760: Include in-memory (sync match) backlog in `ApproximateBacklogCount`
 
 | Field | Value |
@@ -27082,6 +27816,8 @@ In those cases, and in cases where there's a high sync match rate, it's useful t
 
 
 ---
+
+<a id="6695"></a>
 
 ### #6695: disable XDC cache when not using multi-cluster replication
 
@@ -27121,6 +27857,8 @@ Ran a workload of executing a few 1000 simple workflows and the XDC cache accumu
 
 ---
 
+<a id="6680"></a>
+
 ### #6680: Coordinate CI step timeout-minutes with `go test -timeout` flag
 
 | Field | Value |
@@ -27144,6 +27882,8 @@ _Originally posted by @dnr in https://github.com/temporalio/temporal/pull/6668#d
 
 
 ---
+
+<a id="6618"></a>
 
 ### #6618: Cassandra 5 support
 
@@ -27172,6 +27912,8 @@ Thanks!
 
 
 ---
+
+<a id="6617"></a>
 
 ### #6617: hybrid architecture for Temporal
 
@@ -27232,6 +27974,8 @@ Scalability: Cassandra provides horizontal scalability, allowing it to store hug
 
 ---
 
+<a id="6600"></a>
+
 ### #6600: Standardized Documentation Format a la Swagger
 
 | Field | Value |
@@ -27272,6 +28016,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="6585"></a>
+
 ### #6585: Record a history event indicating that a Nexus operation request was delivered to the handler
 
 | Field | Value |
@@ -27294,6 +28040,8 @@ Required to support the WAIT_CANCELLATION_REQUESTED CancellationType in the SDKs
 
 
 ---
+
+<a id="6555"></a>
 
 ### #6555: Add `EdDSA` support to default JWT ClaimMapper
 
@@ -27322,6 +28070,8 @@ Add support for `EdDSA` using `Ed25519` curve.
 
 
 ---
+
+<a id="6542"></a>
 
 ### #6542: temporal-history panic
 
@@ -27399,6 +28149,8 @@ Issue might be related to https://github.com/temporalio/temporal/issues/4159
 
 ---
 
+<a id="6541"></a>
+
 ### #6541: getAnyClient with cachingRedirector problem
 
 | Field | Value |
@@ -27445,6 +28197,8 @@ That causes a broken host not to be removed from the cache.
 
 ---
 
+<a id="6529"></a>
+
 ### #6529: Certificate-filters in self-hosted version of Temporal
 
 | Field | Value |
@@ -27477,6 +28231,8 @@ Providing a solution that works similarly in both cloud and self-hosted environm
 
 
 ---
+
+<a id="6521"></a>
 
 ### #6521: Optional Activities
 
@@ -27528,6 +28284,8 @@ Slack: https://temporalio.slack.com/archives/CTRCR8RBP/p1725981611435449
 
 ---
 
+<a id="6512"></a>
+
 ### #6512: Update latency increases with number of updates sent to workflow
 
 | Field | Value |
@@ -27565,6 +28323,8 @@ In contrast, neither signal latency nor query latency show the same trend:
 
 ---
 
+<a id="6501"></a>
+
 ### #6501: Access original run id in mutable state
 
 | Field | Value |
@@ -27599,6 +28359,8 @@ A clear and concise description of any alternative solutions or features you've 
 
 ---
 
+<a id="6475"></a>
+
 ### #6475: Support registering search attributes as an option/config
 
 | Field | Value |
@@ -27625,6 +28387,8 @@ What we'd like is the ability to set search attributes. Basically something like
 
 
 ---
+
+<a id="6471"></a>
 
 ### #6471: Angie testing something (to delete)
 
@@ -27665,6 +28429,8 @@ What we'd like is the ability to set search attributes. Basically something like
 
 
 ---
+
+<a id="6468"></a>
 
 ### #6468: GenerateReplicationTasks activity of ForceReplicationWorkflow should only log not found errors opposed to returning the error as well
 
@@ -27723,6 +28489,8 @@ Due to returning the error the activity gets retried and does not make any progr
 
 ---
 
+<a id="6411"></a>
+
 ### #6411: Error: Cannot query workflow due to Workflow Task in failed state 
 
 | Field | Value |
@@ -27762,6 +28530,8 @@ PS: I am using default configs of temporal.
 
 ---
 
+<a id="6403"></a>
+
 ### #6403: Introducing quarkus-temporal
 
 | Field | Value |
@@ -27789,6 +28559,8 @@ https://docs.quarkiverse.io/quarkus-temporal/dev/index.html
 
 
 ---
+
+<a id="6364"></a>
 
 ### #6364: Add TemporalScheduledStartTime and TemporalScheduledById to the StartWorkflow Event message
 
@@ -27826,6 +28598,8 @@ The user tried using Search Attributes but found them problematic for 2 reasons:
 
 ---
 
+<a id="6339"></a>
+
 ### #6339: Update/trigger/etc activities via client
 
 | Field | Value |
@@ -27851,6 +28625,8 @@ Support updating activity options and/or triggering a backing-off activity from 
 
 ---
 
+<a id="6336"></a>
+
 ### #6336: Expose start delay in child workflow options
 
 | Field | Value |
@@ -27873,6 +28649,8 @@ See https://github.com/temporalio/features/issues/515 for more information
 
 
 ---
+
+<a id="6328"></a>
 
 ### #6328: Unit test error in v1.24.2
 
@@ -27941,6 +28719,8 @@ Runner Image Provisioner
 
 ---
 
+<a id="6320"></a>
+
 ### #6320: Multiple versioning related flakes in Go SDK test suite after upgrading to server 1.25.0-rc.0
 
 | Field | Value |
@@ -27969,6 +28749,8 @@ The cause needs to be investigated and server code fixed before we cut an offici
 
 
 ---
+
+<a id="6275"></a>
 
 ### #6275: Is there a way to detect when workflow is in a Failed State but is still "Running"
 
@@ -28005,6 +28787,8 @@ A way to detect when a workflow enters a state like this. Maybe it already exist
 
 ---
 
+<a id="6259"></a>
+
 ### #6259: Support validated/authenticated payloads
 
 | Field | Value |
@@ -28031,6 +28815,8 @@ This can be done a few ways. To me the most obvious/simplest approach is that we
 
 
 ---
+
+<a id="6253"></a>
 
 ### #6253: Expand configuration for Elastic to support serverless
 
@@ -28089,6 +28875,8 @@ Other than that, I can't really think of any alternative, besides having to set 
 
 ---
 
+<a id="6237"></a>
+
 ### #6237: Enable wildcard namespace definition when setting namespace RPS
 
 | Field | Value |
@@ -28145,6 +28933,8 @@ N/A
 
 ---
 
+<a id="6227"></a>
+
 ### #6227: Metric for Complete Workflow/Activity Failure
 
 | Field | Value |
@@ -28183,6 +28973,8 @@ If my feature request doesn't make sense, then let me present our larger scenari
 
 ---
 
+<a id="6212"></a>
+
 ### #6212: Allow configurable root path for HTTP API
 
 | Field | Value |
@@ -28207,6 +28999,8 @@ Even though our server API only listens to `/namespaces`, `/cluster`, and `/syst
 
 
 ---
+
+<a id="6211"></a>
 
 ### #6211: Flaky versioning issue when querying since 1.24
 
@@ -28237,6 +29031,8 @@ https://github.com/temporalio/sdk-dotnet/blob/a87116418c526bb76e0cc11f951d6f8648
 
 ---
 
+<a id="6210"></a>
+
 ### #6210: Lots of log noise on restarting server with sqlite persistence
 
 | Field | Value |
@@ -28265,6 +29061,8 @@ On 1.24.1 (i.e. latest CLI as of this writing). Doing a simple `temporal server 
 
 
 ---
+
+<a id="6192"></a>
 
 ### #6192: Support externally-provided unique async completion token for async activities
 
@@ -28310,6 +29108,8 @@ I'm happy to answer any more questions about our use case.
 
 ---
 
+<a id="6144"></a>
+
 ### #6144: ActivityStateReplicator should trigger history resend when mutable state is no found
 
 | Field | Value |
@@ -28342,6 +29142,8 @@ https://github.com/temporalio/temporal/blob/a29cc498bfb13771b41a2eeaeda41f4622ae
 
 ---
 
+<a id="6104"></a>
+
 ### #6104: Include Linux ARM, macOS x64/ARM, and Windows x64 in CI
 
 | Field | Value |
@@ -28366,6 +29168,8 @@ Would like test suite to run in more supported platforms than just the one Linux
 
 
 ---
+
+<a id="5853"></a>
 
 ### #5853: Cross-replicated search attributes are not persistent
 
@@ -28409,6 +29213,8 @@ No effect / change to search attributes
 
 
 ---
+
+<a id="5743"></a>
 
 ### #5743: DLQv2 operator tooling should print categoryID, source cluster, and target cluster instead of internal queue name
 
@@ -28460,6 +29266,8 @@ I didn't.
 
 
 ---
+
+<a id="5642"></a>
 
 ### #5642: dynamic-config-value invalid JSON value for key 
 
@@ -28523,6 +29331,8 @@ temporal server start-dev --ip 0.0.0.0 --dynamic-config-value \
 
 ---
 
+<a id="5634"></a>
+
 ### #5634: Use the new CLI's rewrite branch when building temporal images
 
 | Field | Value |
@@ -28551,6 +29361,8 @@ We discussed this briefly in https://github.com/temporalio/docker-builds/pull/19
 
 
 ---
+
+<a id="5604"></a>
 
 ### #5604: `temporalio/server` image 1.23.0 reports RC version
 
@@ -28599,6 +29411,8 @@ temporal version 1.23.0-rc16
 
 ---
 
+<a id="5589"></a>
+
 ### #5589: command missing in new Temporal CLI
 
 | Field | Value |
@@ -28638,6 +29452,8 @@ Have the cluster accept a list of clusters and not only a single one.
 
 
 ---
+
+<a id="5587"></a>
 
 ### #5587: dev-server crash on AddOrUpdateRemoteCluster RPC with invalid frontend address
 
@@ -28771,6 +29587,8 @@ google.golang.org/grpc.(*Server).serveStreams.func1.1
 
 ---
 
+<a id="5553"></a>
+
 ### #5553: Update license check script to verify current year is used in new files
 
 | Field | Value |
@@ -28794,6 +29612,8 @@ _Originally posted by @tdeebswihart in https://github.com/temporalio/temporal/pu
 
 
 ---
+
+<a id="5544"></a>
 
 ### #5544: Use different error when signalName is empty than errSignalNameTooLong
 
@@ -28824,6 +29644,8 @@ Thanks.
 
 
 ---
+
+<a id="5543"></a>
 
 ### #5543: Remove indexes from schema Temporal in cassandra
 
@@ -28881,6 +29703,8 @@ Thanks a lot!
 
 ---
 
+<a id="5541"></a>
+
 ### #5541: Support for nestjs
 
 | Field | Value |
@@ -28913,6 +29737,8 @@ Writing plain nodejs but the company has policies and practices (NestJs only)
 
 
 ---
+
+<a id="5510"></a>
 
 ### #5510: Ability to update schedule memo via Python SDK
 
@@ -28947,6 +29773,8 @@ N/A
 
 
 ---
+
+<a id="5493"></a>
 
 ### #5493: Automatically split history event batches when size of reapplied events are too large
 
@@ -28989,6 +29817,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="5489"></a>
 
 ### #5489: SecondaryVisbilityStore validation failed
 
@@ -29040,6 +29870,8 @@ Upon starting the server, I got the following error `persistence config: cannot 
 
 ---
 
+<a id="5461"></a>
+
 ### #5461: Add programmatic way to extract metrics port when passing `0` in config
 
 | Field | Value |
@@ -29069,6 +29901,8 @@ Have some easy way to fetch the chosen metrics port after instantiating / starti
 
 ---
 
+<a id="5454"></a>
+
 ### #5454: Identifiers length validation
 
 | Field | Value |
@@ -29096,6 +29930,8 @@ The PostgreSQL schema limits identifier lengths to 255 characters. So I set  `li
 
 
 ---
+
+<a id="5439"></a>
 
 ### #5439: Worker cache handover
 
@@ -29130,6 +29966,8 @@ This is how a user requested it:
 
 
 ---
+
+<a id="5352"></a>
 
 ### #5352: Refinement of ResourceExhausted reasons
 
@@ -29172,6 +30010,8 @@ More granular reasons for `service_errors_resource_exhausted`.
 
 ---
 
+<a id="5310"></a>
+
 ### #5310: Allow(optionally) omit activity argument/input in the activity task scheduled event to save the storage cost
 
 | Field | Value |
@@ -29206,6 +30046,8 @@ This needs server to support because the input is needed to pass to activity tas
 
 ---
 
+<a id="5306"></a>
+
 ### #5306: Defining a storage class on S3 archival
 
 | Field | Value |
@@ -29236,6 +30078,8 @@ We are considering using filestore archival instead. Either that or implementing
 
 
 ---
+
+<a id="5303"></a>
 
 ### #5303: Provide WorkflowStatus in when signing a workflow that is closed
 
@@ -29276,6 +30120,8 @@ https://github.com/temporalio/sdk-java/issues/1969
 
 
 ---
+
+<a id="5299"></a>
 
 ### #5299: Check DB Connectivity in Liveness probe
 
@@ -29321,6 +30167,8 @@ Error Details: rpc error: code = Unavailable desc = connection error: desc = "tr
 
 ---
 
+<a id="5298"></a>
+
 ### #5298: Can Child workflows inherit search attributes from a parent workflow?
 
 | Field | Value |
@@ -29353,6 +30201,8 @@ I doubt this is a bug, just a lack of understanding on my part, any assistance 
 
 
 ---
+
+<a id="5249"></a>
 
 ### #5249: Retry Policy should be copied to the continued as new workflow.
 
@@ -29391,6 +30241,8 @@ https://github.com/temporalio/temporal/blob/a6fb92999a23b35f14c06157934580351d3b
 
 ---
 
+<a id="5245"></a>
+
 ### #5245: SchedulesClientListOptions is missing SearchAttributes param
 
 | Field | Value |
@@ -29425,6 +30277,8 @@ Am I missing any other List schedules API?
 
 
 ---
+
+<a id="5133"></a>
 
 ### #5133: Failed workflow list for batch operations
 
@@ -29463,6 +30317,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="5063"></a>
 
 ### #5063: Workflow Task Timeout not always respected
 
@@ -29533,6 +30389,8 @@ index 26254d40e..9eea536df 100644
 
 ---
 
+<a id="5047"></a>
+
 ### #5047: Config option to turn off "ignoring permission in unexpected format" error message
 
 | Field | Value |
@@ -29567,6 +30425,8 @@ Other option is to change it to debug level message.
 
 
 ---
+
+<a id="5005"></a>
 
 ### #5005: Schedules: Allow overriding search attributes when backfilling
 
@@ -29611,6 +30471,8 @@ Thank you!
 
 ---
 
+<a id="4984"></a>
+
 ### #4984: Schedules: Make it possible to list buffered executions
 
 | Field | Value |
@@ -29650,6 +30512,8 @@ As it is now, buffered executions appears neither in `info.futureActionTimes`, `
 
 ---
 
+<a id="4979"></a>
+
 ### #4979: Support waiting for Admitted stage on UpdateWorkflowExecution
 
 | Field | Value |
@@ -29674,6 +30538,8 @@ When setting `UpdateWorkflowExecutionRequest.wait_policy.lifecycle_stage` to `UP
 
 
 ---
+
+<a id="4958"></a>
 
 ### #4958: GetMutableStateRequest is used in poll mutable state 
 
@@ -29709,6 +30575,8 @@ PollMutableState contains a token which may include the version history item dat
 
 ---
 
+<a id="4957"></a>
+
 ### #4957: CurrentBranchChanged Error should use event id + version as branch id
 
 | Field | Value |
@@ -29736,6 +30604,8 @@ CurrentBranchChanged now use branch token bytes as branch id
 
 
 ---
+
+<a id="4934"></a>
 
 ### #4934: The Rate and Burst functions of DynamicRateLimiterImpl are unsafe
 
@@ -29778,6 +30648,8 @@ More context here: https://github.com/temporalio/temporal/pull/4933
 
 ---
 
+<a id="4870"></a>
+
 ### #4870: Allow static JWKS for `jwtKeyProvider`
 
 | Field | Value |
@@ -29805,6 +30677,8 @@ Add a `jwkStaticKeySource` string that can contain the keys and would be equal t
 
 
 ---
+
+<a id="4749"></a>
 
 ### #4749: Support listening on both IPv4 and IPv6 networks in dual stack environments
 
@@ -29843,6 +30717,8 @@ N/A
 
 ---
 
+<a id="4745"></a>
+
 ### #4745: Replicate search attributes together with namespace
 
 | Field | Value |
@@ -29877,6 +30753,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="4703"></a>
+
 ### #4703: Add a list of datetimes to `ScheduleSpec`
 
 | Field | Value |
@@ -29901,6 +30779,8 @@ https://api-docs.temporal.io/#temporal.api.schedule.v1.ScheduleSpec
 
 
 ---
+
+<a id="4638"></a>
 
 ### #4638: History Queue Deletion & Life Cycle
 
@@ -29943,6 +30823,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="4435"></a>
+
 ### #4435: Deprecate old archival logic
 
 | Field | Value |
@@ -29965,6 +30847,8 @@ Durable archival is enabled by default in 1.20, we should be able to deprecate t
 
 
 ---
+
+<a id="4428"></a>
 
 ### #4428: Support fixed deadline timers
 
@@ -30006,6 +30890,8 @@ Originally discussed in this Temporal [Slack thread 🧵](https://temporalio.sla
 
 ---
 
+<a id="4171"></a>
+
 ### #4171: Add metrics when history service writes activity task failed to even history
 
 | Field | Value |
@@ -30031,6 +30917,8 @@ It would be imo useful to add counter metric here so that user can track how oft
 
 
 ---
+
+<a id="4149"></a>
 
 ### #4149: ​ Version v1.20.1 had slow query in temporal_visibility
 
@@ -30181,6 +31069,8 @@ It took 20 seconds to execute the SQL query.
 
 ---
 
+<a id="4117"></a>
+
 ### #4117: Take additional factors into account for suggesting continue-as-new
 
 | Field | Value |
@@ -30206,6 +31096,8 @@ See for reference: https://github.com/temporalio/api/blob/ae312b0724003957b96fb9
 
 
 ---
+
+<a id="4059"></a>
 
 ### #4059: System search attributes to find workflows that are backoff retrying an activity 
 
@@ -30240,6 +31132,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="4052"></a>
 
 ### #4052: Non-expired JWT rejected as expired by Temporal Frontend
 
@@ -30285,6 +31179,8 @@ Apparently, the “long” token validity of 24 hours is what confuses the valid
 
 ---
 
+<a id="4045"></a>
+
 ### #4045: Expose current worker identity for started pending activity
 
 | Field | Value |
@@ -30318,6 +31214,8 @@ No.
 
 
 ---
+
+<a id="4030"></a>
 
 ### #4030: Query at a specific WorkflowTaskStarted eventId
 
@@ -30354,6 +31252,8 @@ This would allow querying terminated workflows safely.
 
 
 ---
+
+<a id="4029"></a>
 
 ### #4029: Clear signal requestID on workflow close
 
@@ -30392,6 +31292,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="4028"></a>
 
 ### #4028: Signal requestID dropped upon workflow reset
 
@@ -30437,6 +31339,8 @@ I am not sure if this is expected or not, but at least existing behavior looks w
 
 ---
 
+<a id="3990"></a>
+
 ### #3990: Blacklisting workers by version and identity
 
 | Field | Value |
@@ -30466,6 +31370,8 @@ Provide an operator API to blacklist workers that have a specific version from c
 
 
 ---
+
+<a id="3988"></a>
 
 ### #3988: Add query result caching
 
@@ -30499,6 +31405,8 @@ There is a proposal to create a long poll query. But I can see the need for quer
 
 
 ---
+
+<a id="3912"></a>
 
 ### #3912: Matching with Cassandra encounters lots of tombstone for expired tasks
 
@@ -30548,6 +31456,8 @@ Slack thread: https://temporalio.slack.com/archives/CTTJCPZQE/p1675744969688159
 
 ---
 
+<a id="3700"></a>
+
 ### #3700: Archival - add ExecutionStatus to archival visibility syntax
 
 | Field | Value |
@@ -30578,6 +31488,8 @@ Please add ExecutionStatus to this so finding archived wf status does not have t
 
 
 ---
+
+<a id="3688"></a>
 
 ### #3688: Read only workflow worker
 
@@ -30615,6 +31527,8 @@ https://community.temporal.io/t/read-only-workflow-worker/6635
 
 ---
 
+<a id="3597"></a>
+
 ### #3597: Add a Cancellation Request status to DescribeWorkflowExecution API
 
 | Field | Value |
@@ -30646,6 +31560,8 @@ Polling the workflow from the UI is not feasible as we don't know when the opera
 
 
 ---
+
+<a id="3590"></a>
 
 ### #3590: GRPC_SSL_CIPHER_SUITES not respected
 
@@ -30689,6 +31605,8 @@ The default ciphers are still used
 
 ---
 
+<a id="3543"></a>
+
 ### #3543: Better memory management for zap logger
 
 | Field | Value |
@@ -30728,6 +31646,8 @@ There's a lot we could do about this. Off the top of my head:
 
 ---
 
+<a id="3536"></a>
+
 ### #3536: Allow Admin DeleteWorkflowExecution Delete by namespace ID
 
 | Field | Value |
@@ -30761,6 +31681,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="3453"></a>
 
 ### #3453: Build docker images with integer UID/GID and use the same one on all images
 
@@ -30819,6 +31741,8 @@ Also, the web container uses 5000 for the temporal user...  which is likely an u
 
 ---
 
+<a id="3436"></a>
+
 ### #3436: Integration test for metrics
 
 | Field | Value |
@@ -30842,6 +31766,8 @@ We need to build that ability and add integration test to cover some key metrics
 
 
 ---
+
+<a id="3435"></a>
 
 ### #3435: Add API for worker to signal that it is shutting down
 
@@ -30867,6 +31793,8 @@ While it is understand it might be a considerable effort and is unlikely to be p
 
 ---
 
+<a id="3381"></a>
+
 ### #3381: Causal consistency guarantee in replication
 
 | Field | Value |
@@ -30889,6 +31817,8 @@ Current replication is done at shard level, and each shard replicate independent
 
 
 ---
+
+<a id="3367"></a>
 
 ### #3367: Single active timer task per workflow
 
@@ -30921,6 +31851,8 @@ Also need the ability to delete timer if new timer created is earlier than curre
 
 ---
 
+<a id="3296"></a>
+
 ### #3296: Ensure ordering of child-workflow-sent signal and child workflow complete to the same workflow
 
 | Field | Value |
@@ -30949,6 +31881,8 @@ Provide a guarantee.
 
 
 ---
+
+<a id="3288"></a>
 
 ### #3288: Add API for setting task queue rate limiting
 
@@ -30981,6 +31915,8 @@ A gRPC method for setting a new value (takes task queue name and a number). Then
 
 
 ---
+
+<a id="3284"></a>
 
 ### #3284: Server returns status messages over metadata limit leading to connection drops and cryptic errors
 
@@ -31086,6 +32022,8 @@ It's better to receive an error message without specific commands or with a trim
 
 ---
 
+<a id="3261"></a>
+
 ### #3261: Add command: DescribeExternalWorkflowExecution
 
 | Field | Value |
@@ -31120,6 +32058,8 @@ User request: https://github.com/temporalio/features/issues/590
 
 ---
 
+<a id="3258"></a>
+
 ### #3258: Allow option for reset to terminate any currently pending child workflows
 
 | Field | Value |
@@ -31144,6 +32084,8 @@ Allow a flag to terminate the child workflow execution allowing reset command to
 
 
 ---
+
+<a id="3223"></a>
 
 ### #3223: panic: assignment to entry in nil map in `loadClusterInformationFromStore`
 
@@ -31372,6 +32314,8 @@ publicClient:
 
 ---
 
+<a id="3183"></a>
+
 ### #3183: Replace metrics and retryable client with client interceptors
 
 | Field | Value |
@@ -31399,6 +32343,8 @@ Looks like the same approach can be applied to client side as well, and avoid th
 
 
 ---
+
+<a id="3168"></a>
 
 ### #3168: Matching service optimization - Do not persist sticky workflow task
 
@@ -31435,6 +32381,8 @@ NOTE: history service will timeout the sticky workflow task & create a normal wo
 
 ---
 
+<a id="3154"></a>
+
 ### #3154: tdbg workflow show does not support pagination
 
 | Field | Value |
@@ -31457,6 +32405,8 @@ See logic: https://github.com/temporalio/temporal/blob/beb9a5a/tools/cli/adminCo
 
 
 ---
+
+<a id="3145"></a>
 
 ### #3145: Per task queue ratelimiting should only count valid activity tasks
 
@@ -31501,6 +32451,8 @@ For example when there's a backlog of expired tasks in the task buffer, all task
 
 ---
 
+<a id="3143"></a>
+
 ### #3143: Improved per task queue metrics
 
 | Field | Value |
@@ -31533,6 +32485,8 @@ An alternative would be to amend the labels for the existing metric names but th
 
 ---
 
+<a id="3133"></a>
+
 ### #3133: Publish size/number of history events for closed workflow
 
 | Field | Value |
@@ -31557,6 +32511,8 @@ We have size/number of history events whenever workflow update happens. For my c
 
 
 ---
+
+<a id="3062"></a>
 
 ### #3062: New error type for workflow already completed?
 
@@ -31598,6 +32554,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="3060"></a>
+
 ### #3060: Validate num of matching task queue partition can be decreased
 
 | Field | Value |
@@ -31628,6 +32586,8 @@ We need to validate the decrease scenario
 
 ---
 
+<a id="3025"></a>
+
 ### #3025: Ability to define execution order of async activity invocations
 
 | Field | Value |
@@ -31654,6 +32614,8 @@ User [here](https://community.temporal.io/t/async-execution-of-activities-with-g
 
 
 ---
+
+<a id="3004"></a>
 
 ### #3004: Support bypass of autoforwarding with special header
 
@@ -31689,6 +32651,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="2995"></a>
 
 ### #2995: Task Predicate Equivalence Check
 
@@ -31730,6 +32694,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="2991"></a>
+
 ### #2991: Dynamically generate task type tag value in timer/transfer queue processing
 
 | Field | Value |
@@ -31770,6 +32736,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="2968"></a>
+
 ### #2968: Support changing system workflow cron schedule
 
 | Field | Value |
@@ -31803,6 +32771,8 @@ Add any other context or screenshots about the feature request here.
 
 
 ---
+
+<a id="2918"></a>
 
 ### #2918: Persistent Coroutine Workflows
 
@@ -31850,6 +32820,8 @@ I understand that you have probably invested a lot into the Event Sourcing appro
 
 ---
 
+<a id="2915"></a>
+
 ### #2915: Dynamic config change listener 
 
 | Field | Value |
@@ -31888,6 +32860,8 @@ Add support for push model in dynamic config so that a listener can be registere
 
 ---
 
+<a id="2849"></a>
+
 ### #2849: Do not load all persistence libraries unless needed
 
 | Field | Value |
@@ -31918,6 +32892,8 @@ Few options I can think of:
 
 
 ---
+
+<a id="2800"></a>
 
 ### #2800: Do not write repeated workflow task heartbeat to the history
 
@@ -31950,6 +32926,8 @@ We already do a similar "deduping" when processing constantly failing/timing out
 
 ---
 
+<a id="2730"></a>
+
 ### #2730: Use broadcast shutdown channel
 
 | Field | Value |
@@ -31973,6 +32951,8 @@ https://github.com/temporalio/temporal/blob/master/common/channel/shutdown_once.
 
 
 ---
+
+<a id="2528"></a>
 
 ### #2528: SQL delete workflow execution does not delete all data
 
@@ -32009,6 +32989,8 @@ This is an old issue that could happen to multiple releases.
 
 ---
 
+<a id="2435"></a>
+
 ### #2435: Need detailed server-internal resource exhausted metrics
 
 | Field | Value |
@@ -32043,6 +33025,8 @@ Add any other context or screenshots about the feature request here.
 
 ---
 
+<a id="2406"></a>
+
 ### #2406: Wire up Transaction.CreateWorkflowExecution
 
 | Field | Value |
@@ -32065,6 +33049,8 @@ The Transaction.CreateWorkflowExecution() is not used anywhere. Shard context di
 
 
 ---
+
+<a id="2375"></a>
 
 ### #2375: Reduce unnecessary & duplicated data encoding
 
@@ -32096,6 +33082,8 @@ InternalWorkflowMutableState / InternalWorkflowMutation / InternalWorkflowSnapsh
 
 
 ---
+
+<a id="2282"></a>
 
 ### #2282: Flush transient ActivityTaskStarted events before closing a workflow
 
@@ -32137,6 +33125,8 @@ Temporal may utilize marker events, but this is cumbersome if the original solut
 
 ---
 
+<a id="2059"></a>
+
 ### #2059: Embed schema content within schema tool
 
 | Field | Value |
@@ -32161,6 +33151,8 @@ ref: https://github.com/temporalio/temporal/blob/08b4871/schema/sqlite/setup.go#
 
 
 ---
+
+<a id="1966"></a>
 
 ### #1966: Split resource limit exceed error into user facing & internal facing error types
 
@@ -32188,6 +33180,8 @@ Split resource limit exceed into user facing & internal facing error types
 
 ---
 
+<a id="1903"></a>
+
 ### #1903: Add WorkflowSizeInBytes as Visibility Attribute
 
 | Field | Value |
@@ -32210,6 +33204,8 @@ We recently added StateTransition count as a visibility attribute for a Complete
 
 
 ---
+
+<a id="1867"></a>
 
 ### #1867: temporal-server "hang" during SIGTERM after loss of Cassandra connection
 
@@ -32428,6 +33424,8 @@ It looks as though after hitting "read: connection reset by peer", the node is m
 
 ---
 
+<a id="1840"></a>
+
 ### #1840: Temporal Elasticsearch support for custom index creation
 
 | Field | Value |
@@ -32488,6 +33486,8 @@ There is another workaround where Custom elastic indices can be updated directly
 
 ---
 
+<a id="1757"></a>
+
 ### #1757: Document dynamic config behavior
 
 | Field | Value |
@@ -32516,6 +33516,8 @@ Document above 2 categories for easy reference.
 
 
 ---
+
+<a id="1579"></a>
 
 ### #1579: Continued submission of tasks to an orphaned task queue can lead to Cassandra tombstone scanning issues
 
@@ -32552,6 +33554,8 @@ From speaking with Samar it sounds like one possible approach is to stop using T
 
 ---
 
+<a id="1552"></a>
+
 ### #1552: Better resource limit exceeded error message
 
 | Field | Value |
@@ -32574,6 +33578,8 @@ Temporal server should include type of throttling limit & throttling QPS within 
 
 
 ---
+
+<a id="1080"></a>
 
 ### #1080: Use workflow raw history events API 
 
@@ -32602,6 +33608,8 @@ Necessary changes need to be made in frontend and both SDKs
 
 ---
 
+<a id="1041"></a>
+
 ### #1041: Ensure major.minor.patch to major.minor+1.patch upgrade
 
 | Field | Value |
@@ -32626,6 +33634,8 @@ Temporal server should ensure major.minor.patch to major.minor+1.patch upgrade p
 
 
 ---
+
+<a id="1021"></a>
 
 ### #1021: Maintenance workflow cleanup stale queue tasks
 
@@ -32657,6 +33667,8 @@ Similar implementation like: https://github.com/temporalio/temporal/tree/master/
 
 ---
 
+<a id="973"></a>
+
 ### #973: Support of batch activity
 
 | Field | Value |
@@ -32682,6 +33694,8 @@ Add support of batch activity execution and batch wait to same unnecessary comma
 
 ---
 
+<a id="972"></a>
+
 ### #972: Have a Deleted state for entities state machine in mutable state
 
 | Field | Value |
@@ -32706,6 +33720,8 @@ Conduct a design discussion about possibility of NOT deleting record from Cassan
 
 
 ---
+
+<a id="940"></a>
 
 ### #940: Unify all persistence TTL handling logic
 
@@ -32741,6 +33757,8 @@ N/A
 
 ---
 
+<a id="939"></a>
+
 ### #939: Persistence Layer Unified Serialization / Deserialization
 
 | Field | Value |
@@ -32774,6 +33792,8 @@ N/A
 
 
 ---
+
+<a id="926"></a>
 
 ### #926: Add configurable initialDelay for Cron job setup for the first run
 
@@ -32810,6 +33830,8 @@ N/A
 
 ---
 
+<a id="891"></a>
+
 ### #891: History service should pause accepting new signals if worker cannot keep up.
 
 | Field | Value |
@@ -32843,6 +33865,8 @@ N/A
 
 
 ---
+
+<a id="881"></a>
 
 ### #881: Matching Service Task Queue Metadata Management
 
@@ -32886,6 +33910,8 @@ Possibly related issue: #459
 
 ---
 
+<a id="852"></a>
+
 ### #852: Support in mem TLS configuration / data for PostgreSQL
 
 | Field | Value |
@@ -32920,6 +33946,8 @@ N/A
 
 ---
 
+<a id="848"></a>
+
 ### #848: Support blue/green cluster deployment with incompatible cluster membership changes
 
 | Field | Value |
@@ -32948,6 +33976,8 @@ Provide a mechanism to not distribute history and matching shards to the newly a
 
 
 ---
+
+<a id="810"></a>
 
 ### #810: Revisit persistence interface (SQL / NoSQL) before modularization
 
@@ -32982,6 +34012,8 @@ N/A
 
 ---
 
+<a id="791"></a>
+
 ### #791: Revisit matching engine ListTaskQueue functionality
 
 | Field | Value |
@@ -33005,6 +34037,8 @@ https://github.com/temporalio/temporal/blob/36525fad464757f59d1e963ccba3b3c46aff
 
 
 ---
+
+<a id="741"></a>
 
 ### #741: Support reset starting from an activity of a specific type.
 
@@ -33038,6 +34072,8 @@ Support reset that accepts an activity type and status (OK, Failed, Any) and res
 
 ---
 
+<a id="699"></a>
+
 ### #699: History Engine refactoring
 
 | Field | Value |
@@ -33066,6 +34102,8 @@ TestEngineSuite
 
 ---
 
+<a id="689"></a>
+
 ### #689: Add dynamic config knob to limit maximum duration for Timers
 
 | Field | Value |
@@ -33088,6 +34126,8 @@ Administrators may want to enforcer that Workflow Timers beyond a certain durati
 
 
 ---
+
+<a id="677"></a>
 
 ### #677: Support for loading history events using size of batches rather than count
 
@@ -33126,6 +34166,8 @@ loaded from DB.  Issue #675
 
 ---
 
+<a id="675"></a>
+
 ### #675: Rate limiting pagination based on history sizes
 
 | Field | Value |
@@ -33159,6 +34201,8 @@ which goes over configured quota.
 
 ---
 
+<a id="595"></a>
+
 ### #595: Allow configuration of archival config through docker
 
 | Field | Value |
@@ -33191,6 +34235,8 @@ Update [config_template.yaml](https://github.com/temporalio/temporal/blob/master
 
 ---
 
+<a id="589"></a>
+
 ### #589: listTaskQueuePartitions in MatchingService matching engine needs unit tests
 
 | Field | Value |
@@ -33213,6 +34259,8 @@ There was a fairly blatant bug in the implementation of the API (have to go back
 
 
 ---
+
+<a id="574"></a>
 
 ### #574: Background scan to remove unnecessary timers
 
@@ -33248,6 +34296,8 @@ One thing to consider is that we use range deletes when cleaning up timer queues
 
 
 ---
+
+<a id="550"></a>
 
 ### #550: creating a dev environment using podman instead of docker-compose
 
@@ -33322,6 +34372,8 @@ spec:
 
 ---
 
+<a id="373"></a>
+
 ### #373: Change ParentClosePolicy to struct and add applyOnParentContinueAsNew
 
 | Field | Value |
@@ -33352,6 +34404,8 @@ applyOnParentContinueAsNew. When applyOnParentContinueAsNew is set to true then 
 
 ---
 
+<a id="309"></a>
+
 ### #309: Make long poll interval configurable through the service config
 
 | Field | Value |
@@ -33374,6 +34428,8 @@ Currently long poll intervals are hardcoded and cannot be changed as it is going
 
 
 ---
+
+<a id="294"></a>
 
 ### #294: Return LongPollExpirationInterval on poll call results
 
@@ -33398,6 +34454,8 @@ This way worker code can adjust automatically for the correct long poll interval
 
 
 ---
+
+<a id="293"></a>
 
 ### #293: Fix names of dynamic config properties
 
@@ -33425,6 +34483,8 @@ https://github.com/temporalio/temporal/blob/master/common/service/dynamicconfig/
 
 
 ---
+
+<a id="84"></a>
 
 ### #84: Group and categorize tests
 

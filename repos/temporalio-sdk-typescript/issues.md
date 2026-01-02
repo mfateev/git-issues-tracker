@@ -37,154 +37,154 @@
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
-| [#1334](#1334-feature-request-run-temporal-worker-in-bun) | 46 | 46 | [Feature Request] Run temporal worker in bun |
-| [#1755](#1755-feature-request-temporal-integration-for-openaiagents) | 19 | 7 | [Feature Request] Temporal integration for `@openai/agents` |
-| [#483](#483-feature-request-nestjs-transport-integration) | 4 | 37 | [Feature Request] NestJS Transport / Integration? |
-| [#928](#928-bug-jest-detects-open-handles) | 7 | 26 | [Bug] Jest detects open handles |
-| [#1658](#1658-feature-request-add-support-for-opentelemetry-v2) | 19 | 1 | [Feature Request] Add support for opentelemetry v2 |
-| [#207](#207-feature-request-enable-in-browser-usage-of-grpc-client) | 9 | 7 | [Feature Request] Enable in-browser usage of gRPC client |
-| [#1615](#1615-bug-cannot-use-temporal-with-nextjs-15-because-workflowtypes-come-from-function-names) | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because workflowTypes come from function names |
-| [#1499](#1499-feature-request-native-request-batching-to-prevent-received-message-larger-than-max-errors) | 7 | 0 | [Feature Request] Native Request Batching to Prevent "received message larger than max" Errors |
-| [#933](#933-feature-request-create-a-separate-core-library-for-workflows-that-does-not-include-bundler-deps) | 6 | 2 | [Feature Request] Create a separate "core" library for workflows that does not include bundler deps. |
-| [#1443](#1443-bug-failure-to-start-ephemeral-server-prevents-shutdown-of-the-process) | 6 | 1 | [Bug] Failure to start ephemeral server prevents shutdown of the process |
-| [#1749](#1749-bug-workflow-task-not-found-after-sdk-upgrade) | 4 | 4 | [Bug] Workflow task not found after SDK upgrade |
-| [#1233](#1233-bug-nyc-test-coverage-is-excessively-difficult-to-use-correctly) | 0 | 12 | [Bug] `nyc-test-coverage` is excessively difficult to use correctly |
-| [#1432](#1432-feature-request-simplify-proper-usage-of-asynclocalstorage-in-workflow-context) | 5 | 1 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` in Workflow context |
-| [#1280](#1280-bundle-using-vite) | 3 | 5 | Bundle using Vite |
-| [#868](#868-feature-request-add-lint-rule-that-prevents-query-handlers-from-mutating-state) | 0 | 11 | [Feature Request] Add lint rule that prevents Query handlers from mutating state |
-| [#939](#939-bug-worker-crashes-with-async-hook-stack-has-become-corrupted-on-workflow-task-timeout) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout |
-| [#1790](#1790-bug-replay-workflow-history-fails-with-nondeterminism-error-child-workflow-ids-do-not-match) | 0 | 9 | [Bug] Replay workflow history fails with nondeterminism error, child workflow ids do not match |
-| [#754](#754-feature-request-add-friendly-version-of-listworkflowexecutions) | 1 | 7 | [Feature Request] Add friendly version of listWorkflowExecutions |
-| [#1621](#1621-feature-request-include-musl-based-shared-library-in-package) | 4 | 0 | [Feature Request] Include musl-based shared library in package |
-| [#1587](#1587-bug-using-async-functions-degrades-performance) | 1 | 6 | [Bug] Using async functions degrades performance |
-| [#1557](#1557-feature-request-allow-opt-out-of-workflow-isolation) | 0 | 8 | [Feature Request] allow opt-out of workflow isolation |
-| [#1362](#1362-feature-request-workerrunreplayhistory-should-accept-a-serialized-history-object-fetched-using-fetchhistory) | 2 | 4 | [Feature Request] Worker.runReplayHistory() should accept a serialized History object fetched using fetchHistory() |
-| [#1292](#1292-bug-esm-custom-payload-converters-cannot-be-loaded) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
-| [#1021](#1021-feature-request-async-generator-for-cancellationscope) | 0 | 8 | [Feature Request] async generator for cancellationScope |
-| [#1866](#1866-bug-signal-caused-condition-to-fail-with-cancelledfailure-on-1140) | 1 | 5 | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
-| [#1325](#1325-bug-throwing-an-exception-from-a-workflow-may-result-in-failed-to-activate-workflow-due-to-datacloneerror) | 2 | 3 | [Bug] Throwing an exception from a workflow may result in `Failed to activate workflow` due to `DataCloneError` |
-| [#1008](#1008-feature-request-provide-more-output-when-webpack-fails) | 2 | 3 | [Feature Request] Provide more output when webpack fails |
-| [#665](#665-feature-request-allow-for-easy-mocking) | 0 | 7 | [Feature Request] Allow for easy mocking  |
-| [#1351](#1351-feature-request-support-updating-schedule-by-cronexpression) | 2 | 2 | [Feature Request] Support updating schedule by cronExpression |
-| [#915](#915-feature-request-emit-metrics-from-client-connection) | 3 | 0 | [Feature Request] Emit metrics from client connection |
-| [#1668](#1668-bug-common-package-not-importing-typesms) | 2 | 1 | [Bug] common package not importing @types/ms |
-| [#1663](#1663-bug-cant-use-structuredclone-in-workflow-code) | 0 | 5 | [Bug] Can't use structuredClone in workflow code |
-| [#1458](#1458-feature-request-support-passing-preloaded-data-converters-to-client) | 2 | 1 | [Feature Request] Support passing preloaded data converters to Client |
-| [#1308](#1308-chore-add-tests-to-assert-proper-type-rules-on-all-user-defined-function-with-args-apis) | 0 | 5 | [Chore] Add tests to assert proper type rules on all "user defined function with args" APIs |
-| [#1800](#1800-feature-request-provide-a-way-to-distinguish-error-types-in-logs-from-typescript-sdk-errors-lose-type-info-across-worker---workflow) | 2 | 0 | [Feature Request] Provide a way to distinguish error types in logs from TypeScript SDK (errors lose type info across Worker <-> Workflow) |
-| [#1738](#1738-bug-opentelemetry-tracestate-is-handled-properly-in-makeworkflowexporter) | 0 | 4 | [Bug] opentelemetry traceState is handled properly in  makeWorkflowExporter |
-| [#1718](#1718-feature-request-lazily-load-webpack) | 0 | 4 | [Feature Request] Lazily load webpack |
-| [#1177](#1177-feature-request-forward-cores-metrics-to-typescript-land) | 0 | 4 | [Feature Request] Forward Core's metrics to TypeScript-land |
-| [#564](#564-bug-heartbeat-details-should-be-array) | 0 | 4 | [Bug] Heartbeat details should be array? |
-| [#561](#561-docs-versionize-documentation) | 0 | 4 | [Docs] Versionize documentation |
-| [#472](#472-feature-request-eslint-plugin) | 0 | 4 | [Feature Request] eslint plugin |
-| [#1772](#1772-extractsourcemap-takes-a-huge-amount-of-ram-on-boot) | 0 | 3 | extractSourceMap takes a huge amount of RAM on boot |
-| [#1740](#1740-bug-webpackconfighook-doesnt-seem-to-suppress-all-webpack-output) | 1 | 1 | [Bug] webpackConfigHook doesn't seem to suppress all webpack output |
-| [#1601](#1601-result-of-envrun-is-not-inferring-type-returning-unknown) | 0 | 3 | result of env.run is not inferring type, returning `unknown` |
-| [#1489](#1489-bug-critical-dependency-the-request-of-a-dependency-is-an-expression) | 0 | 3 | [Bug] Critical dependency: the request of a dependency is an expression |
-| [#1332](#1332-feature-request-testworkflowenvironment-should-support-non-spawned-servers) | 1 | 1 | [Feature Request] `TestWorkflowEnvironment` should support non-spawned servers |
-| [#1309](#1309-bug-comment-unclear-on-when-activities-are-cancelled-after-calling-workershutdown) | 0 | 3 | [Bug] Comment unclear on when activities are cancelled after calling `Worker.shutdown` |
-| [#998](#998-feature-request-add-built-in-support-for-context-propagators) | 0 | 3 | [Feature Request] Add built-in support for context propagators |
-| [#740](#740-feature-request-add-childworkflowhandlecancel) | 1 | 1 | [Feature Request] Add `ChildWorkflowHandle.cancel()` |
-| [#1864](#1864-feature-request-update-ai-sdk-integration-to-v6) | 1 | 0 | [Feature Request] Update AI SDK integration to v6 |
-| [#1859](#1859-bug-high-cpu-usage-with-otel-instrumentation-when-updating-to-v113x) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x |
-| [#1796](#1796-bug-changes-in-type-inference-of-activity-return-type-in-sdk-1122) | 1 | 0 | [Bug] Changes in type inference of activity return type in SDK 1.12.2 |
-| [#1744](#1744-bug-nde-replaying-nested-promises) | 1 | 0 | [Bug] NDE replaying nested promises |
-| [#1736](#1736-feature-request-masksanitize-client-sensitive-data-references) | 1 | 0 | [Feature Request] Mask/sanitize client sensitive data references |
-| [#1733](#1733-bug-retrypolicymaximumattempt-0-throws-while-it-is-documented-as-a-valid-value-for-unlimited) | 0 | 2 | [Bug] `RetryPolicy.maximumAttempt === 0` throws, while it is documented as a valid value for "unlimited" |
-| [#1700](#1700-feature-request-executechild-to-use-passed-headers) | 1 | 0 | [Feature Request] executeChild to use passed headers |
-| [#1675](#1675-feature-request-support-aggregateerror) | 1 | 0 | [Feature Request] support AggregateError |
-| [#1594](#1594-bug-first-schedule-action-started-using-triggerimmediately-flag-does-not-honor-the-schedules-overlap-policy) | 1 | 0 | [Bug] First schedule action started using triggerImmediately flag does not honor the schedule's overlap policy |
-| [#1580](#1580-bug-workflows-getting-stuck-after-cancellation-spurious-workflowtaskfailed-errors) | 0 | 2 | [Bug] Workflows getting stuck after cancellation (spurious WorkflowTaskFailed errors) |
-| [#1578](#1578-bug-worker-fails-to-start-if-node-option---abort-on-uncaught-exception-is-set) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-uncaught-exception is set |
-| [#1537](#1537-bug-workflow-lifecycle-logging-is-misleading) | 0 | 2 | [Bug] Workflow lifecycle logging is misleading |
-| [#1389](#1389-bug-inconsistent-type-definition-of-workflow-arguments) | 0 | 2 | [Bug] Inconsistent Type Definition of Workflow Arguments |
-| [#1375](#1375-feature-request-queueing-a-workflow) | 0 | 2 | [Feature Request] Queueing a workflow |
-| [#1144](#1144-feature-request-add-support-for-capturing-workflow-test-coverage-data-using-jest) | 0 | 2 | [Feature Request] Add support for capturing Workflow test coverage data using Jest |
-| [#1113](#1113-feature-request-create-a-npx-temporaliodoctor-command) | 1 | 0 | [Feature Request] Create a `npx @temporalio/doctor` command |
-| [#1112](#1112-bug-workflow-bundler-does-not-deny-usage-of-the-process-global-variable) | 0 | 2 | [Bug] Workflow Bundler does not deny usage of the `process` global variable |
-| [#982](#982-incompatible-with-allowsyntheticdefaultimports-set-to-false) | 0 | 2 | Incompatible with allowSyntheticDefaultImports set to false |
-| [#959](#959-bug-broken-links-and-hierarchy) | 0 | 2 | [Bug] Broken links and hierarchy |
-| [#813](#813-feature-request-less-boiler-plate) | 0 | 2 | [Feature Request] Less boiler plate. |
-| [#783](#783-feature-request-better-nx-support) | 1 | 0 | [Feature Request] Better Nx support |
-| [#773](#773-bug-payloadtojson-from-from-temporaliocommonlibproto-utils-does-not-generate-vaild-proto-json) | 0 | 2 | [Bug] payloadToJSON from from @temporalio/common/lib/proto-utils does not generate vaild proto JSON |
-| [#470](#470-feature-request-terminatedfailure-missing-details) | 0 | 2 | [Feature Request] TerminatedFailure missing "details" |
-| [#1756](#1756-bug-hostname-is-overly-restrictive) | 0 | 1 | [Bug] Hostname is overly restrictive |
-| [#1661](#1661-feature-request-serialization-context-for-codecs-and-converters) | 0 | 1 | [Feature Request] Serialization context for codecs and converters |
-| [#1660](#1660-bug-resourceexhausted-error-while-describing-workflow-schedule) | 0 | 1 | [Bug] RESOURCE_EXHAUSTED error while describing workflow schedule |
-| [#1656](#1656-bug-workflow-type-is-incorrectly-deduced-when-using-bind-on-workflow-function) | 0 | 1 | [Bug] Workflow type is incorrectly deduced when using `bind` on workflow function |
-| [#1652](#1652-bug-throw-on-usage-of-workflow-apis-that-modify-state-from-non-replayable-context) | 0 | 1 | [Bug] Throw on usage of Workflow APIs that modify state from non-replayable context |
-| [#1431](#1431-feature-request-make-it-easier-to-diagnose-failures-to-connect-to-temporal-cloud-due-to-incorrect-serverrootcacertificate) | 0 | 1 | [Feature Request] Make it easier to diagnose failures to connect to Temporal Cloud due to incorrect `serverRootCACertificate` |
-| [#1331](#1331-feature-request-schedule-creation-should-create-tracing-span-by-default) | 0 | 1 | [Feature Request] Schedule creation should create tracing span by default |
-| [#1274](#1274-bug-error-not-serialized-fully-when-sent-to-sinks) | 0 | 1 | [Bug] Error not serialized fully when sent to Sinks |
-| [#1222](#1222-feature-request-expose-originalexecutionrunid-in-workflowinfo) | 0 | 1 | [Feature Request] Expose `originalExecutionRunId` in `workflowInfo` |
-| [#1059](#1059-docs-types-are-missing-in-the-left-nav-bar-of-the-exported-api-documentation) | 0 | 1 | [docs] Types are missing in the left nav bar of the exported API documentation |
-| [#1007](#1007-feature-request-expose-currently-configured-payload-converter-to-workflow-code) | 0 | 1 | [Feature Request] Expose currently configured payload converter to workflow code |
-| [#958](#958-feature-request-improve-experience-of-including-workflow-modules-that-have-a-browser-field) | 0 | 1 | [Feature Request] Improve experience of including workflow modules that have a `browser` field |
-| [#938](#938-feature-request-formally-validate-public-api-modification-between-releases) | 0 | 1 | [Feature Request] Formally validate public API modification between releases |
-| [#776](#776-feature-request-expose-internal-non-workflow-common-functionality) | 0 | 1 | [Feature Request] Expose internal-non-workflow-common functionality |
-| [#739](#739-docs-rank-functions-higher-in-search) | 0 | 1 | [Docs] Rank functions higher in search |
-| [#668](#668-feature-request-provide-workflowinfoinitiator) | 0 | 1 | [Feature Request] Provide WorkflowInfo.initiator? |
-| [#384](#384-feature-request-add-actual-span-time-to-spans-create-by-workflow-otel-interceptors) | 0 | 1 | [Feature Request] Add actual span time to spans create by workflow otel interceptors |
-| [#1867](#1867-feature-request-per-worker-logger) | 0 | 0 | [Feature Request] Per-Worker Logger |
-| [#1862](#1862-feature-request-importing-workflow-into-activity-dependency-causes-grpc-failed-to-connect-before-the-deadline-error) | 0 | 0 | [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error |
-| [#1860](#1860-bug-performance-regression-from-1131---1132) | 0 | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
-| [#1858](#1858-bug-unable-to-import-reflect-metadata-within-workflow-bundle) | 0 | 0 | [Bug] unable to import reflect-metadata within workflow bundle |
-| [#1854](#1854-feature-request-correct-docs-for-otelcollectorexporter) | 0 | 0 | [Feature Request] Correct docs for OtelCollectorExporter |
-| [#1851](#1851-feature-request-support-non-workflow-activities) | 0 | 0 | [Feature Request] Support non-workflow activities |
-| [#1850](#1850-feature-request-implement-otel-interceptors-v1-as-plugin) | 0 | 0 | [Feature Request] Implement OTel interceptors v1 as Plugin |
-| [#1843](#1843-default-maxcachedworkflows-calculation-doesnt-account-for-vm-isolate-memory-being-outside-v8-heap) | 0 | 0 | Default maxCachedWorkflows calculation doesn't account for VM isolate memory being outside V8 heap |
-| [#1838](#1838-bug-workflowexecutionalreadystartederror-should-contain-runid-if-provided-by-server) | 0 | 0 | [Bug] `WorkflowExecutionAlreadyStartedError` should contain `runId` if provided by server |
-| [#1824](#1824-feature-request-allow-overriding-of-the-worker-deployment-version-when-invoking-a-child-workflow) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
-| [#1782](#1782-feature-request-ensure-tests-exist-to-confirm-custom-slot-supplier-slot-info-has-proper-fields) | 0 | 0 | [Feature Request] Ensure tests exist to confirm custom slot supplier slot info has proper fields |
-| [#1779](#1779-bug-temporaliointerceptors-opentelemetry-otel-bypasses-a-required-sdk-component) | 0 | 0 | [Bug] `@temporalio/interceptors-opentelemetry` OTEL bypasses a required SDK component |
-| [#1775](#1775-feature-request-support-for-creating-v7-uuids-from-within-workflow-tasks) | 0 | 0 | [Feature Request] Support for creating v7 UUIDs from within Workflow Tasks |
-| [#1739](#1739-feature-request-add-activitycontextworkershuttingdown) | 0 | 0 | [Feature Request] Add `ActivityContext.workerShuttingDown` |
-| [#1722](#1722-feature-request-include-error-details-on-every-errors-thrown-from-client-api) | 0 | 0 | [Feature Request] Include error details on every errors thrown from Client API |
-| [#1721](#1721-bug-error-thrown-from-clients-update-with-start-doesnt-show-proper-message) | 0 | 0 | [Bug] Error thrown from Client's Update-with-Start doesn't show proper message |
-| [#1717](#1717-bug-protobuf-payload-converter-is-broken-after-upgrading-to-protobufjs-752) | 0 | 0 | [Bug] Protobuf Payload Converter is broken after upgrading to protobufjs 7.5.2 |
-| [#1716](#1716-typescript-worker-versioning-high-level-client) | 0 | 0 | [TypeScript] Worker Versioning high level client |
-| [#1715](#1715-if-a-serializable-value-is-provided-as-a-searchattribute-serialize-it-instead-of-throwing-the-error-searchattribute-values-must-arrays-of-strings-numbers-booleans-or-dates-the-value-at-index-0-is-of-type-object) | 0 | 0 | If a serializable value is provided as a SearchAttribute, serialize it instead of throwing the error: "SearchAttribute values must arrays of strings, numbers, booleans, or Dates. The value * at index 0 is of type object" |
-| [#1713](#1713-feature-request-pass-webpack-obj-as-the-second-parameter-when-calling-webpackconfighook) | 0 | 0 | [Feature Request] Pass webpack obj as the second parameter when calling webpackConfigHook |
-| [#1710](#1710-feature-request-better-type-inference-for-mockactivityenvironmentrun) | 0 | 0 | [Feature Request] Better type inference for `MockActivityEnvironment.run` |
-| [#1703](#1703-feature-request-complete-work-on-supporting-client-over-nativeconnection) | 0 | 0 | [Feature Request] Complete work on supporting `Client` over `NativeConnection` |
-| [#1702](#1702-bug-test-suite-timeout-on-first-run) | 0 | 0 | [Bug] Test suite timeout on first run |
-| [#1696](#1696-feature-request-otel-exporter-error-handling) | 0 | 0 | [Feature Request] Otel exporter error handling |
-| [#1687](#1687-bug-temporal-local-env-cannot-be-connected-in-unit-tests) | 0 | 0 | [Bug] Temporal local env cannot be connected in unit tests |
-| [#1673](#1673-feature-request-add-support-for-batched-result-retrieval-executions) | 0 | 0 | [Feature Request] Add support for batched result retrieval executions |
-| [#1653](#1653-bug-broken-documentation-link) | 0 | 0 | [Bug] Broken Documentation Link |
-| [#1647](#1647-feature-request-add-summary-to-nexus-operation) | 0 | 0 | [Feature Request] Add summary to Nexus operation |
-| [#1635](#1635-feature-request-rehydrate-typedsearchattributes-for-sinks-or-provide-workflowinfo-variant) | 0 | 0 | [Feature Request] Rehydrate TypedSearchAttributes for sinks or provide WorkflowInfo variant |
-| [#1626](#1626-expose-workflow-cancel-causereason) | 0 | 0 | Expose Workflow cancel cause/reason |
-| [#1616](#1616-feature-request-add-memoization-support-to-thepatched-api) | 0 | 0 | [Feature Request] Add memoization support to the`patched()` API |
-| [#1549](#1549-feature-request-auto-skip-time-in-time-skipping-testing-environment-when-waiting-on-update-result) | 0 | 0 | [Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result |
-| [#1542](#1542-feature-request-allow-update-validators-to-be-async) | 0 | 0 | [Feature Request] Allow Update Validators to be async |
-| [#1512](#1512-bug-payload-converter-error-can-crash-worker) | 0 | 0 | [Bug] Payload converter error can crash worker |
-| [#1486](#1486-review-use-of-untrackpromise-in-update-implementation) | 0 | 0 | Review use of `untrackPromise` in update implementation |
-| [#1472](#1472-feature-request-add-website-documentation-for-updates) | 0 | 0 | [Feature Request] Add website documentation for updates |
-| [#1420](#1420-feature-request-clean-api-to-intentionally-fail-an-activity-in-long-polling-patterns) | 0 | 0 | [Feature Request] Clean API to intentionally fail an activity in long-polling patterns |
-| [#1418](#1418-feature-request-failures-thrown-from-within-the-update-handler-should-be-able-to-fail-the-workflow) | 0 | 0 | [Feature Request] Failures thrown from within the update handler should be able to fail the workflow |
-| [#1415](#1415-chore-update-repo-to-npm-7-workspaces) | 0 | 0 | [chore] Update repo to NPM 7 workspaces |
-| [#1412](#1412-feature-request-client-replacement-in-worker) | 0 | 0 | [Feature Request] Client replacement in worker |
-| [#1405](#1405-bug-check-worker-code-for-unsafe-type-assertions) | 0 | 0 | [Bug] Check worker code for unsafe type assertions |
-| [#1358](#1358-feature-request-configurable-workflow-failure-exception-types) | 0 | 0 | [Feature Request] Configurable workflow failure exception types |
-| [#1337](#1337-feature-request-add-workflow-update-tests-to-nightly-suite) | 0 | 0 | [Feature Request] Add workflow update tests to nightly suite |
-| [#1289](#1289-feature-request-allow-manual-pagination-when-listing-workflows) | 0 | 0 | [Feature Request] Allow manual pagination when listing workflows |
-| [#1258](#1258-feature-request-provide-nicer-error-messages-on-tls-ca-cert-not-found-errors) | 0 | 0 | [Feature Request] Provide nicer error messages on TLS CA cert not found errors |
-| [#1174](#1174-bug-sdk-should-drop-signals-for-which-it-cannot-decode-payloads) | 0 | 0 | [Bug] SDK should drop signals for which it cannot decode payloads |
-| [#1139](#1139-feature-request-temporalfailure-from-converters-and-codecs-should-be-able-to-fail-the-workflow-not-task) | 0 | 0 | [Feature Request] TemporalFailure from converters and codecs should be able to fail the workflow not task |
-| [#1054](#1054-add-telemetryoptionslogging-object-format-to-api-ref) | 0 | 0 | Add `TelemetryOptions.logging` object format to API ref |
-| [#1010](#1010-validate-single-version-of-packages) | 0 | 0 | Validate single version of packages |
-| [#962](#962-feature-request-allow-creating-patches-before-the-workflow-has-started) | 0 | 0 | [Feature Request] Allow creating patches before the workflow has started |
-| [#945](#945-feature-request-add-client-interceptor-for-list-and-fetchhistory) | 0 | 0 | [Feature Request] Add client interceptor for `list` and `fetch_history` |
-| [#830](#830-feature-request-remove-sourcemap-and-sourcemappath) | 0 | 0 | [Feature Request] Remove `sourceMap` and `sourceMapPath` |
-| [#828](#828-feature-request-throw-when-heartbeat-is-called-from-local-activities) | 0 | 0 | [Feature Request] Throw when `heartbeat()` is called from Local Activities |
-| [#730](#730-docs-make-method-overloads-more-obvious-in-docs) | 0 | 0 | [Docs] Make method overloads more obvious in docs |
-| [#555](#555-feature-request-remote-codec-converter) | 0 | 0 | [Feature Request] Remote codec converter |
-| [#514](#514-feature-request-run-headers-through-codec) | 0 | 0 | [Feature Request] Run headers through codec |
-| [#444](#444-feature-request-warn-user-when-sending-unregistered-signal) | 0 | 0 | [Feature Request] Warn user when sending unregistered signal |
-| [#417](#417-feature-request-export-sdk-version) | 0 | 0 | [Feature Request] Export SDK version |
-| [#360](#360-make-tracing-tags-consistent-across-sdks) | 0 | 0 | Make tracing tags consistent across SDKs |
+| [#1334](#1334) | 46 | 46 | [Feature Request] Run temporal worker in bun |
+| [#1755](#1755) | 19 | 7 | [Feature Request] Temporal integration for `@openai/agents` |
+| [#483](#483) | 4 | 37 | [Feature Request] NestJS Transport / Integration? |
+| [#928](#928) | 7 | 26 | [Bug] Jest detects open handles |
+| [#1658](#1658) | 19 | 1 | [Feature Request] Add support for opentelemetry v2 |
+| [#207](#207) | 9 | 7 | [Feature Request] Enable in-browser usage of gRPC client |
+| [#1615](#1615) | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because workflowTypes come from function names |
+| [#1499](#1499) | 7 | 0 | [Feature Request] Native Request Batching to Prevent "received message larger than max" Errors |
+| [#933](#933) | 6 | 2 | [Feature Request] Create a separate "core" library for workflows that does not include bundler deps. |
+| [#1443](#1443) | 6 | 1 | [Bug] Failure to start ephemeral server prevents shutdown of the process |
+| [#1749](#1749) | 4 | 4 | [Bug] Workflow task not found after SDK upgrade |
+| [#1233](#1233) | 0 | 12 | [Bug] `nyc-test-coverage` is excessively difficult to use correctly |
+| [#1432](#1432) | 5 | 1 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` in Workflow context |
+| [#1280](#1280) | 3 | 5 | Bundle using Vite |
+| [#868](#868) | 0 | 11 | [Feature Request] Add lint rule that prevents Query handlers from mutating state |
+| [#939](#939) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout |
+| [#1790](#1790) | 0 | 9 | [Bug] Replay workflow history fails with nondeterminism error, child workflow ids do not match |
+| [#754](#754) | 1 | 7 | [Feature Request] Add friendly version of listWorkflowExecutions |
+| [#1621](#1621) | 4 | 0 | [Feature Request] Include musl-based shared library in package |
+| [#1587](#1587) | 1 | 6 | [Bug] Using async functions degrades performance |
+| [#1557](#1557) | 0 | 8 | [Feature Request] allow opt-out of workflow isolation |
+| [#1362](#1362) | 2 | 4 | [Feature Request] Worker.runReplayHistory() should accept a serialized History object fetched using fetchHistory() |
+| [#1292](#1292) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
+| [#1021](#1021) | 0 | 8 | [Feature Request] async generator for cancellationScope |
+| [#1866](#1866) | 1 | 5 | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
+| [#1325](#1325) | 2 | 3 | [Bug] Throwing an exception from a workflow may result in `Failed to activate workflow` due to `DataCloneError` |
+| [#1008](#1008) | 2 | 3 | [Feature Request] Provide more output when webpack fails |
+| [#665](#665) | 0 | 7 | [Feature Request] Allow for easy mocking  |
+| [#1351](#1351) | 2 | 2 | [Feature Request] Support updating schedule by cronExpression |
+| [#915](#915) | 3 | 0 | [Feature Request] Emit metrics from client connection |
+| [#1668](#1668) | 2 | 1 | [Bug] common package not importing @types/ms |
+| [#1663](#1663) | 0 | 5 | [Bug] Can't use structuredClone in workflow code |
+| [#1458](#1458) | 2 | 1 | [Feature Request] Support passing preloaded data converters to Client |
+| [#1308](#1308) | 0 | 5 | [Chore] Add tests to assert proper type rules on all "user defined function with args" APIs |
+| [#1800](#1800) | 2 | 0 | [Feature Request] Provide a way to distinguish error types in logs from TypeScript SDK (errors lose type info across Worker <-> Workflow) |
+| [#1738](#1738) | 0 | 4 | [Bug] opentelemetry traceState is handled properly in  makeWorkflowExporter |
+| [#1718](#1718) | 0 | 4 | [Feature Request] Lazily load webpack |
+| [#1177](#1177) | 0 | 4 | [Feature Request] Forward Core's metrics to TypeScript-land |
+| [#564](#564) | 0 | 4 | [Bug] Heartbeat details should be array? |
+| [#561](#561) | 0 | 4 | [Docs] Versionize documentation |
+| [#472](#472) | 0 | 4 | [Feature Request] eslint plugin |
+| [#1772](#1772) | 0 | 3 | extractSourceMap takes a huge amount of RAM on boot |
+| [#1740](#1740) | 1 | 1 | [Bug] webpackConfigHook doesn't seem to suppress all webpack output |
+| [#1601](#1601) | 0 | 3 | result of env.run is not inferring type, returning `unknown` |
+| [#1489](#1489) | 0 | 3 | [Bug] Critical dependency: the request of a dependency is an expression |
+| [#1332](#1332) | 1 | 1 | [Feature Request] `TestWorkflowEnvironment` should support non-spawned servers |
+| [#1309](#1309) | 0 | 3 | [Bug] Comment unclear on when activities are cancelled after calling `Worker.shutdown` |
+| [#998](#998) | 0 | 3 | [Feature Request] Add built-in support for context propagators |
+| [#740](#740) | 1 | 1 | [Feature Request] Add `ChildWorkflowHandle.cancel()` |
+| [#1864](#1864) | 1 | 0 | [Feature Request] Update AI SDK integration to v6 |
+| [#1859](#1859) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x |
+| [#1796](#1796) | 1 | 0 | [Bug] Changes in type inference of activity return type in SDK 1.12.2 |
+| [#1744](#1744) | 1 | 0 | [Bug] NDE replaying nested promises |
+| [#1736](#1736) | 1 | 0 | [Feature Request] Mask/sanitize client sensitive data references |
+| [#1733](#1733) | 0 | 2 | [Bug] `RetryPolicy.maximumAttempt === 0` throws, while it is documented as a valid value for "unlimited" |
+| [#1700](#1700) | 1 | 0 | [Feature Request] executeChild to use passed headers |
+| [#1675](#1675) | 1 | 0 | [Feature Request] support AggregateError |
+| [#1594](#1594) | 1 | 0 | [Bug] First schedule action started using triggerImmediately flag does not honor the schedule's overlap policy |
+| [#1580](#1580) | 0 | 2 | [Bug] Workflows getting stuck after cancellation (spurious WorkflowTaskFailed errors) |
+| [#1578](#1578) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-uncaught-exception is set |
+| [#1537](#1537) | 0 | 2 | [Bug] Workflow lifecycle logging is misleading |
+| [#1389](#1389) | 0 | 2 | [Bug] Inconsistent Type Definition of Workflow Arguments |
+| [#1375](#1375) | 0 | 2 | [Feature Request] Queueing a workflow |
+| [#1144](#1144) | 0 | 2 | [Feature Request] Add support for capturing Workflow test coverage data using Jest |
+| [#1113](#1113) | 1 | 0 | [Feature Request] Create a `npx @temporalio/doctor` command |
+| [#1112](#1112) | 0 | 2 | [Bug] Workflow Bundler does not deny usage of the `process` global variable |
+| [#982](#982) | 0 | 2 | Incompatible with allowSyntheticDefaultImports set to false |
+| [#959](#959) | 0 | 2 | [Bug] Broken links and hierarchy |
+| [#813](#813) | 0 | 2 | [Feature Request] Less boiler plate. |
+| [#783](#783) | 1 | 0 | [Feature Request] Better Nx support |
+| [#773](#773) | 0 | 2 | [Bug] payloadToJSON from from @temporalio/common/lib/proto-utils does not generate vaild proto JSON |
+| [#470](#470) | 0 | 2 | [Feature Request] TerminatedFailure missing "details" |
+| [#1756](#1756) | 0 | 1 | [Bug] Hostname is overly restrictive |
+| [#1661](#1661) | 0 | 1 | [Feature Request] Serialization context for codecs and converters |
+| [#1660](#1660) | 0 | 1 | [Bug] RESOURCE_EXHAUSTED error while describing workflow schedule |
+| [#1656](#1656) | 0 | 1 | [Bug] Workflow type is incorrectly deduced when using `bind` on workflow function |
+| [#1652](#1652) | 0 | 1 | [Bug] Throw on usage of Workflow APIs that modify state from non-replayable context |
+| [#1431](#1431) | 0 | 1 | [Feature Request] Make it easier to diagnose failures to connect to Temporal Cloud due to incorrect `serverRootCACertificate` |
+| [#1331](#1331) | 0 | 1 | [Feature Request] Schedule creation should create tracing span by default |
+| [#1274](#1274) | 0 | 1 | [Bug] Error not serialized fully when sent to Sinks |
+| [#1222](#1222) | 0 | 1 | [Feature Request] Expose `originalExecutionRunId` in `workflowInfo` |
+| [#1059](#1059) | 0 | 1 | [docs] Types are missing in the left nav bar of the exported API documentation |
+| [#1007](#1007) | 0 | 1 | [Feature Request] Expose currently configured payload converter to workflow code |
+| [#958](#958) | 0 | 1 | [Feature Request] Improve experience of including workflow modules that have a `browser` field |
+| [#938](#938) | 0 | 1 | [Feature Request] Formally validate public API modification between releases |
+| [#776](#776) | 0 | 1 | [Feature Request] Expose internal-non-workflow-common functionality |
+| [#739](#739) | 0 | 1 | [Docs] Rank functions higher in search |
+| [#668](#668) | 0 | 1 | [Feature Request] Provide WorkflowInfo.initiator? |
+| [#384](#384) | 0 | 1 | [Feature Request] Add actual span time to spans create by workflow otel interceptors |
+| [#1867](#1867) | 0 | 0 | [Feature Request] Per-Worker Logger |
+| [#1862](#1862) | 0 | 0 | [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error |
+| [#1860](#1860) | 0 | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
+| [#1858](#1858) | 0 | 0 | [Bug] unable to import reflect-metadata within workflow bundle |
+| [#1854](#1854) | 0 | 0 | [Feature Request] Correct docs for OtelCollectorExporter |
+| [#1851](#1851) | 0 | 0 | [Feature Request] Support non-workflow activities |
+| [#1850](#1850) | 0 | 0 | [Feature Request] Implement OTel interceptors v1 as Plugin |
+| [#1843](#1843) | 0 | 0 | Default maxCachedWorkflows calculation doesn't account for VM isolate memory being outside V8 heap |
+| [#1838](#1838) | 0 | 0 | [Bug] `WorkflowExecutionAlreadyStartedError` should contain `runId` if provided by server |
+| [#1824](#1824) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
+| [#1782](#1782) | 0 | 0 | [Feature Request] Ensure tests exist to confirm custom slot supplier slot info has proper fields |
+| [#1779](#1779) | 0 | 0 | [Bug] `@temporalio/interceptors-opentelemetry` OTEL bypasses a required SDK component |
+| [#1775](#1775) | 0 | 0 | [Feature Request] Support for creating v7 UUIDs from within Workflow Tasks |
+| [#1739](#1739) | 0 | 0 | [Feature Request] Add `ActivityContext.workerShuttingDown` |
+| [#1722](#1722) | 0 | 0 | [Feature Request] Include error details on every errors thrown from Client API |
+| [#1721](#1721) | 0 | 0 | [Bug] Error thrown from Client's Update-with-Start doesn't show proper message |
+| [#1717](#1717) | 0 | 0 | [Bug] Protobuf Payload Converter is broken after upgrading to protobufjs 7.5.2 |
+| [#1716](#1716) | 0 | 0 | [TypeScript] Worker Versioning high level client |
+| [#1715](#1715) | 0 | 0 | If a serializable value is provided as a SearchAttribute, serialize it instead of throwing the error: "SearchAttribute values must arrays of strings, numbers, booleans, or Dates. The value * at index 0 is of type object" |
+| [#1713](#1713) | 0 | 0 | [Feature Request] Pass webpack obj as the second parameter when calling webpackConfigHook |
+| [#1710](#1710) | 0 | 0 | [Feature Request] Better type inference for `MockActivityEnvironment.run` |
+| [#1703](#1703) | 0 | 0 | [Feature Request] Complete work on supporting `Client` over `NativeConnection` |
+| [#1702](#1702) | 0 | 0 | [Bug] Test suite timeout on first run |
+| [#1696](#1696) | 0 | 0 | [Feature Request] Otel exporter error handling |
+| [#1687](#1687) | 0 | 0 | [Bug] Temporal local env cannot be connected in unit tests |
+| [#1673](#1673) | 0 | 0 | [Feature Request] Add support for batched result retrieval executions |
+| [#1653](#1653) | 0 | 0 | [Bug] Broken Documentation Link |
+| [#1647](#1647) | 0 | 0 | [Feature Request] Add summary to Nexus operation |
+| [#1635](#1635) | 0 | 0 | [Feature Request] Rehydrate TypedSearchAttributes for sinks or provide WorkflowInfo variant |
+| [#1626](#1626) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#1616](#1616) | 0 | 0 | [Feature Request] Add memoization support to the`patched()` API |
+| [#1549](#1549) | 0 | 0 | [Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result |
+| [#1542](#1542) | 0 | 0 | [Feature Request] Allow Update Validators to be async |
+| [#1512](#1512) | 0 | 0 | [Bug] Payload converter error can crash worker |
+| [#1486](#1486) | 0 | 0 | Review use of `untrackPromise` in update implementation |
+| [#1472](#1472) | 0 | 0 | [Feature Request] Add website documentation for updates |
+| [#1420](#1420) | 0 | 0 | [Feature Request] Clean API to intentionally fail an activity in long-polling patterns |
+| [#1418](#1418) | 0 | 0 | [Feature Request] Failures thrown from within the update handler should be able to fail the workflow |
+| [#1415](#1415) | 0 | 0 | [chore] Update repo to NPM 7 workspaces |
+| [#1412](#1412) | 0 | 0 | [Feature Request] Client replacement in worker |
+| [#1405](#1405) | 0 | 0 | [Bug] Check worker code for unsafe type assertions |
+| [#1358](#1358) | 0 | 0 | [Feature Request] Configurable workflow failure exception types |
+| [#1337](#1337) | 0 | 0 | [Feature Request] Add workflow update tests to nightly suite |
+| [#1289](#1289) | 0 | 0 | [Feature Request] Allow manual pagination when listing workflows |
+| [#1258](#1258) | 0 | 0 | [Feature Request] Provide nicer error messages on TLS CA cert not found errors |
+| [#1174](#1174) | 0 | 0 | [Bug] SDK should drop signals for which it cannot decode payloads |
+| [#1139](#1139) | 0 | 0 | [Feature Request] TemporalFailure from converters and codecs should be able to fail the workflow not task |
+| [#1054](#1054) | 0 | 0 | Add `TelemetryOptions.logging` object format to API ref |
+| [#1010](#1010) | 0 | 0 | Validate single version of packages |
+| [#962](#962) | 0 | 0 | [Feature Request] Allow creating patches before the workflow has started |
+| [#945](#945) | 0 | 0 | [Feature Request] Add client interceptor for `list` and `fetch_history` |
+| [#830](#830) | 0 | 0 | [Feature Request] Remove `sourceMap` and `sourceMapPath` |
+| [#828](#828) | 0 | 0 | [Feature Request] Throw when `heartbeat()` is called from Local Activities |
+| [#730](#730) | 0 | 0 | [Docs] Make method overloads more obvious in docs |
+| [#555](#555) | 0 | 0 | [Feature Request] Remote codec converter |
+| [#514](#514) | 0 | 0 | [Feature Request] Run headers through codec |
+| [#444](#444) | 0 | 0 | [Feature Request] Warn user when sending unregistered signal |
+| [#417](#417) | 0 | 0 | [Feature Request] Export SDK version |
+| [#360](#360) | 0 | 0 | Make tracing tags consistent across SDKs |
 
 ---
 
@@ -193,6 +193,8 @@
 Issues are sorted by priority score (upvotes × 2 + comments).
 
 ---
+
+<a id="1334"></a>
 
 ### #1334: [Feature Request] Run temporal worker in bun
 
@@ -876,6 +878,8 @@ Reactions: 👎 5
 
 ---
 
+<a id="1755"></a>
+
 ### #1755: [Feature Request] Temporal integration for `@openai/agents`
 
 | Field | Value |
@@ -976,6 +980,8 @@ Reactions: 👍 2
 
 
 ---
+
+<a id="483"></a>
 
 ### #483: [Feature Request] NestJS Transport / Integration?
 
@@ -1760,6 +1766,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="928"></a>
+
 ### #928: [Bug] Jest detects open handles
 
 | Field | Value |
@@ -2365,6 +2373,8 @@ Even doing `await Runtime.getInstance().shutdown()` doesn't work for me. I'm usi
 
 ---
 
+<a id="1658"></a>
+
 ### #1658: [Feature Request] Add support for opentelemetry v2
 
 | Field | Value |
@@ -2416,6 +2426,8 @@ Reactions: 👍 3
 
 
 ---
+
+<a id="207"></a>
 
 ### #207: [Feature Request] Enable in-browser usage of gRPC client
 
@@ -2517,6 +2529,8 @@ Reactions: 👍 3
 
 
 ---
+
+<a id="1615"></a>
 
 ### #1615: [Bug] Cannot use Temporal with NextJS 15 because workflowTypes come from function names
 
@@ -3086,6 +3100,8 @@ Reactions: 👍 10
 
 ---
 
+<a id="1499"></a>
+
 ### #1499: [Feature Request] Native Request Batching to Prevent "received message larger than max" Errors
 
 | Field | Value |
@@ -3217,6 +3233,8 @@ Cloud Support Thread: https://temporalio.slack.com/archives/C046BRWDV2R/p1723743
 
 ---
 
+<a id="933"></a>
+
 ### #933: [Feature Request] Create a separate "core" library for workflows that does not include bundler deps.
 
 | Field | Value |
@@ -3297,6 +3315,8 @@ npm install
 
 ---
 
+<a id="1443"></a>
+
 ### #1443: [Bug] Failure to start ephemeral server prevents shutdown of the process
 
 | Field | Value |
@@ -3350,6 +3370,8 @@ Reactions: 👀 1
 
 
 ---
+
+<a id="1749"></a>
 
 ### #1749: [Bug] Workflow task not found after SDK upgrade
 
@@ -3431,6 +3453,8 @@ If this is not fixed by v1.13.0, could you please provide the following:
 
 
 ---
+
+<a id="1233"></a>
 
 ### #1233: [Bug] `nyc-test-coverage` is excessively difficult to use correctly
 
@@ -3914,6 +3938,8 @@ Hi there, is there any progress on this topic? We're using jest with @temporalio
 
 ---
 
+<a id="1432"></a>
+
 ### #1432: [Feature Request] Simplify proper usage of `AsyncLocalStorage` in Workflow context
 
 | Field | Value |
@@ -3956,6 +3982,8 @@ Please see #1557.
 
 
 ---
+
+<a id="1280"></a>
 
 ### #1280: Bundle using Vite
 
@@ -4036,6 +4064,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="868"></a>
 
 ### #868: [Feature Request] Add lint rule that prevents Query handlers from mutating state
 
@@ -4598,6 +4628,8 @@ setHandler(isBlockedQuery, handler);
 
 ---
 
+<a id="939"></a>
+
 ### #939: [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout
 
 | Field | Value |
@@ -4754,6 +4786,8 @@ Getting the same error but it is happening randomly. I am running the playwright
 
 
 ---
+
+<a id="1790"></a>
 
 ### #1790: [Bug] Replay workflow history fails with nondeterminism error, child workflow ids do not match
 
@@ -4956,6 +4990,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="754"></a>
+
 ### #754: [Feature Request] Add friendly version of listWorkflowExecutions
 
 | Field | Value |
@@ -5038,6 +5074,8 @@ Query builder inspiration: https://twitter.com/leeerob/status/161769925264553984
 
 ---
 
+<a id="1621"></a>
+
 ### #1621: [Feature Request] Include musl-based shared library in package
 
 | Field | Value |
@@ -5063,6 +5101,8 @@ See https://github.com/temporalio/features/issues/594
 
 
 ---
+
+<a id="1587"></a>
 
 ### #1587: [Bug] Using async functions degrades performance
 
@@ -5268,6 +5308,8 @@ Reactions: 😕 1 👀 1
 
 ---
 
+<a id="1557"></a>
+
 ### #1557: [Feature Request] allow opt-out of workflow isolation
 
 | Field | Value |
@@ -5404,6 +5446,8 @@ Thanks. I appreciate that you take the time for this conversation. I'll still ke
 
 ---
 
+<a id="1362"></a>
+
 ### #1362: [Feature Request] Worker.runReplayHistory() should accept a serialized History object fetched using fetchHistory()
 
 | Field | Value |
@@ -5518,6 +5562,8 @@ Reactions: 👍 2
 
 
 ---
+
+<a id="1292"></a>
 
 ### #1292: [Bug] ESM Custom payload converters cannot be loaded
 
@@ -5725,6 +5771,8 @@ I still wish I could export as an ESM though... It would be lovely if @temporal/
 
 
 ---
+
+<a id="1021"></a>
 
 ### #1021: [Feature Request] async generator for cancellationScope
 
@@ -6023,6 +6071,8 @@ Worked around it for now by going out of the scope to do the yield ending up in 
 
 ---
 
+<a id="1866"></a>
+
 ### #1866: [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
 
 | Field | Value |
@@ -6130,6 +6180,8 @@ We do have interceptor set up using `@temporalio/interceptors-opentelemetry` (we
 
 
 ---
+
+<a id="1325"></a>
 
 ### #1325: [Bug] Throwing an exception from a workflow may result in `Failed to activate workflow` due to `DataCloneError`
 
@@ -6277,6 +6329,8 @@ await Promise.race([sleep("15s"), condition(() => signaled)]);
 
 ---
 
+<a id="1008"></a>
+
 ### #1008: [Feature Request] Provide more output when webpack fails
 
 | Field | Value |
@@ -6343,6 +6397,8 @@ https://github.com/temporalio/sdk-typescript/blob/b38c70c2a5656a0e5fd2b3891cf2cc
 
 
 ---
+
+<a id="665"></a>
 
 ### #665: [Feature Request] Allow for easy mocking 
 
@@ -6697,6 +6753,8 @@ await worker.runUntil(async () => {
 
 ---
 
+<a id="1351"></a>
+
 ### #1351: [Feature Request] Support updating schedule by cronExpression
 
 | Field | Value |
@@ -6758,6 +6816,8 @@ export async function update_schedule(id: string, args: UpdateScheduleArgs) {
 
 ---
 
+<a id="915"></a>
+
 ### #915: [Feature Request] Emit metrics from client connection
 
 | Field | Value |
@@ -6782,6 +6842,8 @@ We need to emit metrics from the client connection as well.
 
 
 ---
+
+<a id="1668"></a>
 
 ### #1668: [Bug] common package not importing @types/ms
 
@@ -6815,6 +6877,8 @@ Same
 
 
 ---
+
+<a id="1663"></a>
 
 ### #1663: [Bug] Can't use structuredClone in workflow code
 
@@ -6955,6 +7019,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="1458"></a>
+
 ### #1458: [Feature Request] Support passing preloaded data converters to Client
 
 | Field | Value |
@@ -7008,6 +7074,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1308"></a>
 
 ### #1308: [Chore] Add tests to assert proper type rules on all "user defined function with args" APIs
 
@@ -7145,6 +7213,8 @@ I'm okay with leaving this open, I would just rather prioritize other features a
 
 ---
 
+<a id="1800"></a>
+
 ### #1800: [Feature Request] Provide a way to distinguish error types in logs from TypeScript SDK (errors lose type info across Worker <-> Workflow)
 
 | Field | Value |
@@ -7185,6 +7255,8 @@ Slack thread: https://temporalio.slack.com/archives/C01DKSMU94L/p175679558825706
 
 
 ---
+
+<a id="1738"></a>
 
 ### #1738: [Bug] opentelemetry traceState is handled properly in  makeWorkflowExporter
 
@@ -7427,6 +7499,8 @@ $ npm ls | grep @temporalio
 
 ---
 
+<a id="1718"></a>
+
 ### #1718: [Feature Request] Lazily load webpack
 
 | Field | Value |
@@ -7572,6 +7646,8 @@ You should be able to strip an extra 60 MB very easily by removing native librar
 
 ---
 
+<a id="1177"></a>
+
 ### #1177: [Feature Request] Forward Core's metrics to TypeScript-land
 
 | Field | Value |
@@ -7644,6 +7720,8 @@ Yes, to some extent. It may not be possible to attach metadata to things that ha
 
 ---
 
+<a id="564"></a>
+
 ### #564: [Bug] Heartbeat details should be array?
 
 | Field | Value |
@@ -7713,6 +7791,8 @@ I'd be fine with either approach but I prefer consistency across the SDKs.
 
 
 ---
+
+<a id="561"></a>
 
 ### #561: [Docs] Versionize documentation
 
@@ -7784,6 +7864,8 @@ npm start
 
 
 ---
+
+<a id="472"></a>
 
 ### #472: [Feature Request] eslint plugin
 
@@ -7861,6 +7943,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1772"></a>
 
 ### #1772: extractSourceMap takes a huge amount of RAM on boot
 
@@ -7986,6 +8070,8 @@ We run multiple workers on our nodes, but use PM2 in cluster mode to manage them
 
 ---
 
+<a id="1740"></a>
+
 ### #1740: [Bug] webpackConfigHook doesn't seem to suppress all webpack output
 
 | Field | Value |
@@ -8057,6 +8143,8 @@ You may instead call `bundleWorkflowCode()` directly, which allows passing in a 
 
 
 ---
+
+<a id="1601"></a>
 
 ### #1601: result of env.run is not inferring type, returning `unknown`
 
@@ -8134,6 +8222,8 @@ Any thoughts on this? I'm happy to submit a PR, just want to make sure I take an
 
 
 ---
+
+<a id="1489"></a>
 
 ### #1489: [Bug] Critical dependency: the request of a dependency is an expression
 
@@ -8225,6 +8315,8 @@ Implementing #1458 is certainly part of the solution, but I'm afraid that will n
 
 ---
 
+<a id="1332"></a>
+
 ### #1332: [Feature Request] `TestWorkflowEnvironment` should support non-spawned servers
 
 | Field | Value |
@@ -8262,6 +8354,8 @@ I would rather also have the worker be powered by the same connection to avoid t
 
 
 ---
+
+<a id="1309"></a>
 
 ### #1309: [Bug] Comment unclear on when activities are cancelled after calling `Worker.shutdown`
 
@@ -8310,6 +8404,8 @@ Can I pick this up? I am new to this repo, let me know where I should start.
 
 
 ---
+
+<a id="998"></a>
 
 ### #998: [Feature Request] Add built-in support for context propagators
 
@@ -8365,6 +8461,8 @@ I'll prioritize, no ETA at the moment.
 
 ---
 
+<a id="740"></a>
+
 ### #740: [Feature Request] Add `ChildWorkflowHandle.cancel()`
 
 | Field | Value |
@@ -8416,6 +8514,8 @@ Two possible work arounds:
 
 ---
 
+<a id="1864"></a>
+
 ### #1864: [Feature Request] Update AI SDK integration to v6
 
 | Field | Value |
@@ -8450,6 +8550,8 @@ https://vercel.com/blog/ai-sdk-6
 
 
 ---
+
+<a id="1859"></a>
 
 ### #1859: [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x
 
@@ -8613,6 +8715,8 @@ I've opened an issue specifically for issues I'm seeing between `1.13.1` -> `1.1
 
 ---
 
+<a id="1796"></a>
+
 ### #1796: [Bug] Changes in type inference of activity return type in SDK 1.12.2
 
 | Field | Value |
@@ -8713,6 +8817,8 @@ while (pointer !== null) {
 
 
 ---
+
+<a id="1744"></a>
 
 ### #1744: [Bug] NDE replaying nested promises
 
@@ -8819,6 +8925,8 @@ version 1.12.1
 
 ---
 
+<a id="1736"></a>
+
 ### #1736: [Feature Request] Mask/sanitize client sensitive data references
 
 | Field | Value |
@@ -8889,6 +8997,8 @@ app.get('/status', (req, res) => {
 
 
 ---
+
+<a id="1733"></a>
 
 ### #1733: [Bug] `RetryPolicy.maximumAttempt === 0` throws, while it is documented as a valid value for "unlimited"
 
@@ -8969,6 +9079,8 @@ I totally agree! We have an internal temporal SDK wrapper where we use the `"unl
 
 ---
 
+<a id="1700"></a>
+
 ### #1700: [Feature Request] executeChild to use passed headers
 
 | Field | Value |
@@ -9003,6 +9115,8 @@ https://github.com/temporalio/sdk-typescript/blob/main/packages/workflow/src/wor
 
 
 ---
+
+<a id="1675"></a>
 
 ### #1675: [Feature Request] support AggregateError
 
@@ -9110,6 +9224,8 @@ or at least include stack traces of children in the stack trace of the top error
 
 ---
 
+<a id="1594"></a>
+
 ### #1594: [Bug] First schedule action started using triggerImmediately flag does not honor the schedule's overlap policy
 
 | Field | Value |
@@ -9204,6 +9320,8 @@ n/a
 
 
 ---
+
+<a id="1580"></a>
 
 ### #1580: [Bug] Workflows getting stuck after cancellation (spurious WorkflowTaskFailed errors)
 
@@ -9359,6 +9477,8 @@ Is it correct that throwing a `CancelledFailure` error should lead to an event t
 
 ---
 
+<a id="1578"></a>
+
 ### #1578: [Bug] Worker fails to start if Node option --abort-on-uncaught-exception is set
 
 | Field | Value |
@@ -9423,6 +9543,8 @@ More over, this preload somewhat expensive and only pertinent if there's an atta
 
 ---
 
+<a id="1537"></a>
+
 ### #1537: [Bug] Workflow lifecycle logging is misleading
 
 | Field | Value |
@@ -9481,6 +9603,8 @@ It's unfortunately not that simple. Metrics bookkeeping is handled by Core SDK, 
 
 
 ---
+
+<a id="1389"></a>
 
 ### #1389: [Bug] Inconsistent Type Definition of Workflow Arguments
 
@@ -9561,6 +9685,8 @@ const getWorkflowStartOptions = <WT extends (...args: [any, ...any[]]) => Promis
 
 
 ---
+
+<a id="1375"></a>
 
 ### #1375: [Feature Request] Queueing a workflow
 
@@ -9652,6 +9778,8 @@ Thanks again for the response.
 
 ---
 
+<a id="1144"></a>
+
 ### #1144: [Feature Request] Add support for capturing Workflow test coverage data using Jest
 
 | Field | Value |
@@ -9714,6 +9842,8 @@ Reactions: 🚀 1
 
 ---
 
+<a id="1113"></a>
+
 ### #1113: [Feature Request] Create a `npx @temporalio/doctor` command
 
 | Field | Value |
@@ -9752,6 +9882,8 @@ Concretely, this program would be able to scan all package.json/lock files/node_
 
 
 ---
+
+<a id="1112"></a>
 
 ### #1112: [Bug] Workflow Bundler does not deny usage of the `process` global variable
 
@@ -9855,6 +9987,8 @@ There's certainly more than one way to fix this, but I think the most appropriat
 
 ---
 
+<a id="982"></a>
+
 ### #982: Incompatible with allowSyntheticDefaultImports set to false
 
 | Field | Value |
@@ -9906,6 +10040,8 @@ node_modules/@temporalio/testing/lib/index.d.ts:12:8 - error TS1259: Module '"no
 
 
 ---
+
+<a id="959"></a>
 
 ### #959: [Bug] Broken links and hierarchy
 
@@ -9986,6 +10122,8 @@ Maybe we can mark the re-exports as @hidden, this is probably an issue with the 
 
 
 ---
+
+<a id="813"></a>
 
 ### #813: [Feature Request] Less boiler plate.
 
@@ -10153,6 +10291,8 @@ I do want to consider a way to provide default activity options (not sure where 
 
 ---
 
+<a id="783"></a>
+
 ### #783: [Feature Request] Better Nx support
 
 | Field | Value |
@@ -10188,6 +10328,8 @@ At the very least, a working sample in your repo would go a long way.
 
 
 ---
+
+<a id="773"></a>
 
 ### #773: [Bug] payloadToJSON from from @temporalio/common/lib/proto-utils does not generate vaild proto JSON
 
@@ -10243,6 +10385,8 @@ I opened an issue on their side: https://github.com/googleapis/google-cloud-node
 
 ---
 
+<a id="470"></a>
+
 ### #470: [Feature Request] TerminatedFailure missing "details"
 
 | Field | Value |
@@ -10296,6 +10440,8 @@ Note, we should probably also accept arguments as part of `WorkflowHandle.termin
 
 ---
 
+<a id="1756"></a>
+
 ### #1756: [Bug] Hostname is overly restrictive
 
 | Field | Value |
@@ -10339,6 +10485,8 @@ Host temporal grpc frontend behind a subpath, try to connect
 
 ---
 
+<a id="1661"></a>
+
 ### #1661: [Feature Request] Serialization context for codecs and converters
 
 | Field | Value |
@@ -10372,6 +10520,8 @@ Make sure to include nexus per https://github.com/temporalio/features/issues/678
 
 
 ---
+
+<a id="1660"></a>
 
 ### #1660: [Bug] RESOURCE_EXHAUSTED error while describing workflow schedule
 
@@ -10614,6 +10764,8 @@ This may indicate that the Worker nodes of your cluster are underpowered, though
 
 ---
 
+<a id="1656"></a>
+
 ### #1656: [Bug] Workflow type is incorrectly deduced when using `bind` on workflow function
 
 | Field | Value |
@@ -10715,6 +10867,8 @@ Let me know, cheers
 
 ---
 
+<a id="1652"></a>
+
 ### #1652: [Bug] Throw on usage of Workflow APIs that modify state from non-replayable context
 
 | Field | Value |
@@ -10756,6 +10910,8 @@ Doesn't this apply to all SDK's not just TS? Maybe we should open a feature issu
 
 
 ---
+
+<a id="1431"></a>
 
 ### #1431: [Feature Request] Make it easier to diagnose failures to connect to Temporal Cloud due to incorrect `serverRootCACertificate`
 
@@ -10843,6 +10999,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="1331"></a>
+
 ### #1331: [Feature Request] Schedule creation should create tracing span by default
 
 | Field | Value |
@@ -10876,6 +11034,8 @@ When the tracing interceptor is in use, by default creating a schedule should cr
 
 
 ---
+
+<a id="1274"></a>
 
 ### #1274: [Bug] Error not serialized fully when sent to Sinks
 
@@ -11015,6 +11175,8 @@ https://typescript.temporal.io/api/namespaces/workflow#sinkfunction
 
 ---
 
+<a id="1222"></a>
+
 ### #1222: [Feature Request] Expose `originalExecutionRunId` in `workflowInfo`
 
 | Field | Value |
@@ -11056,6 +11218,8 @@ We need to expose it but note that `Math.random()` is a deterministic random see
 
 ---
 
+<a id="1059"></a>
+
 ### #1059: [docs] Types are missing in the left nav bar of the exported API documentation
 
 | Field | Value |
@@ -11092,6 +11256,8 @@ Actually, the same is true of module exported functions, constants and variables
 
 ---
 
+<a id="1007"></a>
+
 ### #1007: [Feature Request] Expose currently configured payload converter to workflow code
 
 | Field | Value |
@@ -11127,6 +11293,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="958"></a>
 
 ### #958: [Feature Request] Improve experience of including workflow modules that have a `browser` field
 
@@ -11173,6 +11341,8 @@ The thing is that if a package has a browser field, it most certainly means that
 
 
 ---
+
+<a id="938"></a>
 
 ### #938: [Feature Request] Formally validate public API modification between releases
 
@@ -11221,6 +11391,8 @@ Good idea, I'd just note that we're reserving major versions for history incompa
 
 ---
 
+<a id="776"></a>
+
 ### #776: [Feature Request] Expose internal-non-workflow-common functionality
 
 | Field | Value |
@@ -11267,6 +11439,8 @@ and giving an example import:
 
 
 ---
+
+<a id="739"></a>
 
 ### #739: [Docs] Rank functions higher in search
 
@@ -11324,6 +11498,8 @@ https://typescript.temporal.io/search?q=heartbeat
 
 ---
 
+<a id="668"></a>
+
 ### #668: [Feature Request] Provide WorkflowInfo.initiator?
 
 | Field | Value |
@@ -11368,6 +11544,8 @@ Thanks
 
 ---
 
+<a id="384"></a>
+
 ### #384: [Feature Request] Add actual span time to spans create by workflow otel interceptors
 
 | Field | Value |
@@ -11409,6 +11587,8 @@ Use `workflowInfo().unsafe.now()`
 
 
 ---
+
+<a id="1867"></a>
 
 ### #1867: [Feature Request] Per-Worker Logger
 
@@ -11454,6 +11634,8 @@ Allow the Logger to be configured at the Worker level. This would allow us to cr
 
 ---
 
+<a id="1862"></a>
+
 ### #1862: [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
 
 | Field | Value |
@@ -11483,6 +11665,8 @@ attached issue :- https://app.usepylon.com/issues?conversationID=aa9077dd-17e0-4
 
 
 ---
+
+<a id="1860"></a>
 
 ### #1860: [Bug] Performance regression from 1.13.1 -> 1.13.2
 
@@ -11536,6 +11720,8 @@ Semi-related: https://github.com/temporalio/sdk-typescript/issues/1859
 
 
 ---
+
+<a id="1858"></a>
 
 ### #1858: [Bug] unable to import reflect-metadata within workflow bundle
 
@@ -11661,6 +11847,8 @@ Execute with
 
 ---
 
+<a id="1854"></a>
+
 ### #1854: [Feature Request] Correct docs for OtelCollectorExporter
 
 | Field | Value |
@@ -11702,6 +11890,8 @@ N/A
 
 ---
 
+<a id="1851"></a>
+
 ### #1851: [Feature Request] Support non-workflow activities
 
 | Field | Value |
@@ -11730,6 +11920,8 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 
 
 ---
+
+<a id="1850"></a>
 
 ### #1850: [Feature Request] Implement OTel interceptors v1 as Plugin
 
@@ -11778,6 +11970,8 @@ const client = new Client({
 
 ---
 
+<a id="1843"></a>
+
 ### #1843: Default maxCachedWorkflows calculation doesn't account for VM isolate memory being outside V8 heap
 
 | Field | Value |
@@ -11818,6 +12012,8 @@ const client = new Client({
 
 ---
 
+<a id="1838"></a>
+
 ### #1838: [Bug] `WorkflowExecutionAlreadyStartedError` should contain `runId` if provided by server
 
 | Field | Value |
@@ -11846,6 +12042,8 @@ The `runId` is stored as part of the protobuf-encoded error details, which the T
 
 
 ---
+
+<a id="1824"></a>
 
 ### #1824: [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow
 
@@ -11881,6 +12079,8 @@ Users want to override the target version on a workflow, especially when doing p
 
 ---
 
+<a id="1782"></a>
+
 ### #1782: [Feature Request] Ensure tests exist to confirm custom slot supplier slot info has proper fields
 
 | Field | Value |
@@ -11905,6 +12105,8 @@ See https://github.com/temporalio/features/issues/672
 
 
 ---
+
+<a id="1779"></a>
 
 ### #1779: [Bug] `@temporalio/interceptors-opentelemetry` OTEL bypasses a required SDK component
 
@@ -11983,6 +12185,8 @@ This will affect https://github.com/temporalio/sdk-typescript/pull/1741
 
 ---
 
+<a id="1775"></a>
+
 ### #1775: [Feature Request] Support for creating v7 UUIDs from within Workflow Tasks
 
 | Field | Value |
@@ -12049,6 +12253,8 @@ export function uuid7() {
 
 ---
 
+<a id="1739"></a>
+
 ### #1739: [Feature Request] Add `ActivityContext.workerShuttingDown`
 
 | Field | Value |
@@ -12084,6 +12290,8 @@ That would be a `workerShuttingDown: Promise<never>` and `workerShuttingDownSign
 
 
 ---
+
+<a id="1722"></a>
 
 ### #1722: [Feature Request] Include error details on every errors thrown from Client API
 
@@ -12121,6 +12329,8 @@ That however poses some challenges:
 
 
 ---
+
+<a id="1721"></a>
 
 ### #1721: [Bug] Error thrown from Client's Update-with-Start doesn't show proper message
 
@@ -12174,6 +12384,8 @@ Error: 8 RESOURCE_EXHAUSTED Update-with-Start could not be executed: limit on nu
 
 
 ---
+
+<a id="1717"></a>
 
 ### #1717: [Bug] Protobuf Payload Converter is broken after upgrading to protobufjs 7.5.2
 
@@ -12229,6 +12441,8 @@ All SDK integration tests still pass, including those testing the Protobuf Paylo
 
 ---
 
+<a id="1716"></a>
+
 ### #1716: [TypeScript] Worker Versioning high level client
 
 | Field | Value |
@@ -12251,6 +12465,8 @@ Create the high-level client for control plane operations concerning worker depl
 
 
 ---
+
+<a id="1715"></a>
 
 ### #1715: If a serializable value is provided as a SearchAttribute, serialize it instead of throwing the error: "SearchAttribute values must arrays of strings, numbers, booleans, or Dates. The value * at index 0 is of type object"
 
@@ -12276,6 +12492,8 @@ E.g: this allows passing MongoDB ObjectIds as search attributes, as they have a 
 
 
 ---
+
+<a id="1713"></a>
 
 ### #1713: [Feature Request] Pass webpack obj as the second parameter when calling webpackConfigHook
 
@@ -12316,6 +12534,8 @@ webpackConfigHook(config, webpack) {
 
 
 ---
+
+<a id="1710"></a>
 
 ### #1710: [Feature Request] Better type inference for `MockActivityEnvironment.run`
 
@@ -12373,6 +12593,8 @@ I've checked this locally and it makes my example infer the type of `result` cor
 
 ---
 
+<a id="1703"></a>
+
 ### #1703: [Feature Request] Complete work on supporting `Client` over `NativeConnection`
 
 | Field | Value |
@@ -12404,6 +12626,8 @@ Using `Client` over `NativeConnection` will be required to support Eager Workflo
 
 
 ---
+
+<a id="1702"></a>
 
 ### #1702: [Bug] Test suite timeout on first run
 
@@ -12462,6 +12686,8 @@ Thanks in advance!
 
 ---
 
+<a id="1696"></a>
+
 ### #1696: [Feature Request] Otel exporter error handling
 
 | Field | Value |
@@ -12501,6 +12727,8 @@ I can help to add this if you think this is a good approach.
 
 
 ---
+
+<a id="1687"></a>
 
 ### #1687: [Bug] Temporal local env cannot be connected in unit tests
 
@@ -12622,6 +12850,8 @@ as a workaround i was advised  by the support team to do retries until i can con
 
 ---
 
+<a id="1673"></a>
+
 ### #1673: [Feature Request] Add support for batched result retrieval executions
 
 | Field | Value |
@@ -12677,6 +12907,8 @@ For faster processing, I can chunk workflows.executions (e.g., in batches of 50 
 
 
 ---
+
+<a id="1653"></a>
 
 ### #1653: [Bug] Broken Documentation Link
 
@@ -12734,6 +12966,8 @@ Interaface `WorkerOptions`, field `workflowBundle`,
 
 ---
 
+<a id="1647"></a>
+
 ### #1647: [Feature Request] Add summary to Nexus operation
 
 | Field | Value |
@@ -12756,6 +12990,8 @@ https://github.com/temporalio/features/issues/610
 
 
 ---
+
+<a id="1635"></a>
 
 ### #1635: [Feature Request] Rehydrate TypedSearchAttributes for sinks or provide WorkflowInfo variant
 
@@ -12786,6 +13022,8 @@ Relevant comment: https://github.com/temporalio/sdk-typescript/pull/1612#discuss
 
 ---
 
+<a id="1626"></a>
+
 ### #1626: Expose Workflow cancel cause/reason
 
 | Field | Value |
@@ -12808,6 +13046,8 @@ WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be
 
 
 ---
+
+<a id="1616"></a>
 
 ### #1616: [Feature Request] Add memoization support to the`patched()` API
 
@@ -12842,6 +13082,8 @@ See temporalio/features#591 for details.
 
 ---
 
+<a id="1549"></a>
+
 ### #1549: [Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result
 
 | Field | Value |
@@ -12866,6 +13108,8 @@ We auto-skip time when waiting on workflow result, we need to do the same when w
 
 
 ---
+
+<a id="1542"></a>
 
 ### #1542: [Feature Request] Allow Update Validators to be async
 
@@ -12907,6 +13151,8 @@ I can convert my access control validators (or anything else that requires async
 
 
 ---
+
+<a id="1512"></a>
 
 ### #1512: [Bug] Payload converter error can crash worker
 
@@ -12971,6 +13217,8 @@ Version 1.9.3
 
 ---
 
+<a id="1486"></a>
+
 ### #1486: Review use of `untrackPromise` in update implementation
 
 | Field | Value |
@@ -12993,6 +13241,8 @@ See e.g. https://github.com/temporalio/sdk-typescript/pull/1459#discussion_r1705
 
 
 ---
+
+<a id="1472"></a>
 
 ### #1472: [Feature Request] Add website documentation for updates
 
@@ -13028,6 +13278,8 @@ TypeScript documentation to be added, with code snippets on how to use updates.
 
 ---
 
+<a id="1420"></a>
+
 ### #1420: [Feature Request] Clean API to intentionally fail an activity in long-polling patterns
 
 | Field | Value |
@@ -13054,6 +13306,8 @@ It would be nice to have a specific API for activities to "intentionally fail so
 
 
 ---
+
+<a id="1418"></a>
 
 ### #1418: [Feature Request] Failures thrown from within the update handler should be able to fail the workflow
 
@@ -13089,6 +13343,8 @@ There is a similar issue active in the Java SDK repo: https://github.com/tempora
 
 ---
 
+<a id="1415"></a>
+
 ### #1415: [chore] Update repo to NPM 7 workspaces
 
 | Field | Value |
@@ -13113,6 +13369,8 @@ Now that we dropped support for Node 14, we can update our repo to use native NP
 
 
 ---
+
+<a id="1412"></a>
 
 ### #1412: [Feature Request] Client replacement in worker
 
@@ -13139,6 +13397,8 @@ Need to be able to replace the worker client with a new client that may be conne
 
 
 ---
+
+<a id="1405"></a>
 
 ### #1405: [Bug] Check worker code for unsafe type assertions
 
@@ -13167,6 +13427,8 @@ We need to review all type assertions, and determine either these assertions are
 
 ---
 
+<a id="1358"></a>
+
 ### #1358: [Feature Request] Configurable workflow failure exception types
 
 | Field | Value |
@@ -13194,6 +13456,8 @@ See https://github.com/temporalio/features/issues/322
 
 ---
 
+<a id="1337"></a>
+
 ### #1337: [Feature Request] Add workflow update tests to nightly suite
 
 | Field | Value |
@@ -13216,6 +13480,8 @@ We added the feature without running stress tests for it in CI
 
 
 ---
+
+<a id="1289"></a>
 
 ### #1289: [Feature Request] Allow manual pagination when listing workflows
 
@@ -13241,6 +13507,8 @@ Users should be able to manually page one at a time if they choose. Some users a
 
 
 ---
+
+<a id="1258"></a>
 
 ### #1258: [Feature Request] Provide nicer error messages on TLS CA cert not found errors
 
@@ -13278,6 +13546,8 @@ We should make sure that SDK provides easy to understand error messages whenever
 
 ---
 
+<a id="1174"></a>
+
 ### #1174: [Bug] SDK should drop signals for which it cannot decode payloads
 
 | Field | Value |
@@ -13303,6 +13573,8 @@ In Go and Java we drop signals whose args can't be deserialized, we should here 
 
 ---
 
+<a id="1139"></a>
+
 ### #1139: [Feature Request] TemporalFailure from converters and codecs should be able to fail the workflow not task
 
 | Field | Value |
@@ -13325,6 +13597,8 @@ In Go and Java we drop signals whose args can't be deserialized, we should here 
 
 
 ---
+
+<a id="1054"></a>
 
 ### #1054: Add `TelemetryOptions.logging` object format to API ref
 
@@ -13354,6 +13628,8 @@ Currently it's just `Object`:
 
 
 ---
+
+<a id="1010"></a>
 
 ### #1010: Validate single version of packages
 
@@ -13389,6 +13665,8 @@ Roey:
 
 ---
 
+<a id="962"></a>
+
 ### #962: [Feature Request] Allow creating patches before the workflow has started
 
 | Field | Value |
@@ -13412,6 +13690,8 @@ One thing to consider is that we won't be able to add interception capabilities 
 
 
 ---
+
+<a id="945"></a>
 
 ### #945: [Feature Request] Add client interceptor for `list` and `fetch_history`
 
@@ -13437,6 +13717,8 @@ One thing to consider is that we won't be able to add interception capabilities 
 
 ---
 
+<a id="830"></a>
+
 ### #830: [Feature Request] Remove `sourceMap` and `sourceMapPath`
 
 | Field | Value |
@@ -13461,6 +13743,8 @@ Deprecated in https://github.com/temporalio/sdk-typescript/pull/827
 
 ---
 
+<a id="828"></a>
+
 ### #828: [Feature Request] Throw when `heartbeat()` is called from Local Activities
 
 | Field | Value |
@@ -13483,6 +13767,8 @@ This is what Python does. It's a way to indicate to users that they don't need t
 
 
 ---
+
+<a id="730"></a>
 
 ### #730: [Docs] Make method overloads more obvious in docs
 
@@ -13539,6 +13825,8 @@ Like
 
 ---
 
+<a id="555"></a>
+
 ### #555: [Feature Request] Remote codec converter
 
 | Field | Value |
@@ -13563,6 +13851,8 @@ https://github.com/temporalio/sdk-go/blob/706516c7077ba2e9b40304aeddbed47e25b2a6
 
 
 ---
+
+<a id="514"></a>
 
 ### #514: [Feature Request] Run headers through codec
 
@@ -13600,6 +13890,8 @@ import { context, propagation } from '@opentelemetry/api';
 
 
 ---
+
+<a id="444"></a>
 
 ### #444: [Feature Request] Warn user when sending unregistered signal
 
@@ -13649,6 +13941,8 @@ Note that this isn't an issue for queries. `await handle.query(unregisterdQuery)
 
 ---
 
+<a id="417"></a>
+
 ### #417: [Feature Request] Export SDK version
 
 | Field | Value |
@@ -13677,6 +13971,8 @@ Currently can get at a worker level via `import pkg from '@temporalio/worker/lib
 
 
 ---
+
+<a id="360"></a>
 
 ### #360: Make tracing tags consistent across SDKs
 

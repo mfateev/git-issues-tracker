@@ -32,121 +32,121 @@
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
-| [#487](#487-feature-request-allow-workflow-logger-to-opt-out-of-sandboxing) | 6 | 3 | [Feature Request] Allow workflow logger to opt-out of sandboxing |
-| [#638](#638-importing-3rd-party-package-ruamelyaml-anywhere-causes-failure-to-validate-workflow) | 1 | 12 | Importing 3rd party package `ruamel.yaml` anywhere causes failure to validate workflow |
-| [#688](#688-bug-workflow-sandbox-issues-with-protobuf) | 0 | 12 | [Bug] Workflow sandbox issues with Protobuf |
-| [#160](#160-bug-opentelemetry-interceptors-report-errors) | 0 | 12 | [Bug] OpenTelemetry interceptors report errors |
-| [#1048](#1048-feature-request-support-raising-cancellation-in-sync-multiprocessed-activities) | 0 | 11 | [Feature Request] Support raising cancellation in sync multiprocessed activities |
-| [#238](#238-bug-cant-debugging-workflow-using-vscode) | 3 | 5 | [Bug] Can't debugging workflow using vscode |
-| [#733](#733-bug-unable-to-run-workflows-with-opentelemetry-and-ddtrace) | 0 | 10 | [Bug] Unable to run workflows with OpenTelemetry and ddtrace |
-| [#700](#700-bug-no-clean-way-to-cancel-an-activity-and-wait-until-its-cancelled) | 0 | 10 | [Bug] No clean way to cancel an activity and wait until it's cancelled |
-| [#300](#300-bug-investigate-pygilstaterelease-issue-for-client) | 0 | 10 | [Bug] Investigate PyGILState_Release issue for client |
-| [#639](#639-bug-operation-was-canceled-when-startworkflow) | 1 | 7 | [Bug] Operation was canceled when start_workflow |
-| [#758](#758-feature-request-suggest-providing-activities-extraction-utilities-to-get-them-from-a-class-and-a-module) | 1 | 6 | [Feature Request] Suggest Providing activities extraction utilities to get them from a class and a module |
-| [#1104](#1104-setting-debugmode-in-a-worker-still-doesnt-allow-the-user-of-breakpoints) | 0 | 7 | Setting debug_mode in a Worker still doesn't allow the user of breakpoints |
-| [#807](#807-feature-request-loss-of-stack-trace-information) | 2 | 3 | [Feature Request] Loss of stack trace information |
-| [#676](#676-feature-request-support-str-enum-like-strenum) | 0 | 7 | [Feature Request] Support `(str, Enum)` like `StrEnum` |
-| [#603](#603-feature-request-investigatedocument-how-to-use-pycharm-debugger-with-workflows) | 3 | 1 | [Feature Request] Investigate/document how to use PyCharm debugger with workflows |
-| [#1154](#1154-feature-request-support-interpreterpoolexecutor-from-py314) | 2 | 2 | [Feature Request] Support InterpreterPoolExecutor from py3.14 |
-| [#837](#837-feature-request-make-temporal-logger-adapter-accomodate-to-opentelemetry) | 0 | 6 | [Feature Request] Make Temporal logger adapter accomodate to OpenTelemetry |
-| [#235](#235-feature-request-raise-exception-for-payloads-that-violate-grpc-message-max-size) | 0 | 6 | [Feature Request] Raise exception for payloads that violate gRPC message max size |
-| [#1136](#1136-bug-langfuse-tracing-not-working-with-temporal-openai-agents-plugin) | 0 | 5 | [Bug] Langfuse Tracing Not Working with Temporal OpenAI Agents Plugin |
-| [#1009](#1009-feature-request-openai-agents-streaming-support) | 0 | 5 | [Feature Request] OpenAI Agents Streaming support |
-| [#875](#875-feature-request-expose-sdk-metric-for-workercountnotevictcount) | 1 | 3 | [Feature Request] Expose SDK metric for `worker._count_not_evict_count` |
-| [#641](#641-bug-sending-a-query-that-is-not-registered-in-the-workflow-results-in-an-encoded-failure-when-encodecommonattributestrue) | 1 | 3 | [Bug] Sending a query that is not registered in the workflow results in an "Encoded failure" when encode_common_attributes=True |
-| [#586](#586-bug-workflowstartchildworkflow-behaving-differently-than-workflowexecutechildworkflow-in-tests) | 0 | 5 | [Bug] workflow.start_child_workflow() behaving differently than workflow.execute_child_workflow() in tests |
-| [#476](#476-bug-failed-during-multiprocess-queue-poll-for-heartbeat) | 0 | 5 | [Bug] Failed during multiprocess queue poll for heartbeat |
-| [#321](#321-feature-request-temporal-exceptions-from-converters-and-codecs-should-fail-the-workflow-not-task) | 2 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
-| [#1250](#1250-runtimeerror-when-starting-temporal-test-server-in-python-sdk) | 1 | 2 | RuntimeError when starting Temporal test server in Python SDK |
-| [#928](#928-feature-request-research-and-make-sdk-free-threading-capablecompatible) | 2 | 0 | [Feature Request] Research and make SDK free-threading capable/compatible |
-| [#697](#697-feature-request-handle-edge-case-of-recursive-exceptions-in-failure-converter) | 0 | 4 | [Feature Request] Handle edge case of recursive exceptions in failure converter |
-| [#622](#622-bug-unable-to-install-temporal-on-python-311-alpine316) | 1 | 2 | [Bug] unable to install temporal on python 3.11-alpine3.16 |
-| [#213](#213-feature-request-confirm-vscode-debuggability-within-sandbox) | 2 | 0 | [Feature Request] Confirm vscode debuggability within sandbox |
-| [#1186](#1186-bug-incomplete-fix-for-1091---conversationid-still-required-in-temporalmodelstubgetresponse) | 0 | 3 | [Bug] Incomplete fix for #1091 - conversation_id still required in _TemporalModelStub.get_response() |
-| [#1049](#1049-feature-request-support-access-to-metric-meter-in-multi-processed-workers) | 0 | 3 | [Feature Request] Support access to metric meter in multi-processed workers |
-| [#891](#891-feature-request-support-executing-workflow-directly) | 0 | 3 | [Feature Request] Support executing Workflow directly |
-| [#782](#782-bug-cancelled-timer-callback-causes-asyncioexceptionsinvalidstateerror) | 1 | 1 | [Bug] cancelled timer callback causes asyncio.exceptions.InvalidStateError |
-| [#454](#454-feature-request-schedule-creation-should-create-tracing-span-by-default) | 0 | 3 | [Feature Request] Schedule creation should create tracing span by default |
-| [#399](#399-bug-older-python-versions-cannot-auto-import-activity-return-class-in-sandbox) | 0 | 3 | [Bug] Older Python versions cannot auto-import activity return class in sandbox |
-| [#1203](#1203-bug-retrypolicy-not-set-in-ativityinfo-despite-being-defined-in-the-workflowexecuteactivity-call) | 0 | 2 | [Bug] `retry_policy` not set in `ativity.info()` despite being defined in the `workflow.execute_activity()` call |
-| [#1089](#1089-feature-request-provide-supported-session-implementations-for-openai-agents) | 1 | 0 | [Feature Request] Provide supported Session implementations for OpenAI Agents |
-| [#618](#618-feature-request-improve-waitcondition-semantics) | 0 | 2 | [Feature Request] Improve wait_condition semantics |
-| [#601](#601-feature-request-reset-workflow-feature) | 0 | 2 | [Feature Request] Reset workflow feature |
-| [#462](#462-bug-handle-possibility-of-update-before-start) | 0 | 2 | [Bug] Handle possibility of update-before-start |
-| [#390](#390-poc---static-analyzer-for-python) | 0 | 2 | PoC - Static analyzer for Python |
-| [#1130](#1130-feature-request-support-for-custom-tracing-providers) | 0 | 1 | [Feature Request] Support for custom tracing providers |
-| [#851](#851-bug-test-server-in-time-skipping-mode-does-return-usermetadatasummary) | 0 | 1 | [Bug] Test server in time-skipping mode does return userMetadata.summary |
-| [#814](#814-bug-python-client-not-able-to-connect-to-self-hosted-temporal-server-via-proxy-using-authorization-header) | 0 | 1 | [Bug] Python client not able to connect to self-hosted Temporal server via proxy using authorization header |
-| [#803](#803-run-different-worker-types-in-separate-threads) | 0 | 1 | Run different worker types in separate threads |
-| [#778](#778-bug-strange-workflow-task-timeout) | 0 | 1 | [Bug] strange workflow task timeout |
-| [#731](#731-feature-request-special-behavior-for-temporal-built-in-prefixes) | 0 | 1 | [Feature Request] Special behavior for Temporal built-in prefixes |
-| [#719](#719-feature-request-provide-workflow-local) | 0 | 1 | [Feature Request] Provide "workflow local" |
-| [#699](#699-bug-workflowwait-broken-with-asynciofirstcompleted-and-local-activities) | 0 | 1 | [Bug] `workflow.wait` broken with `asyncio.FIRST_COMPLETED` and local activities |
-| [#655](#655-bug-keyerror-warnings-due-to-sandbox) | 0 | 1 | [Bug] KeyError: 'warnings' due to sandbox |
-| [#652](#652-bug-scheduleoverlappolicy-has-broken-eq) | 0 | 1 | [Bug] `ScheduleOverlapPolicy` has broken __eq__ |
-| [#629](#629-bug-workflowupsertsearchattributes-will-bork-sdk-on-empty-inputs) | 0 | 1 | [Bug] workflow.upsert_search_attributes() will bork SDK on empty inputs |
-| [#625](#625-feature-request-fix-pyright-type-checking-violations) | 0 | 1 | [Feature Request] Fix pyright type-checking violations |
-| [#597](#597-bug-cant-build-wheel-temporalio-when-installing-with-pip) | 0 | 1 | [Bug] Cant build wheel temporalio when installing with pip |
-| [#563](#563-feature-request-update-test-running-to-replay) | 0 | 1 | [Feature Request] Update test running to replay |
-| [#360](#360-feature-request-allow-use-of-type-hints-even-if-arg-count-mismatches-in-case-of-default-params) | 0 | 1 | [Feature Request] Allow use of type hints even if arg count mismatches in case of default params |
-| [#1262](#1262-bug-add-ability-to-obtain-applicationerror-details-with-type-hint) | 0 | 0 | [Bug] Add ability to obtain `ApplicationError` details with type hint |
-| [#1254](#1254-bug-sandboximportnotificationpolicywarnonunintentionalpassthrough-warns-on-import-of-the-workflow-itself-to-the-sandbox) | 0 | 0 | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox |
-| [#1237](#1237-bug-converter-returns-bad-value-converting-dictnone-any) | 0 | 0 | [Bug] Converter returns bad value converting `dict[None, Any]` |
-| [#1232](#1232-feature-request-add-basedpyright-as-a-required-typecheck) | 0 | 0 | [Feature Request] Add BasedPyright as a required typecheck |
-| [#1230](#1230-feature-request-support-non-workflow-activities) | 0 | 0 | [Feature Request] Support non-workflow activities |
-| [#1209](#1209-feature-request-allow-overriding-of-the-worker-deployment-version-when-invoking-a-child-workflow) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
-| [#1176](#1176-feature-request-clean-up-pyright-exclude-list) | 0 | 0 | [Feature Request] Clean up pyright exclude list |
-| [#1121](#1121-feature-request-document-runtime-telemetry-config-fields) | 0 | 0 | [Feature Request] Document runtime telemetry config fields |
-| [#1079](#1079-feature-request-ensure-tests-exist-to-confirm-custom-slot-supplier-slot-info-has-proper-fields) | 0 | 0 | [Feature Request] Ensure tests exist to confirm custom slot supplier slot info has proper fields |
-| [#1077](#1077-feature-request-extend-typing-improvements-from-938) | 0 | 0 | [Feature Request] Extend typing improvements from #938 |
-| [#1056](#1056-feature-request-add-workflow-mcp-client) | 0 | 0 | [Feature Request] Add workflow MCP client |
-| [#921](#921-remove-evaltypebackport-dependency) | 0 | 0 | Remove eval_type_backport dependency |
-| [#892](#892-feature-request-support-mergeextra-in-custom-adapters) | 0 | 0 | [Feature Request] Support `merge_extra` in custom adapters |
-| [#870](#870-python-worker-versioning-high-level-client) | 0 | 0 | [Python] Worker Versioning high level client |
-| [#834](#834-bug-python-3133-on-macos-intel-hangs-post-test) | 0 | 0 | [Bug] Python 3.13.3 on macOS Intel hangs post-test |
-| [#826](#826-bug-testunfinishedhandleronworkflowtermination-fails-in-some-situations-with-time-skipping-and-update) | 0 | 0 | [Bug] test_unfinished_handler_on_workflow_termination fails in some situations with time skipping and update |
-| [#810](#810-feature-request-implement-proper-behavior-for-cancelled-uncancel-and-cancelling-of-activities-and-child-workflows) | 0 | 0 | [Feature Request] Implement proper behavior for `cancelled`, `uncancel`, and `cancelling` of activities and child workflows |
-| [#773](#773-feature-request-built-in-query-responses-should-use-rawvalue) | 0 | 0 | [Feature Request] Built-in query responses should use "RawValue" |
-| [#772](#772-bug-investigate-unused-bindf-function) | 0 | 0 | [Bug] Investigate unused bind_f function |
-| [#764](#764-expose-workflow-cancel-causereason) | 0 | 0 | Expose Workflow cancel cause/reason |
-| [#762](#762-feature-request-enforce-no-mutable-defaults-lint-rule) | 0 | 0 | [Feature Request] Enforce no-mutable-defaults lint rule |
-| [#761](#761-feature-request-publish-musl-wheel) | 0 | 0 | [Feature Request] Publish musl wheel |
-| [#754](#754-feature-request-add-explicit-memoization-support-to-the-patched-api) | 0 | 0 | [Feature Request] Add explicit memoization support to the `patched()` API |
-| [#748](#748-feature-request-allow-customization-of-dev-server-ui-port) | 0 | 0 | [Feature Request] Allow customization of dev server UI port |
-| [#722](#722-feature-request-stack-trace-on-deadlock-exception-improvements) | 0 | 0 | [Feature Request] Stack trace on deadlock exception improvements |
-| [#675](#675-feature-request-auto-skip-time-in-time-skipping-testing-environment-when-waiting-on-update-result) | 0 | 0 | [Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result |
-| [#669](#669-feature-request-support-provide-guidance-on-using-opentelemetry-logging-metrics-sdks-with-process-pool-workers) | 0 | 0 | [Feature Request] Support / provide guidance on using OpenTelemetry logging + metrics SDKs with process-pool workers  |
-| [#657](#657-bug-cannot-replace-worker-client-if-default-runtime-is-used) | 0 | 0 | [Bug] Cannot replace worker client if default Runtime is used |
-| [#637](#637-bug-windows-3125-builds-are-broken) | 0 | 0 | [Bug] Windows 3.12.5 builds are broken |
-| [#636](#636-feature-request-add-type-level-tests) | 0 | 0 | [Feature Request] Add type-level tests |
-| [#613](#613-feature-request-investigate-adding-allure-to-github-actions-ci-workflows) | 0 | 0 | [Feature Request] Investigate adding allure to GitHub Actions CI workflows |
-| [#611](#611-feature-request-better-error-message-when-trying-to-upsert-a-datetime-search-attribute-with-non-tz-aware-datetime) | 0 | 0 | [Feature Request] Better error message when trying to upsert a datetime search attribute with non-tz-aware datetime. |
-| [#608](#608-feature-request-make-payload-conversion-errors-on-workflow-input-more-discriminable) | 0 | 0 | [Feature Request] Make payload conversion errors on workflow input more discriminable |
-| [#607](#607-bug-prevent-hot-reload-of-workflow-definitions-from-disk) | 0 | 0 | [Bug] Prevent hot-reload of workflow definitions from disk |
-| [#606](#606-feature-request-consider-aligning-activation-job-application-with-ts-changes) | 0 | 0 | [Feature Request] Consider aligning activation job application with TS changes |
-| [#585](#585-bug-test-flake-may-be-sandbox-import-issue) | 0 | 0 | [Bug] Test flake, may be sandbox import issue |
-| [#543](#543-bug-generating-protos-via-docker-and-manually-are-causing-different-whitespace-inside-of-multi-paragraph-docs) | 0 | 0 | [Bug] Generating protos via docker and manually are causing different whitespace inside of multi-paragraph docs |
-| [#536](#536-feature-request-clarify-exception-on-return-type-decoding-failure) | 0 | 0 | [Feature Request] Clarify exception on return type decoding failure |
-| [#535](#535-feature-request-turn-invalid-asyncio-call-warnings-into-errors) | 0 | 0 | [Feature Request] Turn invalid asyncio call warnings into errors |
-| [#503](#503-bug-do-not-mutate-extra-in-activityworkflow-loggers) | 0 | 0 | [Bug] Do not mutate `extra` in activity/workflow loggers |
-| [#496](#496-bug-fix-explanation-of-pydantic-datetime-issue) | 0 | 0 | [Bug] Fix explanation of Pydantic datetime issue |
-| [#488](#488-bug-fix-typo-in-restriction-set) | 0 | 0 | [Bug] Fix typo in restriction set |
-| [#479](#479-feature-request-reflection-based-payload-codec-test-to-ensure-all-non-search-attribute-payloads-are-covered) | 0 | 0 | [Feature Request] Reflection-based payload codec test to ensure all non-search-attribute payloads are covered |
-| [#467](#467-feature-request-support-workflow-metadata-query) | 0 | 0 | [Feature Request] Support workflow metadata query |
-| [#439](#439-feature-request-allow-continue-as-new-from-update-handler) | 0 | 0 | [Feature Request] Allow continue as new from update handler |
-| [#438](#438-feature-request-allow-rawvalue-to-be-used-for-search-attibute-upsert) | 0 | 0 | [Feature Request] Allow `RawValue` to be used for Search Attibute Upsert |
-| [#436](#436-bug-ensure-continue-as-new-raised-from-update-handler-is-a-task-failure) | 0 | 0 | [Bug] Ensure continue as new raised from update handler is a task failure |
-| [#435](#435-bug-overload-checking-not-catching-bad-parameters-anymore) | 0 | 0 | [Bug] Overload checking not catching bad parameters anymore |
-| [#433](#433-feature-request-remove-activation-job-sorting-and-confirm-update-order) | 0 | 0 | [Feature Request] Remove activation job sorting and confirm update order |
-| [#427](#427-bug-dataclasses-require-even-defaulted-fields-in-the-json-dict) | 0 | 0 | [Bug] dataclasses require even defaulted fields in the JSON dict |
-| [#421](#421-feature-request-move-from-blackisort-to-ruff) | 0 | 0 | [Feature Request] Move from black/isort to Ruff |
-| [#377](#377-feature-request-warn-when-non-static-activity-method-registered-as-static) | 0 | 0 | [Feature Request] Warn when non-static activity method registered as static |
-| [#355](#355-feature-request-log-and-drop-signals-that-pass-the-wrong-number-of-arguments) | 0 | 0 | [Feature Request] Log and drop signals that pass the wrong number of arguments |
-| [#352](#352-bug-cancel-received-in-between-awaitables-not-cancelling-workflow) | 0 | 0 | [Bug] Cancel received in between awaitables not cancelling workflow |
-| [#348](#348-feature-request-make-all-exposed-modules-be-packages) | 0 | 0 | [Feature Request] Make all exposed modules be packages |
-| [#301](#301-bug-proxied-classes-are-not-properly-hashable) | 0 | 0 | [Bug] Proxied classes are not properly hashable |
-| [#45](#45-improve-workflow-stack-trace-query-result) | 0 | 0 | Improve workflow stack trace query result |
-| [#11](#11-test-clientworkercore-behavior-across-fork) | 0 | 0 | Test client/worker/core behavior across fork |
+| [#487](#487) | 6 | 3 | [Feature Request] Allow workflow logger to opt-out of sandboxing |
+| [#638](#638) | 1 | 12 | Importing 3rd party package `ruamel.yaml` anywhere causes failure to validate workflow |
+| [#688](#688) | 0 | 12 | [Bug] Workflow sandbox issues with Protobuf |
+| [#160](#160) | 0 | 12 | [Bug] OpenTelemetry interceptors report errors |
+| [#1048](#1048) | 0 | 11 | [Feature Request] Support raising cancellation in sync multiprocessed activities |
+| [#238](#238) | 3 | 5 | [Bug] Can't debugging workflow using vscode |
+| [#733](#733) | 0 | 10 | [Bug] Unable to run workflows with OpenTelemetry and ddtrace |
+| [#700](#700) | 0 | 10 | [Bug] No clean way to cancel an activity and wait until it's cancelled |
+| [#300](#300) | 0 | 10 | [Bug] Investigate PyGILState_Release issue for client |
+| [#639](#639) | 1 | 7 | [Bug] Operation was canceled when start_workflow |
+| [#758](#758) | 1 | 6 | [Feature Request] Suggest Providing activities extraction utilities to get them from a class and a module |
+| [#1104](#1104) | 0 | 7 | Setting debug_mode in a Worker still doesn't allow the user of breakpoints |
+| [#807](#807) | 2 | 3 | [Feature Request] Loss of stack trace information |
+| [#676](#676) | 0 | 7 | [Feature Request] Support `(str, Enum)` like `StrEnum` |
+| [#603](#603) | 3 | 1 | [Feature Request] Investigate/document how to use PyCharm debugger with workflows |
+| [#1154](#1154) | 2 | 2 | [Feature Request] Support InterpreterPoolExecutor from py3.14 |
+| [#837](#837) | 0 | 6 | [Feature Request] Make Temporal logger adapter accomodate to OpenTelemetry |
+| [#235](#235) | 0 | 6 | [Feature Request] Raise exception for payloads that violate gRPC message max size |
+| [#1136](#1136) | 0 | 5 | [Bug] Langfuse Tracing Not Working with Temporal OpenAI Agents Plugin |
+| [#1009](#1009) | 0 | 5 | [Feature Request] OpenAI Agents Streaming support |
+| [#875](#875) | 1 | 3 | [Feature Request] Expose SDK metric for `worker._count_not_evict_count` |
+| [#641](#641) | 1 | 3 | [Bug] Sending a query that is not registered in the workflow results in an "Encoded failure" when encode_common_attributes=True |
+| [#586](#586) | 0 | 5 | [Bug] workflow.start_child_workflow() behaving differently than workflow.execute_child_workflow() in tests |
+| [#476](#476) | 0 | 5 | [Bug] Failed during multiprocess queue poll for heartbeat |
+| [#321](#321) | 2 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
+| [#1250](#1250) | 1 | 2 | RuntimeError when starting Temporal test server in Python SDK |
+| [#928](#928) | 2 | 0 | [Feature Request] Research and make SDK free-threading capable/compatible |
+| [#697](#697) | 0 | 4 | [Feature Request] Handle edge case of recursive exceptions in failure converter |
+| [#622](#622) | 1 | 2 | [Bug] unable to install temporal on python 3.11-alpine3.16 |
+| [#213](#213) | 2 | 0 | [Feature Request] Confirm vscode debuggability within sandbox |
+| [#1186](#1186) | 0 | 3 | [Bug] Incomplete fix for #1091 - conversation_id still required in _TemporalModelStub.get_response() |
+| [#1049](#1049) | 0 | 3 | [Feature Request] Support access to metric meter in multi-processed workers |
+| [#891](#891) | 0 | 3 | [Feature Request] Support executing Workflow directly |
+| [#782](#782) | 1 | 1 | [Bug] cancelled timer callback causes asyncio.exceptions.InvalidStateError |
+| [#454](#454) | 0 | 3 | [Feature Request] Schedule creation should create tracing span by default |
+| [#399](#399) | 0 | 3 | [Bug] Older Python versions cannot auto-import activity return class in sandbox |
+| [#1203](#1203) | 0 | 2 | [Bug] `retry_policy` not set in `ativity.info()` despite being defined in the `workflow.execute_activity()` call |
+| [#1089](#1089) | 1 | 0 | [Feature Request] Provide supported Session implementations for OpenAI Agents |
+| [#618](#618) | 0 | 2 | [Feature Request] Improve wait_condition semantics |
+| [#601](#601) | 0 | 2 | [Feature Request] Reset workflow feature |
+| [#462](#462) | 0 | 2 | [Bug] Handle possibility of update-before-start |
+| [#390](#390) | 0 | 2 | PoC - Static analyzer for Python |
+| [#1130](#1130) | 0 | 1 | [Feature Request] Support for custom tracing providers |
+| [#851](#851) | 0 | 1 | [Bug] Test server in time-skipping mode does return userMetadata.summary |
+| [#814](#814) | 0 | 1 | [Bug] Python client not able to connect to self-hosted Temporal server via proxy using authorization header |
+| [#803](#803) | 0 | 1 | Run different worker types in separate threads |
+| [#778](#778) | 0 | 1 | [Bug] strange workflow task timeout |
+| [#731](#731) | 0 | 1 | [Feature Request] Special behavior for Temporal built-in prefixes |
+| [#719](#719) | 0 | 1 | [Feature Request] Provide "workflow local" |
+| [#699](#699) | 0 | 1 | [Bug] `workflow.wait` broken with `asyncio.FIRST_COMPLETED` and local activities |
+| [#655](#655) | 0 | 1 | [Bug] KeyError: 'warnings' due to sandbox |
+| [#652](#652) | 0 | 1 | [Bug] `ScheduleOverlapPolicy` has broken __eq__ |
+| [#629](#629) | 0 | 1 | [Bug] workflow.upsert_search_attributes() will bork SDK on empty inputs |
+| [#625](#625) | 0 | 1 | [Feature Request] Fix pyright type-checking violations |
+| [#597](#597) | 0 | 1 | [Bug] Cant build wheel temporalio when installing with pip |
+| [#563](#563) | 0 | 1 | [Feature Request] Update test running to replay |
+| [#360](#360) | 0 | 1 | [Feature Request] Allow use of type hints even if arg count mismatches in case of default params |
+| [#1262](#1262) | 0 | 0 | [Bug] Add ability to obtain `ApplicationError` details with type hint |
+| [#1254](#1254) | 0 | 0 | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox |
+| [#1237](#1237) | 0 | 0 | [Bug] Converter returns bad value converting `dict[None, Any]` |
+| [#1232](#1232) | 0 | 0 | [Feature Request] Add BasedPyright as a required typecheck |
+| [#1230](#1230) | 0 | 0 | [Feature Request] Support non-workflow activities |
+| [#1209](#1209) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
+| [#1176](#1176) | 0 | 0 | [Feature Request] Clean up pyright exclude list |
+| [#1121](#1121) | 0 | 0 | [Feature Request] Document runtime telemetry config fields |
+| [#1079](#1079) | 0 | 0 | [Feature Request] Ensure tests exist to confirm custom slot supplier slot info has proper fields |
+| [#1077](#1077) | 0 | 0 | [Feature Request] Extend typing improvements from #938 |
+| [#1056](#1056) | 0 | 0 | [Feature Request] Add workflow MCP client |
+| [#921](#921) | 0 | 0 | Remove eval_type_backport dependency |
+| [#892](#892) | 0 | 0 | [Feature Request] Support `merge_extra` in custom adapters |
+| [#870](#870) | 0 | 0 | [Python] Worker Versioning high level client |
+| [#834](#834) | 0 | 0 | [Bug] Python 3.13.3 on macOS Intel hangs post-test |
+| [#826](#826) | 0 | 0 | [Bug] test_unfinished_handler_on_workflow_termination fails in some situations with time skipping and update |
+| [#810](#810) | 0 | 0 | [Feature Request] Implement proper behavior for `cancelled`, `uncancel`, and `cancelling` of activities and child workflows |
+| [#773](#773) | 0 | 0 | [Feature Request] Built-in query responses should use "RawValue" |
+| [#772](#772) | 0 | 0 | [Bug] Investigate unused bind_f function |
+| [#764](#764) | 0 | 0 | Expose Workflow cancel cause/reason |
+| [#762](#762) | 0 | 0 | [Feature Request] Enforce no-mutable-defaults lint rule |
+| [#761](#761) | 0 | 0 | [Feature Request] Publish musl wheel |
+| [#754](#754) | 0 | 0 | [Feature Request] Add explicit memoization support to the `patched()` API |
+| [#748](#748) | 0 | 0 | [Feature Request] Allow customization of dev server UI port |
+| [#722](#722) | 0 | 0 | [Feature Request] Stack trace on deadlock exception improvements |
+| [#675](#675) | 0 | 0 | [Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result |
+| [#669](#669) | 0 | 0 | [Feature Request] Support / provide guidance on using OpenTelemetry logging + metrics SDKs with process-pool workers  |
+| [#657](#657) | 0 | 0 | [Bug] Cannot replace worker client if default Runtime is used |
+| [#637](#637) | 0 | 0 | [Bug] Windows 3.12.5 builds are broken |
+| [#636](#636) | 0 | 0 | [Feature Request] Add type-level tests |
+| [#613](#613) | 0 | 0 | [Feature Request] Investigate adding allure to GitHub Actions CI workflows |
+| [#611](#611) | 0 | 0 | [Feature Request] Better error message when trying to upsert a datetime search attribute with non-tz-aware datetime. |
+| [#608](#608) | 0 | 0 | [Feature Request] Make payload conversion errors on workflow input more discriminable |
+| [#607](#607) | 0 | 0 | [Bug] Prevent hot-reload of workflow definitions from disk |
+| [#606](#606) | 0 | 0 | [Feature Request] Consider aligning activation job application with TS changes |
+| [#585](#585) | 0 | 0 | [Bug] Test flake, may be sandbox import issue |
+| [#543](#543) | 0 | 0 | [Bug] Generating protos via docker and manually are causing different whitespace inside of multi-paragraph docs |
+| [#536](#536) | 0 | 0 | [Feature Request] Clarify exception on return type decoding failure |
+| [#535](#535) | 0 | 0 | [Feature Request] Turn invalid asyncio call warnings into errors |
+| [#503](#503) | 0 | 0 | [Bug] Do not mutate `extra` in activity/workflow loggers |
+| [#496](#496) | 0 | 0 | [Bug] Fix explanation of Pydantic datetime issue |
+| [#488](#488) | 0 | 0 | [Bug] Fix typo in restriction set |
+| [#479](#479) | 0 | 0 | [Feature Request] Reflection-based payload codec test to ensure all non-search-attribute payloads are covered |
+| [#467](#467) | 0 | 0 | [Feature Request] Support workflow metadata query |
+| [#439](#439) | 0 | 0 | [Feature Request] Allow continue as new from update handler |
+| [#438](#438) | 0 | 0 | [Feature Request] Allow `RawValue` to be used for Search Attibute Upsert |
+| [#436](#436) | 0 | 0 | [Bug] Ensure continue as new raised from update handler is a task failure |
+| [#435](#435) | 0 | 0 | [Bug] Overload checking not catching bad parameters anymore |
+| [#433](#433) | 0 | 0 | [Feature Request] Remove activation job sorting and confirm update order |
+| [#427](#427) | 0 | 0 | [Bug] dataclasses require even defaulted fields in the JSON dict |
+| [#421](#421) | 0 | 0 | [Feature Request] Move from black/isort to Ruff |
+| [#377](#377) | 0 | 0 | [Feature Request] Warn when non-static activity method registered as static |
+| [#355](#355) | 0 | 0 | [Feature Request] Log and drop signals that pass the wrong number of arguments |
+| [#352](#352) | 0 | 0 | [Bug] Cancel received in between awaitables not cancelling workflow |
+| [#348](#348) | 0 | 0 | [Feature Request] Make all exposed modules be packages |
+| [#301](#301) | 0 | 0 | [Bug] Proxied classes are not properly hashable |
+| [#45](#45) | 0 | 0 | Improve workflow stack trace query result |
+| [#11](#11) | 0 | 0 | Test client/worker/core behavior across fork |
 
 ---
 
@@ -155,6 +155,8 @@
 Issues are sorted by priority score (upvotes × 2 + comments).
 
 ---
+
+<a id="487"></a>
 
 ### #487: [Feature Request] Allow workflow logger to opt-out of sandboxing
 
@@ -255,6 +257,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="638"></a>
 
 ### #638: Importing 3rd party package `ruamel.yaml` anywhere causes failure to validate workflow
 
@@ -435,6 +439,8 @@ I am not sure any Python library can help this if patching is occurring. If you 
 
 
 ---
+
+<a id="688"></a>
 
 ### #688: [Bug] Workflow sandbox issues with Protobuf
 
@@ -768,6 +774,8 @@ Note, this is unrelated to this GitHub issue which is specifically concerning th
 
 ---
 
+<a id="160"></a>
+
 ### #160: [Bug] OpenTelemetry interceptors report errors
 
 | Field | Value |
@@ -1072,6 +1080,8 @@ Correct. You are already setting it globally in `worker.py` that imports `activi
 
 ---
 
+<a id="1048"></a>
+
 ### #1048: [Feature Request] Support raising cancellation in sync multiprocessed activities
 
 | Field | Value |
@@ -1293,6 +1303,8 @@ This is touched on kinda at https://github.com/temporalio/sdk-python?tab=readme-
 
 ---
 
+<a id="238"></a>
+
 ### #238: [Bug] Can't debugging workflow using vscode
 
 | Field | Value |
@@ -1440,6 +1452,8 @@ Reactions: ❤️ 1
 
 
 ---
+
+<a id="733"></a>
 
 ### #733: [Bug] Unable to run workflows with OpenTelemetry and ddtrace
 
@@ -1602,6 +1616,8 @@ I don't think we have plans to support `ddtrace` specifically at this time. I do
 
 
 ---
+
+<a id="700"></a>
 
 ### #700: [Bug] No clean way to cancel an activity and wait until it's cancelled
 
@@ -1900,6 +1916,8 @@ This example would always get to the say_goodbye activity, no matter when it was
 
 
 ---
+
+<a id="300"></a>
 
 ### #300: [Bug] Investigate PyGILState_Release issue for client
 
@@ -2213,6 +2231,8 @@ Assuming our guess at the issue is correct, fixing this is daunting because it p
 
 ---
 
+<a id="639"></a>
+
 ### #639: [Bug] Operation was canceled when start_workflow
 
 | Field | Value |
@@ -2332,6 +2352,8 @@ Okk @cretz , thank you for your response. I will continue monitor it 😄
 
 
 ---
+
+<a id="758"></a>
 
 ### #758: [Feature Request] Suggest Providing activities extraction utilities to get them from a class and a module
 
@@ -2653,6 +2675,8 @@ worker.collect_activities(module, overrides={"my_activity": my_activity_mock})
 
 ---
 
+<a id="1104"></a>
+
 ### #1104: Setting debug_mode in a Worker still doesn't allow the user of breakpoints
 
 | Field | Value |
@@ -2830,6 +2854,8 @@ On breakpoints, we might need to find some time to reproduce your behavior. With
 
 ---
 
+<a id="807"></a>
+
 ### #807: [Feature Request] Loss of stack trace information
 
 | Field | Value |
@@ -2940,6 +2966,8 @@ The SDK already includes stack trace on the errors, it's just via `failure.stack
 
 
 ---
+
+<a id="676"></a>
 
 ### #676: [Feature Request] Support `(str, Enum)` like `StrEnum`
 
@@ -3098,6 +3126,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="603"></a>
+
 ### #603: [Feature Request] Investigate/document how to use PyCharm debugger with workflows
 
 | Field | Value |
@@ -3210,6 +3240,8 @@ Reactions: ❤️ 3
 
 ---
 
+<a id="1154"></a>
+
 ### #1154: [Feature Request] Support InterpreterPoolExecutor from py3.14
 
 | Field | Value |
@@ -3258,6 +3290,8 @@ Thanks, appreciate it!
 
 
 ---
+
+<a id="837"></a>
 
 ### #837: [Feature Request] Make Temporal logger adapter accomodate to OpenTelemetry
 
@@ -3376,6 +3410,8 @@ Reactions: 👍 2
 
 
 ---
+
+<a id="235"></a>
 
 ### #235: [Feature Request] Raise exception for payloads that violate gRPC message max size
 
@@ -3502,6 +3538,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="1136"></a>
 
 ### #1136: [Bug] Langfuse Tracing Not Working with Temporal OpenAI Agents Plugin
 
@@ -3786,6 +3824,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="1009"></a>
+
 ### #1009: [Feature Request] OpenAI Agents Streaming support
 
 | Field | Value |
@@ -3867,6 +3907,8 @@ Streaming is not currently supported, as it is non-trivial to bring those update
 
 ---
 
+<a id="875"></a>
+
 ### #875: [Feature Request] Expose SDK metric for `worker._count_not_evict_count`
 
 | Field | Value |
@@ -3938,6 +3980,8 @@ Reactions: 👍 1 😕 1
 
 
 ---
+
+<a id="641"></a>
 
 ### #641: [Bug] Sending a query that is not registered in the workflow results in an "Encoded failure" when encode_common_attributes=True
 
@@ -4043,6 +4087,8 @@ Note, there is a server side issue to fix query failure encoding: https://github
 
 
 ---
+
+<a id="586"></a>
 
 ### #586: [Bug] workflow.start_child_workflow() behaving differently than workflow.execute_child_workflow() in tests
 
@@ -4156,6 +4202,8 @@ Reactions: 👍 1
 
 
 ---
+
+<a id="476"></a>
 
 ### #476: [Bug] Failed during multiprocess queue poll for heartbeat
 
@@ -4442,6 +4490,8 @@ But I am now wondering if we should deprecate multiprocess activities and instea
 
 ---
 
+<a id="321"></a>
+
 ### #321: [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task
 
 | Field | Value |
@@ -4476,6 +4526,8 @@ We have merged #329 which does let conversion fail workflow, but we haven't done
 
 
 ---
+
+<a id="1250"></a>
 
 ### #1250: RuntimeError when starting Temporal test server in Python SDK
 
@@ -4574,6 +4626,8 @@ For now, I downloaded the server to my project and configured the temporal test 
 
 ---
 
+<a id="928"></a>
+
 ### #928: [Feature Request] Research and make SDK free-threading capable/compatible
 
 | Field | Value |
@@ -4599,6 +4653,8 @@ Kind of related to #863. Per https://pyo3.rs/v0.25.1/free-threading.html this sh
 
 
 ---
+
+<a id="697"></a>
 
 ### #697: [Feature Request] Handle edge case of recursive exceptions in failure converter
 
@@ -4698,6 +4754,8 @@ class DefaultFailureConverter:
 
 ---
 
+<a id="622"></a>
+
 ### #622: [Bug] unable to install temporal on python 3.11-alpine3.16
 
 | Field | Value |
@@ -4767,6 +4825,8 @@ Very bad. Alpine is a very popular lightweight Python image.
 
 ---
 
+<a id="213"></a>
+
 ### #213: [Feature Request] Confirm vscode debuggability within sandbox
 
 | Field | Value |
@@ -4792,6 +4852,8 @@ User reported issue debugging while in sandbox
 
 
 ---
+
+<a id="1186"></a>
 
 ### #1186: [Bug] Incomplete fix for #1091 - conversation_id still required in _TemporalModelStub.get_response()
 
@@ -4896,6 +4958,8 @@ OpenAI Agents should be passing the conversation_id. https://github.com/openai/o
 
 
 ---
+
+<a id="1049"></a>
 
 ### #1049: [Feature Request] Support access to metric meter in multi-processed workers
 
@@ -5019,6 +5083,8 @@ Something using it to export via OTel could I think be added to contrib here: ht
 
 
 ---
+
+<a id="891"></a>
 
 ### #891: [Feature Request] Support executing Workflow directly
 
@@ -5158,6 +5224,8 @@ To clarify, are you asking which activities are available to a workflow? Technic
 
 ---
 
+<a id="782"></a>
+
 ### #782: [Bug] cancelled timer callback causes asyncio.exceptions.InvalidStateError
 
 | Field | Value |
@@ -5266,6 +5334,8 @@ if __name__ == "__main__":
 
 ---
 
+<a id="454"></a>
+
 ### #454: [Feature Request] Schedule creation should create tracing span by default
 
 | Field | Value |
@@ -5313,6 +5383,8 @@ There is not currently a workaround since scheduled workflows are created server
 
 
 ---
+
+<a id="399"></a>
 
 ### #399: [Bug] Older Python versions cannot auto-import activity return class in sandbox
 
@@ -5519,6 +5591,8 @@ Is it possible to provide a standalone replication? Maybe alter https://github.c
 
 ---
 
+<a id="1203"></a>
+
 ### #1203: [Bug] `retry_policy` not set in `ativity.info()` despite being defined in the `workflow.execute_activity()` call
 
 | Field | Value |
@@ -5661,6 +5735,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="1089"></a>
+
 ### #1089: [Feature Request] Provide supported Session implementations for OpenAI Agents
 
 | Field | Value |
@@ -5695,6 +5771,8 @@ Provide at least one in the box `Session` which works in a workflow context.
 
 
 ---
+
+<a id="618"></a>
 
 ### #618: [Feature Request] Improve wait_condition semantics
 
@@ -5776,6 +5854,8 @@ No, because the wait condition is resolved after a second which can be on anothe
 
 ---
 
+<a id="601"></a>
+
 ### #601: [Feature Request] Reset workflow feature
 
 | Field | Value |
@@ -5824,6 +5904,8 @@ We intentionally don't expose workflow reset as high-level in most SDKs, but you
 
 
 ---
+
+<a id="462"></a>
 
 ### #462: [Bug] Handle possibility of update-before-start
 
@@ -5884,6 +5966,8 @@ Reactions: 👍 1
 
 ---
 
+<a id="390"></a>
+
 ### #390: PoC - Static analyzer for Python
 
 | Field | Value |
@@ -5937,6 +6021,8 @@ I have researched a good bit about Python call graph builders and there are no g
 
 
 ---
+
+<a id="1130"></a>
 
 ### #1130: [Feature Request] Support for custom tracing providers
 
@@ -6059,6 +6145,8 @@ Can you elaborate on the scenario? For what reason do you want to override the t
 
 ---
 
+<a id="851"></a>
+
 ### #851: [Bug] Test server in time-skipping mode does return userMetadata.summary
 
 | Field | Value |
@@ -6136,6 +6224,8 @@ Hrmm, this was added in https://github.com/temporalio/sdk-java/pull/2441. We wil
 
 
 ---
+
+<a id="814"></a>
 
 ### #814: [Bug] Python client not able to connect to self-hosted Temporal server via proxy using authorization header
 
@@ -6281,6 +6371,8 @@ Also note that the proxy has to be setup with the proper parameters, specificall
 
 ---
 
+<a id="803"></a>
+
 ### #803: Run different worker types in separate threads
 
 | Field | Value |
@@ -6323,6 +6415,8 @@ We will have to decide whether the benefit is worth the costs here.
 
 ---
 
+<a id="778"></a>
+
 ### #778: [Bug] strange workflow task timeout
 
 | Field | Value |
@@ -6363,6 +6457,8 @@ Also, you can use our traditional support methods instead of GitHub if you'd lik
 
 ---
 
+<a id="731"></a>
+
 ### #731: [Feature Request] Special behavior for Temporal built-in prefixes
 
 | Field | Value |
@@ -6399,6 +6495,8 @@ We don't think this is relevant, because we're only reserving well-known/already
 
 ---
 
+<a id="719"></a>
+
 ### #719: [Feature Request] Provide "workflow local"
 
 | Field | Value |
@@ -6434,6 +6532,8 @@ Note, this can already be done be users using `setattr`/`getattr` on `workflow.i
 
 
 ---
+
+<a id="699"></a>
 
 ### #699: [Bug] `workflow.wait` broken with `asyncio.FIRST_COMPLETED` and local activities
 
@@ -6531,6 +6631,8 @@ Thanks! We will investigate.
 
 ---
 
+<a id="655"></a>
+
 ### #655: [Bug] KeyError: 'warnings' due to sandbox
 
 | Field | Value |
@@ -6601,6 +6703,8 @@ You're going to have to pass through the imports and disable the sandbox I belie
 
 
 ---
+
+<a id="652"></a>
 
 ### #652: [Bug] `ScheduleOverlapPolicy` has broken __eq__
 
@@ -6681,6 +6785,8 @@ This was a mistake on our part and was fixed in #628 and therefore the fix is in
 
 ---
 
+<a id="629"></a>
+
 ### #629: [Bug] workflow.upsert_search_attributes() will bork SDK on empty inputs
 
 | Field | Value |
@@ -6730,6 +6836,8 @@ Saw the attached PR, thanks!
 
 ---
 
+<a id="625"></a>
+
 ### #625: [Feature Request] Fix pyright type-checking violations
 
 | Field | Value |
@@ -6761,6 +6869,8 @@ E.g. https://github.com/temporalio/sdk-python/issues/795
 
 
 ---
+
+<a id="597"></a>
 
 ### #597: [Bug] Cant build wheel temporalio when installing with pip
 
@@ -6832,6 +6942,8 @@ For some reason your `pip` install is not using a prebuilt wheel. Can you show t
 
 ---
 
+<a id="563"></a>
+
 ### #563: [Feature Request] Update test running to replay
 
 | Field | Value |
@@ -6866,6 +6978,8 @@ I'm unable to test this.
 
 
 ---
+
+<a id="360"></a>
 
 ### #360: [Feature Request] Allow use of type hints even if arg count mismatches in case of default params
 
@@ -6907,6 +7021,8 @@ So maybe this limitation worth to be mentioned in README, somewhere around `@wor
 
 ---
 
+<a id="1262"></a>
+
 ### #1262: [Bug] Add ability to obtain `ApplicationError` details with type hint
 
 | Field | Value |
@@ -6931,6 +7047,8 @@ For users of deserialized `ApplicationError`, today we only offer the deserializ
 
 
 ---
+
+<a id="1254"></a>
 
 ### #1254: [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox
 
@@ -7060,6 +7178,8 @@ Starting the above worker yields this log on startup and workflow execution:
 
 ---
 
+<a id="1237"></a>
+
 ### #1237: [Bug] Converter returns bad value converting `dict[None, Any]`
 
 | Field | Value |
@@ -7114,6 +7234,8 @@ Modify our hello world templates to demonstrate:
 
 ---
 
+<a id="1232"></a>
+
 ### #1232: [Feature Request] Add BasedPyright as a required typecheck
 
 | Field | Value |
@@ -7148,6 +7270,8 @@ The codebase should pass checks from BasedPyright as it gains user adoption.
 
 ---
 
+<a id="1230"></a>
+
 ### #1230: [Feature Request] Support non-workflow activities
 
 | Field | Value |
@@ -7176,6 +7300,8 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 
 
 ---
+
+<a id="1209"></a>
 
 ### #1209: [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow
 
@@ -7210,6 +7336,8 @@ Users want to override the target version on a workflow, especially when doing p
 
 
 ---
+
+<a id="1176"></a>
 
 ### #1176: [Feature Request] Clean up pyright exclude list
 
@@ -7249,6 +7377,8 @@ The list of excludes is quite long, with some substantial files. We should go th
 
 ---
 
+<a id="1121"></a>
+
 ### #1121: [Feature Request] Document runtime telemetry config fields
 
 | Field | Value |
@@ -7273,6 +7403,8 @@ The list of excludes is quite long, with some substantial files. We should go th
 
 
 ---
+
+<a id="1079"></a>
 
 ### #1079: [Feature Request] Ensure tests exist to confirm custom slot supplier slot info has proper fields
 
@@ -7300,6 +7432,8 @@ See https://github.com/temporalio/features/issues/672
 
 ---
 
+<a id="1077"></a>
+
 ### #1077: [Feature Request] Extend typing improvements from #938
 
 | Field | Value |
@@ -7324,6 +7458,8 @@ See https://github.com/temporalio/features/issues/672
 
 
 ---
+
+<a id="1056"></a>
 
 ### #1056: [Feature Request] Add workflow MCP client
 
@@ -7354,6 +7490,8 @@ Subsequent versions should allow fully durable/fault-tolerant tool calls / clien
 
 ---
 
+<a id="921"></a>
+
 ### #921: Remove eval_type_backport dependency
 
 | Field | Value |
@@ -7376,6 +7514,8 @@ When python 3.9 is EOL, we should remove the dependency on `eval_type_backport` 
 
 
 ---
+
+<a id="892"></a>
 
 ### #892: [Feature Request] Support `merge_extra` in custom adapters
 
@@ -7404,6 +7544,8 @@ For `workflow.LoggerAdapter` and `activity.LoggerAdapter`, consider supporting `
 
 ---
 
+<a id="870"></a>
+
 ### #870: [Python] Worker Versioning high level client
 
 | Field | Value |
@@ -7426,6 +7568,8 @@ Create the high-level client for control plane operations concerning worker depl
 
 
 ---
+
+<a id="834"></a>
 
 ### #834: [Bug] Python 3.13.3 on macOS Intel hangs post-test
 
@@ -7466,6 +7610,8 @@ This may be some worker in some test unable to shutdown properly in this specifi
 
 ---
 
+<a id="826"></a>
+
 ### #826: [Bug] test_unfinished_handler_on_workflow_termination fails in some situations with time skipping and update
 
 | Field | Value |
@@ -7499,6 +7645,8 @@ To see the failure. Leaving tests skipped for now.
 
 ---
 
+<a id="810"></a>
+
 ### #810: [Feature Request] Implement proper behavior for `cancelled`, `uncancel`, and `cancelling` of activities and child workflows
 
 | Field | Value |
@@ -7528,6 +7676,8 @@ Implement proper behavior for `cancelled`, `uncancel`, and `cancelling` of activ
 
 ---
 
+<a id="773"></a>
+
 ### #773: [Feature Request] Built-in query responses should use "RawValue"
 
 | Field | Value |
@@ -7553,6 +7703,8 @@ See https://github.com/temporalio/features/issues/604. Make sure built-in querie
 
 ---
 
+<a id="772"></a>
+
 ### #772: [Bug] Investigate unused bind_f function
 
 | Field | Value |
@@ -7576,6 +7728,8 @@ Investigate purpose of unused `bind_f` function. See https://github.com/temporal
 
 ---
 
+<a id="764"></a>
+
 ### #764: Expose Workflow cancel cause/reason
 
 | Field | Value |
@@ -7598,6 +7752,8 @@ WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be
 
 
 ---
+
+<a id="762"></a>
 
 ### #762: [Feature Request] Enforce no-mutable-defaults lint rule
 
@@ -7623,6 +7779,8 @@ https://docs.astral.sh/ruff/rules/mutable-argument-default/
 
 ---
 
+<a id="761"></a>
+
 ### #761: [Feature Request] Publish musl wheel
 
 | Field | Value |
@@ -7647,6 +7805,8 @@ See https://github.com/temporalio/features/issues/594
 
 
 ---
+
+<a id="754"></a>
 
 ### #754: [Feature Request] Add explicit memoization support to the `patched()` API
 
@@ -7681,6 +7841,8 @@ See temporalio/features#591 for details.
 
 ---
 
+<a id="748"></a>
+
 ### #748: [Feature Request] Allow customization of dev server UI port
 
 | Field | Value |
@@ -7705,6 +7867,8 @@ See https://github.com/temporalio/features/issues/588
 
 
 ---
+
+<a id="722"></a>
 
 ### #722: [Feature Request] Stack trace on deadlock exception improvements
 
@@ -7735,6 +7899,8 @@ https://github.com/temporalio/sdk-python/pull/626 added a stack traces from the 
 
 ---
 
+<a id="675"></a>
+
 ### #675: [Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result
 
 | Field | Value |
@@ -7760,6 +7926,8 @@ We auto-skip time when waiting on workflow result, we need to do the same when w
 
 
 ---
+
+<a id="669"></a>
 
 ### #669: [Feature Request] Support / provide guidance on using OpenTelemetry logging + metrics SDKs with process-pool workers 
 
@@ -7812,6 +7980,8 @@ Support for the remaining OpenTelemetry SDKs (metric and logging) natively in bo
 
 
 ---
+
+<a id="657"></a>
 
 ### #657: [Bug] Cannot replace worker client if default Runtime is used
 
@@ -7918,6 +8088,8 @@ In the meantime, simply using `default=temporalio.runtime.Runtime.default()` in 
 
 ---
 
+<a id="637"></a>
+
 ### #637: [Bug] Windows 3.12.5 builds are broken
 
 | Field | Value |
@@ -7951,6 +8123,8 @@ error: linking with `link.exe` failed: exit code: 1181
 
 ---
 
+<a id="636"></a>
+
 ### #636: [Feature Request] Add type-level tests
 
 | Field | Value |
@@ -7973,6 +8147,8 @@ We'd like a good way to write type-level tests to confirm that mypy and pyright 
 
 
 ---
+
+<a id="613"></a>
 
 ### #613: [Feature Request] Investigate adding allure to GitHub Actions CI workflows
 
@@ -8010,6 +8186,8 @@ allure serve allure-results
 
 ---
 
+<a id="611"></a>
+
 ### #611: [Feature Request] Better error message when trying to upsert a datetime search attribute with non-tz-aware datetime.
 
 | Field | Value |
@@ -8035,6 +8213,8 @@ The SDK should raise an exception with a helpful error message if the datetime o
 
 ---
 
+<a id="608"></a>
+
 ### #608: [Feature Request] Make payload conversion errors on workflow input more discriminable
 
 | Field | Value |
@@ -8059,6 +8239,8 @@ On invalid workflow input, if a bad value is called, the task fails with a runti
 
 
 ---
+
+<a id="607"></a>
 
 ### #607: [Bug] Prevent hot-reload of workflow definitions from disk
 
@@ -8086,6 +8268,8 @@ So, let's find a good way to prevent the behavior. For example, one possibility 
 
 
 ---
+
+<a id="606"></a>
 
 ### #606: [Feature Request] Consider aligning activation job application with TS changes
 
@@ -8117,6 +8301,8 @@ I'm not sure if making this change will actually have consequences to the _reali
 
 
 ---
+
+<a id="585"></a>
 
 ### #585: [Bug] Test flake, may be sandbox import issue
 
@@ -8250,6 +8436,8 @@ I suspect this is the previously-known issue in older Python with reimporting (h
 
 ---
 
+<a id="543"></a>
+
 ### #543: [Bug] Generating protos via docker and manually are causing different whitespace inside of multi-paragraph docs
 
 | Field | Value |
@@ -8274,6 +8462,8 @@ When using the docker-based gen proto method, for whatever reason it is slightly
 
 
 ---
+
+<a id="536"></a>
 
 ### #536: [Feature Request] Clarify exception on return type decoding failure
 
@@ -8300,6 +8490,8 @@ Today in child workflow for instance if the return type is not the expected, it 
 
 ---
 
+<a id="535"></a>
+
 ### #535: [Feature Request] Turn invalid asyncio call warnings into errors
 
 | Field | Value |
@@ -8325,6 +8517,8 @@ As part of #533, we are warning if `asyncio.as_completed()` or `asyncio.wait()` 
 
 ---
 
+<a id="503"></a>
+
 ### #503: [Bug] Do not mutate `extra` in activity/workflow loggers
 
 | Field | Value |
@@ -8349,6 +8543,8 @@ If there is an existing `extra` dictionary passed to the logger, copy it before 
 
 
 ---
+
+<a id="496"></a>
 
 ### #496: [Bug] Fix explanation of Pydantic datetime issue
 
@@ -8377,6 +8573,8 @@ Also clarify in README that you should pass through non-workflow imports, not ju
 
 ---
 
+<a id="488"></a>
+
 ### #488: [Bug] Fix typo in restriction set
 
 | Field | Value |
@@ -8401,6 +8599,8 @@ https://github.com/temporalio/sdk-python/blob/f3d1b8511a3ef33b36fa806a9fc56f96a4
 
 
 ---
+
+<a id="479"></a>
 
 ### #479: [Feature Request] Reflection-based payload codec test to ensure all non-search-attribute payloads are covered
 
@@ -8429,6 +8629,8 @@ In .NET we have [these tests](https://github.com/temporalio/sdk-dotnet/blob/main
 
 ---
 
+<a id="467"></a>
+
 ### #467: [Feature Request] Support workflow metadata query
 
 | Field | Value |
@@ -8451,6 +8653,8 @@ See https://github.com/temporalio/features/issues/51
 
 
 ---
+
+<a id="439"></a>
 
 ### #439: [Feature Request] Allow continue as new from update handler
 
@@ -8477,6 +8681,8 @@ Allow continue as new from update handler
 
 ---
 
+<a id="438"></a>
+
 ### #438: [Feature Request] Allow `RawValue` to be used for Search Attibute Upsert
 
 | Field | Value |
@@ -8499,6 +8705,8 @@ All in the title. There's no way at the moment to pass `RawValues` as a search a
 
 
 ---
+
+<a id="436"></a>
 
 ### #436: [Bug] Ensure continue as new raised from update handler is a task failure
 
@@ -8525,6 +8733,8 @@ Right now reading code, this may end up being swallowed (it's a base exception t
 
 ---
 
+<a id="435"></a>
+
 ### #435: [Bug] Overload checking not catching bad parameters anymore
 
 | Field | Value |
@@ -8549,6 +8759,8 @@ It appears sometime recently or in some MyPy version recently, you can execute a
 
 
 ---
+
+<a id="433"></a>
 
 ### #433: [Feature Request] Remove activation job sorting and confirm update order
 
@@ -8575,6 +8787,8 @@ Inside `_workflow_instance.py` we are sorting activation jobs which core does no
 
 ---
 
+<a id="427"></a>
+
 ### #427: [Bug] dataclasses require even defaulted fields in the JSON dict
 
 | Field | Value |
@@ -8600,6 +8814,8 @@ It appears, at first code glance, that a dataclass cannot deserialize a JSON dic
 
 ---
 
+<a id="421"></a>
+
 ### #421: [Feature Request] Move from black/isort to Ruff
 
 | Field | Value |
@@ -8624,6 +8840,8 @@ We did this at https://github.com/temporalio/samples-python/pull/91 with success
 
 
 ---
+
+<a id="377"></a>
 
 ### #377: [Feature Request] Warn when non-static activity method registered as static
 
@@ -8651,6 +8869,8 @@ If possible, if an activity's first parameter is `self` but it's not an instance
 
 ---
 
+<a id="355"></a>
+
 ### #355: [Feature Request] Log and drop signals that pass the wrong number of arguments
 
 | Field | Value |
@@ -8675,6 +8895,8 @@ In #349 we now drop signals whose arguments are of the wrong type. But we still 
 
 
 ---
+
+<a id="352"></a>
 
 ### #352: [Bug] Cancel received in between awaitables not cancelling workflow
 
@@ -8725,6 +8947,8 @@ Need to investigate...
 
 ---
 
+<a id="348"></a>
+
 ### #348: [Feature Request] Make all exposed modules be packages
 
 | Field | Value |
@@ -8750,6 +8974,8 @@ Need to investigate...
 
 ---
 
+<a id="301"></a>
+
 ### #301: [Bug] Proxied classes are not properly hashable
 
 | Field | Value |
@@ -8774,6 +9000,8 @@ Getting `unhashable type: '_RestrictedProxy'` possibly on a datetime in a workfl
 
 
 ---
+
+<a id="45"></a>
 
 ### #45: Improve workflow stack trace query result
 
@@ -8804,6 +9032,8 @@ Make them better hopefully without unnecessary performance penalty
 
 
 ---
+
+<a id="11"></a>
 
 ### #11: Test client/worker/core behavior across fork
 

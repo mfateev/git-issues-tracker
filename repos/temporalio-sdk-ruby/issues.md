@@ -32,30 +32,30 @@
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
-| [#319](#319-feature-request-look-into-client-side-trimming-of-failures-to-avoid-server-side-wrap-and-truncate) | 2 | 1 | [Feature Request] Look into client-side trimming of failures to avoid server-side wrap-and-truncate |
-| [#162](#162-investigate-issue-with-ruby-3132-and-worker-fibers) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
-| [#315](#315-bug-scopedlogger-fails-attempting-to-compare-symbol-to-integer-for-libraries-like-semanticlogger) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to integer for libraries like semantic_logger |
-| [#306](#306-feature-request-update-build-gems-gh-workflow-smoke-test-to-use-macos-intel) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test to use macOS Intel |
-| [#360](#360-problem-testing-temporal-workflows-with-signals-in-ruby-sdk-time-skipping-environment) | 0 | 1 | Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment |
-| [#334](#334-feature-request-ensure-fibers-and-workflow-instances-are-properly-gcd-on-workflow-eviction) | 0 | 1 | [Feature Request] Ensure fibers and workflow instances are properly GC'd on workflow eviction |
-| [#238](#238-feature-request-serialization-context-for-codecs-and-converters) | 0 | 1 | [Feature Request] Serialization context for codecs and converters |
-| [#203](#203-feature-request-contributing-guide) | 0 | 1 | [Feature Request] Contributing Guide |
-| [#172](#172-bug-windows-ci-segfaulting-during-tests) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
-| [#367](#367-feature-request-support-non-workflow-activities) | 0 | 0 | [Feature Request] Support non-workflow activities |
-| [#364](#364-feature-request-confirmassert-ruby-4-compatibility-maybe-drop-32-support) | 0 | 0 | [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support |
-| [#361](#361-feature-request-allow-overriding-of-the-worker-deployment-version-when-invoking-a-child-workflow) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
-| [#355](#355-bug-some-common-uses-of-activemodel-fail-in-workflows-due-to-sync-construct-use) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due to sync construct use |
-| [#333](#333-feature-request-require-payload-codec-from-data-converter-file) | 0 | 0 | [Feature Request] Require payload codec from data converter file |
-| [#318](#318-feature-request-plugin-support) | 0 | 0 | [Feature Request] Plugin support |
-| [#270](#270-ruby-worker-versioning-high-level-client) | 0 | 0 | [Ruby] Worker Versioning high level client |
-| [#232](#232-initial-nexus-implementation---ruby) | 0 | 0 | Initial Nexus implementation - Ruby |
-| [#222](#222-feature-request-test-randomness-seed-update-over-reset) | 0 | 0 | [Feature Request] Test randomness seed update over reset |
-| [#218](#218-feature-request-support-buildable-source-gem) | 0 | 0 | [Feature Request] Support buildable source gem |
-| [#209](#209-feature-request-add-explicit-memoization-support-to-thepatched-api) | 0 | 0 | [Feature Request] Add explicit memoization support to the`patched()` API |
-| [#192](#192-feature-request-remove-go-from-test-pipeline) | 0 | 0 | [Feature Request] Remove Go from test pipeline |
-| [#191](#191-feature-request-deadlock-detection---improve-interruption-and-stack-trace) | 0 | 0 | [Feature Request] Deadlock detection - improve interruption and stack trace |
-| [#185](#185-feature-request-warn-on-unawaited-workflow-futures-with-failures) | 0 | 0 | [Feature Request] Warn on unawaited workflow futures with failures  |
-| [#179](#179-feature-request-provide-workflow-local) | 0 | 0 | [Feature Request] Provide "workflow local" |
+| [#319](#319) | 2 | 1 | [Feature Request] Look into client-side trimming of failures to avoid server-side wrap-and-truncate |
+| [#162](#162) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
+| [#315](#315) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to integer for libraries like semantic_logger |
+| [#306](#306) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test to use macOS Intel |
+| [#360](#360) | 0 | 1 | Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment |
+| [#334](#334) | 0 | 1 | [Feature Request] Ensure fibers and workflow instances are properly GC'd on workflow eviction |
+| [#238](#238) | 0 | 1 | [Feature Request] Serialization context for codecs and converters |
+| [#203](#203) | 0 | 1 | [Feature Request] Contributing Guide |
+| [#172](#172) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
+| [#367](#367) | 0 | 0 | [Feature Request] Support non-workflow activities |
+| [#364](#364) | 0 | 0 | [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support |
+| [#361](#361) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
+| [#355](#355) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due to sync construct use |
+| [#333](#333) | 0 | 0 | [Feature Request] Require payload codec from data converter file |
+| [#318](#318) | 0 | 0 | [Feature Request] Plugin support |
+| [#270](#270) | 0 | 0 | [Ruby] Worker Versioning high level client |
+| [#232](#232) | 0 | 0 | Initial Nexus implementation - Ruby |
+| [#222](#222) | 0 | 0 | [Feature Request] Test randomness seed update over reset |
+| [#218](#218) | 0 | 0 | [Feature Request] Support buildable source gem |
+| [#209](#209) | 0 | 0 | [Feature Request] Add explicit memoization support to the`patched()` API |
+| [#192](#192) | 0 | 0 | [Feature Request] Remove Go from test pipeline |
+| [#191](#191) | 0 | 0 | [Feature Request] Deadlock detection - improve interruption and stack trace |
+| [#185](#185) | 0 | 0 | [Feature Request] Warn on unawaited workflow futures with failures  |
+| [#179](#179) | 0 | 0 | [Feature Request] Provide "workflow local" |
 
 ---
 
@@ -64,6 +64,8 @@
 Issues are sorted by priority score (upvotes × 2 + comments).
 
 ---
+
+<a id="319"></a>
 
 ### #319: [Feature Request] Look into client-side trimming of failures to avoid server-side wrap-and-truncate
 
@@ -99,6 +101,8 @@ See https://github.com/temporalio/features/issues/597 for possible algorithm
 
 
 ---
+
+<a id="162"></a>
 
 ### #162: Investigate issue with Ruby 3.1/3.2 and worker fibers
 
@@ -177,6 +181,8 @@ I am not sure because I don't know the exact cause. I agree would like to invest
 
 
 ---
+
+<a id="315"></a>
 
 ### #315: [Bug] ScopedLogger fails attempting to compare symbol to integer for libraries like semantic_logger
 
@@ -344,6 +350,8 @@ Reactions: ❤️ 1
 
 ---
 
+<a id="306"></a>
+
 ### #306: [Feature Request] Update build-gems GH workflow smoke test to use macOS Intel
 
 | Field | Value |
@@ -369,6 +377,8 @@ Reactions: ❤️ 1
 
 
 ---
+
+<a id="360"></a>
 
 ### #360: Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment
 
@@ -509,6 +519,8 @@ I'd be curious to see what this looks like as the latter should progress automat
 
 ---
 
+<a id="334"></a>
+
 ### #334: [Feature Request] Ensure fibers and workflow instances are properly GC'd on workflow eviction
 
 | Field | Value |
@@ -551,6 +563,8 @@ Overall, we do not believe there is a memory leak, but we struggle to write a de
 
 ---
 
+<a id="238"></a>
+
 ### #238: [Feature Request] Serialization context for codecs and converters
 
 | Field | Value |
@@ -584,6 +598,8 @@ Make sure to include nexus per https://github.com/temporalio/features/issues/678
 
 
 ---
+
+<a id="203"></a>
 
 ### #203: [Feature Request] Contributing Guide
 
@@ -625,6 +641,8 @@ Also, feel free to join us in Slack (https://t.mp/slack) on the `#ruby-sdk` chan
 
 
 ---
+
+<a id="172"></a>
 
 ### #172: [Bug] Windows CI segfaulting during tests
 
@@ -674,6 +692,8 @@ Similar shown here when I turn on debug symbols. Basically it looks like somehow
 
 ---
 
+<a id="367"></a>
+
 ### #367: [Feature Request] Support non-workflow activities
 
 | Field | Value |
@@ -703,6 +723,8 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 
 ---
 
+<a id="364"></a>
+
 ### #364: [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support
 
 | Field | Value |
@@ -728,6 +750,8 @@ Need to update CI, docs, etc to confirm/assert Ruby 4 compatibility. Also consid
 
 
 ---
+
+<a id="361"></a>
 
 ### #361: [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow
 
@@ -763,6 +787,8 @@ Users want to override the target version on a workflow, especially when doing p
 
 
 ---
+
+<a id="355"></a>
 
 ### #355: [Bug] Some common uses of ActiveModel fail in workflows due to sync construct use
 
@@ -860,6 +886,8 @@ The best solution may be a `WorkflowSafeObject` type of mixin that surrounds eve
 
 ---
 
+<a id="333"></a>
+
 ### #333: [Feature Request] Require payload codec from data converter file
 
 | Field | Value |
@@ -885,6 +913,8 @@ Users should be able to `require 'temporalio/converters'` and have payload codec
 
 
 ---
+
+<a id="318"></a>
 
 ### #318: [Feature Request] Plugin support
 
@@ -912,6 +942,8 @@ See https://github.com/temporalio/features/issues/652
 
 ---
 
+<a id="270"></a>
+
 ### #270: [Ruby] Worker Versioning high level client
 
 | Field | Value |
@@ -934,6 +966,8 @@ Create the high-level client for control plane operations concerning worker depl
 
 
 ---
+
+<a id="232"></a>
 
 ### #232: Initial Nexus implementation - Ruby
 
@@ -960,6 +994,8 @@ Alongside Nexus Ruby SDK, need Temporal-specific implementation in this SDK. See
 
 ---
 
+<a id="222"></a>
+
 ### #222: [Feature Request] Test randomness seed update over reset
 
 | Field | Value |
@@ -985,6 +1021,8 @@ Add a test that will confirm post-reset-point workflows have a different update 
 
 ---
 
+<a id="218"></a>
+
 ### #218: [Feature Request] Support buildable source gem
 
 | Field | Value |
@@ -1009,6 +1047,8 @@ Today we provide a source gem that doesn't work. But we very well could include 
 
 
 ---
+
+<a id="209"></a>
 
 ### #209: [Feature Request] Add explicit memoization support to the`patched()` API
 
@@ -1043,6 +1083,8 @@ See temporalio/features#591 for details.
 
 ---
 
+<a id="192"></a>
+
 ### #192: [Feature Request] Remove Go from test pipeline
 
 | Field | Value |
@@ -1067,6 +1109,8 @@ Go is currently needed for the "kitchen sink" workflow, but we now have the abil
 
 
 ---
+
+<a id="191"></a>
 
 ### #191: [Feature Request] Deadlock detection - improve interruption and stack trace
 
@@ -1093,6 +1137,8 @@ Today, deadlocked workflow does not get interrupted and the stack trace is where
 
 ---
 
+<a id="185"></a>
+
 ### #185: [Feature Request] Warn on unawaited workflow futures with failures 
 
 | Field | Value |
@@ -1117,6 +1163,8 @@ In Java workflows today, if a future that fails is never waited on, we warn on w
 
 
 ---
+
+<a id="179"></a>
 
 ### #179: [Feature Request] Provide "workflow local"
 
