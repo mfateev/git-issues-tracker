@@ -1,7 +1,7 @@
 # Temporal - Cross-Repository Analysis Summary
 
 **Generated:** 2026-01-02
-**Total Open Issues:** 1,537 across 9 repositories
+**Total Open Issues:** 1,550 across 10 repositories
 
 ## Related Documents
 
@@ -19,7 +19,8 @@
 [Python](python.md) ·
 [.NET](dotnet.md) ·
 [PHP](php.md) ·
-[Ruby](ruby.md)
+[Ruby](ruby.md) ·
+[API](api.md)
 
 **Full Issue Data:** See `repos/<repo>/issues.md` for complete issue dumps with all comments.
 
@@ -29,16 +30,17 @@
 
 | Repository | Issues | Upvotes | Comments | Bugs | Enhancements |
 |------------|--------|---------|----------|------|--------------|
-| [**Server**](server.md) | 530 | 899 | 865 | 137 | 349 |
-| [**Features**](features.md) | 247 | 106 | 399 | 6 | 216 |
+| [**Server**](server.md) | 530 | 899 | 865 | 137 | 353 |
+| [**Features**](features.md) | 247 | 106 | 400 | 6 | 226 |
 | [Java SDK](java.md) | 215 | 104 | 203 | 33 | 126 |
-| [Go SDK](go.md) | 163 | 112 | 214 | 60 | 89 |
-| [TypeScript SDK](typescript.md) | 148 | 178 | 347 | 50 | 87 |
+| [Go SDK](go.md) | 163 | 112 | 214 | 59 | 89 |
+| [TypeScript SDK](typescript.md) | 148 | 178 | 348 | 50 | 87 |
 | [Python SDK](python.md) | 115 | 31 | 206 | 46 | 65 |
 | [.NET SDK](dotnet.md) | 48 | 13 | 51 | 12 | 31 |
-| [PHP SDK](php.md) | 47 | 12 | 66 | 7 | 29 |
+| [PHP SDK](php.md) | 47 | 12 | 66 | 7 | 31 |
 | [Ruby SDK](ruby.md) | 24 | 3 | 15 | 4 | 19 |
-| **Total** | **1,537** | **1,458** | **2,366** | | |
+| [API](api.md) | 13 | 6 | 9 | 3 | 9 |
+| **Total** | **1,550** | **1,464** | **2,377** | **357** | **1,036** |
 
 ---
 
@@ -187,16 +189,18 @@ Testing is the #1 pain point across every SDK:
 
 | Repository | Stale (>1 year) | % of Total |
 |------------|-----------------|------------|
-| Server | ~435 | 82% |
+| Server | 374 | 71% |
+| Features | 145 | 59% |
 | Java SDK | 155 | 72% |
 | Go SDK | 101 | 62% |
 | TypeScript SDK | 59 | 40% |
 | Python SDK | 52 | 45% |
-| .NET SDK | 23 | 48% |
-| PHP SDK | 21 | 45% |
-| Ruby SDK | 0 | 0% |
+| .NET SDK | 22 | 46% |
+| PHP SDK | 17 | 36% |
+| Ruby SDK | 2 | 8% |
+| API | 13 | 100% |
 
-**Total stale issues:** ~850+ (55% of all issues)
+**Total stale issues:** 940 (61% of all issues)
 
 ---
 

@@ -18,7 +18,7 @@
 | Total Comments | 400 |
 | Issues with Upvotes | 32 (13%) |
 | Issues with Comments | 130 (53%) |
-| Average Age (days) | 790 |
+| Average Age (days) | 791 |
 | Stale Issues (>12 months) | 145 (59%) |
 
 ---

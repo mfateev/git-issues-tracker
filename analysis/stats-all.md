@@ -24,7 +24,7 @@
 | Repository | Issues | Bugs | Enhancements | 👍 | 💬 | Stale | Avg Age |
 |------------|--------|------|--------------|-----|-----|-------|---------|
 | [Server](stats-server.md) | 530 | 137 | 353 | 899 | 865 | 374 | 960d |
-| [Features](stats-features.md) | 247 | 6 | 226 | 106 | 400 | 145 | 790d |
+| [Features](stats-features.md) | 247 | 6 | 226 | 106 | 400 | 145 | 791d |
 | [Java SDK](stats-java.md) | 215 | 33 | 126 | 104 | 203 | 155 | 983d |
 | [Go SDK](stats-go.md) | 163 | 59 | 89 | 112 | 214 | 101 | 977d |
 | [TypeScript SDK](stats-typescript.md) | 148 | 50 | 87 | 178 | 348 | 59 | 640d |
@@ -227,7 +227,7 @@ Priority = Upvotes × 2 + Comments
 | Repository | Avg Age (days) | 3+ Years | 1-3 Years | <1 Year |
 |------------|----------------|----------|-----------|---------|
 | temporalio-api | 1069 | 7 | 6 | 0 |
-| Features | 790 | 82 | 100 | 65 |
+| Features | 791 | 82 | 100 | 65 |
 | .NET SDK | 393 | 0 | 23 | 25 |
 | Go SDK | 977 | 69 | 60 | 34 |
 | Java SDK | 983 | 103 | 70 | 42 |

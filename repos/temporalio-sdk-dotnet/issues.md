@@ -1333,7 +1333,7 @@ Literally just always creating a new instance of the payload object. How you "wr
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/579 |
 | **State** | OPEN |
 | **Author** | cfauchere (Clement) |
-| **Created** | 2025-12-17 22:50:42.000 UTC (15 days ago) |
+| **Created** | 2025-12-17 22:50:42.000 UTC (16 days ago) |
 | **Updated** | 2025-12-18 15:28:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |

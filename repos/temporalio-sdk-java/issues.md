@@ -1989,7 +1989,7 @@ I believe you can implement this logic by implementing custom WorkflowOutboundCa
 | **URL** | https://github.com/temporalio/sdk-java/issues/2746 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-12-09 23:15:13.000 UTC (23 days ago) |
+| **Created** | 2025-12-09 23:15:13.000 UTC (24 days ago) |
 | **Updated** | 2025-12-09 23:15:13.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 0 |
