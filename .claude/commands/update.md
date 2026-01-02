@@ -35,13 +35,29 @@ For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`)
 **Important:**
 - Keep the existing document structure if updating
 - If you think the structure can be improved, explain the proposed change and ask for confirmation
-- Issue links must point to the local issues file: `../repos/<sdk>/issues.md#<issue-number>`
 - Do NOT include script usage examples, jq commands, or implementation details in analysis documents
 - Analysis documents should contain only issue analysis content, not tooling documentation
 
+**Issue Link Format (CRITICAL):**
+All issue references MUST link to local files, NOT GitHub URLs.
+
+✅ Correct: `[#680](../repos/temporalio-temporal/issues.md#680)`
+❌ Wrong: `[#680](https://github.com/temporalio/temporal/issues/680)`
+
+Repository mapping for links:
+- Server issues: `../repos/temporalio-temporal/issues.md#<number>`
+- Features issues: `../repos/temporalio-features/issues.md#<number>`
+- Java SDK: `../repos/temporalio-sdk-java/issues.md#<number>`
+- Go SDK: `../repos/temporalio-sdk-go/issues.md#<number>`
+- TypeScript SDK: `../repos/temporalio-sdk-typescript/issues.md#<number>`
+- Python SDK: `../repos/temporalio-sdk-python/issues.md#<number>`
+- .NET SDK: `../repos/temporalio-sdk-dotnet/issues.md#<number>`
+- PHP SDK: `../repos/temporalio-sdk-php/issues.md#<number>`
+- Ruby SDK: `../repos/temporalio-sdk-ruby/issues.md#<number>`
+
 ### 5. Generate Cross-Repository Summary (LLM)
 
-Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, then update `analysis/SUMMARY.md` with:
+Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, then update `analysis/summary.md` with:
 
 - Overview table of all repositories
 - Top user requests across all repos
@@ -52,6 +68,8 @@ Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, t
 **Important:**
 - Keep the existing document structure if updating
 - If you think the structure can be improved, explain the proposed change and ask for confirmation
-- Issue links must point to the local issues file: `../repos/<sdk>/issues.md#<issue-number>`
 - Do NOT include script usage examples, jq commands, or implementation details
 - The summary should contain only analysis content, not tooling documentation
+
+**Issue Link Format (CRITICAL):**
+Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
