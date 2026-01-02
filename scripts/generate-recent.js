@@ -132,7 +132,7 @@ function generateRecent(days) {
         const date = formatDate(issue.createdAt);
         const shortRepo = issue._repo.replace('temporalio/', '');
         const author = issue.author?.login || 'unknown';
-        md += `| ${date} | ${shortRepo} | [#${issue.number}](${issue.url}) | ${author} | ${issue.title} |\n`;
+        md += `| ${date} | ${shortRepo} | [#${issue.number}](../repos/${issue._repoDir}/issues.md#${issue.number}) | ${author} | ${issue.title} |\n`;
     });
     md += `\n`;
 
@@ -150,7 +150,7 @@ function generateRecent(days) {
                 const date = formatDate(issue.createdAt);
                 const author = issue.author?.login || 'unknown';
                 const labels = (issue.labels || []).map(l => l.name || l).slice(0, 3).join(', ') || 'none';
-                md += `- **[#${issue.number}](${issue.url})** ${issue.title}\n`;
+                md += `- **[#${issue.number}](../repos/${issue._repoDir}/issues.md#${issue.number})** ${issue.title}\n`;
                 md += `  - *${date} by ${author}* | Labels: ${labels}\n`;
             });
             md += `\n`;

@@ -79,7 +79,7 @@ function generateContributors() {
             number: issue.number,
             title: issue.title,
             repo: issue._repo,
-            url: issue.url
+            repoDir: issue._repoDir
         });
 
         // Count comments
@@ -181,7 +181,7 @@ function generateContributors() {
         data.issues.forEach(issue => {
             const title = issue.title;
             const shortRepo = issue.repo.replace('temporalio/', '');
-            md += `| ${shortRepo} | [#${issue.number}](${issue.url}) | ${title} |\n`;
+            md += `| ${shortRepo} | [#${issue.number}](../repos/${issue.repoDir}/issues.md#${issue.number}) | ${title} |\n`;
         });
         md += `\n`;
     });
