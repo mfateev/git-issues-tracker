@@ -36,8 +36,18 @@ node scripts/build-index.js owner-repo
 # List tracked repositories
 node scripts/build-index.js --list
 
-# Analysis
+# Generate statistics
+node scripts/generate-stats.js --all
+node scripts/generate-aggregate-stats.js
+
+# Generate readable issues.md files
+node scripts/generate-readable.js --all
+
+# Analysis (single repo)
 node scripts/analyze-issues.js <repo-dir-name> <command>
+
+# Analysis (all repos)
+node scripts/analyze-all.js <command>
 ```
 
 Analysis commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, `comments`, `engagement`, `priority`, `recent`, `stale`, `categories`, `report`
@@ -46,20 +56,25 @@ Analysis commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, 
 
 ```
 analysis/                       # Issue analysis documents
-├── SUMMARY.md                  # Cross-repository summary
-├── server.md                   # Temporal Server
-├── features.md                 # Cross-SDK features
-├── java.md
-├── go.md
-├── typescript.md
-├── python.md
-├── dotnet.md
-├── php.md
-└── ruby.md
+├── summary.md                  # Cross-repository summary (LLM-generated)
+├── server.md                   # Temporal Server analysis
+├── features.md                 # Cross-SDK features analysis
+├── java.md                     # Java SDK analysis
+├── go.md                       # Go SDK analysis
+├── typescript.md               # TypeScript SDK analysis
+├── python.md                   # Python SDK analysis
+├── dotnet.md                   # .NET SDK analysis
+├── php.md                      # PHP SDK analysis
+├── ruby.md                     # Ruby SDK analysis
+├── stats-all.md                # Cross-repo statistics (script-generated)
+├── stats-<sdk>.md              # Per-SDK statistics (script-generated)
+├── contributors.md             # Top contributors by repo
+└── recent.md                   # Recent issues across all repos
 
 repos/                          # Per-repository data
 └── {owner}-{repo}/
     ├── issues/                 # Raw JSON per issue (issue-{num}.json)
+    ├── issues.md               # Human-readable issue list
     ├── issues-index.json       # Aggregated index with engagement stats
     └── sync-metadata.json      # Sync state (last_sync, issue_count)
 
@@ -68,7 +83,13 @@ scripts/
 ├── update-issues.sh            # Incremental sync for one repo
 ├── update-all.sh               # Update all tracked repos
 ├── build-index.js              # Creates issues-index.json
-└── analyze-issues.js           # Query and reporting tool
+├── analyze-issues.js           # Query and reporting tool (single repo)
+├── analyze-all.js              # Query and reporting tool (all repos)
+├── generate-stats.js           # Generate per-SDK statistics
+├── generate-aggregate-stats.js # Generate cross-repo statistics
+├── generate-readable.js        # Generate issues.md files
+├── generate-contributors.js    # Generate contributors.md
+└── generate-recent.js          # Generate recent.md
 ```
 
 ## Key Patterns
@@ -78,3 +99,4 @@ scripts/
 - Priority score: `upvotes × 2 + comments`
 - Upvotes extracted from THUMBS_UP reactions during indexing
 - Requires authenticated `gh` CLI
+- Statistics files (`stats-*.md`) are script-generated; analysis files (`<sdk>.md`) are LLM-generated
