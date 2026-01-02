@@ -179,9 +179,9 @@ function generateContributors() {
         md += `| Repo | Issue | Title |\n`;
         md += `|------|-------|-------|\n`;
         data.issues.forEach(issue => {
-            const shortTitle = issue.title.length > 60 ? issue.title.substring(0, 57) + '...' : issue.title;
+            const title = issue.title;
             const shortRepo = issue.repo.replace('temporalio/', '');
-            md += `| ${shortRepo} | [#${issue.number}](${issue.url}) | ${shortTitle} |\n`;
+            md += `| ${shortRepo} | [#${issue.number}](${issue.url}) | ${title} |\n`;
         });
         md += `\n`;
     });

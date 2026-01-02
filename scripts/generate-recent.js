@@ -132,8 +132,7 @@ function generateRecent(days) {
         const date = formatDate(issue.createdAt);
         const shortRepo = issue._repo.replace('temporalio/', '');
         const author = issue.author?.login || 'unknown';
-        const shortTitle = issue.title.length > 50 ? issue.title.substring(0, 47) + '...' : issue.title;
-        md += `| ${date} | ${shortRepo} | [#${issue.number}](${issue.url}) | ${author} | ${shortTitle} |\n`;
+        md += `| ${date} | ${shortRepo} | [#${issue.number}](${issue.url}) | ${author} | ${issue.title} |\n`;
     });
     md += `\n`;
 

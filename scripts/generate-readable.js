@@ -170,7 +170,7 @@ function generateReadable(repoDir) {
     md += `| # | 👍 | 💬 | Title |\n`;
     md += `|---|-----|-----|-------|\n`;
     issues.forEach(issue => {
-        const shortTitle = issue.title.length > 60 ? issue.title.substring(0, 57) + '...' : issue.title;
+        const title = issue.title;
         // Generate anchor matching GitHub's auto-generation from "### #123: Title"
         // GitHub: lowercase, remove non-(letter/number/space/hyphen), spaces to hyphens
         const anchor = `#${issue.number}: ${issue.title}`
@@ -178,7 +178,7 @@ function generateReadable(repoDir) {
             .replace(/[^a-z0-9 -]/g, '')
             .replace(/ +/g, '-')
             .replace(/^-|-$/g, '');
-        md += `| [#${issue.number}](#${anchor}) | ${issue._upvotes} | ${issue._commentCount} | ${shortTitle} |\n`;
+        md += `| [#${issue.number}](#${anchor}) | ${issue._upvotes} | ${issue._commentCount} | ${title} |\n`;
     });
     md += `\n`;
 
