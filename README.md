@@ -19,28 +19,27 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 
 ## Analysis
 
-See [analysis/SUMMARY.md](analysis/SUMMARY.md) for cross-SDK insights including common themes, top user requests, and recommended initiatives.
+See [analysis/summary.md](analysis/summary.md) for cross-SDK insights including common themes, top user requests, and recommended initiatives.
 
 ## Quick Start
 
-```bash
-# Update all tracked repos
-./scripts/update-all.sh
+**Using Claude Code:**
+```
+/update    # Sync all repos and regenerate analysis
+```
 
+**Manual commands:**
+```bash
 # Track a new repository
 ./scripts/fetch-issues.sh owner/repo
 node scripts/build-index.js owner-repo
-
-# Generate statistics
-node scripts/generate-stats.js --all
-node scripts/generate-aggregate-stats.js
 ```
 
 ## Structure
 
 ```
 analysis/
-├── SUMMARY.md              # Cross-repository summary (LLM-generated)
+├── summary.md              # Cross-repository summary (LLM-generated)
 ├── stats-all.md            # Aggregate statistics (script-generated)
 ├── stats-<sdk>.md          # Per-SDK statistics (script-generated)
 ├── <sdk>.md                # Per-SDK analysis (LLM-generated)
