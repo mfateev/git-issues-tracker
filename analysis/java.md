@@ -4,7 +4,7 @@
 **Total Open Issues:** 215
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-java/ISSUES.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-java/issues.md)
 
 **Other SDKs:** [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Server](server.md) · [Features](features.md)
 

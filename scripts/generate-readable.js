@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 
 const REPOS_DIR = path.join(__dirname, '..', 'repos');
-const OUTPUT_FILE = 'ISSUES.md';
+const OUTPUT_FILE = 'issues.md';
 
 function formatDate(dateStr) {
     if (!dateStr) return 'N/A';

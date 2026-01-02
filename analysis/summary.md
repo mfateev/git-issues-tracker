@@ -21,7 +21,7 @@
 [PHP](php.md) ·
 [Ruby](ruby.md)
 
-**Full Issue Data:** See `repos/<repo>/ISSUES.md` for complete issue dumps with all comments.
+**Full Issue Data:** See `repos/<repo>/issues.md` for complete issue dumps with all comments.
 
 ---
 

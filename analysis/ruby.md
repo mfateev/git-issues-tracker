@@ -4,7 +4,7 @@
 **Total Open Issues:** 24
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-ruby/ISSUES.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-ruby/issues.md)
 
 **Other SDKs:** [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Server](server.md) · [Features](features.md)
 

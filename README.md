@@ -43,14 +43,14 @@ git-issues-tracker/
 │       ├── issues/                 # Individual issue JSON files
 │       ├── issues-index.json       # Quick lookup index with engagement stats
 │       ├── sync-metadata.json      # Tracks sync state
-│       └── ISSUES.md               # Human-readable issue list
+│       └── issues.md               # Human-readable issue list
 ├── scripts/                        # Shared scripts
 │   ├── fetch-issues.sh             # Full download for any repo
 │   ├── update-issues.sh            # Incremental update for one repo
 │   ├── update-all.sh               # Update all tracked repos
 │   ├── build-index.js              # Build/rebuild index
 │   ├── analyze-issues.js           # Analysis and reports
-│   ├── generate-readable.js        # Generate human-readable ISSUES.md
+│   ├── generate-readable.js        # Generate human-readable issues.md
 │   ├── generate-contributors.js    # Contributor statistics with issue links
 │   └── generate-recent.js          # Recent issues report
 └── README.md
@@ -134,7 +134,7 @@ node scripts/generate-readable.js temporalio-sdk-java
 node scripts/generate-readable.js --all
 ```
 
-Output: `repos/<repo>/ISSUES.md` containing:
+Output: `repos/<repo>/issues.md` containing:
 - Summary stats and top labels
 - **Issue index** - clickable table linking to each issue
 - Complete data for each issue:

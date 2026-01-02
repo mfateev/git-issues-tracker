@@ -4,7 +4,7 @@
 **Total Open Issues:** 47
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-php/ISSUES.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-php/issues.md)
 
 **Other SDKs:** [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [Ruby](ruby.md) · [Server](server.md) · [Features](features.md)
 
