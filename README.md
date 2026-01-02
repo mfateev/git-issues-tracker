@@ -2,6 +2,23 @@
 
 Local mirror system for tracking GitHub issues across Temporal SDK repositories with engagement metrics and analysis.
 
+## 📊 Analysis Reports
+
+| Report | Description |
+|--------|-------------|
+| **[📋 Cross-SDK Summary](analysis/summary.md)** | Common themes, top user requests, and recommended initiatives |
+| [Temporal Server](analysis/server.md) | Server-specific issues and priorities |
+| [Java SDK](analysis/java.md) | Java SDK analysis |
+| [Go SDK](analysis/go.md) | Go SDK analysis |
+| [TypeScript SDK](analysis/typescript.md) | TypeScript SDK analysis |
+| [Python SDK](analysis/python.md) | Python SDK analysis |
+| [.NET SDK](analysis/dotnet.md) | .NET SDK analysis |
+| [PHP SDK](analysis/php.md) | PHP SDK analysis |
+| [Ruby SDK](analysis/ruby.md) | Ruby SDK analysis |
+| [Features](analysis/features.md) | Cross-SDK features analysis |
+| [Recent Issues](analysis/recent.md) | Issues from the last 30 days |
+| [Statistics](analysis/stats-all.md) | Aggregate statistics across all repos |
+
 ## Tracked Repositories
 
 | Repository | Issues | Top User Request |
@@ -16,10 +33,6 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [PHP SDK](https://github.com/temporalio/sdk-php) | 47 | Marshaller documentation |
 | [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
 | **Total** | **1,537** | |
-
-## Analysis
-
-See [analysis/summary.md](analysis/summary.md) for cross-SDK insights including common themes, top user requests, and recommended initiatives.
 
 ## Quick Start
 
