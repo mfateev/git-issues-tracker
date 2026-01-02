@@ -111,6 +111,15 @@ function generateContributors() {
     md += `**Unique Issue Authors:** ${sortedIssuers.length}\n`;
     md += `**Unique Commenters:** ${sortedCommenters.length}\n\n`;
 
+    // Navigation
+    md += `## Related Documents\n\n`;
+    md += `← [Summary](summary.md) · [Recent Issues](recent.md)\n\n`;
+    md += `**Per-Repository:** `;
+    md += `[Server](server.md) · [Features](features.md) · `;
+    md += `[Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · `;
+    md += `[Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md)\n\n`;
+    md += `---\n\n`;
+
     // Issues by author (with links to detail sections)
     md += `## Issues Filed by Author\n\n`;
     md += `| Rank | Author | Issues | Repositories |\n`;

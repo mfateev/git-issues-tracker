@@ -1,37 +1,43 @@
 # Recent Issues (Last 30 Days)
 
-**Generated:** 2025-12-31
-**Period:** 2025-12-01 to 2025-12-31
-**New Issues:** 48
+**Generated:** 2026-01-02
+**Period:** 2025-12-03 to 2026-01-02
+**New Issues:** 37
+
+## Related Documents
+
+← [Summary](summary.md) · [Contributors](contributors.md)
+
+**Per-Repository:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md)
+
+---
 
 ## Summary by Repository
 
 | Repository | New Issues |
 |------------|------------|
-| sdk-typescript | 10 |
 | temporal | 10 |
-| sdk-java | 7 |
-| sdk-dotnet | 6 |
-| sdk-python | 5 |
-| features | 3 |
-| sdk-go | 3 |
+| sdk-typescript | 8 |
+| sdk-java | 6 |
+| sdk-dotnet | 5 |
+| sdk-python | 3 |
+| features | 2 |
 | sdk-php | 2 |
-| sdk-ruby | 2 |
+| sdk-go | 1 |
 
 ## Summary by Author
 
 | Author | New Issues |
 |--------|------------|
-| maciejdudko | 8 |
-| cretz | 4 |
 | deepika-awasthi | 3 |
-| tconley1428 | 3 |
+| cretz | 3 |
+| tconley1428 | 2 |
 | roshchha | 2 |
-| Quinn-With-Two-Ns | 2 |
 | 40lsgy1 | 1 |
 | TastyPi | 1 |
 | andropler | 1 |
 | TbirdDuncan | 1 |
+| maciejdudko | 1 |
 | hafiz-qasim | 1 |
 | Tomlord1122 | 1 |
 | justinadkins | 1 |
@@ -42,6 +48,7 @@
 | VegetarianOrc | 1 |
 | cfauchere | 1 |
 | AlexMog | 1 |
+| jmaeagle99 | 1 |
 
 ---
 
@@ -86,44 +93,10 @@
 | 2025-12-05 | temporal | [#8764](https://github.com/temporalio/temporal/issues/8764) | albertom-pirovano-mck | Listing workflows and activities from temporal sdk |
 | 2025-12-04 | sdk-typescript | [#1854](https://github.com/temporalio/sdk-typescript/issues/1854) | clintonb | [Feature Request] Correct docs for OtelCollecto... |
 | 2025-12-03 | sdk-python | [#1237](https://github.com/temporalio/sdk-python/issues/1237) | tconley1428 | [Bug] Converter returns bad value converting `d... |
-| 2025-12-02 | sdk-python | [#1232](https://github.com/temporalio/sdk-python/issues/1232) | tconley1428 | [Feature Request] Add BasedPyright as a require... |
-| 2025-12-02 | features | [#706](https://github.com/temporalio/features/issues/706) | maciejdudko | Support non-workflow activities |
-| 2025-12-02 | sdk-dotnet | [#568](https://github.com/temporalio/sdk-dotnet/issues/568) | maciejdudko | [Feature Request] Support non-workflow activities |
-| 2025-12-02 | sdk-go | [#2124](https://github.com/temporalio/sdk-go/issues/2124) | maciejdudko | Support non-workflow activities |
-| 2025-12-02 | sdk-java | [#2741](https://github.com/temporalio/sdk-java/issues/2741) | maciejdudko | Support non-workflow activities |
-| 2025-12-02 | sdk-python | [#1230](https://github.com/temporalio/sdk-python/issues/1230) | maciejdudko | [Feature Request] Support non-workflow activities |
-| 2025-12-02 | sdk-ruby | [#367](https://github.com/temporalio/sdk-ruby/issues/367) | maciejdudko | [Feature Request] Support non-workflow activities |
-| 2025-12-02 | sdk-typescript | [#1851](https://github.com/temporalio/sdk-typescript/issues/1851) | maciejdudko | [Feature Request] Support non-workflow activities |
-| 2025-12-02 | sdk-go | [#2123](https://github.com/temporalio/sdk-go/issues/2123) | Quinn-With-Two-Ns | [api-go] Proxy: allow payload visitor to run in... |
-| 2025-12-02 | sdk-typescript | [#1850](https://github.com/temporalio/sdk-typescript/issues/1850) | chris-olszewski | [Feature Request] Implement OTel interceptors v... |
-| 2025-12-02 | sdk-ruby | [#364](https://github.com/temporalio/sdk-ruby/issues/364) | cretz | [Feature Request] Confirm/assert Ruby 4 compati... |
 
 ---
 
 ## Details by Repository
-
-### sdk-typescript (10 new)
-
-- **[#1867](https://github.com/temporalio/sdk-typescript/issues/1867)** [Feature Request] Per-Worker Logger
-  - *2025-12-30 by TastyPi* | Labels: enhancement
-- **[#1866](https://github.com/temporalio/sdk-typescript/issues/1866)** [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
-  - *2025-12-23 by justinadkins* | Labels: bug
-- **[#1864](https://github.com/temporalio/sdk-typescript/issues/1864)** [Feature Request] Update AI SDK integration to v6
-  - *2025-12-22 by tconley1428* | Labels: enhancement
-- **[#1862](https://github.com/temporalio/sdk-typescript/issues/1862)** [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
-  - *2025-12-12 by deepika-awasthi* | Labels: enhancement
-- **[#1860](https://github.com/temporalio/sdk-typescript/issues/1860)** [Bug] Performance regression from 1.13.1 -> 1.13.2
-  - *2025-12-10 by mnahkies* | Labels: bug
-- **[#1859](https://github.com/temporalio/sdk-typescript/issues/1859)** [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x
-  - *2025-12-08 by daniellockyer* | Labels: bug
-- **[#1858](https://github.com/temporalio/sdk-typescript/issues/1858)** [Bug] unable to import reflect-metadata within workflow bundle
-  - *2025-12-05 by hmvien* | Labels: bug
-- **[#1854](https://github.com/temporalio/sdk-typescript/issues/1854)** [Feature Request] Correct docs for OtelCollectorExporter
-  - *2025-12-04 by clintonb* | Labels: enhancement
-- **[#1851](https://github.com/temporalio/sdk-typescript/issues/1851)** [Feature Request] Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
-- **[#1850](https://github.com/temporalio/sdk-typescript/issues/1850)** [Feature Request] Implement OTel interceptors v1 as Plugin
-  - *2025-12-02 by chris-olszewski* | Labels: enhancement
 
 ### temporal (10 new)
 
@@ -148,7 +121,26 @@
 - **[#8764](https://github.com/temporalio/temporal/issues/8764)** Listing workflows and activities from temporal sdk
   - *2025-12-05 by albertom-pirovano-mck* | Labels: enhancement
 
-### sdk-java (7 new)
+### sdk-typescript (8 new)
+
+- **[#1867](https://github.com/temporalio/sdk-typescript/issues/1867)** [Feature Request] Per-Worker Logger
+  - *2025-12-30 by TastyPi* | Labels: enhancement
+- **[#1866](https://github.com/temporalio/sdk-typescript/issues/1866)** [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
+  - *2025-12-23 by justinadkins* | Labels: bug
+- **[#1864](https://github.com/temporalio/sdk-typescript/issues/1864)** [Feature Request] Update AI SDK integration to v6
+  - *2025-12-22 by tconley1428* | Labels: enhancement
+- **[#1862](https://github.com/temporalio/sdk-typescript/issues/1862)** [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
+  - *2025-12-12 by deepika-awasthi* | Labels: enhancement
+- **[#1860](https://github.com/temporalio/sdk-typescript/issues/1860)** [Bug] Performance regression from 1.13.1 -> 1.13.2
+  - *2025-12-10 by mnahkies* | Labels: bug
+- **[#1859](https://github.com/temporalio/sdk-typescript/issues/1859)** [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x
+  - *2025-12-08 by daniellockyer* | Labels: bug
+- **[#1858](https://github.com/temporalio/sdk-typescript/issues/1858)** [Bug] unable to import reflect-metadata within workflow bundle
+  - *2025-12-05 by hmvien* | Labels: bug
+- **[#1854](https://github.com/temporalio/sdk-typescript/issues/1854)** [Feature Request] Correct docs for OtelCollectorExporter
+  - *2025-12-04 by clintonb* | Labels: enhancement
+
+### sdk-java (6 new)
 
 - **[#2753](https://github.com/temporalio/sdk-java/issues/2753)** Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
   - *2025-12-31 by 40lsgy1* | Labels: none
@@ -162,10 +154,8 @@
   - *2025-12-09 by Quinn-With-Two-Ns* | Labels: enhancement
 - **[#2745](https://github.com/temporalio/sdk-java/issues/2745)** WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue
   - *2025-12-08 by tsurdilo* | Labels: none
-- **[#2741](https://github.com/temporalio/sdk-java/issues/2741)** Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
 
-### sdk-dotnet (6 new)
+### sdk-dotnet (5 new)
 
 - **[#584](https://github.com/temporalio/sdk-dotnet/issues/584)** [Bug] Loading TLS certificates from path doesn't work
   - *2025-12-26 by maciejdudko* | Labels: bug
@@ -177,10 +167,8 @@
   - *2025-12-12 by jmaeagle99* | Labels: bug
 - **[#576](https://github.com/temporalio/sdk-dotnet/issues/576)** [Feature Request] .NET Analyzer for Checking Workflows
   - *2025-12-12 by cretz* | Labels: enhancement
-- **[#568](https://github.com/temporalio/sdk-dotnet/issues/568)** [Feature Request] Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
 
-### sdk-python (5 new)
+### sdk-python (3 new)
 
 - **[#1262](https://github.com/temporalio/sdk-python/issues/1262)** [Bug] Add ability to obtain `ApplicationError` details with type hint
   - *2025-12-29 by cretz* | Labels: bug
@@ -188,28 +176,13 @@
   - *2025-12-17 by VegetarianOrc* | Labels: bug
 - **[#1237](https://github.com/temporalio/sdk-python/issues/1237)** [Bug] Converter returns bad value converting `dict[None, Any]`
   - *2025-12-03 by tconley1428* | Labels: bug
-- **[#1232](https://github.com/temporalio/sdk-python/issues/1232)** [Feature Request] Add BasedPyright as a required typecheck
-  - *2025-12-02 by tconley1428* | Labels: enhancement
-- **[#1230](https://github.com/temporalio/sdk-python/issues/1230)** [Feature Request] Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
 
-### features (3 new)
+### features (2 new)
 
 - **[#715](https://github.com/temporalio/features/issues/715)** Custom Metadata Support for Workers in Temporal UI and CLI
   - *2025-12-22 by deepika-awasthi* | Labels: enhancement
 - **[#712](https://github.com/temporalio/features/issues/712)** [Bug] Use `pnpm` when building TS worker from source
   - *2025-12-18 by THardy98* | Labels: none
-- **[#706](https://github.com/temporalio/features/issues/706)** Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
-
-### sdk-go (3 new)
-
-- **[#2131](https://github.com/temporalio/sdk-go/issues/2131)** Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error..
-  - *2025-12-08 by ganlvtech* | Labels: enhancement
-- **[#2124](https://github.com/temporalio/sdk-go/issues/2124)** Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
-- **[#2123](https://github.com/temporalio/sdk-go/issues/2123)** [api-go] Proxy: allow payload visitor to run in parallel
-  - *2025-12-02 by Quinn-With-Two-Ns* | Labels: enhancement
 
 ### sdk-php (2 new)
 
@@ -218,10 +191,8 @@
 - **[#668](https://github.com/temporalio/sdk-php/issues/668)** [Feature Request] Implement `SetCurrentDetails` for dynamic workflow details
   - *2025-12-06 by FluffyDiscord* | Labels: enhancement
 
-### sdk-ruby (2 new)
+### sdk-go (1 new)
 
-- **[#367](https://github.com/temporalio/sdk-ruby/issues/367)** [Feature Request] Support non-workflow activities
-  - *2025-12-02 by maciejdudko* | Labels: enhancement
-- **[#364](https://github.com/temporalio/sdk-ruby/issues/364)** [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support
-  - *2025-12-02 by cretz* | Labels: enhancement
+- **[#2131](https://github.com/temporalio/sdk-go/issues/2131)** Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error..
+  - *2025-12-08 by ganlvtech* | Labels: enhancement
 

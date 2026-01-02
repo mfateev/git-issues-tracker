@@ -87,6 +87,15 @@ function generateRecent(days) {
     md += `**Period:** ${formatDate(cutoffDate)} to ${formatDate(new Date())}\n`;
     md += `**New Issues:** ${recentIssues.length}\n\n`;
 
+    // Navigation
+    md += `## Related Documents\n\n`;
+    md += `← [Summary](summary.md) · [Contributors](contributors.md)\n\n`;
+    md += `**Per-Repository:** `;
+    md += `[Server](server.md) · [Features](features.md) · `;
+    md += `[Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · `;
+    md += `[Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md)\n\n`;
+    md += `---\n\n`;
+
     // Summary by repo
     md += `## Summary by Repository\n\n`;
     md += `| Repository | New Issues |\n`;

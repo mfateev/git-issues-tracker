@@ -3,21 +3,41 @@
 **Generated:** 2025-12-31
 **Total Open Issues:** 1,537 across 9 repositories
 
+## Related Documents
+
+| Document | Description |
+|----------|-------------|
+| [contributors.md](contributors.md) | Issues and comments by author |
+| [recent.md](recent.md) | Issues filed in the last 30 days |
+
+**Per-Repository Analysis:**
+[Server](server.md) ·
+[Features](features.md) ·
+[Java](java.md) ·
+[Go](go.md) ·
+[TypeScript](typescript.md) ·
+[Python](python.md) ·
+[.NET](dotnet.md) ·
+[PHP](php.md) ·
+[Ruby](ruby.md)
+
+**Full Issue Data:** See `repos/<repo>/ISSUES.md` for complete issue dumps with all comments.
+
 ---
 
 ## Overview by Repository
 
 | Repository | Issues | Upvotes | Comments | Bugs | Enhancements |
 |------------|--------|---------|----------|------|--------------|
-| **Server** | 530 | 899 | 865 | 137 | 349 |
-| **Features** | 247 | 106 | 399 | 6 | 216 |
-| Java SDK | 215 | 104 | 203 | 33 | 126 |
-| Go SDK | 163 | 112 | 214 | 60 | 89 |
-| TypeScript SDK | 148 | 177 | 347 | 50 | 87 |
-| Python SDK | 115 | 31 | 206 | 46 | 65 |
-| .NET SDK | 48 | 13 | 51 | 12 | 31 |
-| PHP SDK | 47 | 12 | 66 | 7 | 29 |
-| Ruby SDK | 24 | 3 | 15 | 4 | 19 |
+| [**Server**](server.md) | 530 | 899 | 865 | 137 | 349 |
+| [**Features**](features.md) | 247 | 106 | 399 | 6 | 216 |
+| [Java SDK](java.md) | 215 | 104 | 203 | 33 | 126 |
+| [Go SDK](go.md) | 163 | 112 | 214 | 60 | 89 |
+| [TypeScript SDK](typescript.md) | 148 | 177 | 347 | 50 | 87 |
+| [Python SDK](python.md) | 115 | 31 | 206 | 46 | 65 |
+| [.NET SDK](dotnet.md) | 48 | 13 | 51 | 12 | 31 |
+| [PHP SDK](php.md) | 47 | 12 | 66 | 7 | 29 |
+| [Ruby SDK](ruby.md) | 24 | 3 | 15 | 4 | 19 |
 | **Total** | **1,537** | **1,457** | **2,366** | | |
 
 ---

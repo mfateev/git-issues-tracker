@@ -4,6 +4,10 @@
 **Total Open Issues:** 163
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-go/ISSUES.md)
+
+**Other SDKs:** [Java](java.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Server](server.md) · [Features](features.md)
+
 ---
 
 ## Executive Summary

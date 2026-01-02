@@ -4,6 +4,10 @@
 **Total Open Issues:** 148
 **Repository:** [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript)
 
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-typescript/ISSUES.md)
+
+**Other SDKs:** [Java](java.md) · [Go](go.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Server](server.md) · [Features](features.md)
+
 ---
 
 ## Executive Summary
