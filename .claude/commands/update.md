@@ -26,7 +26,13 @@ Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.m
 
 ### 4. Generate SDK Analysis Documents (LLM)
 
-For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issues file (`repos/<sdk>/issues.md`), then update or create `analysis/<sdk>.md` with:
+For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issues file (`repos/<sdk>/issues.md`), then update or create `analysis/<sdk>.md`.
+
+**Templates:** Follow the structure defined in these template files:
+- **SDK analysis:** `.claude/templates/sdk-analysis.md` (Java, Go, TypeScript, Python, .NET, PHP, Ruby)
+- **Server analysis:** `.claude/templates/server-analysis.md`
+- **Features analysis:** `.claude/templates/features-analysis.md`
+- **API analysis:** `.claude/templates/api-analysis.md`
 
 **Deep Analysis:** For top issues (high upvotes, high engagement, or critical bugs), use the `get-issue.js` script to read full issue content including all comments:
 ```bash
@@ -35,18 +41,11 @@ node scripts/get-issue.js <repo> <issue-number>
 ```
 This provides full context for understanding the issue's importance and community discussion.
 
-- Executive summary of key findings
-- Categorized issues (bugs, enhancements, security, etc.)
-- Priority recommendations based on upvotes and engagement
-- Proposed roadmap
-- Housekeeping recommendations (stale issues, duplicates)
-
 **Important:**
-- Keep the existing document structure if updating
-- If you think the structure can be improved, explain the proposed change and ask for confirmation
+- Always follow the template structure - templates are the source of truth
+- To change document structure, update the template in `.claude/templates/`
 - Do NOT include script usage examples, jq commands, or implementation details in analysis documents
 - Analysis documents should contain only issue analysis content, not tooling documentation
-- Maintain the "Related Documents" navigation section at the top with links to summary.md, stats files, and other analysis docs
 
 **Issue Link Format (CRITICAL):**
 All issue references MUST link to local files, NOT GitHub URLs.
@@ -68,20 +67,15 @@ Repository mapping for links:
 
 ### 5. Generate Cross-Repository Summary (LLM)
 
-Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, then update `analysis/summary.md` with:
+Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, then update `analysis/summary.md`.
 
-- Overview table of all repositories
-- Top user requests across all repos
-- Common themes and patterns
-- Per-repository priorities
-- Recommended initiatives
+**Template:** Follow the structure defined in `.claude/templates/summary.md`
 
 **Important:**
-- Keep the existing document structure if updating
-- If you think the structure can be improved, explain the proposed change and ask for confirmation
+- Always follow the template structure - templates are the source of truth
+- To change document structure, update the template in `.claude/templates/`
 - Do NOT include script usage examples, jq commands, or implementation details
 - The summary should contain only analysis content, not tooling documentation
-- Maintain the "Related Documents" navigation section at the top with links to stats files, contributors, and per-SDK analysis docs
 
 **Issue Link Format (CRITICAL):**
 Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
@@ -90,24 +84,21 @@ Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping
 
 Read `analysis/stats-recent.md` (the raw list of recent issues), then update `analysis/recent.md` with deep analysis.
 
+**Template:** Follow the structure defined in `.claude/templates/recent-analysis.md`
+
 **Deep Analysis:** For urgent or high-impact issues, use `get-issue.js` to read full issue content:
 ```bash
 node scripts/get-issue.js <repo> <issue-number>
 ```
 This helps understand the full scope of bugs, security issues, and user-reported problems.
 
-- **Urgent Issues:** Identify security vulnerabilities, production-impacting bugs, and crashes that need immediate attention
-- **Emerging Themes:** Look for patterns across the new issues (e.g., multiple issues in same SDK version, common problem areas)
-- **Category Breakdown:** Bugs vs features vs internal issues
-- **Recommendations:** Prioritized action items based on severity and user impact
-
 **Important:**
+- Always follow the template structure - templates are the source of truth
+- To change document structure, update the template in `.claude/templates/`
 - Focus on issues that are NEW (filed in last 30 days)
 - Highlight anything that could affect production users
 - Look for regressions in recent releases
 - Group related issues together to identify systemic problems
-- Keep the existing document structure if updating
-- Maintain the "Related Documents" navigation section at the top with links to summary.md, stats-recent.md, and per-SDK analysis docs
 
 **Issue Link Format (CRITICAL):**
 Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
