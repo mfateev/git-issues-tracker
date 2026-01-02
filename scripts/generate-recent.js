@@ -5,14 +5,14 @@
  * Usage:
  *   node scripts/generate-recent.js [days]
  *
- * Output: analysis/recent.md
+ * Output: analysis/stats-recent.md
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const REPOS_DIR = path.join(__dirname, '..', 'repos');
-const OUTPUT_FILE = path.join(__dirname, '..', 'analysis', 'recent.md');
+const OUTPUT_FILE = path.join(__dirname, '..', 'analysis', 'stats-recent.md');
 const DEFAULT_DAYS = 30;
 
 function loadAllIssues() {

@@ -17,7 +17,8 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [Ruby SDK](analysis/ruby.md) | Ruby SDK analysis |
 | [API](analysis/api.md) | API protobuf definitions |
 | [Features](analysis/features.md) | Cross-SDK features analysis |
-| [Recent Issues](analysis/recent.md) | Issues from the last 30 days |
+| [Recent Issues Analysis](analysis/recent.md) | Themes and urgent issues from last 30 days |
+| [Recent Issues List](analysis/stats-recent.md) | Raw list of issues from last 30 days |
 | [Statistics](analysis/stats-all.md) | Aggregate statistics across all repos |
 
 ## Tracked Repositories
@@ -51,7 +52,8 @@ analysis/
 ├── stats-<sdk>.md          # Per-SDK statistics (script-generated)
 ├── <sdk>.md                # Per-SDK analysis (LLM-generated)
 ├── contributors.md         # Contributor statistics
-└── recent.md               # Recent issues (last 30 days)
+├── stats-recent.md         # Recent issues list (script-generated)
+└── recent.md               # Recent issues analysis (LLM-generated)
 
 repos/{owner}-{repo}/
 ├── issues/                 # Individual issue JSON files

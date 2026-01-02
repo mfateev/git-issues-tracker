@@ -8,7 +8,7 @@
 | Document | Description |
 |----------|-------------|
 | [contributors.md](contributors.md) | Issues and comments by author |
-| [recent.md](recent.md) | Issues filed in the last 30 days |
+| [stats-recent.md](stats-recent.md) | Issues filed in the last 30 days |
 
 **Per-Repository Analysis:**
 [Server](server.md) ·

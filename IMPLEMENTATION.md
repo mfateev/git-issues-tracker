@@ -41,7 +41,7 @@ Update all tracked repositories at once.
 - Iterates through all repos in `repos/` directory
 - Runs incremental updates for each
 - Rebuilds all indexes
-- Generates contributors.md and recent.md
+- Generates contributors.md and stats-recent.md
 
 ### Index Building
 
@@ -173,7 +173,7 @@ Generate recent issues report.
 node scripts/generate-recent.js
 ```
 
-Output: `analysis/recent.md` with issues from last 30 days.
+Output: `analysis/stats-recent.md` with issues from last 30 days.
 
 ## Data Format
 

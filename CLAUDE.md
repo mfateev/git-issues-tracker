@@ -70,7 +70,8 @@ analysis/                       # Issue analysis documents
 ├── stats-all.md                # Cross-repo statistics (script-generated)
 ├── stats-<sdk>.md              # Per-SDK statistics (script-generated)
 ├── contributors.md             # Top contributors by repo
-└── recent.md                   # Recent issues across all repos
+├── stats-recent.md             # Recent issues list (script-generated)
+└── recent.md                   # Recent issues analysis (LLM-generated)
 
 repos/                          # Per-repository data
 └── {owner}-{repo}/
@@ -90,7 +91,7 @@ scripts/
 ├── generate-aggregate-stats.js # Generate cross-repo statistics
 ├── generate-readable.js        # Generate issues.md files
 ├── generate-contributors.js    # Generate contributors.md
-└── generate-recent.js          # Generate recent.md
+└── generate-recent.js          # Generate stats-recent.md
 ```
 
 ## Key Patterns

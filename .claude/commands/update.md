@@ -10,7 +10,7 @@ Run `./scripts/update-all.sh` to:
 - Fetch updated issues from all tracked repositories
 - Rebuild indexes with engagement metrics
 - Generate contributors.md
-- Generate recent.md
+- Generate stats-recent.md
 
 ### 2. Regenerate Human-Readable Issue Files
 
@@ -71,6 +71,25 @@ Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, t
 - If you think the structure can be improved, explain the proposed change and ask for confirmation
 - Do NOT include script usage examples, jq commands, or implementation details
 - The summary should contain only analysis content, not tooling documentation
+
+**Issue Link Format (CRITICAL):**
+Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
+
+### 6. Generate Recent Issues Analysis (LLM)
+
+Read `analysis/stats-recent.md` (the raw list of recent issues), then update `analysis/recent.md` with deep analysis:
+
+- **Urgent Issues:** Identify security vulnerabilities, production-impacting bugs, and crashes that need immediate attention
+- **Emerging Themes:** Look for patterns across the new issues (e.g., multiple issues in same SDK version, common problem areas)
+- **Category Breakdown:** Bugs vs features vs internal issues
+- **Recommendations:** Prioritized action items based on severity and user impact
+
+**Important:**
+- Focus on issues that are NEW (filed in last 30 days)
+- Highlight anything that could affect production users
+- Look for regressions in recent releases
+- Group related issues together to identify systemic problems
+- Keep the existing document structure if updating
 
 **Issue Link Format (CRITICAL):**
 Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
