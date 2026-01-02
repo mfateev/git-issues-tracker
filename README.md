@@ -15,6 +15,7 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [.NET SDK](analysis/dotnet.md) | .NET SDK analysis |
 | [PHP SDK](analysis/php.md) | PHP SDK analysis |
 | [Ruby SDK](analysis/ruby.md) | Ruby SDK analysis |
+| [API](analysis/api.md) | API protobuf definitions |
 | [Features](analysis/features.md) | Cross-SDK features analysis |
 | [Recent Issues](analysis/recent.md) | Issues from the last 30 days |
 | [Statistics](analysis/stats-all.md) | Aggregate statistics across all repos |
