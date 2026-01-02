@@ -27,13 +27,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 3 | 3% |
-| 1-3 months | 8 | 7% |
+| Last 30 days | 2 | 2% |
+| 1-3 months | 9 | 8% |
 | 3-6 months | 11 | 10% |
 | 6-12 months | 28 | 24% |
 | 1-2 years | 41 | 36% |
-| 2-3 years | 19 | 17% |
-| 3+ years | 5 | 4% |
+| 2-3 years | 18 | 16% |
+| 3+ years | 6 | 5% |
 
 ---
 
@@ -106,7 +106,6 @@ Priority = Upvotes × 2 + Comments
 |------|-------|-----|-------|
 | 2025-12-29 | [#1262](../repos/temporalio-sdk-python/issues.md#1262) | 0 | [Bug] Add ability to obtain `ApplicationError` details with ... |
 | 2025-12-17 | [#1254](../repos/temporalio-sdk-python/issues.md#1254) | 0 | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL... |
-| 2025-12-03 | [#1237](../repos/temporalio-sdk-python/issues.md#1237) | 0 | [Bug] Converter returns bad value converting `dict[None, Any... |
 
 ---
 

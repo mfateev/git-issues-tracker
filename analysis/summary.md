@@ -46,21 +46,21 @@
 
 | Rank | Repo | Issue | 👍 | Request |
 |------|------|-------|-----|---------|
-| 1 | Server | [#680](https://github.com/temporalio/temporal/issues/680) | **70** | Wait for external workflow completion |
-| 2 | Server | [#1507](https://github.com/temporalio/temporal/issues/1507) | **50** | Priority task queues |
-| 3 | TS SDK | [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) | **46** | Bun runtime support |
-| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | **46** | Document POSTGRES_SEEDS |
-| 5 | Server | [#2318](https://github.com/temporalio/temporal/issues/2318) | **46** | MongoDB as persistent store |
-| 6 | Server | [#5680](https://github.com/temporalio/temporal/issues/5680) | **30** | Official OpenSearch support |
-| 7 | Server | [#537](https://github.com/temporalio/temporal/issues/537) | **30** | SignalWithStart/UpdateWithStart |
-| 8 | Server | [#131](https://github.com/temporalio/temporal/issues/131) | **28** | Retry options by failure type |
-| 9 | Go SDK | [#916](https://github.com/temporalio/sdk-go/issues/916) | **21** | Mock side effects in tests |
-| 10 | TS SDK | [#1755](https://github.com/temporalio/sdk-typescript/issues/1755) | **19** | OpenAI Agents integration |
-| 11 | TS SDK | [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) | **19** | OpenTelemetry v2 support |
-| 12 | Go SDK | [#181](https://github.com/temporalio/sdk-go/issues/181) | **16** | Clean session shutdown |
-| 13 | Java SDK | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | **16** | listWorkflowExecutions in test server |
-| 14 | Features | [#399](https://github.com/temporalio/features/issues/399) | **15** | Custom workflow history markers |
-| 15 | Java SDK | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | **15** | Kotlin coroutine support |
+| 1 | Server | [#680](../repos/temporalio-temporal/issues.md#680) | **70** | Wait for external workflow completion |
+| 2 | Server | [#1507](../repos/temporalio-temporal/issues.md#1507) | **50** | Priority task queues |
+| 3 | TS SDK | [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | **46** | Bun runtime support |
+| 4 | Server | [#2668](../repos/temporalio-temporal/issues.md#2668) | **46** | Document POSTGRES_SEEDS |
+| 5 | Server | [#2318](../repos/temporalio-temporal/issues.md#2318) | **46** | MongoDB as persistent store |
+| 6 | Server | [#5680](../repos/temporalio-temporal/issues.md#5680) | **30** | Official OpenSearch support |
+| 7 | Server | [#537](../repos/temporalio-temporal/issues.md#537) | **30** | SignalWithStart/UpdateWithStart |
+| 8 | Server | [#131](../repos/temporalio-temporal/issues.md#131) | **28** | Retry options by failure type |
+| 9 | Go SDK | [#916](../repos/temporalio-sdk-go/issues.md#916) | **21** | Mock side effects in tests |
+| 10 | TS SDK | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | **19** | OpenAI Agents integration |
+| 11 | TS SDK | [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | **19** | OpenTelemetry v2 support |
+| 12 | Go SDK | [#181](../repos/temporalio-sdk-go/issues.md#181) | **16** | Clean session shutdown |
+| 13 | Java SDK | [#1693](../repos/temporalio-sdk-java/issues.md#1693) | **16** | listWorkflowExecutions in test server |
+| 14 | Features | [#399](../repos/temporalio-features/issues.md#399) | **15** | Custom workflow history markers |
+| 15 | Java SDK | [#1845](../repos/temporalio-sdk-java/issues.md#1845) | **15** | Kotlin coroutine support |
 
 ---
 

@@ -39,16 +39,16 @@ The Temporal Server has 530 open issues with exceptional community engagement (8
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#680](https://github.com/temporalio/temporal/issues/680) | **70** | 14 | Wait for external workflow completion |
-| 2 | [#1507](https://github.com/temporalio/temporal/issues/1507) | **50** | 27 | Priority task queues |
-| 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | **46** | 11 | Document POSTGRES_SEEDS |
-| 4 | [#2318](https://github.com/temporalio/temporal/issues/2318) | **46** | 7 | MongoDB as persistent store |
-| 5 | [#5680](https://github.com/temporalio/temporal/issues/5680) | **30** | 14 | Official OpenSearch support |
-| 6 | [#537](https://github.com/temporalio/temporal/issues/537) | **30** | 2 | SignalWithStart/UpdateWithStart command |
-| 7 | [#131](https://github.com/temporalio/temporal/issues/131) | **28** | 4 | Retry options based on failure type |
-| 8 | [#5302](https://github.com/temporalio/temporal/issues/5302) | **23** | 2 | YDB support |
-| 9 | [#2609](https://github.com/temporalio/temporal/issues/2609) | **23** | 7 | Transfer child workflows on ContinueAsNew |
-| 10 | [#1797](https://github.com/temporalio/temporal/issues/1797) | **22** | 4 | Get all task queues per namespace |
+| 1 | [#680](../repos/temporalio-temporal/issues.md#680) | **70** | 14 | Wait for external workflow completion |
+| 2 | [#1507](../repos/temporalio-temporal/issues.md#1507) | **50** | 27 | Priority task queues |
+| 3 | [#2668](../repos/temporalio-temporal/issues.md#2668) | **46** | 11 | Document POSTGRES_SEEDS |
+| 4 | [#2318](../repos/temporalio-temporal/issues.md#2318) | **46** | 7 | MongoDB as persistent store |
+| 5 | [#5680](../repos/temporalio-temporal/issues.md#5680) | **30** | 14 | Official OpenSearch support |
+| 6 | [#537](../repos/temporalio-temporal/issues.md#537) | **30** | 2 | SignalWithStart/UpdateWithStart command |
+| 7 | [#131](../repos/temporalio-temporal/issues.md#131) | **28** | 4 | Retry options based on failure type |
+| 8 | [#5302](../repos/temporalio-temporal/issues.md#5302) | **23** | 2 | YDB support |
+| 9 | [#2609](../repos/temporalio-temporal/issues.md#2609) | **23** | 7 | Transfer child workflows on ContinueAsNew |
+| 10 | [#1797](../repos/temporalio-temporal/issues.md#1797) | **22** | 4 | Get all task queues per namespace |
 
 ### Priority Score (Upvotes×2 + Comments)
 

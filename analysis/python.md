@@ -45,16 +45,16 @@ The Python SDK has 115 open issues with sandbox/debugging being the primary pain
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#487](https://github.com/temporalio/sdk-python/issues/487) | **6** | 3 | Allow workflow logger to opt-out of sandboxing |
-| 2 | [#603](https://github.com/temporalio/sdk-python/issues/603) | 3 | 1 | Document PyCharm debugger with workflows |
-| 3 | [#238](https://github.com/temporalio/sdk-python/issues/238) | 3 | 5 | Can't debug workflow using VSCode (BUG) |
-| 4 | [#1154](https://github.com/temporalio/sdk-python/issues/1154) | 2 | 2 | Support InterpreterPoolExecutor (py3.14) |
-| 5 | [#928](https://github.com/temporalio/sdk-python/issues/928) | 2 | 0 | Free-threading capable SDK |
-| 6 | [#807](https://github.com/temporalio/sdk-python/issues/807) | 2 | 3 | Loss of stack trace information |
-| 7 | [#321](https://github.com/temporalio/sdk-python/issues/321) | 2 | 1 | TemporalFailure from converters should fail workflow |
-| 8 | [#213](https://github.com/temporalio/sdk-python/issues/213) | 2 | 0 | Confirm VSCode debuggability within sandbox |
-| 9 | [#1250](https://github.com/temporalio/sdk-python/issues/1250) | 1 | 2 | RuntimeError starting test server |
-| 10 | [#1089](https://github.com/temporalio/sdk-python/issues/1089) | 1 | 0 | OpenAI Agents Session implementations |
+| 1 | [#487](../repos/temporalio-sdk-python/issues.md#487) | **6** | 3 | Allow workflow logger to opt-out of sandboxing |
+| 2 | [#603](../repos/temporalio-sdk-python/issues.md#603) | 3 | 1 | Document PyCharm debugger with workflows |
+| 3 | [#238](../repos/temporalio-sdk-python/issues.md#238) | 3 | 5 | Can't debug workflow using VSCode (BUG) |
+| 4 | [#1154](../repos/temporalio-sdk-python/issues.md#1154) | 2 | 2 | Support InterpreterPoolExecutor (py3.14) |
+| 5 | [#928](../repos/temporalio-sdk-python/issues.md#928) | 2 | 0 | Free-threading capable SDK |
+| 6 | [#807](../repos/temporalio-sdk-python/issues.md#807) | 2 | 3 | Loss of stack trace information |
+| 7 | [#321](../repos/temporalio-sdk-python/issues.md#321) | 2 | 1 | TemporalFailure from converters should fail workflow |
+| 8 | [#213](../repos/temporalio-sdk-python/issues.md#213) | 2 | 0 | Confirm VSCode debuggability within sandbox |
+| 9 | [#1250](../repos/temporalio-sdk-python/issues.md#1250) | 1 | 2 | RuntimeError starting test server |
+| 10 | [#1089](../repos/temporalio-sdk-python/issues.md#1089) | 1 | 0 | OpenAI Agents Session implementations |
 
 ### Priority Score (Upvotes×2 + Comments)
 
@@ -81,11 +81,11 @@ The workflow sandbox is the #1 source of user friction in the Python SDK.
 
 | Issue | Problem | 👍 |
 |-------|---------|-----|
-| [#487](https://github.com/temporalio/sdk-python/issues/487) | **Logger can't opt-out of sandboxing** | 6 |
-| [#238](https://github.com/temporalio/sdk-python/issues/238) | Can't debug workflow using VSCode | 3 |
-| [#603](https://github.com/temporalio/sdk-python/issues/603) | PyCharm debugger documentation needed | 3 |
-| [#213](https://github.com/temporalio/sdk-python/issues/213) | Confirm VSCode debuggability | 2 |
-| [#1104](https://github.com/temporalio/sdk-python/issues/1104) | debug_mode still doesn't allow breakpoints | 0 |
+| [#487](../repos/temporalio-sdk-python/issues.md#487) | **Logger can't opt-out of sandboxing** | 6 |
+| [#238](../repos/temporalio-sdk-python/issues.md#238) | Can't debug workflow using VSCode | 3 |
+| [#603](../repos/temporalio-sdk-python/issues.md#603) | PyCharm debugger documentation needed | 3 |
+| [#213](../repos/temporalio-sdk-python/issues.md#213) | Confirm VSCode debuggability | 2 |
+| [#1104](../repos/temporalio-sdk-python/issues.md#1104) | debug_mode still doesn't allow breakpoints | 0 |
 
 **Key Insight:** 4 of the top 10 upvoted issues relate to debugging. This is a major DX problem.
 
@@ -98,11 +98,11 @@ The workflow sandbox is the #1 source of user friction in the Python SDK.
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#638](https://github.com/temporalio/sdk-python/issues/638) | **ruamel.yaml import breaks validation** | 12 |
-| [#688](https://github.com/temporalio/sdk-python/issues/688) | **Protobuf sandbox issues** | 12 |
-| [#655](https://github.com/temporalio/sdk-python/issues/655) | KeyError: 'warnings' due to sandbox | 1 |
-| [#399](https://github.com/temporalio/sdk-python/issues/399) | Older Python can't auto-import activity return class | 3 |
-| [#1254](https://github.com/temporalio/sdk-python/issues/1254) | Warns on import of workflow itself | 0 |
+| [#638](../repos/temporalio-sdk-python/issues.md#638) | **ruamel.yaml import breaks validation** | 12 |
+| [#688](../repos/temporalio-sdk-python/issues.md#688) | **Protobuf sandbox issues** | 12 |
+| [#655](../repos/temporalio-sdk-python/issues.md#655) | KeyError: 'warnings' due to sandbox | 1 |
+| [#399](../repos/temporalio-sdk-python/issues.md#399) | Older Python can't auto-import activity return class | 3 |
+| [#1254](../repos/temporalio-sdk-python/issues.md#1254) | Warns on import of workflow itself | 0 |
 
 **Analysis:** These issues have high comment counts indicating many users hit them. The sandbox's restrictive import validation causes friction with common libraries.
 
@@ -119,9 +119,9 @@ The workflow sandbox is the #1 source of user friction in the Python SDK.
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#160](https://github.com/temporalio/sdk-python/issues/160) | OpenTelemetry interceptors report errors | 12 |
-| [#733](https://github.com/temporalio/sdk-python/issues/733) | Can't run with OpenTelemetry + ddtrace | 10 |
-| [#1136](https://github.com/temporalio/sdk-python/issues/1136) | Langfuse tracing broken with OTel Agents | 5 |
+| [#160](../repos/temporalio-sdk-python/issues.md#160) | OpenTelemetry interceptors report errors | 12 |
+| [#733](../repos/temporalio-sdk-python/issues.md#733) | Can't run with OpenTelemetry + ddtrace | 10 |
+| [#1136](../repos/temporalio-sdk-python/issues.md#1136) | Langfuse tracing broken with OTel Agents | 5 |
 
 **Recommendation:** OpenTelemetry compatibility is critical for production use. These need investigation.
 
@@ -129,37 +129,37 @@ The workflow sandbox is the #1 source of user friction in the Python SDK.
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#700](https://github.com/temporalio/sdk-python/issues/700) | **No clean way to cancel activity and wait** | 10 |
-| [#782](https://github.com/temporalio/sdk-python/issues/782) | Cancelled timer callback causes InvalidStateError | 1 |
-| [#699](https://github.com/temporalio/sdk-python/issues/699) | workflow.wait broken with FIRST_COMPLETED | 1 |
-| [#476](https://github.com/temporalio/sdk-python/issues/476) | Failed during multiprocess queue poll for heartbeat | 5 |
-| [#352](https://github.com/temporalio/sdk-python/issues/352) | Cancel between awaitables not cancelling workflow | 0 |
+| [#700](../repos/temporalio-sdk-python/issues.md#700) | **No clean way to cancel activity and wait** | 10 |
+| [#782](../repos/temporalio-sdk-python/issues.md#782) | Cancelled timer callback causes InvalidStateError | 1 |
+| [#699](../repos/temporalio-sdk-python/issues.md#699) | workflow.wait broken with FIRST_COMPLETED | 1 |
+| [#476](../repos/temporalio-sdk-python/issues.md#476) | Failed during multiprocess queue poll for heartbeat | 5 |
+| [#352](../repos/temporalio-sdk-python/issues.md#352) | Cancel between awaitables not cancelling workflow | 0 |
 
 ### 2.3 Client & Connection Bugs (4 issues)
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#639](https://github.com/temporalio/sdk-python/issues/639) | Operation canceled when start_workflow | 7 |
-| [#300](https://github.com/temporalio/sdk-python/issues/300) | PyGILState_Release issue | 10 |
-| [#814](https://github.com/temporalio/sdk-python/issues/814) | Can't connect via proxy with auth header | 1 |
-| [#657](https://github.com/temporalio/sdk-python/issues/657) | Cannot replace worker client with default Runtime | 0 |
+| [#639](../repos/temporalio-sdk-python/issues.md#639) | Operation canceled when start_workflow | 7 |
+| [#300](../repos/temporalio-sdk-python/issues.md#300) | PyGILState_Release issue | 10 |
+| [#814](../repos/temporalio-sdk-python/issues.md#814) | Can't connect via proxy with auth header | 1 |
+| [#657](../repos/temporalio-sdk-python/issues.md#657) | Cannot replace worker client with default Runtime | 0 |
 
 ### 2.4 Data Conversion Bugs (4 issues)
 
 | Issue | Problem | 👍 |
 |-------|---------|-----|
-| [#641](https://github.com/temporalio/sdk-python/issues/641) | Unregistered query gives "Encoded failure" | 1 |
-| [#1237](https://github.com/temporalio/sdk-python/issues/1237) | Bad value converting dict[None, Any] | 0 |
-| [#427](https://github.com/temporalio/sdk-python/issues/427) | Dataclasses require defaulted fields in JSON | 0 |
-| [#629](https://github.com/temporalio/sdk-python/issues/629) | upsert_search_attributes borks on empty inputs | 0 |
+| [#641](../repos/temporalio-sdk-python/issues.md#641) | Unregistered query gives "Encoded failure" | 1 |
+| [#1237](../repos/temporalio-sdk-python/issues.md#1237) | Bad value converting dict[None, Any] | 0 |
+| [#427](../repos/temporalio-sdk-python/issues.md#427) | Dataclasses require defaulted fields in JSON | 0 |
+| [#629](../repos/temporalio-sdk-python/issues.md#629) | upsert_search_attributes borks on empty inputs | 0 |
 
 ### 2.5 Build & Platform Bugs (3 issues)
 
 | Issue | Problem | 👍 |
 |-------|---------|-----|
-| [#622](https://github.com/temporalio/sdk-python/issues/622) | Can't install on python 3.11-alpine3.16 | 1 |
-| [#637](https://github.com/temporalio/sdk-python/issues/637) | Windows 3.12.5 builds broken | 0 |
-| [#597](https://github.com/temporalio/sdk-python/issues/597) | Can't build wheel with pip | 1 |
+| [#622](../repos/temporalio-sdk-python/issues.md#622) | Can't install on python 3.11-alpine3.16 | 1 |
+| [#637](../repos/temporalio-sdk-python/issues.md#637) | Windows 3.12.5 builds broken | 0 |
+| [#597](../repos/temporalio-sdk-python/issues.md#597) | Can't build wheel with pip | 1 |
 
 ---
 
@@ -169,9 +169,9 @@ The workflow sandbox is the #1 source of user friction in the Python SDK.
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#1154](https://github.com/temporalio/sdk-python/issues/1154) | Support InterpreterPoolExecutor (py3.14) | 2 |
-| [#928](https://github.com/temporalio/sdk-python/issues/928) | Free-threading capable SDK | 2 |
-| [#803](https://github.com/temporalio/sdk-python/issues/803) | Run different worker types in separate threads | 0 |
+| [#1154](../repos/temporalio-sdk-python/issues.md#1154) | Support InterpreterPoolExecutor (py3.14) | 2 |
+| [#928](../repos/temporalio-sdk-python/issues.md#928) | Free-threading capable SDK | 2 |
+| [#803](../repos/temporalio-sdk-python/issues.md#803) | Run different worker types in separate threads | 0 |
 
 **Analysis:** Python 3.14 will introduce significant concurrency changes. Early preparation is valuable.
 
@@ -179,38 +179,38 @@ The workflow sandbox is the #1 source of user friction in the Python SDK.
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#487](https://github.com/temporalio/sdk-python/issues/487) | Logger sandbox opt-out | 6 |
-| [#603](https://github.com/temporalio/sdk-python/issues/603) | PyCharm debugger documentation | 3 |
-| [#321](https://github.com/temporalio/sdk-python/issues/321) | TemporalFailure from converters should fail workflow | 2 |
-| [#719](https://github.com/temporalio/sdk-python/issues/719) | Provide "workflow local" | 0 |
-| [#467](https://github.com/temporalio/sdk-python/issues/467) | Support workflow metadata query | 0 |
+| [#487](../repos/temporalio-sdk-python/issues.md#487) | Logger sandbox opt-out | 6 |
+| [#603](../repos/temporalio-sdk-python/issues.md#603) | PyCharm debugger documentation | 3 |
+| [#321](../repos/temporalio-sdk-python/issues.md#321) | TemporalFailure from converters should fail workflow | 2 |
+| [#719](../repos/temporalio-sdk-python/issues.md#719) | Provide "workflow local" | 0 |
+| [#467](../repos/temporalio-sdk-python/issues.md#467) | Support workflow metadata query | 0 |
 
 ### 3.3 Tracing & Observability (8 issues, 3 👍)
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#807](https://github.com/temporalio/sdk-python/issues/807) | Loss of stack trace information | 2 |
-| [#758](https://github.com/temporalio/sdk-python/issues/758) | Activities extraction utilities | 1 |
-| [#1130](https://github.com/temporalio/sdk-python/issues/1130) | Custom tracing providers | 0 |
-| [#837](https://github.com/temporalio/sdk-python/issues/837) | Logger adapter for OpenTelemetry | 0 |
-| [#722](https://github.com/temporalio/sdk-python/issues/722) | Stack trace on deadlock improvements | 0 |
-| [#669](https://github.com/temporalio/sdk-python/issues/669) | OTel guidance with process-pool workers | 0 |
-| [#454](https://github.com/temporalio/sdk-python/issues/454) | Schedule creation tracing span | 0 |
+| [#807](../repos/temporalio-sdk-python/issues.md#807) | Loss of stack trace information | 2 |
+| [#758](../repos/temporalio-sdk-python/issues.md#758) | Activities extraction utilities | 1 |
+| [#1130](../repos/temporalio-sdk-python/issues.md#1130) | Custom tracing providers | 0 |
+| [#837](../repos/temporalio-sdk-python/issues.md#837) | Logger adapter for OpenTelemetry | 0 |
+| [#722](../repos/temporalio-sdk-python/issues.md#722) | Stack trace on deadlock improvements | 0 |
+| [#669](../repos/temporalio-sdk-python/issues.md#669) | OTel guidance with process-pool workers | 0 |
+| [#454](../repos/temporalio-sdk-python/issues.md#454) | Schedule creation tracing span | 0 |
 
 ### 3.4 AI/ML Integration (2 issues, 1 👍)
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#1089](https://github.com/temporalio/sdk-python/issues/1089) | OpenAI Agents Session implementations | 1 |
-| [#1009](https://github.com/temporalio/sdk-python/issues/1009) | OpenAI Agents streaming support | 0 |
+| [#1089](../repos/temporalio-sdk-python/issues.md#1089) | OpenAI Agents Session implementations | 1 |
+| [#1009](../repos/temporalio-sdk-python/issues.md#1009) | OpenAI Agents streaming support | 0 |
 
 ### 3.5 Activity Improvements (3 issues)
 
 | Issue | Enhancement | Comments |
 |-------|-------------|----------|
-| [#1048](https://github.com/temporalio/sdk-python/issues/1048) | Cancellation in sync multiprocessed activities | 11 |
-| [#810](https://github.com/temporalio/sdk-python/issues/810) | Proper cancelled/uncancel/cancelling behavior | 0 |
-| [#377](https://github.com/temporalio/sdk-python/issues/377) | Warn on non-static activity method | 0 |
+| [#1048](../repos/temporalio-sdk-python/issues.md#1048) | Cancellation in sync multiprocessed activities | 11 |
+| [#810](../repos/temporalio-sdk-python/issues.md#810) | Proper cancelled/uncancel/cancelling behavior | 0 |
+| [#377](../repos/temporalio-sdk-python/issues.md#377) | Warn on non-static activity method | 0 |
 
 ---
 

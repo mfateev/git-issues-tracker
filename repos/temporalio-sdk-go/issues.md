@@ -7304,7 +7304,7 @@ Are you setting logging in this test environment? Go errors are often short on t
 | **URL** | https://github.com/temporalio/sdk-go/issues/1334 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-03 21:11:23.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-03 21:11:23.000 UTC (2 years ago) |
 | **Updated** | 2025-12-05 21:22:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |

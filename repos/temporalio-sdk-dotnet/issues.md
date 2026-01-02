@@ -510,7 +510,7 @@ Yeah, I think it's understood why a global.json file has value for _contributors
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/577 |
 | **State** | OPEN |
 | **Author** | jmaeagle99 (Justin Anderson) |
-| **Created** | 2025-12-12 22:16:08.000 UTC (20 days ago) |
+| **Created** | 2025-12-12 22:16:08.000 UTC (21 days ago) |
 | **Updated** | 2025-12-30 20:41:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -2299,7 +2299,7 @@ This is more "test helpers" but they are harmless if not used (i.e. don't bring 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/171 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-03 21:14:15.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-03 21:14:15.000 UTC (2 years ago) |
 | **Updated** | 2025-02-04 18:25:06.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |

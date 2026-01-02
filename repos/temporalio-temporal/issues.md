@@ -18161,7 +18161,7 @@ Overall SGTM. I'd maybe just call the top level key `dynamic` because you're alr
 | **URL** | https://github.com/temporalio/temporal/issues/6481 |
 | **State** | OPEN |
 | **Author** | frankmu |
-| **Created** | 2024-09-04 22:26:16.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-04 22:26:16.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-04 22:26:16.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |

@@ -36,8 +36,8 @@ The Ruby SDK is the newest Temporal SDK with only 24 open issues. Given its earl
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | **2** | 1 | Client-side trimming of failures |
-| 2 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 1 | 0 | macOS Intel smoke test |
+| 1 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | **2** | 1 | Client-side trimming of failures |
+| 2 | [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 1 | 0 | macOS Intel smoke test |
 
 ---
 
@@ -45,10 +45,10 @@ The Ruby SDK is the newest Temporal SDK with only 24 open issues. Given its earl
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#355](https://github.com/temporalio/sdk-ruby/issues/355) | ActiveModel fails due to sync construct | 0 |
-| [#315](https://github.com/temporalio/sdk-ruby/issues/315) | ScopedLogger fails with semantic_logger | 4 |
-| [#172](https://github.com/temporalio/sdk-ruby/issues/172) | Windows CI segfaulting | 1 |
-| [#162](https://github.com/temporalio/sdk-ruby/issues/162) | Ruby 3.1/3.2 worker fiber issues | 5 |
+| [#355](../repos/temporalio-sdk-ruby/issues.md#355) | ActiveModel fails due to sync construct | 0 |
+| [#315](../repos/temporalio-sdk-ruby/issues.md#315) | ScopedLogger fails with semantic_logger | 4 |
+| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | Windows CI segfaulting | 1 |
+| [#162](../repos/temporalio-sdk-ruby/issues.md#162) | Ruby 3.1/3.2 worker fiber issues | 5 |
 
 **Note:** Ruby version compatibility (#162) has the most comments and affects a wide user base.
 
@@ -64,15 +64,15 @@ Client-side trimming to avoid server wrap-and-truncate.
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#360](https://github.com/temporalio/sdk-ruby/issues/360) | Signal testing in time-skipping env |
-| [#333](https://github.com/temporalio/sdk-ruby/issues/333) | Testing infrastructure |
+| [#360](../repos/temporalio-sdk-ruby/issues.md#360) | Signal testing in time-skipping env |
+| [#333](../repos/temporalio-sdk-ruby/issues.md#333) | Testing infrastructure |
 
 ### 3. Platform Support
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#306](https://github.com/temporalio/sdk-ruby/issues/306) | macOS Intel smoke test |
-| [#172](https://github.com/temporalio/sdk-ruby/issues/172) | Windows support |
+| [#306](../repos/temporalio-sdk-ruby/issues.md#306) | macOS Intel smoke test |
+| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | Windows support |
 
 ---
 

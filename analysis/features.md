@@ -38,16 +38,16 @@ The Features repository tracks cross-SDK feature conformance and feature request
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#399](https://github.com/temporalio/features/issues/399) | **15** | 12 | Custom Markers for Workflow History/Timeline |
-| 2 | [#649](https://github.com/temporalio/features/issues/649) | **14** | 4 | Unit testing workflow versioning |
-| 3 | [#118](https://github.com/temporalio/features/issues/118) | **8** | 22 | Declarative schedules (upsert, sync, terraform) |
-| 4 | [#562](https://github.com/temporalio/features/issues/562) | **7** | 6 | Session support |
-| 5 | [#434](https://github.com/temporalio/features/issues/434) | **6** | 1 | Serialization context for codecs/converters |
-| 6 | [#229](https://github.com/temporalio/features/issues/229) | **6** | 0 | Auto heartbeating |
-| 7 | [#456](https://github.com/temporalio/features/issues/456) | **5** | 2 | Worker status API |
-| 8 | [#363](https://github.com/temporalio/features/issues/363) | **4** | 0 | gRPC message size limit workaround |
-| 9 | [#558](https://github.com/temporalio/features/issues/558) | **3** | 21 | WorkflowIdConflictPolicy in child workflow |
-| 10 | [#515](https://github.com/temporalio/features/issues/515) | **3** | 1 | Start delay in child workflow options |
+| 1 | [#399](../repos/temporalio-features/issues.md#399) | **15** | 12 | Custom Markers for Workflow History/Timeline |
+| 2 | [#649](../repos/temporalio-features/issues.md#649) | **14** | 4 | Unit testing workflow versioning |
+| 3 | [#118](../repos/temporalio-features/issues.md#118) | **8** | 22 | Declarative schedules (upsert, sync, terraform) |
+| 4 | [#562](../repos/temporalio-features/issues.md#562) | **7** | 6 | Session support |
+| 5 | [#434](../repos/temporalio-features/issues.md#434) | **6** | 1 | Serialization context for codecs/converters |
+| 6 | [#229](../repos/temporalio-features/issues.md#229) | **6** | 0 | Auto heartbeating |
+| 7 | [#456](../repos/temporalio-features/issues.md#456) | **5** | 2 | Worker status API |
+| 8 | [#363](../repos/temporalio-features/issues.md#363) | **4** | 0 | gRPC message size limit workaround |
+| 9 | [#558](../repos/temporalio-features/issues.md#558) | **3** | 21 | WorkflowIdConflictPolicy in child workflow |
+| 10 | [#515](../repos/temporalio-features/issues.md#515) | **3** | 1 | Start delay in child workflow options |
 
 ---
 

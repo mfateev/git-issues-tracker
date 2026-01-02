@@ -39,13 +39,13 @@ The PHP SDK has 47 open issues with a focus on documentation and testing improve
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#592](https://github.com/temporalio/sdk-php/issues/592) | **5** | 6 | Document SDK marshaller |
-| 2 | [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | 1 | registerDelayedCallback for tests |
-| 3 | [#640](https://github.com/temporalio/sdk-php/issues/640) | 1 | 1 | Enable Discussions |
-| 4 | [#580](https://github.com/temporalio/sdk-php/issues/580) | 1 | 1 | Initial Nexus implementation |
-| 5 | [#573](https://github.com/temporalio/sdk-php/issues/573) | 1 | 3 | WorkerFactoryInterface missing args |
-| 6 | [#554](https://github.com/temporalio/sdk-php/issues/554) | 1 | 0 | Better IDE support |
-| 7 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | 2 | Activity loop completion testing |
+| 1 | [#592](../repos/temporalio-sdk-php/issues.md#592) | **5** | 6 | Document SDK marshaller |
+| 2 | [#529](../repos/temporalio-sdk-php/issues.md#529) | 2 | 1 | registerDelayedCallback for tests |
+| 3 | [#640](../repos/temporalio-sdk-php/issues.md#640) | 1 | 1 | Enable Discussions |
+| 4 | [#580](../repos/temporalio-sdk-php/issues.md#580) | 1 | 1 | Initial Nexus implementation |
+| 5 | [#573](../repos/temporalio-sdk-php/issues.md#573) | 1 | 3 | WorkerFactoryInterface missing args |
+| 6 | [#554](../repos/temporalio-sdk-php/issues.md#554) | 1 | 0 | Better IDE support |
+| 7 | [#302](../repos/temporalio-sdk-php/issues.md#302) | 1 | 2 | Activity loop completion testing |
 
 ### Priority Score (Upvotes×2 + Comments)
 
@@ -63,13 +63,13 @@ The PHP SDK has 47 open issues with a focus on documentation and testing improve
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#577](https://github.com/temporalio/sdk-php/issues/577) | Can't run UpdateMethod tests | 7 |
-| [#123](https://github.com/temporalio/sdk-php/issues/123) | withEnableSessionWorker causes ActivityNotRegisteredError | 4 |
-| [#573](https://github.com/temporalio/sdk-php/issues/573) | WorkerFactoryInterface missing arguments | 3 |
-| [#668](https://github.com/temporalio/sdk-php/issues/668) | (Recent bug) | 0 |
-| [#648](https://github.com/temporalio/sdk-php/issues/648) | (Recent bug) | 0 |
-| [#644](https://github.com/temporalio/sdk-php/issues/644) | (Recent bug) | 0 |
-| [#642](https://github.com/temporalio/sdk-php/issues/642) | (Recent bug) | 0 |
+| [#577](../repos/temporalio-sdk-php/issues.md#577) | Can't run UpdateMethod tests | 7 |
+| [#123](../repos/temporalio-sdk-php/issues.md#123) | withEnableSessionWorker causes ActivityNotRegisteredError | 4 |
+| [#573](../repos/temporalio-sdk-php/issues.md#573) | WorkerFactoryInterface missing arguments | 3 |
+| [#668](../repos/temporalio-sdk-php/issues.md#668) | (Recent bug) | 0 |
+| [#648](../repos/temporalio-sdk-php/issues.md#648) | (Recent bug) | 0 |
+| [#644](../repos/temporalio-sdk-php/issues.md#644) | (Recent bug) | 0 |
+| [#642](../repos/temporalio-sdk-php/issues.md#642) | (Recent bug) | 0 |
 
 ---
 
@@ -83,22 +83,22 @@ Marshaller documentation is the top request - users need better understanding of
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#529](https://github.com/temporalio/sdk-php/issues/529) | registerDelayedCallback for tests |
-| [#302](https://github.com/temporalio/sdk-php/issues/302) | Activity loop completion testing |
+| [#529](../repos/temporalio-sdk-php/issues.md#529) | registerDelayedCallback for tests |
+| [#302](../repos/temporalio-sdk-php/issues.md#302) | Activity loop completion testing |
 
 ### 3. Integrations
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#103](https://github.com/temporalio/sdk-php/issues/103) | Sentry integration (11 comments) |
-| [#580](https://github.com/temporalio/sdk-php/issues/580) | Nexus implementation |
+| [#103](../repos/temporalio-sdk-php/issues.md#103) | Sentry integration (11 comments) |
+| [#580](../repos/temporalio-sdk-php/issues.md#580) | Nexus implementation |
 
 ### 4. DX Improvements
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#554](https://github.com/temporalio/sdk-php/issues/554) | Better IDE support |
-| [#495](https://github.com/temporalio/sdk-php/issues/495) | Backwards compatibility promise |
+| [#554](../repos/temporalio-sdk-php/issues.md#554) | Better IDE support |
+| [#495](../repos/temporalio-sdk-php/issues.md#495) | Backwards compatibility promise |
 
 ---
 

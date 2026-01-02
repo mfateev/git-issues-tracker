@@ -6927,7 +6927,7 @@ New language implementations should adhere to that same interface when serving t
 | **URL** | https://github.com/temporalio/features/issues/394 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-03 21:10:08.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-03 21:10:08.000 UTC (2 years ago) |
 | **Updated** | 2024-03-06 20:53:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |

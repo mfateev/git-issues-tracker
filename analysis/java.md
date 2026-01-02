@@ -49,16 +49,16 @@ These issues have the most user upvotes, indicating real community demand:
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | 5 | Support listWorkflowExecutions in test server |
-| 2 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | 8 | Kotlin coroutine support in workflows/activities |
-| 3 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | 0 | Run Temporal CLI server from tests |
-| 4 | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 7 | 4 | Spring Boot 4 Support |
-| 5 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | 0 | @SignalMethod threading configuration |
-| 6 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 4 | 0 | Temporal Annotations as Meta Annotation |
-| 7 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | 0 | Pass configuration into workflow |
-| 8 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | 1 | Keep heartbeating during shutdown |
-| 9 | [#1163](https://github.com/temporalio/sdk-java/issues/1163) | 3 | 1 | Worker metrics scope per workflow execution |
-| 10 | [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 3 | 0 | Jackson 3 support |
+| 1 | [#1693](../repos/temporalio-sdk-java/issues.md#1693) | 16 | 5 | Support listWorkflowExecutions in test server |
+| 2 | [#1845](../repos/temporalio-sdk-java/issues.md#1845) | 15 | 8 | Kotlin coroutine support in workflows/activities |
+| 3 | [#1804](../repos/temporalio-sdk-java/issues.md#1804) | 10 | 0 | Run Temporal CLI server from tests |
+| 4 | [#2738](../repos/temporalio-sdk-java/issues.md#2738) | 7 | 4 | Spring Boot 4 Support |
+| 5 | [#214](../repos/temporalio-sdk-java/issues.md#214) | 6 | 0 | @SignalMethod threading configuration |
+| 6 | [#1832](../repos/temporalio-sdk-java/issues.md#1832) | 4 | 0 | Temporal Annotations as Meta Annotation |
+| 7 | [#827](../repos/temporalio-sdk-java/issues.md#827) | 4 | 0 | Pass configuration into workflow |
+| 8 | [#2075](../repos/temporalio-sdk-java/issues.md#2075) | 3 | 1 | Keep heartbeating during shutdown |
+| 9 | [#1163](../repos/temporalio-sdk-java/issues.md#1163) | 3 | 1 | Worker metrics scope per workflow execution |
+| 10 | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | 3 | 0 | Jackson 3 support |
 
 ### Priority Score (Upvotes×2 + Comments)
 
@@ -85,13 +85,13 @@ Combined engagement metric showing issues with both upvotes and discussion:
 
 | Issue | Description | Severity |
 |-------|-------------|----------|
-| [#1890](https://github.com/temporalio/sdk-java/issues/1890) | spring-boot-starter-2.7.12.jar: 9 vulnerabilities | 9.8 (Critical) |
-| [#1952](https://github.com/temporalio/sdk-java/issues/1952) | ktlint-0.47.1.jar: 2 vulnerabilities | 7.5 (High) |
-| [#1951](https://github.com/temporalio/sdk-java/issues/1951) | spring-boot-dependencies-2.7.12.pom: 1 vulnerability | 7.5 (High) |
-| [#1888](https://github.com/temporalio/sdk-java/issues/1888) | kotlin-klib-commonizer-embeddable-1.5.32.jar | 5.3 (Medium) |
+| [#1890](../repos/temporalio-sdk-java/issues.md#1890) | spring-boot-starter-2.7.12.jar: 9 vulnerabilities | 9.8 (Critical) |
+| [#1952](../repos/temporalio-sdk-java/issues.md#1952) | ktlint-0.47.1.jar: 2 vulnerabilities | 7.5 (High) |
+| [#1951](../repos/temporalio-sdk-java/issues.md#1951) | spring-boot-dependencies-2.7.12.pom: 1 vulnerability | 7.5 (High) |
+| [#1888](../repos/temporalio-sdk-java/issues.md#1888) | kotlin-klib-commonizer-embeddable-1.5.32.jar | 5.3 (Medium) |
 
 **Additionally:**
-- [#2676](https://github.com/temporalio/sdk-java/issues/2676) - grpc-netty-shaded vulnerability (CVE-2025-55163)
+- [#2676](../repos/temporalio-sdk-java/issues.md#2676) - grpc-netty-shaded vulnerability (CVE-2025-55163)
 
 ### Recommendation
 
@@ -113,13 +113,13 @@ Time skipping is fundamentally broken in several scenarios:
 
 | Issue | Problem |
 |-------|---------|
-| [#2670](https://github.com/temporalio/sdk-java/issues/2670) | `TestWorkflowEnvironment#sleep` hangs indefinitely |
-| [#2642](https://github.com/temporalio/sdk-java/issues/2642) | `TestWorkflowEnvironment` sleep incorrect behavior |
-| [#2392](https://github.com/temporalio/sdk-java/issues/2392) | Test environment sleep hangs on child workflows |
-| [#2246](https://github.com/temporalio/sdk-java/issues/2246) | Time-skipping past activity's startToCloseTimeout causes worker not to close |
-| [#1540](https://github.com/temporalio/sdk-java/issues/1540) | Time skipping broken in child workflows |
-| [#1291](https://github.com/temporalio/sdk-java/issues/1291) | `Workflow.await(condition)` times out in unit tests |
-| [#1138](https://github.com/temporalio/sdk-java/issues/1138) | Time skipping lock not decremented for outstanding activities |
+| [#2670](../repos/temporalio-sdk-java/issues.md#2670) | `TestWorkflowEnvironment#sleep` hangs indefinitely |
+| [#2642](../repos/temporalio-sdk-java/issues.md#2642) | `TestWorkflowEnvironment` sleep incorrect behavior |
+| [#2392](../repos/temporalio-sdk-java/issues.md#2392) | Test environment sleep hangs on child workflows |
+| [#2246](../repos/temporalio-sdk-java/issues.md#2246) | Time-skipping past activity's startToCloseTimeout causes worker not to close |
+| [#1540](../repos/temporalio-sdk-java/issues.md#1540) | Time skipping broken in child workflows |
+| [#1291](../repos/temporalio-sdk-java/issues.md#1291) | `Workflow.await(condition)` times out in unit tests |
+| [#1138](../repos/temporalio-sdk-java/issues.md#1138) | Time skipping lock not decremented for outstanding activities |
 
 **Recommendation:** Dedicated effort to fix time skipping implementation. Consider:
 - Audit time-skipping lock management
@@ -130,28 +130,28 @@ Time skipping is fundamentally broken in several scenarios:
 
 | Issue | Problem |
 |-------|---------|
-| [#2655](https://github.com/temporalio/sdk-java/issues/2655) | Continue-as-new doesn't carry memo/search attributes |
-| [#2364](https://github.com/temporalio/sdk-java/issues/2364) | Search attributes in ContinueAsNewOptions |
-| [#1538](https://github.com/temporalio/sdk-java/issues/1538) | Continue-as-new implementation not atomic |
+| [#2655](../repos/temporalio-sdk-java/issues.md#2655) | Continue-as-new doesn't carry memo/search attributes |
+| [#2364](../repos/temporalio-sdk-java/issues.md#2364) | Search attributes in ContinueAsNewOptions |
+| [#1538](../repos/temporalio-sdk-java/issues.md#1538) | Continue-as-new implementation not atomic |
 
 ### 2.3 Missing Test Server Features (8 issues)
 
 | Issue | Feature |
 |-------|---------|
-| [#1693](https://github.com/temporalio/sdk-java/issues/1693) | Support listWorkflowExecutions |
-| [#1642](https://github.com/temporalio/sdk-java/issues/1642) | Add history pagination |
-| [#1093](https://github.com/temporalio/sdk-java/issues/1093) | Add ResetWorkflowExecution support |
-| [#1139](https://github.com/temporalio/sdk-java/issues/1139) | Support filtering for ListOpenWorkflowExecutions |
-| [#341](https://github.com/temporalio/sdk-java/issues/341) | Support robfig style cron defs |
+| [#1693](../repos/temporalio-sdk-java/issues.md#1693) | Support listWorkflowExecutions |
+| [#1642](../repos/temporalio-sdk-java/issues.md#1642) | Add history pagination |
+| [#1093](../repos/temporalio-sdk-java/issues.md#1093) | Add ResetWorkflowExecution support |
+| [#1139](../repos/temporalio-sdk-java/issues.md#1139) | Support filtering for ListOpenWorkflowExecutions |
+| [#341](../repos/temporalio-sdk-java/issues.md#341) | Support robfig style cron defs |
 
 ### 2.4 Test Server UX Improvements (6 issues)
 
 | Issue | Improvement |
 |-------|-------------|
-| [#1804](https://github.com/temporalio/sdk-java/issues/1804) | Run Temporal CLI server from tests |
-| [#1403](https://github.com/temporalio/sdk-java/issues/1403) | Warning when no workers listening |
-| [#1377](https://github.com/temporalio/sdk-java/issues/1377) | Predictable log when server ready |
-| [#1767](https://github.com/temporalio/sdk-java/issues/1767) | Log task failures from invalid commands |
+| [#1804](../repos/temporalio-sdk-java/issues.md#1804) | Run Temporal CLI server from tests |
+| [#1403](../repos/temporalio-sdk-java/issues.md#1403) | Warning when no workers listening |
+| [#1377](../repos/temporalio-sdk-java/issues.md#1377) | Predictable log when server ready |
+| [#1767](../repos/temporalio-sdk-java/issues.md#1767) | Log task failures from invalid commands |
 
 ---
 
@@ -163,9 +163,9 @@ These can cause workflow failures in production:
 
 | Issue | Problem |
 |-------|---------|
-| [#2307](https://github.com/temporalio/sdk-java/issues/2307) | Removing `Workflow.GetVersion` causes NDE with parallel threads |
-| [#1668](https://github.com/temporalio/sdk-java/issues/1668) | `MutableSideEffect` explodes with non-determinism on replay |
-| [#902](https://github.com/temporalio/sdk-java/issues/902) | Exception in parallel async functions leads to non-deterministic execution |
+| [#2307](../repos/temporalio-sdk-java/issues.md#2307) | Removing `Workflow.GetVersion` causes NDE with parallel threads |
+| [#1668](../repos/temporalio-sdk-java/issues.md#1668) | `MutableSideEffect` explodes with non-determinism on replay |
+| [#902](../repos/temporalio-sdk-java/issues.md#902) | Exception in parallel async functions leads to non-deterministic execution |
 
 **Recommendation:** Audit and fix determinism guarantees in:
 - Version/patch handling
@@ -176,27 +176,27 @@ These can cause workflow failures in production:
 
 | Issue | Problem |
 |-------|---------|
-| [#1715](https://github.com/temporalio/sdk-java/issues/1715) | WorkerOptions doesn't enforce executors >= pollers |
-| [#1257](https://github.com/temporalio/sdk-java/issues/1257) | Cached activity heartbeat prevents quick shutdown |
-| [#1246](https://github.com/temporalio/sdk-java/issues/1246) | Query not picked up during long local activity |
-| [#1141](https://github.com/temporalio/sdk-java/issues/1141) | Deadlock detector fires on cold JVM |
-| [#731](https://github.com/temporalio/sdk-java/issues/731) | Activities with interrupted flag not reported as Completed |
+| [#1715](../repos/temporalio-sdk-java/issues.md#1715) | WorkerOptions doesn't enforce executors >= pollers |
+| [#1257](../repos/temporalio-sdk-java/issues.md#1257) | Cached activity heartbeat prevents quick shutdown |
+| [#1246](../repos/temporalio-sdk-java/issues.md#1246) | Query not picked up during long local activity |
+| [#1141](../repos/temporalio-sdk-java/issues.md#1141) | Deadlock detector fires on cold JVM |
+| [#731](../repos/temporalio-sdk-java/issues.md#731) | Activities with interrupted flag not reported as Completed |
 
 ### 3.3 Interface/Inheritance Bugs (3 issues)
 
 | Issue | Problem |
 |-------|---------|
-| [#995](https://github.com/temporalio/sdk-java/issues/995) | Workflow interface inheritance not supported |
-| [#1050](https://github.com/temporalio/sdk-java/issues/1050) | Activity interface with generic types throws ClassCastException |
-| [#1107](https://github.com/temporalio/sdk-java/issues/1107) | Overridden method from parent class registered as second query |
+| [#995](../repos/temporalio-sdk-java/issues.md#995) | Workflow interface inheritance not supported |
+| [#1050](../repos/temporalio-sdk-java/issues.md#1050) | Activity interface with generic types throws ClassCastException |
+| [#1107](../repos/temporalio-sdk-java/issues.md#1107) | Overridden method from parent class registered as second query |
 
 ### 3.4 Client/API Bugs (4 issues)
 
 | Issue | Problem |
 |-------|---------|
-| [#856](https://github.com/temporalio/sdk-java/issues/856) | `WorkflowClient#execute` doesn't pair with `workflowStub.getResult()` |
-| [#860](https://github.com/temporalio/sdk-java/issues/860) | Large blob as Activity input gives non-descriptive gRPC error |
-| [#1374](https://github.com/temporalio/sdk-java/issues/1374) | External workflow signal throws incorrect exceptions |
+| [#856](../repos/temporalio-sdk-java/issues.md#856) | `WorkflowClient#execute` doesn't pair with `workflowStub.getResult()` |
+| [#860](../repos/temporalio-sdk-java/issues.md#860) | Large blob as Activity input gives non-descriptive gRPC error |
+| [#1374](../repos/temporalio-sdk-java/issues.md#1374) | External workflow signal throws incorrect exceptions |
 
 ---
 
@@ -206,12 +206,12 @@ These can cause workflow failures in production:
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#2738](https://github.com/temporalio/sdk-java/issues/2738) | **Spring Boot 4 Support** (new) |
-| [#2656](https://github.com/temporalio/sdk-java/issues/2656) | Multi-namespace annotation support |
-| [#2064](https://github.com/temporalio/sdk-java/issues/2064) | GraalVM native image descriptor |
-| [#2031](https://github.com/temporalio/sdk-java/issues/2031) | SlotSupplier integration |
-| [#2026](https://github.com/temporalio/sdk-java/issues/2026) | Graceful shutdown wait time property |
-| [#1839](https://github.com/temporalio/sdk-java/issues/1839) | HealthIndicator |
+| [#2738](../repos/temporalio-sdk-java/issues.md#2738) | **Spring Boot 4 Support** (new) |
+| [#2656](../repos/temporalio-sdk-java/issues.md#2656) | Multi-namespace annotation support |
+| [#2064](../repos/temporalio-sdk-java/issues.md#2064) | GraalVM native image descriptor |
+| [#2031](../repos/temporalio-sdk-java/issues.md#2031) | SlotSupplier integration |
+| [#2026](../repos/temporalio-sdk-java/issues.md#2026) | Graceful shutdown wait time property |
+| [#1839](../repos/temporalio-sdk-java/issues.md#1839) | HealthIndicator |
 
 **Recommendation:** Bundle as "Spring Boot 4 Migration" project:
 1. Add Spring Boot 4 support
@@ -223,13 +223,13 @@ These can cause workflow failures in production:
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#2394](https://github.com/temporalio/sdk-java/issues/2394) | **Pure OpenTelemetry support** (no shim) |
-| [#2752](https://github.com/temporalio/sdk-java/issues/2752) | OpenTracing support for updateWithStart |
-| [#2620](https://github.com/temporalio/sdk-java/issues/2620) | OpenTracing client interceptor for updateWithStart |
-| [#2117](https://github.com/temporalio/sdk-java/issues/2117) | Customizable OTel span tags |
-| [#1963](https://github.com/temporalio/sdk-java/issues/1963) | Tracing span for schedule creation |
-| [#1440](https://github.com/temporalio/sdk-java/issues/1440) | Differentiate local vs regular activity spans |
-| [#862](https://github.com/temporalio/sdk-java/issues/862) | Consistent tracing tags across SDKs |
+| [#2394](../repos/temporalio-sdk-java/issues.md#2394) | **Pure OpenTelemetry support** (no shim) |
+| [#2752](../repos/temporalio-sdk-java/issues.md#2752) | OpenTracing support for updateWithStart |
+| [#2620](../repos/temporalio-sdk-java/issues.md#2620) | OpenTracing client interceptor for updateWithStart |
+| [#2117](../repos/temporalio-sdk-java/issues.md#2117) | Customizable OTel span tags |
+| [#1963](../repos/temporalio-sdk-java/issues.md#1963) | Tracing span for schedule creation |
+| [#1440](../repos/temporalio-sdk-java/issues.md#1440) | Differentiate local vs regular activity spans |
+| [#862](../repos/temporalio-sdk-java/issues.md#862) | Consistent tracing tags across SDKs |
 
 **Recommendation:** Create new `temporal-opentelemetry` module:
 1. Native OpenTelemetry support (no OpenTracing shim)
@@ -243,20 +243,20 @@ High-impact activity improvements:
 
 | Issue | Enhancement | Impact |
 |-------|-------------|--------|
-| [#2716](https://github.com/temporalio/sdk-java/issues/2716) | Worker-level heartbeating | High |
-| [#2075](https://github.com/temporalio/sdk-java/issues/2075) | Keep heartbeating during shutdown | High |
-| [#2051](https://github.com/temporalio/sdk-java/issues/2051) | Activity timeouts via annotation | Medium |
-| [#1258](https://github.com/temporalio/sdk-java/issues/1258) | Retry heartbeats on network outage | High |
-| [#1005](https://github.com/temporalio/sdk-java/issues/1005) | `ActivityExecutionContext#isCancelled` | Medium |
-| [#86](https://github.com/temporalio/sdk-java/issues/86) | Pass activityId to invocation | Medium |
+| [#2716](../repos/temporalio-sdk-java/issues.md#2716) | Worker-level heartbeating | High |
+| [#2075](../repos/temporalio-sdk-java/issues.md#2075) | Keep heartbeating during shutdown | High |
+| [#2051](../repos/temporalio-sdk-java/issues.md#2051) | Activity timeouts via annotation | Medium |
+| [#1258](../repos/temporalio-sdk-java/issues.md#1258) | Retry heartbeats on network outage | High |
+| [#1005](../repos/temporalio-sdk-java/issues.md#1005) | `ActivityExecutionContext#isCancelled` | Medium |
+| [#86](../repos/temporalio-sdk-java/issues.md#86) | Pass activityId to invocation | Medium |
 
 ### 4.4 Kotlin Support (3+ issues)
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#1845](https://github.com/temporalio/sdk-java/issues/1845) | Kotlin coroutine support in workflows/activities |
-| [#2071](https://github.com/temporalio/sdk-java/issues/2071) | KotlinObjectMapperFactory forwards compatibility |
-| [#1007](https://github.com/temporalio/sdk-java/issues/1007) | Scala module |
+| [#1845](../repos/temporalio-sdk-java/issues.md#1845) | Kotlin coroutine support in workflows/activities |
+| [#2071](../repos/temporalio-sdk-java/issues.md#2071) | KotlinObjectMapperFactory forwards compatibility |
+| [#1007](../repos/temporalio-sdk-java/issues.md#1007) | Scala module |
 
 **Recommendation:** Prioritize #1845 - native Kotlin coroutine support would significantly improve DX for Kotlin users.
 
@@ -264,11 +264,11 @@ High-impact activity improvements:
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#2393](https://github.com/temporalio/sdk-java/issues/2393) | Add `patched()` and `deprecatePatch()` APIs |
-| [#2469](https://github.com/temporalio/sdk-java/issues/2469) | Worker Versioning high-level client |
-| [#2213](https://github.com/temporalio/sdk-java/issues/2213) | Signal w/ Start API improvements |
-| [#1940](https://github.com/temporalio/sdk-java/issues/1940) | Java Modules (JPMS) support |
-| [#1644](https://github.com/temporalio/sdk-java/issues/1644) | ContextPropagator redesign |
+| [#2393](../repos/temporalio-sdk-java/issues.md#2393) | Add `patched()` and `deprecatePatch()` APIs |
+| [#2469](../repos/temporalio-sdk-java/issues.md#2469) | Worker Versioning high-level client |
+| [#2213](../repos/temporalio-sdk-java/issues.md#2213) | Signal w/ Start API improvements |
+| [#1940](../repos/temporalio-sdk-java/issues.md#1940) | Java Modules (JPMS) support |
+| [#1644](../repos/temporalio-sdk-java/issues.md#1644) | ContextPropagator redesign |
 
 ---
 

@@ -37,12 +37,12 @@ The .NET SDK is a mature, relatively small issue set with 48 open issues. The to
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | **7** | 1 | Support .NET Trimming |
-| 2 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 2 | 3 | F# Samples/Documentation |
-| 3 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | 1 | Synchronous Run method in testing |
-| 4 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | 2 | Scoped IServiceProvider for ActivityInboundInterceptor |
-| 5 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | 0 | Clarify ICustomMetricMeter usage |
-| 6 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | 0 | Single-platform local NuGet build |
+| 1 | [#286](../repos/temporalio-sdk-dotnet/issues.md#286) | **7** | 1 | Support .NET Trimming |
+| 2 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 2 | 3 | F# Samples/Documentation |
+| 3 | [#420](../repos/temporalio-sdk-dotnet/issues.md#420) | 1 | 1 | Synchronous Run method in testing |
+| 4 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 1 | 2 | Scoped IServiceProvider for ActivityInboundInterceptor |
+| 5 | [#256](../repos/temporalio-sdk-dotnet/issues.md#256) | 1 | 0 | Clarify ICustomMetricMeter usage |
+| 6 | [#131](../repos/temporalio-sdk-dotnet/issues.md#131) | 1 | 0 | Single-platform local NuGet build |
 
 ---
 
@@ -52,20 +52,20 @@ The .NET SDK is a mature, relatively small issue set with 48 open issues. The to
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
-| [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | **Workflow Update hangs on time skipping** | 8 |
-| [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | TaskQueue not forwarded, breaks ContinueAsNew | 1 |
-| [#77](https://github.com/temporalio/sdk-dotnet/issues/77) | Time skipping not working properly | 0 |
-| [#577](https://github.com/temporalio/sdk-dotnet/issues/577) | Test host crash flake | 4 |
+| [#179](../repos/temporalio-sdk-dotnet/issues.md#179) | **Workflow Update hangs on time skipping** | 8 |
+| [#280](../repos/temporalio-sdk-dotnet/issues.md#280) | TaskQueue not forwarded, breaks ContinueAsNew | 1 |
+| [#77](../repos/temporalio-sdk-dotnet/issues.md#77) | Time skipping not working properly | 0 |
+| [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | Test host crash flake | 4 |
 
 ### Core SDK Bugs (5 issues)
 
 | Issue | Problem |
 |-------|---------|
-| [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | TLS certificates from path doesn't work |
-| [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | SIGSEGV crash on Linux |
-| [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | RpcException: operation was canceled |
-| [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | Unexpected activity result serialization |
-| [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | Payload codec instance reuse issues |
+| [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | TLS certificates from path doesn't work |
+| [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | SIGSEGV crash on Linux |
+| [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | RpcException: operation was canceled |
+| [#357](../repos/temporalio-sdk-dotnet/issues.md#357) | Unexpected activity result serialization |
+| [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | Payload codec instance reuse issues |
 
 ---
 
@@ -83,15 +83,15 @@ The .NET SDK is a mature, relatively small issue set with 48 open issues. The to
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | Synchronous Run method |
-| [#307](https://github.com/temporalio/sdk-dotnet/issues/307) | TestWorkflowEnvironment mocking support |
+| [#420](../repos/temporalio-sdk-dotnet/issues.md#420) | Synchronous Run method |
+| [#307](../repos/temporalio-sdk-dotnet/issues.md#307) | TestWorkflowEnvironment mocking support |
 
 ### 4. DI/Interceptor Improvements
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | Scoped IServiceProvider for interceptors |
-| [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | Virtual/interface for OperatorService |
+| [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | Scoped IServiceProvider for interceptors |
+| [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | Virtual/interface for OperatorService |
 
 ---
 

@@ -6626,7 +6626,7 @@ Note that I did expect temporal-kotlin to automatically configure the kotlin mod
 | **URL** | https://github.com/temporalio/sdk-java/issues/1963 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-03 21:12:07.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-03 21:12:07.000 UTC (2 years ago) |
 | **Updated** | 2024-03-05 18:29:59.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -10747,7 +10747,7 @@ All exceptions thrown from the SDK should be subclasses of `TemporalException`
 | **URL** | https://github.com/temporalio/sdk-java/issues/1781 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-06-07 21:41:24.000 UTC (2y 6m ago) |
+| **Created** | 2023-06-07 21:41:24.000 UTC (2y 7m ago) |
 | **Updated** | 2023-06-07 21:41:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

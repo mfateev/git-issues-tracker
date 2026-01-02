@@ -11015,7 +11015,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1331 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-03 21:12:47.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-03 21:12:47.000 UTC (2 years ago) |
 | **Updated** | 2024-03-05 18:30:11.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |

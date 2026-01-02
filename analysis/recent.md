@@ -2,7 +2,7 @@
 
 **Generated:** 2026-01-02
 **Period:** 2025-12-03 to 2026-01-02
-**New Issues:** 37
+**New Issues:** 36
 
 ## Related Documents
 
@@ -20,7 +20,7 @@
 | sdk-typescript | 8 |
 | sdk-java | 6 |
 | sdk-dotnet | 5 |
-| sdk-python | 3 |
+| sdk-python | 2 |
 | features | 2 |
 | sdk-php | 2 |
 | sdk-go | 1 |
@@ -31,7 +31,6 @@
 |--------|------------|
 | deepika-awasthi | 3 |
 | cretz | 3 |
-| tconley1428 | 2 |
 | roshchha | 2 |
 | 40lsgy1 | 1 |
 | TastyPi | 1 |
@@ -41,6 +40,7 @@
 | hafiz-qasim | 1 |
 | Tomlord1122 | 1 |
 | justinadkins | 1 |
+| tconley1428 | 1 |
 | RomirJ | 1 |
 | xepozz | 1 |
 | vy-kauppinen | 1 |
@@ -92,7 +92,6 @@
 | 2025-12-05 | sdk-typescript | [#1858](../repos/temporalio-sdk-typescript/issues.md#1858) | hmvien | [Bug] unable to import reflect-metadata within workflow bundle |
 | 2025-12-05 | temporal | [#8764](../repos/temporalio-temporal/issues.md#8764) | albertom-pirovano-mck | Listing workflows and activities from temporal sdk |
 | 2025-12-04 | sdk-typescript | [#1854](../repos/temporalio-sdk-typescript/issues.md#1854) | clintonb | [Feature Request] Correct docs for OtelCollectorExporter |
-| 2025-12-03 | sdk-python | [#1237](../repos/temporalio-sdk-python/issues.md#1237) | tconley1428 | [Bug] Converter returns bad value converting `dict[None, Any]` |
 
 ---
 
@@ -168,14 +167,12 @@
 - **[#576](../repos/temporalio-sdk-dotnet/issues.md#576)** [Feature Request] .NET Analyzer for Checking Workflows
   - *2025-12-12 by cretz* | Labels: enhancement
 
-### sdk-python (3 new)
+### sdk-python (2 new)
 
 - **[#1262](../repos/temporalio-sdk-python/issues.md#1262)** [Bug] Add ability to obtain `ApplicationError` details with type hint
   - *2025-12-29 by cretz* | Labels: bug
 - **[#1254](../repos/temporalio-sdk-python/issues.md#1254)** [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox
   - *2025-12-17 by VegetarianOrc* | Labels: bug
-- **[#1237](../repos/temporalio-sdk-python/issues.md#1237)** [Bug] Converter returns bad value converting `dict[None, Any]`
-  - *2025-12-03 by tconley1428* | Labels: bug
 
 ### features (2 new)
 

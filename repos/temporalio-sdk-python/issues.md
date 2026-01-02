@@ -1312,7 +1312,7 @@ This is touched on kinda at https://github.com/temporalio/sdk-python?tab=readme-
 | **URL** | https://github.com/temporalio/sdk-python/issues/238 |
 | **State** | OPEN |
 | **Author** | niros1 |
-| **Created** | 2023-01-03 21:38:49.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-03 21:38:49.000 UTC (3 years ago) |
 | **Updated** | 2024-11-16 16:40:38.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 5 |
@@ -4663,7 +4663,7 @@ Kind of related to #863. Per https://pyo3.rs/v0.25.1/free-threading.html this sh
 | **URL** | https://github.com/temporalio/sdk-python/issues/697 |
 | **State** | OPEN |
 | **Author** | yunmanger1 (German Ilin) |
-| **Created** | 2024-12-03 21:56:44.000 UTC (1 years ago) |
+| **Created** | 2024-12-03 21:56:44.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-25 01:01:06.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -5343,7 +5343,7 @@ if __name__ == "__main__":
 | **URL** | https://github.com/temporalio/sdk-python/issues/454 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-03 21:13:37.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-03 21:13:37.000 UTC (2 years ago) |
 | **Updated** | 2025-07-24 13:56:06.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -7187,7 +7187,7 @@ Starting the above worker yields this log on startup and workflow execution:
 | **URL** | https://github.com/temporalio/sdk-python/issues/1237 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-12-03 21:58:21.000 UTC (29 days ago) |
+| **Created** | 2025-12-03 21:58:21.000 UTC (1 months ago) |
 | **Updated** | 2025-12-03 21:58:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

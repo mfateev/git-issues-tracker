@@ -129,7 +129,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Recent Issues (Last 30 Days) - 37 total
+## Recent Issues (Last 30 Days) - 36 total
 
 | Date | Repo | Issue | 👍 | Title |
 |------|------|-------|-----|-------|
@@ -169,7 +169,6 @@ Priority = Upvotes × 2 + Comments
 | 2025-12-05 | TypeScript SDK | [#1858](../repos/temporalio-sdk-typescript/issues.md#1858) | 0 | [Bug] unable to import reflect-metadata within wor... |
 | 2025-12-05 | Server | [#8764](../repos/temporalio-temporal/issues.md#8764) | 1 | Listing workflows and activities from temporal sdk |
 | 2025-12-04 | TypeScript SDK | [#1854](../repos/temporalio-sdk-typescript/issues.md#1854) | 0 | [Feature Request] Correct docs for OtelCollectorEx... |
-| 2025-12-03 | Python SDK | [#1237](../repos/temporalio-sdk-python/issues.md#1237) | 0 | [Bug] Converter returns bad value converting `dict... |
 
 ---
 
@@ -230,7 +229,7 @@ Priority = Upvotes × 2 + Comments
 | Go SDK | 977 | 69 | 60 | 34 |
 | Java SDK | 983 | 103 | 70 | 42 |
 | PHP SDK | 470 | 4 | 17 | 26 |
-| Python SDK | 467 | 5 | 60 | 50 |
+| Python SDK | 467 | 6 | 59 | 50 |
 | Ruby SDK | 230 | 0 | 2 | 22 |
 | TypeScript SDK | 640 | 39 | 49 | 60 |
 | Server | 960 | 218 | 217 | 95 |

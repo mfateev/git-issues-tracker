@@ -50,16 +50,16 @@ These issues have the most user upvotes, indicating real community demand:
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#916](https://github.com/temporalio/sdk-go/issues/916) | 21 | 0 | Mock/intercept side effect calls in test suite |
-| 2 | [#181](https://github.com/temporalio/sdk-go/issues/181) | 16 | 0 | Clean worker shutdown waiting for session completion |
-| 3 | [#89](https://github.com/temporalio/sdk-go/issues/89) | 7 | 1 | Refactor SDK to avoid type aliasing |
-| 4 | [#829](https://github.com/temporalio/sdk-go/issues/829) | 6 | 5 | Interceptor logger for workflow/activity logs |
-| 5 | [#1282](https://github.com/temporalio/sdk-go/issues/1282) | 5 | 5 | Heartbeat timeout not raised while testing |
-| 6 | [#1352](https://github.com/temporalio/sdk-go/issues/1352) | 4 | 6 | Serialization context for codecs/converters |
-| 7 | [#1149](https://github.com/temporalio/sdk-go/issues/1149) | 4 | 3 | Allow custom trace attribute keys |
-| 8 | [#866](https://github.com/temporalio/sdk-go/issues/866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTimeout |
-| 9 | [#313](https://github.com/temporalio/sdk-go/issues/313) | 4 | 2 | Allow including local activity input into history |
-| 10 | [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
+| 1 | [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | 0 | Mock/intercept side effect calls in test suite |
+| 2 | [#181](../repos/temporalio-sdk-go/issues.md#181) | 16 | 0 | Clean worker shutdown waiting for session completion |
+| 3 | [#89](../repos/temporalio-sdk-go/issues.md#89) | 7 | 1 | Refactor SDK to avoid type aliasing |
+| 4 | [#829](../repos/temporalio-sdk-go/issues.md#829) | 6 | 5 | Interceptor logger for workflow/activity logs |
+| 5 | [#1282](../repos/temporalio-sdk-go/issues.md#1282) | 5 | 5 | Heartbeat timeout not raised while testing |
+| 6 | [#1352](../repos/temporalio-sdk-go/issues.md#1352) | 4 | 6 | Serialization context for codecs/converters |
+| 7 | [#1149](../repos/temporalio-sdk-go/issues.md#1149) | 4 | 3 | Allow custom trace attribute keys |
+| 8 | [#866](../repos/temporalio-sdk-go/issues.md#866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTimeout |
+| 9 | [#313](../repos/temporalio-sdk-go/issues.md#313) | 4 | 2 | Allow including local activity input into history |
+| 10 | [#2109](../repos/temporalio-sdk-go/issues.md#2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
 
 ### Priority Score (Upvotes×2 + Comments)
 
@@ -90,13 +90,13 @@ The `TestWorkflowEnvironment` behaves differently from production in critical wa
 
 | Issue | Problem |
 |-------|---------|
-| [#1282](https://github.com/temporalio/sdk-go/issues/1282) | **Heartbeat timeout not raised** (5 👍) |
-| [#866](https://github.com/temporalio/sdk-go/issues/866) | **WorkflowExecutionTimeout not enforced** (4 👍) |
-| [#1496](https://github.com/temporalio/sdk-go/issues/1496) | Workflow outcome inconsistent between test env and real server |
-| [#167](https://github.com/temporalio/sdk-go/issues/167) | Activity times out with child workflow (2 👍) |
-| [#1099](https://github.com/temporalio/sdk-go/issues/1099) | Timeouts run defer statements |
-| [#1427](https://github.com/temporalio/sdk-go/issues/1427) | Workflow Context doesn't block when canceled |
-| [#491](https://github.com/temporalio/sdk-go/issues/491) | Workflow Retry not working |
+| [#1282](../repos/temporalio-sdk-go/issues.md#1282) | **Heartbeat timeout not raised** (5 👍) |
+| [#866](../repos/temporalio-sdk-go/issues.md#866) | **WorkflowExecutionTimeout not enforced** (4 👍) |
+| [#1496](../repos/temporalio-sdk-go/issues.md#1496) | Workflow outcome inconsistent between test env and real server |
+| [#167](../repos/temporalio-sdk-go/issues.md#167) | Activity times out with child workflow (2 👍) |
+| [#1099](../repos/temporalio-sdk-go/issues.md#1099) | Timeouts run defer statements |
+| [#1427](../repos/temporalio-sdk-go/issues.md#1427) | Workflow Context doesn't block when canceled |
+| [#491](../repos/temporalio-sdk-go/issues.md#491) | Workflow Retry not working |
 
 **Recommendation:** Audit test environment for production parity. High-impact issues (#1282, #866) should be prioritized.
 
@@ -104,16 +104,16 @@ The `TestWorkflowEnvironment` behaves differently from production in critical wa
 
 | Issue | Problem |
 |-------|---------|
-| [#916](https://github.com/temporalio/sdk-go/issues/916) | **Cannot mock side effects** (21 👍 - TOP REQUEST) |
-| [#2109](https://github.com/temporalio/sdk-go/issues/2109) | MutableSideEffect ignores cmp function (2 👍) |
-| [#1468](https://github.com/temporalio/sdk-go/issues/1468) | Interceptors skipped for mocked activities |
-| [#982](https://github.com/temporalio/sdk-go/issues/982) | Cannot register mock activity with string name |
-| [#642](https://github.com/temporalio/sdk-go/issues/642) | Inconsistent behavior when asserting invocations |
-| [#495](https://github.com/temporalio/sdk-go/issues/495) | GetChildWorkflowExecution completes mocked child |
-| [#2005](https://github.com/temporalio/sdk-go/issues/2005) | OnWorkflow mocker doesn't propagate context headers |
-| [#125](https://github.com/temporalio/sdk-go/issues/125) | Remove need to register mocked activity |
-| [#61](https://github.com/temporalio/sdk-go/issues/61) | Remove mocks package (2 👍) |
-| [#1410](https://github.com/temporalio/sdk-go/issues/1410) | Migrate away from golang/mock (2 👍) |
+| [#916](../repos/temporalio-sdk-go/issues.md#916) | **Cannot mock side effects** (21 👍 - TOP REQUEST) |
+| [#2109](../repos/temporalio-sdk-go/issues.md#2109) | MutableSideEffect ignores cmp function (2 👍) |
+| [#1468](../repos/temporalio-sdk-go/issues.md#1468) | Interceptors skipped for mocked activities |
+| [#982](../repos/temporalio-sdk-go/issues.md#982) | Cannot register mock activity with string name |
+| [#642](../repos/temporalio-sdk-go/issues.md#642) | Inconsistent behavior when asserting invocations |
+| [#495](../repos/temporalio-sdk-go/issues.md#495) | GetChildWorkflowExecution completes mocked child |
+| [#2005](../repos/temporalio-sdk-go/issues.md#2005) | OnWorkflow mocker doesn't propagate context headers |
+| [#125](../repos/temporalio-sdk-go/issues.md#125) | Remove need to register mocked activity |
+| [#61](../repos/temporalio-sdk-go/issues.md#61) | Remove mocks package (2 👍) |
+| [#1410](../repos/temporalio-sdk-go/issues.md#1410) | Migrate away from golang/mock (2 👍) |
 
 **Recommendation:**
 1. Implement side effect mocking (#916) - highest upvoted issue overall
@@ -124,27 +124,27 @@ The `TestWorkflowEnvironment` behaves differently from production in critical wa
 
 | Issue | Problem |
 |-------|---------|
-| [#2107](https://github.com/temporalio/sdk-go/issues/2107) | Panic in unit test framework |
-| [#2090](https://github.com/temporalio/sdk-go/issues/2090) | Starting child workflow leaks goroutines |
-| [#2039](https://github.com/temporalio/sdk-go/issues/2039) | Joining errors hides panics, test passes |
-| [#1360](https://github.com/temporalio/sdk-go/issues/1360) | DevServer occasionally doesn't stop |
-| [#975](https://github.com/temporalio/sdk-go/issues/975) | Missing mock causes panic but test succeeds |
-| [#922](https://github.com/temporalio/sdk-go/issues/922) | Data race on signal data |
-| [#351](https://github.com/temporalio/sdk-go/issues/351) | Parent/child cancellation panics (2 👍) |
-| [#108](https://github.com/temporalio/sdk-go/issues/108) | Race condition in testWorkflowEnvironmentImpl |
+| [#2107](../repos/temporalio-sdk-go/issues.md#2107) | Panic in unit test framework |
+| [#2090](../repos/temporalio-sdk-go/issues.md#2090) | Starting child workflow leaks goroutines |
+| [#2039](../repos/temporalio-sdk-go/issues.md#2039) | Joining errors hides panics, test passes |
+| [#1360](../repos/temporalio-sdk-go/issues.md#1360) | DevServer occasionally doesn't stop |
+| [#975](../repos/temporalio-sdk-go/issues.md#975) | Missing mock causes panic but test succeeds |
+| [#922](../repos/temporalio-sdk-go/issues.md#922) | Data race on signal data |
+| [#351](../repos/temporalio-sdk-go/issues.md#351) | Parent/child cancellation panics (2 👍) |
+| [#108](../repos/temporalio-sdk-go/issues.md#108) | Race condition in testWorkflowEnvironmentImpl |
 
 ### 1.4 Missing Test Features (8 issues)
 
 | Issue | Feature |
 |-------|---------|
-| [#1646](https://github.com/temporalio/sdk-go/issues/1646) | SetStartTime for activity test env |
-| [#1469](https://github.com/temporalio/sdk-go/issues/1469) | Allow specifying attempt |
-| [#1167](https://github.com/temporalio/sdk-go/issues/1167) | Allow setting activity timeouts |
-| [#949](https://github.com/temporalio/sdk-go/issues/949) | Override max activity attempts |
-| [#935](https://github.com/temporalio/sdk-go/issues/935) | Test workflow with ContinuedExecutionRunID |
-| [#497](https://github.com/temporalio/sdk-go/issues/497) | Query after signal not working |
-| [#458](https://github.com/temporalio/sdk-go/issues/458) | Fail RegisterDelayedCallback after ExecuteWorkflow |
-| [#439](https://github.com/temporalio/sdk-go/issues/439) | Signal channel assertions |
+| [#1646](../repos/temporalio-sdk-go/issues.md#1646) | SetStartTime for activity test env |
+| [#1469](../repos/temporalio-sdk-go/issues.md#1469) | Allow specifying attempt |
+| [#1167](../repos/temporalio-sdk-go/issues.md#1167) | Allow setting activity timeouts |
+| [#949](../repos/temporalio-sdk-go/issues.md#949) | Override max activity attempts |
+| [#935](../repos/temporalio-sdk-go/issues.md#935) | Test workflow with ContinuedExecutionRunID |
+| [#497](../repos/temporalio-sdk-go/issues.md#497) | Query after signal not working |
+| [#458](../repos/temporalio-sdk-go/issues.md#458) | Fail RegisterDelayedCallback after ExecuteWorkflow |
+| [#439](../repos/temporalio-sdk-go/issues.md#439) | Signal channel assertions |
 
 ---
 
@@ -154,9 +154,9 @@ The `TestWorkflowEnvironment` behaves differently from production in critical wa
 
 | Issue | Problem |
 |-------|---------|
-| [#1208](https://github.com/temporalio/sdk-go/issues/1208) | **Canceling context with multiple children is non-deterministic** (2 👍) |
-| [#1838](https://github.com/temporalio/sdk-go/issues/1838) | Non-deterministic code sends incorrect WFT completion |
-| [#2066](https://github.com/temporalio/sdk-go/issues/2066) | Lost messages from workflow.NewChannel |
+| [#1208](../repos/temporalio-sdk-go/issues.md#1208) | **Canceling context with multiple children is non-deterministic** (2 👍) |
+| [#1838](../repos/temporalio-sdk-go/issues.md#1838) | Non-deterministic code sends incorrect WFT completion |
+| [#2066](../repos/temporalio-sdk-go/issues.md#2066) | Lost messages from workflow.NewChannel |
 
 **Recommendation:** These are critical production bugs. Audit and fix determinism guarantees.
 
@@ -164,19 +164,19 @@ The `TestWorkflowEnvironment` behaves differently from production in critical wa
 
 | Issue | Problem |
 |-------|---------|
-| [#1929](https://github.com/temporalio/sdk-go/issues/1929) | OTel metrics don't match documented behavior |
-| [#1906](https://github.com/temporalio/sdk-go/issues/1906) | workflowcheck crash (index out of range) |
-| [#1869](https://github.com/temporalio/sdk-go/issues/1869) | SetOnChildWorkflowCompletedListener doesn't work |
-| [#1846](https://github.com/temporalio/sdk-go/issues/1846) | AsTime() on nil returns 1970 instead of error |
-| [#186](https://github.com/temporalio/sdk-go/issues/186) | Worker reports validation error on transient decision |
+| [#1929](../repos/temporalio-sdk-go/issues.md#1929) | OTel metrics don't match documented behavior |
+| [#1906](../repos/temporalio-sdk-go/issues.md#1906) | workflowcheck crash (index out of range) |
+| [#1869](../repos/temporalio-sdk-go/issues.md#1869) | SetOnChildWorkflowCompletedListener doesn't work |
+| [#1846](../repos/temporalio-sdk-go/issues.md#1846) | AsTime() on nil returns 1970 instead of error |
+| [#186](../repos/temporalio-sdk-go/issues.md#186) | Worker reports validation error on transient decision |
 
 ### 2.3 Other Bugs (4 issues)
 
 | Issue | Problem |
 |-------|---------|
-| [#2103](https://github.com/temporalio/sdk-go/issues/2103) | Cosmetic bug in logger |
-| [#2025](https://github.com/temporalio/sdk-go/issues/2025) | DescribeTaskQueueEnhanced uses deprecated APIs |
-| [#1961](https://github.com/temporalio/sdk-go/issues/1961) | Strange error in tests not occurring in production |
+| [#2103](../repos/temporalio-sdk-go/issues.md#2103) | Cosmetic bug in logger |
+| [#2025](../repos/temporalio-sdk-go/issues.md#2025) | DescribeTaskQueueEnhanced uses deprecated APIs |
+| [#1961](../repos/temporalio-sdk-go/issues.md#1961) | Strange error in tests not occurring in production |
 
 ---
 
@@ -186,14 +186,14 @@ The `potential-bug` label is heavily used. High-engagement ones to prioritize:
 
 | Issue | Problem | 👍 |
 |-------|---------|-----|
-| [#1282](https://github.com/temporalio/sdk-go/issues/1282) | Heartbeat timeout not raised while testing | 5 |
-| [#866](https://github.com/temporalio/sdk-go/issues/866) | TestWorkflowEnvironment doesn't enforce timeout | 4 |
-| [#1208](https://github.com/temporalio/sdk-go/issues/1208) | Context cancellation non-determinism | 2 |
-| [#351](https://github.com/temporalio/sdk-go/issues/351) | Parent/child cancellation panics | 2 |
-| [#167](https://github.com/temporalio/sdk-go/issues/167) | Activity timeout with child workflow | 2 |
-| [#1624](https://github.com/temporalio/sdk-go/issues/1624) | Signal sent to Selector can be lost | 0 |
-| [#1536](https://github.com/temporalio/sdk-go/issues/1536) | TERMINATE_IF_RUNNING doesn't work for duplicate children | 0 |
-| [#1574](https://github.com/temporalio/sdk-go/issues/1574) | Batched heartbeat canceled due to context | 0 |
+| [#1282](../repos/temporalio-sdk-go/issues.md#1282) | Heartbeat timeout not raised while testing | 5 |
+| [#866](../repos/temporalio-sdk-go/issues.md#866) | TestWorkflowEnvironment doesn't enforce timeout | 4 |
+| [#1208](../repos/temporalio-sdk-go/issues.md#1208) | Context cancellation non-determinism | 2 |
+| [#351](../repos/temporalio-sdk-go/issues.md#351) | Parent/child cancellation panics | 2 |
+| [#167](../repos/temporalio-sdk-go/issues.md#167) | Activity timeout with child workflow | 2 |
+| [#1624](../repos/temporalio-sdk-go/issues.md#1624) | Signal sent to Selector can be lost | 0 |
+| [#1536](../repos/temporalio-sdk-go/issues.md#1536) | TERMINATE_IF_RUNNING doesn't work for duplicate children | 0 |
+| [#1574](../repos/temporalio-sdk-go/issues.md#1574) | Batched heartbeat canceled due to context | 0 |
 
 **Recommendation:** Review and reclassify these. Many may be actual bugs or duplicates.
 
@@ -203,7 +203,7 @@ The `potential-bug` label is heavily used. High-engagement ones to prioritize:
 
 | Issue | Description | Severity |
 |-------|-------------|----------|
-| [#899](https://github.com/temporalio/sdk-go/issues/899) | github.com/uber-go/tally/v4: 2 vulnerabilities | 7.5 (High) |
+| [#899](../repos/temporalio-sdk-go/issues.md#899) | github.com/uber-go/tally/v4: 2 vulnerabilities | 7.5 (High) |
 
 **Recommendation:** Update tally dependency or evaluate alternatives.
 
@@ -217,12 +217,12 @@ Session and worker lifecycle is a significant user pain point:
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#181](https://github.com/temporalio/sdk-go/issues/181) | **Clean worker shutdown waiting for session** | 16 |
-| [#1086](https://github.com/temporalio/sdk-go/issues/1086) | Graceful shutdown waiting for activities | 0 |
-| [#937](https://github.com/temporalio/sdk-go/issues/937) | Keep session open on worker restart | 0 |
-| [#884](https://github.com/temporalio/sdk-go/issues/884) | Pass sessions from parent to child workflow | 2 |
-| [#955](https://github.com/temporalio/sdk-go/issues/955) | Suppress "worker stopping" polling errors | 0 |
-| [#1197](https://github.com/temporalio/sdk-go/issues/1197) | Drain polled tasks on shutdown | 0 |
+| [#181](../repos/temporalio-sdk-go/issues.md#181) | **Clean worker shutdown waiting for session** | 16 |
+| [#1086](../repos/temporalio-sdk-go/issues.md#1086) | Graceful shutdown waiting for activities | 0 |
+| [#937](../repos/temporalio-sdk-go/issues.md#937) | Keep session open on worker restart | 0 |
+| [#884](../repos/temporalio-sdk-go/issues.md#884) | Pass sessions from parent to child workflow | 2 |
+| [#955](../repos/temporalio-sdk-go/issues.md#955) | Suppress "worker stopping" polling errors | 0 |
+| [#1197](../repos/temporalio-sdk-go/issues.md#1197) | Drain polled tasks on shutdown | 0 |
 
 **Recommendation:** Bundle as "Worker Lifecycle Improvements" project. #181 is the 2nd most upvoted issue.
 
@@ -230,45 +230,45 @@ Session and worker lifecycle is a significant user pain point:
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#829](https://github.com/temporalio/sdk-go/issues/829) | Interceptor logger for workflow/activity | 6 |
-| [#313](https://github.com/temporalio/sdk-go/issues/313) | Local activity input in history | 4 |
-| [#718](https://github.com/temporalio/sdk-go/issues/718) | Metric for scheduling to last attempt time | 2 |
-| [#1114](https://github.com/temporalio/sdk-go/issues/1114) | Variadic activity arguments | 1 |
-| [#266](https://github.com/temporalio/sdk-go/issues/266) | Expose activity start/completion info | 1 |
-| [#2094](https://github.com/temporalio/sdk-go/issues/2094) | Worker heartbeating | 0 |
-| [#126](https://github.com/temporalio/sdk-go/issues/126) | Auto-heartbeating activities | 0 |
-| [#238](https://github.com/temporalio/sdk-go/issues/238) | RecordActivityHeartbeat return error on cancel | 0 |
+| [#829](../repos/temporalio-sdk-go/issues.md#829) | Interceptor logger for workflow/activity | 6 |
+| [#313](../repos/temporalio-sdk-go/issues.md#313) | Local activity input in history | 4 |
+| [#718](../repos/temporalio-sdk-go/issues.md#718) | Metric for scheduling to last attempt time | 2 |
+| [#1114](../repos/temporalio-sdk-go/issues.md#1114) | Variadic activity arguments | 1 |
+| [#266](../repos/temporalio-sdk-go/issues.md#266) | Expose activity start/completion info | 1 |
+| [#2094](../repos/temporalio-sdk-go/issues.md#2094) | Worker heartbeating | 0 |
+| [#126](../repos/temporalio-sdk-go/issues.md#126) | Auto-heartbeating activities | 0 |
+| [#238](../repos/temporalio-sdk-go/issues.md#238) | RecordActivityHeartbeat return error on cancel | 0 |
 
 ### 5.3 Tracing/OpenTelemetry (7 issues, 4 👍)
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#1149](https://github.com/temporalio/sdk-go/issues/1149) | Custom trace attribute keys | 4 |
-| [#1445](https://github.com/temporalio/sdk-go/issues/1445) | OTel metric handler improvements | 0 |
-| [#1334](https://github.com/temporalio/sdk-go/issues/1334) | Opt-out tracer span on schedule create | 0 |
-| [#1330](https://github.com/temporalio/sdk-go/issues/1330) | Add TaskQueue to TracerStartSpanOptions | 0 |
-| [#619](https://github.com/temporalio/sdk-go/issues/619) | Consistent tracing tags across SDKs | 0 |
-| [#1976](https://github.com/temporalio/sdk-go/issues/1976) | ContinueAsNew creates new root span | 0 |
+| [#1149](../repos/temporalio-sdk-go/issues.md#1149) | Custom trace attribute keys | 4 |
+| [#1445](../repos/temporalio-sdk-go/issues.md#1445) | OTel metric handler improvements | 0 |
+| [#1334](../repos/temporalio-sdk-go/issues.md#1334) | Opt-out tracer span on schedule create | 0 |
+| [#1330](../repos/temporalio-sdk-go/issues.md#1330) | Add TaskQueue to TracerStartSpanOptions | 0 |
+| [#619](../repos/temporalio-sdk-go/issues.md#619) | Consistent tracing tags across SDKs | 0 |
+| [#1976](../repos/temporalio-sdk-go/issues.md#1976) | ContinueAsNew creates new root span | 0 |
 
 ### 5.4 Serialization/Codec (6 issues, 5 👍)
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#1352](https://github.com/temporalio/sdk-go/issues/1352) | Serialization context for codecs/converters | 4 |
-| [#1609](https://github.com/temporalio/sdk-go/issues/1609) | ContextAware failure converters | 1 |
-| [#1349](https://github.com/temporalio/sdk-go/issues/1349) | WorkflowRun.Get use context aware converter | 0 |
-| [#842](https://github.com/temporalio/sdk-go/issues/842) | Custom object processing in codec interceptor | 0 |
-| [#1132](https://github.com/temporalio/sdk-go/issues/1132) | Visit all payloads at once in proxy visitor | 0 |
+| [#1352](../repos/temporalio-sdk-go/issues.md#1352) | Serialization context for codecs/converters | 4 |
+| [#1609](../repos/temporalio-sdk-go/issues.md#1609) | ContextAware failure converters | 1 |
+| [#1349](../repos/temporalio-sdk-go/issues.md#1349) | WorkflowRun.Get use context aware converter | 0 |
+| [#842](../repos/temporalio-sdk-go/issues.md#842) | Custom object processing in codec interceptor | 0 |
+| [#1132](../repos/temporalio-sdk-go/issues.md#1132) | Visit all payloads at once in proxy visitor | 0 |
 
 ### 5.5 API Modernization (10+ issues)
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
-| [#89](https://github.com/temporalio/sdk-go/issues/89) | Refactor to avoid type aliasing | 7 |
-| [#1796](https://github.com/temporalio/sdk-go/issues/1796) | Add `Patched()` and `DeprecatePatch()` APIs | 0 |
-| [#1582](https://github.com/temporalio/sdk-go/issues/1582) | Update context functions to match stdlib | 2 |
-| [#1593](https://github.com/temporalio/sdk-go/issues/1593) | Consider range-over-func APIs | 0 |
-| [#997](https://github.com/temporalio/sdk-go/issues/997) | Dynamic query/update handler | 0 |
+| [#89](../repos/temporalio-sdk-go/issues.md#89) | Refactor to avoid type aliasing | 7 |
+| [#1796](../repos/temporalio-sdk-go/issues.md#1796) | Add `Patched()` and `DeprecatePatch()` APIs | 0 |
+| [#1582](../repos/temporalio-sdk-go/issues.md#1582) | Update context functions to match stdlib | 2 |
+| [#1593](../repos/temporalio-sdk-go/issues.md#1593) | Consider range-over-func APIs | 0 |
+| [#997](../repos/temporalio-sdk-go/issues.md#997) | Dynamic query/update handler | 0 |
 
 ---
 
