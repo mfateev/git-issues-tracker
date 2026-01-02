@@ -47,6 +47,7 @@ All issue references MUST link to local files, NOT GitHub URLs.
 Repository mapping for links:
 - Server issues: `../repos/temporalio-temporal/issues.md#<number>`
 - Features issues: `../repos/temporalio-features/issues.md#<number>`
+- API issues: `../repos/temporalio-api/issues.md#<number>`
 - Java SDK: `../repos/temporalio-sdk-java/issues.md#<number>`
 - Go SDK: `../repos/temporalio-sdk-go/issues.md#<number>`
 - TypeScript SDK: `../repos/temporalio-sdk-typescript/issues.md#<number>`

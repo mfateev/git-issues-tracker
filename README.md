@@ -32,7 +32,8 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 48 | .NET Trimming support |
 | [PHP SDK](https://github.com/temporalio/sdk-php) | 47 | Marshaller documentation |
 | [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
-| **Total** | **1,537** | |
+| [API](https://github.com/temporalio/api) | 13 | Buf schema registry (6 upvotes) |
+| **Total** | **1,550** | |
 
 ## Quick Start
 

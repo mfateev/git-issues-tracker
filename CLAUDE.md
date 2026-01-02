@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Local GitHub issue tracking system for Temporal repositories. Mirrors issues for offline analysis using GitHub CLI (`gh`) and Node.js scripts.
 
-## Currently Tracked (1,537 issues)
+## Currently Tracked (1,550 issues)
 
 | Repository | Directory | Issues |
 |------------|-----------|--------|
@@ -19,6 +19,7 @@ Local GitHub issue tracking system for Temporal repositories. Mirrors issues for
 | temporalio/sdk-dotnet | temporalio-sdk-dotnet | 48 |
 | temporalio/sdk-php | temporalio-sdk-php | 47 |
 | temporalio/sdk-ruby | temporalio-sdk-ruby | 24 |
+| temporalio/api | temporalio-api | 13 |
 
 ## Common Commands
 

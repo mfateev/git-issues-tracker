@@ -1,8 +1,8 @@
 # Cross-Repository Issue Statistics
 
 **Generated:** 2026-01-02
-**Total Repositories:** 9
-**Total Open Issues:** 1537
+**Total Repositories:** 10
+**Total Open Issues:** 1550
 
 ---
 
@@ -10,12 +10,12 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 1537 |
-| Total Bugs | 354 |
-| Total Enhancements/Features | 1027 |
-| Total Upvotes (👍) | 1458 |
-| Total Comments | 2368 |
-| Total Stale Issues (>12 months) | 927 (60%) |
+| Total Open Issues | 1550 |
+| Total Bugs | 357 |
+| Total Enhancements/Features | 1036 |
+| Total Upvotes (👍) | 1464 |
+| Total Comments | 2377 |
+| Total Stale Issues (>12 months) | 940 (61%) |
 
 ---
 
@@ -32,7 +32,8 @@
 | [.NET SDK](stats-dotnet.md) | 48 | 12 | 31 | 13 | 51 | 22 | 393d |
 | [PHP SDK](stats-php.md) | 47 | 7 | 31 | 12 | 66 | 17 | 470d |
 | [Ruby SDK](stats-ruby.md) | 24 | 4 | 19 | 3 | 15 | 2 | 230d |
-| **Total** | **1537** | **354** | **1027** | **1458** | **2368** | **927** | |
+| [temporalio-api](stats-temporalio-api.md) | 13 | 3 | 9 | 6 | 9 | 13 | 1069d |
+| **Total** | **1550** | **357** | **1036** | **1464** | **2377** | **940** | |
 
 ---
 
@@ -176,8 +177,8 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count | % of Issues |
 |-------|-------|-------------|
-| enhancement | 1011 | 66% |
-| bug | 184 | 12% |
+| enhancement | 1020 | 66% |
+| bug | 187 | 12% |
 | potential-bug | 171 | 11% |
 | test server | 37 | 2% |
 | up-for-grabs | 30 | 2% |
@@ -217,6 +218,7 @@ Priority = Upvotes × 2 + Comments
 | PHP SDK | 12 | 66 | 90 | 36% |
 | .NET SDK | 13 | 51 | 77 | 46% |
 | Ruby SDK | 3 | 15 | 21 | 8% |
+| temporalio-api | 6 | 9 | 21 | 100% |
 
 ---
 
@@ -224,6 +226,7 @@ Priority = Upvotes × 2 + Comments
 
 | Repository | Avg Age (days) | 3+ Years | 1-3 Years | <1 Year |
 |------------|----------------|----------|-----------|---------|
+| temporalio-api | 1069 | 7 | 6 | 0 |
 | Features | 790 | 82 | 100 | 65 |
 | .NET SDK | 393 | 0 | 23 | 25 |
 | Go SDK | 977 | 69 | 60 | 34 |
