@@ -9,8 +9,8 @@ Update all tracked GitHub repositories and regenerate analysis documents.
 Run `./scripts/update-all.sh` to:
 - Fetch updated issues from all tracked repositories
 - Rebuild indexes with engagement metrics
-- Generate contributors.md
-- Generate stats-recent.md
+- Generate contributors.md (with navigation links)
+- Generate stats-recent.md (with navigation links)
 
 ### 2. Regenerate Human-Readable Issue Files
 
@@ -21,6 +21,8 @@ Run `node scripts/generate-readable.js --all` to regenerate all `repos/<sdk>/iss
 Run `node scripts/generate-stats.js --all` to generate `analysis/stats-<sdk>.md` files for each repository.
 
 Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.md` with cross-repository statistics.
+
+**Note:** These scripts automatically generate navigation links to related documents (summary, analysis docs, other stats files).
 
 ### 4. Generate SDK Analysis Documents (LLM)
 
@@ -44,6 +46,7 @@ This provides full context for understanding the issue's importance and communit
 - If you think the structure can be improved, explain the proposed change and ask for confirmation
 - Do NOT include script usage examples, jq commands, or implementation details in analysis documents
 - Analysis documents should contain only issue analysis content, not tooling documentation
+- Maintain the "Related Documents" navigation section at the top with links to summary.md, stats files, and other analysis docs
 
 **Issue Link Format (CRITICAL):**
 All issue references MUST link to local files, NOT GitHub URLs.
@@ -78,6 +81,7 @@ Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, t
 - If you think the structure can be improved, explain the proposed change and ask for confirmation
 - Do NOT include script usage examples, jq commands, or implementation details
 - The summary should contain only analysis content, not tooling documentation
+- Maintain the "Related Documents" navigation section at the top with links to stats files, contributors, and per-SDK analysis docs
 
 **Issue Link Format (CRITICAL):**
 Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
@@ -103,6 +107,7 @@ This helps understand the full scope of bugs, security issues, and user-reported
 - Look for regressions in recent releases
 - Group related issues together to identify systemic problems
 - Keep the existing document structure if updating
+- Maintain the "Related Documents" navigation section at the top with links to summary.md, stats-recent.md, and per-SDK analysis docs
 
 **Issue Link Format (CRITICAL):**
 Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
