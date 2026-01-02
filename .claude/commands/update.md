@@ -4,18 +4,54 @@ Update all tracked GitHub repositories and regenerate analysis documents.
 
 ## Steps
 
-1. Run `./scripts/update-all.sh` to:
-   - Fetch updated issues from all tracked repositories
-   - Rebuild indexes with engagement metrics
-   - Generate contributors.md
-   - Generate recent.md
+### 1. Sync Issues from GitHub
 
-2. Run `node scripts/generate-readable.js --all` to regenerate all issues.md files with latest data
+Run `./scripts/update-all.sh` to:
+- Fetch updated issues from all tracked repositories
+- Rebuild indexes with engagement metrics
+- Generate contributors.md
+- Generate recent.md
 
-3. Run `node scripts/analyze-all.js stats` to get current statistics for all repositories
+### 2. Regenerate Human-Readable Issue Files
 
-4. For each SDK update the corresponding document in the analysis folder. Keep the document structure. If you think that you can improve the structure explain the proposed change to the use and ask for confirmation.
-Issue links in the documents must point to the issue in the repos/<sdk>/issues.md.
+Run `node scripts/generate-readable.js --all` to regenerate all `repos/<sdk>/issues.md` files with latest data.
 
-5. Update the analysis/summary.md based on all the findings. Keep the document structure. If you think that you can improve the structure explain the proposed change to the use and ask for confirmation. Issue links in the documents must point to the issue in the repos/<sdk>/issues.md. 
+### 3. Generate Statistics (Script-Based)
 
+Run `node scripts/generate-stats.js --all` to generate `analysis/stats-<sdk>.md` files for each repository.
+
+Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.md` with cross-repository statistics.
+
+### 4. Generate SDK Analysis Documents (LLM)
+
+For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issues file (`repos/<sdk>/issues.md`), then update or create `analysis/<sdk>.md` with:
+
+- Executive summary of key findings
+- Categorized issues (bugs, enhancements, security, etc.)
+- Priority recommendations based on upvotes and engagement
+- Proposed roadmap
+- Housekeeping recommendations (stale issues, duplicates)
+
+**Important:**
+- Keep the existing document structure if updating
+- If you think the structure can be improved, explain the proposed change and ask for confirmation
+- Issue links must point to the local issues file: `../repos/<sdk>/issues.md#<issue-number>`
+- Do NOT include script usage examples, jq commands, or implementation details in analysis documents
+- Analysis documents should contain only issue analysis content, not tooling documentation
+
+### 5. Generate Cross-Repository Summary (LLM)
+
+Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, then update `analysis/SUMMARY.md` with:
+
+- Overview table of all repositories
+- Top user requests across all repos
+- Common themes and patterns
+- Per-repository priorities
+- Recommended initiatives
+
+**Important:**
+- Keep the existing document structure if updating
+- If you think the structure can be improved, explain the proposed change and ask for confirmation
+- Issue links must point to the local issues file: `../repos/<sdk>/issues.md#<issue-number>`
+- Do NOT include script usage examples, jq commands, or implementation details
+- The summary should contain only analysis content, not tooling documentation
