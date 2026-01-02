@@ -1,8 +1,14 @@
-# Php SDK - Issue Statistics
+# PHP SDK - Issue Statistics
 
 **Generated:** 2026-01-02
 **Repository:** temporalio/sdk-php
 **Data Source:** [issues.md](../repos/temporalio-sdk-php/issues.md)
+
+## Related Documents
+
+← [Summary](summary.md) · [Analysis](php.md) · [Contributors](contributors.md) · [Recent](stats-recent.md) · [All Stats](stats-all.md)
+
+**Other Statistics:** [API](stats-temporalio-api.md) · [Features](stats-features.md) · [.NET](stats-dotnet.md) · [Go](stats-go.md) · [Java](stats-java.md) · [Python](stats-python.md) · [Ruby](stats-ruby.md) · [TypeScript](stats-typescript.md) · [Server](stats-server.md)
 
 ---
 

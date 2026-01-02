@@ -26,8 +26,56 @@ const SDK_NAMES = {
   'temporalio-sdk-python': 'python',
   'temporalio-sdk-dotnet': 'dotnet',
   'temporalio-sdk-php': 'php',
-  'temporalio-sdk-ruby': 'ruby'
+  'temporalio-sdk-ruby': 'ruby',
+  'temporalio-api': 'temporalio-api'
 };
+
+const SDK_DISPLAY_NAMES = {
+  'server': 'Server',
+  'features': 'Features',
+  'java': 'Java',
+  'go': 'Go',
+  'typescript': 'TypeScript',
+  'python': 'Python',
+  'dotnet': '.NET',
+  'php': 'PHP',
+  'ruby': 'Ruby',
+  'temporalio-api': 'API'
+};
+
+// Maps SDK name to analysis document name (if different from sdk name)
+const ANALYSIS_DOC_NAMES = {
+  'server': 'server',
+  'features': 'features',
+  'java': 'java',
+  'go': 'go',
+  'typescript': 'typescript',
+  'python': 'python',
+  'dotnet': 'dotnet',
+  'php': 'php',
+  'ruby': 'ruby',
+  'temporalio-api': 'api'
+};
+
+function generateNavigation(sdkName, allSdkNames) {
+  const displayName = SDK_DISPLAY_NAMES[sdkName] || sdkName;
+  const analysisDoc = ANALYSIS_DOC_NAMES[sdkName] || sdkName;
+
+  // Build links to other stats documents
+  const otherStats = allSdkNames
+    .filter(name => name !== sdkName)
+    .map(name => `[${SDK_DISPLAY_NAMES[name] || name}](stats-${name}.md)`)
+    .join(' · ');
+
+  return `## Related Documents
+
+← [Summary](summary.md) · [Analysis](${analysisDoc}.md) · [Contributors](contributors.md) · [Recent](stats-recent.md) · [All Stats](stats-all.md)
+
+**Other Statistics:** ${otherStats}
+
+---
+`;
+}
 
 function getTrackedRepos() {
   return fs.readdirSync(reposDir)
@@ -137,7 +185,7 @@ function getLabelDistribution(issues) {
     .slice(0, 30);
 }
 
-function generateRepoStats(repoName) {
+function generateRepoStats(repoName, allSdkNames) {
   const index = loadIndex(repoName);
   const issues = index.issues || [];
   const sdkName = SDK_NAMES[repoName] || repoName;
@@ -176,14 +224,16 @@ function generateRepoStats(repoName) {
   const labelDistribution = getLabelDistribution(issues);
 
   // Generate markdown
-  let md = `# ${sdkName.charAt(0).toUpperCase() + sdkName.slice(1)} SDK - Issue Statistics
+  const displayName = SDK_DISPLAY_NAMES[sdkName] || sdkName;
+  const navigation = generateNavigation(sdkName, allSdkNames);
+
+  let md = `# ${displayName} SDK - Issue Statistics
 
 **Generated:** ${now.toISOString().split('T')[0]}
 **Repository:** ${repoName.replace('-', '/')}
 **Data Source:** [issues.md](../repos/${repoName}/issues.md)
 
----
-
+${navigation}
 ## Summary
 
 | Metric | Value |
@@ -364,12 +414,15 @@ function main() {
     }
   }
 
+  // Get all SDK names for cross-linking
+  const allSdkNames = getTrackedRepos().map(r => SDK_NAMES[r] || r);
+
   for (const repo of repos) {
     const sdkName = SDK_NAMES[repo] || repo;
     const outputPath = path.join(analysisDir, `stats-${sdkName}.md`);
 
     console.log(`Generating statistics for ${repo}...`);
-    const stats = generateRepoStats(repo);
+    const stats = generateRepoStats(repo, allSdkNames);
     fs.writeFileSync(outputPath, stats);
     console.log(`  Written: ${outputPath}`);
   }

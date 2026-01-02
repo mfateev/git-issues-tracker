@@ -1,8 +1,14 @@
-# Typescript SDK - Issue Statistics
+# TypeScript SDK - Issue Statistics
 
 **Generated:** 2026-01-02
 **Repository:** temporalio/sdk-typescript
 **Data Source:** [issues.md](../repos/temporalio-sdk-typescript/issues.md)
+
+## Related Documents
+
+← [Summary](summary.md) · [Analysis](typescript.md) · [Contributors](contributors.md) · [Recent](stats-recent.md) · [All Stats](stats-all.md)
+
+**Other Statistics:** [API](stats-temporalio-api.md) · [Features](stats-features.md) · [.NET](stats-dotnet.md) · [Go](stats-go.md) · [Java](stats-java.md) · [PHP](stats-php.md) · [Python](stats-python.md) · [Ruby](stats-ruby.md) · [Server](stats-server.md)
 
 ---
 

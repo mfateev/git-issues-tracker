@@ -165,6 +165,12 @@ function main() {
 **Total Repositories:** ${repos.length}
 **Total Open Issues:** ${totalIssues}
 
+## Related Documents
+
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](stats-recent.md)
+
+**Per-SDK Statistics:** [Server](stats-server.md) · [Features](stats-features.md) · [Java](stats-java.md) · [Go](stats-go.md) · [TypeScript](stats-typescript.md) · [Python](stats-python.md) · [.NET](stats-dotnet.md) · [PHP](stats-php.md) · [Ruby](stats-ruby.md) · [API](stats-temporalio-api.md)
+
 ---
 
 ## Aggregate Summary

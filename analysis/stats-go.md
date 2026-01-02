@@ -4,6 +4,12 @@
 **Repository:** temporalio/sdk-go
 **Data Source:** [issues.md](../repos/temporalio-sdk-go/issues.md)
 
+## Related Documents
+
+← [Summary](summary.md) · [Analysis](go.md) · [Contributors](contributors.md) · [Recent](stats-recent.md) · [All Stats](stats-all.md)
+
+**Other Statistics:** [API](stats-temporalio-api.md) · [Features](stats-features.md) · [.NET](stats-dotnet.md) · [Java](stats-java.md) · [PHP](stats-php.md) · [Python](stats-python.md) · [Ruby](stats-ruby.md) · [TypeScript](stats-typescript.md) · [Server](stats-server.md)
+
 ---
 
 ## Summary
