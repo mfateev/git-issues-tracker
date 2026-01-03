@@ -11737,7 +11737,7 @@ Semi-related: https://github.com/temporalio/sdk-typescript/issues/1859
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1858 |
 | **State** | OPEN |
 | **Author** | hmvien (Hien Vien) |
-| **Created** | 2025-12-05 23:25:41.000 UTC (27 days ago) |
+| **Created** | 2025-12-05 23:25:41.000 UTC (28 days ago) |
 | **Updated** | 2025-12-08 18:01:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

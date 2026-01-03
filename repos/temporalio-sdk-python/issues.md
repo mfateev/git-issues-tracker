@@ -7057,7 +7057,7 @@ For users of deserialized `ApplicationError`, today we only offer the deserializ
 | **URL** | https://github.com/temporalio/sdk-python/issues/1254 |
 | **State** | OPEN |
 | **Author** | VegetarianOrc (Alex Mazzeo) |
-| **Created** | 2025-12-17 23:35:07.000 UTC (15 days ago) |
+| **Created** | 2025-12-17 23:35:07.000 UTC (16 days ago) |
 | **Updated** | 2025-12-17 23:35:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7762,7 +7762,7 @@ WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be
 | **URL** | https://github.com/temporalio/sdk-python/issues/762 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2025-02-06 23:46:03.000 UTC (10 months ago) |
+| **Created** | 2025-02-06 23:46:03.000 UTC (11 months ago) |
 | **Updated** | 2025-02-06 23:46:03.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
