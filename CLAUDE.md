@@ -110,3 +110,18 @@ scripts/
 - Upvotes extracted from THUMBS_UP reactions during indexing
 - Requires authenticated `gh` CLI
 - Statistics files (`stats-*.md`) are script-generated; analysis files (`<sdk>.md`) are LLM-generated
+
+## LLM-Generated Files
+
+**Important:** Never edit LLM-generated analysis files directly. If changes are needed:
+
+1. Update the corresponding template in `.claude/templates/`
+2. Run `/update` to regenerate all analysis documents
+
+Templates:
+- `summary.md` → generates `analysis/summary.md`
+- `sdk-analysis.md` → generates SDK analysis files (java.md, go.md, etc.)
+- `server-analysis.md` → generates `analysis/server.md`
+- `features-analysis.md` → generates `analysis/features.md`
+- `api-analysis.md` → generates `analysis/api.md`
+- `recent-analysis.md` → generates `analysis/recent.md`
