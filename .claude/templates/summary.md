@@ -14,7 +14,7 @@ Use this template when generating the cross-repository summary document (analysi
 | Document | Description |
 |----------|-------------|
 | [contributors.md](contributors.md) | Issues and comments by author |
-| [stats-recent.md](stats-recent.md) | Issues filed in the last 30 days |
+| [recent.md](recent.md) | Recent issues analysis (last 30 days) |
 
 **Per-Repository Analysis:**
 {List links to all tracked repository analysis documents}
