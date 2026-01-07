@@ -1,8 +1,8 @@
 # Recent Issues (Last 30 Days)
 
-**Generated:** 2026-01-02
-**Period:** 2025-12-03 to 2026-01-02
-**New Issues:** 36
+**Generated:** 2026-01-07
+**Period:** 2025-12-08 to 2026-01-07
+**New Issues:** 42
 
 ## Related Documents
 
@@ -16,22 +16,33 @@
 
 | Repository | New Issues |
 |------------|------------|
-| temporal | 10 |
-| sdk-typescript | 8 |
-| sdk-java | 6 |
-| sdk-dotnet | 5 |
+| temporal | 12 |
+| sdk-dotnet | 9 |
+| sdk-java | 7 |
+| sdk-typescript | 6 |
+| sdk-php | 2 |
 | sdk-python | 2 |
 | features | 2 |
-| sdk-php | 2 |
 | sdk-go | 1 |
+| sdk-ruby | 1 |
 
 ## Summary by Author
 
 | Author | New Issues |
 |--------|------------|
+| cretz | 4 |
+| jmaeagle99 | 3 |
 | deepika-awasthi | 3 |
-| cretz | 3 |
+| Quinn-With-Two-Ns | 2 |
+| pvsone | 2 |
 | roshchha | 2 |
+| PurpleSquirrelMedia | 1 |
+| LaurynasKatkus | 1 |
+| adepretis | 1 |
+| HeartLF | 1 |
+| jmcnevin | 1 |
+| NielsKSchjoedt | 1 |
+| neeraj-mathur | 1 |
 | 40lsgy1 | 1 |
 | TastyPi | 1 |
 | andropler | 1 |
@@ -39,16 +50,6 @@
 | maciejdudko | 1 |
 | hafiz-qasim | 1 |
 | Tomlord1122 | 1 |
-| justinadkins | 1 |
-| tconley1428 | 1 |
-| RomirJ | 1 |
-| xepozz | 1 |
-| vy-kauppinen | 1 |
-| THardy98 | 1 |
-| VegetarianOrc | 1 |
-| cfauchere | 1 |
-| AlexMog | 1 |
-| jmaeagle99 | 1 |
 
 ---
 
@@ -56,6 +57,19 @@
 
 | Date | Repository | # | Author | Title |
 |------|------------|---|--------|-------|
+| 2026-01-07 | temporal | [#8955](../repos/temporalio-temporal/issues.md#8955) | PurpleSquirrelMedia | MCP Server for Temporal Workflows |
+| 2026-01-07 | sdk-dotnet | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | cretz | [Bug] Some unlikely workflow task failures like failure conversion issues may be lost |
+| 2026-01-07 | sdk-go | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | LaurynasKatkus | OpenTelemetry incorrect metric type for Counter |
+| 2026-01-07 | sdk-php | [#689](../repos/temporalio-sdk-php/issues.md#689) | adepretis | [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs` |
+| 2026-01-07 | temporal | [#8953](../repos/temporalio-temporal/issues.md#8953) | HeartLF | The scheduled time is incorrect. |
+| 2026-01-06 | sdk-dotnet | [#587](../repos/temporalio-sdk-dotnet/issues.md#587) | jmaeagle99 | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
+| 2026-01-06 | sdk-dotnet | [#586](../repos/temporalio-sdk-dotnet/issues.md#586) | jmaeagle99 | Separate unmanaged pointer lifecycle management into SafeHandles |
+| 2026-01-06 | temporal | [#8943](../repos/temporalio-temporal/issues.md#8943) | jmcnevin | No admin-tools image for 1.29.2 |
+| 2026-01-05 | sdk-ruby | [#373](../repos/temporalio-sdk-ruby/issues.md#373) | NielsKSchjoedt | ## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64 |
+| 2026-01-05 | sdk-java | [#2755](../repos/temporalio-sdk-java/issues.md#2755) | Quinn-With-Two-Ns | Support using Temporal failures in Nexus APIs |
+| 2026-01-05 | sdk-dotnet | [#585](../repos/temporalio-sdk-dotnet/issues.md#585) | neeraj-mathur | Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds |
+| 2026-01-04 | sdk-typescript | [#1869](../repos/temporalio-sdk-typescript/issues.md#1869) | pvsone | Environment Configuration does not read the correct file path on macOS |
+| 2026-01-04 | sdk-java | [#2754](../repos/temporalio-sdk-java/issues.md#2754) | pvsone | Environment Configuration does not read the correct file path on macOS |
 | 2025-12-31 | sdk-java | [#2753](../repos/temporalio-sdk-java/issues.md#2753) | 40lsgy1 | Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check |
 | 2025-12-30 | sdk-java | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | deepika-awasthi | OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present |
 | 2025-12-30 | sdk-typescript | [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | TastyPi | [Feature Request] Per-Worker Logger |
@@ -85,20 +99,19 @@
 | 2025-12-10 | temporal | [#8790](../repos/temporalio-temporal/issues.md#8790) | xtyinbiao | history_node table keeps growing |
 | 2025-12-10 | sdk-typescript | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | mnahkies | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
 | 2025-12-09 | sdk-java | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | Quinn-With-Two-Ns | Jackson 3 support |
-| 2025-12-08 | sdk-java | [#2745](../repos/temporalio-sdk-java/issues.md#2745) | tsurdilo | WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue |
-| 2025-12-08 | sdk-go | [#2131](../repos/temporalio-sdk-go/issues.md#2131) | ganlvtech | Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error.. |
-| 2025-12-08 | sdk-typescript | [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | daniellockyer | [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x |
-| 2025-12-06 | sdk-php | [#668](../repos/temporalio-sdk-php/issues.md#668) | FluffyDiscord | [Feature Request] Implement `SetCurrentDetails` for dynamic workflow details |
-| 2025-12-05 | sdk-typescript | [#1858](../repos/temporalio-sdk-typescript/issues.md#1858) | hmvien | [Bug] unable to import reflect-metadata within workflow bundle |
-| 2025-12-05 | temporal | [#8764](../repos/temporalio-temporal/issues.md#8764) | albertom-pirovano-mck | Listing workflows and activities from temporal sdk |
-| 2025-12-04 | sdk-typescript | [#1854](../repos/temporalio-sdk-typescript/issues.md#1854) | clintonb | [Feature Request] Correct docs for OtelCollectorExporter |
 
 ---
 
 ## Details by Repository
 
-### temporal (10 new)
+### temporal (12 new)
 
+- **[#8955](../repos/temporalio-temporal/issues.md#8955)** MCP Server for Temporal Workflows
+  - *2026-01-07 by PurpleSquirrelMedia* | Labels: none
+- **[#8953](../repos/temporalio-temporal/issues.md#8953)** The scheduled time is incorrect.
+  - *2026-01-07 by HeartLF* | Labels: potential-bug
+- **[#8943](../repos/temporalio-temporal/issues.md#8943)** No admin-tools image for 1.29.2
+  - *2026-01-06 by jmcnevin* | Labels: potential-bug
 - **[#8909](../repos/temporalio-temporal/issues.md#8909)** Deprecation error log in v1.29.1 with Elasticsearch 8.19.2
   - *2025-12-29 by andropler* | Labels: potential-bug
 - **[#8902](../repos/temporalio-temporal/issues.md#8902)** History service memory usage upward trend
@@ -117,45 +130,17 @@
   - *2025-12-16 by AlexMog* | Labels: potential-bug
 - **[#8790](../repos/temporalio-temporal/issues.md#8790)** history_node table keeps growing
   - *2025-12-10 by xtyinbiao* | Labels: none
-- **[#8764](../repos/temporalio-temporal/issues.md#8764)** Listing workflows and activities from temporal sdk
-  - *2025-12-05 by albertom-pirovano-mck* | Labels: enhancement
 
-### sdk-typescript (8 new)
+### sdk-dotnet (9 new)
 
-- **[#1867](../repos/temporalio-sdk-typescript/issues.md#1867)** [Feature Request] Per-Worker Logger
-  - *2025-12-30 by TastyPi* | Labels: enhancement
-- **[#1866](../repos/temporalio-sdk-typescript/issues.md#1866)** [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
-  - *2025-12-23 by justinadkins* | Labels: bug
-- **[#1864](../repos/temporalio-sdk-typescript/issues.md#1864)** [Feature Request] Update AI SDK integration to v6
-  - *2025-12-22 by tconley1428* | Labels: enhancement
-- **[#1862](../repos/temporalio-sdk-typescript/issues.md#1862)** [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
-  - *2025-12-12 by deepika-awasthi* | Labels: enhancement
-- **[#1860](../repos/temporalio-sdk-typescript/issues.md#1860)** [Bug] Performance regression from 1.13.1 -> 1.13.2
-  - *2025-12-10 by mnahkies* | Labels: bug
-- **[#1859](../repos/temporalio-sdk-typescript/issues.md#1859)** [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x
-  - *2025-12-08 by daniellockyer* | Labels: bug
-- **[#1858](../repos/temporalio-sdk-typescript/issues.md#1858)** [Bug] unable to import reflect-metadata within workflow bundle
-  - *2025-12-05 by hmvien* | Labels: bug
-- **[#1854](../repos/temporalio-sdk-typescript/issues.md#1854)** [Feature Request] Correct docs for OtelCollectorExporter
-  - *2025-12-04 by clintonb* | Labels: enhancement
-
-### sdk-java (6 new)
-
-- **[#2753](../repos/temporalio-sdk-java/issues.md#2753)** Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
-  - *2025-12-31 by 40lsgy1* | Labels: none
-- **[#2752](../repos/temporalio-sdk-java/issues.md#2752)** OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present
-  - *2025-12-30 by deepika-awasthi* | Labels: enhancement
-- **[#2750](../repos/temporalio-sdk-java/issues.md#2750)** Tests not passing: TestStatsReporter Flush not flushing
-  - *2025-12-28 by TbirdDuncan* | Labels: none
-- **[#2747](../repos/temporalio-sdk-java/issues.md#2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
-  - *2025-12-12 by karunagoyal* | Labels: none
-- **[#2746](../repos/temporalio-sdk-java/issues.md#2746)** Jackson 3 support
-  - *2025-12-09 by Quinn-With-Two-Ns* | Labels: enhancement
-- **[#2745](../repos/temporalio-sdk-java/issues.md#2745)** WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue
-  - *2025-12-08 by tsurdilo* | Labels: none
-
-### sdk-dotnet (5 new)
-
+- **[#588](../repos/temporalio-sdk-dotnet/issues.md#588)** [Bug] Some unlikely workflow task failures like failure conversion issues may be lost
+  - *2026-01-07 by cretz* | Labels: bug
+- **[#587](../repos/temporalio-sdk-dotnet/issues.md#587)** Refactor Bridge.Client to be IDisposable instead of a SafeHandle
+  - *2026-01-06 by jmaeagle99* | Labels: none
+- **[#586](../repos/temporalio-sdk-dotnet/issues.md#586)** Separate unmanaged pointer lifecycle management into SafeHandles
+  - *2026-01-06 by jmaeagle99* | Labels: none
+- **[#585](../repos/temporalio-sdk-dotnet/issues.md#585)** Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds
+  - *2026-01-05 by neeraj-mathur* | Labels: none
 - **[#584](../repos/temporalio-sdk-dotnet/issues.md#584)** [Bug] Loading TLS certificates from path doesn't work
   - *2025-12-26 by maciejdudko* | Labels: bug
 - **[#579](../repos/temporalio-sdk-dotnet/issues.md#579)** [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux
@@ -166,6 +151,45 @@
   - *2025-12-12 by jmaeagle99* | Labels: bug
 - **[#576](../repos/temporalio-sdk-dotnet/issues.md#576)** [Feature Request] .NET Analyzer for Checking Workflows
   - *2025-12-12 by cretz* | Labels: enhancement
+
+### sdk-java (7 new)
+
+- **[#2755](../repos/temporalio-sdk-java/issues.md#2755)** Support using Temporal failures in Nexus APIs
+  - *2026-01-05 by Quinn-With-Two-Ns* | Labels: enhancement
+- **[#2754](../repos/temporalio-sdk-java/issues.md#2754)** Environment Configuration does not read the correct file path on macOS
+  - *2026-01-04 by pvsone* | Labels: none
+- **[#2753](../repos/temporalio-sdk-java/issues.md#2753)** Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
+  - *2025-12-31 by 40lsgy1* | Labels: none
+- **[#2752](../repos/temporalio-sdk-java/issues.md#2752)** OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present
+  - *2025-12-30 by deepika-awasthi* | Labels: enhancement
+- **[#2750](../repos/temporalio-sdk-java/issues.md#2750)** Tests not passing: TestStatsReporter Flush not flushing
+  - *2025-12-28 by TbirdDuncan* | Labels: none
+- **[#2747](../repos/temporalio-sdk-java/issues.md#2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
+  - *2025-12-12 by karunagoyal* | Labels: none
+- **[#2746](../repos/temporalio-sdk-java/issues.md#2746)** Jackson 3 support
+  - *2025-12-09 by Quinn-With-Two-Ns* | Labels: enhancement
+
+### sdk-typescript (6 new)
+
+- **[#1869](../repos/temporalio-sdk-typescript/issues.md#1869)** Environment Configuration does not read the correct file path on macOS
+  - *2026-01-04 by pvsone* | Labels: bug
+- **[#1867](../repos/temporalio-sdk-typescript/issues.md#1867)** [Feature Request] Per-Worker Logger
+  - *2025-12-30 by TastyPi* | Labels: enhancement
+- **[#1866](../repos/temporalio-sdk-typescript/issues.md#1866)** [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
+  - *2025-12-23 by justinadkins* | Labels: bug
+- **[#1864](../repos/temporalio-sdk-typescript/issues.md#1864)** [Feature Request] Update AI SDK integration to v6
+  - *2025-12-22 by tconley1428* | Labels: enhancement
+- **[#1862](../repos/temporalio-sdk-typescript/issues.md#1862)** [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
+  - *2025-12-12 by deepika-awasthi* | Labels: enhancement
+- **[#1860](../repos/temporalio-sdk-typescript/issues.md#1860)** [Bug] Performance regression from 1.13.1 -> 1.13.2
+  - *2025-12-10 by mnahkies* | Labels: bug
+
+### sdk-php (2 new)
+
+- **[#689](../repos/temporalio-sdk-php/issues.md#689)** [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs`
+  - *2026-01-07 by adepretis* | Labels: Bug
+- **[#670](../repos/temporalio-sdk-php/issues.md#670)** [Feature Request] Symfony 8.0 support
+  - *2025-12-18 by xepozz* | Labels: enhancement
 
 ### sdk-python (2 new)
 
@@ -181,15 +205,13 @@
 - **[#712](../repos/temporalio-features/issues.md#712)** [Bug] Use `pnpm` when building TS worker from source
   - *2025-12-18 by THardy98* | Labels: none
 
-### sdk-php (2 new)
-
-- **[#670](../repos/temporalio-sdk-php/issues.md#670)** [Feature Request] Symfony 8.0 support
-  - *2025-12-18 by xepozz* | Labels: enhancement
-- **[#668](../repos/temporalio-sdk-php/issues.md#668)** [Feature Request] Implement `SetCurrentDetails` for dynamic workflow details
-  - *2025-12-06 by FluffyDiscord* | Labels: enhancement
-
 ### sdk-go (1 new)
 
-- **[#2131](../repos/temporalio-sdk-go/issues.md#2131)** Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error..
-  - *2025-12-08 by ganlvtech* | Labels: enhancement
+- **[#2140](../repos/temporalio-sdk-go/issues.md#2140)** OpenTelemetry incorrect metric type for Counter
+  - *2026-01-07 by LaurynasKatkus* | Labels: bug
+
+### sdk-ruby (1 new)
+
+- **[#373](../repos/temporalio-sdk-ruby/issues.md#373)** ## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64
+  - *2026-01-05 by NielsKSchjoedt* | Labels: bug
 

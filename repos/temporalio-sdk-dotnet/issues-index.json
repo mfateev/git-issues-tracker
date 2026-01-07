@@ -1,7 +1,65 @@
 {
-  "generated_at": "2026-01-02T23:57:30.141Z",
-  "total_count": 48,
+  "generated_at": "2026-01-07T21:55:11.677Z",
+  "total_count": 52,
   "issues": [
+    {
+      "number": 588,
+      "title": "[Bug] Some unlikely workflow task failures like failure conversion issues may be lost",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-07T15:49:26Z",
+      "updatedAt": "2026-01-07T15:49:26Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/588"
+    },
+    {
+      "number": 587,
+      "title": "Refactor Bridge.Client to be IDisposable instead of a SafeHandle",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-06T17:17:04Z",
+      "updatedAt": "2026-01-06T17:17:04Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/587"
+    },
+    {
+      "number": 586,
+      "title": "Separate unmanaged pointer lifecycle management into SafeHandles",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-06T17:13:15Z",
+      "updatedAt": "2026-01-06T17:13:15Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/586"
+    },
+    {
+      "number": 585,
+      "title": "Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds",
+      "state": "CLOSED",
+      "author": "neeraj-mathur",
+      "labels": [],
+      "createdAt": "2026-01-05T19:11:12Z",
+      "updatedAt": "2026-01-06T12:17:22Z",
+      "closedAt": "2026-01-06T12:17:22Z",
+      "commentCount": 3,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/585"
+    },
     {
       "number": 584,
       "title": "[Bug] Loading TLS certificates from path doesn't work",
@@ -53,14 +111,14 @@
     {
       "number": 577,
       "title": "[Bug] Investigate test host crash flake",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jmaeagle99",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-12T22:16:08Z",
-      "updatedAt": "2025-12-30T20:41:58Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-06T17:17:54Z",
+      "closedAt": "2026-01-06T17:17:54Z",
       "commentCount": 4,
       "upvotes": 0,
       "totalReactions": 0,
@@ -765,20 +823,21 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 48
+      "OPEN": 50,
+      "CLOSED": 2
     },
     "by_label": {
       "enhancement": 31,
-      "bug": 12,
+      "bug": 13,
       "Mend: dependency security vulnerability": 1
     },
     "engagement": {
       "total_upvotes": 13,
-      "total_comments": 51,
+      "total_comments": 54,
       "issues_with_upvotes": 6,
-      "issues_with_comments": 26,
-      "upvote_rate": "13%",
-      "comment_rate": "54%"
+      "issues_with_comments": 27,
+      "upvote_rate": "12%",
+      "comment_rate": "52%"
     }
   },
   "top_by_upvotes": [
@@ -843,6 +902,12 @@
       "title": "[Feature Request] OperatorService (RPC) and WorkflowService (RPC) members are marked virtual or inherit from interface",
       "upvotes": 0,
       "comments": 4
+    },
+    {
+      "number": 585,
+      "title": "Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds",
+      "upvotes": 0,
+      "comments": 3
     },
     {
       "number": 395,
@@ -931,12 +996,6 @@
     {
       "number": 307,
       "title": "[Feature Request] Replace `System.TimeProvider` in workflows",
-      "upvotes": 0,
-      "comments": 1
-    },
-    {
-      "number": 305,
-      "title": "Handle multiple completion commands",
       "upvotes": 0,
       "comments": 1
     }

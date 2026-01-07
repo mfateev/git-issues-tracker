@@ -1,9 +1,9 @@
 # temporalio/sdk-python - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 115
+**Generated:** 2026-01-07
+**Total Issues:** 116
 **Total Upvotes:** 31
-**Total Comments:** 206
+**Total Comments:** 212
 
 ## Table of Contents
 
@@ -16,17 +16,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 115 |
+| Open Issues | 116 |
 | Issues with Upvotes | 17 (15%) |
 | Total Upvotes | 31 |
-| Total Comments | 206 |
+| Total Comments | 212 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
 | enhancement | 65 |
-| bug | 46 |
+| bug | 47 |
 
 ## Issue Index
 
@@ -49,6 +49,7 @@
 | [#603](#603) | 3 | 1 | [Feature Request] Investigate/document how to use PyCharm debugger with workflows |
 | [#1154](#1154) | 2 | 2 | [Feature Request] Support InterpreterPoolExecutor from py3.14 |
 | [#837](#837) | 0 | 6 | [Feature Request] Make Temporal logger adapter accomodate to OpenTelemetry |
+| [#429](#429) | 0 | 6 | [Bug] asyncio.wait is non-deterministic when used with coroutines instead of tasks |
 | [#235](#235) | 0 | 6 | [Feature Request] Raise exception for payloads that violate gRPC message max size |
 | [#1136](#1136) | 0 | 5 | [Bug] Langfuse Tracing Not Working with Temporal OpenAI Agents Plugin |
 | [#1009](#1009) | 0 | 5 | [Feature Request] OpenAI Agents Streaming support |
@@ -165,7 +166,7 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 | **URL** | https://github.com/temporalio/sdk-python/issues/487 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-03-12 17:58:04.000 UTC (1y 9m ago) |
+| **Created** | 2024-03-12 17:58:04.000 UTC (1y 10m ago) |
 | **Updated** | 2025-10-16 00:06:49.000 UTC |
 | **Upvotes** | 6 |
 | **Comments** | 3 |
@@ -267,7 +268,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-python/issues/638 |
 | **State** | OPEN |
 | **Author** | adamh-oai (Adam Hupp) |
-| **Created** | 2024-09-08 07:44:18.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-08 07:44:18.000 UTC (1y 4m ago) |
 | **Updated** | 2024-10-16 20:56:09.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 12 |
@@ -3135,7 +3136,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-python/issues/603 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-08-06 17:50:17.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-06 17:50:17.000 UTC (1y 5m ago) |
 | **Updated** | 2025-01-17 20:28:59.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 1 |
@@ -3405,6 +3406,319 @@ An alternative is to replace those loggers with your own extension of `activity.
 The concern here for us adding this option as-is is that we need to qualify all keys with `temporal_activity.` and `temporal_workflow.` prefixes probably if we're not allowed nested maps. We may be able to add that option today or wait until OTel logging stabilizes.
 
 Reactions: 👍 2
+
+</details>
+
+
+---
+
+<a id="429"></a>
+
+### #429: [Bug] asyncio.wait is non-deterministic when used with coroutines instead of tasks
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-python/issues/429 |
+| **State** | CLOSED |
+| **Author** | ntessman-capsule (Nate Tessman) |
+| **Created** | 2023-11-15 06:19:10.000 UTC (2y 1m ago) |
+| **Updated** | 2026-01-05 07:10:20.000 UTC |
+| **Closed** | 2024-06-04 14:07:09.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 6 |
+| **Priority Score** | 6 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 🚀 1 |
+
+#### Description
+
+### What are you really trying to do?
+
+Split a list of incoming events into concurrently executed activity streams. The repro below mimics a stripped down version of the original code structure.
+
+### Describe the bug
+
+When using `asyncio.wait()` with a list of async method calls, which contain a series of activity executions, an error can occur which results in later activities receiving the return values of different concurrent executions.
+
+Here is a table to illustrate what I mean. Given an activity that executes `f(x) -> x`, if we pass the numbers 1-3 concurrently, we might see this:
+
+|Activity Input|Expected Output|Actual Output|
+|-------------|---------|-------|
+|1                    |1              |1         |
+|2                   |2              |3         |
+|3                    |3              |2         |
+
+This issue is random, and rare. The reproduction below is designed to maximize the chance of running into it.
+
+### Minimal Reproduction
+
+Below is a self-contained reproduction of the issue. Using this input should encounter the error fairly consistently, a little less than once per run:
+
+```json
+{"execution_iterations": 20,"activity_iterations": 5,"concurrency": 100,"wait_time": 0.1}
+```
+
+The temporal setup I used to reproduce this issue is a vanilla Temporal server install running via `temporal server start-dev`, with two worker instances running the below python file using `python -m main`. I primarily tested using Python 3.8.
+
+When there is a mismatch, it is printed to the console.
+
+```python
+import asyncio
+from datetime import timedelta
+from typing import List
+from temporalio import workflow, activity
+from temporalio.worker import Worker
+from temporalio.client import Client
+
+from dataclasses import dataclass
+
+@dataclass
+class EchoRequest:
+    execution_iteration: int
+    activity_iteration: int
+    input: str
+    wait_time: float
+
+@dataclass
+class EchoResponse:
+    output: str
+
+@activity.defn(name="echo")
+async def echo(
+    echo: EchoRequest
+) -> EchoResponse:
+    await asyncio.sleep(echo.wait_time)
+    return EchoResponse(output=echo.input)
+
+
+@dataclass
+class RaceConditionIteration:
+    execution_id: int
+    iterations: int
+    wait_time: float
+
+
+@dataclass
+class RaceConditionTestInput:
+    execution_iterations: int
+    activity_iterations: int
+    concurrency: int
+    wait_time: float
+
+
+@activity.defn(name="race_condition_get_input_events")
+async def race_condition_get_input_events(
+    input: RaceConditionTestInput
+) -> List[RaceConditionIteration]:
+    return [
+        RaceConditionIteration(
+            execution_id=id,
+            iterations=input.activity_iterations,
+            wait_time=input.wait_time,
+        )
+        for id in range(input.concurrency)
+    ]
+
+
+@workflow.defn(name="RaceConditionTestWorkflow")
+class RaceConditionTestWorkflow:
+    @workflow.run
+    async def run(self, event: RaceConditionTestInput) -> str:
+        print('Starting workflow...')
+        
+        # Simulate a list of input events
+        generated_input_data = await workflow.execute_activity(
+            race_condition_get_input_events,
+            event,
+            start_to_close_timeout=timedelta(seconds=10),
+            schedule_to_close_timeout=timedelta(seconds=60)
+        )
+
+        for iteration in range(event.execution_iterations):
+            _, _ = await asyncio.wait(
+                [
+                    self.execute_activities(
+                        iteration=iteration,
+                        input=input
+                    )
+                    for input in generated_input_data
+                ],
+                return_when=asyncio.ALL_COMPLETED
+            )
+        
+        return "Done."
+
+    async def execute_activities(
+        self,
+        iteration: int,
+        input: RaceConditionIteration,
+    ) -> None:
+        for iter in range(input.iterations):
+            iter_id = f"{iteration}.{input.execution_id}.{iter}"
+            result = await workflow.execute_activity(
+                echo,
+                EchoRequest(
+                    execution_iteration=iteration,
+                    activity_iteration=iter,
+                    input=iter_id,
+                    wait_time=input.wait_time
+                ),
+                start_to_close_timeout=timedelta(seconds=10),
+                schedule_to_close_timeout=timedelta(seconds=60)
+            )
+
+            if iter_id != result.output:
+                print(f"Expected: {iter_id}, Actual: {result.output}")
+            
+
+async def main():
+    client = await Client.connect("localhost:7233")
+
+    worker = Worker(
+        client,
+        task_queue="race-condition",
+        workflows=[RaceConditionTestWorkflow],
+        activities=[echo, race_condition_get_input_events],
+    )
+
+    print('Starting worker...')
+
+    await worker.run()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+### Environment/Versions
+
+- OS and processor: Tested on M2 Mac, Linux
+- Temporal SDK Versions: Tested on 1.13, 1.14
+- Python: <3.11 (mitigated in 3.11 due to disallowing coroutines, see below)
+- Occurs within Kubernetes deployment as well as local install
+
+### Additional context
+
+It appears that this bug occurs after this warning is printed to the worker console:
+
+```
+2023-11-15T05:38:09.387580Z  WARN temporal_sdk_core::worker::workflow: Task not found when completing error=status: NotFound, message: "Workflow task not found.", details: [8, 5, 18, 24, 87, 111, 114, 107, 102, 108, 111, 119, 32, 116, 97, 115, 107, 32, 110, 111, 116, 32, 102, 111, 117, 110, 100, 46, 26, 66, 10, 64, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 116, 101, 109, 112, 111, 114, 97, 108, 46, 97, 112, 105, 46, 101, 114, 114, 111, 114, 100, 101, 116, 97, 105, 108, 115, 46, 118, 49, 46, 78, 111, 116, 70, 111, 117, 110, 100, 70, 97, 105, 108, 117, 114, 101], metadata: MetadataMap { headers: {"content-type": "application/grpc"} } run_id="eb9b8aed-c730-4fe6-a7e5-a772f6757be2"
+```
+
+I can't confirm whether this warning was also appearing when this issue was happening in the real code. It also appears to result in the workflow task restarting, which seems correlated with the determinism breakdown.
+
+Additionally, it appears that this issue has indirectly been mitigated in 3.11, as `asyncio.wait()` [no longer allows passing coroutines directly](https://github.com/python/cpython/issues/78971). When the method is wrapped in `asyncio.create_task()`, this issue disappears. The above warning is still printed, but doesn't result in disordered activity results.
+
+This code change in the workflow removes the issue:
+
+```diff
+_, _ = await asyncio.wait(
+    [
+-      self.execute_activities(
++      asyncio.create_task(self.execute_activities(
+            iteration=iteration,
+            input=input
+-       )
++       ))
+        for input in generated_input_data
+    ],
+    return_when=asyncio.ALL_COMPLETED
+)
+
+#### Comments (6)
+
+<details>
+<summary><strong>HillaShx</strong> commented on 2023-11-27 09:06:22.000 UTC</summary>
+
+I'm facing this same issue, it seems, by the logs. I, too, use asyncio for concurrent activity execution (by multiple workers separated by threads).
+
+Environment/Versions
+OS and processor: M2 Mac, MacOS Ventura 13.5.1
+Temporal SDK Versions: 1.3.0
+Python: 3.9.6
+Occurs within Temporal Cluster service deployment, with the workers deployed to an Azure Web App.
+LMK what other context might help in resolving this.
+
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-11-27 18:12:12.000 UTC</summary>
+
+Hrmm, I was only able to get the mismatch after replay (replay was being forced due to overgrowing history size I think). I am still investigating here...
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-11-27 19:11:40.000 UTC</summary>
+
+Turns out `asyncio.wait` is non-deterministic. Here is the problem: https://github.com/python/cpython/blob/967f2a3052c2d22e31564b428a9aa8cc63dc2a9f/Lib/asyncio/tasks.py#L443
+
+This is not a Temporal-specific issue. What is the output of the following?
+
+```python
+    async def do_something(name: str) -> None:
+        print(f"Run {name}")
+    await asyncio.wait([
+        do_something("something1"),
+        do_something("something2"),
+        do_something("something3"),
+    ])
+    await asyncio.wait([
+        do_something("something4"),
+        do_something("something5"),
+        do_something("something6"),
+    ])
+```
+
+In 3.10, ignoring deprecation warnings, it may be something like (but it can change with only slight code alterations):
+
+```
+Run something1
+Run something2
+Run something3
+Run something6
+Run something4
+Run something5
+```
+
+Why was that output not predictable?
+
+Unfortunately, Python in `asyncio.wait` non-deterministically converts the input to a `set` (which unlike even dict, does not have any reliable ordering). This means the coroutines are not even started in the same order. This problem does not exist with `start_activity` because that is a sync function that returns an awaitable (so it is called when you invoke it not when awaited), but `execute_activity` is an async function (so it is called when it's awaited not when it's invoked). This means that `foo = workflow.execute_activity(...)` does nothing until `await foo` is run.
+
+The reason this works with `create_task` is because `create_task` starts the coroutine immediately when `create_task` is run, so the coroutines run in a deterministic order.
+
+So, basically we need to educate people that `asyncio.wait` is non-deterministic when used with coroutines instead of tasks (which isn't allowed in 3.11+). I was originally going to open a CPython issue to stop converting to a set (digging through git blame, this was done way back in at least 3.4), but that would only apply to new versions (doubt they'd cherry pick this), so you'd be forced to use tasks anyways.
+
+Does this make sense? I will add a README note/warning. We could offer our own deterministic form of this function, but we'd probably require tasks anyways like Python does now. Any alternative suggestions or ways we can approach this?
+
+Reactions: 🚀 1
+
+</details>
+
+<details>
+<summary><strong>ntessman-capsule</strong> commented on 2024-01-24 17:46:36.000 UTC</summary>
+
+Thanks for your investigation @cretz. I'll leave this open for comment in case anyone has a better idea, but for my purposes this issue is resolved through the use of tasks. Personally, I think the only thing that can be done is provide a warning. It's a gotcha that is on Python's shoulders, not the SDK, and as you said it's unlikely that a fix will be applied retroactively.
+
+Reactions: 👍 2
+
+</details>
+
+<details>
+<summary><strong>kshitij-g</strong> commented on 2025-12-29 15:40:20.000 UTC</summary>
+
+Does this mean that asyncio.gather for multiple execute_activity is deterministic or not?
+
+</details>
+
+<details>
+<summary><strong>ntessman-capsule</strong> commented on 2026-01-05 07:10:20.000 UTC</summary>
+
+It appears that `asyncio.gather` uses a dictionary internally for its futures so it's probably safe to use. If you're unsure however, it's easy enough to wrap your tasks in a list and pass it to `workflow.wait` instead.
 
 </details>
 
@@ -4860,10 +5174,11 @@ User reported issue debugging while in sandbox
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-python/issues/1186 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | danielmillerp (Daniel Miller) |
 | **Created** | 2025-10-24 20:54:57.000 UTC (2 months ago) |
-| **Updated** | 2025-11-03 18:06:51.000 UTC |
+| **Updated** | 2026-01-05 14:54:46.000 UTC |
+| **Closed** | 2026-01-05 14:54:46.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
 | **Priority Score** | 3 |
@@ -5744,7 +6059,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-python/issues/1089 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-09-09 19:56:51.000 UTC (3 months ago) |
+| **Created** | 2025-09-09 19:56:51.000 UTC (4 months ago) |
 | **Updated** | 2025-09-09 19:56:51.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -5914,7 +6229,7 @@ We intentionally don't expose workflow reset as high-level in most SDKs, but you
 | **URL** | https://github.com/temporalio/sdk-python/issues/462 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2024-01-12 17:39:57.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-12 17:39:57.000 UTC (1y 12m ago) |
 | **Updated** | 2025-02-07 03:29:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6504,7 +6819,7 @@ We don't think this is relevant, because we're only reserving well-known/already
 | **URL** | https://github.com/temporalio/sdk-python/issues/719 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:47:42.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 13:47:42.000 UTC (1 years ago) |
 | **Updated** | 2025-07-24 15:57:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7030,7 +7345,7 @@ So maybe this limitation worth to be mentioned in README, somewhere around `@wor
 | **URL** | https://github.com/temporalio/sdk-python/issues/1262 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-29 15:19:00.000 UTC (4 days ago) |
+| **Created** | 2025-12-29 15:19:00.000 UTC (9 days ago) |
 | **Updated** | 2025-12-29 15:19:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7057,7 +7372,7 @@ For users of deserialized `ApplicationError`, today we only offer the deserializ
 | **URL** | https://github.com/temporalio/sdk-python/issues/1254 |
 | **State** | OPEN |
 | **Author** | VegetarianOrc (Alex Mazzeo) |
-| **Created** | 2025-12-17 23:35:07.000 UTC (16 days ago) |
+| **Created** | 2025-12-17 23:35:07.000 UTC (20 days ago) |
 | **Updated** | 2025-12-17 23:35:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7241,10 +7556,11 @@ Modify our hello world templates to demonstrate:
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-python/issues/1232 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | tconley1428 |
 | **Created** | 2025-12-02 20:02:33.000 UTC (1 months ago) |
-| **Updated** | 2025-12-02 20:02:33.000 UTC |
+| **Updated** | 2026-01-05 14:53:49.000 UTC |
+| **Closed** | 2026-01-05 14:53:49.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -7344,10 +7660,11 @@ Users want to override the target version on a workflow, especially when doing p
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-python/issues/1176 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | yuandrew (Andrew Yuan) |
 | **Created** | 2025-10-21 21:36:14.000 UTC (2 months ago) |
-| **Updated** | 2025-10-21 21:36:14.000 UTC |
+| **Updated** | 2026-01-05 14:55:30.000 UTC |
+| **Closed** | 2026-01-05 14:55:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -7413,7 +7730,7 @@ The list of excludes is quite long, with some substantial files. We should go th
 | **URL** | https://github.com/temporalio/sdk-python/issues/1079 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-05 12:31:34.000 UTC (3 months ago) |
+| **Created** | 2025-09-05 12:31:34.000 UTC (4 months ago) |
 | **Updated** | 2025-09-05 12:31:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7619,7 +7936,7 @@ This may be some worker in some test unable to shutdown properly in this specifi
 | **URL** | https://github.com/temporalio/sdk-python/issues/826 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-04-10 16:53:11.000 UTC (8 months ago) |
+| **Created** | 2025-04-10 16:53:11.000 UTC (9 months ago) |
 | **Updated** | 2025-04-10 16:54:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7737,7 +8054,7 @@ Investigate purpose of unused `bind_f` function. See https://github.com/temporal
 | **URL** | https://github.com/temporalio/sdk-python/issues/764 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-11 20:44:19.000 UTC (10 months ago) |
+| **Created** | 2025-02-11 20:44:19.000 UTC (11 months ago) |
 | **Updated** | 2025-02-11 20:44:19.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7877,7 +8194,7 @@ See https://github.com/temporalio/features/issues/588
 | **URL** | https://github.com/temporalio/sdk-python/issues/722 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-08 22:38:17.000 UTC (11 months ago) |
+| **Created** | 2025-01-08 22:38:17.000 UTC (12 months ago) |
 | **Updated** | 2025-01-08 22:38:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8097,7 +8414,7 @@ In the meantime, simply using `default=temporalio.runtime.Runtime.default()` in 
 | **URL** | https://github.com/temporalio/sdk-python/issues/637 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2024-09-06 13:17:38.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-06 13:17:38.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-06 13:17:38.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8132,7 +8449,7 @@ error: linking with `link.exe` failed: exit code: 1181
 | **URL** | https://github.com/temporalio/sdk-python/issues/636 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2024-09-05 15:11:15.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-05 15:11:15.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-05 15:11:16.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8526,7 +8843,7 @@ As part of #533, we are warning if `asyncio.as_completed()` or `asyncio.wait()` 
 | **URL** | https://github.com/temporalio/sdk-python/issues/503 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-04-09 20:19:03.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-09 20:19:03.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-09 20:19:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8823,7 +9140,7 @@ It appears, at first code glance, that a dataclass cannot deserialize a JSON dic
 | **URL** | https://github.com/temporalio/sdk-python/issues/421 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-11-09 15:20:21.000 UTC (2y 1m ago) |
+| **Created** | 2023-11-09 15:20:21.000 UTC (2y 2m ago) |
 | **Updated** | 2023-11-09 17:29:05.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9010,7 +9327,7 @@ Getting `unhashable type: '_RestrictedProxy'` possibly on a datetime in a workfl
 | **URL** | https://github.com/temporalio/sdk-python/issues/45 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-06-10 15:28:25.000 UTC (3y 6m ago) |
+| **Created** | 2022-06-10 15:28:25.000 UTC (3y 7m ago) |
 | **Updated** | 2022-06-10 15:28:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

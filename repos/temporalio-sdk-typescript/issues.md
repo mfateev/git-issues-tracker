@@ -1,9 +1,9 @@
 # temporalio/sdk-typescript - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 148
-**Total Upvotes:** 178
-**Total Comments:** 348
+**Generated:** 2026-01-07
+**Total Issues:** 149
+**Total Upvotes:** 179
+**Total Comments:** 352
 
 ## Table of Contents
 
@@ -16,17 +16,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 148 |
+| Open Issues | 149 |
 | Issues with Upvotes | 40 (27%) |
-| Total Upvotes | 178 |
-| Total Comments | 348 |
+| Total Upvotes | 179 |
+| Total Comments | 352 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
 | enhancement | 87 |
-| bug | 50 |
+| bug | 51 |
 | documentation | 6 |
 | good first issue | 4 |
 | ecosystem-and-integrations | 2 |
@@ -38,7 +38,7 @@
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
 | [#1334](#1334) | 46 | 46 | [Feature Request] Run temporal worker in bun |
-| [#1755](#1755) | 19 | 7 | [Feature Request] Temporal integration for `@openai/agents` |
+| [#1755](#1755) | 20 | 8 | [Feature Request] Temporal integration for `@openai/agents` |
 | [#483](#483) | 4 | 37 | [Feature Request] NestJS Transport / Integration? |
 | [#928](#928) | 7 | 26 | [Bug] Jest detects open handles |
 | [#1658](#1658) | 19 | 1 | [Feature Request] Add support for opentelemetry v2 |
@@ -49,10 +49,10 @@
 | [#1443](#1443) | 6 | 1 | [Bug] Failure to start ephemeral server prevents shutdown of the process |
 | [#1749](#1749) | 4 | 4 | [Bug] Workflow task not found after SDK upgrade |
 | [#1233](#1233) | 0 | 12 | [Bug] `nyc-test-coverage` is excessively difficult to use correctly |
+| [#1866](#1866) | 2 | 7 | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
 | [#1432](#1432) | 5 | 1 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` in Workflow context |
 | [#1280](#1280) | 3 | 5 | Bundle using Vite |
 | [#868](#868) | 0 | 11 | [Feature Request] Add lint rule that prevents Query handlers from mutating state |
-| [#1866](#1866) | 2 | 6 | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
 | [#939](#939) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout |
 | [#1790](#1790) | 0 | 9 | [Bug] Replay workflow history fails with nondeterminism error, child workflow ids do not match |
 | [#754](#754) | 1 | 7 | [Feature Request] Add friendly version of listWorkflowExecutions |
@@ -86,6 +86,7 @@
 | [#1309](#1309) | 0 | 3 | [Bug] Comment unclear on when activities are cancelled after calling `Worker.shutdown` |
 | [#998](#998) | 0 | 3 | [Feature Request] Add built-in support for context propagators |
 | [#740](#740) | 1 | 1 | [Feature Request] Add `ChildWorkflowHandle.cancel()` |
+| [#1869](#1869) | 0 | 2 | Environment Configuration does not read the correct file path on macOS |
 | [#1864](#1864) | 1 | 0 | [Feature Request] Update AI SDK integration to v6 |
 | [#1859](#1859) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x |
 | [#1796](#1796) | 1 | 0 | [Bug] Changes in type inference of activity return type in SDK 1.12.2 |
@@ -203,7 +204,7 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1334 |
 | **State** | OPEN |
 | **Author** | Code2Life (Joey Yang) |
-| **Created** | 2024-01-10 08:59:55.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-10 08:59:55.000 UTC (1y 12m ago) |
 | **Updated** | 2025-12-22 04:23:02.000 UTC |
 | **Upvotes** | 46 |
 | **Comments** | 46 |
@@ -886,16 +887,16 @@ Reactions: 👎 5
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1755 |
 | **State** | OPEN |
-| **Author** | d-pylypenko (Dmitry Pilipenko) |
+| **Author** | corelix (Dmytro Pylypenko) |
 | **Created** | 2025-07-31 18:35:54.000 UTC (5 months ago) |
-| **Updated** | 2025-12-03 20:21:07.000 UTC |
-| **Upvotes** | 19 |
-| **Comments** | 7 |
-| **Priority Score** | 45 |
+| **Updated** | 2026-01-03 21:25:45.000 UTC |
+| **Upvotes** | 20 |
+| **Comments** | 8 |
+| **Priority Score** | 48 |
 | **Labels** | enhancement |
 | **Assignees** | None |
 | **Milestone** | None |
-| **Reactions** | 👍 19 ❤️ 5 👀 5 |
+| **Reactions** | 👍 20 ❤️ 6 👀 6 |
 
 #### Description
 
@@ -919,7 +920,7 @@ In the Python ecosystem, developers can simply plug in `OpenAIAgentsPlugin` to e
 
 Does the Temporal team plan to release official support for **openai-agents-js**? If so—do you have an ETA or early preview we could try?
 
-#### Comments (7)
+#### Comments (8)
 
 <details>
 <summary><strong>mjameswh</strong> commented on 2025-07-31 18:51:37.000 UTC</summary>
@@ -928,7 +929,7 @@ Thanks for asking.
 
 This is indeed on our roadmap, but I unfortunately don't have an ETA I can share at the moment.
 
-Reactions: ❤️ 3 🚀 15 👀 5
+Reactions: ❤️ 4 🚀 16 👀 6
 
 </details>
 
@@ -937,12 +938,16 @@ Reactions: ❤️ 3 🚀 15 👀 5
 
 +1 on this!
 
+Reactions: 👍 1
+
 </details>
 
 <details>
 <summary><strong>bruno-schema52</strong> commented on 2025-09-13 18:07:00.000 UTC</summary>
 
 +1 on this!
+
+Reactions: 👍 1
 
 </details>
 
@@ -951,6 +956,8 @@ Reactions: ❤️ 3 🚀 15 👀 5
 
 Looking forward for this integration
 
+Reactions: 👍 1
+
 </details>
 
 <details>
@@ -958,12 +965,16 @@ Looking forward for this integration
 
 Looking forward for this integration here as well
 
+Reactions: 👍 1
+
 </details>
 
 <details>
 <summary><strong>marc-wilson</strong> commented on 2025-12-02 19:26:04.000 UTC</summary>
 
 @mjameswh has there been any new updates around an ETA?
+
+Reactions: 👍 1
 
 </details>
 
@@ -973,6 +984,15 @@ Looking forward for this integration here as well
 The first AI agents library we're integrating with in TS is [ai](https://www.npmjs.com/package/ai). The [PR](https://github.com/temporalio/sdk-typescript/pull/1792) is in review, so it should hopefully land soon.
 
 I really don't have an ETA or even the relative prioritization for any other specific AI library.
+
+Reactions: 👍 2 😕 1
+
+</details>
+
+<details>
+<summary><strong>bakikucukcakiroglu</strong> commented on 2026-01-03 21:25:45.000 UTC</summary>
+
+This is very much needed in `openai-agents-js`.
 
 Reactions: 👍 2
 
@@ -3463,7 +3483,7 @@ If this is not fixed by v1.13.0, could you please provide the following:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1233 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2023-09-06 19:19:07.000 UTC (2y 3m ago) |
+| **Created** | 2023-09-06 19:19:07.000 UTC (2y 4m ago) |
 | **Updated** | 2025-08-20 07:54:16.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 12 |
@@ -3932,6 +3952,132 @@ This is okaay if your whole describe block only include workflow tests, if it in
 <summary><strong>diephil</strong> commented on 2025-08-20 07:54:16.000 UTC</summary>
 
 Hi there, is there any progress on this topic? We're using jest with @temporalio/nyc-test-coverage@1.11.7 and we are facing the `Error: Invalid file coverage object, missing keys, found:data` issue as well.
+
+</details>
+
+
+---
+
+<a id="1866"></a>
+
+### #1866: [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-typescript/issues/1866 |
+| **State** | OPEN |
+| **Author** | justinadkins (Justin Adkins) |
+| **Created** | 2025-12-23 14:18:56.000 UTC (15 days ago) |
+| **Updated** | 2026-01-07 13:07:50.000 UTC |
+| **Upvotes** | 2 |
+| **Comments** | 7 |
+| **Priority Score** | 11 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 2 |
+
+#### Description
+
+### What are you really trying to do?
+
+We bumped our Temporal dependencies to `1.14.0` today from `1.13.1` and upon deploying started seeing workflows fail due to the following error:
+```ts
+CancelledFailure: Workflow cancelled
+    at RootCancellationScope.cancel (/tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/cancellation-scope.ts:264:16)
+    at /tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/workflow.ts:1171:36
+```
+
+Rolling back to `1.13.1` resolves the issue. We've reset the effected workflows to the signal event and they now run correctly. A race condition seems to have been introduced since we do observe some of our workflows succeeding with a signal and `condition`.
+
+### Describe the bug
+We started seeing phantom `CancelledFailure` errors surface in our workflows after updating to `1.14.0` that seem to be coming from `condition`. Nothing else about our code has changed. An example of the code where this appears to be failing:
+
+<img width="1382" height="652" alt="Image" src="https://github.com/user-attachments/assets/a07f3f62-9b47-4438-825e-b81cec6d9930" />
+
+<!-- If applicable, add screenshots or code blocks to help explain your problem. You can also use [Loom](http://loom.com/) to do short, free video bug reports. -->
+
+### Minimal Reproduction
+
+Unable to reproduce locally so far. We have over 30 workflows in production that have experienced this.
+
+<!-- 
+Modify our hello world templates to demonstrate:
+
+- TypeScript: https://github.com/temporalio/samples-typescript/tree/main/hello-world
+- Go: https://github.com/temporalio/money-transfer-project-template-go
+- Java: https://github.com/temporalio/money-transfer-project-template-java
+- PHP: https://github.com/temporalio/samples-php#samples
+-->
+
+### Environment/Versions
+
+<!-- Please complete the following information where relevant. -->
+
+- OS and processor: Linux
+- Temporal Version: 1.14.0
+- Are you using Docker or Kubernetes or building Temporal from source? From source
+
+
+#### Comments (7)
+
+<details>
+<summary><strong>yosefrev</strong> commented on 2025-12-25 15:03:46.000 UTC</summary>
+
+We’re experiencing this as well ➕ 
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>yardenli</strong> commented on 2025-12-29 13:37:21.000 UTC</summary>
+
+We also started experiencing it as well with updates. 
+We have an update with timeout, and experienced it in some workflows right after the update was accepted, and in some after the update reached it's timeout. 
+It is important to mention that it happened in some workflows while other succeeded, and we couldn't find a clear pattern.
+
+</details>
+
+<details>
+<summary><strong>chris-olszewski</strong> commented on 2025-12-29 16:08:55.000 UTC</summary>
+
+For those affected by this:
+ - Have you observed this with `1.13.2` or exclusively with `1.14.0`?
+ - Do you have interceptors setup such as `@temporalio/interceptors-opentelemetry`?
+
+</details>
+
+<details>
+<summary><strong>yardenli</strong> commented on 2025-12-30 08:38:33.000 UTC</summary>
+
+@chris-olszewski we observed it exclusively with `1.14.0`. After going back to `1.13.2` we observed no issues.
+We do have interceptor set up using `@temporalio/interceptors-opentelemetry` (we are using `OpenTelemetryWorkflowClientInterceptor`).
+
+</details>
+
+<details>
+<summary><strong>justinadkins</strong> commented on 2025-12-30 14:59:27.000 UTC</summary>
+
+@chris-olszewski We only observe this on `1.14.0`. We are not using an interceptor. However, for activities we have this custom wrapper used for creating spans with Datadog.
+
+<img width="1338" height="1336" alt="Image" src="https://github.com/user-attachments/assets/71ef9bc9-4199-4fe8-8f85-d5470aae90b9" />
+
+</details>
+
+<details>
+<summary><strong>Stereobit</strong> commented on 2026-01-02 10:15:43.000 UTC</summary>
+
+Same issue here, no `interceptors`
+
+</details>
+
+<details>
+<summary><strong>obrunodelgado</strong> commented on 2026-01-07 13:07:50.000 UTC</summary>
+
+Hello guys,
+
+I had the same problem and as others said, after downgrading to version `1.13.2` the application stopped receiving CancellationFailures.
 
 </details>
 
@@ -4628,123 +4774,6 @@ setHandler(isBlockedQuery, handler);
 
 ---
 
-<a id="1866"></a>
-
-### #1866: [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/sdk-typescript/issues/1866 |
-| **State** | OPEN |
-| **Author** | justinadkins (Justin Adkins) |
-| **Created** | 2025-12-23 14:18:56.000 UTC (10 days ago) |
-| **Updated** | 2026-01-02 10:15:43.000 UTC |
-| **Upvotes** | 2 |
-| **Comments** | 6 |
-| **Priority Score** | 10 |
-| **Labels** | bug |
-| **Assignees** | None |
-| **Milestone** | None |
-| **Reactions** | 👍 2 |
-
-#### Description
-
-### What are you really trying to do?
-
-We bumped our Temporal dependencies to `1.14.0` today from `1.13.1` and upon deploying started seeing workflows fail due to the following error:
-```ts
-CancelledFailure: Workflow cancelled
-    at RootCancellationScope.cancel (/tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/cancellation-scope.ts:264:16)
-    at /tmp/build_d69c691a/node_modules/.pnpm/@temporalio+workflow@1.14.0/node_modules/@temporalio/workflow/src/workflow.ts:1171:36
-```
-
-Rolling back to `1.13.1` resolves the issue. We've reset the effected workflows to the signal event and they now run correctly. A race condition seems to have been introduced since we do observe some of our workflows succeeding with a signal and `condition`.
-
-### Describe the bug
-We started seeing phantom `CancelledFailure` errors surface in our workflows after updating to `1.14.0` that seem to be coming from `condition`. Nothing else about our code has changed. An example of the code where this appears to be failing:
-
-<img width="1382" height="652" alt="Image" src="https://github.com/user-attachments/assets/a07f3f62-9b47-4438-825e-b81cec6d9930" />
-
-<!-- If applicable, add screenshots or code blocks to help explain your problem. You can also use [Loom](http://loom.com/) to do short, free video bug reports. -->
-
-### Minimal Reproduction
-
-Unable to reproduce locally so far. We have over 30 workflows in production that have experienced this.
-
-<!-- 
-Modify our hello world templates to demonstrate:
-
-- TypeScript: https://github.com/temporalio/samples-typescript/tree/main/hello-world
-- Go: https://github.com/temporalio/money-transfer-project-template-go
-- Java: https://github.com/temporalio/money-transfer-project-template-java
-- PHP: https://github.com/temporalio/samples-php#samples
--->
-
-### Environment/Versions
-
-<!-- Please complete the following information where relevant. -->
-
-- OS and processor: Linux
-- Temporal Version: 1.14.0
-- Are you using Docker or Kubernetes or building Temporal from source? From source
-
-
-#### Comments (6)
-
-<details>
-<summary><strong>yosefrev</strong> commented on 2025-12-25 15:03:46.000 UTC</summary>
-
-We’re experiencing this as well ➕ 
-
-Reactions: 👍 1
-
-</details>
-
-<details>
-<summary><strong>yardenli</strong> commented on 2025-12-29 13:37:21.000 UTC</summary>
-
-We also started experiencing it as well with updates. 
-We have an update with timeout, and experienced it in some workflows right after the update was accepted, and in some after the update reached it's timeout. 
-It is important to mention that it happened in some workflows while other succeeded, and we couldn't find a clear pattern.
-
-</details>
-
-<details>
-<summary><strong>chris-olszewski</strong> commented on 2025-12-29 16:08:55.000 UTC</summary>
-
-For those affected by this:
- - Have you observed this with `1.13.2` or exclusively with `1.14.0`?
- - Do you have interceptors setup such as `@temporalio/interceptors-opentelemetry`?
-
-</details>
-
-<details>
-<summary><strong>yardenli</strong> commented on 2025-12-30 08:38:33.000 UTC</summary>
-
-@chris-olszewski we observed it exclusively with `1.14.0`. After going back to `1.13.2` we observed no issues.
-We do have interceptor set up using `@temporalio/interceptors-opentelemetry` (we are using `OpenTelemetryWorkflowClientInterceptor`).
-
-</details>
-
-<details>
-<summary><strong>justinadkins</strong> commented on 2025-12-30 14:59:27.000 UTC</summary>
-
-@chris-olszewski We only observe this on `1.14.0`. We are not using an interceptor. However, for activities we have this custom wrapper used for creating spans with Datadog.
-
-<img width="1338" height="1336" alt="Image" src="https://github.com/user-attachments/assets/71ef9bc9-4199-4fe8-8f85-d5470aae90b9" />
-
-</details>
-
-<details>
-<summary><strong>Stereobit</strong> commented on 2026-01-02 10:15:43.000 UTC</summary>
-
-Same issue here, no `interceptors`
-
-</details>
-
-
----
-
 <a id="939"></a>
 
 ### #939: [Bug] Worker crashes with "async hook stack has become corrupted" on Workflow Task timeout
@@ -5116,7 +5145,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/754 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-07-12 20:12:50.000 UTC (3y 5m ago) |
+| **Created** | 2022-07-12 20:12:50.000 UTC (3y 6m ago) |
 | **Updated** | 2023-01-25 05:45:54.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 7 |
@@ -5898,7 +5927,7 @@ I still wish I could export as an ESM though... It would be lovely if @temporal/
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1021 |
 | **State** | OPEN |
 | **Author** | Irvenae (Irven Aelbrecht) |
-| **Created** | 2023-01-11 11:07:08.000 UTC (2y 11m ago) |
+| **Created** | 2023-01-11 11:07:08.000 UTC (2y 12m ago) |
 | **Updated** | 2025-02-07 03:50:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 8 |
@@ -7035,7 +7064,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1458 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2024-07-08 14:28:04.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-08 14:28:04.000 UTC (1y 6m ago) |
 | **Updated** | 2024-09-22 06:07:15.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 1 |
@@ -7091,7 +7120,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1308 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2023-12-05 21:17:45.000 UTC (2 years ago) |
+| **Created** | 2023-12-05 21:17:45.000 UTC (2y 1m ago) |
 | **Updated** | 2023-12-26 18:30:55.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 5 |
@@ -7881,7 +7910,7 @@ npm start
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/472 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-02-09 16:40:07.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-09 16:40:07.000 UTC (3y 11m ago) |
 | **Updated** | 2023-02-17 23:06:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -8086,7 +8115,7 @@ We run multiple workers on our nodes, but use PM2 in cluster mode to manage them
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1740 |
 | **State** | OPEN |
 | **Author** | DatGuyJonathan (Jonathan Widjaja) |
-| **Created** | 2025-07-10 20:50:40.000 UTC (5 months ago) |
+| **Created** | 2025-07-10 20:50:40.000 UTC (6 months ago) |
 | **Updated** | 2025-07-14 18:26:51.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -8239,7 +8268,7 @@ Any thoughts on this? I'm happy to submit a PR, just want to make sure I take an
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1489 |
 | **State** | OPEN |
 | **Author** | shadiramadan (Shadi Ramadan) |
-| **Created** | 2024-08-07 23:43:36.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-07 23:43:36.000 UTC (1y 5m ago) |
 | **Updated** | 2024-09-13 16:33:28.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -8331,7 +8360,7 @@ Implementing #1458 is certainly part of the solution, but I'm afraid that will n
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1332 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2024-01-05 19:02:48.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-05 19:02:48.000 UTC (2 years ago) |
 | **Updated** | 2024-01-05 19:24:08.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -8371,7 +8400,7 @@ I would rather also have the worker be powered by the same connection to avoid t
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1309 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2023-12-05 22:00:56.000 UTC (2 years ago) |
+| **Created** | 2023-12-05 22:00:56.000 UTC (2y 1m ago) |
 | **Updated** | 2024-09-27 17:52:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -8521,6 +8550,67 @@ Two possible work arounds:
 
 ---
 
+<a id="1869"></a>
+
+### #1869: Environment Configuration does not read the correct file path on macOS
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-typescript/issues/1869 |
+| **State** | CLOSED |
+| **Author** | pvsone (Peter Sullivan) |
+| **Created** | 2026-01-04 20:30:22.000 UTC (3 days ago) |
+| **Updated** | 2026-01-06 16:46:59.000 UTC |
+| **Closed** | 2026-01-06 16:46:59.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### What are you really trying to do?
+
+Run a worker application on macOS and load the default Environment Configuration toml file
+
+### Describe the bug
+
+Per [the documentation](https://docs.temporal.io/develop/environment-configuration), the SDKs should read the toml config file on a mac from $HOME/Library/Application Support/temporal/temporal.toml. However this path is not being read
+
+### Minimal Reproduction
+
+Create a Profile TOML file on a Mac using the CLI, which writes a file to: $HOME/Library/Application Support/temporal/temporal.toml
+Create a Typescript program that attempts to read the Profile using the Env Config APIs. An error will be thrown that the profile cannot be found
+
+### Environment/Versions
+
+- OS and processor: macOS
+- Temporal Typescript SDK Version: 1.14.0
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>THardy98</strong> commented on 2026-01-05 15:19:08.000 UTC</summary>
+
+Hi @pvsone 
+
+This is a typo in the docs, the path should be `temporalio/temporal.toml` not `temporal/temporal.toml`
+
+</details>
+
+<details>
+<summary><strong>pvsone</strong> commented on 2026-01-05 15:39:45.000 UTC</summary>
+
+Good catch.  I do have a toml file (created by the CLI) at the `$HOME/Library/Application Support/temporalio/temporal.toml` path, however it is still not being read by the typescript sdk
+
+</details>
+
+
+---
+
 <a id="1864"></a>
 
 ### #1864: [Feature Request] Update AI SDK integration to v6
@@ -8530,7 +8620,7 @@ Two possible work arounds:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1864 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-12-22 18:27:09.000 UTC (11 days ago) |
+| **Created** | 2025-12-22 18:27:09.000 UTC (16 days ago) |
 | **Updated** | 2025-12-22 18:27:29.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -8567,7 +8657,7 @@ https://vercel.com/blog/ai-sdk-6
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1859 |
 | **State** | OPEN |
 | **Author** | daniellockyer (Daniel Lockyer) |
-| **Created** | 2025-12-08 10:39:51.000 UTC (25 days ago) |
+| **Created** | 2025-12-08 10:39:51.000 UTC (1 months ago) |
 | **Updated** | 2025-12-10 09:38:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -8731,7 +8821,7 @@ I've opened an issue specifically for issues I'm seeing between `1.13.1` -> `1.1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1796 |
 | **State** | OPEN |
 | **Author** | rd-akind (Richard Danninger) |
-| **Created** | 2025-10-08 07:29:37.000 UTC (2 months ago) |
+| **Created** | 2025-10-08 07:29:37.000 UTC (3 months ago) |
 | **Updated** | 2025-10-08 07:29:37.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -9132,7 +9222,7 @@ https://github.com/temporalio/sdk-typescript/blob/main/packages/workflow/src/wor
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1675 |
 | **State** | OPEN |
 | **Author** | safareli (Irakli Safareli) |
-| **Created** | 2025-04-10 18:10:34.000 UTC (8 months ago) |
+| **Created** | 2025-04-10 18:10:34.000 UTC (9 months ago) |
 | **Updated** | 2025-04-10 18:10:34.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -9240,7 +9330,7 @@ or at least include stack traces of children in the stack trace of the top error
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1594 |
 | **State** | OPEN |
 | **Author** | jhecking (Jan Hecking) |
-| **Created** | 2025-01-08 03:19:11.000 UTC (11 months ago) |
+| **Created** | 2025-01-08 03:19:11.000 UTC (12 months ago) |
 | **Updated** | 2025-01-08 03:38:46.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -9337,7 +9427,7 @@ n/a
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1580 |
 | **State** | OPEN |
 | **Author** | tetrakatech (Karla) |
-| **Created** | 2024-12-04 04:58:26.000 UTC (1 years ago) |
+| **Created** | 2024-12-04 04:58:26.000 UTC (1y 1m ago) |
 | **Updated** | 2025-08-20 15:44:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -9620,7 +9710,7 @@ It's unfortunately not that simple. Metrics bookkeeping is handled by Core SDK, 
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1389 |
 | **State** | OPEN |
 | **Author** | hiramhuang (Hiram) |
-| **Created** | 2024-04-08 08:15:00.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-08 08:15:00.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-11 06:29:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -10401,7 +10491,7 @@ I opened an issue on their side: https://github.com/googleapis/google-cloud-node
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/470 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-02-08 18:47:25.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-08 18:47:25.000 UTC (3y 11m ago) |
 | **Updated** | 2024-12-17 21:30:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -11604,7 +11694,7 @@ Use `workflowInfo().unsafe.now()`
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1867 |
 | **State** | OPEN |
 | **Author** | TastyPi (Graham Rogers) |
-| **Created** | 2025-12-30 10:57:00.000 UTC (3 days ago) |
+| **Created** | 2025-12-30 10:57:00.000 UTC (8 days ago) |
 | **Updated** | 2025-12-30 10:58:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11650,7 +11740,7 @@ Allow the Logger to be configured at the Worker level. This would allow us to cr
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1862 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-12 19:10:26.000 UTC (21 days ago) |
+| **Created** | 2025-12-12 19:10:26.000 UTC (26 days ago) |
 | **Updated** | 2025-12-12 19:10:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11682,7 +11772,7 @@ attached issue :- https://app.usepylon.com/issues?conversationID=aa9077dd-17e0-4
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1860 |
 | **State** | OPEN |
 | **Author** | mnahkies (Michael Nahkies) |
-| **Created** | 2025-12-10 09:32:18.000 UTC (23 days ago) |
+| **Created** | 2025-12-10 09:32:18.000 UTC (28 days ago) |
 | **Updated** | 2025-12-10 09:40:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11737,7 +11827,7 @@ Semi-related: https://github.com/temporalio/sdk-typescript/issues/1859
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1858 |
 | **State** | OPEN |
 | **Author** | hmvien (Hien Vien) |
-| **Created** | 2025-12-05 23:25:41.000 UTC (28 days ago) |
+| **Created** | 2025-12-05 23:25:41.000 UTC (1 months ago) |
 | **Updated** | 2025-12-08 18:01:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11863,7 +11953,7 @@ Execute with
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1854 |
 | **State** | OPEN |
 | **Author** | clintonb (Clinton Blackburn) |
-| **Created** | 2025-12-04 01:17:12.000 UTC (29 days ago) |
+| **Created** | 2025-12-04 01:17:12.000 UTC (1 months ago) |
 | **Updated** | 2025-12-04 01:17:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12095,7 +12185,7 @@ Users want to override the target version on a workflow, especially when doing p
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1782 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-05 12:31:02.000 UTC (3 months ago) |
+| **Created** | 2025-09-05 12:31:02.000 UTC (4 months ago) |
 | **Updated** | 2025-09-05 12:31:02.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12269,7 +12359,7 @@ export function uuid7() {
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1739 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2025-07-08 19:10:36.000 UTC (5 months ago) |
+| **Created** | 2025-07-08 19:10:36.000 UTC (6 months ago) |
 | **Updated** | 2025-07-08 19:10:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12509,7 +12599,7 @@ E.g: this allows passing MongoDB ObjectIds as search attributes, as they have a 
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1713 |
 | **State** | OPEN |
 | **Author** | JCMais (Jonathan Cardoso) |
-| **Created** | 2025-05-10 22:47:20.000 UTC (7 months ago) |
+| **Created** | 2025-05-10 22:47:20.000 UTC (8 months ago) |
 | **Updated** | 2025-05-10 22:47:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12551,7 +12641,7 @@ webpackConfigHook(config, webpack) {
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1710 |
 | **State** | OPEN |
 | **Author** | TastyPi (Graham Rogers) |
-| **Created** | 2025-05-08 16:58:48.000 UTC (7 months ago) |
+| **Created** | 2025-05-08 16:58:48.000 UTC (8 months ago) |
 | **Updated** | 2025-05-08 16:58:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12866,7 +12956,7 @@ as a workaround i was advised  by the support team to do retries until i can con
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1673 |
 | **State** | OPEN |
 | **Author** | akaNightmare (Ivan) |
-| **Created** | 2025-04-10 06:52:30.000 UTC (8 months ago) |
+| **Created** | 2025-04-10 06:52:30.000 UTC (9 months ago) |
 | **Updated** | 2025-04-10 06:52:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12982,7 +13072,7 @@ Interaface `WorkerOptions`, field `workflowBundle`,
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1647 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-03-11 18:41:55.000 UTC (9 months ago) |
+| **Created** | 2025-03-11 18:41:55.000 UTC (10 months ago) |
 | **Updated** | 2025-03-11 18:41:55.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13038,7 +13128,7 @@ Relevant comment: https://github.com/temporalio/sdk-typescript/pull/1612#discuss
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1626 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-11 20:44:20.000 UTC (10 months ago) |
+| **Created** | 2025-02-11 20:44:20.000 UTC (11 months ago) |
 | **Updated** | 2025-02-11 20:44:20.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13125,7 +13215,7 @@ We auto-skip time when waiting on workflow result, we need to do the same when w
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1542 |
 | **State** | OPEN |
 | **Author** | mloffer (Micah Loffer) |
-| **Created** | 2024-10-09 00:22:40.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-09 00:22:40.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-09 00:22:40.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13233,7 +13323,7 @@ Version 1.9.3
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1486 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2024-08-06 16:00:11.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-06 16:00:11.000 UTC (1y 5m ago) |
 | **Updated** | 2024-08-06 16:06:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13359,7 +13449,7 @@ There is a similar issue active in the Java SDK repo: https://github.com/tempora
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1415 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2024-05-08 20:09:28.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-08 20:09:28.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-08 20:12:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13443,7 +13533,7 @@ We need to review all type assertions, and determine either these assertions are
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1358 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-02-12 14:24:42.000 UTC (1y 10m ago) |
+| **Created** | 2024-02-12 14:24:42.000 UTC (1y 11m ago) |
 | **Updated** | 2025-01-29 16:21:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13472,7 +13562,7 @@ See https://github.com/temporalio/features/issues/322
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1337 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2024-01-10 18:12:35.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-10 18:12:35.000 UTC (1y 12m ago) |
 | **Updated** | 2024-01-10 18:12:35.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13524,7 +13614,7 @@ Users should be able to manually page one at a time if they choose. Some users a
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1258 |
 | **State** | OPEN |
 | **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2023-10-10 18:05:13.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-10 18:05:13.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-10 18:05:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13614,7 +13704,7 @@ In Go and Java we drop signals whose args can't be deserialized, we should here 
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1054 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2023-02-12 19:34:56.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-12 19:34:56.000 UTC (2y 11m ago) |
 | **Updated** | 2025-02-07 03:50:23.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13907,7 +13997,7 @@ import { context, propagation } from '@opentelemetry/api';
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/444 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-01-10 02:27:41.000 UTC (3y 11m ago) |
+| **Created** | 2022-01-10 02:27:41.000 UTC (3y 12m ago) |
 | **Updated** | 2024-12-17 21:30:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13988,7 +14078,7 @@ Currently can get at a worker level via `import pkg from '@temporalio/worker/lib
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/360 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2021-11-08 14:35:52.000 UTC (4y 1m ago) |
+| **Created** | 2021-11-08 14:35:52.000 UTC (4y 2m ago) |
 | **Updated** | 2025-02-04 18:24:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

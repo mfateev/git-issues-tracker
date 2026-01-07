@@ -1,6 +1,6 @@
 # Features SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/features
 **Data Source:** [issues.md](../repos/temporalio-features/issues.md)
 
@@ -24,7 +24,7 @@
 | Total Comments | 400 |
 | Issues with Upvotes | 32 (13%) |
 | Issues with Comments | 130 (53%) |
-| Average Age (days) | 791 |
+| Average Age (days) | 795 |
 | Stale Issues (>12 months) | 145 (59%) |
 
 ---
@@ -35,11 +35,11 @@
 |-----|-------|---|
 | Last 30 days | 2 | 1% |
 | 1-3 months | 11 | 4% |
-| 3-6 months | 16 | 6% |
-| 6-12 months | 36 | 15% |
-| 1-2 years | 53 | 21% |
-| 2-3 years | 47 | 19% |
-| 3+ years | 82 | 33% |
+| 3-6 months | 15 | 6% |
+| 6-12 months | 35 | 14% |
+| 1-2 years | 54 | 22% |
+| 2-3 years | 43 | 17% |
+| 3+ years | 87 | 35% |
 
 ---
 

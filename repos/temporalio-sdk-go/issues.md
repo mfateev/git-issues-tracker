@@ -1,7 +1,7 @@
 # temporalio/sdk-go - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 163
+**Generated:** 2026-01-07
+**Total Issues:** 164
 **Total Upvotes:** 112
 **Total Comments:** 214
 
@@ -16,7 +16,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 163 |
+| Open Issues | 164 |
 | Issues with Upvotes | 41 (25%) |
 | Total Upvotes | 112 |
 | Total Comments | 214 |
@@ -27,7 +27,7 @@
 |-------|-------|
 | enhancement | 89 |
 | potential-bug | 45 |
-| bug | 15 |
+| bug | 16 |
 | external dependency | 5 |
 | next-gen | 1 |
 | Mend: dependency security vulnerability | 1 |
@@ -136,6 +136,7 @@
 | [#698](#698) | 0 | 1 | Allow "unable to find workflow type" error to be configured to hard-fail the workflow |
 | [#194](#194) | 0 | 1 | Support seamless cleanup during session cancellation |
 | [#50](#50) | 0 | 1 | Make TestWorkflowEnvironment support test multiple workflows |
+| [#2140](#2140) | 0 | 0 | OpenTelemetry incorrect metric type for Counter |
 | [#2124](#2124) | 0 | 0 | Support non-workflow activities |
 | [#2123](#2123) | 0 | 0 | [api-go] Proxy: allow payload visitor to run in parallel |
 | [#2094](#2094) | 0 | 0 | Worker Heartbeating |
@@ -215,10 +216,11 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-go/issues/916 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2022-09-22 14:05:06.000 UTC (3y 3m ago) |
-| **Updated** | 2022-09-22 14:05:06.000 UTC |
+| **Updated** | 2026-01-06 00:44:12.000 UTC |
+| **Closed** | 2026-01-06 00:44:12.000 UTC |
 | **Upvotes** | 21 |
 | **Comments** | 0 |
 | **Priority Score** | 42 |
@@ -283,7 +285,7 @@ Do not provide such a feature.
 | **URL** | https://github.com/temporalio/sdk-go/issues/829 |
 | **State** | OPEN |
 | **Author** | jlegrone (Jacob LeGrone) |
-| **Created** | 2022-06-10 12:59:45.000 UTC (3y 6m ago) |
+| **Created** | 2022-06-10 12:59:45.000 UTC (3y 7m ago) |
 | **Updated** | 2023-02-02 21:59:51.000 UTC |
 | **Upvotes** | 6 |
 | **Comments** | 5 |
@@ -2553,7 +2555,7 @@ Maybe not every call, but any call specifically to a workflow execution should b
 | **URL** | https://github.com/temporalio/sdk-go/issues/718 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-02-08 17:57:26.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-08 17:57:26.000 UTC (3y 11m ago) |
 | **Updated** | 2022-04-07 10:46:03.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 1 |
@@ -2926,7 +2928,7 @@ RegisterWorkflowWithOptions didn't work for me.
 | **URL** | https://github.com/temporalio/sdk-go/issues/61 |
 | **State** | OPEN |
 | **Author** | alexshtin (Alex Shtin) |
-| **Created** | 2020-03-13 19:43:07.000 UTC (5y 9m ago) |
+| **Created** | 2020-03-13 19:43:07.000 UTC (5y 10m ago) |
 | **Updated** | 2024-12-17 21:17:40.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 1 |
@@ -3401,7 +3403,7 @@ Ok, but with the change I tried there was no replay after the first query - it's
 | **URL** | https://github.com/temporalio/sdk-go/issues/1582 |
 | **State** | OPEN |
 | **Author** | nishkrishnan (Nish Krishnan) |
-| **Created** | 2024-08-08 16:52:28.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-08 16:52:28.000 UTC (1y 5m ago) |
 | **Updated** | 2024-08-08 16:52:47.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -3726,7 +3728,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-go/issues/949 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-11-07 13:42:36.000 UTC (3y 1m ago) |
+| **Created** | 2022-11-07 13:42:36.000 UTC (3y 2m ago) |
 | **Updated** | 2022-12-02 20:46:54.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 2 |
@@ -4046,7 +4048,7 @@ As part of the new interceptors proposal at https://github.com/temporalio/propos
 | **URL** | https://github.com/temporalio/sdk-go/issues/2103 |
 | **State** | OPEN |
 | **Author** | billrich2001 (Bill Richards) |
-| **Created** | 2025-11-07 19:48:17.000 UTC (1 months ago) |
+| **Created** | 2025-11-07 19:48:17.000 UTC (2 months ago) |
 | **Updated** | 2025-11-19 23:02:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -4123,7 +4125,7 @@ For otel + slog a user should be using https://github.com/open-telemetry/opentel
 | **URL** | https://github.com/temporalio/sdk-go/issues/2097 |
 | **State** | OPEN |
 | **Author** | VinayBhupelliAPT (Vinay Bhupelli) |
-| **Created** | 2025-11-05 17:07:18.000 UTC (1 months ago) |
+| **Created** | 2025-11-05 17:07:18.000 UTC (2 months ago) |
 | **Updated** | 2025-12-19 06:19:56.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -5216,7 +5218,7 @@ But it's probably OK. Also, you'll have to make some assumptions or do advanced 
 | **URL** | https://github.com/temporalio/sdk-go/issues/1035 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-02-10 19:18:08.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-10 19:18:08.000 UTC (2y 11m ago) |
 | **Updated** | 2025-02-04 18:25:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -5528,7 +5530,7 @@ Still unable to replicate, can anyone else?
 | **URL** | https://github.com/temporalio/sdk-go/issues/458 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2021-06-09 00:57:16.000 UTC (4y 6m ago) |
+| **Created** | 2021-06-09 00:57:16.000 UTC (4y 7m ago) |
 | **Updated** | 2021-11-16 16:13:25.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -5571,7 +5573,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-go/issues/126 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-05-11 15:20:46.000 UTC (5y 7m ago) |
+| **Created** | 2020-05-11 15:20:46.000 UTC (5y 8m ago) |
 | **Updated** | 2022-10-31 12:30:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -5629,7 +5631,7 @@ There are a lot of ways to auto heartbeat and no one size fits all. Here's a sim
 | **URL** | https://github.com/temporalio/sdk-go/issues/2131 |
 | **State** | OPEN |
 | **Author** | ganlvtech (Ganlv) |
-| **Created** | 2025-12-08 10:41:26.000 UTC (25 days ago) |
+| **Created** | 2025-12-08 10:41:26.000 UTC (1 months ago) |
 | **Updated** | 2025-12-19 02:18:32.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -5858,7 +5860,7 @@ Hi is this issue still available? I'm interested in contributing as a first time
 | **URL** | https://github.com/temporalio/sdk-go/issues/1954 |
 | **State** | OPEN |
 | **Author** | SovaPluto (Volodymyr Sokolov) |
-| **Created** | 2025-05-11 11:33:17.000 UTC (7 months ago) |
+| **Created** | 2025-05-11 11:33:17.000 UTC (8 months ago) |
 | **Updated** | 2025-05-11 11:39:36.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6145,7 +6147,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-go/issues/1468 |
 | **State** | OPEN |
 | **Author** | PatrikValo (pvalo) |
-| **Created** | 2024-05-11 22:19:11.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-11 22:19:11.000 UTC (1y 8m ago) |
 | **Updated** | 2025-02-04 18:24:50.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6234,7 +6236,7 @@ Thanks! Meanwhile I have been looking into this issue and I created a commit - h
 | **URL** | https://github.com/temporalio/sdk-go/issues/1086 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-04-13 20:07:35.000 UTC (2y 8m ago) |
+| **Created** | 2023-04-13 20:07:35.000 UTC (2y 9m ago) |
 | **Updated** | 2023-06-29 13:43:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6289,7 +6291,7 @@ For instance, if you have an activity that needs ~30mins more to finish and have
 | **URL** | https://github.com/temporalio/sdk-go/issues/1033 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-02-08 15:27:12.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-08 15:27:12.000 UTC (2y 11m ago) |
 | **Updated** | 2025-02-04 18:25:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6590,7 +6592,7 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 | **URL** | https://github.com/temporalio/sdk-go/issues/754 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-03-14 17:52:08.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-14 17:52:08.000 UTC (3y 10m ago) |
 | **Updated** | 2024-12-17 21:17:36.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6716,7 +6718,7 @@ In https://docs.temporal.io/blog/build-an-ecommerce-app-with-temporal-part-3-tes
 | **URL** | https://github.com/temporalio/sdk-go/issues/439 |
 | **State** | OPEN |
 | **Author** | ingyamilmolinar (ymolinar) |
-| **Created** | 2021-05-11 19:22:29.000 UTC (4y 7m ago) |
+| **Created** | 2021-05-11 19:22:29.000 UTC (4y 8m ago) |
 | **Updated** | 2021-05-11 19:22:29.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6809,7 +6811,7 @@ Temporal encoding doesn't support accents in the input too.
 | **URL** | https://github.com/temporalio/sdk-go/issues/266 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-10-08 22:54:38.000 UTC (5y 2m ago) |
+| **Created** | 2020-10-08 22:54:38.000 UTC (5y 3m ago) |
 | **Updated** | 2020-10-08 22:54:38.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6835,7 +6837,7 @@ Same request for Java: https://github.com/temporalio/sdk-java/issues/228
 | **URL** | https://github.com/temporalio/sdk-go/issues/101 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-04-13 18:14:15.000 UTC (5y 8m ago) |
+| **Created** | 2020-04-13 18:14:15.000 UTC (5y 9m ago) |
 | **Updated** | 2020-04-13 18:14:15.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6911,7 +6913,7 @@ The GetConfiguration should either use `SideEffect`, `MutableSideEffect` or loca
 | **URL** | https://github.com/temporalio/sdk-go/issues/2098 |
 | **State** | OPEN |
 | **Author** | codemonkeycxy (Xinyi Chen) |
-| **Created** | 2025-11-05 19:33:19.000 UTC (1 months ago) |
+| **Created** | 2025-11-05 19:33:19.000 UTC (2 months ago) |
 | **Updated** | 2025-11-07 18:08:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7016,7 +7018,7 @@ Looks like this was user error. The correct way to return a joined error is `tem
 | **URL** | https://github.com/temporalio/sdk-go/issues/1705 |
 | **State** | OPEN |
 | **Author** | ndtretyak (Nikolay Tretyak) |
-| **Created** | 2024-11-07 14:54:22.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-07 14:54:22.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-07 19:17:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7058,7 +7060,7 @@ Long term server side deduplication of signals by `RequestId` is not a stable fe
 | **URL** | https://github.com/temporalio/sdk-go/issues/1624 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-09-06 04:34:11.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-06 04:34:11.000 UTC (1y 4m ago) |
 | **Updated** | 2025-11-12 16:50:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7378,7 +7380,7 @@ The problem here is that you're not "passing" things to these calls, they are ju
 | **URL** | https://github.com/temporalio/sdk-go/issues/1227 |
 | **State** | OPEN |
 | **Author** | robindarby (Robin Darby) |
-| **Created** | 2023-09-06 12:35:30.000 UTC (2y 3m ago) |
+| **Created** | 2023-09-06 12:35:30.000 UTC (2y 4m ago) |
 | **Updated** | 2025-02-04 18:25:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7641,7 +7643,7 @@ https://github.com/temporalio/sdk-go/blob/5cd20cf09a022d3cda9edef9376054df46b200
 | **URL** | https://github.com/temporalio/sdk-go/issues/996 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-01-05 13:16:34.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 13:16:34.000 UTC (3 years ago) |
 | **Updated** | 2023-01-05 14:02:56.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7677,7 +7679,7 @@ We need to discuss how this affects the proxy now in api-go. Do we need to have 
 | **URL** | https://github.com/temporalio/sdk-go/issues/975 |
 | **State** | OPEN |
 | **Author** | EllieSager-Forte (Ellie A Sager) |
-| **Created** | 2022-12-06 00:36:01.000 UTC (3 years ago) |
+| **Created** | 2022-12-06 00:36:01.000 UTC (3y 1m ago) |
 | **Updated** | 2022-12-06 13:18:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -8303,6 +8305,116 @@ Ported from: Uber Cadence GO: Issue 616
 
 ---
 
+<a id="2140"></a>
+
+### #2140: OpenTelemetry incorrect metric type for Counter
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-go/issues/2140 |
+| **State** | OPEN |
+| **Author** | LaurynasKatkus |
+| **Created** | 2026-01-07 12:26:43.000 UTC (0 days ago) |
+| **Updated** | 2026-01-07 12:26:43.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Expected Behavior
+
+When I use `contrib/opentelemetry` as MetricsHandler in `client.Dial(client.Options{})`, I expect that Counter metrics will have `_total` suffix as describe in Prometheus. They do not.
+
+## Actual Behavior
+
+As per [Temporal metric documentation](https://docs.temporal.io/references/sdk-metrics#workflow_completed), `workflow_completed` metric is of type Counter. According to [Prometheus documentation](https://prometheus.io/docs/specs/om/open_metrics_spec/#counter-1):
+
+> The MetricPoint's Total Value Sample MetricName MUST have the suffix _total
+
+When I expose metrics using `contrib/opentelemetry`, instead of Tally, the `workflow_completed` is described as Gauge, not as Counter.
+
+Support for OpenTelemetry was added with this [issue](https://github.com/temporalio/sdk-go/issues/1137).
+
+## Steps to Reproduce the Problem
+
+I have used https://github.com/temporalio/samples-go/tree/main/metrics as a base. Instead of Tally, I have wired worker to use OTEL:
+
+```
+func main() {
+	reader, err := prometheusexporter.New()
+	if err != nil {
+		fmt.Errorf("error creating prometheus exporter: %w", err)
+	}
+
+	meterProvider := sdkmetric.NewMeterProvider(sdkmetric.WithReader(reader))
+	otel.SetMeterProvider(meterProvider)
+
+	// Start Prometheus HTTP server using the registry
+	go func() {
+		log.Println("Serving Prometheus metrics on :9090/metrics")
+		http.Handle("/metrics", promhttp.Handler())
+		if err := http.ListenAndServe(":9090", nil); err != nil {
+			log.Fatalln("Failed to start Prometheus server", err)
+		}
+	}()
+
+	// The client and worker are heavyweight objects that should be created once per process.
+	c, err := client.Dial(client.Options{
+		MetricsHandler: opentelemetry.NewMetricsHandler(opentelemetry.MetricsHandlerOptions{
+			Meter: meterProvider.Meter("temporal-sdk"),
+		}),
+	})
+	if err != nil {
+		log.Fatalln("Unable to create client", err)
+	}
+	defer c.Close()
+
+	w := worker.New(c, "metrics", worker.Options{})
+
+	w.RegisterWorkflow(metrics.Workflow)
+	w.RegisterActivity(metrics.Activity)
+
+	err = w.Run(worker.InterruptCh())
+	if err != nil {
+		log.Fatalln("Unable to start worker", err)
+	}
+
+	// Shutdown the MeterProvider
+	if err := meterProvider.Shutdown(context.Background()); err != nil {
+		log.Println("Error shutting down meter provider:", err)
+	}
+}
+```
+
+The rest is the same.
+
+## Specific Problem
+
+OpenTelemetry handler implements Counter as `m.meter.Int64UpDownCounter(name)`. Within the test of Counter, it explicitly tests whether Counter is [not monotonic](https://github.com/temporalio/sdk-go/blob/master/contrib/opentelemetry/handler_test.go#L81). In opentelemetry-go prometheus exporter, it [explicitly checks](https://github.com/open-telemetry/opentelemetry-go/blob/exporters/prometheus/v0.61.0/exporters/prometheus/exporter.go#L523) whether the type Sum is monotonic or not. If it is not - then it is Gauge value.
+
+I have created a local patch with one change in `handler` `Counter` method:
+```
+func (m MetricsHandler) Counter(name string) client.MetricsCounter {
+	c, err := m.meter.Int64Counter(name)
+        ...
+}
+```
+
+Then it works as expected.
+
+## Specifications
+
+  - Version: Golang version 1.25.5, go.temporal.io/sdk v1.38.0, go.temporal.io/sdk/contrib/opentelemetry v0.6.0
+  - Platform: macOS Sequoia Version 15.7.2
+
+
+
+---
+
 <a id="2124"></a>
 
 ### #2124: Support non-workflow activities
@@ -8515,7 +8627,7 @@ add methods like `cancelWithOptions` and `terminateWithOptions` that take an opt
 | **URL** | https://github.com/temporalio/sdk-go/issues/2045 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-05 12:30:17.000 UTC (3 months ago) |
+| **Created** | 2025-09-05 12:30:17.000 UTC (4 months ago) |
 | **Updated** | 2025-09-05 12:30:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8567,10 +8679,11 @@ Currently, this call is still using a variety of now-deprecated APIs. Fix it to 
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-go/issues/2020 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2025-08-15 14:32:26.000 UTC (4 months ago) |
-| **Updated** | 2025-08-15 14:32:26.000 UTC |
+| **Updated** | 2026-01-07 17:06:56.000 UTC |
+| **Closed** | 2026-01-07 17:06:56.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -8749,7 +8862,7 @@ However, when responding to WFT2, the SDK re-sends acceptance and completion mes
 | **URL** | https://github.com/temporalio/sdk-go/issues/1817 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-11 20:44:23.000 UTC (10 months ago) |
+| **Created** | 2025-02-11 20:44:23.000 UTC (11 months ago) |
 | **Updated** | 2025-02-11 20:44:23.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8888,7 +9001,7 @@ See https://github.com/temporalio/features/issues/564
 | **URL** | https://github.com/temporalio/sdk-go/issues/1760 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:40:36.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 13:40:36.000 UTC (1 years ago) |
 | **Updated** | 2025-01-07 13:48:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9330,7 +9443,7 @@ The test issues a cancelation request using a delayed callback, and the activity
 | **URL** | https://github.com/temporalio/sdk-go/issues/1387 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-02-12 14:28:33.000 UTC (1y 10m ago) |
+| **Created** | 2024-02-12 14:28:33.000 UTC (1y 11m ago) |
 | **Updated** | 2024-02-12 14:28:33.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9416,7 +9529,7 @@ ogle.golang.org/grpc.(*Server).serveStreams.func1.1\n\t/home/runner/go/pkg/mod/g
 | **URL** | https://github.com/temporalio/sdk-go/issues/1349 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-01-13 17:10:00.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-13 17:10:00.000 UTC (1y 12m ago) |
 | **Updated** | 2024-01-13 17:10:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9449,7 +9562,7 @@ https://github.com/temporalio/sdk-go/blob/5ca9a4dfd4c37a56f0dd886596494be4599f01
 | **URL** | https://github.com/temporalio/sdk-go/issues/1341 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-01-09 18:33:24.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-09 18:33:24.000 UTC (1y 12m ago) |
 | **Updated** | 2025-03-18 15:47:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10209,7 +10322,7 @@ Goroutine 6062 (running) created at:
 | **URL** | https://github.com/temporalio/sdk-go/issues/1197 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-08-10 13:29:34.000 UTC (2y 4m ago) |
+| **Created** | 2023-08-10 13:29:34.000 UTC (2y 5m ago) |
 | **Updated** | 2023-08-10 13:29:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10305,7 +10418,7 @@ Local activities need to be able to react to worker stop cancellation if they wa
 | **URL** | https://github.com/temporalio/sdk-go/issues/1132 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-06-08 22:34:39.000 UTC (2y 6m ago) |
+| **Created** | 2023-06-08 22:34:39.000 UTC (2y 7m ago) |
 | **Updated** | 2023-06-08 22:34:39.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10466,7 +10579,7 @@ Go SDK ignores `EncodedFailureAttributes`.
 | **URL** | https://github.com/temporalio/sdk-go/issues/997 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-01-05 13:52:58.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 13:52:58.000 UTC (3 years ago) |
 | **Updated** | 2023-12-07 14:06:28.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10751,7 +10864,7 @@ Since we likely can't change this, we need to document the issue and discourage 
 | **URL** | https://github.com/temporalio/sdk-go/issues/619 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2021-11-08 14:34:24.000 UTC (4y 1m ago) |
+| **Created** | 2021-11-08 14:34:24.000 UTC (4y 2m ago) |
 | **Updated** | 2024-03-15 04:59:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10789,7 +10902,7 @@ Make tracing tags consistent across SDKs.
 | **URL** | https://github.com/temporalio/sdk-go/issues/514 |
 | **State** | OPEN |
 | **Author** | dynajoe (Joe Andaverde) |
-| **Created** | 2021-08-10 22:05:13.000 UTC (4y 4m ago) |
+| **Created** | 2021-08-10 22:05:13.000 UTC (4y 5m ago) |
 | **Updated** | 2021-10-28 13:46:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11099,7 +11212,7 @@ func TestWorkflow(ctx workflow.Context) error {
 | **URL** | https://github.com/temporalio/sdk-go/issues/335 |
 | **State** | OPEN |
 | **Author** | wolfy-j (Anton Tsitou) |
-| **Created** | 2021-01-12 17:39:34.000 UTC (4y 11m ago) |
+| **Created** | 2021-01-12 17:39:34.000 UTC (4y 12m ago) |
 | **Updated** | 2021-01-12 17:39:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11247,7 +11360,7 @@ https://community.temporal.io/t/migrating-a-workflow-activity-argument-to-a-prop
 | **URL** | https://github.com/temporalio/sdk-go/issues/186 |
 | **State** | OPEN |
 | **Author** | samarabbas (Samar Abbas) |
-| **Created** | 2020-07-10 07:17:48.000 UTC (5y 5m ago) |
+| **Created** | 2020-07-10 07:17:48.000 UTC (5y 6m ago) |
 | **Updated** | 2025-02-04 18:48:16.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11290,7 +11403,7 @@ https://pastebin.com/raw/zjZUNhyV
 | **URL** | https://github.com/temporalio/sdk-go/issues/125 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-05-10 18:50:14.000 UTC (5y 7m ago) |
+| **Created** | 2020-05-10 18:50:14.000 UTC (5y 8m ago) |
 | **Updated** | 2020-05-10 18:50:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

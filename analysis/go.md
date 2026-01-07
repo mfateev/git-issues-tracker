@@ -1,7 +1,7 @@
 # Temporal Go SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-02
-**Total Open Issues:** 163
+**Generated:** 2026-01-07
+**Total Open Issues:** 164
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-go/issues.md)
@@ -12,7 +12,7 @@
 
 ## Executive Summary
 
-The Go SDK has accumulated 163 open issues, with 71 issues older than 3 years. The testing framework is the largest pain point, with numerous issues around `TestWorkflowEnvironment` behavior discrepancies. This document analyzes the issues by category and proposes a structured approach to address them efficiently.
+The Go SDK has accumulated 164 open issues, with 71 issues older than 3 years. The testing framework is the largest pain point, with numerous issues around `TestWorkflowEnvironment` behavior discrepancies. This document analyzes the issues by category and proposes a structured approach to address them efficiently.
 
 ### Key Findings
 
@@ -23,7 +23,7 @@ The Go SDK has accumulated 163 open issues, with 71 issues older than 3 years. T
 | Confirmed Bugs | 15 | High - Core functionality |
 | Security Vulnerabilities | 1 | Medium |
 | Enhancement Requests | 89 | Medium - Feature parity/DX |
-| Stale Issues (>1 year) | 101 | Review for closure |
+| Stale Issues (>1 year) | 100 | Review for closure |
 
 ### User Engagement Summary
 
@@ -239,11 +239,12 @@ Session and worker lifecycle is a significant user pain point:
 | [#126](../repos/temporalio-sdk-go/issues.md#126) | Auto-heartbeating activities | 0 |
 | [#238](../repos/temporalio-sdk-go/issues.md#238) | RecordActivityHeartbeat return error on cancel | 0 |
 
-### 5.3 Tracing/OpenTelemetry (7 issues, 4 👍)
+### 5.3 Tracing/OpenTelemetry (8 issues, 4 👍)
 
 | Issue | Enhancement | 👍 |
 |-------|-------------|-----|
 | [#1149](../repos/temporalio-sdk-go/issues.md#1149) | Custom trace attribute keys | 4 |
+| [#2140](../repos/temporalio-sdk-go/issues.md#2140) | **OpenTelemetry incorrect metric type for Counter** (NEW) | 0 |
 | [#1445](../repos/temporalio-sdk-go/issues.md#1445) | OTel metric handler improvements | 0 |
 | [#1334](../repos/temporalio-sdk-go/issues.md#1334) | Opt-out tracer span on schedule create | 0 |
 | [#1330](../repos/temporalio-sdk-go/issues.md#1330) | Add TaskQueue to TracerStartSpanOptions | 0 |
@@ -278,12 +279,12 @@ Session and worker lifecycle is a significant user pain point:
 
 | Age | Count |
 |-----|-------|
-| Last 30 days | 3 |
-| 1-3 months | 10 |
-| 3-6 months | 5 |
-| 6-12 months | 16 |
-| 1-2 years | 30 |
-| 2-3 years | 28 |
+| Last 30 days | 1 |
+| 1-3 months | 11 |
+| 3-6 months | 7 |
+| 6-12 months | 15 |
+| 1-2 years | 32 |
+| 2-3 years | 27 |
 | **3+ years** | **71** |
 
 **71 issues are over 3 years old** - significant tech debt.

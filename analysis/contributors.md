@@ -1,10 +1,10 @@
 # Contributor Statistics
 
-**Generated:** 2026-01-02
-**Total Issues:** 1550
-**Total Comments:** 2377
-**Unique Issue Authors:** 504
-**Unique Commenters:** 729
+**Generated:** 2026-01-07
+**Total Issues:** 1564
+**Total Comments:** 2402
+**Unique Issue Authors:** 511
+**Unique Commenters:** 740
 
 ## Related Documents
 
@@ -18,12 +18,12 @@
 
 | Rank | Author | Issues | Repositories |
 |------|--------|--------|---------------|
-| 1 | [cretz](#cretz-252-issues) | 252 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 1 | [cretz](#cretz-253-issues) | 253 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 2 | [mfateev](#mfateev-90-issues) | 90 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 3 | [bergundy](#bergundy-71-issues) | 71 | temporalio/api, temporalio/features, temporalio/sdk-go... |
 | 4 | [Spikhalskiy](#spikhalskiy-70-issues) | 70 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 5 | [tsurdilo](#tsurdilo-59-issues) | 59 | temporalio/api, temporalio/features, temporalio/sdk-go... |
-| 6 | [Quinn-With-Two-Ns](#quinn-with-two-ns-53-issues) | 53 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 6 | [Quinn-With-Two-Ns](#quinn-with-two-ns-54-issues) | 54 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 7 | [lorensr](#lorensr-49-issues) | 49 | temporalio/api, temporalio/features, temporalio/sdk-typescript... |
 | 8 | [mjameswh](#mjameswh-35-issues) | 35 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 9 | [Sushisource](#sushisource-34-issues) | 34 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
@@ -51,29 +51,29 @@
 | 31 | [ndtretyak](#ndtretyak-5-issues) | 5 | temporalio/sdk-go, temporalio/temporal |
 | 32 | [gauravthadani](#gauravthadani-4-issues) | 4 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
 | 33 | [deepika-awasthi](#deepika-awasthi-4-issues) | 4 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
-| 34 | [underrun](#underrun-4-issues) | 4 | temporalio/sdk-go, temporalio/temporal |
-| 35 | [robzienert](#robzienert-4-issues) | 4 | temporalio/sdk-java |
-| 36 | [gregbrowndev](#gregbrowndev-4-issues) | 4 | temporalio/sdk-python, temporalio/temporal |
-| 37 | [rfwagner](#rfwagner-4-issues) | 4 | temporalio/temporal |
-| 38 | [taonic](#taonic-3-issues) | 3 | temporalio/api, temporalio/sdk-go, temporalio/temporal |
-| 39 | [madhav2302](#madhav2302-3-issues) | 3 | temporalio/features, temporalio/sdk-java |
-| 40 | [robholland](#robholland-3-issues) | 3 | temporalio/features, temporalio/temporal |
-| 41 | [robcao](#robcao-3-issues) | 3 | temporalio/sdk-dotnet |
-| 42 | [codemonkeycxy](#codemonkeycxy-3-issues) | 3 | temporalio/sdk-go |
-| 43 | [antlai-temporal](#antlai-temporal-3-issues) | 3 | temporalio/sdk-go |
-| 44 | [wolfy-j](#wolfy-j-3-issues) | 3 | temporalio/sdk-go, temporalio/sdk-java |
-| 45 | [leowmjw](#leowmjw-3-issues) | 3 | temporalio/sdk-go, temporalio/temporal |
-| 46 | [Albert-Coding](#albert-coding-3-issues) | 3 | temporalio/sdk-go, temporalio/temporal |
-| 47 | [yunmanger1](#yunmanger1-3-issues) | 3 | temporalio/sdk-java, temporalio/sdk-python |
-| 48 | [rpost](#rpost-3-issues) | 3 | temporalio/sdk-java |
-| 49 | [skrul](#skrul-3-issues) | 3 | temporalio/sdk-java, temporalio/temporal |
-| 50 | [jhecking](#jhecking-3-issues) | 3 | temporalio/sdk-typescript |
+| 34 | [jmaeagle99](#jmaeagle99-4-issues) | 4 | temporalio/sdk-dotnet |
+| 35 | [underrun](#underrun-4-issues) | 4 | temporalio/sdk-go, temporalio/temporal |
+| 36 | [robzienert](#robzienert-4-issues) | 4 | temporalio/sdk-java |
+| 37 | [gregbrowndev](#gregbrowndev-4-issues) | 4 | temporalio/sdk-python, temporalio/temporal |
+| 38 | [rfwagner](#rfwagner-4-issues) | 4 | temporalio/temporal |
+| 39 | [taonic](#taonic-3-issues) | 3 | temporalio/api, temporalio/sdk-go, temporalio/temporal |
+| 40 | [madhav2302](#madhav2302-3-issues) | 3 | temporalio/features, temporalio/sdk-java |
+| 41 | [robholland](#robholland-3-issues) | 3 | temporalio/features, temporalio/temporal |
+| 42 | [robcao](#robcao-3-issues) | 3 | temporalio/sdk-dotnet |
+| 43 | [codemonkeycxy](#codemonkeycxy-3-issues) | 3 | temporalio/sdk-go |
+| 44 | [antlai-temporal](#antlai-temporal-3-issues) | 3 | temporalio/sdk-go |
+| 45 | [wolfy-j](#wolfy-j-3-issues) | 3 | temporalio/sdk-go, temporalio/sdk-java |
+| 46 | [leowmjw](#leowmjw-3-issues) | 3 | temporalio/sdk-go, temporalio/temporal |
+| 47 | [Albert-Coding](#albert-coding-3-issues) | 3 | temporalio/sdk-go, temporalio/temporal |
+| 48 | [yunmanger1](#yunmanger1-3-issues) | 3 | temporalio/sdk-java, temporalio/sdk-python |
+| 49 | [rpost](#rpost-3-issues) | 3 | temporalio/sdk-java |
+| 50 | [skrul](#skrul-3-issues) | 3 | temporalio/sdk-java, temporalio/temporal |
 
 ## Comments by Author
 
 | Rank | Author | Comments | Repositories |
 |------|--------|----------|---------------|
-| 1 | cretz | 372 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 1 | cretz | 377 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 2 | bergundy | 131 | temporalio/features, temporalio/sdk-java, temporalio/sdk-typescript... |
 | 3 | Quinn-With-Two-Ns | 117 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 4 | mjameswh | 75 | temporalio/features, temporalio/sdk-java, temporalio/sdk-ruby... |
@@ -84,7 +84,7 @@
 | 9 | Sushisource | 34 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 10 | lorensr | 30 | temporalio/features, temporalio/sdk-typescript, temporalio/temporal |
 | 11 | yycptt | 24 | temporalio/temporal |
-| 12 | roxblnfk | 22 | temporalio/features, temporalio/sdk-php |
+| 12 | roxblnfk | 23 | temporalio/features, temporalio/sdk-php |
 | 13 | longquanzheng | 21 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
 | 14 | tconley1428 | 20 | temporalio/features, temporalio/sdk-python |
 | 15 | josh-berry | 19 | temporalio/features, temporalio/sdk-python, temporalio/temporal |
@@ -128,9 +128,9 @@
 
 | Rank | Author | Issues | Comments | Total |
 |------|--------|--------|----------|-------|
-| 1 | cretz | 252 | 372 | 624 |
+| 1 | cretz | 253 | 377 | 630 |
 | 2 | bergundy | 71 | 131 | 202 |
-| 3 | Quinn-With-Two-Ns | 53 | 117 | 170 |
+| 3 | Quinn-With-Two-Ns | 54 | 117 | 171 |
 | 4 | mfateev | 90 | 50 | 140 |
 | 5 | Spikhalskiy | 70 | 43 | 113 |
 | 6 | mjameswh | 35 | 75 | 110 |
@@ -143,7 +143,7 @@
 | 13 | longquanzheng | 23 | 21 | 44 |
 | 14 | dnr | 1 | 43 | 44 |
 | 15 | dandavison | 27 | 9 | 36 |
-| 16 | roxblnfk | 11 | 22 | 33 |
+| 16 | roxblnfk | 11 | 23 | 34 |
 | 17 | tconley1428 | 7 | 20 | 27 |
 | 18 | josh-berry | 6 | 19 | 25 |
 | 19 | alexshtin | 7 | 17 | 24 |
@@ -165,15 +165,15 @@
 | 35 | gregbrowndev | 4 | 7 | 11 |
 | 36 | wolfy-j | 3 | 8 | 11 |
 | 37 | maciejdudko | 8 | 2 | 10 |
-| 38 | d2201 | 0 | 10 | 10 |
-| 39 | neelance | 2 | 7 | 9 |
-| 40 | jlegrone | 1 | 8 | 9 |
-| 41 | jmaeagle99 | 2 | 6 | 8 |
-| 42 | hazcod | 2 | 6 | 8 |
-| 43 | xepozz | 1 | 7 | 8 |
-| 44 | Irvenae | 1 | 7 | 8 |
-| 45 | chris-olszewski | 6 | 1 | 7 |
-| 46 | THardy98 | 5 | 2 | 7 |
+| 38 | jmaeagle99 | 4 | 6 | 10 |
+| 39 | d2201 | 0 | 10 | 10 |
+| 40 | neelance | 2 | 7 | 9 |
+| 41 | jlegrone | 1 | 8 | 9 |
+| 42 | THardy98 | 5 | 3 | 8 |
+| 43 | hazcod | 2 | 6 | 8 |
+| 44 | xepozz | 1 | 7 | 8 |
+| 45 | Irvenae | 1 | 7 | 8 |
+| 46 | chris-olszewski | 6 | 1 | 7 |
 | 47 | robzienert | 4 | 3 | 7 |
 | 48 | freisenhauer | 1 | 6 | 7 |
 | 49 | ilijaNL | 1 | 6 | 7 |
@@ -183,7 +183,7 @@
 
 ## Issues by Author
 
-### cretz (252 issues)
+### cretz (253 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
@@ -286,6 +286,7 @@
 | sdk-dotnet | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
 | sdk-dotnet | [#576](../repos/temporalio-sdk-dotnet/issues.md#576) | [Feature Request] .NET Analyzer for Checking Workflows |
 | sdk-dotnet | [#578](../repos/temporalio-sdk-dotnet/issues.md#578) | [Feature Request] Add tests to confirm proper Nexus support for time-skipping environment |
+| sdk-dotnet | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | [Bug] Some unlikely workflow task failures like failure conversion issues may be lost |
 | sdk-dotnet | [#77](../repos/temporalio-sdk-dotnet/issues.md#77) | [Bug] Time skipping test server not auto skipping time properly in some cases |
 | sdk-go | [#1033](../repos/temporalio-sdk-go/issues.md#1033) | OnUpsertSearchAttributes and OnUpsertMemo unclear about mocking ability |
 | sdk-go | [#1035](../repos/temporalio-sdk-go/issues.md#1035) | Workflowcheck should check that serialized objects do not have unexported, non-json-ignored fields |
@@ -750,7 +751,7 @@
 | temporal | [#8631](../repos/temporalio-temporal/issues.md#8631) | Trying to create search attribute that already exists should return error |
 | temporal | [#8648](../repos/temporalio-temporal/issues.md#8648) | Add ExecutionStatus to visibility columns for archived executions |
 
-### Quinn-With-Two-Ns (53 issues)
+### Quinn-With-Two-Ns (54 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
@@ -806,6 +807,7 @@
 | sdk-java | [#2598](../repos/temporalio-sdk-java/issues.md#2598) | Allow specifying activity options for specific activity call |
 | sdk-java | [#2656](../repos/temporalio-sdk-java/issues.md#2656) | Springboot Multi Namespace: Add annotation to specify Namespace a bean belongs too |
 | sdk-java | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | Jackson 3 support |
+| sdk-java | [#2755](../repos/temporalio-sdk-java/issues.md#2755) | Support using Temporal failures in Nexus APIs |
 | sdk-typescript | [#1647](../repos/temporalio-sdk-typescript/issues.md#1647) | [Feature Request] Add summary to Nexus operation |
 
 ### lorensr (49 issues)
@@ -1338,6 +1340,15 @@
 | sdk-java | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present |
 | sdk-typescript | [#1862](../repos/temporalio-sdk-typescript/issues.md#1862) | [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error |
 
+### jmaeagle99 (4 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-dotnet | [#563](../repos/temporalio-sdk-dotnet/issues.md#563) | Use global.json file to centralize SDK version |
+| sdk-dotnet | [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | [Bug] Investigate test host crash flake |
+| sdk-dotnet | [#586](../repos/temporalio-sdk-dotnet/issues.md#586) | Separate unmanaged pointer lifecycle management into SafeHandles |
+| sdk-dotnet | [#587](../repos/temporalio-sdk-dotnet/issues.md#587) | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
+
 ### underrun (4 issues)
 
 | Repo | Issue | Title |
@@ -1539,13 +1550,6 @@
 | features | [#619](../repos/temporalio-features/issues.md#619) | Expose `StartWorkflowExecutionResponse` fields to `ExecuteWorkflow` API |
 | temporal | [#3165](../repos/temporalio-temporal/issues.md#3165) | Sync search attributes and ES schema |
 
-### jmaeagle99 (2 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-dotnet | [#563](../repos/temporalio-sdk-dotnet/issues.md#563) | Use global.json file to centralize SDK version |
-| sdk-dotnet | [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | [Bug] Investigate test host crash flake |
-
 ### loicsaintroch (2 issues)
 
 | Repo | Issue | Title |
@@ -1623,6 +1627,13 @@
 | sdk-java | [#2655](../repos/temporalio-sdk-java/issues.md#2655) | Testing server continue-as-new doesn't carry memo/search attributes |
 | temporal | [#6695](../repos/temporalio-temporal/issues.md#6695) | disable XDC cache when not using multi-cluster replication |
 
+### pvsone (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-java | [#2754](../repos/temporalio-sdk-java/issues.md#2754) | Environment Configuration does not read the correct file path on macOS |
+| sdk-typescript | [#1869](../repos/temporalio-sdk-typescript/issues.md#1869) | Environment Configuration does not read the correct file path on macOS |
+
 ### suityou01 (2 issues)
 
 | Repo | Issue | Title |
@@ -1658,6 +1669,13 @@
 | sdk-python | [#778](../repos/temporalio-sdk-python/issues.md#778) | [Bug] strange workflow task timeout |
 | temporal | [#7405](../repos/temporalio-temporal/issues.md#7405) | strange workflow task timeout |
 
+### NielsKSchjoedt (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-ruby | [#360](../repos/temporalio-sdk-ruby/issues.md#360) | Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment |
+| sdk-ruby | [#373](../repos/temporalio-sdk-ruby/issues.md#373) | ## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64 |
+
 ### neelance (2 issues)
 
 | Repo | Issue | Title |
@@ -1692,6 +1710,13 @@
 |------|-------|-------|
 | sdk-typescript | [#1713](../repos/temporalio-sdk-typescript/issues.md#1713) | [Feature Request] Pass webpack obj as the second parameter when calling webpackConfigHook |
 | sdk-typescript | [#1715](../repos/temporalio-sdk-typescript/issues.md#1715) | If a serializable value is provided as a SearchAttribute, serialize it instead of throwing the error: "SearchAttribute values must arrays of strings, numbers, booleans, or Dates. The value * at index 0 is of type object" |
+
+### jmcnevin (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#1485](../repos/temporalio-temporal/issues.md#1485) | Provide default mapping for authorizer roles to API names |
+| temporal | [#8943](../repos/temporalio-temporal/issues.md#8943) | No admin-tools image for 1.29.2 |
 
 ### bouk (2 issues)
 
@@ -2009,6 +2034,12 @@
 |------|-------|-------|
 | sdk-dotnet | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux |
 
+### neeraj-mathur (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-dotnet | [#585](../repos/temporalio-sdk-dotnet/issues.md#585) | Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds |
+
 ### qiuyijie-stripe (1 issues)
 
 | Repo | Issue | Title |
@@ -2188,6 +2219,12 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-go | [#2131](../repos/temporalio-sdk-go/issues.md#2131) | Configurable minRPCTimeout for activity worker instead of using MaxHeartbeatThrottleInterval for RPC timeout. And allow retry manually when network error.. |
+
+### LaurynasKatkus (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-go | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | OpenTelemetry incorrect metric type for Counter |
 
 ### sjmtan (1 issues)
 
@@ -2585,6 +2622,12 @@
 |------|-------|-------|
 | sdk-php | [#670](../repos/temporalio-sdk-php/issues.md#670) | [Feature Request] Symfony 8.0 support |
 
+### adepretis (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-php | [#689](../repos/temporalio-sdk-php/issues.md#689) | [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs` |
+
 ### surki (1 issues)
 
 | Repo | Issue | Title |
@@ -2662,6 +2705,12 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-python | [#399](../repos/temporalio-sdk-python/issues.md#399) | [Bug] Older Python versions cannot auto-import activity return class in sandbox |
+
+### ntessman-capsule (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-python | [#429](../repos/temporalio-sdk-python/issues.md#429) | [Bug] asyncio.wait is non-deterministic when used with coroutines instead of tasks |
 
 ### wilsoniya (1 issues)
 
@@ -2788,12 +2837,6 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-ruby | [#315](../repos/temporalio-sdk-ruby/issues.md#315) | [Bug] ScopedLogger fails attempting to compare symbol to integer for libraries like semantic_logger |
-
-### NielsKSchjoedt (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-ruby | [#360](../repos/temporalio-sdk-ruby/issues.md#360) | Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment |
 
 ### Irvenae (1 issues)
 
@@ -2981,7 +3024,7 @@
 |------|-------|-------|
 | sdk-typescript | [#1749](../repos/temporalio-sdk-typescript/issues.md#1749) | [Bug] Workflow task not found after SDK upgrade |
 
-### d-pylypenko (1 issues)
+### corelix (1 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
@@ -3094,12 +3137,6 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | temporal | [#1423](../repos/temporalio-temporal/issues.md#1423) | Make output streams of logger configurable perfectly |
-
-### jmcnevin (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| temporal | [#1485](../repos/temporalio-temporal/issues.md#1485) | Provide default mapping for authorizer roles to API names |
 
 ### danielwang5 (1 issues)
 
@@ -4234,6 +4271,18 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | temporal | [#8909](../repos/temporalio-temporal/issues.md#8909) | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
+
+### HeartLF (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#8953](../repos/temporalio-temporal/issues.md#8953) | The scheduled time is incorrect. |
+
+### PurpleSquirrelMedia (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#8955](../repos/temporalio-temporal/issues.md#8955) | MCP Server for Temporal Workflows |
 
 ### doqtri (1 issues)
 

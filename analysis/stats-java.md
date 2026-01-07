@@ -1,6 +1,6 @@
 # Java SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/sdk-java
 **Data Source:** [issues.md](../repos/temporalio-sdk-java/issues.md)
 
@@ -16,16 +16,16 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 215 |
+| Total Open Issues | 217 |
 | Bugs | 33 |
-| Enhancements/Features | 126 |
+| Enhancements/Features | 127 |
 | Security Issues | 4 |
 | Total Upvotes (👍) | 104 |
 | Total Comments | 203 |
 | Issues with Upvotes | 37 (17%) |
 | Issues with Comments | 86 (40%) |
-| Average Age (days) | 983 |
-| Stale Issues (>12 months) | 155 (72%) |
+| Average Age (days) | 979 |
+| Stale Issues (>12 months) | 156 (72%) |
 
 ---
 
@@ -33,13 +33,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 6 | 3% |
+| Last 30 days | 7 | 3% |
 | 1-3 months | 7 | 3% |
-| 3-6 months | 13 | 6% |
-| 6-12 months | 16 | 7% |
-| 1-2 years | 37 | 17% |
-| 2-3 years | 33 | 15% |
-| 3+ years | 103 | 48% |
+| 3-6 months | 12 | 6% |
+| 6-12 months | 17 | 8% |
+| 1-2 years | 38 | 18% |
+| 2-3 years | 32 | 15% |
+| 3+ years | 104 | 48% |
 
 ---
 
@@ -110,12 +110,13 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-05 | [#2755](../repos/temporalio-sdk-java/issues.md#2755) | 0 | Support using Temporal failures in Nexus APIs |
+| 2026-01-04 | [#2754](../repos/temporalio-sdk-java/issues.md#2754) | 0 | Environment Configuration does not read the correct file pat... |
 | 2025-12-31 | [#2753](../repos/temporalio-sdk-java/issues.md#2753) | 0 | Unexpected Activity Timeout Behavior After Worker Crash & Ne... |
 | 2025-12-30 | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for upda... |
 | 2025-12-28 | [#2750](../repos/temporalio-sdk-java/issues.md#2750) | 0 | Tests not passing: TestStatsReporter Flush not flushing |
 | 2025-12-12 | [#2747](../repos/temporalio-sdk-java/issues.md#2747) | 0 | @WorkflowImpl(workers = "...") should support Spring propert... |
 | 2025-12-09 | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | 3 | Jackson 3 support |
-| 2025-12-08 | [#2745](../repos/temporalio-sdk-java/issues.md#2745) | 0 | WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue |
 
 ---
 
@@ -123,7 +124,7 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 126 |
+| enhancement | 127 |
 | test server | 37 |
 | bug | 33 |
 | mend: dependency security vulnerability | 4 |
@@ -173,7 +174,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (155 issues with no activity >12 months)
+## Stale Issues (156 issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -200,4 +201,4 @@ Top stale issues by upvotes:
 | [#1241](../repos/temporalio-sdk-java/issues.md#1241) | 1 | 2024-03-21 | DynamicWorkflow not taking in account WorkflowImpl... |
 | [#1211](../repos/temporalio-sdk-java/issues.md#1211) | 1 | 2022-08-10 | MDC context logging properties not propagating ins... |
 
-*...and 135 more stale issues*
+*...and 136 more stale issues*

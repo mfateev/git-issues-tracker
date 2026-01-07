@@ -1,7 +1,7 @@
 # Temporal Python SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-02
-**Total Open Issues:** 115
+**Generated:** 2026-01-07
+**Total Open Issues:** 116
 **Repository:** [temporalio/sdk-python](https://github.com/temporalio/sdk-python)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-python/issues.md)
@@ -19,7 +19,7 @@ The Python SDK has 115 open issues with sandbox/debugging being the primary pain
 | Category | Count | Priority |
 |----------|-------|----------|
 | Enhancement Requests | 65 | Medium |
-| Bugs | 46 | High - Core functionality |
+| Bugs | 47 | High - Core functionality |
 | Stale Issues (>1 year) | 52 | Review for closure |
 
 ### User Engagement Summary
@@ -27,9 +27,9 @@ The Python SDK has 115 open issues with sandbox/debugging being the primary pain
 | Metric | Value |
 |--------|-------|
 | Total Upvotes (👍) | 31 |
-| Total Comments | 206 |
+| Total Comments | 212 |
 | Issues with Upvotes | 17 (15%) |
-| Issues with Comments | 54 (47%) |
+| Issues with Comments | 55 (47%) |
 
 ### Recommended Actions
 

@@ -1,7 +1,7 @@
 # Temporal Server - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-02
-**Total Open Issues:** 530
+**Generated:** 2026-01-07
+**Total Open Issues:** 533
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-temporal/issues.md)
@@ -12,14 +12,14 @@
 
 ## Executive Summary
 
-The Temporal Server has 530 open issues with exceptional community engagement (899 upvotes, 865 comments). Top requests focus on workflow capabilities (#680 - external workflow wait, 70 upvotes) and priority task queues (#1507, 50 upvotes). The repo has significant tech debt with 218 issues older than 3 years.
+The Temporal Server has 533 open issues with exceptional community engagement (900 upvotes, 872 comments). **Two new CVEs reported this week require immediate patching.** Top requests focus on workflow capabilities (#680 - external workflow wait, 70 upvotes) and priority task queues (#1507, 50 upvotes). The repo has significant tech debt with 218 issues older than 3 years.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Enhancements | 349 | Medium - Feature requests |
-| Potential Bugs | 126 | High - Need investigation |
+| Enhancements | 353 | Medium - Feature requests |
+| Potential Bugs | 128 | High - Need investigation |
 | Confirmed Bugs | 11 | High |
 | Up-for-grabs | 30 | Community contribution |
 | Stale Issues (>3 years) | 218 | Review for closure |
@@ -28,10 +28,50 @@ The Temporal Server has 530 open issues with exceptional community engagement (8
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes (👍) | 899 |
-| Total Comments | 865 |
-| Issues with Upvotes | 143 (27%) |
-| Issues with Comments | 285 (54%) |
+| Total Upvotes (👍) | 900 |
+| Total Comments | 872 |
+| Issues with Upvotes | 144 (27%) |
+| Issues with Comments | 290 (55%) |
+
+---
+
+## URGENT: Security Vulnerabilities (New This Week)
+
+Two CVEs were reported in the golang crypto library:
+
+| Issue | CVE | Description |
+|-------|-----|-------------|
+| [#8866](../repos/temporalio-temporal/issues.md#8866) | CVE-2025-61729 | golang:crypto/x509 vulnerability |
+| [#8865](../repos/temporalio-temporal/issues.md#8865) | CVE-2025-61727 | golang:crypto/x509 vulnerability |
+
+**Recommendation:** Prioritize patching these in the next server release.
+
+---
+
+## Recent Issues (Last 30 Days)
+
+12 new issues including security vulnerabilities and operational concerns:
+
+| Date | Issue | Type | Description |
+|------|-------|------|-------------|
+| 2026-01-07 | [#8955](../repos/temporalio-temporal/issues.md#8955) | Enhancement | **MCP Server for Temporal Workflows** (NEW) |
+| 2026-01-07 | [#8953](../repos/temporalio-temporal/issues.md#8953) | Bug | **Scheduled time incorrect** (NEW) |
+| 2026-01-06 | [#8943](../repos/temporalio-temporal/issues.md#8943) | Bug | Missing admin-tools image for 1.29.2 |
+| 2025-12-29 | [#8909](../repos/temporalio-temporal/issues.md#8909) | Bug | Elasticsearch deprecation warnings in v1.29.1 |
+| 2025-12-24 | [#8902](../repos/temporalio-temporal/issues.md#8902) | Bug | **History service memory leak** |
+| 2025-12-24 | [#8901](../repos/temporalio-temporal/issues.md#8901) | Enhancement | Skip re-executing completed activities |
+| 2025-12-20 | [#8889](../repos/temporalio-temporal/issues.md#8889) | Enhancement | PR review enhancement with Hikari |
+| 2025-12-18 | [#8866](../repos/temporalio-temporal/issues.md#8866) | **Security** | CVE-2025-61729 |
+| 2025-12-18 | [#8865](../repos/temporalio-temporal/issues.md#8865) | **Security** | CVE-2025-61727 |
+| 2025-12-18 | [#8864](../repos/temporalio-temporal/issues.md#8864) | Bug | PostgreSQL "Workflow Task in failed state" |
+| 2025-12-16 | [#8833](../repos/temporalio-temporal/issues.md#8833) | Bug | Scheduler not showing triggerImmediately runs |
+| 2025-12-10 | [#8790](../repos/temporalio-temporal/issues.md#8790) | Bug | history_node table unbounded growth |
+
+**Patterns:**
+- Security vulnerabilities need immediate attention
+- History service memory issues (#8902) need investigation
+- Database growth issues (#8790) affect scale operations
+- Multiple scheduler/timing issues (#8953, #8833) need investigation
 
 ---
 
@@ -134,11 +174,11 @@ The Temporal Server has 530 open issues with exceptional community engagement (8
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 10 | 2% |
-| 1-3 months | 20 | 4% |
-| 3-6 months | 19 | 4% |
-| 6-12 months | 46 | 9% |
-| 1-2 years | 137 | 26% |
+| Last 30 days | 12 | 2% |
+| 1-3 months | 18 | 3% |
+| 3-6 months | 22 | 4% |
+| 6-12 months | 45 | 8% |
+| 1-2 years | 138 | 26% |
 | 2-3 years | 80 | 15% |
 | 3+ years | 218 | **41%** |
 

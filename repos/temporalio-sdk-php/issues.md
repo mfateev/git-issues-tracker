@@ -1,9 +1,9 @@
 # temporalio/sdk-php - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 47
+**Generated:** 2026-01-07
+**Total Issues:** 48
 **Total Upvotes:** 12
-**Total Comments:** 66
+**Total Comments:** 67
 
 ## Table of Contents
 
@@ -16,18 +16,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 47 |
+| Open Issues | 48 |
 | Issues with Upvotes | 7 (15%) |
 | Total Upvotes | 12 |
-| Total Comments | 66 |
+| Total Comments | 67 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
 | enhancement | 29 |
+| Bug | 8 |
 | Tests | 8 |
-| Bug | 7 |
 | Question | 5 |
 | Feature | 2 |
 | Documentation | 1 |
@@ -56,6 +56,7 @@
 | [#532](#532) | 0 | 2 | [Question] Asynchronous child workflow execution problem |
 | [#501](#501) | 0 | 2 | Repair or disable Windows tests in CI |
 | [#419](#419) | 0 | 2 | [Feature Request] Divide Workflow stub objects and Workflow proxy objects |
+| [#689](#689) | 0 | 1 | [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs` |
 | [#654](#654) | 0 | 1 | [Bug] upsertTypedSearchAttributes in test server |
 | [#382](#382) | 0 | 1 | [Bug] Methods without ActivityMethod attribute are registered as Activities (even magic) |
 | [#244](#244) | 0 | 1 | [Feature Request] FailureConverter allow more context in ordinary exceptions |
@@ -101,7 +102,7 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 | **URL** | https://github.com/temporalio/sdk-php/issues/592 |
 | **State** | OPEN |
 | **Author** | roxblnfk (Aleksei Gagarin) |
-| **Created** | 2025-04-09 10:19:54.000 UTC (8 months ago) |
+| **Created** | 2025-04-09 10:19:54.000 UTC (9 months ago) |
 | **Updated** | 2025-05-29 08:05:31.000 UTC |
 | **Upvotes** | 5 |
 | **Comments** | 6 |
@@ -1459,7 +1460,7 @@ Also it would be nice if you attach the additional information:
 | **URL** | https://github.com/temporalio/sdk-php/issues/580 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-03-11 14:17:26.000 UTC (9 months ago) |
+| **Created** | 2025-03-11 14:17:26.000 UTC (10 months ago) |
 | **Updated** | 2025-11-14 08:59:55.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -2113,7 +2114,7 @@ Feature and Acceptance tests on Windows still fail with error code `-1073741819`
 | **URL** | https://github.com/temporalio/sdk-php/issues/419 |
 | **State** | OPEN |
 | **Author** | roxblnfk (Aleksei Gagarin) |
-| **Created** | 2024-04-12 13:28:38.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-12 13:28:38.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-16 14:37:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -2182,6 +2183,119 @@ $wfClient->newUntypedRunningWorkflowStub($type, ...); // WorkflowStubInterface
 ```
 
 Reactions: ❤️ 1
+
+</details>
+
+
+---
+
+<a id="689"></a>
+
+### #689: [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs`
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-php/issues/689 |
+| **State** | OPEN |
+| **Author** | adepretis (Andreas de Pretis) |
+| **Created** | 2026-01-07 12:19:49.000 UTC (0 days ago) |
+| **Updated** | 2026-01-07 13:14:34.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### What are you really trying to do?
+
+Installing the Temporal PHP SDK using composer with `--ignore-platform-reqs`.
+
+### Describe the bug
+
+The Temporal PHP SDK does not adhere to common practices for composer installations and is checking `grpc` availability in the code.
+
+There are plenty of use-cases to run `composer install --ignore-platform-reqs` which allows installing composer packages without checking for e.g. installed PHP extensions.
+
+A PHP package would typically define its platform requirements in `composer.json`. Temporal does that too for the correct PHP version and PHP's `curl` and `json` extension.
+
+```
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+```
+
+What is missing here though is
+
+```
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-grpc": "*",
+```
+
+Instead the `grpc` availability is check in https://github.com/temporalio/sdk-php/blob/master/src/Client/GRPC/BaseClient.php#L99-L101.
+
+Normally this is not an issue, but in case of [Laravel's package discovery](https://greasy.dev/en/blog/laravel-package-auto-discovery-explained) the PHP code seems to be executed and fails - wether `--ignore-platform-reqs` is given or not.
+
+```
+   RuntimeException
+
+  The gRPC extension is required to use Temporal Client.
+
+  at vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:72
+     68▕      */
+     69▕     public static function create(string $address): static
+     70▕     {
+     71▕         if (!\extension_loaded('grpc')) {
+  ➜  72▕             throw new \RuntimeException('The gRPC extension is required to use Temporal Client.');
+     73▕         }
+     74▕
+     75▕         return new static(static fn(): WorkflowServiceClient => new WorkflowServiceClient(
+     76▕             $address,
+```
+
+Also, for some reason, adding `temporal/sdk` to `composer.json` doesn't help either:
+
+```
+      "extra": {
+          "laravel": {
+              "dont-discover": ["temporal/sdk"]
+          }
+      },
+```
+
+### Minimal Reproduction
+
+- create a Laravel project
+- if not created by Laravel bootstrapping add the following to `composer.json`
+
+```
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+```
+
+- run `composer install --ignore-platform-reqs` with no `grpc` extension installed
+
+
+### Environment/Versions
+
+- Temporal SDK version: 2.16.0
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>roxblnfk</strong> commented on 2026-01-07 13:14:34.000 UTC</summary>
+
+Related issue: https://github.com/temporalio/sdk-php/issues/394
 
 </details>
 
@@ -2291,7 +2405,7 @@ I'm not sure that search attributes are supported by the test server at all
 | **URL** | https://github.com/temporalio/sdk-php/issues/382 |
 | **State** | OPEN |
 | **Author** | roxblnfk (Aleksei Gagarin) |
-| **Created** | 2024-01-05 14:14:35.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-05 14:14:35.000 UTC (2 years ago) |
 | **Updated** | 2025-12-20 08:05:59.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -2393,7 +2507,7 @@ interface HasFailureInfo
 | **URL** | https://github.com/temporalio/sdk-php/issues/670 |
 | **State** | OPEN |
 | **Author** | xepozz (Dmitrii Derepko) |
-| **Created** | 2025-12-18 18:07:27.000 UTC (15 days ago) |
+| **Created** | 2025-12-18 18:07:27.000 UTC (20 days ago) |
 | **Updated** | 2025-12-18 18:07:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2436,7 +2550,7 @@ It would be great to support symfony 8.0 packages, there are some in the sdk's "
 | **URL** | https://github.com/temporalio/sdk-php/issues/668 |
 | **State** | OPEN |
 | **Author** | FluffyDiscord (Honk) |
-| **Created** | 2025-12-06 18:03:27.000 UTC (27 days ago) |
+| **Created** | 2025-12-06 18:03:27.000 UTC (1 months ago) |
 | **Updated** | 2025-12-06 18:03:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3191,7 +3305,7 @@ See https://github.com/temporalio/features/issues/603, need a simple payload wra
 | **URL** | https://github.com/temporalio/sdk-php/issues/567 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-11 20:44:24.000 UTC (10 months ago) |
+| **Created** | 2025-02-11 20:44:24.000 UTC (11 months ago) |
 | **Updated** | 2025-02-11 20:44:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3249,7 +3363,7 @@ See temporalio/features#591 for details.
 | **URL** | https://github.com/temporalio/sdk-php/issues/545 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 14:03:22.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 14:03:22.000 UTC (1 years ago) |
 | **Updated** | 2025-01-07 14:03:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3276,7 +3390,7 @@ Users need a static workflow-local var that is scoped only to the current workfl
 | **URL** | https://github.com/temporalio/sdk-php/issues/524 |
 | **State** | OPEN |
 | **Author** | KorDum (KorDum) |
-| **Created** | 2024-11-07 16:27:04.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-07 16:27:04.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-07 17:21:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

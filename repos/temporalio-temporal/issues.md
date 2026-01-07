@@ -1,9 +1,9 @@
 # temporalio/temporal - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 530
-**Total Upvotes:** 899
-**Total Comments:** 865
+**Generated:** 2026-01-07
+**Total Issues:** 533
+**Total Upvotes:** 900
+**Total Comments:** 872
 
 ## Table of Contents
 
@@ -16,17 +16,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 530 |
-| Issues with Upvotes | 143 (27%) |
-| Total Upvotes | 899 |
-| Total Comments | 865 |
+| Open Issues | 533 |
+| Issues with Upvotes | 144 (27%) |
+| Total Upvotes | 900 |
+| Total Comments | 872 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
 | enhancement | 349 |
-| potential-bug | 126 |
+| potential-bug | 128 |
 | up-for-grabs | 30 |
 | API | 25 |
 | difficulty: easy | 20 |
@@ -190,6 +190,7 @@
 | [#960](#960) | 2 | 0 | Support for in memory db and setup for running temporal with limited resources |
 | [#778](#778) | 0 | 4 | Add ScheduleToStart timeout to WorkflowTaskScheduledEvent |
 | [#674](#674) | 0 | 4 | Heartbeat WorkflowTask during history pagination |
+| [#8833](#8833) | 0 | 3 | Scheduler does not list workflows runned when using "triggerImmediately" |
 | [#8764](#8764) | 1 | 1 | Listing workflows and activities from temporal sdk |
 | [#8611](#8611) | 0 | 3 | Allowing workflow to specify max retry attempts / duration before an activity starts throwing non-BENIGN errors |
 | [#8432](#8432) | 0 | 3 | Set log level of dynamic config updated message in file_based_client to warn instead of info |
@@ -213,6 +214,7 @@
 | [#5436](#5436) | 0 | 3 | 503 in api/v1/namespaces/<your_namespace>/search-attributes? sometime |
 | [#5171](#5171) | 0 | 3 | Timeout on complete when invalid task token passed |
 | [#5135](#5135) | 0 | 3 | Support more direct/immediate notification of a cancelled activity |
+| [#4979](#4979) | 1 | 1 | Support waiting for Admitted stage on UpdateWorkflowExecution |
 | [#4887](#4887) | 0 | 3 | Prepopulate run_id in schedule future_action_times |
 | [#4778](#4778) | 0 | 3 | I want to be able to print log files separately by date |
 | [#4463](#4463) | 1 | 1 | Cache event history from query tasks |
@@ -290,9 +292,12 @@
 | [#109](#109) | 0 | 2 | Docker: Docker image with schema loaded |
 | [#108](#108) | 0 | 2 | Make temporal docker to not emit noisy logs |
 | [#8909](#8909) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
+| [#8901](#8901) | 0 | 1 | Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option) |
 | [#8698](#8698) | 0 | 1 | [Security] Review & Fix Multiple CVEs affecting Go standard libraries |
 | [#8655](#8655) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-tools:1.29.1 |
 | [#8654](#8654) | 0 | 1 | Unable to view workflows in UI |
+| [#8652](#8652) | 0 | 1 | Documenting the current state of ScyllaDB as a Cassandra-compatible Backend |
+| [#8631](#8631) | 0 | 1 | Trying to create search attribute that already exists should return error |
 | [#8608](#8608) | 0 | 1 | Support opt-in ability to get workflow input and output (if closed) on describe workflow |
 | [#8537](#8537) | 0 | 1 | Add first execution run ID for already-started start workflow results |
 | [#8431](#8431) | 0 | 1 | Docker deployment TEMPORAL_ADMINTOOLS_VERSION |
@@ -373,17 +378,16 @@
 | [#266](#266) | 0 | 1 | Matching service degradation due to large number of task lists |
 | [#19](#19) | 0 | 1 | Clear indication that service is up and running |
 | [#13](#13) | 0 | 1 | Multi-phase activities |
+| [#8955](#8955) | 0 | 0 | MCP Server for Temporal Workflows |
+| [#8953](#8953) | 0 | 0 | The scheduled time is incorrect. |
+| [#8943](#8943) | 0 | 0 | No admin-tools image for 1.29.2 |
 | [#8902](#8902) | 0 | 0 | History service memory usage upward trend |
-| [#8901](#8901) | 0 | 0 | Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option) |
 | [#8889](#8889) | 0 | 0 | Enhancing Temporal PR Review and Release Confidence with Hikaflow |
 | [#8866](#8866) | 0 | 0 | Address security vulnerability CVE-2025-61729 for golang:crypto/x509 |
 | [#8865](#8865) | 0 | 0 | Address security vulnerability CVE-2025-61727 for golang:crypto/x509 |
 | [#8864](#8864) | 0 | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state." |
-| [#8833](#8833) | 0 | 0 | Scheduler does not list workflows runned when using "triggerImmediately" |
 | [#8790](#8790) | 0 | 0 | history_node table keeps growing |
-| [#8652](#8652) | 0 | 0 | Documenting the current state of ScyllaDB as a Cassandra-compatible Backend |
 | [#8648](#8648) | 0 | 0 | Add ExecutionStatus to visibility columns for archived executions |
-| [#8631](#8631) | 0 | 0 | Trying to create search attribute that already exists should return error |
 | [#8579](#8579) | 0 | 0 | Addressing security vulnerabilities in the Temporalio/server:1.29 1.29.1 |
 | [#8538](#8538) | 0 | 0 | Provide user identity on user-initiated events |
 | [#8097](#8097) | 0 | 0 | Carryover instead of reject incoming signals upon continueAsNew |
@@ -476,7 +480,6 @@
 | [#5047](#5047) | 0 | 0 | Config option to turn off "ignoring permission in unexpected format" error message |
 | [#5005](#5005) | 0 | 0 | Schedules: Allow overriding search attributes when backfilling |
 | [#4984](#4984) | 0 | 0 | Schedules: Make it possible to list buffered executions |
-| [#4979](#4979) | 0 | 0 | Support waiting for Admitted stage on UpdateWorkflowExecution |
 | [#4958](#4958) | 0 | 0 | GetMutableStateRequest is used in poll mutable state  |
 | [#4957](#4957) | 0 | 0 | CurrentBranchChanged Error should use event id + version as branch id |
 | [#4934](#4934) | 0 | 0 | The Rate and Burst functions of DynamicRateLimiterImpl are unsafe |
@@ -1691,7 +1694,7 @@ Hi there, I have completed the mongodb persistence implementation. You can check
 | **URL** | https://github.com/temporalio/temporal/issues/5680 |
 | **State** | OPEN |
 | **Author** | jsecchiero (Jacopo Secchiero) |
-| **Created** | 2024-04-08 12:11:43.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-08 12:11:43.000 UTC (1y 9m ago) |
 | **Updated** | 2025-10-07 12:15:29.000 UTC |
 | **Upvotes** | 30 |
 | **Comments** | 14 |
@@ -1936,7 +1939,7 @@ but the first operation is not, as far as I know, exposed via the sdk (only Exec
 | **URL** | https://github.com/temporalio/temporal/issues/131 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-02-09 19:38:55.000 UTC (5y 10m ago) |
+| **Created** | 2020-02-09 19:38:55.000 UTC (5y 11m ago) |
 | **Updated** | 2024-07-30 07:25:29.000 UTC |
 | **Upvotes** | 28 |
 | **Comments** | 4 |
@@ -2207,7 +2210,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/temporal/issues/2609 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2022-03-14 18:51:43.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-14 18:51:43.000 UTC (3y 10m ago) |
 | **Updated** | 2024-10-12 07:26:17.000 UTC |
 | **Upvotes** | 23 |
 | **Comments** | 7 |
@@ -3184,7 +3187,7 @@ Reactions: 👍 3 👀 2
 | **URL** | https://github.com/temporalio/temporal/issues/298 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-04-12 20:31:53.000 UTC (5y 8m ago) |
+| **Created** | 2020-04-12 20:31:53.000 UTC (5y 9m ago) |
 | **Updated** | 2024-11-25 04:20:52.000 UTC |
 | **Upvotes** | 14 |
 | **Comments** | 4 |
@@ -3813,7 +3816,7 @@ This needs to work for millions of users (and growing).
 | **URL** | https://github.com/temporalio/temporal/issues/130 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-02-09 19:35:47.000 UTC (5y 10m ago) |
+| **Created** | 2020-02-09 19:35:47.000 UTC (5y 11m ago) |
 | **Updated** | 2023-03-03 20:23:27.000 UTC |
 | **Upvotes** | 6 |
 | **Comments** | 11 |
@@ -5377,7 +5380,7 @@ Hi Team, any update on the fix for this as we are also observing continuously in
 | **URL** | https://github.com/temporalio/temporal/issues/5516 |
 | **State** | OPEN |
 | **Author** | omm-mishra |
-| **Created** | 2024-03-12 10:18:37.000 UTC (1y 9m ago) |
+| **Created** | 2024-03-12 10:18:37.000 UTC (1y 10m ago) |
 | **Updated** | 2025-10-10 14:59:23.000 UTC |
 | **Upvotes** | 7 |
 | **Comments** | 1 |
@@ -5582,7 +5585,7 @@ Default authorizer require "sub" claim which should be optional and not mandator
 | **URL** | https://github.com/temporalio/temporal/issues/3309 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2022-09-06 16:16:45.000 UTC (3y 3m ago) |
+| **Created** | 2022-09-06 16:16:45.000 UTC (3y 4m ago) |
 | **Updated** | 2023-12-08 16:57:04.000 UTC |
 | **Upvotes** | 7 |
 | **Comments** | 1 |
@@ -5678,7 +5681,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/temporal/issues/804 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-10-06 16:58:58.000 UTC (5y 2m ago) |
+| **Created** | 2020-10-06 16:58:58.000 UTC (5y 3m ago) |
 | **Updated** | 2021-07-04 07:04:35.000 UTC |
 | **Upvotes** | 5 |
 | **Comments** | 5 |
@@ -6518,7 +6521,7 @@ We would definitely consider a config interface to set this.
 | **URL** | https://github.com/temporalio/temporal/issues/4044 |
 | **State** | OPEN |
 | **Author** | zedongh (zedongh) |
-| **Created** | 2023-03-11 05:58:33.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-11 05:58:33.000 UTC (2y 10m ago) |
 | **Updated** | 2025-04-07 20:09:47.000 UTC |
 | **Upvotes** | 5 |
 | **Comments** | 2 |
@@ -7594,7 +7597,7 @@ Total: 76 (UNKNOWN: 4, LOW: 8, MEDIUM: 42, HIGH: 18, CRITICAL: 4)
 | **URL** | https://github.com/temporalio/temporal/issues/5286 |
 | **State** | OPEN |
 | **Author** | kevink1103 (Kevin (bum)) |
-| **Created** | 2024-01-12 02:21:17.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-12 02:21:17.000 UTC (1y 12m ago) |
 | **Updated** | 2025-04-14 11:38:17.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 3 |
@@ -8889,7 +8892,7 @@ Is there a workaround people are currently using to handle this issue?
 | **URL** | https://github.com/temporalio/temporal/issues/8461 |
 | **State** | OPEN |
 | **Author** | Pramodh-G (Pramodh Gopalan V) |
-| **Created** | 2025-10-09 18:18:31.000 UTC (2 months ago) |
+| **Created** | 2025-10-09 18:18:31.000 UTC (3 months ago) |
 | **Updated** | 2025-11-19 06:57:52.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 3 |
@@ -9469,7 +9472,7 @@ This was closed by mistake (due to a faulty integration). Reopening it.
 | **URL** | https://github.com/temporalio/temporal/issues/7894 |
 | **State** | OPEN |
 | **Author** | Mahee777 |
-| **Created** | 2025-06-10 12:16:22.000 UTC (6 months ago) |
+| **Created** | 2025-06-10 12:16:22.000 UTC (7 months ago) |
 | **Updated** | 2025-07-29 08:06:03.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 2 |
@@ -9551,7 +9554,7 @@ Temporal UI Version | 2.38.3
 | **URL** | https://github.com/temporalio/temporal/issues/7600 |
 | **State** | OPEN |
 | **Author** | ozeranskii (Sergei Ozeranskii) |
-| **Created** | 2025-04-11 18:51:11.000 UTC (8 months ago) |
+| **Created** | 2025-04-11 18:51:11.000 UTC (9 months ago) |
 | **Updated** | 2025-04-22 06:37:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 6 |
@@ -10360,7 +10363,7 @@ From the error message, it seems even if the config provided multiple IP address
 | **URL** | https://github.com/temporalio/temporal/issues/2341 |
 | **State** | OPEN |
 | **Author** | danielhochman (Daniel Hochman) |
-| **Created** | 2022-01-04 20:12:59.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-04 20:12:59.000 UTC (4 years ago) |
 | **Updated** | 2023-03-03 20:21:13.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 4 |
@@ -11130,7 +11133,7 @@ I have a different issue, specifically unsymbolicated issues with temporal swift
 | **URL** | https://github.com/temporalio/temporal/issues/5693 |
 | **State** | OPEN |
 | **Author** | zoulja |
-| **Created** | 2024-04-10 12:57:09.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-10 12:57:09.000 UTC (1y 9m ago) |
 | **Updated** | 2024-07-17 16:43:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 5 |
@@ -11428,7 +11431,7 @@ Let's close this since tctl is deprecated. cc @bergundy for confirmation to clos
 | **URL** | https://github.com/temporalio/temporal/issues/4151 |
 | **State** | OPEN |
 | **Author** | longquanzheng (Quanzheng Long) |
-| **Created** | 2023-04-10 20:36:43.000 UTC (2y 8m ago) |
+| **Created** | 2023-04-10 20:36:43.000 UTC (2y 9m ago) |
 | **Updated** | 2024-03-11 13:08:42.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 1 |
@@ -11958,7 +11961,7 @@ This should be done now with https://github.com/temporalio/temporal/pull/3250
 | **URL** | https://github.com/temporalio/temporal/issues/1895 |
 | **State** | OPEN |
 | **Author** | jrsmiley (John Smiley) |
-| **Created** | 2021-09-07 21:21:51.000 UTC (4y 3m ago) |
+| **Created** | 2021-09-07 21:21:51.000 UTC (4y 4m ago) |
 | **Updated** | 2023-05-30 16:31:39.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 5 |
@@ -13075,7 +13078,7 @@ This may have already been done in https://github.com/temporalio/api/pull/503 an
 | **URL** | https://github.com/temporalio/temporal/issues/6611 |
 | **State** | OPEN |
 | **Author** | alexku7 (alexk) |
-| **Created** | 2024-10-06 20:36:19.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-06 20:36:19.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-06 20:36:19.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -13247,7 +13250,7 @@ Check if there is worker polling the right task queue.
 | **URL** | https://github.com/temporalio/temporal/issues/6100 |
 | **State** | OPEN |
 | **Author** | joshua-auchincloss (Joshua Auchincloss) |
-| **Created** | 2024-06-08 17:37:25.000 UTC (1y 6m ago) |
+| **Created** | 2024-06-08 17:37:25.000 UTC (1y 7m ago) |
 | **Updated** | 2024-10-22 17:34:23.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -13336,7 +13339,7 @@ A quick temporary fix for this problem could be that when we initiate a connecti
 | **URL** | https://github.com/temporalio/temporal/issues/5881 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2024-05-08 18:13:42.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-08 18:13:42.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-08 18:13:42.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -13469,7 +13472,7 @@ I agree that soft timeout would be a great feature to have in the platform.
 | **URL** | https://github.com/temporalio/temporal/issues/4845 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2023-09-06 22:39:27.000 UTC (2y 3m ago) |
+| **Created** | 2023-09-06 22:39:27.000 UTC (2y 4m ago) |
 | **Updated** | 2023-09-06 22:39:27.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -14036,7 +14039,7 @@ the project is now moved to IndeedEng: https://github.com/indeedeng/iwf and just
 | **URL** | https://github.com/temporalio/temporal/issues/1904 |
 | **State** | OPEN |
 | **Author** | alexshtin (Alex Shtin) |
-| **Created** | 2021-09-09 01:44:43.000 UTC (4y 3m ago) |
+| **Created** | 2021-09-09 01:44:43.000 UTC (4y 4m ago) |
 | **Updated** | 2023-03-03 20:21:41.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -14284,7 +14287,7 @@ Designing such a limit might be nontrivial at scale. So we need to weight it aga
 | **URL** | https://github.com/temporalio/temporal/issues/960 |
 | **State** | OPEN |
 | **Author** | morenohernan (Hernan Moreno) |
-| **Created** | 2020-11-07 23:18:50.000 UTC (5y 1m ago) |
+| **Created** | 2020-11-07 23:18:50.000 UTC (5y 2m ago) |
 | **Updated** | 2021-07-04 20:11:49.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -14430,6 +14433,104 @@ I don't think workflow task timeout is the best solution. I would make this the 
 
 ---
 
+<a id="8833"></a>
+
+### #8833: Scheduler does not list workflows runned when using "triggerImmediately"
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8833 |
+| **State** | OPEN |
+| **Author** | AlexMog (AlexMog) |
+| **Created** | 2025-12-16 16:56:49.000 UTC (22 days ago) |
+| **Updated** | 2026-01-05 16:38:03.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | potential-bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Expected Behavior
+Temporal's `client.schedule.getHandle(scheduleId).describe()` should return created running workflows in `info.runningActions` even when using `triggerImmediately`
+
+## Actual Behavior
+`info.runningActions` is empty when using the option `triggerImmediately`, the workflow is correctly created, but does not seems to be linked to the scheduler.
+
+## Steps to Reproduce the Problem
+Here's a reproduction code:
+  ```typescript
+await client.schedule.create({
+        ...,
+        state: {
+          triggerImmediately: true
+        }
+});
+
+// Wait for the schedule to be triggered and the workflow to run
+await sleep(5000);
+
+// Test the running workflows, runningActions should not be empty, but it is!
+console.log((await client.schedule.getHandle(scheduleId).describe()).info.runningActions);
+```
+
+By triggering manually, it works fine:
+  ```typescript
+const handler = await client.schedule.create({
+        ...,
+});
+
+await handler.trigger();
+
+// Wait for the schedule to be triggered and the workflow to run
+await sleep(5000);
+
+// This time, runningActions is populated correctly
+console.log((await client.schedule.getHandle(scheduleId).describe()).info.runningActions);
+```
+
+## Specifications
+
+  - Version: 1.9.0
+  - Platform: Kubernetes
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>DEVMANISHOFFL</strong> commented on 2026-01-04 06:46:12.000 UTC</summary>
+
+Hi @AlexMog, thanks for the clear repro. 
+
+Before I start, I want to confirm something: is the lack of `info.runningActions` when using `triggerImmediately` an unintended issue, or is there a known reason why immediate triggers aren't linked to the scheduler state? 
+
+If it should still appear there, I’m happy to review it and try to reproduce and fix the problem.
+
+</details>
+
+<details>
+<summary><strong>AlexMog</strong> commented on 2026-01-05 15:48:37.000 UTC</summary>
+
+Well I would assume that "triggerImmediately", as its name evokes, would give the same exact result as using handler.trigger() after creating the schedule. It seems weird that both provide different results where the name seems to suggest a similar intent.
+
+</details>
+
+<details>
+<summary><strong>DEVMANISHOFFL</strong> commented on 2026-01-05 16:38:03.000 UTC</summary>
+
+Thanks for confirming, @AlexMog. 
+
+I looked into this and found that triggerImmediately was being treated differently inside the system.... it was often filtered out as an overlappping run. 
+
+I have opened a fix in #8932 ...that makes sure these runs are always tracked in runningActions, no matter the schedule's overlap policy.
+
+</details>
+
+
+---
+
 <a id="8764"></a>
 
 ### #8764: Listing workflows and activities from temporal sdk
@@ -14439,7 +14540,7 @@ I don't think workflow task timeout is the best solution. I would make this the 
 | **URL** | https://github.com/temporalio/temporal/issues/8764 |
 | **State** | OPEN |
 | **Author** | albertom-pirovano-mck (Alberto Mario Pirovano) |
-| **Created** | 2025-12-05 19:30:23.000 UTC (28 days ago) |
+| **Created** | 2025-12-05 19:30:23.000 UTC (1 months ago) |
 | **Updated** | 2025-12-12 00:08:56.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -14491,7 +14592,7 @@ Given the limitations of the second approach do you think it's going to still be
 | **URL** | https://github.com/temporalio/temporal/issues/8611 |
 | **State** | OPEN |
 | **Author** | albertyfwu (Albert) |
-| **Created** | 2025-11-07 16:09:46.000 UTC (1 months ago) |
+| **Created** | 2025-11-07 16:09:46.000 UTC (2 months ago) |
 | **Updated** | 2025-12-11 22:12:05.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -14556,7 +14657,7 @@ This was closed by mistake (due to a faulty integration). Reopening it.
 | **URL** | https://github.com/temporalio/temporal/issues/8432 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-10-06 16:11:34.000 UTC (2 months ago) |
+| **Created** | 2025-10-06 16:11:34.000 UTC (3 months ago) |
 | **Updated** | 2025-10-08 02:17:50.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -14612,7 +14713,7 @@ I agree with @mfateev that using warn could dilute its meaning and that creating
 | **URL** | https://github.com/temporalio/temporal/issues/8153 |
 | **State** | OPEN |
 | **Author** | Pavithra-Reddy (Pavithra Reddy) |
-| **Created** | 2025-08-06 09:37:44.000 UTC (4 months ago) |
+| **Created** | 2025-08-06 09:37:44.000 UTC (5 months ago) |
 | **Updated** | 2025-09-18 07:45:53.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -14772,7 +14873,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/temporal/issues/7882 |
 | **State** | OPEN |
 | **Author** | jcmonteiro (João C. Monteiro) |
-| **Created** | 2025-06-07 04:58:53.000 UTC (6 months ago) |
+| **Created** | 2025-06-07 04:58:53.000 UTC (7 months ago) |
 | **Updated** | 2025-10-08 00:31:21.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -14914,7 +15015,7 @@ Also you will need access key and secret to assume into the role with STS in any
 | **URL** | https://github.com/temporalio/temporal/issues/7741 |
 | **State** | OPEN |
 | **Author** | gauravthadani (Gaurav Thadani) |
-| **Created** | 2025-05-09 06:33:06.000 UTC (7 months ago) |
+| **Created** | 2025-05-09 06:33:06.000 UTC (8 months ago) |
 | **Updated** | 2025-11-18 12:52:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -15260,7 +15361,7 @@ Hi @yycptt did you have a chance to discuss this issue with team already? Thanks
 | **URL** | https://github.com/temporalio/temporal/issues/7551 |
 | **State** | OPEN |
 | **Author** | boonsuen (Boonsuen Oh) |
-| **Created** | 2024-12-07 14:36:29.000 UTC (1 years ago) |
+| **Created** | 2024-12-07 14:36:29.000 UTC (1y 1m ago) |
 | **Updated** | 2025-10-15 19:51:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -15321,7 +15422,7 @@ Any update on this?
 | **URL** | https://github.com/temporalio/temporal/issues/6633 |
 | **State** | OPEN |
 | **Author** | gregbrowndev (Greg Brown) |
-| **Created** | 2024-10-09 18:58:04.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-09 18:58:04.000 UTC (1y 3m ago) |
 | **Updated** | 2024-12-20 14:21:01.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -15472,7 +15573,7 @@ Proposed https://github.com/temporalio/sdk-go/pull/1647.
 | **URL** | https://github.com/temporalio/temporal/issues/6375 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2024-08-06 16:25:17.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-06 16:25:17.000 UTC (1y 5m ago) |
 | **Updated** | 2024-08-12 00:23:46.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -15662,7 +15763,7 @@ Updates are different in a sense that **any** error with workflow (in the @danda
 | **URL** | https://github.com/temporalio/temporal/issues/5877 |
 | **State** | OPEN |
 | **Author** | alexseedkou (Jingcheng Kou) |
-| **Created** | 2024-05-08 01:20:17.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-08 01:20:17.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-08 15:36:16.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -16032,7 +16133,7 @@ Fixed typo here https://github.com/temporalio/temporal/pull/5473
 | **URL** | https://github.com/temporalio/temporal/issues/5171 |
 | **State** | OPEN |
 | **Author** | jontro (Jonas Trollvik) |
-| **Created** | 2023-03-14 21:16:56.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-14 21:16:56.000 UTC (2y 10m ago) |
 | **Updated** | 2023-11-29 15:29:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -16155,6 +16256,43 @@ I think, if the desire is low latency and low overhead on the worker, the server
 Moving out of the Java SDK issues since this there isn't anything Java specific about this feature. Moving to the server issues since I think the primary effort would be to build some sort of push based notification from the server to the worker to notify it an activity it is working on is cancelled.
 
 Reactions: 👍 1
+
+</details>
+
+
+---
+
+<a id="4979"></a>
+
+### #4979: Support waiting for Admitted stage on UpdateWorkflowExecution
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/4979 |
+| **State** | OPEN |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-10-13 20:26:06.000 UTC (2y 2m ago) |
+| **Updated** | 2026-01-06 01:56:30.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 1 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 |
+
+#### Description
+
+**Describe the solution you'd like**
+
+When setting `UpdateWorkflowExecutionRequest.wait_policy.lifecycle_stage` to `UPDATE_WORKFLOW_EXECUTION_LIFECYCLE_STAGE_ADMITTED`, the server errors with "Admitted is not implemented". We should support returning once the update is "admitted" (i.e. will not be lost but may not have reached worker yet)
+
+#### Comments (1)
+
+<details>
+<summary><strong>kshitij-g</strong> commented on 2026-01-06 01:56:30.000 UTC</summary>
+
+Is there any estimated timeline for this? Especially python sdk.
 
 </details>
 
@@ -16331,7 +16469,7 @@ This can be helpful: https://dhwaneetbhatt.com/blog/time-based-log-file-rotation
 | **URL** | https://github.com/temporalio/temporal/issues/4463 |
 | **State** | OPEN |
 | **Author** | taonic (Tao Guo) |
-| **Created** | 2023-06-09 01:47:23.000 UTC (2y 6m ago) |
+| **Created** | 2023-06-09 01:47:23.000 UTC (2y 7m ago) |
 | **Updated** | 2023-07-04 01:45:40.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -17026,7 +17164,7 @@ sample pic which shows that tagsToMap function may create too many objects
 | **URL** | https://github.com/temporalio/temporal/issues/2598 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2022-03-10 15:15:12.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-10 15:15:12.000 UTC (3y 10m ago) |
 | **Updated** | 2025-05-28 09:44:26.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -17434,7 +17572,7 @@ Noisy error messages need to be fixed though. For now you can try to increase ti
 | **URL** | https://github.com/temporalio/temporal/issues/518 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-07-09 05:09:19.000 UTC (5y 5m ago) |
+| **Created** | 2020-07-09 05:09:19.000 UTC (5y 6m ago) |
 | **Updated** | 2023-03-03 20:23:04.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -17517,7 +17655,7 @@ Is this still useful? Would be happy to look into that
 | **URL** | https://github.com/temporalio/temporal/issues/8606 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-11-07 11:46:35.000 UTC (1 months ago) |
+| **Created** | 2025-11-07 11:46:35.000 UTC (2 months ago) |
 | **Updated** | 2025-11-13 23:56:35.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -17803,7 +17941,7 @@ i'm waiting on some internal stuff at my company to sign off on the CLA so haven
 | **URL** | https://github.com/temporalio/temporal/issues/6946 |
 | **State** | OPEN |
 | **Author** | cloudmaster39 (Pavel Denisov) |
-| **Created** | 2024-12-06 08:31:57.000 UTC (1 years ago) |
+| **Created** | 2024-12-06 08:31:57.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-09 06:29:59.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -17961,7 +18099,7 @@ clusterMetadata:
 | **URL** | https://github.com/temporalio/temporal/issues/6758 |
 | **State** | OPEN |
 | **Author** | Shivs11 (Shivam) |
-| **Created** | 2024-11-05 20:22:43.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-05 20:22:43.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-07 16:45:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -18023,7 +18161,7 @@ Care will also be taken to have an "unset" feature for the API for those users w
 | **URL** | https://github.com/temporalio/temporal/issues/6754 |
 | **State** | OPEN |
 | **Author** | goldtigerstone |
-| **Created** | 2024-11-05 17:38:40.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-05 17:38:40.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-05 17:38:40.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -18451,7 +18589,7 @@ For 1 (returning the token after delivery failure), it turns out that the rate l
 | **URL** | https://github.com/temporalio/temporal/issues/6273 |
 | **State** | OPEN |
 | **Author** | yurkeen (Yury Evtikhov) |
-| **Created** | 2024-07-11 15:36:54.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-11 15:36:54.000 UTC (1y 6m ago) |
 | **Updated** | 2024-07-11 15:38:01.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -18543,7 +18681,7 @@ ALTER TABLE executions_visibility ADD COLUMN root_run_id      VARCHAR(255) NOT N
 | **URL** | https://github.com/temporalio/temporal/issues/6255 |
 | **State** | OPEN |
 | **Author** | ghaskins (Gregory Haskins) |
-| **Created** | 2024-07-09 02:08:37.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-09 02:08:37.000 UTC (1y 6m ago) |
 | **Updated** | 2024-07-09 20:59:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -19328,7 +19466,7 @@ Your server might be too small for that many workers. Usually you don't need tha
 | **URL** | https://github.com/temporalio/temporal/issues/4947 |
 | **State** | OPEN |
 | **Author** | rossedfort (Ross Edfort) |
-| **Created** | 2023-10-09 17:35:05.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-09 17:35:05.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-09 17:44:40.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -19836,7 +19974,7 @@ It can happen for manually triggering. If I trigger a workflow that starts at `0
 | **URL** | https://github.com/temporalio/temporal/issues/3212 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-08-11 00:05:13.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-11 00:05:13.000 UTC (3y 5m ago) |
 | **Updated** | 2023-03-03 20:18:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -19888,7 +20026,7 @@ message NamespaceInfo {
 | **URL** | https://github.com/temporalio/temporal/issues/3086 |
 | **State** | OPEN |
 | **Author** | wxing1292 (Wenquan Xing) |
-| **Created** | 2022-07-12 00:49:27.000 UTC (3y 5m ago) |
+| **Created** | 2022-07-12 00:49:27.000 UTC (3y 6m ago) |
 | **Updated** | 2023-03-03 20:19:40.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -20122,7 +20260,7 @@ The number of workflows can probably be estimated by the rate of a certain histo
 | **URL** | https://github.com/temporalio/temporal/issues/2491 |
 | **State** | OPEN |
 | **Author** | yiminc (Yimin Chen) |
-| **Created** | 2022-02-11 06:32:51.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-11 06:32:51.000 UTC (3y 11m ago) |
 | **Updated** | 2023-03-03 20:20:39.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -20165,7 +20303,7 @@ Can I work on this?
 | **URL** | https://github.com/temporalio/temporal/issues/2482 |
 | **State** | OPEN |
 | **Author** | e-zhydzetski (Eugene Zhydzetski) |
-| **Created** | 2022-02-09 21:11:52.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-09 21:11:52.000 UTC (3y 11m ago) |
 | **Updated** | 2023-03-03 20:20:38.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -20327,7 +20465,7 @@ But from SDK side, we would need to stop evict close workflow and only rely on L
 | **URL** | https://github.com/temporalio/temporal/issues/2342 |
 | **State** | OPEN |
 | **Author** | rfwagner (Richard Wagner) |
-| **Created** | 2022-01-04 21:09:00.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-04 21:09:00.000 UTC (4 years ago) |
 | **Updated** | 2023-03-03 20:21:14.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -20358,7 +20496,7 @@ We would probably need the ability to specify the workflow id of these custom wo
 | **URL** | https://github.com/temporalio/temporal/issues/1893 |
 | **State** | OPEN |
 | **Author** | bouk (Bouke van der Bijl) |
-| **Created** | 2021-09-07 13:34:04.000 UTC (4y 3m ago) |
+| **Created** | 2021-09-07 13:34:04.000 UTC (4y 4m ago) |
 | **Updated** | 2023-03-03 20:21:39.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -20740,7 +20878,7 @@ Thanks for your patience!
 | **URL** | https://github.com/temporalio/temporal/issues/515 |
 | **State** | OPEN |
 | **Author** | skrul (Steve Krulewitz) |
-| **Created** | 2020-07-08 23:19:44.000 UTC (5y 5m ago) |
+| **Created** | 2020-07-08 23:19:44.000 UTC (5y 6m ago) |
 | **Updated** | 2023-03-03 20:23:03.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -20925,7 +21063,7 @@ It would be good if debug log is opt-in instead of default. Also, it should defa
 | **URL** | https://github.com/temporalio/temporal/issues/8909 |
 | **State** | OPEN |
 | **Author** | andropler |
-| **Created** | 2025-12-29 08:19:57.000 UTC (4 days ago) |
+| **Created** | 2025-12-29 08:19:57.000 UTC (9 days ago) |
 | **Updated** | 2025-12-30 05:12:01.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -21034,6 +21172,142 @@ go.temporal.io/server/common/rpc/interceptor.(*HealthInterceptor).Intercept
 google.golang.org/grpc.getChainUnaryHandler.func1.getChainUnaryHandler.1
 	/home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.2/server.go:1217
 go.temporal.io/server/common/rpc/interceptor.(*TelemetryInterceptor).UnaryIntercept
+
+</details>
+
+
+---
+
+<a id="8901"></a>
+
+### #8901: Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option)
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8901 |
+| **State** | OPEN |
+| **Author** | Tomlord1122 (Hsiu-Chi Liu (Tomlord)) |
+| **Created** | 2025-12-24 09:43:00.000 UTC (14 days ago) |
+| **Updated** | 2026-01-04 08:18:38.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+**Is your feature request related to a problem? Please describe.**
+
+Yes. When a Workflow fails after some Activities have completed successfully, and we want to retry the entire Workflow via Workflow-level Retry policy, Temporal re-executes all Activities from the beginning, including those that already succeeded.
+
+  This is problematic for systems with non-reversible side effects:
+
+1. Our Use Case: We have a workflow where: 
+
+   - `CreateCaseActivity` successfully creates a case record in an external database 
+
+   - `xxxActivity` fails 3 times (Activity-level retry exhausted)
+
+   - Workflow fails and triggers Workflow-level Retry
+
+   - Problem: Workflow Retry attempts to create the same case again → duplicate/conflict errors
+
+2. Why We Can't Simply Delete and Retry:
+
+   - The external case record is not reversible (once created, it shouldn't be deleted)
+
+   - Other teams' systems query and depend on these records
+
+   - Deleting records to enable retry is unreliable and error-prone
+
+3. Current Workaround (unsatisfactory):
+
+   - Manually detect failed Workflows
+
+   - Delete case records from external storage 
+
+   - Wait for Workflow Retry - This is dangerous, especially when other teams are actively using the same data
+
+**Describe the solution you'd like**
+
+
+Support an option in Workflow execution to replay Event History during Workflow Retry, similar to how Temporal handles Worker failover recovery:
+
+```go
+  options := client.StartWorkflowOptions{
+      ID:        "aifp-case-001",
+      TaskQueue: "aifp_queue",
+      RetryPolicy: &temporal.RetryPolicy{
+          MaximumAttempts: 10,
+          InitialInterval: 10 * time.Second,
+          // New feature: Skip completed activities on retry
+          ReplayOnRetry: true,  // 👈 Proposed flag
+      },
+  }
+```
+
+  Behavior when ReplayOnRetry: true:
+
+- Workflow Retry uses the existing Event History
+
+- Already-completed Activities are skipped (using their historical results)
+
+- Execution resumes from the point of last failure
+
+- This prevents duplicate side effects in external systems
+
+
+
+**Describe alternatives you've considered**
+
+1. Manual Reset via SDK (`client.ResetWorkflowExecution()`)
+
+   - Requires external monitoring and manual API calls
+
+   - Adds operational complexity
+
+   - Not suitable for automatic recovery scenarios
+
+2. Delete and Retry Pattern
+
+   - Currently, we must delete case records from external storage before retry 
+
+   - Risk: Other teams' queries may fail during deletion window
+
+   - Unreliable and dangerous in production
+
+3. `ContinueAsNew` with State Persistence
+
+   - Could save completion checkpoints and call `ContinueAsNew` on failure
+
+   - Adds significant complexity to Workflow code
+
+   - Doubles the size of Event History
+
+4. Manual Idempotency + Retry
+
+   - Make every Activity check if it's already been done before re-executin
+
+   - Requires external state tracking (defeats the purpose of Temporal)
+
+   - Adds unnecessary retry latency
+
+5. Saga Pattern with Compensation 
+
+   - We already use Saga for cleanup on failure. However, Saga compensation (deleting records) is not always safe or desired. For our use case, we'd rather skip re-execution than compensate
+
+***Additional Context***
+
+I’m new to Temporal and may be misinterpreting some aspects. Thank you for your patience. If there’s a recommended approach for this use case, I’d truly appreciate your guidance so I can handle it the right way.
+
+#### Comments (1)
+
+<details>
+<summary><strong>ziidu</strong> commented on 2026-01-04 08:18:38.000 UTC</summary>
+
+When will it be resolved?
 
 </details>
 
@@ -21273,6 +21547,121 @@ Once you confirm, we would be able to narrow down our investigation and forward 
 
 ---
 
+<a id="8652"></a>
+
+### #8652: Documenting the current state of ScyllaDB as a Cassandra-compatible Backend
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8652 |
+| **State** | OPEN |
+| **Author** | andrii-kysylevskyi (Andrii Kysylevskyi) |
+| **Created** | 2025-11-16 16:55:29.000 UTC (1 months ago) |
+| **Updated** | 2026-01-04 20:35:07.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👀 1 |
+
+#### Description
+
+**Is your feature request related to a problem? Please describe.**
+Temporal supports Cassandra as a storage backend, and ScyllaDB is often presented as a drop-in Cassandra alternative. It’s currently not mentioned in the documentation, and it's unclear whether using ScyllaDB with Temporal is recommended, unsupported, or simply unverified.
+
+While looking into this, I found a few previous discussions that touched on ScyllaDB behaviour or compatibility questions:
+
+- https://github.com/temporalio/temporal/issues/2683
+- https://github.com/temporalio/temporal/issues/3511#issuecomment-1287535816
+- Possibly related: https://github.com/temporalio/temporal/issues/1267
+
+This issue is mostly to clarify the current state and consolidate conversations in one place.
+
+**Describe the solution you'd like**
+Some clarification in the docs or guidance, such as:
+
+- ScyllaDB is expected to work, but has not been officially tested, or
+- Compatibility may be revisited in the future if there is interest.
+
+No changes requested to core code right now - just a clearer direction for users evaluating storage options.
+
+**Describe alternatives you've considered**
+
+- Relying on scattered Slack/GitHub discussions.
+- Community blog posts or notes (easy to get outdated).
+
+**Additional context**
+Opening this issue to track the topic and give a single reference point if ScyllaDB or Temporal contributors decide to explore this further. Happy to add more details if helpful. I would also be happy to add the note about ScyllaDB support (in whichever way the team prefers)
+
+Thanks a lot in advance!
+
+#### Comments (1)
+
+<details>
+<summary><strong>andrii-kysylevskyi</strong> commented on 2026-01-04 20:35:07.000 UTC</summary>
+
+Hi! I’m revisiting this after a long break - would love to hear if anyone has thoughts or suggestions on the idea above.
+
+Tagging @dnr as you’ve been active on related PRs recently.
+
+Thanks in advance!
+
+</details>
+
+
+---
+
+<a id="8631"></a>
+
+### #8631: Trying to create search attribute that already exists should return error
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8631 |
+| **State** | OPEN |
+| **Author** | tsurdilo (Tihomir Surdilovic) |
+| **Created** | 2025-11-13 14:13:11.000 UTC (1 months ago) |
+| **Updated** | 2026-01-03 19:17:31.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | potential-bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+How issue was found:
+Try adding same search attribute multiple times via cli - cli always gives "ok" response, for example try running this command multiple times:
+
+          temporal operator search-attribute create --name MyCustomSA --type Keyword
+          Search attributes have been added
+
+When adding SA server has this loop where it creates aliasToFieldMap - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L279
+
+In this loop server logs the warn message with errSearchAttributeAlreadyExistsMessage
+but because it does not add anything to map it just returns nil - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L334
+
+instead of serviceerror
+this then in turn return nil to cli as response. cli does check for already exists error, but since server returns nil, error is never shown to user.
+
+Ask is to change this code on server to return serviceError instead that tells cli/sdk/clients that they are trying to create a SA that already exists   
+
+#### Comments (1)
+
+<details>
+<summary><strong>DEVMANISHOFFL</strong> commented on 2026-01-03 19:17:31.000 UTC</summary>
+
+Hiii, I m interested in contributing to the project and this looks like a good starting point..... Is this issue still available to be picked up??
+If so, I woudl love to work on it.
+
+</details>
+
+
+---
+
 <a id="8608"></a>
 
 ### #8608: Support opt-in ability to get workflow input and output (if closed) on describe workflow
@@ -21282,7 +21671,7 @@ Once you confirm, we would be able to narrow down our investigation and forward 
 | **URL** | https://github.com/temporalio/temporal/issues/8608 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-11-07 20:44:49.000 UTC (1 months ago) |
+| **Created** | 2025-11-07 20:44:49.000 UTC (2 months ago) |
 | **Updated** | 2025-12-11 22:11:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -21525,7 +21914,7 @@ temporal version 1.3.0 (Server 1.27.1, UI 2.36.0)
 | **URL** | https://github.com/temporalio/temporal/issues/8298 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2025-09-08 17:32:46.000 UTC (3 months ago) |
+| **Created** | 2025-09-08 17:32:46.000 UTC (4 months ago) |
 | **Updated** | 2025-09-11 17:57:33.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -22258,7 +22647,7 @@ Related issue: #7658
 | **URL** | https://github.com/temporalio/temporal/issues/7591 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-04-08 15:55:41.000 UTC (8 months ago) |
+| **Created** | 2025-04-08 15:55:41.000 UTC (9 months ago) |
 | **Updated** | 2025-10-14 12:10:56.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -23116,7 +23505,7 @@ I believe the defaults for `maxIdleConns` are pretty low; we initially saw a lot
 | **URL** | https://github.com/temporalio/temporal/issues/6378 |
 | **State** | OPEN |
 | **Author** | trustnote-wang |
-| **Created** | 2024-08-07 02:44:28.000 UTC (1y 4m ago) |
+| **Created** | 2024-08-07 02:44:28.000 UTC (1y 5m ago) |
 | **Updated** | 2024-10-21 22:27:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -23567,7 +23956,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/temporal/issues/4612 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2023-07-11 00:59:27.000 UTC (2y 5m ago) |
+| **Created** | 2023-07-11 00:59:27.000 UTC (2y 6m ago) |
 | **Updated** | 2023-07-21 22:11:28.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -24692,7 +25081,7 @@ Any reason why this was closed?
 | **URL** | https://github.com/temporalio/temporal/issues/2829 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2022-05-10 17:38:56.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-10 17:38:56.000 UTC (3y 8m ago) |
 | **Updated** | 2023-11-25 00:31:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -25445,7 +25834,7 @@ Especially relevant with async completion of activities.
 | **URL** | https://github.com/temporalio/temporal/issues/1898 |
 | **State** | OPEN |
 | **Author** | bouk (Bouke van der Bijl) |
-| **Created** | 2021-09-08 09:10:26.000 UTC (4y 3m ago) |
+| **Created** | 2021-09-08 09:10:26.000 UTC (4y 4m ago) |
 | **Updated** | 2023-03-03 20:21:40.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -25562,7 +25951,7 @@ Relates to https://github.com/temporalio/sdk-go/issues/126.
 | **URL** | https://github.com/temporalio/temporal/issues/1714 |
 | **State** | OPEN |
 | **Author** | wxing1292 (Wenquan Xing) |
-| **Created** | 2021-07-08 22:56:48.000 UTC (4y 5m ago) |
+| **Created** | 2021-07-08 22:56:48.000 UTC (4y 6m ago) |
 | **Updated** | 2023-03-03 20:21:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -25644,7 +26033,7 @@ Started showing Pending activities as Activity Task Started history event. In PR
 | **URL** | https://github.com/temporalio/temporal/issues/1057 |
 | **State** | OPEN |
 | **Author** | shaunco (Shaun) |
-| **Created** | 2020-12-08 11:13:03.000 UTC (5 years ago) |
+| **Created** | 2020-12-08 11:13:03.000 UTC (5y 1m ago) |
 | **Updated** | 2023-03-03 20:23:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -26064,6 +26453,106 @@ The second option in this proposal is interesting, which is to change heartbeat 
 
 ---
 
+<a id="8955"></a>
+
+### #8955: MCP Server for Temporal Workflows
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8955 |
+| **State** | OPEN |
+| **Author** | PurpleSquirrelMedia (Purple Squirrel Media) |
+| **Created** | 2026-01-07 20:38:16.000 UTC (0 days ago) |
+| **Updated** | 2026-01-07 20:38:16.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Feature: Temporal MCP Server
+
+AI-powered workflow orchestration.
+
+### Tools
+- Workflow start/signal/query, activity execution, namespace management
+
+### What is MCP?
+Model Context Protocol - AI tool standard (Anthropic, OpenAI).
+
+https://github.com/PurpleSquirrelMedia
+
+
+---
+
+<a id="8953"></a>
+
+### #8953: The scheduled time is incorrect.
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8953 |
+| **State** | CLOSED |
+| **Author** | HeartLF |
+| **Created** | 2026-01-07 06:47:35.000 UTC (0 days ago) |
+| **Updated** | 2026-01-07 07:14:35.000 UTC |
+| **Closed** | 2026-01-07 07:14:35.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | potential-bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<img width="978" height="136" alt="Image" src="https://github.com/user-attachments/assets/25de753f-8ce4-4eb3-8b4a-2aad505f9524" />
+
+I created a schedule and executed it immediately, setting it to run every 28 days. Why am I getting the "upcoming run" error?
+
+
+---
+
+<a id="8943"></a>
+
+### #8943: No admin-tools image for 1.29.2
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8943 |
+| **State** | OPEN |
+| **Author** | jmcnevin (Jeremy McNevin) |
+| **Created** | 2026-01-06 16:44:10.000 UTC (1 days ago) |
+| **Updated** | 2026-01-06 16:44:10.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | potential-bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Expected Behavior
+
+Not able to find any admin-tools images tagged as 1.29.2:
+
+https://hub.docker.com/r/temporalio/admin-tools/tags
+
+The release notes for 1.29.2 point to a "base-admin-tools" image, but I'm not sure what version of Temporal those image versions correspond to:
+
+https://hub.docker.com/r/temporalio/base-admin-tools/tags
+
+## Actual Behavior
+
+There should be an admin-tools image tagged as 1.29.2 (with or without a suffix).
+
+
+---
+
 <a id="8902"></a>
 
 ### #8902: History service memory usage upward trend
@@ -26073,7 +26562,7 @@ The second option in this proposal is interesting, which is to change heartbeat 
 | **URL** | https://github.com/temporalio/temporal/issues/8902 |
 | **State** | OPEN |
 | **Author** | hafiz-qasim (Hafiz Qasim) |
-| **Created** | 2025-12-24 10:03:38.000 UTC (9 days ago) |
+| **Created** | 2025-12-24 10:03:38.000 UTC (14 days ago) |
 | **Updated** | 2025-12-24 10:05:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26130,133 +26619,6 @@ Thanks in advance!
 
 ---
 
-<a id="8901"></a>
-
-### #8901: Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option)
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8901 |
-| **State** | OPEN |
-| **Author** | Tomlord1122 (Hsiu-Chi Liu (Tomlord)) |
-| **Created** | 2025-12-24 09:43:00.000 UTC (9 days ago) |
-| **Updated** | 2025-12-24 09:43:00.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-**Is your feature request related to a problem? Please describe.**
-
-Yes. When a Workflow fails after some Activities have completed successfully, and we want to retry the entire Workflow via Workflow-level Retry policy, Temporal re-executes all Activities from the beginning, including those that already succeeded.
-
-  This is problematic for systems with non-reversible side effects:
-
-1. Our Use Case: We have a workflow where: 
-
-   - `CreateCaseActivity` successfully creates a case record in an external database 
-
-   - `xxxActivity` fails 3 times (Activity-level retry exhausted)
-
-   - Workflow fails and triggers Workflow-level Retry
-
-   - Problem: Workflow Retry attempts to create the same case again → duplicate/conflict errors
-
-2. Why We Can't Simply Delete and Retry:
-
-   - The external case record is not reversible (once created, it shouldn't be deleted)
-
-   - Other teams' systems query and depend on these records
-
-   - Deleting records to enable retry is unreliable and error-prone
-
-3. Current Workaround (unsatisfactory):
-
-   - Manually detect failed Workflows
-
-   - Delete case records from external storage 
-
-   - Wait for Workflow Retry - This is dangerous, especially when other teams are actively using the same data
-
-**Describe the solution you'd like**
-
-
-Support an option in Workflow execution to replay Event History during Workflow Retry, similar to how Temporal handles Worker failover recovery:
-
-```go
-  options := client.StartWorkflowOptions{
-      ID:        "aifp-case-001",
-      TaskQueue: "aifp_queue",
-      RetryPolicy: &temporal.RetryPolicy{
-          MaximumAttempts: 10,
-          InitialInterval: 10 * time.Second,
-          // New feature: Skip completed activities on retry
-          ReplayOnRetry: true,  // 👈 Proposed flag
-      },
-  }
-```
-
-  Behavior when ReplayOnRetry: true:
-
-- Workflow Retry uses the existing Event History
-
-- Already-completed Activities are skipped (using their historical results)
-
-- Execution resumes from the point of last failure
-
-- This prevents duplicate side effects in external systems
-
-
-
-**Describe alternatives you've considered**
-
-1. Manual Reset via SDK (`client.ResetWorkflowExecution()`)
-
-   - Requires external monitoring and manual API calls
-
-   - Adds operational complexity
-
-   - Not suitable for automatic recovery scenarios
-
-2. Delete and Retry Pattern
-
-   - Currently, we must delete case records from external storage before retry 
-
-   - Risk: Other teams' queries may fail during deletion window
-
-   - Unreliable and dangerous in production
-
-3. `ContinueAsNew` with State Persistence
-
-   - Could save completion checkpoints and call `ContinueAsNew` on failure
-
-   - Adds significant complexity to Workflow code
-
-   - Doubles the size of Event History
-
-4. Manual Idempotency + Retry
-
-   - Make every Activity check if it's already been done before re-executin
-
-   - Requires external state tracking (defeats the purpose of Temporal)
-
-   - Adds unnecessary retry latency
-
-5. Saga Pattern with Compensation 
-
-   - We already use Saga for cleanup on failure. However, Saga compensation (deleting records) is not always safe or desired. For our use case, we'd rather skip re-execution than compensate
-
-***Additional Context***
-
-I’m new to Temporal and may be misinterpreting some aspects. Thank you for your patience. If there’s a recommended approach for this use case, I’d truly appreciate your guidance so I can handle it the right way.
-
-
----
-
 <a id="8889"></a>
 
 ### #8889: Enhancing Temporal PR Review and Release Confidence with Hikaflow
@@ -26266,7 +26628,7 @@ I’m new to Temporal and may be misinterpreting some aspects. Thank you for you
 | **URL** | https://github.com/temporalio/temporal/issues/8889 |
 | **State** | OPEN |
 | **Author** | RomirJ |
-| **Created** | 2025-12-20 08:03:21.000 UTC (13 days ago) |
+| **Created** | 2025-12-20 08:03:21.000 UTC (18 days ago) |
 | **Updated** | 2025-12-20 08:03:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26309,7 +26671,7 @@ I’d love to offer a two-week trial of Hikaflow on Temporal to see if these fea
 | **URL** | https://github.com/temporalio/temporal/issues/8866 |
 | **State** | OPEN |
 | **Author** | roshchha (Roshni Chhabria) |
-| **Created** | 2025-12-18 12:17:09.000 UTC (15 days ago) |
+| **Created** | 2025-12-18 12:17:09.000 UTC (20 days ago) |
 | **Updated** | 2025-12-18 12:17:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26334,7 +26696,7 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61729](https://nvd.ni
 | **URL** | https://github.com/temporalio/temporal/issues/8865 |
 | **State** | OPEN |
 | **Author** | roshchha (Roshni Chhabria) |
-| **Created** | 2025-12-18 12:15:27.000 UTC (15 days ago) |
+| **Created** | 2025-12-18 12:15:27.000 UTC (20 days ago) |
 | **Updated** | 2025-12-18 12:15:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26359,7 +26721,7 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61727](https://nvd.ni
 | **URL** | https://github.com/temporalio/temporal/issues/8864 |
 | **State** | OPEN |
 | **Author** | vy-kauppinen (Vy Kauppinen) |
-| **Created** | 2025-12-18 09:00:33.000 UTC (15 days ago) |
+| **Created** | 2025-12-18 09:00:33.000 UTC (20 days ago) |
 | **Updated** | 2025-12-18 09:00:33.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26534,73 +26896,6 @@ kubectl port-forward services/temporal-web 8080:8080
 
 ---
 
-<a id="8833"></a>
-
-### #8833: Scheduler does not list workflows runned when using "triggerImmediately"
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8833 |
-| **State** | OPEN |
-| **Author** | AlexMog (AlexMog) |
-| **Created** | 2025-12-16 16:56:49.000 UTC (17 days ago) |
-| **Updated** | 2025-12-16 17:02:47.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | potential-bug |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-## Expected Behavior
-Temporal's `client.schedule.getHandle(scheduleId).describe()` should return created running workflows in `info.runningActions` even when using `triggerImmediately`
-
-## Actual Behavior
-`info.runningActions` is empty when using the option `triggerImmediately`, the workflow is correctly created, but does not seems to be linked to the scheduler.
-
-## Steps to Reproduce the Problem
-Here's a reproduction code:
-  ```typescript
-await client.schedule.create({
-        ...,
-        state: {
-          triggerImmediately: true
-        }
-});
-
-// Wait for the schedule to be triggered and the workflow to run
-await sleep(5000);
-
-// Test the running workflows, runningActions should not be empty, but it is!
-console.log((await client.schedule.getHandle(scheduleId).describe()).info.runningActions);
-```
-
-By triggering manually, it works fine:
-  ```typescript
-const handler = await client.schedule.create({
-        ...,
-});
-
-await handler.trigger();
-
-// Wait for the schedule to be triggered and the workflow to run
-await sleep(5000);
-
-// This time, runningActions is populated correctly
-console.log((await client.schedule.getHandle(scheduleId).describe()).info.runningActions);
-```
-
-## Specifications
-
-  - Version: 1.9.0
-  - Platform: Kubernetes
-
-
-
----
-
 <a id="8790"></a>
 
 ### #8790: history_node table keeps growing
@@ -26610,7 +26905,7 @@ console.log((await client.schedule.getHandle(scheduleId).describe()).info.runnin
 | **URL** | https://github.com/temporalio/temporal/issues/8790 |
 | **State** | OPEN |
 | **Author** | xtyinbiao (尹彪) |
-| **Created** | 2025-12-10 10:43:07.000 UTC (23 days ago) |
+| **Created** | 2025-12-10 10:43:07.000 UTC (28 days ago) |
 | **Updated** | 2025-12-10 10:48:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26640,59 +26935,6 @@ but , history_node table keep growing, now has 19402165 count
 
 ---
 
-<a id="8652"></a>
-
-### #8652: Documenting the current state of ScyllaDB as a Cassandra-compatible Backend
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8652 |
-| **State** | OPEN |
-| **Author** | andrii-kysylevskyi (Andrii Kysylevskyi) |
-| **Created** | 2025-11-16 16:55:29.000 UTC (1 months ago) |
-| **Updated** | 2025-11-16 16:55:29.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-| **Reactions** | 👀 1 |
-
-#### Description
-
-**Is your feature request related to a problem? Please describe.**
-Temporal supports Cassandra as a storage backend, and ScyllaDB is often presented as a drop-in Cassandra alternative. It’s currently not mentioned in the documentation, and it's unclear whether using ScyllaDB with Temporal is recommended, unsupported, or simply unverified.
-
-While looking into this, I found a few previous discussions that touched on ScyllaDB behaviour or compatibility questions:
-
-- https://github.com/temporalio/temporal/issues/2683
-- https://github.com/temporalio/temporal/issues/3511#issuecomment-1287535816
-- Possibly related: https://github.com/temporalio/temporal/issues/1267
-
-This issue is mostly to clarify the current state and consolidate conversations in one place.
-
-**Describe the solution you'd like**
-Some clarification in the docs or guidance, such as:
-
-- ScyllaDB is expected to work, but has not been officially tested, or
-- Compatibility may be revisited in the future if there is interest.
-
-No changes requested to core code right now - just a clearer direction for users evaluating storage options.
-
-**Describe alternatives you've considered**
-
-- Relying on scattered Slack/GitHub discussions.
-- Community blog posts or notes (easy to get outdated).
-
-**Additional context**
-Opening this issue to track the topic and give a single reference point if ScyllaDB or Temporal contributors decide to explore this further. Happy to add more details if helpful. I would also be happy to add the note about ScyllaDB support (in whichever way the team prefers)
-
-Thanks a lot in advance!
-
-
----
-
 <a id="8648"></a>
 
 ### #8648: Add ExecutionStatus to visibility columns for archived executions
@@ -26717,45 +26959,6 @@ Currently none of the out of box archival providers have ExecutionStatus as visi
 search archived workflows by execution status. 
 
 Ask is to please add ExecutionStatus as one of the exported search attributes for archival 
-
-
----
-
-<a id="8631"></a>
-
-### #8631: Trying to create search attribute that already exists should return error
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8631 |
-| **State** | OPEN |
-| **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-11-13 14:13:11.000 UTC (1 months ago) |
-| **Updated** | 2025-11-17 16:05:31.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | potential-bug |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-How issue was found:
-Try adding same search attribute multiple times via cli - cli always gives "ok" response, for example try running this command multiple times:
-
-          temporal operator search-attribute create --name MyCustomSA --type Keyword
-          Search attributes have been added
-
-When adding SA server has this loop where it creates aliasToFieldMap - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L279
-
-In this loop server logs the warn message with errSearchAttributeAlreadyExistsMessage
-but because it does not add anything to map it just returns nil - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L334
-
-instead of serviceerror
-this then in turn return nil to cli as response. cli does check for already exists error, but since server returns nil, error is never shown to user.
-
-Ask is to change this code on server to return serviceError instead that tells cli/sdk/clients that they are trying to create a SA that already exists   
 
 
 ---
@@ -27427,7 +27630,7 @@ This behavior relies on the update being aborted, and retried (our intention is 
 | **URL** | https://github.com/temporalio/temporal/issues/7048 |
 | **State** | OPEN |
 | **Author** | os-a2 |
-| **Created** | 2025-01-06 05:07:45.000 UTC (12 months ago) |
+| **Created** | 2025-01-06 05:07:45.000 UTC (1 years ago) |
 | **Updated** | 2025-01-06 05:07:45.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27516,7 +27719,7 @@ Need the already-exists run ID on `StartChildWorkflowExecutionFailedEventAttribu
 | **URL** | https://github.com/temporalio/temporal/issues/6954 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2024-12-07 02:01:03.000 UTC (1 years ago) |
+| **Created** | 2024-12-07 02:01:03.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-07 02:01:03.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27566,7 +27769,7 @@ To fix the issue before state-based replication, we can:
 | **URL** | https://github.com/temporalio/temporal/issues/6952 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2024-12-07 01:38:10.000 UTC (1 years ago) |
+| **Created** | 2024-12-07 01:38:10.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-07 01:38:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27799,7 +28002,7 @@ We should support both of these working together. In the meantime, SDKs will con
 | **URL** | https://github.com/temporalio/temporal/issues/6760 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2024-11-05 23:57:27.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-05 23:57:27.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-05 23:57:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27892,7 +28095,7 @@ _Originally posted by @dnr in https://github.com/temporalio/temporal/pull/6668#d
 | **URL** | https://github.com/temporalio/temporal/issues/6618 |
 | **State** | OPEN |
 | **Author** | credmond-git (Colin Redmond) |
-| **Created** | 2024-10-07 21:35:04.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-07 21:35:04.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-07 21:35:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27922,7 +28125,7 @@ Thanks!
 | **URL** | https://github.com/temporalio/temporal/issues/6617 |
 | **State** | OPEN |
 | **Author** | mohankurali (mohan) |
-| **Created** | 2024-10-07 19:53:15.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-07 19:53:15.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-07 19:53:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -28332,7 +28535,7 @@ In contrast, neither signal latency nor query latency show the same trend:
 | **URL** | https://github.com/temporalio/temporal/issues/6501 |
 | **State** | OPEN |
 | **Author** | yux0 (Yu Xia) |
-| **Created** | 2024-09-09 21:02:43.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-09 21:02:43.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-09 21:02:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -28759,7 +28962,7 @@ The cause needs to be investigated and server code fixed before we cut an offici
 | **URL** | https://github.com/temporalio/temporal/issues/6275 |
 | **State** | OPEN |
 | **Author** | bijeebuss (Michael Welnick) |
-| **Created** | 2024-07-11 18:07:58.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-11 18:07:58.000 UTC (1y 6m ago) |
 | **Updated** | 2024-07-11 18:09:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -28796,7 +28999,7 @@ A way to detect when a workflow enters a state like this. Maybe it already exist
 | **URL** | https://github.com/temporalio/temporal/issues/6259 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-07-10 15:22:51.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-10 15:22:51.000 UTC (1y 6m ago) |
 | **Updated** | 2024-07-10 15:35:18.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -28825,7 +29028,7 @@ This can be done a few ways. To me the most obvious/simplest approach is that we
 | **URL** | https://github.com/temporalio/temporal/issues/6253 |
 | **State** | OPEN |
 | **Author** | thegedge (Jason Gedge) |
-| **Created** | 2024-07-08 18:03:37.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-08 18:03:37.000 UTC (1y 6m ago) |
 | **Updated** | 2024-07-08 18:03:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -29151,7 +29354,7 @@ https://github.com/temporalio/temporal/blob/a29cc498bfb13771b41a2eeaeda41f4622ae
 | **URL** | https://github.com/temporalio/temporal/issues/6104 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-06-11 12:24:46.000 UTC (1y 6m ago) |
+| **Created** | 2024-06-11 12:24:46.000 UTC (1y 7m ago) |
 | **Updated** | 2024-06-21 20:13:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -29747,7 +29950,7 @@ Writing plain nodejs but the company has policies and practices (NestJs only)
 | **URL** | https://github.com/temporalio/temporal/issues/5510 |
 | **State** | OPEN |
 | **Author** | nnoto (Nicholas Noto) |
-| **Created** | 2024-03-11 21:42:17.000 UTC (1y 9m ago) |
+| **Created** | 2024-03-11 21:42:17.000 UTC (1y 10m ago) |
 | **Updated** | 2024-03-11 21:42:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -30512,33 +30715,6 @@ As it is now, buffered executions appears neither in `info.futureActionTimes`, `
 
 ---
 
-<a id="4979"></a>
-
-### #4979: Support waiting for Admitted stage on UpdateWorkflowExecution
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/4979 |
-| **State** | OPEN |
-| **Author** | cretz (Chad Retz) |
-| **Created** | 2023-10-13 20:26:06.000 UTC (2y 2m ago) |
-| **Updated** | 2023-10-13 20:26:06.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-**Describe the solution you'd like**
-
-When setting `UpdateWorkflowExecutionRequest.wait_policy.lifecycle_stage` to `UPDATE_WORKFLOW_EXECUTION_LIFECYCLE_STAGE_ADMITTED`, the server errors with "Admitted is not implemented". We should support returning once the update is "admitted" (i.e. will not be lost but may not have reached worker yet)
-
-
----
-
 <a id="4958"></a>
 
 ### #4958: GetMutableStateRequest is used in poll mutable state 
@@ -30687,7 +30863,7 @@ Add a `jwkStaticKeySource` string that can contain the keys and would be equal t
 | **URL** | https://github.com/temporalio/temporal/issues/4749 |
 | **State** | OPEN |
 | **Author** | underrun (J Derek Wilson) |
-| **Created** | 2023-08-09 16:20:19.000 UTC (2y 4m ago) |
+| **Created** | 2023-08-09 16:20:19.000 UTC (2y 5m ago) |
 | **Updated** | 2023-08-09 16:20:19.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -30726,7 +30902,7 @@ N/A
 | **URL** | https://github.com/temporalio/temporal/issues/4745 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2023-08-08 23:01:05.000 UTC (2y 4m ago) |
+| **Created** | 2023-08-08 23:01:05.000 UTC (2y 5m ago) |
 | **Updated** | 2023-08-08 23:07:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -30927,7 +31103,7 @@ It would be imo useful to add counter metric here so that user can track how oft
 | **URL** | https://github.com/temporalio/temporal/issues/4149 |
 | **State** | OPEN |
 | **Author** | Huangsir |
-| **Created** | 2023-04-10 03:37:10.000 UTC (2y 8m ago) |
+| **Created** | 2023-04-10 03:37:10.000 UTC (2y 9m ago) |
 | **Updated** | 2023-04-10 03:48:45.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -31142,7 +31318,7 @@ Add any other context or screenshots about the feature request here.
 | **URL** | https://github.com/temporalio/temporal/issues/4052 |
 | **State** | OPEN |
 | **Author** | sstro |
-| **Created** | 2023-03-14 08:50:24.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-14 08:50:24.000 UTC (2y 10m ago) |
 | **Updated** | 2023-03-14 08:50:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -31188,7 +31364,7 @@ Apparently, the “long” token validity of 24 hours is what confuses the valid
 | **URL** | https://github.com/temporalio/temporal/issues/4045 |
 | **State** | OPEN |
 | **Author** | zedongh (zedongh) |
-| **Created** | 2023-03-11 06:04:51.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-11 06:04:51.000 UTC (2y 10m ago) |
 | **Updated** | 2023-03-11 06:04:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -31465,7 +31641,7 @@ Slack thread: https://temporalio.slack.com/archives/CTTJCPZQE/p1675744969688159
 | **URL** | https://github.com/temporalio/temporal/issues/3700 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2022-12-08 20:47:28.000 UTC (3 years ago) |
+| **Created** | 2022-12-08 20:47:28.000 UTC (3y 1m ago) |
 | **Updated** | 2023-03-03 20:17:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -33059,7 +33235,7 @@ The Transaction.CreateWorkflowExecution() is not used anywhere. Shard context di
 | **URL** | https://github.com/temporalio/temporal/issues/2375 |
 | **State** | OPEN |
 | **Author** | wxing1292 (Wenquan Xing) |
-| **Created** | 2022-01-13 02:57:36.000 UTC (3y 11m ago) |
+| **Created** | 2022-01-13 02:57:36.000 UTC (3y 12m ago) |
 | **Updated** | 2023-03-03 20:21:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -33092,7 +33268,7 @@ InternalWorkflowMutableState / InternalWorkflowMutation / InternalWorkflowSnapsh
 | **URL** | https://github.com/temporalio/temporal/issues/2282 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2021-12-09 21:10:42.000 UTC (4 years ago) |
+| **Created** | 2021-12-09 21:10:42.000 UTC (4y 1m ago) |
 | **Updated** | 2023-03-03 20:21:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -33189,7 +33365,7 @@ Split resource limit exceed into user facing & internal facing error types
 | **URL** | https://github.com/temporalio/temporal/issues/1903 |
 | **State** | OPEN |
 | **Author** | mastermanu |
-| **Created** | 2021-09-09 01:02:39.000 UTC (4y 3m ago) |
+| **Created** | 2021-09-09 01:02:39.000 UTC (4y 4m ago) |
 | **Updated** | 2023-03-03 20:21:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -33986,7 +34162,7 @@ Provide a mechanism to not distribute history and matching shards to the newly a
 | **URL** | https://github.com/temporalio/temporal/issues/810 |
 | **State** | OPEN |
 | **Author** | wxing1292 (Wenquan Xing) |
-| **Created** | 2020-10-07 22:28:27.000 UTC (5y 2m ago) |
+| **Created** | 2020-10-07 22:28:27.000 UTC (5y 3m ago) |
 | **Updated** | 2021-07-04 07:04:03.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -34381,7 +34557,7 @@ spec:
 | **URL** | https://github.com/temporalio/temporal/issues/373 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-05-13 17:15:40.000 UTC (5y 7m ago) |
+| **Created** | 2020-05-13 17:15:40.000 UTC (5y 8m ago) |
 | **Updated** | 2023-03-03 20:23:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -34438,7 +34614,7 @@ Currently long poll intervals are hardcoded and cannot be changed as it is going
 | **URL** | https://github.com/temporalio/temporal/issues/294 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-04-11 22:10:10.000 UTC (5y 8m ago) |
+| **Created** | 2020-04-11 22:10:10.000 UTC (5y 9m ago) |
 | **Updated** | 2023-03-03 20:23:31.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -34464,7 +34640,7 @@ This way worker code can adjust automatically for the correct long poll interval
 | **URL** | https://github.com/temporalio/temporal/issues/293 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-04-11 19:16:12.000 UTC (5y 8m ago) |
+| **Created** | 2020-04-11 19:16:12.000 UTC (5y 9m ago) |
 | **Updated** | 2023-03-03 20:23:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

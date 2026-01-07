@@ -1,6 +1,6 @@
 # PHP SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/sdk-php
 **Data Source:** [issues.md](../repos/temporalio-sdk-php/issues.md)
 
@@ -16,16 +16,16 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 47 |
-| Bugs | 7 |
+| Total Open Issues | 48 |
+| Bugs | 8 |
 | Enhancements/Features | 31 |
 | Security Issues | 0 |
 | Total Upvotes (👍) | 12 |
-| Total Comments | 66 |
+| Total Comments | 67 |
 | Issues with Upvotes | 7 (15%) |
-| Issues with Comments | 22 (47%) |
-| Average Age (days) | 470 |
-| Stale Issues (>12 months) | 17 (36%) |
+| Issues with Comments | 23 (48%) |
+| Average Age (days) | 465 |
+| Stale Issues (>12 months) | 18 (38%) |
 
 ---
 
@@ -34,12 +34,12 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 2 | 4% |
-| 1-3 months | 0 | 0% |
+| 1-3 months | 1 | 2% |
 | 3-6 months | 8 | 17% |
-| 6-12 months | 16 | 34% |
-| 1-2 years | 14 | 30% |
-| 2-3 years | 3 | 6% |
-| 3+ years | 4 | 9% |
+| 6-12 months | 15 | 31% |
+| 1-2 years | 14 | 29% |
+| 2-3 years | 4 | 8% |
+| 3+ years | 4 | 8% |
 
 ---
 
@@ -102,8 +102,8 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-07 | [#689](../repos/temporalio-sdk-php/issues.md#689) | 0 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | 2025-12-18 | [#670](../repos/temporalio-sdk-php/issues.md#670) | 0 | [Feature Request] Symfony 8.0 support |
-| 2025-12-06 | [#668](../repos/temporalio-sdk-php/issues.md#668) | 0 | [Feature Request] Implement `SetCurrentDetails` for dynamic ... |
 
 ---
 
@@ -112,18 +112,19 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 29 |
+| bug | 8 |
 | tests | 8 |
-| bug | 7 |
 | question | 5 |
 | feature | 2 |
 | documentation | 1 |
 
 ---
 
-## Bugs (7 issues)
+## Bugs (8 issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
+| [#689](../repos/temporalio-sdk-php/issues.md#689) | 0 | 1 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | [#636](../repos/temporalio-sdk-php/issues.md#636) | 0 | 0 | [Bug] Suppressed exception in worfklow child |
 | [#635](../repos/temporalio-sdk-php/issues.md#635) | 0 | 3 | [Bug] Memory leak workflow worker |
 | [#624](../repos/temporalio-sdk-php/issues.md#624) | 0 | 0 | [Bug] Facade methods throw wrong exception |
@@ -134,7 +135,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (17 issues with no activity >12 months)
+## Stale Issues (18 issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -142,6 +143,7 @@ Top stale issues by upvotes:
 |-------|-----|--------------|-------|
 | [#529](../repos/temporalio-sdk-php/issues.md#529) | 2 | 2024-12-05 | [Feature Request] registerDelayedCallback for test... |
 | [#302](../repos/temporalio-sdk-php/issues.md#302) | 1 | 2024-04-29 | [Feature Request] Set the expectCompletion result ... |
+| [#545](../repos/temporalio-sdk-php/issues.md#545) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
 | [#532](../repos/temporalio-sdk-php/issues.md#532) | 0 | 2024-12-09 | [Question] Asynchronous child workflow execution p... |
 | [#524](../repos/temporalio-sdk-php/issues.md#524) | 0 | 2024-11-07 | [Feature Request] Allow mocking child workflows li... |
 | [#507](../repos/temporalio-sdk-php/issues.md#507) | 0 | 2024-09-19 | Eliminate DestructMemorizedInstanceException |

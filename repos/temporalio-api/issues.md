@@ -1,6 +1,6 @@
 # temporalio/api - Complete Issue Dump
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Total Issues:** 13
 **Total Upvotes:** 6
 **Total Comments:** 9
@@ -380,7 +380,7 @@ Looks like there are still some TODOs that snuck in there too so address those
 | **URL** | https://github.com/temporalio/api/issues/421 |
 | **State** | OPEN |
 | **Author** | twin-drill (divy) |
-| **Created** | 2024-06-11 20:00:04.000 UTC (1y 6m ago) |
+| **Created** | 2024-06-11 20:00:04.000 UTC (1y 7m ago) |
 | **Updated** | 2024-06-11 20:02:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -571,7 +571,7 @@ Idk if this should be issue opened on the server or here. Please let me know if 
 | **URL** | https://github.com/temporalio/api/issues/198 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-07-11 18:02:14.000 UTC (3y 5m ago) |
+| **Created** | 2022-07-11 18:02:14.000 UTC (3y 6m ago) |
 | **Updated** | 2022-07-11 18:02:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

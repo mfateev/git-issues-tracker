@@ -1,6 +1,6 @@
 # API SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/api
 **Data Source:** [issues.md](../repos/temporalio-api/issues.md)
 
@@ -24,7 +24,7 @@
 | Total Comments | 9 |
 | Issues with Upvotes | 1 (8%) |
 | Issues with Comments | 3 (23%) |
-| Average Age (days) | 1069 |
+| Average Age (days) | 1074 |
 | Stale Issues (>12 months) | 13 (100%) |
 
 ---

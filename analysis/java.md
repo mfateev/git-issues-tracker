@@ -1,7 +1,7 @@
 # Temporal Java SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-02
-**Total Open Issues:** 215
+**Generated:** 2026-01-07
+**Total Open Issues:** 217
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-java/issues.md)
@@ -12,7 +12,7 @@
 
 ## Executive Summary
 
-The Java SDK has accumulated 215 open issues over 5+ years, with 104 issues older than 3 years. This document analyzes the issues by category and proposes a structured approach to address them efficiently.
+The Java SDK has accumulated 217 open issues over 5+ years, with 104 issues older than 3 years. The SDK shows strong user demand for improved testing support (test server issues) and Kotlin coroutine integration. Recent activity focuses on Nexus API support and modern framework compatibility (Spring Boot 4, Jackson 3).
 
 ### Key Findings
 
@@ -21,7 +21,7 @@ The Java SDK has accumulated 215 open issues over 5+ years, with 104 issues olde
 | Test Server Issues | 37 | High - Blocking developer experience |
 | Bugs | 33 | High - Core functionality |
 | Security Vulnerabilities | 4 | Critical |
-| Enhancement Requests | 126 | Medium - Feature parity/DX |
+| Enhancement Requests | 127 | Medium - Feature parity/DX |
 | Stale Issues (>1 year) | 155 | Review for closure |
 
 ### User Engagement Summary
@@ -35,10 +35,10 @@ The Java SDK has accumulated 215 open issues over 5+ years, with 104 issues olde
 
 ### Recommended Actions
 
-1. **Immediate:** Address 4 security vulnerabilities
-2. **Short-term:** Fix critical test server bugs (blocking testing)
-3. **Medium-term:** Resolve core SDK bugs
-4. **Long-term:** Implement high-demand enhancements (based on upvotes)
+1. **Immediate:** Address 4 security vulnerabilities and macOS environment config bug
+2. **Short-term:** Fix critical test server bugs (blocking testing) and add Nexus failure support
+3. **Medium-term:** Resolve core SDK bugs, add Spring property placeholder support
+4. **Long-term:** Implement high-demand enhancements (Kotlin coroutines, Spring Boot 4)
 5. **Housekeeping:** Close/triage 155 stale issues
 
 ---
@@ -56,9 +56,9 @@ These issues have the most user upvotes, indicating real community demand:
 | 5 | [#214](../repos/temporalio-sdk-java/issues.md#214) | 6 | 0 | @SignalMethod threading configuration |
 | 6 | [#1832](../repos/temporalio-sdk-java/issues.md#1832) | 4 | 0 | Temporal Annotations as Meta Annotation |
 | 7 | [#827](../repos/temporalio-sdk-java/issues.md#827) | 4 | 0 | Pass configuration into workflow |
-| 8 | [#2075](../repos/temporalio-sdk-java/issues.md#2075) | 3 | 1 | Keep heartbeating during shutdown |
-| 9 | [#1163](../repos/temporalio-sdk-java/issues.md#1163) | 3 | 1 | Worker metrics scope per workflow execution |
-| 10 | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | 3 | 0 | Jackson 3 support |
+| 8 | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | 3 | 0 | Jackson 3 support |
+| 9 | [#2075](../repos/temporalio-sdk-java/issues.md#2075) | 3 | 1 | Keep heartbeating during shutdown |
+| 10 | [#1163](../repos/temporalio-sdk-java/issues.md#1163) | 3 | 1 | Worker metrics scope per workflow execution |
 
 ### Priority Score (Upvotes×2 + Comments)
 
@@ -76,6 +76,26 @@ Combined engagement metric showing issues with both upvotes and discussion:
 | 8 | #2676 | 8 | grpc-netty-shaded vulnerability |
 | 9 | #1832 | 8 | Annotations as Meta Annotation |
 | 10 | #827 | 8 | Configuration into workflow |
+
+---
+
+## Recent Issues (Last 30 Days)
+
+| Date | Issue | Description |
+|------|-------|-------------|
+| 2026-01-05 | [#2755](../repos/temporalio-sdk-java/issues.md#2755) | Support using Temporal failures in Nexus APIs |
+| 2026-01-04 | [#2754](../repos/temporalio-sdk-java/issues.md#2754) | Environment Configuration does not read correct file path on macOS |
+| 2025-12-31 | [#2753](../repos/temporalio-sdk-java/issues.md#2753) | Unexpected Activity Timeout Behavior After Worker Crash |
+| 2025-12-30 | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | OpenTracing support for updateWithStart |
+| 2025-12-28 | [#2750](../repos/temporalio-sdk-java/issues.md#2750) | TestStatsReporter Flush not flushing |
+| 2025-12-12 | [#2747](../repos/temporalio-sdk-java/issues.md#2747) | @WorkflowImpl workers property should support Spring placeholders |
+| 2025-12-09 | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | Jackson 3 support |
+| 2025-12-08 | [#2745](../repos/temporalio-sdk-java/issues.md#2745) | WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue |
+
+**Notable Recent Patterns:**
+- Environment config bug (#2754) same as TypeScript (#1869) - cross-SDK issue
+- Nexus API enhancements (#2755) as adoption increases
+- Framework upgrades (Jackson 3, Spring placeholders)
 
 ---
 
@@ -176,6 +196,7 @@ These can cause workflow failures in production:
 
 | Issue | Problem |
 |-------|---------|
+| [#2753](../repos/temporalio-sdk-java/issues.md#2753) | Unexpected Activity Timeout Behavior After Worker Crash (new) |
 | [#1715](../repos/temporalio-sdk-java/issues.md#1715) | WorkerOptions doesn't enforce executors >= pollers |
 | [#1257](../repos/temporalio-sdk-java/issues.md#1257) | Cached activity heartbeat prevents quick shutdown |
 | [#1246](../repos/temporalio-sdk-java/issues.md#1246) | Query not picked up during long local activity |
@@ -194,6 +215,7 @@ These can cause workflow failures in production:
 
 | Issue | Problem |
 |-------|---------|
+| [#2754](../repos/temporalio-sdk-java/issues.md#2754) | Environment Configuration macOS file path issue (new - cross-SDK) |
 | [#856](../repos/temporalio-sdk-java/issues.md#856) | `WorkflowClient#execute` doesn't pair with `workflowStub.getResult()` |
 | [#860](../repos/temporalio-sdk-java/issues.md#860) | Large blob as Activity input gives non-descriptive gRPC error |
 | [#1374](../repos/temporalio-sdk-java/issues.md#1374) | External workflow signal throws incorrect exceptions |
@@ -202,11 +224,12 @@ These can cause workflow failures in production:
 
 ## 4. Medium Priority: Enhancement Clusters
 
-### 4.1 Spring Boot Integration (6 issues)
+### 4.1 Spring Boot Integration (7 issues)
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#2738](../repos/temporalio-sdk-java/issues.md#2738) | **Spring Boot 4 Support** (new) |
+| [#2747](../repos/temporalio-sdk-java/issues.md#2747) | **@WorkflowImpl Spring property placeholders** (new) |
+| [#2738](../repos/temporalio-sdk-java/issues.md#2738) | Spring Boot 4 Support |
 | [#2656](../repos/temporalio-sdk-java/issues.md#2656) | Multi-namespace annotation support |
 | [#2064](../repos/temporalio-sdk-java/issues.md#2064) | GraalVM native image descriptor |
 | [#2031](../repos/temporalio-sdk-java/issues.md#2031) | SlotSupplier integration |
@@ -215,16 +238,17 @@ These can cause workflow failures in production:
 
 **Recommendation:** Bundle as "Spring Boot 4 Migration" project:
 1. Add Spring Boot 4 support
-2. Implement HealthIndicator
-3. Add missing configuration properties
-4. Update to Spring Boot 3.x minimum (resolves security issues)
+2. Implement Spring property placeholders for annotations (#2747)
+3. Implement HealthIndicator
+4. Add missing configuration properties
+5. Update to Spring Boot 3.x minimum (resolves security issues)
 
-### 4.2 Tracing/Observability (11 issues)
+### 4.2 Tracing/Observability (12 issues)
 
 | Issue | Enhancement |
 |-------|-------------|
 | [#2394](../repos/temporalio-sdk-java/issues.md#2394) | **Pure OpenTelemetry support** (no shim) |
-| [#2752](../repos/temporalio-sdk-java/issues.md#2752) | OpenTracing support for updateWithStart |
+| [#2752](../repos/temporalio-sdk-java/issues.md#2752) | OpenTracing support for updateWithStart (new) |
 | [#2620](../repos/temporalio-sdk-java/issues.md#2620) | OpenTracing client interceptor for updateWithStart |
 | [#2117](../repos/temporalio-sdk-java/issues.md#2117) | Customizable OTel span tags |
 | [#1963](../repos/temporalio-sdk-java/issues.md#1963) | Tracing span for schedule creation |
@@ -237,7 +261,16 @@ These can cause workflow failures in production:
 3. Support for all operations including updateWithStart
 4. Customizable tags
 
-### 4.3 Activity Improvements (25 issues)
+### 4.3 Nexus API Support (2 issues)
+
+| Issue | Enhancement |
+|-------|-------------|
+| [#2755](../repos/temporalio-sdk-java/issues.md#2755) | **Support Temporal failures in Nexus APIs** (new) |
+| Related cross-SDK effort | Coordinate with .NET Nexus timeout handling |
+
+**Recommendation:** As Nexus adoption grows, ensure consistent failure handling across SDKs.
+
+### 4.4 Activity Improvements (25 issues)
 
 High-impact activity improvements:
 
@@ -250,7 +283,7 @@ High-impact activity improvements:
 | [#1005](../repos/temporalio-sdk-java/issues.md#1005) | `ActivityExecutionContext#isCancelled` | Medium |
 | [#86](../repos/temporalio-sdk-java/issues.md#86) | Pass activityId to invocation | Medium |
 
-### 4.4 Kotlin Support (3+ issues)
+### 4.5 Kotlin Support (3+ issues)
 
 | Issue | Enhancement |
 |-------|-------------|
@@ -260,15 +293,12 @@ High-impact activity improvements:
 
 **Recommendation:** Prioritize #1845 - native Kotlin coroutine support would significantly improve DX for Kotlin users.
 
-### 4.5 API/SDK Modernization (15+ issues)
+### 4.6 Library Updates (2 issues)
 
 | Issue | Enhancement |
 |-------|-------------|
-| [#2393](../repos/temporalio-sdk-java/issues.md#2393) | Add `patched()` and `deprecatePatch()` APIs |
-| [#2469](../repos/temporalio-sdk-java/issues.md#2469) | Worker Versioning high-level client |
-| [#2213](../repos/temporalio-sdk-java/issues.md#2213) | Signal w/ Start API improvements |
-| [#1940](../repos/temporalio-sdk-java/issues.md#1940) | Java Modules (JPMS) support |
-| [#1644](../repos/temporalio-sdk-java/issues.md#1644) | ContextPropagator redesign |
+| [#2746](../repos/temporalio-sdk-java/issues.md#2746) | **Jackson 3 support** (new - 3 upvotes) |
+| [#2745](../repos/temporalio-sdk-java/issues.md#2745) | Virtual threads worker option fix (new) |
 
 ---
 
@@ -306,28 +336,35 @@ Several issues should be merged as they describe the same problem:
 
 ## 6. Proposed Roadmap
 
-### Phase 1: Critical Fixes (1-2 sprints)
+### Phase 1: Critical Fixes (Immediate)
+- [ ] Fix macOS environment config bug (#2754) - coordinate with TypeScript SDK
 - [ ] Update all dependencies with CVEs
 - [ ] Fix grpc-netty-shaded vulnerability
-- [ ] Address top 5 test server time-skipping bugs
 
-### Phase 2: Core Bug Fixes (2-3 sprints)
+### Phase 2: Stability (Short-term)
+- [ ] Address top 5 test server time-skipping bugs
+- [ ] Add Nexus failure support (#2755)
+- [ ] Fix activity timeout behavior (#2753)
+
+### Phase 3: Core Bug Fixes (Medium-term)
 - [ ] Fix non-determinism bugs (#2307, #1668, #902)
 - [ ] Fix worker/activity bugs (#1715, #1257, #1141)
 - [ ] Fix interface inheritance (#995, #1050)
 
-### Phase 3: Spring Boot 4 (1-2 sprints)
+### Phase 4: Spring Boot 4 (Medium-term)
 - [ ] Spring Boot 4 support (#2738)
+- [ ] Spring property placeholder support (#2747)
 - [ ] HealthIndicator (#1839)
 - [ ] Missing configuration properties
 
-### Phase 4: Observability (2 sprints)
+### Phase 5: Observability (Ongoing)
 - [ ] Native OpenTelemetry module (#2394)
 - [ ] updateWithStart tracing (#2752)
 - [ ] Consistent span tags (#862)
 
-### Phase 5: DX Improvements (Ongoing)
+### Phase 6: DX Improvements (Long-term)
 - [ ] Kotlin coroutine support (#1845)
+- [ ] Jackson 3 support (#2746)
 - [ ] Activity annotation improvements (#2051)
 - [ ] Java Modules support (#1940)
 
@@ -344,25 +381,25 @@ Combining technical priority with user demand (upvotes):
 
 | # | Issue | Category | 👍 | Impact |
 |---|-------|----------|-----|--------|
-| 1 | #2676 | Security | 1 | CVE in grpc-netty |
-| 2 | #1890 | Security | 0 | 9 CVEs in spring-boot-starter |
-| 3 | #1693 | Test Server | **16** | listWorkflowExecutions (most upvoted) |
-| 4 | #1845 | Enhancement | **15** | Kotlin coroutines (2nd most upvoted) |
-| 5 | #1804 | Test Server | **10** | Temporal CLI server from tests |
-| 6 | #2738 | Enhancement | **7** | Spring Boot 4 support |
-| 7 | #2670 | Test Server | 0 | sleep() hangs |
-| 8 | #2307 | Bug | 0 | NDE from GetVersion removal |
-| 9 | #214 | Enhancement | **6** | @SignalMethod threading |
-| 10 | #1668 | Bug | 0 | MutableSideEffect NDE |
-| 11 | #995 | Bug | 0 | Interface inheritance broken |
-| 12 | #1832 | Enhancement | **4** | Annotations as Meta Annotation |
-| 13 | #827 | Enhancement | **4** | Configuration into workflow |
-| 14 | #2075 | Enhancement | **3** | Keep heartbeating during shutdown |
-| 15 | #2746 | Enhancement | **3** | Jackson 3 support |
-| 16 | #2394 | Enhancement | **2** | Native OpenTelemetry |
-| 17 | #2642 | Test Server | **2** | sleep incorrect behavior |
-| 18 | #1141 | Bug | 0 | Deadlock detector false positive |
-| 19 | #1257 | Bug | 0 | Heartbeat blocks shutdown |
-| 20 | #1940 | Enhancement | 0 | Java Modules (JPMS) |
+| 1 | #2754 | Bug | 0 | macOS env config (cross-SDK) |
+| 2 | #2676 | Security | 1 | CVE in grpc-netty |
+| 3 | #1890 | Security | 0 | 9 CVEs in spring-boot-starter |
+| 4 | #1693 | Test Server | **16** | listWorkflowExecutions (most upvoted) |
+| 5 | #1845 | Enhancement | **15** | Kotlin coroutines (2nd most upvoted) |
+| 6 | #1804 | Test Server | **10** | Temporal CLI server from tests |
+| 7 | #2755 | Enhancement | 0 | Nexus API failures (new) |
+| 8 | #2738 | Enhancement | **7** | Spring Boot 4 support |
+| 9 | #2670 | Test Server | 0 | sleep() hangs |
+| 10 | #2307 | Bug | 0 | NDE from GetVersion removal |
+| 11 | #214 | Enhancement | **6** | @SignalMethod threading |
+| 12 | #1668 | Bug | 0 | MutableSideEffect NDE |
+| 13 | #995 | Bug | 0 | Interface inheritance broken |
+| 14 | #1832 | Enhancement | **4** | Annotations as Meta Annotation |
+| 15 | #827 | Enhancement | **4** | Configuration into workflow |
+| 16 | #2746 | Enhancement | **3** | Jackson 3 support |
+| 17 | #2075 | Enhancement | **3** | Keep heartbeating during shutdown |
+| 18 | #2394 | Enhancement | **2** | Native OpenTelemetry |
+| 19 | #2642 | Test Server | **2** | sleep incorrect behavior |
+| 20 | #2747 | Enhancement | 0 | Spring property placeholders |
 
 **Key Insight:** The most upvoted issues (#1693, #1845, #1804) are all test/DX related, indicating users prioritize developer experience improvements.

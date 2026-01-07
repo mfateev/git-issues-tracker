@@ -1,6 +1,6 @@
 # temporalio/features - Complete Issue Dump
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Total Issues:** 247
 **Total Upvotes:** 106
 **Total Comments:** 400
@@ -302,7 +302,7 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 | **URL** | https://github.com/temporalio/features/issues/399 |
 | **State** | OPEN |
 | **Author** | freisenhauer |
-| **Created** | 2024-01-10 14:08:09.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-10 14:08:09.000 UTC (1y 12m ago) |
 | **Updated** | 2024-07-15 17:31:36.000 UTC |
 | **Upvotes** | 15 |
 | **Comments** | 12 |
@@ -902,7 +902,7 @@ This enhancement would be very helpful for us.
 | **URL** | https://github.com/temporalio/features/issues/558 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-11-05 15:58:54.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-05 15:58:54.000 UTC (1y 2m ago) |
 | **Updated** | 2025-12-05 16:08:00.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 21 |
@@ -2323,7 +2323,7 @@ Reactions: ❤️ 1
 | **URL** | https://github.com/temporalio/features/issues/257 |
 | **State** | OPEN |
 | **Author** | longquanzheng (Quanzheng Long) |
-| **Created** | 2023-04-11 17:31:34.000 UTC (2y 8m ago) |
+| **Created** | 2023-04-11 17:31:34.000 UTC (2y 9m ago) |
 | **Updated** | 2024-07-13 01:07:02.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 12 |
@@ -2989,7 +2989,7 @@ Per https://github.com/temporalio/features/issues/397, would it be possible to r
 | **URL** | https://github.com/temporalio/features/issues/119 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-08-10 19:03:31.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-10 19:03:31.000 UTC (3y 5m ago) |
 | **Updated** | 2025-06-03 16:40:51.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 7 |
@@ -3339,7 +3339,7 @@ Is my understanding right from the release notes ?
 | **URL** | https://github.com/temporalio/features/issues/9 |
 | **State** | OPEN |
 | **Author** | rohitgup14 (Rohit Gupta) |
-| **Created** | 2022-01-06 18:21:54.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-06 18:21:54.000 UTC (4 years ago) |
 | **Updated** | 2024-07-13 01:08:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 8 |
@@ -3746,7 +3746,7 @@ class IdempotentIdGenerator(IdGenerator):
 | **URL** | https://github.com/temporalio/features/issues/322 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-08-11 12:52:42.000 UTC (2y 4m ago) |
+| **Created** | 2023-08-11 12:52:42.000 UTC (2y 5m ago) |
 | **Updated** | 2025-05-15 20:47:13.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 3 |
@@ -4195,7 +4195,7 @@ So this task is more about Temporal confirming behavior and how it looks and the
 | **URL** | https://github.com/temporalio/features/issues/203 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2023-01-05 21:32:03.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 21:32:03.000 UTC (3 years ago) |
 | **Updated** | 2025-05-15 05:13:26.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 2 |
@@ -5699,7 +5699,7 @@ Non-determinism errors should not be blindly subject to retry anyways IMO.
 | **URL** | https://github.com/temporalio/features/issues/402 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2024-01-12 18:28:24.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-12 18:28:24.000 UTC (1y 12m ago) |
 | **Updated** | 2024-07-13 01:06:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -5753,7 +5753,7 @@ We'll also want to take versioning and build IDs into account when working on th
 | **URL** | https://github.com/temporalio/features/issues/400 |
 | **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-12 14:55:52.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-12 14:55:52.000 UTC (1y 12m ago) |
 | **Updated** | 2026-01-02 18:51:07.000 UTC |
 | **Closed** | 2026-01-02 18:51:07.000 UTC |
 | **Upvotes** | 0 |
@@ -6009,7 +6009,7 @@ So we'd replace the `NextBackOff()` method with a `Backoff(attempt)` method.
 | **URL** | https://github.com/temporalio/features/issues/54 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-05-13 04:49:51.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-13 04:49:51.000 UTC (3y 8m ago) |
 | **Updated** | 2024-07-13 23:39:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -6126,7 +6126,7 @@ Thanks @cretz I checked Go off the list
 | **URL** | https://github.com/temporalio/features/issues/3 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2021-12-07 23:43:51.000 UTC (4 years ago) |
+| **Created** | 2021-12-07 23:43:51.000 UTC (4y 1m ago) |
 | **Updated** | 2024-07-13 01:08:46.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -6462,7 +6462,7 @@ Spans have several tags but not the namespace. Based on user request, we should 
 | **URL** | https://github.com/temporalio/features/issues/573 |
 | **State** | OPEN |
 | **Author** | antmendoza (Antonio Mendoza Pérez) |
-| **Created** | 2025-01-08 15:16:48.000 UTC (11 months ago) |
+| **Created** | 2025-01-08 15:16:48.000 UTC (12 months ago) |
 | **Updated** | 2025-01-08 15:55:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6776,7 +6776,7 @@ On any TLS failure do the normal retry we should do for all worker poll calls, t
 | **URL** | https://github.com/temporalio/features/issues/451 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-04-12 16:54:35.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-12 16:54:35.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-22 17:05:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6976,7 +6976,7 @@ After discussion, there is just no place for an interceptor in all SDKs to persi
 | **URL** | https://github.com/temporalio/features/issues/383 |
 | **State** | OPEN |
 | **Author** | mohanrajreese (MOHANRAJ M) |
-| **Created** | 2023-12-05 18:51:08.000 UTC (2 years ago) |
+| **Created** | 2023-12-05 18:51:08.000 UTC (2y 1m ago) |
 | **Updated** | 2023-12-05 21:55:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -7131,7 +7131,7 @@ Moving out of the java SDK since this feature isn't specific to that SDK
 | **URL** | https://github.com/temporalio/features/issues/343 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-10-10 16:41:07.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-10 16:41:07.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-13 22:35:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -7377,7 +7377,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/features/issues/206 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2023-01-06 16:49:12.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-06 16:49:12.000 UTC (3 years ago) |
 | **Updated** | 2024-07-13 01:07:13.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -7415,7 +7415,7 @@ It's unclear if we'd require users to instantiate a context propagating intercep
 | **URL** | https://github.com/temporalio/features/issues/204 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2023-01-05 21:44:12.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 21:44:12.000 UTC (3 years ago) |
 | **Updated** | 2024-07-13 01:07:14.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -7809,7 +7809,7 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 | **URL** | https://github.com/temporalio/features/issues/111 |
 | **State** | OPEN |
 | **Author** | mastermanu |
-| **Created** | 2022-08-09 15:49:33.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-09 15:49:33.000 UTC (3y 5m ago) |
 | **Updated** | 2025-04-01 17:57:35.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -8019,7 +8019,7 @@ This issue is to test and document the behavior across sdks
 | **URL** | https://github.com/temporalio/features/issues/17 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-02-09 19:52:25.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-09 19:52:25.000 UTC (3y 11m ago) |
 | **Updated** | 2024-07-13 01:08:35.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -8209,8 +8209,8 @@ Can you give information on why users need local activity headers to be visible 
 | **URL** | https://github.com/temporalio/features/issues/652 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-07-09 15:43:37.000 UTC (5 months ago) |
-| **Updated** | 2025-11-10 21:50:33.000 UTC |
+| **Created** | 2025-07-09 15:43:37.000 UTC (6 months ago) |
+| **Updated** | 2026-01-06 16:26:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
 | **Priority Score** | 1 |
@@ -8287,8 +8287,8 @@ class MyPlugin(client.Plugin, worker.Plugin, client.Interceptor, worker.Intercep
 - [ ] Core - N/A
 - [x] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1764
 - [x] Python - https://github.com/temporalio/sdk-python/issues/950 and https://github.com/temporalio/sdk-python/pull/1011
-- [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/507
-- [ ] Ruby - https://github.com/temporalio/sdk-ruby/issues/318
+- [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/507
+- [x] Ruby - https://github.com/temporalio/sdk-ruby/issues/318
 - [ ] PHP - https://github.com/temporalio/sdk-php/issues/644
 - [ ] Temporal CLI - N/A
 
@@ -8585,7 +8585,7 @@ Blocked by https://github.com/temporalio/temporal/issues/6502
 | **URL** | https://github.com/temporalio/features/issues/614 |
 | **State** | OPEN |
 | **Author** | THardy98 (Thomas Hardy) |
-| **Created** | 2025-04-09 18:24:51.000 UTC (8 months ago) |
+| **Created** | 2025-04-09 18:24:51.000 UTC (9 months ago) |
 | **Updated** | 2025-06-30 17:50:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -8894,7 +8894,7 @@ Also:
 | **URL** | https://github.com/temporalio/features/issues/596 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-11 20:44:19.000 UTC (10 months ago) |
+| **Created** | 2025-02-11 20:44:19.000 UTC (11 months ago) |
 | **Updated** | 2025-02-11 20:48:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -8989,7 +8989,7 @@ Disallowing reserved prefixes on Task Queues should happen in Core for those SDK
 | **URL** | https://github.com/temporalio/features/issues/572 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:33:37.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 13:33:37.000 UTC (1 years ago) |
 | **Updated** | 2025-01-14 17:55:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9037,7 +9037,7 @@ Also need to do this for Nexus as well (for Java, and for other langs once ready
 | **URL** | https://github.com/temporalio/features/issues/571 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:26:12.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 13:26:12.000 UTC (1 years ago) |
 | **Updated** | 2025-01-14 17:58:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9437,7 +9437,7 @@ This sounds like you want to just expose the internal concept we have called wor
 | **URL** | https://github.com/temporalio/features/issues/396 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-08 13:39:23.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-08 13:39:23.000 UTC (2 years ago) |
 | **Updated** | 2025-02-11 20:53:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9524,7 +9524,7 @@ May not need every SDK issue opened at this time, but may make sense to open ser
 | **URL** | https://github.com/temporalio/features/issues/338 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2023-09-09 02:15:50.000 UTC (2y 3m ago) |
+| **Created** | 2023-09-09 02:15:50.000 UTC (2y 4m ago) |
 | **Updated** | 2024-05-29 19:02:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9808,7 +9808,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/features/issues/201 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-01-05 13:37:51.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 13:37:51.000 UTC (3 years ago) |
 | **Updated** | 2024-07-13 01:07:18.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -10409,7 +10409,7 @@ And specifically, the worker should consider `NamespaceNotFound` error a fatal e
 | **URL** | https://github.com/temporalio/features/issues/19 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2022-02-10 19:35:11.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-10 19:35:11.000 UTC (3y 11m ago) |
 | **Updated** | 2024-07-13 01:08:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -10484,7 +10484,7 @@ I think this is a bit unreasonable. Certificates, at least in Go, can be lazily 
 | **URL** | https://github.com/temporalio/features/issues/4 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2021-12-09 17:41:48.000 UTC (4 years ago) |
+| **Created** | 2021-12-09 17:41:48.000 UTC (4y 1m ago) |
 | **Updated** | 2024-07-13 01:08:45.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -10518,7 +10518,7 @@ I like it, let’s do that
 | **URL** | https://github.com/temporalio/features/issues/715 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-22 17:24:50.000 UTC (11 days ago) |
+| **Created** | 2025-12-22 17:24:50.000 UTC (16 days ago) |
 | **Updated** | 2025-12-28 18:34:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10558,7 +10558,7 @@ Describe alternatives you've considered
 | **URL** | https://github.com/temporalio/features/issues/712 |
 | **State** | OPEN |
 | **Author** | THardy98 (Thomas Hardy) |
-| **Created** | 2025-12-18 07:29:14.000 UTC (15 days ago) |
+| **Created** | 2025-12-18 07:29:14.000 UTC (20 days ago) |
 | **Updated** | 2025-12-18 07:31:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10867,10 +10867,11 @@ Feature deployment_versioning/routing_with_ramp failed: timeout waiting for cond
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/features/issues/687 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2025-10-21 20:38:11.000 UTC (2 months ago) |
-| **Updated** | 2025-12-09 18:06:02.000 UTC |
+| **Updated** | 2026-01-05 16:04:54.000 UTC |
+| **Closed** | 2026-01-05 16:04:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -10890,7 +10891,7 @@ This is a backwards incompatible change, but only for self-hosting users with no
 ### Per-SDK Tickets
 
 - [x] Go - TODO
-- [ ] Java - TODO
+- [x] Java - TODO
 - [x] Core - N/A
 - [x] TypeScript - TODO
 - [x] Python - TODO
@@ -10992,7 +10993,7 @@ As an add on to #434 (and therefore after that), in addition to contextual workf
 | **URL** | https://github.com/temporalio/features/issues/677 |
 | **State** | OPEN |
 | **Author** | antstorm (Anthony D) |
-| **Created** | 2020-03-12 11:12:19.000 UTC (5y 9m ago) |
+| **Created** | 2020-03-12 11:12:19.000 UTC (5y 10m ago) |
 | **Updated** | 2025-09-26 21:48:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11109,7 +11110,7 @@ Like we provide activity info to activity authors and workflow info to workflow 
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2025-09-11 18:12:15.000 UTC (3 months ago) |
-| **Updated** | 2025-10-27 19:43:05.000 UTC |
+| **Updated** | 2026-01-06 22:00:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -11128,9 +11129,9 @@ All SDKs should make the "request deadline" available in the Nexus context. Note
 __Nexus SDK__
 - [x] Go - Already in context
 - [x] Java - Already exists
-- [ ] TypeScript - https://github.com/nexus-rpc/sdk-typescript/issues/27
-- [ ] Python - https://github.com/nexus-rpc/sdk-python/issues/29
-- [ ] .NET - https://github.com/nexus-rpc/sdk-dotnet/issues/13
+- [x] TypeScript - https://github.com/nexus-rpc/sdk-typescript/issues/27
+- [x] Python - https://github.com/nexus-rpc/sdk-python/issues/29
+- [x] .NET - https://github.com/nexus-rpc/sdk-dotnet/issues/13
 
 __Temporal SDK__
 - [x] Go - Already in context
@@ -11156,7 +11157,7 @@ __Temporal SDK__
 | **URL** | https://github.com/temporalio/features/issues/672 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-05 12:30:04.000 UTC (3 months ago) |
+| **Created** | 2025-09-05 12:30:04.000 UTC (4 months ago) |
 | **Updated** | 2025-10-07 18:26:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11530,7 +11531,7 @@ There are multiple reasons for polls being slowed down. I'm not sure if we need 
 | **URL** | https://github.com/temporalio/features/issues/636 |
 | **State** | OPEN |
 | **Author** | antmendoza (Antonio Mendoza Pérez) |
-| **Created** | 2025-06-09 12:06:47.000 UTC (6 months ago) |
+| **Created** | 2025-06-09 12:06:47.000 UTC (7 months ago) |
 | **Updated** | 2025-06-09 14:31:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11556,7 +11557,7 @@ It would be great to have the task_queue name in the metrics, as it helps identi
 | **URL** | https://github.com/temporalio/features/issues/635 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-06-09 14:14:34.000 UTC (6 months ago) |
+| **Created** | 2025-06-09 14:14:34.000 UTC (7 months ago) |
 | **Updated** | 2025-10-14 20:19:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11737,8 +11738,8 @@ SDKs today only tests new workflow runs which means only the newer patch/getVers
 | **URL** | https://github.com/temporalio/features/issues/610 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-03-11 18:37:07.000 UTC (9 months ago) |
-| **Updated** | 2025-12-02 18:51:03.000 UTC |
+| **Created** | 2025-03-11 18:37:07.000 UTC (10 months ago) |
+| **Updated** | 2026-01-05 18:16:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -11763,9 +11764,9 @@ SDKs should expose the `Summary` similar to how it was exposed for child workflo
 
 - [x] Go - 
 - [x] Java - 
-- [ ] Core - 
+- [x] Core - 
 - [ ] TypeScript - 
-- [ ] Python - 
+- [x] Python - 
 - [x] .NET - 
 - [ ] Ruby - 
 - [ ] PHP - 
@@ -11784,7 +11785,7 @@ SDKs should expose the `Summary` similar to how it was exposed for child workflo
 | **URL** | https://github.com/temporalio/features/issues/609 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-03-11 14:13:52.000 UTC (9 months ago) |
+| **Created** | 2025-03-11 14:13:52.000 UTC (10 months ago) |
 | **Updated** | 2025-11-14 08:50:50.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12153,7 +12154,7 @@ https://github.com/temporalio/features/pull/579 has updated to use the preferred
 | **URL** | https://github.com/temporalio/features/issues/566 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-12-06 17:58:06.000 UTC (1 years ago) |
+| **Created** | 2024-12-06 17:58:06.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-06 17:59:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12398,7 +12399,7 @@ Schedules can have their search attributes updated (not to be confused with thei
 | **URL** | https://github.com/temporalio/features/issues/506 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2024-07-08 19:41:51.000 UTC (1y 5m ago) |
+| **Created** | 2024-07-08 19:41:51.000 UTC (1y 6m ago) |
 | **Updated** | 2024-07-08 19:41:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12498,7 +12499,7 @@ The value of the `isReplaying` flag may need to be adjusted and the SDK should n
 | **URL** | https://github.com/temporalio/features/issues/492 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-06-10 16:56:29.000 UTC (1y 6m ago) |
+| **Created** | 2024-06-10 16:56:29.000 UTC (1y 7m ago) |
 | **Updated** | 2024-06-10 16:56:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12703,7 +12704,7 @@ We're going with the first approach above. And core doesn't need to do anything,
 | **URL** | https://github.com/temporalio/features/issues/477 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-05-10 12:30:37.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-10 12:30:37.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-28 16:05:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13058,7 +13059,7 @@ We also need to support this in local activities:
 | **URL** | https://github.com/temporalio/features/issues/384 |
 | **State** | OPEN |
 | **Author** | app/mend-for-github-com |
-| **Created** | 2023-12-06 06:46:49.000 UTC (2 years ago) |
+| **Created** | 2023-12-06 06:46:49.000 UTC (2y 1m ago) |
 | **Updated** | 2024-03-02 00:20:32.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -14187,7 +14188,7 @@ Every SDK should react the same to seeing a worker error. They should probably m
 | **URL** | https://github.com/temporalio/features/issues/202 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-01-05 18:30:38.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 18:30:38.000 UTC (3 years ago) |
 | **Updated** | 2024-07-13 01:07:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -14271,7 +14272,7 @@ https://github.com/temporalio/features/issues/378
 | **URL** | https://github.com/temporalio/features/issues/182 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2022-12-06 19:05:12.000 UTC (3 years ago) |
+| **Created** | 2022-12-06 19:05:12.000 UTC (3y 1m ago) |
 | **Updated** | 2024-07-13 01:07:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -14935,7 +14936,7 @@ and throwing `WorkflowNotFoundError`
 | **URL** | https://github.com/temporalio/features/issues/53 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-05-12 03:06:48.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-12 03:06:48.000 UTC (3y 8m ago) |
 | **Updated** | 2024-07-13 01:08:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -15040,7 +15041,7 @@ Add "first execution run ID" to workflow info
 | **URL** | https://github.com/temporalio/features/issues/27 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-03-14 17:56:07.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-14 17:56:07.000 UTC (3y 10m ago) |
 | **Updated** | 2024-07-13 01:08:30.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -15157,7 +15158,7 @@ EDIT: This can be done via entire client replacement
 | **URL** | https://github.com/temporalio/features/issues/10 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-01-06 20:14:42.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-06 20:14:42.000 UTC (4 years ago) |
 | **Updated** | 2024-07-13 01:08:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -15189,7 +15190,7 @@ It is unclear how SDKs behave in the face of manually returned cancellation erro
 | **URL** | https://github.com/temporalio/features/issues/8 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-01-06 18:14:12.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-06 18:14:12.000 UTC (4 years ago) |
 | **Updated** | 2022-01-06 18:14:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

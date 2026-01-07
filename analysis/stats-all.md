@@ -1,8 +1,8 @@
 # Cross-Repository Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Total Repositories:** 10
-**Total Open Issues:** 1550
+**Total Open Issues:** 1564
 
 ## Related Documents
 
@@ -16,12 +16,12 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 1550 |
-| Total Bugs | 357 |
-| Total Enhancements/Features | 1036 |
-| Total Upvotes (👍) | 1464 |
-| Total Comments | 2377 |
-| Total Stale Issues (>12 months) | 940 (61%) |
+| Total Open Issues | 1564 |
+| Total Bugs | 365 |
+| Total Enhancements/Features | 1037 |
+| Total Upvotes (👍) | 1466 |
+| Total Comments | 2402 |
+| Total Stale Issues (>12 months) | 945 (60%) |
 
 ---
 
@@ -29,17 +29,17 @@
 
 | Repository | Issues | Bugs | Enhancements | 👍 | 💬 | Stale | Avg Age |
 |------------|--------|------|--------------|-----|-----|-------|---------|
-| [Server](stats-server.md) | 530 | 137 | 353 | 899 | 865 | 374 | 960d |
-| [Features](stats-features.md) | 247 | 6 | 226 | 106 | 400 | 145 | 791d |
-| [Java SDK](stats-java.md) | 215 | 33 | 126 | 104 | 203 | 155 | 983d |
-| [Go SDK](stats-go.md) | 163 | 59 | 89 | 112 | 214 | 101 | 977d |
-| [TypeScript SDK](stats-typescript.md) | 148 | 50 | 87 | 178 | 348 | 59 | 640d |
-| [Python SDK](stats-python.md) | 115 | 46 | 65 | 31 | 206 | 52 | 467d |
-| [.NET SDK](stats-dotnet.md) | 48 | 12 | 31 | 13 | 51 | 22 | 393d |
-| [PHP SDK](stats-php.md) | 47 | 7 | 31 | 12 | 66 | 17 | 470d |
-| [Ruby SDK](stats-ruby.md) | 24 | 4 | 19 | 3 | 15 | 2 | 230d |
-| [temporalio-api](stats-temporalio-api.md) | 13 | 3 | 9 | 6 | 9 | 13 | 1069d |
-| **Total** | **1550** | **357** | **1036** | **1464** | **2377** | **940** | |
+| [Server](stats-server.md) | 533 | 139 | 353 | 900 | 872 | 374 | 959d |
+| [Features](stats-features.md) | 247 | 6 | 226 | 106 | 400 | 145 | 795d |
+| [Java SDK](stats-java.md) | 217 | 33 | 127 | 104 | 203 | 156 | 979d |
+| [Go SDK](stats-go.md) | 164 | 60 | 89 | 112 | 214 | 101 | 976d |
+| [TypeScript SDK](stats-typescript.md) | 149 | 51 | 87 | 179 | 352 | 59 | 641d |
+| [Python SDK](stats-python.md) | 116 | 47 | 65 | 31 | 212 | 52 | 475d |
+| [.NET SDK](stats-dotnet.md) | 52 | 13 | 31 | 13 | 54 | 24 | 368d |
+| [PHP SDK](stats-php.md) | 48 | 8 | 31 | 12 | 67 | 18 | 465d |
+| [Ruby SDK](stats-ruby.md) | 25 | 5 | 19 | 3 | 19 | 3 | 226d |
+| [temporalio-api](stats-temporalio-api.md) | 13 | 3 | 9 | 6 | 9 | 13 | 1074d |
+| **Total** | **1564** | **365** | **1037** | **1466** | **2402** | **945** | |
 
 ---
 
@@ -59,7 +59,7 @@
 | 10 | Server | [#2609](../repos/temporalio-temporal/issues.md#2609) | 23 | 7 | Add ability to transfer child workflows to new par... |
 | 11 | Server | [#1797](../repos/temporalio-temporal/issues.md#1797) | 22 | 4 | Ability to get all task queues per namespace |
 | 12 | Go SDK | [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | 0 | Ability to mock/intercept side effect calls in tes... |
-| 13 | TypeScript SDK | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 19 | 7 | [Feature Request] Temporal integration for `@opena... |
+| 13 | TypeScript SDK | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 20 | 8 | [Feature Request] Temporal integration for `@opena... |
 | 14 | TypeScript SDK | [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | 19 | 1 | [Feature Request] Add support for opentelemetry v2 |
 | 15 | Server | [#328](../repos/temporalio-temporal/issues.md#328) | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
 | 16 | Server | [#2582](../repos/temporalio-temporal/issues.md#2582) | 18 | 13 | Add health check handler for worker service |
@@ -92,9 +92,9 @@ Priority = Upvotes × 2 + Comments
 | 9 | Server | [#328](../repos/temporalio-temporal/issues.md#328) | 54 | 19 | 16 | Try to run temporal on top of  Amazon Keyspac... |
 | 10 | Server | [#2609](../repos/temporalio-temporal/issues.md#2609) | 53 | 23 | 7 | Add ability to transfer child workflows to ne... |
 | 11 | Server | [#2582](../repos/temporalio-temporal/issues.md#2582) | 49 | 18 | 13 | Add health check handler for worker service |
-| 12 | Server | [#5302](../repos/temporalio-temporal/issues.md#5302) | 48 | 23 | 2 | YDB Temporal support. |
-| 13 | Server | [#1797](../repos/temporalio-temporal/issues.md#1797) | 48 | 22 | 4 | Ability to get all task queues per namespace |
-| 14 | TypeScript SDK | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 45 | 19 | 7 | [Feature Request] Temporal integration for `@... |
+| 12 | TypeScript SDK | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 48 | 20 | 8 | [Feature Request] Temporal integration for `@... |
+| 13 | Server | [#5302](../repos/temporalio-temporal/issues.md#5302) | 48 | 23 | 2 | YDB Temporal support. |
+| 14 | Server | [#1797](../repos/temporalio-temporal/issues.md#1797) | 48 | 22 | 4 | Ability to get all task queues per namespace |
 | 15 | TypeScript SDK | [#483](../repos/temporalio-sdk-typescript/issues.md#483) | 45 | 4 | 37 | [Feature Request] NestJS Transport / Integrat... |
 | 16 | Server | [#1460](../repos/temporalio-temporal/issues.md#1460) | 43 | 16 | 11 | Add task queue query |
 | 17 | Features | [#399](../repos/temporalio-features/issues.md#399) | 42 | 15 | 12 | Custom Markers for Workflow History/Timeline |
@@ -136,10 +136,23 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Recent Issues (Last 30 Days) - 36 total
+## Recent Issues (Last 30 Days) - 42 total
 
 | Date | Repo | Issue | 👍 | Title |
 |------|------|-------|-----|-------|
+| 2026-01-07 | Server | [#8955](../repos/temporalio-temporal/issues.md#8955) | 0 | MCP Server for Temporal Workflows |
+| 2026-01-07 | .NET SDK | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | 0 | [Bug] Some unlikely workflow task failures like fa... |
+| 2026-01-07 | Go SDK | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | 0 | OpenTelemetry incorrect metric type for Counter |
+| 2026-01-07 | PHP SDK | [#689](../repos/temporalio-sdk-php/issues.md#689) | 0 | [Bug] Temporal PHP SDK doing its own extension che... |
+| 2026-01-07 | Server | [#8953](../repos/temporalio-temporal/issues.md#8953) | 0 | The scheduled time is incorrect. |
+| 2026-01-06 | .NET SDK | [#587](../repos/temporalio-sdk-dotnet/issues.md#587) | 0 | Refactor Bridge.Client to be IDisposable instead o... |
+| 2026-01-06 | .NET SDK | [#586](../repos/temporalio-sdk-dotnet/issues.md#586) | 0 | Separate unmanaged pointer lifecycle management in... |
+| 2026-01-06 | Server | [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | No admin-tools image for 1.29.2 |
+| 2026-01-05 | Ruby SDK | [#373](../repos/temporalio-sdk-ruby/issues.md#373) | 0 | ## Bug Report: Fiber state corruption after `Workf... |
+| 2026-01-05 | Java SDK | [#2755](../repos/temporalio-sdk-java/issues.md#2755) | 0 | Support using Temporal failures in Nexus APIs |
+| 2026-01-05 | .NET SDK | [#585](../repos/temporalio-sdk-dotnet/issues.md#585) | 0 | Nexus operation ignores ScheduleToCloseTimeout and... |
+| 2026-01-04 | TypeScript SDK | [#1869](../repos/temporalio-sdk-typescript/issues.md#1869) | 0 | Environment Configuration does not read the correc... |
+| 2026-01-04 | Java SDK | [#2754](../repos/temporalio-sdk-java/issues.md#2754) | 0 | Environment Configuration does not read the correc... |
 | 2025-12-31 | Java SDK | [#2753](../repos/temporalio-sdk-java/issues.md#2753) | 0 | Unexpected Activity Timeout Behavior After Worker ... |
 | 2025-12-30 | Java SDK | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - suppor... |
 | 2025-12-30 | TypeScript SDK | [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | 0 | [Feature Request] Per-Worker Logger |
@@ -169,13 +182,6 @@ Priority = Upvotes × 2 + Comments
 | 2025-12-10 | Server | [#8790](../repos/temporalio-temporal/issues.md#8790) | 0 | history_node table keeps growing |
 | 2025-12-10 | TypeScript SDK | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
 | 2025-12-09 | Java SDK | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | 3 | Jackson 3 support |
-| 2025-12-08 | Java SDK | [#2745](../repos/temporalio-sdk-java/issues.md#2745) | 0 | WorkerOptions isUsingVirtualThreadsOnWorkflowWorke... |
-| 2025-12-08 | Go SDK | [#2131](../repos/temporalio-sdk-go/issues.md#2131) | 0 | Configurable minRPCTimeout for activity worker ins... |
-| 2025-12-08 | TypeScript SDK | [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | 0 | [Bug] High CPU usage with OTel instrumentation whe... |
-| 2025-12-06 | PHP SDK | [#668](../repos/temporalio-sdk-php/issues.md#668) | 0 | [Feature Request] Implement `SetCurrentDetails` fo... |
-| 2025-12-05 | TypeScript SDK | [#1858](../repos/temporalio-sdk-typescript/issues.md#1858) | 0 | [Bug] unable to import reflect-metadata within wor... |
-| 2025-12-05 | Server | [#8764](../repos/temporalio-temporal/issues.md#8764) | 1 | Listing workflows and activities from temporal sdk |
-| 2025-12-04 | TypeScript SDK | [#1854](../repos/temporalio-sdk-typescript/issues.md#1854) | 0 | [Feature Request] Correct docs for OtelCollectorEx... |
 
 ---
 
@@ -183,9 +189,9 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count | % of Issues |
 |-------|-------|-------------|
-| enhancement | 1020 | 66% |
-| bug | 187 | 12% |
-| potential-bug | 171 | 11% |
+| enhancement | 1021 | 65% |
+| bug | 193 | 12% |
+| potential-bug | 173 | 11% |
 | test server | 37 | 2% |
 | up-for-grabs | 30 | 2% |
 | api | 25 | 2% |
@@ -215,15 +221,15 @@ Priority = Upvotes × 2 + Comments
 
 | Repository | Upvotes | Comments | Engagement Score | Stale % |
 |------------|---------|----------|------------------|---------|
-| Server | 899 | 865 | 2663 | 71% |
-| TypeScript SDK | 178 | 348 | 704 | 40% |
+| Server | 900 | 872 | 2672 | 70% |
+| TypeScript SDK | 179 | 352 | 710 | 40% |
 | Features | 106 | 400 | 612 | 59% |
 | Go SDK | 112 | 214 | 438 | 62% |
 | Java SDK | 104 | 203 | 411 | 72% |
-| Python SDK | 31 | 206 | 268 | 45% |
-| PHP SDK | 12 | 66 | 90 | 36% |
-| .NET SDK | 13 | 51 | 77 | 46% |
-| Ruby SDK | 3 | 15 | 21 | 8% |
+| Python SDK | 31 | 212 | 274 | 45% |
+| PHP SDK | 12 | 67 | 91 | 38% |
+| .NET SDK | 13 | 54 | 80 | 46% |
+| Ruby SDK | 3 | 19 | 25 | 12% |
 | temporalio-api | 6 | 9 | 21 | 100% |
 
 ---
@@ -232,13 +238,13 @@ Priority = Upvotes × 2 + Comments
 
 | Repository | Avg Age (days) | 3+ Years | 1-3 Years | <1 Year |
 |------------|----------------|----------|-----------|---------|
-| temporalio-api | 1069 | 7 | 6 | 0 |
-| Features | 791 | 82 | 100 | 65 |
-| .NET SDK | 393 | 0 | 23 | 25 |
-| Go SDK | 977 | 69 | 60 | 34 |
-| Java SDK | 983 | 103 | 70 | 42 |
-| PHP SDK | 470 | 4 | 17 | 26 |
-| Python SDK | 467 | 6 | 59 | 50 |
-| Ruby SDK | 230 | 0 | 2 | 22 |
-| TypeScript SDK | 640 | 39 | 49 | 60 |
-| Server | 960 | 218 | 217 | 95 |
+| temporalio-api | 1074 | 7 | 6 | 0 |
+| Features | 795 | 87 | 97 | 63 |
+| .NET SDK | 368 | 0 | 25 | 27 |
+| Go SDK | 976 | 71 | 59 | 34 |
+| Java SDK | 979 | 104 | 70 | 43 |
+| PHP SDK | 465 | 4 | 18 | 26 |
+| Python SDK | 475 | 6 | 61 | 49 |
+| Ruby SDK | 226 | 0 | 3 | 22 |
+| TypeScript SDK | 641 | 39 | 49 | 61 |
+| Server | 959 | 218 | 218 | 97 |

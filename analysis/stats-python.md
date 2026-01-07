@@ -1,6 +1,6 @@
 # Python SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/sdk-python
 **Data Source:** [issues.md](../repos/temporalio-sdk-python/issues.md)
 
@@ -16,15 +16,15 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 115 |
-| Bugs | 46 |
+| Total Open Issues | 116 |
+| Bugs | 47 |
 | Enhancements/Features | 65 |
 | Security Issues | 0 |
 | Total Upvotes (👍) | 31 |
-| Total Comments | 206 |
+| Total Comments | 212 |
 | Issues with Upvotes | 17 (15%) |
-| Issues with Comments | 54 (47%) |
-| Average Age (days) | 467 |
+| Issues with Comments | 55 (47%) |
+| Average Age (days) | 475 |
 | Stale Issues (>12 months) | 52 (45%) |
 
 ---
@@ -35,10 +35,10 @@
 |-----|-------|---|
 | Last 30 days | 2 | 2% |
 | 1-3 months | 9 | 8% |
-| 3-6 months | 11 | 10% |
-| 6-12 months | 28 | 24% |
-| 1-2 years | 41 | 36% |
-| 2-3 years | 18 | 16% |
+| 3-6 months | 11 | 9% |
+| 6-12 months | 27 | 23% |
+| 1-2 years | 42 | 36% |
+| 2-3 years | 19 | 16% |
 | 3+ years | 6 | 5% |
 
 ---
@@ -120,11 +120,11 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 65 |
-| bug | 46 |
+| bug | 47 |
 
 ---
 
-## Bugs (46 issues)
+## Bugs (47 issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -159,7 +159,7 @@ Priority = Upvotes × 2 + Comments
 | [#607](../repos/temporalio-sdk-python/issues.md#607) | 0 | 0 | [Bug] Prevent hot-reload of workflow definitions from disk |
 | [#597](../repos/temporalio-sdk-python/issues.md#597) | 0 | 1 | [Bug] Cant build wheel temporalio when installing with pip |
 
-*...and 16 more bugs*
+*...and 17 more bugs*
 
 ---
 

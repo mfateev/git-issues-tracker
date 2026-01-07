@@ -1,6 +1,6 @@
 # Temporal Features - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Total Open Issues:** 247
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
@@ -28,7 +28,7 @@ The Features repository tracks cross-SDK feature conformance and feature request
 | Metric | Value |
 |--------|-------|
 | Total Upvotes (👍) | 106 |
-| Total Comments | 399 |
+| Total Comments | 400 |
 | Issues with Upvotes | 32 (13%) |
 | Issues with Comments | 130 (53%) |
 

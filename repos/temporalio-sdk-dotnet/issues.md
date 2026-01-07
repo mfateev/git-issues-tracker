@@ -1,9 +1,9 @@
 # temporalio/sdk-dotnet - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 48
+**Generated:** 2026-01-07
+**Total Issues:** 52
 **Total Upvotes:** 13
-**Total Comments:** 51
+**Total Comments:** 54
 
 ## Table of Contents
 
@@ -16,17 +16,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 48 |
-| Issues with Upvotes | 6 (13%) |
+| Open Issues | 52 |
+| Issues with Upvotes | 6 (12%) |
 | Total Upvotes | 13 |
-| Total Comments | 51 |
+| Total Comments | 54 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
 | enhancement | 31 |
-| bug | 12 |
+| bug | 13 |
 | Mend: dependency security vulnerability | 1 |
 
 ## Issue Index
@@ -40,6 +40,7 @@
 | [#577](#577) | 0 | 4 | [Bug] Investigate test host crash flake |
 | [#553](#553) | 0 | 4 | [Feature Request] OperatorService (RPC) and WorkflowService (RPC) members are marked virtual or inherit from interface |
 | [#363](#363) | 1 | 2 | [Feature Request] Make scoped IServiceProvider available to ActivityInboundInterceptor |
+| [#585](#585) | 0 | 3 | Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds |
 | [#420](#420) | 1 | 1 | [Feature Request] Provide synchronous Run method in testing |
 | [#395](#395) | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation was canceled |
 | [#234](#234) | 0 | 3 | [Bug] Unexpected reuse of payload instances in payload codec for specific workflow failure scenarios. |
@@ -61,6 +62,9 @@
 | [#229](#229) | 0 | 1 | [Feature Request] Make Temporalio.Testing to a seperate nuget out of Temporalio |
 | [#171](#171) | 0 | 1 | [Feature Request] Schedule creation should create tracing span by default |
 | [#32](#32) | 0 | 1 | [Feature Request] Add CancellationToken parameter to TemporalClient.ConnectAsync and friends |
+| [#588](#588) | 0 | 0 | [Bug] Some unlikely workflow task failures like failure conversion issues may be lost |
+| [#587](#587) | 0 | 0 | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
+| [#586](#586) | 0 | 0 | Separate unmanaged pointer lifecycle management into SafeHandles |
 | [#584](#584) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
 | [#578](#578) | 0 | 0 | [Feature Request] Add tests to confirm proper Nexus support for time-skipping environment |
 | [#576](#576) | 0 | 0 | [Feature Request] .NET Analyzer for Checking Workflows |
@@ -324,7 +328,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/390 |
 | **State** | OPEN |
 | **Author** | purkhusid (Daniel P. Purkhús) |
-| **Created** | 2025-01-08 17:50:48.000 UTC (11 months ago) |
+| **Created** | 2025-01-08 17:50:48.000 UTC (12 months ago) |
 | **Updated** | 2025-09-01 09:03:25.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 3 |
@@ -508,10 +512,11 @@ Yeah, I think it's understood why a global.json file has value for _contributors
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/577 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | jmaeagle99 (Justin Anderson) |
-| **Created** | 2025-12-12 22:16:08.000 UTC (21 days ago) |
-| **Updated** | 2025-12-30 20:41:58.000 UTC |
+| **Created** | 2025-12-12 22:16:08.000 UTC (25 days ago) |
+| **Updated** | 2026-01-06 17:17:54.000 UTC |
+| **Closed** | 2026-01-06 17:17:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
 | **Priority Score** | 4 |
@@ -783,7 +788,7 @@ or similar to make it suitable?
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/363 |
 | **State** | OPEN |
 | **Author** | tdg5 (Danny Guinther) |
-| **Created** | 2024-11-05 15:39:28.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-05 15:39:28.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-12 15:38:03.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 2 |
@@ -829,6 +834,356 @@ I opened https://github.com/temporalio/sdk-dotnet/pull/364 with a sketch for dis
 <summary><strong>cretz</strong> commented on 2024-11-12 15:38:02.000 UTC</summary>
 
 :+1: Discussing on PR.
+
+</details>
+
+
+---
+
+<a id="585"></a>
+
+### #585: Nexus operation ignores ScheduleToCloseTimeout and retries every 10 seconds
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-dotnet/issues/585 |
+| **State** | CLOSED |
+| **Author** | neeraj-mathur |
+| **Created** | 2026-01-05 19:11:12.000 UTC (2 days ago) |
+| **Updated** | 2026-01-06 12:17:22.000 UTC |
+| **Closed** | 2026-01-06 12:17:22.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Hello Team,
+
+I am attempting to implement a caller Workflow that invokes a long-running Nexus operation with a 2-hour timeout. In the code below, I have explicitly configured the Nexus operation using:
+
+ScheduleToCloseTimeout = TimeSpan.FromHours(2)
+
+However, during execution, I observe in the Temporal UI that the Nexus operation is being retried approximately every 10 seconds. Additionally, the invoked Nexus operation logs a warning with the message:
+
+“Nexus task not found on completion.”
+
+This behavior suggests that the configured long Nexus operation timeout is not being honored as expected.
+
+Could someone please help identify what is incorrect or missing in the code that would cause the Nexus operation to retry at short intervals instead of respecting the configured 2-hour timeout?
+
+
+`WARN temporal_sdk_core::worker::nexus: Nexus task not found on completion. This may happen if the operation has already been cancelled but completed anyway. details=Status { code: NotFound, message: "Nexus task not found or already expired", details: b"\x08\x05\x12'Nexus task not found or already expired\x1aB\n@type.googleapis.com/temporal.api.errordetails.v1.NotFoundFailure", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }`
+
+
+```
+using Adapter.DataIngestor;
+using Adapter.DataIngestor.Models;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Temporalio.Client;
+using Temporalio.Worker;
+using Xunit;
+
+namespace Adapter.DataIngestor.Tests;
+
+/// <summary>
+/// Simple Nexus Caller Workflow Test - following the pattern from:
+/// https://github.com/temporalio/samples-dotnet/blob/main/src/NexusSimple/Program.cs
+/// https://github.com/temporalio/samples-dotnet/blob/main/src/NexusSimple/Caller/HelloCallerWorkflow.workflow.cs
+/// </summary>
+public class SimpleNexusCallerWorkflowTest : IAsyncLifetime
+{
+    private TemporalClient? _temporalClient;
+    private const string TemporalHost = "localhost:7233";
+    private const string TemporalNamespace = "default";
+    private const long TestProjectId = 1L;
+    private const long TestUserId = 67890L;
+    private static readonly long? TestCompanyId = 1L;
+
+    public async Task InitializeAsync()
+    {
+        try
+        {
+            // Connect to Temporal server
+            _temporalClient = await TemporalClient.ConnectAsync(new()
+            {
+                TargetHost = TemporalHost,
+                Namespace = TemporalNamespace
+            });
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(
+                $"Failed to connect to Temporal server at {TemporalHost}. " +
+                "Ensure Temporal server is running. " +
+                $"Error: {ex.Message}", ex);
+        }
+    }
+
+    public Task DisposeAsync()
+    {
+        _temporalClient = null;
+        return Task.CompletedTask;
+    }
+
+    [Fact]
+    [Trait("Category", "Integration")]
+    public async Task NexusCallerWorkflow_ProcessNeedsFile_ShouldComplete()
+    {
+        // Arrange
+        var jsonFilePath = GetTestMaterialNeedsFilePath();
+        Assert.True(File.Exists(jsonFilePath), $"Test JSON file not found at: {jsonFilePath}");
+
+        var input = new ProcessNeedsFileInput
+        {
+            FilePath = jsonFilePath,
+            CorrelationId = Guid.NewGuid().ToString(),
+            ProjectId = TestProjectId,
+            UserId = TestUserId,
+            CompanyId = TestCompanyId
+        };
+
+        // Act
+        var result = await ExecuteCallerWorkflowAsync(input);
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(input.CorrelationId, result.CorrelationId);
+        
+        Console.WriteLine($"Processing completed. Success: {result.Success}");
+        Console.WriteLine($"Headers Processed: {result.HeadersProcessed}");
+        Console.WriteLine($"Lines Processed: {result.LinesProcessed}");
+        Console.WriteLine($"Errors Count: {result.Errors.Count}");
+    }
+
+    /// <summary>
+    /// Execute the caller workflow that invokes the Nexus operation.
+    /// Following the pattern from: https://github.com/temporalio/samples-dotnet/blob/main/src/NexusSimple/Program.cs
+    /// </summary>
+    private async Task<ProcessNeedsFileOutput> ExecuteCallerWorkflowAsync(ProcessNeedsFileInput input)
+    {
+        if (_temporalClient == null)
+        {
+            throw new InvalidOperationException("Temporal client is not initialized.");
+        }
+
+        // Create a temporary task queue for this test
+        var testTaskQueue = $"test-caller-queue-{Guid.NewGuid()}";
+
+        // Create and run a worker with the caller workflow
+        using var worker = new TemporalWorker(
+            _temporalClient,
+            new TemporalWorkerOptions(testTaskQueue)
+                .AddWorkflow<ProcessNeedsCallerWorkflow>());
+
+        // Execute the worker and workflow
+        return await worker.ExecuteAsync(async () =>
+        {
+            Console.WriteLine("Executing caller workflow");
+            
+            var result = await _temporalClient.ExecuteWorkflowAsync(
+                (ProcessNeedsCallerWorkflow wf) => wf.RunAsync(input),
+                new(id: $"nexus-caller-wf-{Guid.NewGuid()}", taskQueue: testTaskQueue)
+                {
+                    // Workflow execution timeout - total time for the workflow
+                    ExecutionTimeout = TimeSpan.FromHours(2.5),
+                    // Run timeout - time for a single workflow run
+                    RunTimeout = TimeSpan.FromHours(2.5)
+                });
+
+            Console.WriteLine($"Workflow result: Success={result.Success}, " +
+                            $"Headers={result.HeadersProcessed}, " +
+                            $"Lines={result.LinesProcessed}");
+            
+            return result;
+        });
+    }
+
+    /// <summary>
+    /// Gets the path to the Material_Needs.json file
+    /// </summary>
+    private static string GetTestMaterialNeedsFilePath()
+    {
+        var testAssemblyLocation = typeof(SimpleNexusCallerWorkflowTest).Assembly.Location;
+        var testAssemblyDir = Path.GetDirectoryName(testAssemblyLocation);
+        
+        if (string.IsNullOrEmpty(testAssemblyDir))
+        {
+            testAssemblyDir = Directory.GetCurrentDirectory();
+        }
+
+        // Navigate to test project directory
+        var testProjectDir = Path.GetFullPath(Path.Combine(testAssemblyDir, "..", "..", ".."));
+        var jsonPath = Path.Combine(testProjectDir, "Material_Needs.json");
+
+        if (!File.Exists(jsonPath))
+        {
+            // Try current directory
+            var currentDir = Directory.GetCurrentDirectory();
+            if (currentDir.Contains("Adapter.DataIngestor.Tests"))
+            {
+                var altJsonPath = Path.Combine(currentDir, "Material_Needs.json");
+                if (File.Exists(altJsonPath))
+                {
+                    return altJsonPath;
+                }
+            }
+            
+            // Try relative to working directory
+            var cwdJsonPath = Path.GetFullPath(Path.Combine("test", "Adapter.DataIngestor.Tests", "Material_Needs.json"));
+            if (File.Exists(cwdJsonPath))
+            {
+                return cwdJsonPath;
+            }
+        }
+
+        return jsonPath;
+    }
+}
+```
+
+```
+using Adapter.DataIngestor;
+using Adapter.DataIngestor.Models;
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
+using Temporalio.Nexus;
+using Temporalio.Workflows;
+
+namespace Adapter.DataIngestor.Tests;
+
+/// <summary>
+/// Simple caller workflow that invokes the ProcessNeedsFile Nexus operation.
+/// Following the pattern from:
+/// https://github.com/temporalio/samples-dotnet/blob/main/src/NexusSimple/Caller/HelloCallerWorkflow.workflow.cs
+/// https://github.com/temporalio/samples-dotnet/blob/main/src/NexusSimple/Caller/EchoCallerWorkflow.workflow.cs
+/// 
+/// This is a long-running Nexus operation with:
+/// - 2 hour timeout
+/// - No retries (failures are returned as error results)
+/// </summary>
+[Workflow]
+public class ProcessNeedsCallerWorkflow
+{
+    [WorkflowRun]
+    public async Task<ProcessNeedsFileOutput> RunAsync(ProcessNeedsFileInput input)
+    {
+        // Create Nexus operation options
+        // - 2 hour timeout for long-running operation (handled by ScheduleToCloseTimeout)
+        // - No built-in retry policy configuration (handled by error return)
+        // Note: DO NOT create CancellationTokenSource in workflows - it's non-deterministic!
+        var options = new NexusOperationOptions
+        {
+            ScheduleToCloseTimeout = TimeSpan.FromHours(2)
+        };
+
+        // Create typed Nexus client
+        var nexusClient = Workflow.CreateNexusClient<INeedsIngestionService>(
+            INeedsIngestionService.EndpointName);
+
+        // Use reflection to invoke ExecuteNexusOperationAsync with options
+        // This is necessary because the SDK's expression-based API doesn't expose the options parameter
+        var clientType = nexusClient.GetType();
+        var executeMethod = clientType.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+            .FirstOrDefault(m =>
+                m.Name == "ExecuteNexusOperationAsync" &&
+                m.IsGenericMethod &&
+                m.GetGenericArguments().Length == 1 &&
+                m.GetParameters().Length == 3 &&
+                m.GetParameters()[0].ParameterType == typeof(string) &&
+                m.GetParameters()[1].ParameterType == typeof(object) &&
+                m.GetParameters()[2].ParameterType.Name == "NexusOperationOptions");
+
+        if (executeMethod == null)
+        {
+            throw new InvalidOperationException(
+                "ExecuteNexusOperationAsync method with NexusOperationOptions not found. " +
+                "SDK version mismatch?");
+        }
+
+        // Make generic method for output type
+        var genericMethod = executeMethod.MakeGenericMethod(typeof(ProcessNeedsFileOutput));
+
+        try
+        {
+            // Invoke the Nexus operation with 2-hour timeout, no retries
+            var task = (Task<ProcessNeedsFileOutput>)genericMethod.Invoke(
+                nexusClient,
+                new object[]
+                {
+                    nameof(INeedsIngestionService.ProcessNeedsFile),
+                    input,
+                    options
+                })!;
+
+            var result = await task;
+            return result;
+        }
+        catch (Exception ex)
+        {
+            // No retries - return error result immediately
+            return new ProcessNeedsFileOutput
+            {
+                CorrelationId = input.CorrelationId,
+                Success = false,
+                HeadersProcessed = 0,
+                LinesProcessed = 0,
+                Errors = new List<string>
+                {
+                    $"Nexus operation failed: {ex.Message}",
+                    $"Exception type: {ex.GetType().Name}",
+                    "Operation will not be retried per configuration."
+                }
+            };
+        }
+    }
+}
+
+
+
+```
+
+<img width="3776" height="2284" alt="Image" src="https://github.com/user-attachments/assets/18c309d9-d3f4-4039-8a41-43da88611fed" />
+
+[019b8f8b-d58d-7635-8a48-f792f559a02d_events.json](https://github.com/user-attachments/files/24439190/019b8f8b-d58d-7635-8a48-f792f559a02d_events.json)
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>cretz</strong> commented on 2026-01-05 20:06:18.000 UTC</summary>
+
+Starting a Nexus operation has a built-in timeout of 10 seconds before the start is retried. This is mostly unrelated to operation timeout (i.e. schedule to close). A Nexus operation can either be synchronous (completing effectively immediately and returning) or asynchronous (can take a while and returns operation ID/handle). Asynchronous operations are only supported with backing workflows at this time, though we plan to allow general purpose async operations in the near future.
+
+What does your implementation of `INeedsIngestionService.ProcessNeedsFile` look like? It should effectively complete almost immediately either with a sync result, or an async result via a started workflow.
+
+</details>
+
+<details>
+<summary><strong>prasek</strong> commented on 2026-01-05 20:27:22.000 UTC</summary>
+
+Nexus handlers should be used to quickly handoff to a reliable backend like Temporal in [< 10 seconds](https://docs.temporal.io/nexus/operations#synchronous-operation-lifecycle).
+
+For long running [Async Nexus Operations](https://docs.temporal.io/nexus/operations#asynchronous-operation-lifecycle), we recommend backing the Nexus Operation with a Temporal Workflow like this: 
+https://docs.temporal.io/develop/dotnet/nexus#develop-an-asynchronous-nexus-operation-handler-to-start-a-workflow
+
+Also note the [automatic retry](https://docs.temporal.io/nexus/operations#automatic-retries) and [circuit breaking](https://docs.temporal.io/nexus/operations#circuit-breaking) behavior.
+
+</details>
+
+<details>
+<summary><strong>neeraj-mathur</strong> commented on 2026-01-06 03:28:39.000 UTC</summary>
+
+Thank you for the clarification. It appears that I need to migrate to an asynchronous Nexus operation handler.
+
+The Nexus operation INeedsIngestionService.ProcessNeedsFile is a long-running process that performs a large file import. The operation is expected to take a significant amount of time to complete, with a maximum execution duration of approximately two hours, depending on the size and complexity of the data being processed.
 
 </details>
 
@@ -1333,7 +1688,7 @@ Literally just always creating a new instance of the payload object. How you "wr
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/579 |
 | **State** | OPEN |
 | **Author** | cfauchere (Clement) |
-| **Created** | 2025-12-17 22:50:42.000 UTC (16 days ago) |
+| **Created** | 2025-12-17 22:50:42.000 UTC (20 days ago) |
 | **Updated** | 2025-12-18 15:28:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -1609,7 +1964,7 @@ Note, there is an issue with Core this found and is waiting on fix for: https://
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/496 |
 | **State** | OPEN |
 | **Author** | DSmith-VERX (D Smith) |
-| **Created** | 2025-07-10 21:21:53.000 UTC (5 months ago) |
+| **Created** | 2025-07-10 21:21:53.000 UTC (6 months ago) |
 | **Updated** | 2025-07-10 22:00:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -1769,7 +2124,7 @@ Thanks! I have opened #436. In the meantime you can set `TemporalWorkerOptions.D
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/386 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-06 21:22:36.000 UTC (12 months ago) |
+| **Created** | 2025-01-06 21:22:36.000 UTC (1 years ago) |
 | **Updated** | 2025-01-06 21:24:49.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -2207,7 +2562,7 @@ This is caused/blocked by https://github.com/temporalio/sdk-java/issues/1424
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/247 |
 | **State** | OPEN |
 | **Author** | kevbry |
-| **Created** | 2024-05-10 19:58:29.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-10 19:58:29.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-10 21:19:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -2377,6 +2732,87 @@ But we intentionally did not include a cancellation token on connect because we 
 
 ---
 
+<a id="588"></a>
+
+### #588: [Bug] Some unlikely workflow task failures like failure conversion issues may be lost
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-dotnet/issues/588 |
+| **State** | OPEN |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2026-01-07 15:49:26.000 UTC (0 days ago) |
+| **Updated** | 2026-01-07 15:49:26.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the bug
+
+When reviewing the reworking of #492, we can have errors in the lambda/task passed to `QueueNewTaskAsync` of the `StartChildWorkflowAsync`. So if an error on failure conversion occurs in there, we are not logging it because we are not logging/catching all errors for `QueueNewTaskAsync`.
+
+This same thing could happen in other places where we are not properly catching errors in tasks passed to `QueueNewTaskAsync`. We need to be catching these and setting `currentActivationException` (and maybe add logging if the existing task failure logging is inadequate). Whether this is done in each `QueueNewTaskAsync` caller or at the general level can be decided by implementer.
+
+
+---
+
+<a id="587"></a>
+
+### #587: Refactor Bridge.Client to be IDisposable instead of a SafeHandle
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-dotnet/issues/587 |
+| **State** | OPEN |
+| **Author** | jmaeagle99 (Justin Anderson) |
+| **Created** | 2026-01-06 17:17:04.000 UTC (1 days ago) |
+| **Updated** | 2026-01-06 17:17:04.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+#583 introduced the separation of unmanaged pointer lifetime management into `SafeHandle`. The `Bridge.Client` class could not be fully converted to a disposable implementation without other possible API changes; this work was deferred to fix the immediate issue that the PR was addressing. This conversion should be done to match the pattern established for the `Bridge.Worker` class so that there aren't two SafeHandle implementations for `Interop.TemporalCoreClient*`.
+
+
+---
+
+<a id="586"></a>
+
+### #586: Separate unmanaged pointer lifecycle management into SafeHandles
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-dotnet/issues/586 |
+| **State** | OPEN |
+| **Author** | jmaeagle99 (Justin Anderson) |
+| **Created** | 2026-01-06 17:13:15.000 UTC (1 days ago) |
+| **Updated** | 2026-01-06 17:13:15.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+#583 introduced separate `SafeHandle` implementations for the `Client` and `Worker` bridge implementations to allow the `SafeHandle`s to be passed around and prevent use-after-free problems. This should be extended to the remaining classes that currently maintain the lifetime of unmanaged pointers.
+- Pointer lifetime management should be exclusively maintained by `SafeHandle` types for each unmanaged pointer type.
+- Consumers of the unmanaged pointers should use the `Scope.Pointer` method to add-ref on a `SafeHandle`, which will return the unmanaged pointer value.
+
+
+---
+
 <a id="584"></a>
 
 ### #584: [Bug] Loading TLS certificates from path doesn't work
@@ -2386,7 +2822,7 @@ But we intentionally did not include a cancellation token on connect because we 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/584 |
 | **State** | OPEN |
 | **Author** | maciejdudko (Maciej Dudkowski) |
-| **Created** | 2025-12-26 16:59:31.000 UTC (7 days ago) |
+| **Created** | 2025-12-26 16:59:31.000 UTC (12 days ago) |
 | **Updated** | 2025-12-26 16:59:31.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2445,7 +2881,7 @@ Looks like `ClientEnvConfig.Tls.ToTlsOptions` only reads `Data` and ignores  `Pa
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/578 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-17 17:36:14.000 UTC (16 days ago) |
+| **Created** | 2025-12-17 17:36:14.000 UTC (21 days ago) |
 | **Updated** | 2025-12-17 17:36:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2472,7 +2908,7 @@ When Nexus was added, tests specific to the time-skipping test server were not a
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/576 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-12 15:31:49.000 UTC (21 days ago) |
+| **Created** | 2025-12-12 15:31:49.000 UTC (26 days ago) |
 | **Updated** | 2025-12-12 15:39:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2685,7 +3121,7 @@ For low-level users of the pure C bridge (that happens to still be in this repo 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/412 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-11 20:44:22.000 UTC (10 months ago) |
+| **Created** | 2025-02-11 20:44:22.000 UTC (11 months ago) |
 | **Updated** | 2025-02-11 20:44:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2773,7 +3209,7 @@ See temporalio/features#591 for details.
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/387 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:52:13.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 13:52:13.000 UTC (1 years ago) |
 | **Updated** | 2025-01-07 13:52:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2886,7 +3322,7 @@ We need to replay our test workflows more. Today we don't replay nor do we run w
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/246 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-05-10 12:26:53.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-10 12:26:53.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-10 12:26:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2913,7 +3349,7 @@ Right now `RawInfo` and `RawDescription` are `internal` and should be exposed to
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/243 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-05-08 17:55:43.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-08 17:55:43.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-08 17:55:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3054,7 +3490,7 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/176 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-01-12 18:39:01.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-12 18:39:01.000 UTC (1y 12m ago) |
 | **Updated** | 2024-01-12 18:39:01.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

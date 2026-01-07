@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-01-02T23:57:30.218Z",
-  "total_count": 24,
+  "generated_at": "2026-01-07T21:55:11.752Z",
+  "total_count": 25,
   "issues": [
+    {
+      "number": 373,
+      "title": "## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64",
+      "state": "CLOSED",
+      "author": "NielsKSchjoedt",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-05T23:10:37Z",
+      "updatedAt": "2026-01-07T17:23:21Z",
+      "closedAt": "2026-01-07T17:23:21Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/373"
+    },
     {
       "number": 367,
       "title": "[Feature Request] Support non-workflow activities",
@@ -21,15 +37,15 @@
     {
       "number": 364,
       "title": "[Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T14:50:16Z",
-      "updatedAt": "2025-12-02T14:53:57Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-01-07T16:54:00Z",
+      "closedAt": "2026-01-07T16:54:00Z",
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-ruby/issues/364"
@@ -133,14 +149,14 @@
     {
       "number": 318,
       "title": "[Feature Request] Plugin support",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-08-15T14:33:56Z",
-      "updatedAt": "2025-08-15T14:33:56Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-05T19:46:09Z",
+      "closedAt": "2026-01-05T19:46:09Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -387,19 +403,20 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 24
+      "CLOSED": 3,
+      "OPEN": 22
     },
     "by_label": {
       "enhancement": 19,
-      "bug": 4
+      "bug": 5
     },
     "engagement": {
       "total_upvotes": 3,
-      "total_comments": 15,
+      "total_comments": 19,
       "issues_with_upvotes": 2,
-      "issues_with_comments": 8,
+      "issues_with_comments": 10,
       "upvote_rate": "8%",
-      "comment_rate": "33%"
+      "comment_rate": "40%"
     }
   },
   "top_by_upvotes": [
@@ -428,6 +445,18 @@
       "title": "[Bug] ScopedLogger fails attempting to compare symbol to integer for libraries like semantic_logger",
       "upvotes": 0,
       "comments": 4
+    },
+    {
+      "number": 364,
+      "title": "[Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support",
+      "upvotes": 0,
+      "comments": 3
+    },
+    {
+      "number": 373,
+      "title": "## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64",
+      "upvotes": 0,
+      "comments": 1
     },
     {
       "number": 360,

@@ -1,9 +1,9 @@
 # temporalio/sdk-ruby - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 24
+**Generated:** 2026-01-07
+**Total Issues:** 25
 **Total Upvotes:** 3
-**Total Comments:** 15
+**Total Comments:** 19
 
 ## Table of Contents
 
@@ -16,17 +16,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 24 |
+| Open Issues | 25 |
 | Issues with Upvotes | 2 (8%) |
 | Total Upvotes | 3 |
-| Total Comments | 15 |
+| Total Comments | 19 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
 | enhancement | 19 |
-| bug | 4 |
+| bug | 5 |
 
 ## Issue Index
 
@@ -35,14 +35,15 @@
 | [#319](#319) | 2 | 1 | [Feature Request] Look into client-side trimming of failures to avoid server-side wrap-and-truncate |
 | [#162](#162) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
 | [#315](#315) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to integer for libraries like semantic_logger |
+| [#364](#364) | 0 | 3 | [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support |
 | [#306](#306) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test to use macOS Intel |
+| [#373](#373) | 0 | 1 | ## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64 |
 | [#360](#360) | 0 | 1 | Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment |
 | [#334](#334) | 0 | 1 | [Feature Request] Ensure fibers and workflow instances are properly GC'd on workflow eviction |
 | [#238](#238) | 0 | 1 | [Feature Request] Serialization context for codecs and converters |
 | [#203](#203) | 0 | 1 | [Feature Request] Contributing Guide |
 | [#172](#172) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
 | [#367](#367) | 0 | 0 | [Feature Request] Support non-workflow activities |
-| [#364](#364) | 0 | 0 | [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support |
 | [#361](#361) | 0 | 0 | [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow |
 | [#355](#355) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due to sync construct use |
 | [#333](#333) | 0 | 0 | [Feature Request] Require payload codec from data converter file |
@@ -111,7 +112,7 @@ See https://github.com/temporalio/features/issues/597 for possible algorithm
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/162 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-10-07 14:08:31.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-07 14:08:31.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-10 15:30:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 5 |
@@ -350,6 +351,60 @@ Reactions: ❤️ 1
 
 ---
 
+<a id="364"></a>
+
+### #364: [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-ruby/issues/364 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2025-12-02 14:50:16.000 UTC (1 months ago) |
+| **Updated** | 2026-01-07 16:54:00.000 UTC |
+| **Closed** | 2026-01-07 16:54:00.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Need to update CI, docs, etc to confirm/assert Ruby 4 compatibility. Also consider dropping 3.2 support if it goes EOL as expected.
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>kapso</strong> commented on 2026-01-05 18:17:47.000 UTC</summary>
+
+Hi @cretz , any update on this, would love to have Ruby 4 support. Thanks
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2026-01-05 19:08:17.000 UTC</summary>
+
+Yes, we are actively working on this
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>kapso</strong> commented on 2026-01-06 17:57:23.000 UTC</summary>
+
+@cretz thats great, thanks. Looking fwd to the upgrade.
+
+</details>
+
+
+---
+
 <a id="306"></a>
 
 ### #306: [Feature Request] Update build-gems GH workflow smoke test to use macOS Intel
@@ -374,6 +429,179 @@ Reactions: ❤️ 1
 ### Describe the solution you'd like
 
 `macos-intel` (i.e. `macos-13`) runner had to be removed from build-gems run because it cannot download the CLI to do a smoke test presumably because it does not have latest CA certificates. It is a low priority platform anyways and updating the certificates is non-trival (e.g. here's Python's solution: https://github.com/python/cpython/blob/d8fa40b08da60a711311751891fa830cb4ae77f3/Mac/BuildScript/resources/install_certificates.command).
+
+
+---
+
+<a id="373"></a>
+
+### #373: ## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-ruby/issues/373 |
+| **State** | CLOSED |
+| **Author** | NielsKSchjoedt (Niels Kristian Schjødt) |
+| **Created** | 2026-01-05 23:10:37.000 UTC (1 days ago) |
+| **Updated** | 2026-01-07 17:23:21.000 UTC |
+| **Closed** | 2026-01-07 17:23:21.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64
+
+### What are you really trying to do?
+
+We're building a long-running opportunity nurturing workflow that waits for customer replies. The workflow uses `Workflow.timeout` to wait up to 48 hours for a signal (customer reply), then calls an activity to update database state when the timeout expires.
+
+```ruby
+# Simplified workflow pattern
+loop do
+  received = false
+  Temporalio::Workflow.timeout(48.hours) do
+    Temporalio::Workflow.wait_condition { @customer_replied }
+    received = true
+  end
+  
+  unless received
+    # Timeout expired - transition to paused state
+    Temporalio::Workflow.execute_activity(
+      UpdateStateActivity,
+      { "state" => "paused" },
+      start_to_close_timeout: 30
+    )
+    break
+  end
+end
+```
+
+### Describe the bug
+
+When `Workflow.timeout` expires (not cancelled by condition becoming true), calling `Workflow.execute_activity` immediately afterward crashes with:
+
+```
+NoMethodError: undefined method 'status' for true
+```
+
+The crash occurs inside the SDK at `outbound_implementation.rb:177`:
+
+```ruby
+# temporalio-1.1.0/lib/temporalio/internal/worker/workflow_instance/outbound_implementation.rb:177
+case resolution.status  # <-- resolution is `true` instead of a Resolution object
+```
+
+This suggests `Fiber.yield` is returning `true` instead of the expected `Resolution` object after the timeout path executes.
+
+**Key observations:**
+- Only happens on **x86_64-linux** architecture
+- Does **NOT** happen on **aarch64** (M1/M2 Mac)
+- Only occurs when timeout **expires** (not when cancelled by condition becoming true)
+- Activity code never executes - crash is before activity dispatch
+- Workflow replays and retries continuously fail with same error
+
+**Workaround:** Adding `Workflow.sleep(0)` before `execute_activity` forces a clean fiber yield/resume cycle and fixes the issue:
+
+```ruby
+unless received
+  Temporalio::Workflow.sleep(0)  # <-- Workaround
+  Temporalio::Workflow.execute_activity(...)
+end
+```
+
+### Minimal Reproduction
+
+Unfortunately we don't have a minimal reproduction yet, but here's the pattern that triggers it:
+
+```ruby
+require 'temporalio'
+
+class UpdateStateActivity < Temporalio::Activity::Definition
+  def execute(params)
+    puts "Activity executed with: #{params.inspect}"
+    { "success" => true }
+  end
+end
+
+class TimeoutBugWorkflow < Temporalio::Workflow::Definition
+  def execute
+    @signal_received = false
+    
+    received = false
+    Temporalio::Workflow.timeout(5.seconds) do
+      Temporalio::Workflow.wait_condition { @signal_received }
+      received = true
+    end
+    
+    unless received
+      # This crashes on x86_64 when timeout expires
+      Temporalio::Workflow.execute_activity(
+        UpdateStateActivity,
+        { "state" => "paused" },
+        start_to_close_timeout: 30
+      )
+    end
+    
+    { "completed" => true }
+  end
+  
+  workflow_signal
+  def signal_received
+    @signal_received = true
+  end
+end
+```
+
+**To reproduce:**
+1. Start workflow on x86_64 Linux
+2. Do NOT send the signal (let timeout expire)
+3. After 5 seconds, workflow crashes with `undefined method 'status' for true`
+
+### Environment/Versions
+
+- **OS and processor:** x86_64 Linux (Hetzner cloud server, Debian-based Docker container)
+- **Ruby version:** 3.4.0
+- **Temporal SDK version:** `temporalio` gem 1.1.0 (x86_64-linux platform)
+- **Temporal Server:** Self-hosted via Docker Compose (version from temporalio/server image)
+- **Works on:** aarch64 (Apple M1/M2 Mac) with same Ruby and gem versions
+- **Fails on:** x86_64-linux only
+
+### Additional context
+
+**Full stack trace:**
+```
+/usr/local/bundle/ruby/3.4.0/gems/temporalio-1.1.0-x86_64-linux/lib/temporalio/internal/worker/workflow_instance/outbound_implementation.rb:177:in 'execute_activity_once'
+/usr/local/bundle/ruby/3.4.0/gems/temporalio-1.1.0-x86_64-linux/lib/temporalio/internal/worker/workflow_instance/outbound_implementation.rb:134:in 'block in execute_activity_with_local_backoffs'
+<internal:kernel>:168:in 'Kernel#loop'
+/usr/local/bundle/ruby/3.4.0/gems/temporalio-1.1.0-x86_64-linux/lib/temporalio/internal/worker/workflow_instance/outbound_implementation.rb:133:in 'execute_activity_with_local_backoffs'
+/usr/local/bundle/ruby/3.4.0/gems/temporalio-1.1.0-x86_64-linux/lib/temporalio/internal/worker/workflow_instance/outbound_implementation.rb:59:in 'execute_activity'
+/usr/local/bundle/ruby/3.4.0/gems/temporalio-1.1.0-x86_64-linux/lib/temporalio/internal/worker/workflow_instance/context.rb:107:in 'execute_activity'
+/usr/local/bundle/ruby/3.4.0/gems/temporalio-1.1.0-x86_64-linux/lib/temporalio/workflow.rb:163:in 'execute_activity'
+```
+
+**Hypothesis:** The fiber scheduler's handling of timeout expiration leaves some internal state in an inconsistent state on x86_64, causing the next `Fiber.yield` to return a boolean instead of the expected `Resolution` object. The `sleep(0)` workaround likely resets this state by forcing a clean yield/resume cycle.
+
+**We're happy to provide more debugging information or test patches if helpful!**
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2026-01-06 14:19:30.000 UTC</summary>
+
+Thanks! Interesting, I think what may be happening is that we are recording the "current fiber" for both the wait condition and the execute activity, and then yielding in both spots for that to be resumed with a value. But when the wait timeout occurs, that wait condition is left around. So at some point, we resolve that fiber with the result of the wait condition but it's the execute activity that is currently yielded. My guess is we are not properly removing the wait condition when an exception is raised from yield (which is what timeout does).
+
+> Unfortunately we don't have a minimal reproduction yet
+
+I suspect it's because you need to send the signal after the timeout but while the activity is executing (e.g. could have the activity send the signal back to the workflow).
+
+This definitely appears to be a bug and we are looking into it now.
+
+</details>
 
 
 ---
@@ -528,7 +756,7 @@ I'd be curious to see what this looks like as the latter should progress automat
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/334 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-08 20:16:12.000 UTC (3 months ago) |
+| **Created** | 2025-09-08 20:16:12.000 UTC (4 months ago) |
 | **Updated** | 2025-09-11 15:55:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -723,34 +951,6 @@ Server API PR (WIP): https://github.com/temporalio/api/pull/640
 
 ---
 
-<a id="364"></a>
-
-### #364: [Feature Request] Confirm/assert Ruby 4 compatibility, maybe drop 3.2 support
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/sdk-ruby/issues/364 |
-| **State** | OPEN |
-| **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-02 14:50:16.000 UTC (1 months ago) |
-| **Updated** | 2025-12-02 14:53:57.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-### Describe the solution you'd like
-
-Need to update CI, docs, etc to confirm/assert Ruby 4 compatibility. Also consider dropping 3.2 support if it goes EOL as expected.
-
-
-
----
-
 <a id="361"></a>
 
 ### #361: [Feature Request] Allow overriding of the Worker Deployment Version when invoking a Child Workflow
@@ -921,10 +1121,11 @@ Users should be able to `require 'temporalio/converters'` and have payload codec
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/318 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2025-08-15 14:33:56.000 UTC (4 months ago) |
-| **Updated** | 2025-08-15 14:33:56.000 UTC |
+| **Updated** | 2026-01-05 19:46:09.000 UTC |
+| **Closed** | 2026-01-05 19:46:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -976,7 +1177,7 @@ Create the high-level client for control plane operations concerning worker depl
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/232 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-03-11 14:16:52.000 UTC (9 months ago) |
+| **Created** | 2025-03-11 14:16:52.000 UTC (10 months ago) |
 | **Updated** | 2025-11-14 09:00:05.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -1030,7 +1231,7 @@ Add a test that will confirm post-reset-point workflows have a different update 
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/218 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-02-10 21:14:34.000 UTC (10 months ago) |
+| **Created** | 2025-02-10 21:14:34.000 UTC (11 months ago) |
 | **Updated** | 2025-02-10 21:14:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -1146,7 +1347,7 @@ Today, deadlocked workflow does not get interrupted and the stack trace is where
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/185 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-08 20:16:11.000 UTC (11 months ago) |
+| **Created** | 2025-01-08 20:16:11.000 UTC (12 months ago) |
 | **Updated** | 2025-01-08 20:16:11.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -1173,7 +1374,7 @@ In Java workflows today, if a future that fails is never waited on, we warn on w
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/179 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-07 13:59:25.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 13:59:25.000 UTC (1 years ago) |
 | **Updated** | 2025-01-07 13:59:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

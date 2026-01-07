@@ -1,7 +1,7 @@
 # Temporal PHP SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-02
-**Total Open Issues:** 47
+**Generated:** 2026-01-07
+**Total Open Issues:** 48
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-php/issues.md)
@@ -12,7 +12,7 @@
 
 ## Executive Summary
 
-The PHP SDK has 47 open issues with a focus on documentation and testing improvements. The top request is **marshaller documentation** (5 upvotes). Notable: PHP uses different label conventions ("Bug" vs "bug"), and has a "Tests" label indicating testing infrastructure focus.
+The PHP SDK has 48 open issues with a focus on documentation and testing improvements. The top request is **marshaller documentation** (5 upvotes). Notable: PHP uses different label conventions ("Bug" vs "bug"), and has a "Tests" label indicating testing infrastructure focus.
 
 ### Key Findings
 
@@ -20,7 +20,7 @@ The PHP SDK has 47 open issues with a focus on documentation and testing improve
 |----------|-------|----------|
 | Enhancement Requests | 29 | Medium |
 | Tests | 8 | Medium |
-| Bugs | 7 | High |
+| Bugs | 8 | High |
 | Questions | 5 | Low |
 | Documentation | 1 | Medium |
 
@@ -59,10 +59,11 @@ The PHP SDK has 47 open issues with a focus on documentation and testing improve
 
 ---
 
-## High Priority: Bugs (7 issues)
+## High Priority: Bugs (8 issues)
 
 | Issue | Problem | Comments |
 |-------|---------|----------|
+| [#689](../repos/temporalio-sdk-php/issues.md#689) | **SDK extension check breaks composer --ignore-platform-reqs** (NEW) | 1 |
 | [#577](../repos/temporalio-sdk-php/issues.md#577) | Can't run UpdateMethod tests | 7 |
 | [#123](../repos/temporalio-sdk-php/issues.md#123) | withEnableSessionWorker causes ActivityNotRegisteredError | 4 |
 | [#573](../repos/temporalio-sdk-php/issues.md#573) | WorkerFactoryInterface missing arguments | 3 |
@@ -120,6 +121,7 @@ Marshaller documentation is the top request - users need better understanding of
 
 ### Phase 1: Documentation & Bugs
 - [ ] Document SDK marshaller (#592 - 5 👍)
+- [ ] Fix extension check breaking composer --ignore-platform-reqs (#689)
 - [ ] Fix UpdateMethod tests (#577)
 - [ ] Fix session worker error (#123)
 

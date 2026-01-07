@@ -1,6 +1,6 @@
 # Go SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/sdk-go
 **Data Source:** [issues.md](../repos/temporalio-sdk-go/issues.md)
 
@@ -16,15 +16,15 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 163 |
-| Bugs | 59 |
+| Total Open Issues | 164 |
+| Bugs | 60 |
 | Enhancements/Features | 89 |
 | Security Issues | 1 |
 | Total Upvotes (👍) | 112 |
 | Total Comments | 214 |
 | Issues with Upvotes | 41 (25%) |
-| Issues with Comments | 86 (53%) |
-| Average Age (days) | 977 |
+| Issues with Comments | 86 (52%) |
+| Average Age (days) | 976 |
 | Stale Issues (>12 months) | 101 (62%) |
 
 ---
@@ -34,12 +34,12 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 1 | 1% |
-| 1-3 months | 10 | 6% |
+| 1-3 months | 11 | 7% |
 | 3-6 months | 7 | 4% |
-| 6-12 months | 16 | 10% |
-| 1-2 years | 31 | 19% |
-| 2-3 years | 29 | 18% |
-| 3+ years | 69 | 42% |
+| 6-12 months | 15 | 9% |
+| 1-2 years | 32 | 20% |
+| 2-3 years | 27 | 16% |
+| 3+ years | 71 | 43% |
 
 ---
 
@@ -110,7 +110,7 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2025-12-08 | [#2131](../repos/temporalio-sdk-go/issues.md#2131) | 0 | Configurable minRPCTimeout for activity worker instead of us... |
+| 2026-01-07 | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | 0 | OpenTelemetry incorrect metric type for Counter |
 
 ---
 
@@ -120,14 +120,14 @@ Priority = Upvotes × 2 + Comments
 |-------|-------|
 | enhancement | 89 |
 | potential-bug | 45 |
-| bug | 15 |
+| bug | 16 |
 | external dependency | 5 |
 | mend: dependency security vulnerability | 1 |
 | next-gen | 1 |
 
 ---
 
-## Bugs (59 issues)
+## Bugs (60 issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -142,6 +142,7 @@ Priority = Upvotes × 2 + Comments
 | [#1100](../repos/temporalio-sdk-go/issues.md#1100) | 1 | 2 | TestWorkflowEnvironment should surface errors and respect fa... |
 | [#982](../repos/temporalio-sdk-go/issues.md#982) | 1 | 4 | Cannot register mock activity with string name on test workf... |
 | [#642](../repos/temporalio-sdk-go/issues.md#642) | 1 | 7 | Inconsistent behavior when asserting invocations |
+| [#2140](../repos/temporalio-sdk-go/issues.md#2140) | 0 | 0 | OpenTelemetry incorrect metric type for Counter |
 | [#2103](../repos/temporalio-sdk-go/issues.md#2103) | 0 | 3 | Cosmetic bug in logger |
 | [#2090](../repos/temporalio-sdk-go/issues.md#2090) | 0 | 0 | Starting a child workflow in tests leaks goroutines |
 | [#2066](../repos/temporalio-sdk-go/issues.md#2066) | 0 | 3 | Lost messages from workflow.NewChannel(ctx) |
@@ -160,9 +161,8 @@ Priority = Upvotes × 2 + Comments
 | [#1536](../repos/temporalio-sdk-go/issues.md#1536) | 0 | 0 | TERMINATE_IF_RUNNING doesn't work for duplicate child workfl... |
 | [#1496](../repos/temporalio-sdk-go/issues.md#1496) | 0 | 0 | Workflow outcome is inconsistent between test env and real s... |
 | [#1468](../repos/temporalio-sdk-go/issues.md#1468) | 0 | 2 | Interceptors are skipped for mocked activities |
-| [#1427](../repos/temporalio-sdk-go/issues.md#1427) | 0 | 0 | TestWorkflowEnvironment workflow Context does not block when... |
 
-*...and 29 more bugs*
+*...and 30 more bugs*
 
 ---
 
@@ -172,7 +172,6 @@ Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
-| [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | 2022-09-22 | Ability to mock/intercept side effect calls in tes... |
 | [#181](../repos/temporalio-sdk-go/issues.md#181) | 16 | 2020-07-07 | Add ability for a clean worker shutdown that waits... |
 | [#829](../repos/temporalio-sdk-go/issues.md#829) | 6 | 2023-02-02 | Use interceptor logger for all logs related to a w... |
 | [#1282](../repos/temporalio-sdk-go/issues.md#1282) | 5 | 2023-11-06 | Heartbeat timeout not raised while testing |
@@ -192,5 +191,6 @@ Top stale issues by upvotes:
 | [#642](../repos/temporalio-sdk-go/issues.md#642) | 1 | 2024-03-15 | Inconsistent behavior when asserting invocations |
 | [#497](../repos/temporalio-sdk-go/issues.md#497) | 1 | 2021-10-28 | [Test suite] Query after signal works in SDK, but ... |
 | [#458](../repos/temporalio-sdk-go/issues.md#458) | 1 | 2021-11-16 | TestWorkflowEnvironment: Fail RegisterDelayedCallb... |
+| [#439](../repos/temporalio-sdk-go/issues.md#439) | 1 | 2021-05-11 | Include a way to perform assertions on the workflo... |
 
 *...and 81 more stale issues*

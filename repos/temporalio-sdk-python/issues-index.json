@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-02T23:57:30.200Z",
-  "total_count": 115,
+  "generated_at": "2026-01-07T21:55:11.737Z",
+  "total_count": 116,
   "issues": [
     {
       "number": 1262,
@@ -67,14 +67,14 @@
     {
       "number": 1232,
       "title": "[Feature Request] Add BasedPyright as a required typecheck",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "tconley1428",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T20:02:33Z",
-      "updatedAt": "2025-12-02T20:02:33Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-05T14:53:49Z",
+      "closedAt": "2026-01-05T14:53:49Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -131,14 +131,14 @@
     {
       "number": 1186,
       "title": "[Bug] Incomplete fix for #1091 - conversation_id still required in _TemporalModelStub.get_response()",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danielmillerp",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-24T20:54:57Z",
-      "updatedAt": "2025-11-03T18:06:51Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-05T14:54:46Z",
+      "closedAt": "2026-01-05T14:54:46Z",
       "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
@@ -147,14 +147,14 @@
     {
       "number": 1176,
       "title": "[Feature Request] Clean up pyright exclude list",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yuandrew",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-10-21T21:36:14Z",
-      "updatedAt": "2025-10-21T21:36:14Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-05T14:55:30Z",
+      "closedAt": "2026-01-05T14:55:30Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -1547,6 +1547,22 @@
       "url": "https://github.com/temporalio/sdk-python/issues/433"
     },
     {
+      "number": 429,
+      "title": "[Bug] asyncio.wait is non-deterministic when used with coroutines instead of tasks",
+      "state": "CLOSED",
+      "author": "ntessman-capsule",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2023-11-15T06:19:10Z",
+      "updatedAt": "2026-01-05T07:10:20Z",
+      "closedAt": "2024-06-04T14:07:09Z",
+      "commentCount": 6,
+      "upvotes": 0,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/sdk-python/issues/429"
+    },
+    {
       "number": 427,
       "title": "[Bug] dataclasses require even defaulted fields in the JSON dict",
       "state": "OPEN",
@@ -1837,17 +1853,18 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 115
+      "OPEN": 112,
+      "CLOSED": 4
     },
     "by_label": {
       "enhancement": 65,
-      "bug": 46
+      "bug": 47
     },
     "engagement": {
       "total_upvotes": 31,
-      "total_comments": 206,
+      "total_comments": 212,
       "issues_with_upvotes": 17,
-      "issues_with_comments": 54,
+      "issues_with_comments": 55,
       "upvote_rate": "15%",
       "comment_rate": "47%"
     }
@@ -2030,6 +2047,12 @@
       "comments": 6
     },
     {
+      "number": 429,
+      "title": "[Bug] asyncio.wait is non-deterministic when used with coroutines instead of tasks",
+      "upvotes": 0,
+      "comments": 6
+    },
+    {
       "number": 235,
       "title": "[Feature Request] Raise exception for payloads that violate gRPC message max size",
       "upvotes": 0,
@@ -2070,12 +2093,6 @@
       "title": "[Feature Request] Handle edge case of recursive exceptions in failure converter",
       "upvotes": 0,
       "comments": 4
-    },
-    {
-      "number": 1186,
-      "title": "[Bug] Incomplete fix for #1091 - conversation_id still required in _TemporalModelStub.get_response()",
-      "upvotes": 0,
-      "comments": 3
     }
   ]
 }

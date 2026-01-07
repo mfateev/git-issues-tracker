@@ -1,7 +1,7 @@
 # temporalio/sdk-java - Complete Issue Dump
 
-**Generated:** 2026-01-02
-**Total Issues:** 215
+**Generated:** 2026-01-07
+**Total Issues:** 217
 **Total Upvotes:** 104
 **Total Comments:** 203
 
@@ -16,7 +16,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 215 |
+| Open Issues | 217 |
 | Issues with Upvotes | 37 (17%) |
 | Total Upvotes | 104 |
 | Total Comments | 203 |
@@ -25,7 +25,7 @@
 
 | Label | Count |
 |-------|-------|
-| enhancement | 126 |
+| enhancement | 127 |
 | test server | 37 |
 | bug | 33 |
 | Mend: dependency security vulnerability | 4 |
@@ -141,6 +141,8 @@
 | [#302](#302) | 0 | 1 | Print stacktrace coming from another language in the exception message |
 | [#88](#88) | 0 | 1 | Customer needs to specify timeout for start workflow call |
 | [#57](#57) | 0 | 1 | Automatically reconnect to the service when it changes ip address |
+| [#2755](#2755) | 0 | 0 | Support using Temporal failures in Nexus APIs |
+| [#2754](#2754) | 0 | 0 | Environment Configuration does not read the correct file path on macOS |
 | [#2753](#2753) | 0 | 0 | Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check |
 | [#2752](#2752) | 0 | 0 | OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present |
 | [#2750](#2750) | 0 | 0 | Tests not passing: TestStatsReporter Flush not flushing |
@@ -787,7 +789,7 @@ I think ztemporal may have the same problem.  It also appears to me to call `Asy
 | **URL** | https://github.com/temporalio/sdk-java/issues/952 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-01-05 17:05:12.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-05 17:05:12.000 UTC (4 years ago) |
 | **Updated** | 2024-12-17 21:26:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 10 |
@@ -974,7 +976,7 @@ I will reiterate the solution I am convinced will work here, let's discuss this 
 | **URL** | https://github.com/temporalio/sdk-java/issues/2676 |
 | **State** | OPEN |
 | **Author** | susie-oracle |
-| **Created** | 2025-10-07 21:08:53.000 UTC (2 months ago) |
+| **Created** | 2025-10-07 21:08:53.000 UTC (3 months ago) |
 | **Updated** | 2025-12-05 09:06:45.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 6 |
@@ -1550,7 +1552,7 @@ fun <T> List<Promise<T>>.safeAllOf(): Promise<Void> {
 | **URL** | https://github.com/temporalio/sdk-java/issues/1698 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2023-03-14 15:50:18.000 UTC (2y 9m ago) |
+| **Created** | 2023-03-14 15:50:18.000 UTC (2y 10m ago) |
 | **Updated** | 2025-06-17 19:10:05.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 7 |
@@ -1989,7 +1991,7 @@ I believe you can implement this logic by implementing custom WorkflowOutboundCa
 | **URL** | https://github.com/temporalio/sdk-java/issues/2746 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-12-09 23:15:13.000 UTC (24 days ago) |
+| **Created** | 2025-12-09 23:15:13.000 UTC (28 days ago) |
 | **Updated** | 2025-12-09 23:15:13.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 0 |
@@ -2322,7 +2324,7 @@ Hmm, well this is an options that the SDK can validate SDK side. So the Java SDK
 | **URL** | https://github.com/temporalio/sdk-java/issues/806 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2021-10-09 15:49:57.000 UTC (4y 2m ago) |
+| **Created** | 2021-10-09 15:49:57.000 UTC (4y 3m ago) |
 | **Updated** | 2022-03-04 08:19:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 6 |
@@ -2420,7 +2422,7 @@ WDYT? Would that make sense?
 | **URL** | https://github.com/temporalio/sdk-java/issues/626 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2021-08-11 18:40:09.000 UTC (4y 4m ago) |
+| **Created** | 2021-08-11 18:40:09.000 UTC (4y 5m ago) |
 | **Updated** | 2024-12-17 21:19:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 6 |
@@ -2602,7 +2604,7 @@ Dependency: io.temporal:temporal-spring-boot-starter
 | **URL** | https://github.com/temporalio/sdk-java/issues/2412 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2025-02-10 19:34:11.000 UTC (10 months ago) |
+| **Created** | 2025-02-10 19:34:11.000 UTC (11 months ago) |
 | **Updated** | 2025-02-13 19:27:45.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 2 |
@@ -2831,7 +2833,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-java/issues/1969 |
 | **State** | OPEN |
 | **Author** | longquanzheng (Quanzheng Long) |
-| **Created** | 2024-01-11 20:15:28.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-11 20:15:28.000 UTC (1y 12m ago) |
 | **Updated** | 2024-01-16 19:04:33.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -3501,7 +3503,7 @@ To summarize our options are:
 | **URL** | https://github.com/temporalio/sdk-java/issues/86 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-05-12 18:31:34.000 UTC (5y 7m ago) |
+| **Created** | 2020-05-12 18:31:34.000 UTC (5y 8m ago) |
 | **Updated** | 2025-05-15 07:55:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -3612,7 +3614,7 @@ Reactions: 👍 2
 | **URL** | https://github.com/temporalio/sdk-java/issues/2056 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-05-08 18:25:12.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-08 18:25:12.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-08 18:37:02.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -4408,7 +4410,7 @@ The result depends on if workflow run times out before workflow task heartbeat (
 | **URL** | https://github.com/temporalio/sdk-java/issues/228 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-10-08 22:53:30.000 UTC (5y 2m ago) |
+| **Created** | 2020-10-08 22:53:30.000 UTC (5y 3m ago) |
 | **Updated** | 2023-04-18 17:54:44.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -4531,7 +4533,7 @@ In order to work around this, one must use an `ObjectProvider` to decouple compo
 | **URL** | https://github.com/temporalio/sdk-java/issues/2308 |
 | **State** | OPEN |
 | **Author** | AndresBena19 (Andres Benavides) |
-| **Created** | 2024-11-05 03:00:29.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-05 03:00:29.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-05 16:00:32.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -4829,7 +4831,7 @@ TestWorkflowExtension builder to have a setter for the worker taskQueueName. e.g
 | **URL** | https://github.com/temporalio/sdk-java/issues/2034 |
 | **State** | OPEN |
 | **Author** | madhav2302 (Madhav Sodhani) |
-| **Created** | 2024-04-11 19:32:21.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-11 19:32:21.000 UTC (1y 9m ago) |
 | **Updated** | 2024-09-23 12:49:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -5092,7 +5094,7 @@ https://community.temporal.io/t/declaring-activitystub-using-annotation-instead-
 | **URL** | https://github.com/temporalio/sdk-java/issues/1358 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-08-10 14:31:23.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-10 14:31:23.000 UTC (3y 5m ago) |
 | **Updated** | 2024-12-17 21:20:28.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -5161,7 +5163,7 @@ Implementation should implement backpressure correctly. If Worker has a lot of w
 | **URL** | https://github.com/temporalio/sdk-java/issues/1303 |
 | **State** | OPEN |
 | **Author** | GeekNickson (Sadboi) |
-| **Created** | 2022-07-11 07:56:55.000 UTC (3y 5m ago) |
+| **Created** | 2022-07-11 07:56:55.000 UTC (3y 6m ago) |
 | **Updated** | 2022-07-11 14:52:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -5227,7 +5229,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-java/issues/1211 |
 | **State** | OPEN |
 | **Author** | ju-stin |
-| **Created** | 2022-05-12 21:58:22.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-12 21:58:22.000 UTC (3y 8m ago) |
 | **Updated** | 2022-08-10 22:26:35.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6211,7 +6213,7 @@ Moving to sdk-java, as this is an issue in the Time Skipping Test Server.
 | **URL** | https://github.com/temporalio/sdk-java/issues/2364 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-01-09 11:14:25.000 UTC (11 months ago) |
+| **Created** | 2025-01-09 11:14:25.000 UTC (12 months ago) |
 | **Updated** | 2025-05-16 22:41:28.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -6901,7 +6903,7 @@ Currently there is no way of specifying a custom dataconverter/payloadconverter 
 | **URL** | https://github.com/temporalio/sdk-java/issues/1201 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-05-11 01:43:02.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-11 01:43:02.000 UTC (3y 8m ago) |
 | **Updated** | 2023-05-23 17:59:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -6953,7 +6955,7 @@ related: https://github.com/temporalio/sdk-java/issues/1424
 | **URL** | https://github.com/temporalio/sdk-java/issues/1139 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2022-04-12 23:34:26.000 UTC (3y 8m ago) |
+| **Created** | 2022-04-12 23:34:26.000 UTC (3y 9m ago) |
 | **Updated** | 2024-12-17 21:26:50.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7015,7 +7017,7 @@ Leaving it open, because it's good to have.
 | **URL** | https://github.com/temporalio/sdk-java/issues/1138 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-04-12 23:33:23.000 UTC (3y 8m ago) |
+| **Created** | 2022-04-12 23:33:23.000 UTC (3y 9m ago) |
 | **Updated** | 2024-11-19 19:08:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7582,7 +7584,7 @@ https://github.com/jmrozanec/cron-utils/issues/506
 | **URL** | https://github.com/temporalio/sdk-java/issues/305 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2021-01-12 21:10:42.000 UTC (4y 11m ago) |
+| **Created** | 2021-01-12 21:10:42.000 UTC (4y 12m ago) |
 | **Updated** | 2021-03-14 08:24:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7633,7 +7635,7 @@ I checked Saga.Options to disable behavior but there's only 2 configs available 
 | **URL** | https://github.com/temporalio/sdk-java/issues/302 |
 | **State** | OPEN |
 | **Author** | wolfy-j (Anton Tsitou) |
-| **Created** | 2021-01-11 18:50:37.000 UTC (4y 11m ago) |
+| **Created** | 2021-01-11 18:50:37.000 UTC (4y 12m ago) |
 | **Updated** | 2022-07-06 14:38:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7736,6 +7738,78 @@ During various failure/deployment scenarios especially in K8s the service IP mig
 
 ---
 
+<a id="2755"></a>
+
+### #2755: Support using Temporal failures in Nexus APIs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-java/issues/2755 |
+| **State** | OPEN |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2026-01-05 21:37:57.000 UTC (2 days ago) |
+| **Updated** | 2026-01-05 21:38:13.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+**Is your feature request related to a problem? Please describe.**
+
+ Support using Temporal failures in Nexus APIs.
+
+**Additional context**
+
+https://github.com/temporalio/api/pull/682
+
+
+---
+
+<a id="2754"></a>
+
+### #2754: Environment Configuration does not read the correct file path on macOS
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-java/issues/2754 |
+| **State** | OPEN |
+| **Author** | pvsone (Peter Sullivan) |
+| **Created** | 2026-01-04 17:49:02.000 UTC (3 days ago) |
+| **Updated** | 2026-01-04 17:49:02.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Expected Behavior
+Per [the documentation](https://docs.temporal.io/develop/environment-configuration), the SDKs should read the toml config file on a mac from `$HOME/Library/Application Support/temporal/temporal.toml`.  However this path is not being read (the Linux path is being read instead `~/.config/temporalio/temporal.toml`)
+
+## Actual Behavior
+On a mac I expect the SDK to read the Environment Config profile from $HOME/Library/Application Support/temporal/temporal.toml
+
+## Steps to Reproduce the Problem
+
+  1. Create a Profile TOML file on a Mac using the CLI, which writes a file to: $HOME/Library/Application Support/temporal/temporal.toml
+  1. Create a Java program that attempts to read the Profile using the Env Config APIs.  An error will be thrown that the profile cannot be found
+  1. For fun, copy the profile file from the default, documented location ($HOME/Library/Application Support/temporal/temporal.toml) to ~/.config/temporalio/temporal.toml.  Run the Java program again.  The profile will now be successfully found and loaded
+
+## Specifications
+
+  - Version: Java SDK 1.32.1
+  - Platform: Mac
+
+
+
+---
+
 <a id="2753"></a>
 
 ### #2753: Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
@@ -7745,7 +7819,7 @@ During various failure/deployment scenarios especially in K8s the service IP mig
 | **URL** | https://github.com/temporalio/sdk-java/issues/2753 |
 | **State** | OPEN |
 | **Author** | 40lsgy1 (40lsgy1) |
-| **Created** | 2025-12-31 08:23:53.000 UTC (2 days ago) |
+| **Created** | 2025-12-31 08:23:53.000 UTC (7 days ago) |
 | **Updated** | 2025-12-31 08:23:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7776,7 +7850,7 @@ I'm encountering an issue while using Temporal to build a DSL system. In my impl
 | **URL** | https://github.com/temporalio/sdk-java/issues/2752 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-30 20:45:57.000 UTC (3 days ago) |
+| **Created** | 2025-12-30 20:45:57.000 UTC (8 days ago) |
 | **Updated** | 2025-12-30 20:46:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7814,7 +7888,7 @@ https://javadoc.io/static/io.temporal/temporal-opentracing/1.32.0/io/temporal/op
 | **URL** | https://github.com/temporalio/sdk-java/issues/2750 |
 | **State** | OPEN |
 | **Author** | TbirdDuncan |
-| **Created** | 2025-12-28 18:26:55.000 UTC (5 days ago) |
+| **Created** | 2025-12-28 18:26:55.000 UTC (10 days ago) |
 | **Updated** | 2025-12-28 19:04:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7899,7 +7973,7 @@ java.lang.AssertionError: No metric 'temporal_workflow_failed [namespace=UnitTes
 | **URL** | https://github.com/temporalio/sdk-java/issues/2747 |
 | **State** | OPEN |
 | **Author** | karunagoyal (Karuna Goyal) |
-| **Created** | 2025-12-12 17:25:42.000 UTC (21 days ago) |
+| **Created** | 2025-12-12 17:25:42.000 UTC (26 days ago) |
 | **Updated** | 2025-12-12 17:25:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7945,7 +8019,7 @@ Add placeholder resolution in configureWorkflowImplementationsByWorkerName(), co
 | **URL** | https://github.com/temporalio/sdk-java/issues/2745 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-12-08 19:43:12.000 UTC (25 days ago) |
+| **Created** | 2025-12-08 19:43:12.000 UTC (1 months ago) |
 | **Updated** | 2025-12-08 19:43:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8071,7 +8145,7 @@ Populate `WorkflowTaskStartedEventAttributes.suggest_continue_as_new` and `Workf
 | **URL** | https://github.com/temporalio/sdk-java/issues/2656 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-09-08 22:15:38.000 UTC (3 months ago) |
+| **Created** | 2025-09-08 22:15:38.000 UTC (4 months ago) |
 | **Updated** | 2025-09-08 22:18:57.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8109,7 +8183,7 @@ https://github.com/temporalio/sdk-java/issues/2638
 | **URL** | https://github.com/temporalio/sdk-java/issues/2655 |
 | **State** | OPEN |
 | **Author** | jasonmchan (Jason Chan) |
-| **Created** | 2025-09-08 17:45:38.000 UTC (3 months ago) |
+| **Created** | 2025-09-08 17:45:38.000 UTC (4 months ago) |
 | **Updated** | 2025-09-25 23:14:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8149,7 +8223,7 @@ The memo and search attributes in the command are dropped. See [here](https://gi
 | **URL** | https://github.com/temporalio/sdk-java/issues/2650 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-09-05 12:30:41.000 UTC (3 months ago) |
+| **Created** | 2025-09-05 12:30:41.000 UTC (4 months ago) |
 | **Updated** | 2025-09-05 12:30:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8320,7 +8394,7 @@ Create a new stub for each call
 | **URL** | https://github.com/temporalio/sdk-java/issues/2592 |
 | **State** | OPEN |
 | **Author** | dandavison (Dan Davison) |
-| **Created** | 2025-07-10 23:02:28.000 UTC (5 months ago) |
+| **Created** | 2025-07-10 23:02:28.000 UTC (6 months ago) |
 | **Updated** | 2025-07-10 23:06:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8361,7 +8435,7 @@ These warnings do not occur under the real server; the test eventually times out
 | **URL** | https://github.com/temporalio/sdk-java/issues/2586 |
 | **State** | OPEN |
 | **Author** | tconley1428 |
-| **Created** | 2025-07-08 17:36:26.000 UTC (5 months ago) |
+| **Created** | 2025-07-08 17:36:26.000 UTC (6 months ago) |
 | **Updated** | 2025-09-25 23:16:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8746,7 +8820,7 @@ See temporalio/features#591 for details.
 | **URL** | https://github.com/temporalio/sdk-java/issues/2359 |
 | **State** | OPEN |
 | **Author** | GSmithApps (Grant) |
-| **Created** | 2025-01-07 10:51:25.000 UTC (12 months ago) |
+| **Created** | 2025-01-07 10:51:25.000 UTC (1 years ago) |
 | **Updated** | 2025-01-07 10:59:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8812,7 +8886,7 @@ None
 | **URL** | https://github.com/temporalio/sdk-java/issues/2307 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-11-04 23:06:39.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-04 23:06:39.000 UTC (1y 2m ago) |
 | **Updated** | 2024-11-05 03:06:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9287,7 +9361,7 @@ N/A.
 | **URL** | https://github.com/temporalio/sdk-java/issues/2031 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2024-04-10 18:39:45.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-10 18:39:45.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-10 18:39:45.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9312,7 +9386,7 @@ Add sprintboot config options to configure slot suppliers as introduced in https
 | **URL** | https://github.com/temporalio/sdk-java/issues/2030 |
 | **State** | OPEN |
 | **Author** | Sushisource (Spencer Judge) |
-| **Created** | 2024-04-10 18:38:37.000 UTC (1y 8m ago) |
+| **Created** | 2024-04-10 18:38:37.000 UTC (1y 9m ago) |
 | **Updated** | 2024-04-10 18:38:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9400,7 +9474,7 @@ See: https://github.com/temporalio/features/issues/396
 | **URL** | https://github.com/temporalio/sdk-java/issues/1987 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-02-12 14:25:38.000 UTC (1y 10m ago) |
+| **Created** | 2024-02-12 14:25:38.000 UTC (1y 11m ago) |
 | **Updated** | 2024-02-12 14:28:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9463,7 +9537,7 @@ N/A
 | **URL** | https://github.com/temporalio/sdk-java/issues/1952 |
 | **State** | OPEN |
 | **Author** | app/mend-for-github-com |
-| **Created** | 2023-12-06 06:45:33.000 UTC (2 years ago) |
+| **Created** | 2023-12-06 06:45:33.000 UTC (2y 1m ago) |
 | **Updated** | 2023-12-14 22:30:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9647,7 +9721,7 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 | **URL** | https://github.com/temporalio/sdk-java/issues/1951 |
 | **State** | OPEN |
 | **Author** | app/mend-for-github-com |
-| **Created** | 2023-12-06 06:45:31.000 UTC (2 years ago) |
+| **Created** | 2023-12-06 06:45:31.000 UTC (2y 1m ago) |
 | **Updated** | 2023-12-14 22:30:35.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9787,7 +9861,7 @@ Need to be able to set bind address (e.g. for 127.0.0.1) instead of assuming all
 | **URL** | https://github.com/temporalio/sdk-java/issues/1890 |
 | **State** | OPEN |
 | **Author** | app/mend-for-github-com |
-| **Created** | 2023-10-10 17:07:38.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-10 17:07:38.000 UTC (2y 3m ago) |
 | **Updated** | 2024-02-29 17:00:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10470,7 +10544,7 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 | **URL** | https://github.com/temporalio/sdk-java/issues/1888 |
 | **State** | OPEN |
 | **Author** | app/mend-for-github-com |
-| **Created** | 2023-10-10 17:07:36.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-10 17:07:36.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-10 17:07:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10884,7 +10958,7 @@ GoSDK: https://github.com/temporalio/sdk-go/issues/1014
 | **URL** | https://github.com/temporalio/sdk-java/issues/1644 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2023-02-08 16:23:26.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-08 16:23:26.000 UTC (2y 11m ago) |
 | **Updated** | 2025-05-13 16:51:59.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11356,7 +11430,7 @@ Sorry if this is the same #1540, I did not dig into that one.
 | **URL** | https://github.com/temporalio/sdk-java/issues/1586 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2023-01-05 13:17:59.000 UTC (2y 12m ago) |
+| **Created** | 2023-01-05 13:17:59.000 UTC (3 years ago) |
 | **Updated** | 2023-08-30 18:53:05.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11409,7 +11483,7 @@ Currently timers create a different execution history if timer / sleep duration 
 | **URL** | https://github.com/temporalio/sdk-java/issues/1563 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-12-08 05:59:54.000 UTC (3 years ago) |
+| **Created** | 2022-12-08 05:59:54.000 UTC (3y 1m ago) |
 | **Updated** | 2022-12-08 05:59:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11766,7 +11840,7 @@ Create some kind of output (stdout or stderr) that is somewhat predictable (e.g.
 | **URL** | https://github.com/temporalio/sdk-java/issues/1354 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-08-10 03:18:17.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-10 03:18:17.000 UTC (3y 5m ago) |
 | **Updated** | 2024-12-17 21:20:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11860,7 +11934,7 @@ Temporal SDK should add support for such tests to Test Server. Also, a unit test
 | **URL** | https://github.com/temporalio/sdk-java/issues/1258 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-06-09 18:01:28.000 UTC (3y 6m ago) |
+| **Created** | 2022-06-09 18:01:28.000 UTC (3y 7m ago) |
 | **Updated** | 2023-05-23 17:45:05.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11888,7 +11962,7 @@ We should use heartbeatExecutor to schedule an asynchronous retry for a failed h
 | **URL** | https://github.com/temporalio/sdk-java/issues/1257 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-06-09 17:52:04.000 UTC (3y 6m ago) |
+| **Created** | 2022-06-09 17:52:04.000 UTC (3y 7m ago) |
 | **Updated** | 2022-06-09 17:52:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12016,7 +12090,7 @@ Automatically log the stack of the activity thread if an activity didn't heartbe
 | **URL** | https://github.com/temporalio/sdk-java/issues/1212 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-05-13 18:24:22.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-13 18:24:22.000 UTC (3y 8m ago) |
 | **Updated** | 2022-05-13 18:24:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12330,7 +12404,7 @@ Actual   :WORKFLOW_EXECUTION_STATUS_COMPLETED
 | **URL** | https://github.com/temporalio/sdk-java/issues/1069 |
 | **State** | OPEN |
 | **Author** | nagl-stripe |
-| **Created** | 2022-03-10 19:36:21.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-10 19:36:21.000 UTC (3y 10m ago) |
 | **Updated** | 2024-11-19 19:11:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12564,7 +12638,7 @@ class ActivityIssueReproTest : ShouldSpec({
 | **URL** | https://github.com/temporalio/sdk-java/issues/1035 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-02-08 17:56:18.000 UTC (3y 10m ago) |
+| **Created** | 2022-02-08 17:56:18.000 UTC (3y 11m ago) |
 | **Updated** | 2024-12-17 21:27:50.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12795,7 +12869,7 @@ The original flaky reproduction may be very hard to follow and link to the descr
 | **URL** | https://github.com/temporalio/sdk-java/issues/862 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2021-11-08 14:34:48.000 UTC (4y 1m ago) |
+| **Created** | 2021-11-08 14:34:48.000 UTC (4y 2m ago) |
 | **Updated** | 2024-12-17 21:26:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12831,7 +12905,7 @@ Make tracing tags consistent across SDKs.
 | **URL** | https://github.com/temporalio/sdk-java/issues/860 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2021-11-05 17:55:54.000 UTC (4y 1m ago) |
+| **Created** | 2021-11-05 17:55:54.000 UTC (4y 2m ago) |
 | **Updated** | 2021-11-05 17:57:19.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13651,7 +13725,7 @@ Caused by: io.grpc.StatusRuntimeException: NOT_FOUND: Workflow task not found.
 | **URL** | https://github.com/temporalio/sdk-java/issues/227 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-10-06 16:55:53.000 UTC (5y 2m ago) |
+| **Created** | 2020-10-06 16:55:53.000 UTC (5y 3m ago) |
 | **Updated** | 2020-10-06 16:55:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

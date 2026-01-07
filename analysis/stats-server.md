@@ -1,6 +1,6 @@
 # Server SDK - Issue Statistics
 
-**Generated:** 2026-01-02
+**Generated:** 2026-01-07
 **Repository:** temporalio/temporal
 **Data Source:** [issues.md](../repos/temporalio-temporal/issues.md)
 
@@ -16,16 +16,16 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 530 |
-| Bugs | 137 |
+| Total Open Issues | 533 |
+| Bugs | 139 |
 | Enhancements/Features | 353 |
 | Security Issues | 0 |
-| Total Upvotes (👍) | 899 |
-| Total Comments | 865 |
-| Issues with Upvotes | 143 (27%) |
-| Issues with Comments | 285 (54%) |
-| Average Age (days) | 960 |
-| Stale Issues (>12 months) | 374 (71%) |
+| Total Upvotes (👍) | 900 |
+| Total Comments | 872 |
+| Issues with Upvotes | 144 (27%) |
+| Issues with Comments | 290 (54%) |
+| Average Age (days) | 959 |
+| Stale Issues (>12 months) | 374 (70%) |
 
 ---
 
@@ -33,11 +33,11 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 10 | 2% |
-| 1-3 months | 19 | 4% |
-| 3-6 months | 20 | 4% |
-| 6-12 months | 46 | 9% |
-| 1-2 years | 137 | 26% |
+| Last 30 days | 12 | 2% |
+| 1-3 months | 18 | 3% |
+| 3-6 months | 22 | 4% |
+| 6-12 months | 45 | 8% |
+| 1-2 years | 138 | 26% |
 | 2-3 years | 80 | 15% |
 | 3+ years | 218 | 41% |
 
@@ -110,6 +110,9 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-07 | [#8955](../repos/temporalio-temporal/issues.md#8955) | 0 | MCP Server for Temporal Workflows |
+| 2026-01-07 | [#8953](../repos/temporalio-temporal/issues.md#8953) | 0 | The scheduled time is incorrect. |
+| 2026-01-06 | [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | No admin-tools image for 1.29.2 |
 | 2025-12-29 | [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
 | 2025-12-24 | [#8902](../repos/temporalio-temporal/issues.md#8902) | 0 | History service memory usage upward trend |
 | 2025-12-24 | [#8901](../repos/temporalio-temporal/issues.md#8901) | 0 | Skip Re-executing Completed Activities on Workflow Retry (Re... |
@@ -119,7 +122,6 @@ Priority = Upvotes × 2 + Comments
 | 2025-12-18 | [#8864](../repos/temporalio-temporal/issues.md#8864) | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
 | 2025-12-16 | [#8833](../repos/temporalio-temporal/issues.md#8833) | 0 | Scheduler does not list workflows runned when using "trigger... |
 | 2025-12-10 | [#8790](../repos/temporalio-temporal/issues.md#8790) | 0 | history_node table keeps growing |
-| 2025-12-05 | [#8764](../repos/temporalio-temporal/issues.md#8764) | 1 | Listing workflows and activities from temporal sdk |
 
 ---
 
@@ -128,7 +130,7 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 349 |
-| potential-bug | 126 |
+| potential-bug | 128 |
 | up-for-grabs | 30 |
 | api | 25 |
 | difficulty: easy | 20 |
@@ -160,7 +162,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (137 issues)
+## Bugs (139 issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -191,11 +193,11 @@ Priority = Upvotes × 2 + Comments
 | [#1119](../repos/temporalio-temporal/issues.md#1119) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
 | [#787](../repos/temporalio-temporal/issues.md#787) | 1 | 1 | Frequent timeouts while archiving to S3 |
 | [#471](../repos/temporalio-temporal/issues.md#471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
+| [#8953](../repos/temporalio-temporal/issues.md#8953) | 0 | 0 | The scheduled time is incorrect. |
+| [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | 0 | No admin-tools image for 1.29.2 |
 | [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
-| [#8864](../repos/temporalio-temporal/issues.md#8864) | 0 | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
-| [#8833](../repos/temporalio-temporal/issues.md#8833) | 0 | 0 | Scheduler does not list workflows runned when using "trigger... |
 
-*...and 107 more bugs*
+*...and 109 more bugs*
 
 ---
 
