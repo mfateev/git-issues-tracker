@@ -7,7 +7,8 @@ Use this template when generating analysis for the API repository (temporalio/ap
 # Temporal API - Issues Analysis
 
 **Generated:** {DATE}
-**Total Open Issues:** {ISSUE_COUNT}
+**Total Open Issues:** {OPEN_COUNT}
+**Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-api/issues.md)
@@ -37,6 +38,15 @@ The API repository contains Temporal's Protobuf definitions used by all SDKs and
 |--------|-------|
 | Total Upvotes (👍) | {N} |
 | Total Comments | {N} |
+
+### Resolution Metrics
+
+> Note: Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | {%} ({closed}/{total}) |
+| Median Time to Close | {N} days |
 
 ---
 

@@ -7,7 +7,8 @@ Use this template when generating analysis for the Features repository (temporal
 # Temporal Features - Cross-SDK Test Suite Analysis
 
 **Generated:** {DATE}
-**Total Open Issues:** {ISSUE_COUNT}
+**Total Open Issues:** {OPEN_COUNT}
+**Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-features/issues.md)
@@ -39,6 +40,26 @@ The Features repository contains cross-SDK conformance tests and feature impleme
 |--------|-------|
 | Total Upvotes (👍) | {N} |
 | Total Comments | {N} |
+
+### Resolution Metrics
+
+> Note: Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | {%} ({closed}/{total}) |
+| Median Time to Close | {N} days |
+| Resolved within 30 days | {%} |
+
+---
+
+## Issue Velocity (Last 12 Months)
+
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | {N} | {N} | {+/-N} |
+
+{Commentary: "📈 Backlog Growing" or "📉 Backlog Shrinking" or "⚖️ Backlog Stable"}
 
 ---
 

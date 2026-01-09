@@ -7,7 +7,9 @@ Use this template when generating the cross-repository summary document (analysi
 # Temporal - Cross-Repository Analysis Summary
 
 **Generated:** {DATE}
-**Total Open Issues:** {TOTAL_COUNT} across {REPO_COUNT} repositories
+**Total Open Issues:** {OPEN_COUNT} across {REPO_COUNT} repositories
+**Total Closed Issues:** {CLOSED_COUNT}
+**Overall Resolution Rate:** {%}
 
 ## Related Documents
 
@@ -25,19 +27,76 @@ Use this template when generating the cross-repository summary document (analysi
 
 ## Overview by Repository
 
-{Create a table with one row per tracked repository, ordered by issue count descending}
+{Create a table with one row per tracked repository, ordered by open issue count descending}
 
-| Repository | Issues | Upvotes | Comments | Bugs | Enhancements |
-|------------|--------|---------|----------|------|--------------|
-| [{Repo Name}]({analysis-doc}.md) | {N} | {N} | {N} | {N} | {N} |
-| ... | ... | ... | ... | ... | ... |
-| **Total** | **{N}** | **{N}** | **{N}** | **{N}** | **{N}** |
+| Repository | Open | Closed | Rate | Upvotes | Comments | Bugs | Enhancements | Median TTC |
+|------------|------|--------|------|---------|----------|------|--------------|------------|
+| [{Repo Name}]({analysis-doc}.md) | {N} | {N} | {%} | {N} | {N} | {N} | {N} | {N}d |
+| ... | ... | ... | ... | ... | ... | ... | ... | ... |
+| **Total** | **{N}** | **{N}** | **{%}** | **{N}** | **{N}** | **{N}** | **{N}** | **{N}d** |
+
+---
+
+## Global Resolution Metrics
+
+> Note: Closure reasons are *inferred* from labels and metadata. These are heuristics, not explicit GitHub data.
+
+| Metric | Value |
+|--------|-------|
+| Overall Resolution Rate | {%} |
+| Median Time to Close | {N} days |
+| Average Time to Close | {N} days |
+| Resolved within 30 days | {%} |
+| Resolved within 90 days | {%} |
+
+---
+
+## Resolution Leaderboard
+
+### By Resolution Rate (Best First)
+
+| Rank | Repository | Resolution Rate | Open | Closed |
+|------|------------|-----------------|------|--------|
+| 1 | {repo} | {%} | {N} | {N} |
+...
+
+### By Median Time to Close (Fastest First)
+
+| Rank | Repository | Median TTC | Resolved <30d |
+|------|------------|------------|---------------|
+| 1 | {repo} | {N}d | {%} |
+...
+
+---
+
+## Issue Velocity (Last 12 Months)
+
+{Summary of velocity trend}
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | {N} |
+| Issues Closed | {N} |
+| Net Change | {+/-N} |
+
+{Commentary: "📈 Backlog Growing" or "📉 Backlog Shrinking" or "⚖️ Backlog Stable"}
+
+---
+
+## Recently Resolved Popular Requests (Last 6 Months, 3+ 👍)
+
+{List popular issues that were resolved recently across all repos}
+
+| Repo | Issue | 👍 | Title |
+|------|-------|-----|-------|
+| {repo} | [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {upvotes} | {title} |
+...
 
 ---
 
 ## Top User Requests (by Upvotes)
 
-{List top 15 issues across ALL repositories by upvote count}
+{List top 15 OPEN issues across ALL repositories by upvote count}
 
 | Rank | Repo | Issue | 👍 | Request |
 |------|------|-------|-----|---------|
@@ -96,9 +155,9 @@ Use this template when generating the cross-repository summary document (analysi
 
 {Create a table with stale issue counts for each tracked repository}
 
-| Repository | Stale Issues | Recommended Action |
-|------------|--------------|-------------------|
-| {Repo Name} | {N} | {brief recommendation} |
-| ... | ... | ... |
+| Repository | Stale Issues | % of Open | Recommended Action |
+|------------|--------------|-----------|-------------------|
+| {Repo Name} | {N} | {%} | {brief recommendation} |
+| ... | ... | ... | ... |
 
-**Total stale issues across all repos:** {N}
+**Total stale issues across all repos:** {N} ({%} of open issues)

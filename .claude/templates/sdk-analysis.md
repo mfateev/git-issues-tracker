@@ -7,7 +7,8 @@ Use this template when generating analysis documents for SDK repositories (Java,
 # Temporal {SDK_NAME} SDK - Issues Analysis & Remediation Proposal
 
 **Generated:** {DATE}
-**Total Open Issues:** {ISSUE_COUNT}
+**Total Open Issues:** {OPEN_COUNT}
+**Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/{REPO_NAME}](https://github.com/temporalio/{REPO_NAME})
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/{REPO_DIR}/issues.md)
@@ -38,6 +39,17 @@ Use this template when generating analysis documents for SDK repositories (Java,
 | Issues with Upvotes | {N} ({%}) |
 | Issues with Comments | {N} ({%}) |
 
+### Resolution Metrics
+
+> Note: These metrics are derived from closed issue analysis. Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | {%} ({closed}/{total}) |
+| Median Time to Close | {N} days (calendar) / {N} days (business) |
+| Resolved within 30 days | {%} |
+| Resolved within 90 days | {%} |
+
 ### Recommended Actions
 
 1. **Immediate:** {critical items like security vulnerabilities}
@@ -45,6 +57,40 @@ Use this template when generating analysis documents for SDK repositories (Java,
 3. **Medium-term:** {core functionality issues}
 4. **Long-term:** {feature requests based on user demand}
 5. **Housekeeping:** {stale issue triage}
+
+---
+
+## Issue Health Assessment
+
+### Velocity Trend (Last 12 Months)
+
+{Describe whether backlog is growing, shrinking, or stable}
+
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | {N} | {N} | {+/-N} |
+
+{Commentary: "📈 Backlog Growing" or "📉 Backlog Shrinking" or "⚖️ Backlog Stable"}
+
+### Last 6 Months: Detailed Analysis
+
+{Summary of recent activity including bugs closed, enhancements completed, and any popular requests resolved}
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | {N} |
+| Issues Closed | {N} |
+| Bugs Closed | {N} |
+| Enhancements Completed | {N} |
+
+### Popular Requests Resolved (Last 6 Months)
+
+{List issues with 3+ upvotes that were closed in the last 6 months}
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+| [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {upvotes} | {title} |
+...
 
 ---
 

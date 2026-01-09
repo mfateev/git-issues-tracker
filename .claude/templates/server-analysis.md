@@ -7,7 +7,8 @@ Use this template when generating analysis for the Temporal Server repository (t
 # Temporal Server - Issues Analysis & Remediation Proposal
 
 **Generated:** {DATE}
-**Total Open Issues:** {ISSUE_COUNT}
+**Total Open Issues:** {OPEN_COUNT}
+**Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-temporal/issues.md)
@@ -37,6 +38,46 @@ Use this template when generating analysis for the Temporal Server repository (t
 | Total Comments | {N} |
 | Issues with Upvotes | {N} ({%}) |
 | Issues with Comments | {N} ({%}) |
+
+### Resolution Metrics
+
+> Note: Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | {%} ({closed}/{total}) |
+| Median Time to Close | {N} days (calendar) / {N} days (business) |
+| Resolved within 30 days | {%} |
+| Resolved within 90 days | {%} |
+
+---
+
+## Issue Health Assessment
+
+### Velocity Trend (Last 12 Months)
+
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | {N} | {N} | {+/-N} |
+
+{Commentary: "📈 Backlog Growing" or "📉 Backlog Shrinking" or "⚖️ Backlog Stable"}
+
+### Last 6 Months: Detailed Analysis
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | {N} |
+| Issues Closed | {N} |
+| Bugs Closed | {N} |
+| Enhancements Completed | {N} |
+
+### Popular Requests Resolved (Last 6 Months)
+
+{List issues with 3+ upvotes that were closed in the last 6 months}
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+...
 
 ---
 

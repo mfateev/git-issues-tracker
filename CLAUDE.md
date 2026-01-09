@@ -24,14 +24,26 @@ Local GitHub issue tracking system for Temporal repositories. Mirrors issues for
 ## Common Commands
 
 ```bash
-# Update all tracked repos
+# Update all tracked repos (open issues only)
 ./scripts/update-all.sh
 
-# Track a new repository
+# Track a new repository (open issues)
 ./scripts/fetch-issues.sh owner/repo
 node scripts/build-index.js owner-repo
 
-# Update single repo
+# Fetch closed issues
+./scripts/fetch-issues.sh owner/repo --state closed
+
+# Fetch ALL issues (open + closed)
+./scripts/fetch-issues.sh owner/repo --state all
+
+# Fetch closed issues for all tracked repos
+./scripts/fetch-closed.sh
+
+# Fetch closed issues for single repo
+./scripts/fetch-closed.sh temporalio-sdk-java
+
+# Update single repo (handles both open and closed)
 ./scripts/update-issues.sh owner-repo
 
 # List tracked repositories
@@ -88,7 +100,8 @@ repos/                          # Per-repository data
     └── sync-metadata.json      # Sync state (last_sync, issue_count)
 
 scripts/
-├── fetch-issues.sh             # Full download (uses gh CLI)
+├── fetch-issues.sh             # Full download (uses gh CLI, supports --state)
+├── fetch-closed.sh             # Convenience: fetch closed issues for all repos
 ├── update-issues.sh            # Incremental sync for one repo
 ├── update-all.sh               # Update all tracked repos
 ├── build-index.js              # Creates issues-index.json
@@ -110,6 +123,36 @@ scripts/
 - Upvotes extracted from THUMBS_UP reactions during indexing
 - Requires authenticated `gh` CLI
 - Statistics files (`stats-*.md`) are script-generated; analysis files (`<sdk>.md`) are LLM-generated
+- Issue states: `--state open` (default), `--state closed`, `--state all`
+- Closed issues are stored alongside open issues in the same `issues/` directory
+- sync-metadata.json tracks counts by state: `{open, closed, total}`
+
+## Statistics & Metrics
+
+Statistics files (`stats-*.md`) include the following sections:
+
+### Resolution Metrics
+- **Resolution Rate**: Percentage of total issues that are closed
+- **Time to Close**: Median, average, and P90 in both calendar days and business days (weekends excluded)
+- **Percentile Breakdown**: % resolved within 7, 30, 90, 180, and 365 days
+- **Closure Reasons**: Inferred from labels and metadata (not explicit GitHub data):
+  - `duplicate` - Has duplicate-related label
+  - `wontfix` - Has wontfix/won't-fix label
+  - `stale` - Has stale label or closed by stale bot
+  - `invalid` - Has invalid label
+  - `self_resolved` - Reporter closed their own issue
+  - `fixed` - Has fix-related label or linked PR
+  - `completed` - Has completion-related label
+  - `unknown` - Could not determine reason
+
+### Issue Velocity (12-Month)
+- Issues opened vs closed over the last 12 months
+- Net change indicates backlog trend (growing/shrinking/stable)
+
+### 6-Month Detailed Analysis
+- Recent opened and closed counts
+- Bugs closed and enhancements completed
+- Popular requests resolved (issues with 3+ upvotes that were closed)
 
 ## LLM-Generated Files
 
