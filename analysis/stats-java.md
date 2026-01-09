@@ -1,6 +1,6 @@
 # Java SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/sdk-java
 **Data Source:** [issues.md](../repos/temporalio-sdk-java/issues.md)
 
@@ -16,25 +16,107 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 217 |
-| Bugs | 33 |
-| Enhancements/Features | 127 |
-| Security Issues | 4 |
-| Total Upvotes (👍) | 104 |
-| Total Comments | 203 |
+| Total Open Issues | 216 |
+| Total Closed Issues | 1 |
+| Total All Issues | 217 |
+| Bugs (open) | 33 |
+| Enhancements/Features (open) | 127 |
+| Security Issues (open) | 4 |
+| Total Upvotes (👍) on open | 104 |
+| Total Comments on open | 203 |
 | Issues with Upvotes | 37 (17%) |
 | Issues with Comments | 86 (40%) |
-| Average Age (days) | 979 |
+| Average Age (days) | 985 |
 | Stale Issues (>12 months) | 156 (72%) |
 
 ---
+## Resolution Metrics
 
-## Age Distribution
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 0% (1/217) |
+| Avg Time to Close (calendar) | 8 days |
+| Avg Time to Close (business) | 7 days |
+| Median Time to Close (calendar) | 8 days |
+| Median Time to Close (business) | 7 days |
+| 90th Percentile (calendar) | 8 days |
+| 90th Percentile (business) | 7 days |
+| Resolved within 30 days | 100% |
+| Resolved within 90 days | 100% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 0 | 0% |
+| Completed (features) | 0 | 0% |
+| Self-resolved | 0 | 0% |
+| Duplicate | 0 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 1 | 100% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 1 | 0 | +1 |
+| 2025-03 | 1 | 0 | +1 |
+| 2025-04 | 3 | 0 | +3 |
+| 2025-05 | 3 | 0 | +3 |
+| 2025-06 | 1 | 0 | +1 |
+| 2025-07 | 5 | 0 | +5 |
+| 2025-08 | 3 | 0 | +3 |
+| 2025-09 | 6 | 0 | +6 |
+| 2025-10 | 2 | 0 | +2 |
+| 2025-11 | 4 | 0 | +4 |
+| 2025-12 | 6 | 0 | +6 |
+| 2026-01 | 2 | 1 | +1 |
+| **Total** | **37** | **1** | **+36** |
+
+📈 **Backlog Growing:** 36 more issues opened than closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 27 |
+| Issues Closed | 1 |
+| Net Change | +26 |
+| Bugs Closed | 0 |
+| Enhancements Closed | 0 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 8 | 7 |
+| Median | 8 | 7 |
+| 90th Percentile | 8 | 7 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 100% |
+| Within 90 days | 100% |
+
+
+---
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 7 | 3% |
-| 1-3 months | 7 | 3% |
+| Last 30 days | 5 | 2% |
+| 1-3 months | 8 | 4% |
 | 3-6 months | 12 | 6% |
 | 6-12 months | 17 | 8% |
 | 1-2 years | 38 | 18% |
@@ -43,7 +125,7 @@
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
@@ -65,7 +147,7 @@
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
@@ -89,7 +171,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
@@ -112,15 +194,13 @@ Priority = Upvotes × 2 + Comments
 |------|-------|-----|-------|
 | 2026-01-05 | [#2755](../repos/temporalio-sdk-java/issues.md#2755) | 0 | Support using Temporal failures in Nexus APIs |
 | 2026-01-04 | [#2754](../repos/temporalio-sdk-java/issues.md#2754) | 0 | Environment Configuration does not read the correct file pat... |
-| 2025-12-31 | [#2753](../repos/temporalio-sdk-java/issues.md#2753) | 0 | Unexpected Activity Timeout Behavior After Worker Crash & Ne... |
 | 2025-12-30 | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for upda... |
 | 2025-12-28 | [#2750](../repos/temporalio-sdk-java/issues.md#2750) | 0 | Tests not passing: TestStatsReporter Flush not flushing |
 | 2025-12-12 | [#2747](../repos/temporalio-sdk-java/issues.md#2747) | 0 | @WorkflowImpl(workers = "...") should support Spring propert... |
-| 2025-12-09 | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | 3 | Jackson 3 support |
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
@@ -135,7 +215,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (33 issues)
+## Bugs (33 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -174,7 +254,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (156 issues with no activity >12 months)
+## Stale Issues (156 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 

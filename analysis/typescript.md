@@ -1,387 +1,288 @@
 # Temporal TypeScript SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-07
-**Total Open Issues:** 149
+**Generated:** 2026-01-09
+**Total Open Issues:** 144
+**Total Closed Issues:** 5
 **Repository:** [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-typescript/issues.md)
+<- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) | [Full Issue Data](../repos/temporalio-sdk-typescript/issues.md)
 
-**Other SDKs:** [Java](java.md) · [Go](go.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Server](server.md) · [Features](features.md)
+**Other SDKs:** [Java](java.md) | [Go](go.md) | [Python](python.md) | [.NET](dotnet.md) | [PHP](php.md) | [Ruby](ruby.md)
 
 ---
 
 ## Executive Summary
 
-The TypeScript SDK has 149 open issues with strong community engagement (179 upvotes, 351 comments). The #1 user request is **Bun runtime support** with 46 upvotes - by far the most upvoted issue. Recent releases (1.13.x-1.14.x) have introduced stability concerns that need immediate attention, including performance regressions and signal handling bugs.
+The TypeScript SDK has 144 open issues with a growing backlog (+50 net issues in the last 12 months). User demand is concentrated around alternative runtime support (Bun), AI/agent integrations, and observability improvements. With 40% of issues stale and only a 3% resolution rate on tracked issues, the SDK would benefit from focused triage and addressing high-engagement feature requests.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Enhancement Requests | 87 | Medium-High - Feature demand |
-| Bugs | 51 | High - Core functionality |
-| Documentation | 6 | Low |
-| Stale Issues (>1 year) | 59 | Review for closure |
+| Bugs | 49 | High - includes SDK upgrade regressions and testing infrastructure issues |
+| Enhancements | 84 | Medium - strong user demand for runtime and framework integrations |
+| Documentation | 6 | Low - broken links and missing docs for features |
+| Stale Issues | 58 | Medium - 40% of open issues need triage |
 
 ### User Engagement Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes (👍) | 179 |
-| Total Comments | 351 |
-| Issues with Upvotes | 40 (27%) |
-| Issues with Comments | 76 (51%) |
+| Total Upvotes | 171 |
+| Total Comments | 342 |
+| Issues with Upvotes | 37 (26%) |
+| Issues with Comments | 73 (51%) |
+
+### Resolution Metrics
+
+> Note: These metrics are derived from closed issue analysis. Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 3% (5/149) |
+| Median Time to Close | 17 days (calendar) / 14 days (business) |
+| Resolved within 30 days | 60% |
+| Resolved within 90 days | 60% |
 
 ### Recommended Actions
 
-1. **Immediate:** Address v1.13.x/1.14.x regressions (performance, signals, OTel CPU)
-2. **Short-term:** Fix macOS environment config bug (cross-SDK issue)
-3. **Medium-term:** OpenTelemetry v2 support (#1658 - 19 upvotes)
-4. **Long-term:** Bun runtime support (#1334 - 46 upvotes), browser client
-5. **Housekeeping:** Triage 59 stale issues
+1. **Immediate:** Address performance regression in v1.13.x ([#1860](../repos/temporalio-sdk-typescript/issues.md#1860), [#1859](../repos/temporalio-sdk-typescript/issues.md#1859)) and SDK upgrade issues ([#1749](../repos/temporalio-sdk-typescript/issues.md#1749))
+2. **Short-term:** Fix high-engagement bugs - Jest open handles ([#928](../repos/temporalio-sdk-typescript/issues.md#928)), NextJS 15 compatibility ([#1615](../repos/temporalio-sdk-typescript/issues.md#1615))
+3. **Medium-term:** Evaluate Bun runtime support ([#1334](../repos/temporalio-sdk-typescript/issues.md#1334)) - highest community demand
+4. **Long-term:** Build AI/agent integrations ([#1755](../repos/temporalio-sdk-typescript/issues.md#1755)), OpenTelemetry v2 support ([#1658](../repos/temporalio-sdk-typescript/issues.md#1658))
+5. **Housekeeping:** Triage 58 stale issues (40% of backlog)
 
 ---
 
-## Recent Issues (Last 30 Days) - URGENT
+## Issue Health Assessment
 
-**7 new issues, including critical stability concerns:**
+### Velocity Trend (Last 12 Months)
 
-| Date | Issue | Type | Description |
-|------|-------|------|-------------|
-| 2026-01-04 | [#1869](../repos/temporalio-sdk-typescript/issues.md#1869) | Bug | Environment config incorrect file path on macOS |
-| 2025-12-30 | [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | Enhancement | Per-Worker Logger |
-| 2025-12-23 | [#1866](../repos/temporalio-sdk-typescript/issues.md#1866) | Bug | **Signal caused condition to fail with CancelledFailure (1.14.0)** |
-| 2025-12-22 | [#1864](../repos/temporalio-sdk-typescript/issues.md#1864) | Enhancement | Update AI SDK integration to v6 |
-| 2025-12-12 | [#1862](../repos/temporalio-sdk-typescript/issues.md#1862) | Enhancement | Importing workflow into activity causes gRPC error |
-| 2025-12-10 | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | Bug | **Performance regression from 1.13.1 → 1.13.2** |
-| 2025-12-08 | [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | Bug | **High CPU with OTel instrumentation in v1.13.x** |
+The backlog is growing significantly, with 55 issues opened and only 5 closed in the past year.
 
-**Critical Pattern:** Three recent bugs (#1859, #1860, #1866) affect v1.13.x-1.14.x releases and share potential root causes. Consider a patch release.
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | 55 | 5 | +50 |
+
+Backlog Growing: 50 more issues opened than closed in the last 12 months. The SDK needs increased investment in issue resolution to prevent backlog growth from becoming unmanageable.
+
+### Last 6 Months: Detailed Analysis
+
+Recent activity shows continued feature requests around observability and AI integrations, with performance regressions identified in recent SDK versions.
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 26 |
+| Issues Closed | 5 |
+| Bugs Closed | 2 |
+| Enhancements Completed | 3 |
+
+### Popular Requests Resolved (Last 6 Months)
+
+| Issue | Upvotes | Title |
+|-------|-----|-------|
+| [#1432](../repos/temporalio-sdk-typescript/issues.md#1432) | 5 | Simplify proper usage of AsyncLocalStorage in Workflow context |
 
 ---
 
 ## User Demand: Top Issues by Upvotes
 
-These issues have the most user upvotes, indicating real community demand:
-
-| Rank | Issue | 👍 | 💬 | Title |
+| Rank | Issue | Upvotes | Comments | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | **46** | 46 | Run Temporal worker in Bun |
-| 2 | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | **20** | 8 | Temporal integration for @openai/agents |
-| 3 | [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | **19** | 1 | OpenTelemetry v2 support |
-| 4 | [#207](../repos/temporalio-sdk-typescript/issues.md#207) | 9 | 7 | Enable in-browser gRPC client |
-| 5 | [#1499](../repos/temporalio-sdk-typescript/issues.md#1499) | 7 | 0 | Native request batching |
-| 6 | [#928](../repos/temporalio-sdk-typescript/issues.md#928) | 7 | 26 | Jest detects open handles (BUG) |
-| 7 | [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) | 6 | 1 | Ephemeral server shutdown bug |
-| 8 | [#933](../repos/temporalio-sdk-typescript/issues.md#933) | 6 | 2 | Separate "core" library without bundler deps |
-| 9 | [#1432](../repos/temporalio-sdk-typescript/issues.md#1432) | 5 | 1 | Simplify AsyncLocalStorage in Workflow context |
-| 10 | [#1749](../repos/temporalio-sdk-typescript/issues.md#1749) | 4 | 4 | Workflow task not found after SDK upgrade (BUG) |
+| 1 | [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | 46 | 46 | Run temporal worker in bun |
+| 2 | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 20 | 8 | Temporal integration for @openai/agents |
+| 3 | [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | 19 | 1 | Add support for opentelemetry v2 |
+| 4 | [#207](../repos/temporalio-sdk-typescript/issues.md#207) | 9 | 7 | Enable in-browser usage of gRPC client |
+| 5 | [#1499](../repos/temporalio-sdk-typescript/issues.md#1499) | 7 | 0 | Native Request Batching |
+| 6 | [#928](../repos/temporalio-sdk-typescript/issues.md#928) | 7 | 26 | Jest detects open handles |
+| 7 | [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) | 6 | 1 | Failure to start ephemeral server prevents shutdown |
+| 8 | [#933](../repos/temporalio-sdk-typescript/issues.md#933) | 6 | 2 | Create separate core library for workflow types |
+| 9 | [#1749](../repos/temporalio-sdk-typescript/issues.md#1749) | 4 | 4 | Workflow task not found after SDK upgrade |
+| 10 | [#1621](../repos/temporalio-sdk-typescript/issues.md#1621) | 4 | 0 | Include musl-based shared library in package |
 
-### Priority Score (Upvotes×2 + Comments)
-
-Combined engagement metric:
+### Priority Score (Upvotes x 2 + Comments)
 
 | Rank | Issue | Score | Title |
 |------|-------|-------|-------|
-| 1 | #1334 | **138** | Bun runtime support |
-| 2 | #1755 | 48 | OpenAI Agents integration |
-| 3 | #483 | 45 | NestJS integration |
-| 4 | #928 | 40 | Jest open handles |
-| 5 | #1658 | 39 | OpenTelemetry v2 |
-| 6 | #207 | 25 | Browser gRPC client |
-| 7 | #1615 | 20 | NextJS 15 compatibility |
-| 8 | #1499 | 14 | Request batching |
-| 9 | #933 | 14 | Core library without bundler |
-| 10 | #1443 | 13 | Ephemeral server shutdown |
+| 1 | [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | 138 | Run temporal worker in bun |
+| 2 | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 48 | Temporal integration for @openai/agents |
+| 3 | [#483](../repos/temporalio-sdk-typescript/issues.md#483) | 45 | NestJS Transport / Integration |
+| 4 | [#928](../repos/temporalio-sdk-typescript/issues.md#928) | 40 | Jest detects open handles |
+| 5 | [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | 39 | Add support for opentelemetry v2 |
+| 6 | [#207](../repos/temporalio-sdk-typescript/issues.md#207) | 25 | Enable in-browser usage of gRPC client |
+| 7 | [#1615](../repos/temporalio-sdk-typescript/issues.md#1615) | 20 | Cannot use Temporal with NextJS 15 |
+| 8 | [#1499](../repos/temporalio-sdk-typescript/issues.md#1499) | 14 | Native Request Batching |
+| 9 | [#933](../repos/temporalio-sdk-typescript/issues.md#933) | 14 | Create separate core library for workflow types |
+| 10 | [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) | 13 | Failure to start ephemeral server prevents shutdown |
 
 ---
 
-## 1. URGENT: v1.13.x/1.14.x Stability Issues
+## Issue Analysis by Category
 
-Three recent bugs suggest issues with the 1.13.x-1.14.x release line:
+### High-Priority Bugs (10 issues)
 
-| Issue | Problem | Version |
-|-------|---------|---------|
-| [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | **Performance regression** from 1.13.1 → 1.13.2 | 1.13.2 |
-| [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | **High CPU with OTel instrumentation** | 1.13.x |
-| [#1866](../repos/temporalio-sdk-typescript/issues.md#1866) | **Signal caused condition to fail with CancelledFailure** | 1.14.0 |
+These bugs impact developer experience, SDK stability, or production reliability.
 
-**Recommendation:**
-1. Investigate if #1859 and #1860 share a root cause
-2. Consider patch release (1.14.1) to address these regressions
-3. Document workarounds for affected users
+| Issue | Upvotes | Description |
+|-------|-----|-------------|
+| [#928](../repos/temporalio-sdk-typescript/issues.md#928) | 7 | Jest detects open handles - affects testing workflows |
+| [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) | 6 | Ephemeral server startup failure prevents process shutdown |
+| [#1749](../repos/temporalio-sdk-typescript/issues.md#1749) | 4 | Workflow task not found after SDK upgrade - regression |
+| [#1615](../repos/temporalio-sdk-typescript/issues.md#1615) | 3 | NextJS 15 incompatibility due to workflow function names |
+| [#1325](../repos/temporalio-sdk-typescript/issues.md#1325) | 2 | Exception from workflow causes DataCloneError |
+| [#1668](../repos/temporalio-sdk-typescript/issues.md#1668) | 2 | common package not importing @types/ms |
+| [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | 0 | Performance regression from 1.13.1 to 1.13.2 |
+| [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | 0 | High CPU usage with OTel instrumentation in v1.13.x |
+| [#1790](../repos/temporalio-sdk-typescript/issues.md#1790) | 0 | Replay workflow history fails with nondeterminism error |
+| [#939](../repos/temporalio-sdk-typescript/issues.md#939) | 1 | Worker crashes with async hook stack corruption |
 
----
+### Medium-Priority Bugs (15 issues)
 
-## 2. Critical: Runtime & Framework Support
+| Issue | Upvotes | Description |
+|-------|-----|-------------|
+| [#1796](../repos/temporalio-sdk-typescript/issues.md#1796) | 1 | Changes in type inference of activity return type |
+| [#1744](../repos/temporalio-sdk-typescript/issues.md#1744) | 1 | NDE replaying nested promises |
+| [#1740](../repos/temporalio-sdk-typescript/issues.md#1740) | 1 | webpackConfigHook doesn't suppress all webpack output |
+| [#1594](../repos/temporalio-sdk-typescript/issues.md#1594) | 1 | Schedule triggerImmediately ignores overlap policy |
+| [#1587](../repos/temporalio-sdk-typescript/issues.md#1587) | 1 | Using async functions degrades performance |
+| [#1578](../repos/temporalio-sdk-typescript/issues.md#1578) | 1 | Worker fails with --abort-on-uncaught-exception |
+| [#1292](../repos/temporalio-sdk-typescript/issues.md#1292) | 1 | ESM Custom payload converters cannot be loaded |
+| [#1858](../repos/temporalio-sdk-typescript/issues.md#1858) | 0 | Unable to import reflect-metadata in workflow bundle |
+| [#1838](../repos/temporalio-sdk-typescript/issues.md#1838) | 0 | WorkflowExecutionAlreadyStartedError missing runId |
+| [#1779](../repos/temporalio-sdk-typescript/issues.md#1779) | 0 | OTel interceptors bypass required SDK component |
+| [#1738](../repos/temporalio-sdk-typescript/issues.md#1738) | 0 | OTel traceState handling issue |
+| [#1733](../repos/temporalio-sdk-typescript/issues.md#1733) | 0 | RetryPolicy.maximumAttempt=0 throws unexpectedly |
+| [#1721](../repos/temporalio-sdk-typescript/issues.md#1721) | 0 | Update-with-Start error message not shown |
+| [#1717](../repos/temporalio-sdk-typescript/issues.md#1717) | 0 | Protobuf Payload Converter broken with protobufjs 7.5.2 |
+| [#1663](../repos/temporalio-sdk-typescript/issues.md#1663) | 0 | Cannot use structuredClone in workflow code |
 
-### 2.1 Bun Runtime Support (46 👍 - #1 Request)
+### Testing Infrastructure Issues (8 issues)
 
-| Issue | Status |
-|-------|--------|
-| [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | Most upvoted issue by far (46 👍, 46 comments) |
-
-**Analysis:** Bun has gained significant adoption in the JS ecosystem. Supporting it would open Temporal to a new user base seeking better performance and DX.
-
-**Recommendation:**
-1. Evaluate technical feasibility (Rust core bindings, worker threads)
-2. If feasible, prioritize as a major initiative
-3. If not feasible short-term, document limitations and timeline
-
-### 2.2 NextJS Compatibility (3 👍)
-
-| Issue | Problem |
-|-------|---------|
-| [#1615](../repos/temporalio-sdk-typescript/issues.md#1615) | Cannot use with NextJS 15 - workflowTypes from function names |
-
-**Impact:** NextJS 15 has widespread adoption. This blocks a major user segment.
-
-### 2.3 NestJS Integration (4 👍, 37 comments)
-
-| Issue | Status |
-|-------|--------|
-| [#483](../repos/temporalio-sdk-typescript/issues.md#483) | Long-standing request with active discussion |
-
-**Recommendation:** Consider official NestJS transport/integration or community partnership.
-
----
-
-## 3. High Priority: Bugs (51 issues)
-
-### 3.1 Testing & Development Bugs
-
-| Issue | Problem | 👍 |
-|-------|---------|-----|
-| [#928](../repos/temporalio-sdk-typescript/issues.md#928) | **Jest detects open handles** | 7 |
-| [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) | Ephemeral server prevents process shutdown | 6 |
-| [#1702](../repos/temporalio-sdk-typescript/issues.md#1702) | Test suite timeout on first run | 0 |
-| [#1687](../repos/temporalio-sdk-typescript/issues.md#1687) | Local env cannot be connected in unit tests | 0 |
-| [#1233](../repos/temporalio-sdk-typescript/issues.md#1233) | nyc-test-coverage difficult to use | 0 |
-
-**Recommendation:** #928 and #1443 are blocking DX. Prioritize fixes.
-
-### 3.2 SDK Upgrade & Compatibility Bugs
-
-| Issue | Problem | 👍 |
-|-------|---------|-----|
-| [#1749](../repos/temporalio-sdk-typescript/issues.md#1749) | Workflow task not found after SDK upgrade | 4 |
-| [#1869](../repos/temporalio-sdk-typescript/issues.md#1869) | Environment config macOS path issue (new - cross-SDK) | 0 |
-| [#1866](../repos/temporalio-sdk-typescript/issues.md#1866) | Signal caused CancelledFailure (1.14.0) | 2 |
-| [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | Performance regression 1.13.1 → 1.13.2 | 0 |
-| [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | High CPU with OTel in v1.13.x | 0 |
-| [#1796](../repos/temporalio-sdk-typescript/issues.md#1796) | Type inference changed in SDK 1.12.2 | 1 |
-
-**Recommendation:**
-- Fix #1869 (coordinate with Java SDK - same bug)
-- Investigate v1.13.x issues as a cluster - may share root cause
-
-### 3.3 Non-Determinism Bugs
-
-| Issue | Problem | 👍 |
-|-------|---------|-----|
-| [#1744](../repos/temporalio-sdk-typescript/issues.md#1744) | NDE replaying nested promises | 1 |
-| [#1790](../repos/temporalio-sdk-typescript/issues.md#1790) | Replay fails - child workflow IDs don't match | 0 |
-
-### 3.4 Worker & Activity Bugs
-
-| Issue | Problem | 👍 |
-|-------|---------|-----|
-| [#1587](../repos/temporalio-sdk-typescript/issues.md#1587) | Async functions degrade performance | 1 |
-| [#1578](../repos/temporalio-sdk-typescript/issues.md#1578) | Worker fails with --abort-on-uncaught-exception | 1 |
-| [#1512](../repos/temporalio-sdk-typescript/issues.md#1512) | Payload converter error crashes worker | 0 |
-| [#939](../repos/temporalio-sdk-typescript/issues.md#939) | Worker crashes with "async hook stack corrupted" | 1 |
-
-### 3.5 Workflow Bugs
-
-| Issue | Problem | 👍 |
-|-------|---------|-----|
-| [#1325](../repos/temporalio-sdk-typescript/issues.md#1325) | Exception throws DataCloneError | 2 |
-| [#1663](../repos/temporalio-sdk-typescript/issues.md#1663) | Cannot use structuredClone in workflow | 0 |
-| [#1580](../repos/temporalio-sdk-typescript/issues.md#1580) | Workflows stuck after cancellation | 0 |
-
-### 3.6 Build & Bundler Bugs
-
-| Issue | Problem | 👍 |
-|-------|---------|-----|
-| [#1740](../repos/temporalio-sdk-typescript/issues.md#1740) | webpackConfigHook doesn't suppress output | 1 |
-| [#1489](../repos/temporalio-sdk-typescript/issues.md#1489) | Critical dependency warning | 0 |
-| [#1292](../repos/temporalio-sdk-typescript/issues.md#1292) | ESM custom payload converters can't load | 1 |
-| [#1858](../repos/temporalio-sdk-typescript/issues.md#1858) | Cannot import reflect-metadata in workflow | 0 |
-| [#1112](../repos/temporalio-sdk-typescript/issues.md#1112) | Bundler doesn't deny `process` global | 0 |
+| Issue | Upvotes | Description |
+|-------|-----|-------------|
+| [#928](../repos/temporalio-sdk-typescript/issues.md#928) | 7 | Jest detects open handles |
+| [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) | 6 | Ephemeral server prevents shutdown |
+| [#1702](../repos/temporalio-sdk-typescript/issues.md#1702) | 0 | Test suite timeout on first run |
+| [#1687](../repos/temporalio-sdk-typescript/issues.md#1687) | 0 | Local env cannot be connected in unit tests |
+| [#1549](../repos/temporalio-sdk-typescript/issues.md#1549) | 0 | Auto-skip time in time-skipping testing environment |
+| [#1332](../repos/temporalio-sdk-typescript/issues.md#1332) | 1 | TestWorkflowEnvironment should support non-spawned servers |
+| [#1233](../repos/temporalio-sdk-typescript/issues.md#1233) | 0 | nyc-test-coverage excessively difficult to use |
+| [#1208](../repos/temporalio-sdk-typescript/issues.md#1208) | 0 | Add support for capturing Workflow test coverage |
 
 ---
 
-## 4. Medium Priority: Enhancement Clusters
+## Enhancement Requests (84 issues)
 
-### 4.1 OpenTelemetry & Observability (7 issues, 19 👍)
+### Runtime & Platform Support
 
-| Issue | Enhancement | 👍 |
-|-------|-------------|-----|
-| [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | **OpenTelemetry v2 support** | 19 |
-| [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) | High CPU with OTel (bug - urgent) | 0 |
-| [#1779](../repos/temporalio-sdk-typescript/issues.md#1779) | OTel bypasses required SDK component | 0 |
-| [#1738](../repos/temporalio-sdk-typescript/issues.md#1738) | traceState handling | 0 |
-| [#915](../repos/temporalio-sdk-typescript/issues.md#915) | Emit metrics from client | 3 |
-| [#360](../repos/temporalio-sdk-typescript/issues.md#360) | Consistent tracing tags across SDKs | 0 |
+The most requested category focuses on alternative JavaScript runtimes and deployment environments.
 
-**Recommendation:** Bundle as "OpenTelemetry Modernization" project:
-1. Fix OTel CPU issue (#1859) - URGENT
-2. Upgrade to OTel v2 (#1658)
-3. Add client metrics (#915)
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | 46 | Run temporal worker in Bun |
+| [#207](../repos/temporalio-sdk-typescript/issues.md#207) | 9 | Enable in-browser usage of gRPC client |
+| [#1621](../repos/temporalio-sdk-typescript/issues.md#1621) | 4 | Include musl-based shared library in package |
+| [#933](../repos/temporalio-sdk-typescript/issues.md#933) | 6 | Create separate core library for workflow types |
 
-### 4.2 API Client & Browser Support (11 issues, 15 👍)
+### AI & Agent Integrations
 
-| Issue | Enhancement | 👍 |
-|-------|-------------|-----|
-| [#207](../repos/temporalio-sdk-typescript/issues.md#207) | **In-browser gRPC client** | 9 |
-| [#915](../repos/temporalio-sdk-typescript/issues.md#915) | Client metrics | 3 |
-| [#1458](../repos/temporalio-sdk-typescript/issues.md#1458) | Preloaded data converters | 2 |
-| [#1736](../repos/temporalio-sdk-typescript/issues.md#1736) | Mask sensitive data in logs | 1 |
-| [#1722](../repos/temporalio-sdk-typescript/issues.md#1722) | Error details on Client errors | 0 |
+Emerging demand for AI framework integrations reflects the growing intersection of workflows and AI agents.
 
-**Recommendation:** Browser client (#207) would enable new use cases (browser-based workflow management, dashboards).
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 20 | Temporal integration for @openai/agents |
+| [#1864](../repos/temporalio-sdk-typescript/issues.md#1864) | 1 | Update AI SDK integration to v6 (closed) |
 
-### 4.3 Workflow Improvements (21 issues, 15 👍)
+### Observability & Telemetry
 
-| Issue | Enhancement | 👍 |
-|-------|-------------|-----|
-| [#933](../repos/temporalio-sdk-typescript/issues.md#933) | Core library without bundler deps | 6 |
-| [#1432](../repos/temporalio-sdk-typescript/issues.md#1432) | Simplify AsyncLocalStorage usage | 5 |
-| [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | **Per-Worker Logger** (new) | 0 |
-| [#1800](../repos/temporalio-sdk-typescript/issues.md#1800) | Distinguish error types in logs | 2 |
-| [#1139](../repos/temporalio-sdk-typescript/issues.md#1139) | TemporalFailure from converters should fail workflow | 0 |
-| [#1358](../repos/temporalio-sdk-typescript/issues.md#1358) | Configurable failure exception types | 0 |
+Strong demand for improved OpenTelemetry support and metrics.
 
-### 4.4 Build & Bundler Improvements (5+ issues, 5 👍)
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | 19 | Add support for opentelemetry v2 |
+| [#915](../repos/temporalio-sdk-typescript/issues.md#915) | 3 | Emit metrics from client connection |
+| [#1850](../repos/temporalio-sdk-typescript/issues.md#1850) | 0 | Implement OTel interceptors v1 as Plugin |
+| [#1854](../repos/temporalio-sdk-typescript/issues.md#1854) | 0 | Correct docs for OtelCollectorExporter |
+| [#1696](../repos/temporalio-sdk-typescript/issues.md#1696) | 0 | Otel exporter error handling |
 
-| Issue | Enhancement | 👍 |
-|-------|-------------|-----|
-| [#1280](../repos/temporalio-sdk-typescript/issues.md#1280) | **Vite bundler support** | 3 |
-| [#1008](../repos/temporalio-sdk-typescript/issues.md#1008) | Better webpack failure output | 2 |
-| [#1621](../repos/temporalio-sdk-typescript/issues.md#1621) | Include musl-based shared library | 4 |
-| [#1718](../repos/temporalio-sdk-typescript/issues.md#1718) | Lazily load webpack | 0 |
-| [#1713](../repos/temporalio-sdk-typescript/issues.md#1713) | Pass webpack obj to configHook | 0 |
+### Framework Integrations
 
-**Recommendation:** Vite support (#1280) aligns with modern JS ecosystem trends.
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#483](../repos/temporalio-sdk-typescript/issues.md#483) | 4 | NestJS Transport / Integration |
+| [#1280](../repos/temporalio-sdk-typescript/issues.md#1280) | 3 | Bundle using Vite |
+| [#783](../repos/temporalio-sdk-typescript/issues.md#783) | 1 | Better Nx support |
 
-### 4.5 AI & Modern Integrations (21+ 👍)
+### API Improvements
 
-| Issue | Enhancement | 👍 |
-|-------|-------------|-----|
-| [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | **@openai/agents integration** | 20 |
-| [#1864](../repos/temporalio-sdk-typescript/issues.md#1864) | AI SDK integration v6 (new) | 1 |
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1499](../repos/temporalio-sdk-typescript/issues.md#1499) | 7 | Native Request Batching |
+| [#1800](../repos/temporalio-sdk-typescript/issues.md#1800) | 2 | Distinguish error types in logs |
+| [#1458](../repos/temporalio-sdk-typescript/issues.md#1458) | 2 | Support passing preloaded data converters to Client |
+| [#1362](../repos/temporalio-sdk-typescript/issues.md#1362) | 2 | Worker.runReplayHistory() accept serialized History |
+| [#1351](../repos/temporalio-sdk-typescript/issues.md#1351) | 2 | Support updating schedule by cronExpression |
 
-**Analysis:** AI agent orchestration is a hot use case. OpenAI Agents integration could attract significant users.
+### Developer Experience
 
-### 4.6 Testing & Replay (6 issues, 3 👍)
-
-| Issue | Enhancement | 👍 |
-|-------|-------------|-----|
-| [#1362](../repos/temporalio-sdk-typescript/issues.md#1362) | runReplayHistory accept serialized History | 2 |
-| [#1332](../repos/temporalio-sdk-typescript/issues.md#1332) | TestWorkflowEnvironment non-spawned servers | 1 |
-| [#1144](../repos/temporalio-sdk-typescript/issues.md#1144) | Workflow test coverage with Jest | 0 |
-| [#1549](../repos/temporalio-sdk-typescript/issues.md#1549) | Auto-skip time in time-skipping env | 0 |
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#868](../repos/temporalio-sdk-typescript/issues.md#868) | 0 | Add lint rule preventing Query handlers from mutating state |
+| [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | 0 | Per-Worker Logger |
+| [#1718](../repos/temporalio-sdk-typescript/issues.md#1718) | 0 | Lazily load webpack |
+| [#1710](../repos/temporalio-sdk-typescript/issues.md#1710) | 0 | Better type inference for MockActivityEnvironment.run |
 
 ---
 
-## 5. Issue Housekeeping
+## Housekeeping Recommendations
 
-### 5.1 Age Distribution
+### Stale Issues (>1 year, no activity)
 
-| Age | Count |
-|-----|-------|
-| Last 30 days | 7 |
-| 1-3 months | 8 |
-| 3-6 months | 10 |
-| 6-12 months | 36 |
-| 1-2 years | 28 |
-| 2-3 years | 21 |
-| **3+ years** | **39** |
+58 issues (40% of open issues) have had no activity for over 12 months.
 
-### 5.2 Stale Issues (59 issues)
+**Close candidates:**
+- [#207](../repos/temporalio-sdk-typescript/issues.md#207) - Browser gRPC usage (9 upvotes but 3+ years old, may need re-evaluation)
+- [#915](../repos/temporalio-sdk-typescript/issues.md#915) - Client metrics (3 upvotes, 3+ years old)
+- [#754](../repos/temporalio-sdk-typescript/issues.md#754) - listWorkflowExecutions friendly version (1 upvote, 3+ years)
 
-59 issues have had no activity in >12 months. Notable ones with upvotes:
+**Needs triage:**
+- [#1499](../repos/temporalio-sdk-typescript/issues.md#1499) - Native Request Batching (7 upvotes, needs roadmap decision)
+- [#1280](../repos/temporalio-sdk-typescript/issues.md#1280) - Vite bundling (3 upvotes, alternative bundler support)
+- [#1458](../repos/temporalio-sdk-typescript/issues.md#1458) - Preloaded data converters (2 upvotes)
+- [#1332](../repos/temporalio-sdk-typescript/issues.md#1332) - Non-spawned server support in tests
 
-| Issue | Title | 👍 |
-|-------|-------|-----|
-| #1499 | Native Request Batching | 7 |
-| #1432 | AsyncLocalStorage simplification | 5 |
-| #1280 | Vite bundler | 3 |
-| #1458 | Preloaded data converters | 2 |
-| #1578 | Worker fails with abort-on-uncaught | 1 |
+**Keep open:**
+- [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) - Bun support (46 upvotes, active community interest)
+- [#933](../repos/temporalio-sdk-typescript/issues.md#933) - Core workflow library (6 upvotes, architectural improvement)
+- [#1443](../repos/temporalio-sdk-typescript/issues.md#1443) - Ephemeral server shutdown (6 upvotes, impacts testing)
 
-**Recommendation:**
-1. Review stale issues with upvotes - these indicate sustained demand
-2. Request reproduction on current SDK version
-3. Close if no response in 30 days
+### Duplicate Candidates
+
+- [#1859](../repos/temporalio-sdk-typescript/issues.md#1859) and [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) - Both relate to v1.13.x performance/CPU issues
+- [#1779](../repos/temporalio-sdk-typescript/issues.md#1779) and [#1738](../repos/temporalio-sdk-typescript/issues.md#1738) - Both relate to OTel implementation issues
 
 ---
 
-## 6. Proposed Roadmap
+## Proposed Roadmap
 
-### Phase 1: Critical Stability (Immediate)
-- [ ] Investigate v1.13.x performance regression (#1860)
-- [ ] Fix high CPU with OTel (#1859)
-- [ ] Fix signal CancelledFailure bug (#1866)
-- [ ] Fix macOS environment config (#1869) - coordinate with Java SDK
-- [ ] Consider patch release (1.14.1)
+Based on user demand and issue analysis:
 
-### Phase 2: Bug Fixes (Short-term)
-- [ ] Fix Jest open handles (#928 - 7 👍)
-- [ ] Fix ephemeral server shutdown (#1443 - 6 👍)
-- [ ] Fix NextJS 15 compatibility (#1615 - 3 👍)
+### Phase 1: Stability (Immediate)
+- Fix v1.13.x performance regression ([#1860](../repos/temporalio-sdk-typescript/issues.md#1860), [#1859](../repos/temporalio-sdk-typescript/issues.md#1859))
+- Address SDK upgrade breaking changes ([#1749](../repos/temporalio-sdk-typescript/issues.md#1749))
+- Resolve NextJS 15 compatibility ([#1615](../repos/temporalio-sdk-typescript/issues.md#1615))
 
-### Phase 3: Bun Evaluation (Short-term)
-- [ ] Technical feasibility study for Bun support (#1334 - 46 👍)
-- [ ] Document findings and timeline
-- [ ] If feasible, begin implementation
+### Phase 2: Developer Experience (Short-term)
+- Fix Jest open handles issue ([#928](../repos/temporalio-sdk-typescript/issues.md#928))
+- Improve ephemeral server lifecycle ([#1443](../repos/temporalio-sdk-typescript/issues.md#1443))
+- Address testing infrastructure issues
 
-### Phase 4: OpenTelemetry Modernization (Medium-term)
-- [ ] Upgrade to OpenTelemetry v2 (#1658 - 19 👍)
-- [ ] Add client metrics (#915)
+### Phase 3: Feature Expansion (Medium-term)
+- Evaluate Bun runtime support ([#1334](../repos/temporalio-sdk-typescript/issues.md#1334)) - 46 upvotes
+- Build @openai/agents integration ([#1755](../repos/temporalio-sdk-typescript/issues.md#1755)) - 20 upvotes
+- OpenTelemetry v2 support ([#1658](../repos/temporalio-sdk-typescript/issues.md#1658)) - 19 upvotes
 
-### Phase 5: Modern Tooling (Medium-term)
-- [ ] Vite bundler support (#1280 - 3 👍)
-- [ ] Improve webpack error output (#1008)
-- [ ] Core library without bundler deps (#933 - 6 👍)
-- [ ] Per-worker logger (#1867)
-
-### Phase 6: Integrations (Long-term)
-- [ ] Evaluate OpenAI Agents integration (#1755 - 20 👍)
-- [ ] AI SDK v6 integration (#1864)
-- [ ] NestJS transport/integration (#483 - 4 👍)
-- [ ] Browser gRPC client (#207 - 9 👍)
-
-### Ongoing: Housekeeping
-- [ ] Triage 59 stale issues
-- [ ] Review 39 issues older than 3 years
-- [ ] Fix remaining bugs by priority
-
----
-
-## 7. Quick Reference: Top 20 High-Impact Issues
-
-| # | Issue | Category | 👍 | Impact |
-|---|-------|----------|-----|--------|
-| 1 | #1860 | Bug | 0 | Performance regression (URGENT) |
-| 2 | #1859 | Bug | 0 | OTel high CPU (URGENT) |
-| 3 | #1866 | Bug | 2 | Signal CancelledFailure (URGENT) |
-| 4 | #1869 | Bug | 0 | macOS env config (cross-SDK) |
-| 5 | #1334 | Runtime | **46** | Bun support (TOP REQUEST) |
-| 6 | #1755 | Integration | **20** | OpenAI Agents |
-| 7 | #1658 | Observability | **19** | OpenTelemetry v2 |
-| 8 | #207 | API | **9** | Browser gRPC client |
-| 9 | #928 | Bug | **7** | Jest open handles |
-| 10 | #1499 | Enhancement | **7** | Request batching |
-| 11 | #1443 | Bug | **6** | Ephemeral server shutdown |
-| 12 | #933 | Workflow | **6** | Core library without bundler |
-| 13 | #1432 | Workflow | **5** | AsyncLocalStorage |
-| 14 | #483 | Integration | **4** | NestJS |
-| 15 | #1749 | Bug | **4** | Workflow task not found |
-| 16 | #1621 | Build | **4** | musl shared library |
-| 17 | #1615 | Bug | **3** | NextJS 15 compatibility |
-| 18 | #1280 | Build | **3** | Vite support |
-| 19 | #1864 | Integration | **1** | AI SDK v6 (new) |
-| 20 | #1867 | Enhancement | 0 | Per-Worker Logger (new) |
-
-**Key Insight:** The v1.13.x-1.14.x release line has stability issues that should be addressed immediately. Beyond that, the overwhelming demand for Bun support (#1334 with 46 upvotes) indicates users want Temporal to work with modern, fast JS runtimes. Combined with OpenAI Agents integration (#1755) and OpenTelemetry v2 (#1658), users are asking for cutting-edge ecosystem support.
+### Phase 4: Maintenance (Ongoing)
+- Triage and close 58 stale issues
+- Address duplicate candidates
+- Improve documentation for features like Updates, Nexus

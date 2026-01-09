@@ -1,7 +1,8 @@
-# Temporal Features - Issues Analysis & Remediation Proposal
+# Temporal Features - Cross-SDK Test Suite Analysis
 
-**Generated:** 2026-01-07
-**Total Open Issues:** 247
+**Generated:** 2026-01-09
+**Total Open Issues:** 244
+**Total Closed Issues:** 3
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
 ← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-features/issues.md)
@@ -10,159 +11,200 @@
 
 ---
 
-## Executive Summary
+## Overview
 
-The Features repository tracks cross-SDK feature conformance and feature requests. With 247 open issues (mostly enhancements), this repo represents the backlog of features requested across all SDKs. Top requests are custom markers for workflow history (#399, 15 upvotes) and declarative schedules (#118, 8 upvotes).
+The Features repository contains cross-SDK conformance tests and feature implementations. Issues here typically relate to:
+- SDK feature parity gaps
+- Test infrastructure and tooling
+- Feature coverage requests
+- CI/CD and build issues
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Enhancements | 216 | Medium - Feature requests |
-| Feature Tests | 8 | Low - Test coverage |
+| Feature Coverage Gaps | 224 | Medium - SDK parity |
+| Test Infrastructure | 10 | Medium |
 | Bugs | 6 | High |
-| Security (Mend) | 5 | Medium |
+| Security (Dependencies) | 5 | Low - automated alerts |
 
 ### User Engagement Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes (👍) | 106 |
-| Total Comments | 400 |
+| Total Upvotes | 106 |
+| Total Comments | 397 |
 | Issues with Upvotes | 32 (13%) |
-| Issues with Comments | 130 (53%) |
+| Issues with Comments | 129 (53%) |
+
+### Resolution Metrics
+
+> Note: Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 1% (3/247) |
+| Median Time to Close | 76 days |
+| Resolved within 30 days | 0% |
+| Resolved within 90 days | 67% |
+
+The extremely low resolution rate (1%) reflects the nature of the Features repository: most issues are cross-SDK feature requests that require coordinated implementation across all SDKs, making them long-term tracking items rather than quick fixes.
 
 ---
 
-## User Demand: Top Issues by Priority Score
+## Issue Velocity (Last 12 Months)
+
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | 54 | 3 | +51 |
+
+📈 **Backlog Growing:** The repository continues to accumulate feature requests faster than they can be resolved. This is expected given that cross-SDK features require coordination across 7+ SDK implementations and often depend on server-side changes.
+
+---
+
+## Top Issues by Engagement
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#399](../repos/temporalio-features/issues.md#399) | **15** | 12 | Custom Markers for Workflow History/Timeline |
-| 2 | [#649](../repos/temporalio-features/issues.md#649) | **14** | 4 | Unit testing workflow versioning |
-| 3 | [#118](../repos/temporalio-features/issues.md#118) | **8** | 22 | Declarative schedules (upsert, sync, terraform) |
-| 4 | [#562](../repos/temporalio-features/issues.md#562) | **7** | 6 | Session support |
-| 5 | [#434](../repos/temporalio-features/issues.md#434) | **6** | 1 | Serialization context for codecs/converters |
-| 6 | [#229](../repos/temporalio-features/issues.md#229) | **6** | 0 | Auto heartbeating |
-| 7 | [#456](../repos/temporalio-features/issues.md#456) | **5** | 2 | Worker status API |
-| 8 | [#363](../repos/temporalio-features/issues.md#363) | **4** | 0 | gRPC message size limit workaround |
-| 9 | [#558](../repos/temporalio-features/issues.md#558) | **3** | 21 | WorkflowIdConflictPolicy in child workflow |
-| 10 | [#515](../repos/temporalio-features/issues.md#515) | **3** | 1 | Start delay in child workflow options |
+| 1 | [#399](../repos/temporalio-features/issues.md#399) | 15 | 12 | Custom Markers for Workflow History/Timeline |
+| 2 | [#649](../repos/temporalio-features/issues.md#649) | 14 | 4 | Add support for unit testing workflow versioning |
+| 3 | [#118](../repos/temporalio-features/issues.md#118) | 8 | 22 | Declarative schedules: upsert, sync, terraform, etc. |
+| 4 | [#562](../repos/temporalio-features/issues.md#562) | 7 | 6 | Session support |
+| 5 | [#434](../repos/temporalio-features/issues.md#434) | 6 | 1 | Serialization context for codecs and converters |
+| 6 | [#229](../repos/temporalio-features/issues.md#229) | 6 | 0 | Auto heartbeating |
+| 7 | [#456](../repos/temporalio-features/issues.md#456) | 5 | 2 | Provide worker status |
+| 8 | [#363](../repos/temporalio-features/issues.md#363) | 4 | 0 | Work around gRPC message size limit for task completion |
+| 9 | [#558](../repos/temporalio-features/issues.md#558) | 3 | 21 | WorkflowIdConflictPolicy in child workflow options |
+| 10 | [#515](../repos/temporalio-features/issues.md#515) | 3 | 1 | Expose start delay in child workflow options |
 
 ---
 
-## Top Feature Categories
+## Feature Coverage Gaps
 
-### 1. Workflow Enhancements
+### Missing Features by SDK
 
-| Issue | 👍 | Request |
-|-------|-----|---------|
-| #399 | 15 | Custom workflow history markers |
-| #649 | 14 | Unit testing workflow versioning |
-| #558 | 3 | WorkflowIdConflictPolicy for child workflows |
-| #69 | 0 | Specify reset point in workflow code |
+Based on cross-SDK feature tracking issues, the following features have varying implementation status across SDKs:
 
-### 2. Activity Improvements
+| Feature | Go | Java | TS | Python | .NET | PHP | Ruby |
+|---------|:--:|:----:|:--:|:------:|:----:|:---:|:----:|
+| Serialization context ([#434](../repos/temporalio-features/issues.md#434)) | - | ✓ | - | ✓ | ✓ | - | - |
+| Sessions ([#562](../repos/temporalio-features/issues.md#562)) | ✓ | - | - | - | - | - | - |
+| Mutable side effect ([#561](../repos/temporalio-features/issues.md#561)) | ✓ | ✓ | - | - | - | - | - |
+| Start delay in child workflows ([#515](../repos/temporalio-features/issues.md#515)) | - | - | - | - | - | - | - |
 
-| Issue | 👍 | Request |
-|-------|-----|---------|
-| #229 | 6 | Auto heartbeating |
-| #443 | 0 | Activity task poll limit |
-| #463 | 2 | Customize activity failure logging |
-| #377 | 0 | Disable close timeouts for long-running activities |
+### Cross-SDK Feature Requests
 
-### 3. Testing & Development
+High-priority features requested for all SDKs:
 
-| Issue | 👍 | Request |
-|-------|-----|---------|
-| #649 | 14 | Unit testing workflow versioning |
-| #456 | 5 | Worker status API |
-| #51 | 0 | List workflow queries/signals |
+| Issue | Feature | Description |
+|-------|---------|-------------|
+| [#399](../repos/temporalio-features/issues.md#399) | Custom Markers | Allow recording custom MarkerRecorded events for workflow timeline visualization |
+| [#649](../repos/temporalio-features/issues.md#649) | Version Testing | Unit test support for workflow versioning/patching scenarios |
+| [#118](../repos/temporalio-features/issues.md#118) | Declarative Schedules | Terraform/GitOps-friendly schedule management via upsert/sync |
+| [#229](../repos/temporalio-features/issues.md#229) | Auto Heartbeating | SDK-provided automatic activity heartbeat helper |
+| [#456](../repos/temporalio-features/issues.md#456) | Worker Status | Programmatic access to worker health and slot information |
+| [#51](../repos/temporalio-features/issues.md#51) | Query/Signal Listing | Standardized method to list registered queries and signals |
+| [#69](../repos/temporalio-features/issues.md#69) | Reset Points | Specify reset points in workflow code for rollback scenarios |
 
-### 4. Scheduling & Orchestration
+### Metrics and Observability Requests
 
-| Issue | 👍 | Request |
-|-------|-----|---------|
-| #118 | 8 | Declarative schedules (terraform, etc.) |
-| #515 | 3 | Child workflow start delay |
+Several requests focus on improved metrics across all SDKs:
 
-### 5. Observability & Metrics
-
-| Issue | 👍 | Request |
-|-------|-----|---------|
-| #563 | 0 | Tag workflow_failed with exception type |
-| #268 | 0 | SDK-side Update metrics |
-| #25 | 2 | Expose workflow_started metric |
-| #223 | 2 | Activity retry exhaustion metric |
-| #380 | 2 | DataDog integration samples |
-
-### 6. Serialization & Data
-
-| Issue | 👍 | Request |
-|-------|-----|---------|
-| #434 | 6 | Serialization context for codecs |
-| #119 | 1 | upsertMemo command |
+| Issue | Metric | Description |
+|-------|--------|-------------|
+| [#563](../repos/temporalio-features/issues.md#563) | workflow_failed | Tag with exception type |
+| [#98](../repos/temporalio-features/issues.md#98) | worker_task_slots_total | New metric for slot monitoring |
+| [#175](../repos/temporalio-features/issues.md#175) | cron_latency | End-to-end latency for cron executions |
+| [#268](../repos/temporalio-features/issues.md#268) | update_metrics | SDK-side metrics for Update API |
 
 ---
 
-## Bugs (6 issues)
+## Test Infrastructure Issues
 
-| Issue | 👍 | Problem |
-|-------|-----|---------|
-| #503 | 3 | Cancel/Signal not propagating after child CAN |
-| #422 | 0 | Incomplete span reporting with scheduler |
-| #706 | 0 | (Recent) |
-| #705 | 0 | (Recent) |
-| #702 | 0 | (Recent) |
-| #701 | 0 | (Recent) |
-
----
-
-## Proposed Roadmap
-
-### Phase 1: High-Demand Features
-- [ ] Custom workflow markers (#399 - 15 👍)
-- [ ] Unit testing workflow versioning (#649 - 14 👍)
-- [ ] Declarative schedules (#118 - 8 👍)
-
-### Phase 2: Developer Experience
-- [ ] Session support (#562 - 7 👍)
-- [ ] Auto heartbeating (#229 - 6 👍)
-- [ ] Serialization context (#434 - 6 👍)
-
-### Phase 3: Observability
-- [ ] Worker status API (#456)
-- [ ] Enhanced metrics (#563, #268, #25, #223)
-- [ ] DataDog samples (#380)
-
-### Phase 4: Bug Fixes
-- [ ] Signal/Cancel propagation (#503)
-- [ ] Scheduler span reporting (#422)
+| Issue | Area | Description |
+|-------|------|-------------|
+| [#585](../repos/temporalio-features/issues.md#585) | Ruby Support | Add Ruby as first-class citizen in features repo |
+| [#581](../repos/temporalio-features/issues.md#581) | Workarounds | Remove TEMPORAL_FEATURES_DISABLE_WORKFLOW_COMPLETION_CHECK |
+| [#353](../repos/temporalio-features/issues.md#353) | TypeScript | Enable client interceptor configuration in TS harness |
+| [#150](../repos/temporalio-features/issues.md#150) | CI | Nightly CI against server and SDK master branches |
+| [#712](../repos/temporalio-features/issues.md#712) | TypeScript Build | Use pnpm when building TS worker from source (npm deprecated) |
 
 ---
 
-## Quick Reference: Top 15 Issues
+## Bugs
 
-| # | Issue | 👍 | Category | Title |
-|---|-------|-----|----------|-------|
-| 1 | #399 | **15** | Workflow | Custom history markers |
-| 2 | #649 | **14** | Testing | Workflow versioning tests |
-| 3 | #118 | **8** | Scheduling | Declarative schedules |
-| 4 | #562 | **7** | Workflow | Session support |
-| 5 | #434 | **6** | Data | Serialization context |
-| 6 | #229 | **6** | Activity | Auto heartbeating |
-| 7 | #456 | **5** | DevExp | Worker status |
-| 8 | #363 | **4** | Infra | gRPC size limit |
-| 9 | #503 | **3** | Bug | Signal propagation |
-| 10 | #558 | **3** | Workflow | Child conflict policy |
-| 11 | #515 | **3** | Workflow | Child start delay |
-| 12 | #624 | **2** | Infra | Graceful gRPC failures |
-| 13 | #322 | **2** | Workflow | Configurable failure types |
-| 14 | #25 | **2** | Metrics | workflow_started metric |
-| 15 | #380 | **2** | Observability | DataDog samples |
+| Issue | SDK(s) | Description |
+|-------|--------|-------------|
+| [#503](../repos/temporalio-features/issues.md#503) | All | Cancel/Signal should propagate to child workflows after CAN |
+| [#422](../repos/temporalio-features/issues.md#422) | Python | Incomplete span reporting when workflow triggered via scheduler |
+| [#330](../repos/temporalio-features/issues.md#330) | Go | Flaky child_workflow_cancel_panic test |
+| [#315](../repos/temporalio-features/issues.md#315) | Platform | Stale workflows in sdk-ci namespace need cleanup |
+| [#222](../repos/temporalio-features/issues.md#222) | All | workflow_completed counter logged before server confirmation |
+| [#182](../repos/temporalio-features/issues.md#182) | Docs | Document eventual consistency of list workflow/schedule calls |
+
+The most impactful bug is [#503](../repos/temporalio-features/issues.md#503) (3 upvotes) - cancel and signal propagation to child workflows after continue-as-new. This affects all SDKs and has implications for workflow cancellation semantics.
 
 ---
 
-## Notes
+## Security Issues
 
-This repository serves as the central tracking for cross-SDK feature requests. Issues here often need implementation across all 7 SDKs, making them higher effort than single-SDK issues. The 216 enhancement requests represent the feature wishlist for the entire Temporal ecosystem.
+All 5 security issues are automated Mend dependency vulnerability alerts:
+
+| Issue | Package | Severity |
+|-------|---------|----------|
+| [#116](../repos/temporalio-features/issues.md#116) | github.com/uber-go/tally/v4 | 7.5 |
+| [#384](../repos/temporalio-features/issues.md#384) | logback-classic-1.2.9.jar | 7.5 |
+| [#366](../repos/temporalio-features/issues.md#366) | xunit.assert.2.5.3.nupkg | 7.5 |
+| [#288](../repos/temporalio-features/issues.md#288) | guava-31.1-jre.jar | 7.1 |
+| [#254](../repos/temporalio-features/issues.md#254) | json-path-2.6.0.jar | 7.5 |
+
+These are low priority as they affect test dependencies in the features repo, not production SDK code.
+
+---
+
+## Recent Activity (Last 30 Days)
+
+| Date | Issue | Title |
+|------|-------|-------|
+| 2025-12-22 | [#715](../repos/temporalio-features/issues.md#715) | Custom Metadata Support for Workers in Temporal UI and CLI |
+| 2025-12-18 | [#712](../repos/temporalio-features/issues.md#712) | [Bug] Use pnpm when building TS worker from source |
+
+---
+
+## Housekeeping
+
+### Stale Issues
+
+145 issues (59%) have had no activity for over 12 months. Top stale issues by upvotes:
+
+| Issue | 👍 | Last Updated | Title |
+|-------|-----|--------------|-------|
+| [#399](../repos/temporalio-features/issues.md#399) | 15 | 2024-07-15 | Custom Markers for Workflow History/Timeline |
+| [#229](../repos/temporalio-features/issues.md#229) | 6 | 2023-02-17 | Auto heartbeating |
+| [#363](../repos/temporalio-features/issues.md#363) | 4 | 2024-12-20 | Work around gRPC message size limit |
+| [#175](../repos/temporalio-features/issues.md#175) | 3 | 2024-07-13 | End-to-end latency metric for cron |
+| [#98](../repos/temporalio-features/issues.md#98) | 3 | 2022-08-01 | New metric: worker_task_slots_total |
+
+The high stale rate is characteristic of cross-SDK feature tracking - issues remain open until implemented across all SDKs.
+
+### Recommendations
+
+1. **Feature parity priority:** Focus on high-demand cross-SDK features:
+   - Custom markers ([#399](../repos/temporalio-features/issues.md#399)) - 15 upvotes
+   - Version testing ([#649](../repos/temporalio-features/issues.md#649)) - 14 upvotes
+   - Declarative schedules ([#118](../repos/temporalio-features/issues.md#118)) - 8 upvotes, 22 comments
+   - Session support beyond Go ([#562](../repos/temporalio-features/issues.md#562)) - 7 upvotes
+
+2. **Test coverage:**
+   - Add Ruby support to the features harness ([#585](../repos/temporalio-features/issues.md#585))
+   - Implement nightly CI against master branches ([#150](../repos/temporalio-features/issues.md#150))
+   - Fix pnpm build for TypeScript ([#712](../repos/temporalio-features/issues.md#712))
+
+3. **Infrastructure improvements:**
+   - Address child workflow cancel/signal propagation bug ([#503](../repos/temporalio-features/issues.md#503))
+   - Clean up stale CI workflows and namespaces ([#315](../repos/temporalio-features/issues.md#315))
+   - Update test dependencies to resolve security alerts
+
+4. **Backlog management:**
+   - Consider closing or consolidating very old feature requests (3+ years) that may no longer be relevant
+   - Link individual SDK implementations back to tracking issues to show progress

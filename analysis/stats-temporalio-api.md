@@ -1,6 +1,6 @@
 # API SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/api
 **Data Source:** [issues.md](../repos/temporalio-api/issues.md)
 
@@ -17,19 +17,20 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 13 |
-| Bugs | 3 |
-| Enhancements/Features | 9 |
-| Security Issues | 0 |
-| Total Upvotes (👍) | 6 |
-| Total Comments | 9 |
+| Total Closed Issues | 0 |
+| Total All Issues | 13 |
+| Bugs (open) | 3 |
+| Enhancements/Features (open) | 9 |
+| Security Issues (open) | 0 |
+| Total Upvotes (👍) on open | 6 |
+| Total Comments on open | 9 |
 | Issues with Upvotes | 1 (8%) |
 | Issues with Comments | 3 (23%) |
-| Average Age (days) | 1074 |
+| Average Age (days) | 1075 |
 | Stale Issues (>12 months) | 13 (100%) |
 
 ---
-
-## Age Distribution
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
@@ -43,7 +44,7 @@
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
@@ -51,7 +52,7 @@
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
@@ -64,7 +65,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
@@ -80,7 +81,7 @@ No issues created in the last 30 days.
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
@@ -89,7 +90,7 @@ No issues created in the last 30 days.
 
 ---
 
-## Bugs (3 issues)
+## Bugs (3 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -99,7 +100,7 @@ No issues created in the last 30 days.
 
 ---
 
-## Stale Issues (13 issues with no activity >12 months)
+## Stale Issues (13 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 

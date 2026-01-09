@@ -1,6 +1,6 @@
 # temporalio/api - Complete Issue Dump
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Total Issues:** 13
 **Total Upvotes:** 6
 **Total Comments:** 9

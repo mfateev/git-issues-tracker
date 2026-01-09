@@ -1,6 +1,6 @@
 # Features SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/features
 **Data Source:** [issues.md](../repos/temporalio-features/issues.md)
 
@@ -16,34 +16,116 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 247 |
-| Bugs | 6 |
-| Enhancements/Features | 226 |
-| Security Issues | 5 |
-| Total Upvotes (👍) | 106 |
-| Total Comments | 400 |
+| Total Open Issues | 244 |
+| Total Closed Issues | 3 |
+| Total All Issues | 247 |
+| Bugs (open) | 6 |
+| Enhancements/Features (open) | 224 |
+| Security Issues (open) | 5 |
+| Total Upvotes (👍) on open | 106 |
+| Total Comments on open | 397 |
 | Issues with Upvotes | 32 (13%) |
-| Issues with Comments | 130 (53%) |
-| Average Age (days) | 795 |
+| Issues with Comments | 129 (53%) |
+| Average Age (days) | 803 |
 | Stale Issues (>12 months) | 145 (59%) |
 
 ---
+## Resolution Metrics
 
-## Age Distribution
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 1% (3/247) |
+| Avg Time to Close (calendar) | 290 days |
+| Avg Time to Close (business) | 208 days |
+| Median Time to Close (calendar) | 76 days |
+| Median Time to Close (business) | 54 days |
+| 90th Percentile (calendar) | 721 days |
+| 90th Percentile (business) | 516 days |
+| Resolved within 30 days | 0% |
+| Resolved within 90 days | 67% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 0 | 0% |
+| Completed (features) | 2 | 67% |
+| Self-resolved | 0 | 0% |
+| Duplicate | 0 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 1 | 33% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 10 | 0 | +10 |
+| 2025-03 | 4 | 0 | +4 |
+| 2025-04 | 4 | 0 | +4 |
+| 2025-05 | 1 | 0 | +1 |
+| 2025-06 | 7 | 0 | +7 |
+| 2025-07 | 4 | 0 | +4 |
+| 2025-08 | 6 | 0 | +6 |
+| 2025-09 | 5 | 0 | +5 |
+| 2025-10 | 6 | 0 | +6 |
+| 2025-11 | 3 | 0 | +3 |
+| 2025-12 | 4 | 0 | +4 |
+| 2026-01 | 0 | 3 | -3 |
+| **Total** | **54** | **3** | **+51** |
+
+📈 **Backlog Growing:** 51 more issues opened than closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 29 |
+| Issues Closed | 3 |
+| Net Change | +26 |
+| Bugs Closed | 0 |
+| Enhancements Closed | 2 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 290 | 208 |
+| Median | 76 | 54 |
+| 90th Percentile | 721 | 516 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 0% |
+| Within 90 days | 67% |
+
+
+---
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 2 | 1% |
-| 1-3 months | 11 | 4% |
+| 1-3 months | 9 | 4% |
 | 3-6 months | 15 | 6% |
-| 6-12 months | 35 | 14% |
+| 6-12 months | 34 | 14% |
 | 1-2 years | 54 | 22% |
-| 2-3 years | 43 | 17% |
-| 3+ years | 87 | 35% |
+| 2-3 years | 43 | 18% |
+| 3+ years | 87 | 36% |
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
@@ -65,7 +147,7 @@
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
@@ -89,7 +171,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
@@ -115,11 +197,11 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
-| enhancement | 216 |
+| enhancement | 214 |
 | feature-test | 8 |
 | bug | 6 |
 | mend: dependency security vulnerability | 5 |
@@ -129,7 +211,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (6 issues)
+## Bugs (6 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -142,7 +224,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (145 issues with no activity >12 months)
+## Stale Issues (145 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -162,11 +244,11 @@ Top stale issues by upvotes:
 | [#204](../repos/temporalio-features/issues.md#204) | 1 | 2024-07-13 | [Feature Request] Expose currently configured payl... |
 | [#138](../repos/temporalio-features/issues.md#138) | 1 | 2022-09-30 | [Feature Request] SDKs should have built-in contex... |
 | [#114](../repos/temporalio-features/issues.md#114) | 1 | 2024-07-13 | [Feature Request] Setting namespace and task queue... |
+| [#573](../repos/temporalio-features/issues.md#573) | 0 | 2025-01-08 | Add fine control for workflow cache eviction |
 | [#568](../repos/temporalio-features/issues.md#568) | 0 | 2024-12-23 | SDK should provide a native query builder |
 | [#566](../repos/temporalio-features/issues.md#566) | 0 | 2024-12-06 | Support full query failure structure |
 | [#563](../repos/temporalio-features/issues.md#563) | 0 | 2024-12-03 | Tag workflow_failed counter metric with exception ... |
 | [#561](../repos/temporalio-features/issues.md#561) | 0 | 2024-11-20 | [Feature Request] Add Mutable Side Effect in Core ... |
 | [#560](../repos/temporalio-features/issues.md#560) | 0 | 2024-11-19 | Add `WorkflowExecutionInfo.pendingActivities` |
-| [#553](../repos/temporalio-features/issues.md#553) | 0 | 2024-10-28 | allow reset API to bring new signals as atomic ope... |
 
 *...and 125 more stale issues*

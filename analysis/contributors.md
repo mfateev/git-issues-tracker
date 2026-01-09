@@ -1,10 +1,10 @@
 # Contributor Statistics
 
-**Generated:** 2026-01-07
-**Total Issues:** 1564
-**Total Comments:** 2402
-**Unique Issue Authors:** 511
-**Unique Commenters:** 740
+**Generated:** 2026-01-09
+**Total Issues:** 1571
+**Total Comments:** 2415
+**Unique Issue Authors:** 515
+**Unique Commenters:** 742
 
 ## Related Documents
 
@@ -74,9 +74,9 @@
 | Rank | Author | Comments | Repositories |
 |------|--------|----------|---------------|
 | 1 | cretz | 377 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
-| 2 | bergundy | 131 | temporalio/features, temporalio/sdk-java, temporalio/sdk-typescript... |
+| 2 | bergundy | 133 | temporalio/features, temporalio/sdk-java, temporalio/sdk-typescript... |
 | 3 | Quinn-With-Two-Ns | 117 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
-| 4 | mjameswh | 75 | temporalio/features, temporalio/sdk-java, temporalio/sdk-ruby... |
+| 4 | mjameswh | 76 | temporalio/features, temporalio/sdk-java, temporalio/sdk-ruby... |
 | 5 | yiminc | 61 | temporalio/features, temporalio/temporal |
 | 6 | mfateev | 50 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 7 | dnr | 43 | temporalio/features, temporalio/temporal |
@@ -86,9 +86,9 @@
 | 11 | yycptt | 24 | temporalio/temporal |
 | 12 | roxblnfk | 23 | temporalio/features, temporalio/sdk-php |
 | 13 | longquanzheng | 21 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
-| 14 | tconley1428 | 20 | temporalio/features, temporalio/sdk-python |
-| 15 | josh-berry | 19 | temporalio/features, temporalio/sdk-python, temporalio/temporal |
-| 16 | gow | 19 | temporalio/temporal |
+| 14 | gow | 21 | temporalio/temporal |
+| 15 | tconley1428 | 20 | temporalio/features, temporalio/sdk-python |
+| 16 | josh-berry | 19 | temporalio/features, temporalio/sdk-python, temporalio/temporal |
 | 17 | madhav2302 | 18 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
 | 18 | alexshtin | 17 | temporalio/sdk-go, temporalio/temporal |
 | 19 | tsurdilo | 16 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
@@ -99,7 +99,7 @@
 | 24 | macrogreg | 13 | temporalio/api, temporalio/temporal |
 | 25 | lukeramsden | 13 | temporalio/features, temporalio/sdk-typescript, temporalio/temporal |
 | 26 | samarabbas | 13 | temporalio/sdk-go, temporalio/temporal |
-| 27 | yuandrew | 10 | temporalio/features, temporalio/sdk-go |
+| 27 | yuandrew | 11 | temporalio/features, temporalio/sdk-go |
 | 28 | d2201 | 10 | temporalio/sdk-typescript |
 | 29 | dandavison | 9 | temporalio/features, temporalio/sdk-python, temporalio/temporal |
 | 30 | drewhoskins-temporal | 9 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
@@ -129,11 +129,11 @@
 | Rank | Author | Issues | Comments | Total |
 |------|--------|--------|----------|-------|
 | 1 | cretz | 253 | 377 | 630 |
-| 2 | bergundy | 71 | 131 | 202 |
+| 2 | bergundy | 71 | 133 | 204 |
 | 3 | Quinn-With-Two-Ns | 54 | 117 | 171 |
 | 4 | mfateev | 90 | 50 | 140 |
 | 5 | Spikhalskiy | 70 | 43 | 113 |
-| 6 | mjameswh | 35 | 75 | 110 |
+| 6 | mjameswh | 35 | 76 | 111 |
 | 7 | yiminc | 23 | 61 | 84 |
 | 8 | lorensr | 49 | 30 | 79 |
 | 9 | tsurdilo | 59 | 16 | 75 |
@@ -149,9 +149,9 @@
 | 19 | alexshtin | 7 | 17 | 24 |
 | 20 | samarabbas | 10 | 13 | 23 |
 | 21 | madhav2302 | 3 | 18 | 21 |
-| 22 | gow | 0 | 19 | 19 |
+| 22 | gow | 0 | 21 | 21 |
 | 23 | drewhoskins-temporal | 9 | 9 | 18 |
-| 24 | yuandrew | 7 | 10 | 17 |
+| 24 | yuandrew | 7 | 11 | 18 |
 | 25 | robholland | 3 | 14 | 17 |
 | 26 | antmendoza | 13 | 3 | 16 |
 | 27 | vitarb | 0 | 16 | 16 |
@@ -161,23 +161,23 @@
 | 31 | lukeramsden | 0 | 13 | 13 |
 | 32 | ghaskins | 6 | 6 | 12 |
 | 33 | app/mend-for-github-com | 11 | 0 | 11 |
-| 34 | yux0 | 8 | 3 | 11 |
-| 35 | gregbrowndev | 4 | 7 | 11 |
-| 36 | wolfy-j | 3 | 8 | 11 |
-| 37 | maciejdudko | 8 | 2 | 10 |
+| 34 | maciejdudko | 8 | 3 | 11 |
+| 35 | yux0 | 8 | 3 | 11 |
+| 36 | gregbrowndev | 4 | 7 | 11 |
+| 37 | wolfy-j | 3 | 8 | 11 |
 | 38 | jmaeagle99 | 4 | 6 | 10 |
 | 39 | d2201 | 0 | 10 | 10 |
-| 40 | neelance | 2 | 7 | 9 |
-| 41 | jlegrone | 1 | 8 | 9 |
-| 42 | THardy98 | 5 | 3 | 8 |
-| 43 | hazcod | 2 | 6 | 8 |
-| 44 | xepozz | 1 | 7 | 8 |
-| 45 | Irvenae | 1 | 7 | 8 |
-| 46 | chris-olszewski | 6 | 1 | 7 |
-| 47 | robzienert | 4 | 3 | 7 |
-| 48 | freisenhauer | 1 | 6 | 7 |
-| 49 | ilijaNL | 1 | 6 | 7 |
-| 50 | daravindth | 1 | 6 | 7 |
+| 40 | xepozz | 2 | 7 | 9 |
+| 41 | neelance | 2 | 7 | 9 |
+| 42 | jlegrone | 1 | 8 | 9 |
+| 43 | chris-olszewski | 6 | 2 | 8 |
+| 44 | THardy98 | 5 | 3 | 8 |
+| 45 | hazcod | 2 | 6 | 8 |
+| 46 | daravindth | 2 | 6 | 8 |
+| 47 | Irvenae | 1 | 7 | 8 |
+| 48 | robzienert | 4 | 3 | 7 |
+| 49 | rodrigozhou | 2 | 5 | 7 |
+| 50 | freisenhauer | 1 | 6 | 7 |
 
 ---
 
@@ -1655,6 +1655,13 @@
 | sdk-php | [#635](../repos/temporalio-sdk-php/issues.md#635) | [Bug] Memory leak workflow worker |
 | sdk-php | [#636](../repos/temporalio-sdk-php/issues.md#636) | [Bug] Suppressed exception in worfklow child |
 
+### xepozz (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-php | [#670](../repos/temporalio-sdk-php/issues.md#670) | [Feature Request] Symfony 8.0 support |
+| sdk-php | [#692](../repos/temporalio-sdk-php/issues.md#692) | [Bug] Minimal Composer requirements conflicts with react/promise v2 |
+
 ### andmis (2 issues)
 
 | Repo | Issue | Title |
@@ -1795,6 +1802,13 @@
 | temporal | [#5853](../repos/temporalio-temporal/issues.md#5853) | Cross-replicated search attributes are not persistent |
 | temporal | [#6100](../repos/temporalio-temporal/issues.md#6100) | fr: add support for multi-az postgres with read-only replication |
 
+### stephanos (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#6799](../repos/temporalio-temporal/issues.md#6799) | Support `WorkflowIdConflictPolicy` for child workflow |
+| temporal | [#8970](../repos/temporalio-temporal/issues.md#8970) | Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory` |
+
 ### LauVietVan (2 issues)
 
 | Repo | Issue | Title |
@@ -1822,6 +1836,13 @@
 |------|-------|-------|
 | temporal | [#7866](../repos/temporalio-temporal/issues.md#7866) | AWS STS for connecting S3 for archival |
 | temporal | [#7894](../repos/temporalio-temporal/issues.md#7894) | Cannot load Archived Workflows on UI even archived are present in S3 |
+
+### daravindth (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#8110](../repos/temporalio-temporal/issues.md#8110) | v1.28.0 vulnerabilities |
+| temporal | [#8967](../repos/temporalio-temporal/issues.md#8967) | 1.30.0 release version |
 
 ### roshchha (2 issues)
 
@@ -2226,6 +2247,12 @@
 |------|-------|-------|
 | sdk-go | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | OpenTelemetry incorrect metric type for Counter |
 
+### autocracy (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-go | [#2141](../repos/temporalio-sdk-go/issues.md#2141) | Activity Alias Collision in Test Environment When Using Anonymous Functions |
+
 ### sjmtan (1 issues)
 
 | Repo | Issue | Title |
@@ -2616,12 +2643,6 @@
 |------|-------|-------|
 | sdk-php | [#668](../repos/temporalio-sdk-php/issues.md#668) | [Feature Request] Implement `SetCurrentDetails` for dynamic workflow details |
 
-### xepozz (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-php | [#670](../repos/temporalio-sdk-php/issues.md#670) | [Feature Request] Symfony 8.0 support |
-
 ### adepretis (1 issues)
 
 | Repo | Issue | Title |
@@ -2681,6 +2702,18 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-python | [#1254](../repos/temporalio-sdk-python/issues.md#1254) | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox |
+
+### marcoriopel (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-python | [#1267](../repos/temporalio-sdk-python/issues.md#1267) | [Bug] Logs not emitted during workflow queries |
+
+### sashaneb (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-python | [#1268](../repos/temporalio-sdk-python/issues.md#1268) | [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings |
 
 ### anhdle14 (1 issues)
 
@@ -3864,12 +3897,6 @@
 |------|-------|-------|
 | temporal | [#6758](../repos/temporalio-temporal/issues.md#6758) | API for setting RPS limits for activity tasks dispatch |
 
-### stephanos (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| temporal | [#6799](../repos/temporalio-temporal/issues.md#6799) | Support `WorkflowIdConflictPolicy` for child workflow |
-
 ### jahnavisana2812 (1 issues)
 
 | Repo | Issue | Title |
@@ -4122,12 +4149,6 @@
 |------|-------|-------|
 | temporal | [#8109](../repos/temporalio-temporal/issues.md#8109) | Support for Naming Timers in Temporal Workflows |
 
-### daravindth (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| temporal | [#8110](../repos/temporalio-temporal/issues.md#8110) | v1.28.0 vulnerabilities |
-
 ### jbrody-nexxa (1 issues)
 
 | Repo | Issue | Title |
@@ -4283,6 +4304,12 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | temporal | [#8955](../repos/temporalio-temporal/issues.md#8955) | MCP Server for Temporal Workflows |
+
+### wencaiwulue (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#8968](../repos/temporalio-temporal/issues.md#8968) | Same fairness key but different fairness weight? |
 
 ### doqtri (1 issues)
 

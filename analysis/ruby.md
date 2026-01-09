@@ -1,194 +1,235 @@
 # Temporal Ruby SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-07
-**Total Open Issues:** 25
+**Generated:** 2026-01-09
+**Total Open Issues:** 22
+**Total Closed Issues:** 3
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-ruby/issues.md)
+<- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) | [Full Issue Data](../repos/temporalio-sdk-ruby/issues.md)
 
-**Other SDKs:** [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Server](server.md) · [Features](features.md)
+**Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [PHP](php.md)
 
 ---
 
 ## Executive Summary
 
-The Ruby SDK is the newest Temporal SDK with 25 open issues. **A critical fiber state corruption bug (#373) was filed this week** affecting x86_64 Linux. Given its early stage, the focus is on stability and core functionality. Low engagement (3 upvotes total) suggests a smaller but growing user base.
+The Temporal Ruby SDK is a relatively young SDK with a small issue footprint (22 open issues) but a growing backlog (+14 net issues in the last 12 months). The SDK has a low resolution rate (12%) and limited community engagement (only 9% of issues have upvotes). Primary concerns are Ruby version compatibility issues, Rails/ActiveModel integration challenges, and pending feature requests for Nexus support and worker versioning.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Enhancement Requests | 19 | Medium |
-| Bugs | 5 | High - Early SDK stability |
-| Stale Issues (>1 year) | 2 | Review for closure |
+| Bugs | 4 | High - includes fiber compatibility and ActiveModel integration issues |
+| Enhancements | 17 | Medium - dominated by internal SDK improvements and feature parity items |
+| Stale Issues | 4 | Low - includes valid but unworked issues needing triage |
 
 ### User Engagement Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes (👍) | 3 |
-| Total Comments | 19 |
-| Issues with Upvotes | 2 (8%) |
-| Issues with Comments | 10 (40%) |
+| Total Upvotes | 3 |
+| Total Comments | 15 |
+| Issues with Upvotes | 2 (9%) |
+| Issues with Comments | 8 (36%) |
+
+### Resolution Metrics
+
+> Note: These metrics are derived from closed issue analysis. Closure reasons are *inferred* from labels and metadata.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 12% (3/25) |
+| Median Time to Close | 36 days (calendar) / 27 days (business) |
+| Resolved within 30 days | 33% |
+| Resolved within 90 days | 67% |
 
 ### Recommended Actions
 
-1. **URGENT:** Investigate fiber state corruption bug (#373) - x86_64 specific
-2. **High:** Fix Ruby 3.1/3.2 fiber issues (#162)
-3. **Medium:** Fix ScopedLogger with semantic_logger (#315)
-4. **Medium:** ActiveModel sync issues (#355)
-5. **Long-term:** Ruby 4 compatibility (#364)
+1. **Immediate:** Address [#355](../repos/temporalio-sdk-ruby/issues.md#355) ActiveModel compatibility - blocking Rails adoption
+2. **Short-term:** Fix [#315](../repos/temporalio-sdk-ruby/issues.md#315) ScopedLogger bug for semantic_logger users
+3. **Medium-term:** Investigate [#162](../repos/temporalio-sdk-ruby/issues.md#162) Ruby 3.1/3.2 fiber issue (though Ruby 3.2 EOL approaching)
+4. **Long-term:** Implement Nexus support ([#232](../repos/temporalio-sdk-ruby/issues.md#232)) and Worker Versioning ([#270](../repos/temporalio-sdk-ruby/issues.md#270))
+5. **Housekeeping:** Triage 4 stale issues (>12 months old) for closure or prioritization
 
 ---
 
-## URGENT: Recent Critical Issue
+## Issue Health Assessment
 
-**New fiber state corruption bug filed 2026-01-05:**
+### Velocity Trend (Last 12 Months)
 
-| Issue | Problem |
-|-------|---------|
-| [#373](../repos/temporalio-sdk-ruby/issues.md#373) | **Fiber state corruption after Workflow.timeout_cancellation_scope** - x86_64 Linux only |
+The backlog is steadily growing with minimal issue closures until a recent burst in January 2026.
 
-**Impact:** This bug causes workflow execution to fail on x86_64 Linux systems after using timeout cancellation scopes. This is a platform-specific critical bug that needs investigation.
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | 17 | 3 | +14 |
 
-**Pattern:** This may be related to the existing Ruby 3.1/3.2 fiber issues (#162).
+**Backlog Growing:** The SDK is accumulating issues faster than they are being resolved, indicating a need for increased maintenance focus or additional resources.
+
+### Last 6 Months: Detailed Analysis
+
+Recent activity shows continued issue accumulation with a late burst of closures. The team addressed Ruby 4 compatibility and plugin support in early January 2026.
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 12 |
+| Issues Closed | 3 |
+| Bugs Closed | 1 |
+| Enhancements Completed | 2 |
+
+### Popular Requests Resolved (Last 6 Months)
+
+| Issue | Upvotes | Title |
+|-------|-----|-------|
+| [#364](../repos/temporalio-sdk-ruby/issues.md#364) | 0 | Ruby 4 compatibility confirmation |
+| [#318](../repos/temporalio-sdk-ruby/issues.md#318) | 0 | Plugin support |
+| [#373](../repos/temporalio-sdk-ruby/issues.md#373) | 0 | Fiber state corruption after Workflow.timeout expires on x86_64 |
 
 ---
 
 ## User Demand: Top Issues by Upvotes
 
-| Rank | Issue | 👍 | 💬 | Title |
+| Rank | Issue | Upvotes | Comments | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | **2** | 1 | Client-side trimming of failures |
-| 2 | [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 1 | 0 | macOS Intel smoke test |
+| 1 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | 2 | 1 | Client-side trimming of failures to avoid server-side wrap-and-truncate |
+| 2 | [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 1 | 0 | Update build-gems GH workflow smoke test to use macOS Intel |
 
-### Priority Score (Upvotes×2 + Comments)
+### Priority Score (Upvotes x 2 + Comments)
 
 | Rank | Issue | Score | Title |
 |------|-------|-------|-------|
-| 1 | #319 | 5 | Client-side failure trimming |
-| 2 | #162 | 5 | Ruby 3.1/3.2 fiber issues |
-| 3 | #315 | 4 | ScopedLogger fails |
-| 4 | #364 | 3 | Ruby 4 compatibility |
-| 5 | #306 | 2 | macOS Intel smoke test |
+| 1 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | 5 | Client-side trimming of failures |
+| 2 | [#162](../repos/temporalio-sdk-ruby/issues.md#162) | 5 | Ruby 3.1/3.2 worker fibers investigation |
+| 3 | [#315](../repos/temporalio-sdk-ruby/issues.md#315) | 4 | ScopedLogger fails comparing symbol to integer |
+| 4 | [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 2 | macOS Intel build workflow smoke test |
+| 5 | [#360](../repos/temporalio-sdk-ruby/issues.md#360) | 1 | Testing workflows with signals in time-skipping environment |
+| 6 | [#334](../repos/temporalio-sdk-ruby/issues.md#334) | 1 | Ensure fibers and workflow instances are properly GC'd |
+| 7 | [#238](../repos/temporalio-sdk-ruby/issues.md#238) | 1 | Serialization context for codecs and converters |
+| 8 | [#203](../repos/temporalio-sdk-ruby/issues.md#203) | 1 | Contributing Guide |
+| 9 | [#172](../repos/temporalio-sdk-ruby/issues.md#172) | 1 | Windows CI segfaulting during tests |
 
 ---
 
-## High Priority: Bugs (5 issues)
+## Issue Analysis by Category
 
-| Issue | Problem | Comments |
-|-------|---------|----------|
-| [#373](../repos/temporalio-sdk-ruby/issues.md#373) | **Fiber state corruption (x86_64)** - NEW | 1 |
-| [#162](../repos/temporalio-sdk-ruby/issues.md#162) | Ruby 3.1/3.2 worker fiber issues | 5 |
-| [#355](../repos/temporalio-sdk-ruby/issues.md#355) | ActiveModel fails due to sync construct | 0 |
-| [#315](../repos/temporalio-sdk-ruby/issues.md#315) | ScopedLogger fails with semantic_logger | 4 |
-| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | Windows CI segfaulting | 1 |
+### Bugs (4 issues)
 
-**Pattern:** Multiple fiber-related issues (#373, #162) suggest Ruby fiber handling needs a dedicated review.
+The SDK has 4 open bugs, primarily related to Ruby runtime compatibility and third-party library integration.
 
----
+#### High Priority
 
-## Enhancement Priorities
+| Issue | Comments | Description |
+|-------|-----|-------------|
+| [#355](../repos/temporalio-sdk-ruby/issues.md#355) | 0 | ActiveModel fails in workflows due to ConcurrentMap mutex use - blocks Rails integration |
+| [#315](../repos/temporalio-sdk-ruby/issues.md#315) | 4 | ScopedLogger fails comparing symbol to integer when using semantic_logger |
 
-### 1. Failure Handling (#319 - 2 👍)
+#### Medium Priority
 
-Client-side trimming to avoid server wrap-and-truncate.
+| Issue | Comments | Description |
+|-------|-----|-------------|
+| [#162](../repos/temporalio-sdk-ruby/issues.md#162) | 5 | Ruby 3.1/3.2 fiber-based workers hang due to queue push/pop wake-up issues |
+| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | 1 | Windows CI segfaulting during tests - likely Rust/Ruby threading conflict |
 
-### 2. Ruby 4 Compatibility (#364)
+**Analysis:** The ActiveModel bug ([#355](../repos/temporalio-sdk-ruby/issues.md#355)) is particularly impactful as it affects any Rails application using ActiveModel attributes in workflows. The ScopedLogger issue ([#315](../repos/temporalio-sdk-ruby/issues.md#315)) affects users of popular logging libraries like semantic_logger. The Ruby 3.1/3.2 issue ([#162](../repos/temporalio-sdk-ruby/issues.md#162)) is becoming less critical as those versions approach EOL.
 
-| Issue | Enhancement |
-|-------|-------------|
-| [#364](../repos/temporalio-sdk-ruby/issues.md#364) | Confirm/assert Ruby 4 compatibility |
-
-Future-proofing as Ruby 4 approaches.
-
-### 3. Testing Support
-
-| Issue | Enhancement |
-|-------|-------------|
-| [#360](../repos/temporalio-sdk-ruby/issues.md#360) | Signal testing in time-skipping env |
-| [#334](../repos/temporalio-sdk-ruby/issues.md#334) | Ensure fibers/workflow instances cleaned up |
-
-### 4. Platform Support
-
-| Issue | Enhancement |
-|-------|-------------|
-| [#306](../repos/temporalio-sdk-ruby/issues.md#306) | macOS Intel smoke test |
-| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | Windows support |
-
-### 5. Serialization
-
-| Issue | Enhancement |
-|-------|-------------|
-| [#238](../repos/temporalio-sdk-ruby/issues.md#238) | Serialization context for codecs/converters |
+**Recently Resolved:** [#373](../repos/temporalio-sdk-ruby/issues.md#373) - Fiber state corruption after Workflow.timeout expires on x86_64 was fixed in January 2026. This was an architecture-specific bug affecting x86_64 Linux users where `Fiber.yield` returned incorrect values after timeout expiration.
 
 ---
 
-## Age Distribution
+## Enhancement Requests (17 issues)
 
-| Age | Count |
-|-----|-------|
-| Last 30 days | 1 |
-| 1-3 months | 5 |
-| 3-6 months | 6 |
-| 6-12 months | 11 |
-| 1-2 years | 2 |
+### Cross-SDK Feature Parity
 
-**Note:** No issues older than 2 years - this is a new SDK. Most issues (44%) are in the 6-12 month range.
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#232](../repos/temporalio-sdk-ruby/issues.md#232) | 0 | Initial Nexus implementation - critical for service-to-service communication |
+| [#270](../repos/temporalio-sdk-ruby/issues.md#270) | 0 | Worker Versioning high-level client |
+| [#367](../repos/temporalio-sdk-ruby/issues.md#367) | 0 | Support non-workflow activities (server API dependent) |
+| [#361](../repos/temporalio-sdk-ruby/issues.md#361) | 0 | Override Worker Deployment Version for child workflows |
+
+### Error Handling & Observability
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#319](../repos/temporalio-sdk-ruby/issues.md#319) | 2 | Client-side trimming of failures to avoid server truncation |
+| [#191](../repos/temporalio-sdk-ruby/issues.md#191) | 0 | Improved deadlock detection with better stack traces |
+| [#185](../repos/temporalio-sdk-ruby/issues.md#185) | 0 | Warn on unawaited workflow futures with failures |
+
+### Workflow API Improvements
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#179](../repos/temporalio-sdk-ruby/issues.md#179) | 0 | Provide "workflow local" storage (Workflow["myValue"]) |
+| [#209](../repos/temporalio-sdk-ruby/issues.md#209) | 0 | Add explicit memoization support to patched() API |
+| [#222](../repos/temporalio-sdk-ruby/issues.md#222) | 0 | Test randomness seed update over reset |
+
+### Serialization & Data Conversion
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#238](../repos/temporalio-sdk-ruby/issues.md#238) | 0 | Serialization context for codecs and converters |
+| [#333](../repos/temporalio-sdk-ruby/issues.md#333) | 0 | Require payload codec from data converter file |
+
+### Build & CI Infrastructure
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 1 | Update build-gems workflow for macOS Intel |
+| [#218](../repos/temporalio-sdk-ruby/issues.md#218) | 0 | Support buildable source gem |
+| [#192](../repos/temporalio-sdk-ruby/issues.md#192) | 0 | Remove Go dependency from test pipeline |
+
+### Memory & Resource Management
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#334](../repos/temporalio-sdk-ruby/issues.md#334) | 0 | Ensure fibers and workflow instances are properly GC'd on eviction |
+
+### Developer Experience
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#203](../repos/temporalio-sdk-ruby/issues.md#203) | 0 | Contributing Guide |
+| [#360](../repos/temporalio-sdk-ruby/issues.md#360) | 0 | Documentation for testing workflows with signals in time-skipping environment |
+
+---
+
+## Housekeeping Recommendations
+
+### Stale Issues (>1 year, no activity)
+
+**Total:** 4 issues with no activity for over 12 months
+
+- **Keep open:** [#162](../repos/temporalio-sdk-ruby/issues.md#162) - Ruby 3.1/3.2 fiber issue is valid but becoming less relevant; [#172](../repos/temporalio-sdk-ruby/issues.md#172) - Windows CI issue needs investigation
+- **Needs triage:** [#185](../repos/temporalio-sdk-ruby/issues.md#185) - Unawaited futures warning; [#179](../repos/temporalio-sdk-ruby/issues.md#179) - Workflow local feature request
+
+### Duplicate Candidates
+
+No obvious duplicate issues identified. The small issue count makes tracking straightforward.
 
 ---
 
 ## Proposed Roadmap
 
-### Phase 1: Critical Bug Fixes (Immediate)
-- [ ] **URGENT:** Investigate fiber state corruption (#373) - x86_64 specific
-- [ ] Review fiber handling across all Ruby versions (#162, #373)
-- [ ] Fix ScopedLogger with semantic_logger (#315)
+Based on user demand and issue analysis:
 
-### Phase 2: Stability (Short-term)
-- [ ] Fix ActiveModel sync issues (#355)
-- [ ] Fix Windows CI (#172)
-- [ ] Client-side failure trimming (#319)
+### Phase 1: Stability (Immediate)
 
-### Phase 3: Future Compatibility (Medium-term)
-- [ ] Ruby 4 compatibility testing (#364)
-- [ ] Fiber/workflow instance cleanup (#334)
+- Fix [#355](../repos/temporalio-sdk-ruby/issues.md#355) ActiveModel compatibility - critical for Rails adoption
+- Fix [#315](../repos/temporalio-sdk-ruby/issues.md#315) ScopedLogger/semantic_logger compatibility
 
-### Phase 4: Platform & Testing (Medium-term)
-- [ ] Signal testing support (#360)
-- [ ] macOS Intel support (#306)
-- [ ] Improve cross-platform testing
+### Phase 2: Developer Experience (Short-term)
 
-### Ongoing: Housekeeping
-- [ ] Review 2 stale issues
-- [ ] Consider contributing guide (#203)
+- Improve [#360](../repos/temporalio-sdk-ruby/issues.md#360) documentation for testing signal-driven workflows
+- Add [#203](../repos/temporalio-sdk-ruby/issues.md#203) contributing guide to encourage community contributions
+- Implement [#319](../repos/temporalio-sdk-ruby/issues.md#319) client-side failure trimming
 
----
+### Phase 3: Feature Expansion (Medium-term)
 
-## Quick Reference: Top 10 High-Impact Issues
+- Implement [#232](../repos/temporalio-sdk-ruby/issues.md#232) Nexus support for cross-service workflows
+- Add [#270](../repos/temporalio-sdk-ruby/issues.md#270) Worker Versioning high-level client
+- Implement [#179](../repos/temporalio-sdk-ruby/issues.md#179) workflow-local storage
 
-| # | Issue | Category | 👍 | Impact |
-|---|-------|----------|-----|--------|
-| 1 | #373 | Bug | 0 | **Fiber corruption (URGENT - NEW)** |
-| 2 | #162 | Bug | 0 | Ruby 3.1/3.2 fibers (5 comments) |
-| 3 | #319 | Enhancement | **2** | Failure trimming (TOP REQUEST) |
-| 4 | #315 | Bug | 0 | ScopedLogger (4 comments) |
-| 5 | #364 | Enhancement | 0 | Ruby 4 compatibility (3 comments) |
-| 6 | #355 | Bug | 0 | ActiveModel sync |
-| 7 | #306 | Enhancement | **1** | macOS Intel |
-| 8 | #360 | Enhancement | 0 | Signal testing |
-| 9 | #334 | Enhancement | 0 | Fiber cleanup |
-| 10 | #172 | Bug | 0 | Windows CI |
+### Phase 4: Maintenance (Ongoing)
 
----
-
-## Notes for Ruby SDK
-
-As the newest SDK:
-1. **Fiber stability is critical** - Multiple fiber-related bugs (#373, #162) suggest this area needs focused attention
-2. **Platform-specific bugs** - The new fiber corruption bug (#373) only affects x86_64 Linux, suggesting platform-specific testing is needed
-3. **Ruby version support** - 3.1/3.2 issues (#162) affect mainstream users
-4. **Logger integration** - Ruby devs expect seamless integration with popular loggers like semantic_logger (#315)
-5. **Low issue count is good** - But fiber issues could affect adoption if not resolved
-
-**Key Insight:** The Ruby SDK has fiber handling issues that span multiple versions and platforms. A comprehensive review of fiber management may be needed to establish a stable foundation for the SDK.
+- Triage stale issues quarterly
+- Monitor Ruby version support (consider dropping 3.2 after EOL)
+- Improve CI stability ([#172](../repos/temporalio-sdk-ruby/issues.md#172) Windows, [#306](../repos/temporalio-sdk-ruby/issues.md#306) macOS Intel)

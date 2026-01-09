@@ -1,9 +1,9 @@
 # temporalio/sdk-java - Complete Issue Dump
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Total Issues:** 217
 **Total Upvotes:** 104
-**Total Comments:** 203
+**Total Comments:** 204
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@
 | Open Issues | 217 |
 | Issues with Upvotes | 37 (17%) |
 | Total Upvotes | 104 |
-| Total Comments | 203 |
+| Total Comments | 204 |
 
 ## Top Labels
 
@@ -105,6 +105,7 @@
 | [#696](#696) | 0 | 2 | Port fix for following execution chain from Go SDK |
 | [#613](#613) | 1 | 0 | Calling workflow method on the workflow stub should always wait for the workflow completion. |
 | [#2](#2) | 0 | 2 | Refactor ReplayWorkflowContext out of WorkflowThread |
+| [#2753](#2753) | 0 | 1 | Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check |
 | [#2733](#2733) | 0 | 1 | activity_schedule_to_start_latency reports activity_type unexpectedly |
 | [#2728](#2728) | 0 | 1 | ScheduleRange to check end |
 | [#2674](#2674) | 0 | 1 | TestEnvironment with external service - failing tests throws IllegalStateException errors |
@@ -143,7 +144,6 @@
 | [#57](#57) | 0 | 1 | Automatically reconnect to the service when it changes ip address |
 | [#2755](#2755) | 0 | 0 | Support using Temporal failures in Nexus APIs |
 | [#2754](#2754) | 0 | 0 | Environment Configuration does not read the correct file path on macOS |
-| [#2753](#2753) | 0 | 0 | Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check |
 | [#2752](#2752) | 0 | 0 | OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present |
 | [#2750](#2750) | 0 | 0 | Tests not passing: TestStatsReporter Flush not flushing |
 | [#2747](#2747) | 0 | 0 | @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does |
@@ -1991,7 +1991,7 @@ I believe you can implement this logic by implementing custom WorkflowOutboundCa
 | **URL** | https://github.com/temporalio/sdk-java/issues/2746 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2025-12-09 23:15:13.000 UTC (28 days ago) |
+| **Created** | 2025-12-09 23:15:13.000 UTC (1 months ago) |
 | **Updated** | 2025-12-09 23:15:13.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 0 |
@@ -3184,7 +3184,7 @@ What definitely shouldn't happen and it happens now, when a user registers Custo
 | **URL** | https://github.com/temporalio/sdk-java/issues/811 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2021-10-11 16:25:16.000 UTC (4y 2m ago) |
+| **Created** | 2021-10-11 16:25:16.000 UTC (4y 3m ago) |
 | **Updated** | 2021-10-11 16:25:16.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 0 |
@@ -3570,7 +3570,7 @@ Hello @mfateev, I was wondering if there are any updates regarding this issue. D
 | **URL** | https://github.com/temporalio/sdk-java/issues/2312 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-11-08 23:46:05.000 UTC (1y 1m ago) |
+| **Created** | 2024-11-08 23:46:05.000 UTC (1y 2m ago) |
 | **Updated** | 2024-12-23 09:31:57.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -3658,7 +3658,7 @@ Ideally, the same API can be reused to complete the workflow asynchronously. Thi
 | **URL** | https://github.com/temporalio/sdk-java/issues/1988 |
 | **State** | OPEN |
 | **Author** | yunmanger1 (German Ilin) |
-| **Created** | 2024-02-13 15:50:14.000 UTC (1y 10m ago) |
+| **Created** | 2024-02-13 15:50:14.000 UTC (1y 11m ago) |
 | **Updated** | 2024-02-13 18:14:34.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 1 |
@@ -5465,6 +5465,51 @@ Revisiting this issue after some work on interceptors had been done and class st
 
 We should refactor out MDC initialization logic from `WorkflowThreadImpl`: https://github.com/Spikhalskiy/java-sdk/blob/15ca5083059e0bb27ff44f03addce2ecdd554404/temporal-sdk/src/main/java/io/temporal/internal/sync/WorkflowThreadImpl.java#L94
 into a new Interceptor. Interceptors already allow intercepting creation of WorkflowThreads. If interceptors are lacking anything to support this, we can add the lacking functionality.
+
+</details>
+
+
+---
+
+<a id="2753"></a>
+
+### #2753: Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-java/issues/2753 |
+| **State** | CLOSED |
+| **Author** | 40lsgy1 (40lsgy1) |
+| **Created** | 2025-12-31 08:23:53.000 UTC (8 days ago) |
+| **Updated** | 2026-01-08 16:44:52.000 UTC |
+| **Closed** | 2026-01-08 16:44:52.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+I'm encountering an issue while using Temporal to build a DSL system. In my implementation, each Activity is wrapped in a CancellationScope to enable individual cancellation handling (with retry/skip options after cancellation). The CancellationType is set to WAIT_CANCELLATION_COMPLETED. I have two related problems:
+
+1. Worker Crash During Activity Execution: I recently observed that if a worker crashes during an Activity's business logic execution and fails to recover within the StartToCloseTimeout period, the Activity does not retry its business logic after the worker recovers. According to the documentation, StartToCloseTimeout should only limit the duration of a single Activity attempt. My expectation is that after worker recovery, the Activity should retry (allowing cancellation cleanup logic to execute) rather than terminating due to timeout.
+
+2. Detecting CancellationScope Status After Exit: My Activities nest CancellationScope within Async.procedure Promises. When a CanceledFailure occurs, the WAIT_CANCELLATION_COMPLETED policy ensures the Activity's logic completes successfully before exiting the scope. After exiting the CancellationScope, I need to execute state update logic (via other Activities). Is there a way to determine whether the CancellationScope was canceled immediately after exiting it? This would allow me to conditionally execute state updates using newDetachedCancellationScope.
+
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>maciejdudko</strong> commented on 2026-01-08 16:44:47.000 UTC</summary>
+
+1. When an activity is requested to cancel, then it will not be retried anymore. This is by design. Activities are non-durable and there are no guarantees that any cleanup logic will execute in case of failure or worker crash. If the workflow needs to ensure cleanup is done, it needs to catch the activity failure and run the cleanup logic as a separate activity. One common way is the saga design pattern, where every activity is paired with a compensation activity that undoes its work and in case of failure, the workflow executes a list of compensations for all activities run up to this point. You can learn more about it from this blog post: https://temporal.io/blog/saga-pattern-made-easy You can also find more resources on sagas in [Temporal documentation](https://docs.temporal.io/evaluate/use-cases-design-patterns#saga).
+
+2. If you still have a reference to the `CancellationScope`, you can call the `isCancelRequested` method to check if it was canceled even after it finishes running. However, this is not a perfect representation of whether the activities inside have completed successfully or not. It's always better to memorize the result of activity execution itself, e.g. by storing the potential exception in a variable and later checking if it's null or not.
+
+If you have more questions or need assistance, always feel free to post on `#java-sdk` channel in [Temporal Community Slack](https://t.mp/slack). I will close this issue as there's nothing to be fixed here.
 
 </details>
 
@@ -7747,7 +7792,7 @@ During various failure/deployment scenarios especially in K8s the service IP mig
 | **URL** | https://github.com/temporalio/sdk-java/issues/2755 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2026-01-05 21:37:57.000 UTC (2 days ago) |
+| **Created** | 2026-01-05 21:37:57.000 UTC (3 days ago) |
 | **Updated** | 2026-01-05 21:38:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7778,7 +7823,7 @@ https://github.com/temporalio/api/pull/682
 | **URL** | https://github.com/temporalio/sdk-java/issues/2754 |
 | **State** | OPEN |
 | **Author** | pvsone (Peter Sullivan) |
-| **Created** | 2026-01-04 17:49:02.000 UTC (3 days ago) |
+| **Created** | 2026-01-04 17:49:02.000 UTC (4 days ago) |
 | **Updated** | 2026-01-04 17:49:02.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7810,37 +7855,6 @@ On a mac I expect the SDK to read the Environment Config profile from $HOME/Libr
 
 ---
 
-<a id="2753"></a>
-
-### #2753: Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/sdk-java/issues/2753 |
-| **State** | OPEN |
-| **Author** | 40lsgy1 (40lsgy1) |
-| **Created** | 2025-12-31 08:23:53.000 UTC (7 days ago) |
-| **Updated** | 2025-12-31 08:23:53.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | None |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-I'm encountering an issue while using Temporal to build a DSL system. In my implementation, each Activity is wrapped in a CancellationScope to enable individual cancellation handling (with retry/skip options after cancellation). The CancellationType is set to WAIT_CANCELLATION_COMPLETED. I have two related problems:
-
-1. Worker Crash During Activity Execution: I recently observed that if a worker crashes during an Activity's business logic execution and fails to recover within the StartToCloseTimeout period, the Activity does not retry its business logic after the worker recovers. According to the documentation, StartToCloseTimeout should only limit the duration of a single Activity attempt. My expectation is that after worker recovery, the Activity should retry (allowing cancellation cleanup logic to execute) rather than terminating due to timeout.
-
-2. Detecting CancellationScope Status After Exit: My Activities nest CancellationScope within Async.procedure Promises. When a CanceledFailure occurs, the WAIT_CANCELLATION_COMPLETED policy ensures the Activity's logic completes successfully before exiting the scope. After exiting the CancellationScope, I need to execute state update logic (via other Activities). Is there a way to determine whether the CancellationScope was canceled immediately after exiting it? This would allow me to conditionally execute state updates using newDetachedCancellationScope.
-
-
-
-
----
-
 <a id="2752"></a>
 
 ### #2752: OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present
@@ -7850,7 +7864,7 @@ I'm encountering an issue while using Temporal to build a DSL system. In my impl
 | **URL** | https://github.com/temporalio/sdk-java/issues/2752 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-30 20:45:57.000 UTC (8 days ago) |
+| **Created** | 2025-12-30 20:45:57.000 UTC (9 days ago) |
 | **Updated** | 2025-12-30 20:46:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7888,7 +7902,7 @@ https://javadoc.io/static/io.temporal/temporal-opentracing/1.32.0/io/temporal/op
 | **URL** | https://github.com/temporalio/sdk-java/issues/2750 |
 | **State** | OPEN |
 | **Author** | TbirdDuncan |
-| **Created** | 2025-12-28 18:26:55.000 UTC (10 days ago) |
+| **Created** | 2025-12-28 18:26:55.000 UTC (11 days ago) |
 | **Updated** | 2025-12-28 19:04:29.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7973,7 +7987,7 @@ java.lang.AssertionError: No metric 'temporal_workflow_failed [namespace=UnitTes
 | **URL** | https://github.com/temporalio/sdk-java/issues/2747 |
 | **State** | OPEN |
 | **Author** | karunagoyal (Karuna Goyal) |
-| **Created** | 2025-12-12 17:25:42.000 UTC (26 days ago) |
+| **Created** | 2025-12-12 17:25:42.000 UTC (27 days ago) |
 | **Updated** | 2025-12-12 17:25:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8646,7 +8660,7 @@ or promise.handle((ex, failure) -> null);
 | **URL** | https://github.com/temporalio/sdk-java/issues/2521 |
 | **State** | OPEN |
 | **Author** | madhav2302 (Madhav Sodhani) |
-| **Created** | 2025-05-13 20:54:07.000 UTC (7 months ago) |
+| **Created** | 2025-05-13 20:54:07.000 UTC (8 months ago) |
 | **Updated** | 2025-05-13 20:54:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11747,7 +11761,7 @@ Nothing comes back erroring on the second child start attempt. This may also be 
 | **URL** | https://github.com/temporalio/sdk-java/issues/1413 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-09-10 22:30:31.000 UTC (3y 3m ago) |
+| **Created** | 2022-09-10 22:30:31.000 UTC (3y 4m ago) |
 | **Updated** | 2022-09-10 22:30:31.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12123,7 +12137,7 @@ Instead of that, Temporal Java SDK code should maintain a weak or phantom refere
 | **URL** | https://github.com/temporalio/sdk-java/issues/1141 |
 | **State** | OPEN |
 | **Author** | Spikhalskiy (Dmitry Spikhalsky) |
-| **Created** | 2022-04-14 06:44:58.000 UTC (3y 8m ago) |
+| **Created** | 2022-04-14 06:44:58.000 UTC (3y 9m ago) |
 | **Updated** | 2024-12-17 21:19:11.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

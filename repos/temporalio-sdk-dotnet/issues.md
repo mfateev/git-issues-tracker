@@ -1,6 +1,6 @@
 # temporalio/sdk-dotnet - Complete Issue Dump
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Total Issues:** 52
 **Total Upvotes:** 13
 **Total Comments:** 54
@@ -328,7 +328,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/390 |
 | **State** | OPEN |
 | **Author** | purkhusid (Daniel P. Purkhús) |
-| **Created** | 2025-01-08 17:50:48.000 UTC (12 months ago) |
+| **Created** | 2025-01-08 17:50:48.000 UTC (1 years ago) |
 | **Updated** | 2025-09-01 09:03:25.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 3 |
@@ -514,7 +514,7 @@ Yeah, I think it's understood why a global.json file has value for _contributors
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/577 |
 | **State** | CLOSED |
 | **Author** | jmaeagle99 (Justin Anderson) |
-| **Created** | 2025-12-12 22:16:08.000 UTC (25 days ago) |
+| **Created** | 2025-12-12 22:16:08.000 UTC (27 days ago) |
 | **Updated** | 2026-01-06 17:17:54.000 UTC |
 | **Closed** | 2026-01-06 17:17:54.000 UTC |
 | **Upvotes** | 0 |
@@ -849,7 +849,7 @@ I opened https://github.com/temporalio/sdk-dotnet/pull/364 with a sketch for dis
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/585 |
 | **State** | CLOSED |
 | **Author** | neeraj-mathur |
-| **Created** | 2026-01-05 19:11:12.000 UTC (2 days ago) |
+| **Created** | 2026-01-05 19:11:12.000 UTC (3 days ago) |
 | **Updated** | 2026-01-06 12:17:22.000 UTC |
 | **Closed** | 2026-01-06 12:17:22.000 UTC |
 | **Upvotes** | 0 |
@@ -1688,7 +1688,7 @@ Literally just always creating a new instance of the payload object. How you "wr
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/579 |
 | **State** | OPEN |
 | **Author** | cfauchere (Clement) |
-| **Created** | 2025-12-17 22:50:42.000 UTC (20 days ago) |
+| **Created** | 2025-12-17 22:50:42.000 UTC (22 days ago) |
 | **Updated** | 2025-12-18 15:28:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -1926,10 +1926,11 @@ Reactions: ❤️ 1
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/514 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2025-08-29 18:57:15.000 UTC (4 months ago) |
-| **Updated** | 2025-10-14 12:44:08.000 UTC |
+| **Updated** | 2026-01-08 22:16:03.000 UTC |
+| **Closed** | 2026-01-08 22:16:03.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
 | **Priority Score** | 1 |
@@ -2167,7 +2168,7 @@ When doing this, it would make sense to resurrect the PR for https://github.com/
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/357 |
 | **State** | OPEN |
 | **Author** | robcao (Robert Cao) |
-| **Created** | 2024-10-10 03:10:01.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-10 03:10:01.000 UTC (1y 3m ago) |
 | **Updated** | 2024-10-11 19:07:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -2741,7 +2742,7 @@ But we intentionally did not include a cancellation token on connect because we 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/588 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2026-01-07 15:49:26.000 UTC (0 days ago) |
+| **Created** | 2026-01-07 15:49:26.000 UTC (1 days ago) |
 | **Updated** | 2026-01-07 15:49:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2770,7 +2771,7 @@ This same thing could happen in other places where we are not properly catching 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/587 |
 | **State** | OPEN |
 | **Author** | jmaeagle99 (Justin Anderson) |
-| **Created** | 2026-01-06 17:17:04.000 UTC (1 days ago) |
+| **Created** | 2026-01-06 17:17:04.000 UTC (2 days ago) |
 | **Updated** | 2026-01-06 17:17:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2795,7 +2796,7 @@ This same thing could happen in other places where we are not properly catching 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/586 |
 | **State** | OPEN |
 | **Author** | jmaeagle99 (Justin Anderson) |
-| **Created** | 2026-01-06 17:13:15.000 UTC (1 days ago) |
+| **Created** | 2026-01-06 17:13:15.000 UTC (2 days ago) |
 | **Updated** | 2026-01-06 17:13:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2822,7 +2823,7 @@ This same thing could happen in other places where we are not properly catching 
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/584 |
 | **State** | OPEN |
 | **Author** | maciejdudko (Maciej Dudkowski) |
-| **Created** | 2025-12-26 16:59:31.000 UTC (12 days ago) |
+| **Created** | 2025-12-26 16:59:31.000 UTC (13 days ago) |
 | **Updated** | 2025-12-26 16:59:31.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2881,7 +2882,7 @@ Looks like `ClientEnvConfig.Tls.ToTlsOptions` only reads `Data` and ignores  `Pa
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/578 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-17 17:36:14.000 UTC (21 days ago) |
+| **Created** | 2025-12-17 17:36:14.000 UTC (22 days ago) |
 | **Updated** | 2025-12-17 17:36:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -2908,7 +2909,7 @@ When Nexus was added, tests specific to the time-skipping test server were not a
 | **URL** | https://github.com/temporalio/sdk-dotnet/issues/576 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-12 15:31:49.000 UTC (26 days ago) |
+| **Created** | 2025-12-12 15:31:49.000 UTC (27 days ago) |
 | **Updated** | 2025-12-12 15:39:04.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

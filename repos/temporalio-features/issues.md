@@ -1,6 +1,6 @@
 # temporalio/features - Complete Issue Dump
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Total Issues:** 247
 **Total Upvotes:** 106
 **Total Comments:** 400
@@ -4047,7 +4047,7 @@ Was this actually completed?  I don't see any linked PRs.
 | **URL** | https://github.com/temporalio/features/issues/142 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-10-11 23:35:28.000 UTC (3y 2m ago) |
+| **Created** | 2022-10-11 23:35:28.000 UTC (3y 3m ago) |
 | **Updated** | 2024-07-13 01:07:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 7 |
@@ -6225,7 +6225,7 @@ This requires a new background nexus worker that will send runtime+namespace+cli
 | **URL** | https://github.com/temporalio/features/issues/675 |
 | **State** | OPEN |
 | **Author** | DanielYang59 (Haoyu (Daniel) YANG 杨浩宇) |
-| **Created** | 2025-09-10 11:53:35.000 UTC (3 months ago) |
+| **Created** | 2025-09-10 11:53:35.000 UTC (4 months ago) |
 | **Updated** | 2025-09-17 15:42:57.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -6462,7 +6462,7 @@ Spans have several tags but not the namespace. Based on user request, we should 
 | **URL** | https://github.com/temporalio/features/issues/573 |
 | **State** | OPEN |
 | **Author** | antmendoza (Antonio Mendoza Pérez) |
-| **Created** | 2025-01-08 15:16:48.000 UTC (12 months ago) |
+| **Created** | 2025-01-08 15:16:48.000 UTC (1 years ago) |
 | **Updated** | 2025-01-08 15:55:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -7078,7 +7078,7 @@ I think this is more of a sample than an SDK feature. If a user uses non-determi
 | **URL** | https://github.com/temporalio/features/issues/376 |
 | **State** | OPEN |
 | **Author** | longquanzheng (Quanzheng Long) |
-| **Created** | 2023-02-13 19:06:19.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-13 19:06:19.000 UTC (2y 11m ago) |
 | **Updated** | 2023-11-29 15:05:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -8827,7 +8827,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/features/issues/597 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-02-12 20:05:19.000 UTC (10 months ago) |
+| **Created** | 2025-02-12 20:05:19.000 UTC (11 months ago) |
 | **Updated** | 2025-08-19 21:26:19.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9263,7 +9263,7 @@ Same for child workflows (at least starting), external signals, nexus, and any o
 | **URL** | https://github.com/temporalio/features/issues/494 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-06-12 13:22:49.000 UTC (1y 6m ago) |
+| **Created** | 2024-06-12 13:22:49.000 UTC (1y 7m ago) |
 | **Updated** | 2025-03-18 21:04:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9732,7 +9732,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/features/issues/228 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-02-13 21:27:44.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-13 21:27:44.000 UTC (2y 11m ago) |
 | **Updated** | 2024-12-19 15:45:47.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -10518,7 +10518,7 @@ I like it, let’s do that
 | **URL** | https://github.com/temporalio/features/issues/715 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-22 17:24:50.000 UTC (16 days ago) |
+| **Created** | 2025-12-22 17:24:50.000 UTC (17 days ago) |
 | **Updated** | 2025-12-28 18:34:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10558,7 +10558,7 @@ Describe alternatives you've considered
 | **URL** | https://github.com/temporalio/features/issues/712 |
 | **State** | OPEN |
 | **Author** | THardy98 (Thomas Hardy) |
-| **Created** | 2025-12-18 07:29:14.000 UTC (20 days ago) |
+| **Created** | 2025-12-18 07:29:14.000 UTC (21 days ago) |
 | **Updated** | 2025-12-18 07:31:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10835,10 +10835,11 @@ Today Nexus samples and docs use request ID for workflow ID even though they doc
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/features/issues/691 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | cretz (Chad Retz) |
 | **Created** | 2025-10-27 16:12:30.000 UTC (2 months ago) |
-| **Updated** | 2025-10-27 16:12:30.000 UTC |
+| **Updated** | 2026-01-09 00:27:45.000 UTC |
+| **Closed** | 2026-01-09 00:27:45.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -11878,7 +11879,7 @@ This is useful for a couple of use cases:
 | **URL** | https://github.com/temporalio/features/issues/598 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-02-12 20:32:23.000 UTC (10 months ago) |
+| **Created** | 2025-02-12 20:32:23.000 UTC (11 months ago) |
 | **Updated** | 2025-02-12 20:34:02.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -12305,7 +12306,7 @@ TBA
 | **URL** | https://github.com/temporalio/features/issues/534 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2024-09-10 16:42:00.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-10 16:42:00.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-10 21:19:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -14617,7 +14618,7 @@ Make sure all SDKs only perform the enum conversion if not already done. Meaning
 | **URL** | https://github.com/temporalio/features/issues/113 |
 | **State** | OPEN |
 | **Author** | rachfop (Patrick Rachford) |
-| **Created** | 2022-08-11 21:56:51.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-11 21:56:51.000 UTC (3y 5m ago) |
 | **Updated** | 2024-07-13 01:07:59.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -15008,7 +15009,7 @@ For example:
 | **URL** | https://github.com/temporalio/features/issues/29 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-03-15 03:07:48.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-15 03:07:48.000 UTC (3y 10m ago) |
 | **Updated** | 2025-09-15 18:27:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -15109,7 +15110,7 @@ Java SDK has an issue open at https://github.com/temporalio/sdk-java/issues/988
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
 | **Created** | 2022-01-18 22:57:14.000 UTC (3y 11m ago) |
-| **Updated** | 2024-07-13 01:08:40.000 UTC |
+| **Updated** | 2026-01-08 14:05:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -15136,7 +15137,7 @@ EDIT: This can be done via entire client replacement
 ### Per-SDK Tickets
 
 - [x] Go - Already supported sample: https://github.com/temporalio/samples-go/commit/065f2331fafbd9fd335c1d3dc8ebe635a71dace0
-- [ ] Java - Already supported 
+- [x] Java - Already supported 
 - [x] Core - Done via client replacement: https://github.com/temporalio/sdk-core/pull/721
 - [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1412
 - [x] Python - https://github.com/temporalio/sdk-python/issues/513

@@ -1,9 +1,9 @@
 # temporalio/sdk-typescript - Complete Issue Dump
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Total Issues:** 149
 **Total Upvotes:** 179
-**Total Comments:** 352
+**Total Comments:** 354
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@
 | Open Issues | 149 |
 | Issues with Upvotes | 40 (27%) |
 | Total Upvotes | 179 |
-| Total Comments | 352 |
+| Total Comments | 354 |
 
 ## Top Labels
 
@@ -78,6 +78,7 @@
 | [#564](#564) | 0 | 4 | [Bug] Heartbeat details should be array? |
 | [#561](#561) | 0 | 4 | [Docs] Versionize documentation |
 | [#472](#472) | 0 | 4 | [Feature Request] eslint plugin |
+| [#1864](#1864) | 1 | 1 | [Feature Request] Update AI SDK integration to v6 |
 | [#1772](#1772) | 0 | 3 | extractSourceMap takes a huge amount of RAM on boot |
 | [#1740](#1740) | 1 | 1 | [Bug] webpackConfigHook doesn't seem to suppress all webpack output |
 | [#1601](#1601) | 0 | 3 | result of env.run is not inferring type, returning `unknown` |
@@ -87,7 +88,6 @@
 | [#998](#998) | 0 | 3 | [Feature Request] Add built-in support for context propagators |
 | [#740](#740) | 1 | 1 | [Feature Request] Add `ChildWorkflowHandle.cancel()` |
 | [#1869](#1869) | 0 | 2 | Environment Configuration does not read the correct file path on macOS |
-| [#1864](#1864) | 1 | 0 | [Feature Request] Update AI SDK integration to v6 |
 | [#1859](#1859) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updating to v1.13.x |
 | [#1796](#1796) | 1 | 0 | [Bug] Changes in type inference of activity return type in SDK 1.12.2 |
 | [#1744](#1744) | 1 | 0 | [Bug] NDE replaying nested promises |
@@ -116,6 +116,7 @@
 | [#1656](#1656) | 0 | 1 | [Bug] Workflow type is incorrectly deduced when using `bind` on workflow function |
 | [#1652](#1652) | 0 | 1 | [Bug] Throw on usage of Workflow APIs that modify state from non-replayable context |
 | [#1431](#1431) | 0 | 1 | [Feature Request] Make it easier to diagnose failures to connect to Temporal Cloud due to incorrect `serverRootCACertificate` |
+| [#1415](#1415) | 0 | 1 | [chore] Update repo to NPM 7 workspaces |
 | [#1331](#1331) | 0 | 1 | [Feature Request] Schedule creation should create tracing span by default |
 | [#1274](#1274) | 0 | 1 | [Bug] Error not serialized fully when sent to Sinks |
 | [#1222](#1222) | 0 | 1 | [Feature Request] Expose `originalExecutionRunId` in `workflowInfo` |
@@ -165,7 +166,6 @@
 | [#1472](#1472) | 0 | 0 | [Feature Request] Add website documentation for updates |
 | [#1420](#1420) | 0 | 0 | [Feature Request] Clean API to intentionally fail an activity in long-polling patterns |
 | [#1418](#1418) | 0 | 0 | [Feature Request] Failures thrown from within the update handler should be able to fail the workflow |
-| [#1415](#1415) | 0 | 0 | [chore] Update repo to NPM 7 workspaces |
 | [#1412](#1412) | 0 | 0 | [Feature Request] Client replacement in worker |
 | [#1405](#1405) | 0 | 0 | [Bug] Check worker code for unsafe type assertions |
 | [#1358](#1358) | 0 | 0 | [Feature Request] Configurable workflow failure exception types |
@@ -3965,10 +3965,11 @@ Hi there, is there any progress on this topic? We're using jest with @temporalio
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1866 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | justinadkins (Justin Adkins) |
-| **Created** | 2025-12-23 14:18:56.000 UTC (15 days ago) |
-| **Updated** | 2026-01-07 13:07:50.000 UTC |
+| **Created** | 2025-12-23 14:18:56.000 UTC (16 days ago) |
+| **Updated** | 2026-01-08 17:46:13.000 UTC |
+| **Closed** | 2026-01-08 17:46:13.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 7 |
 | **Priority Score** | 11 |
@@ -4091,10 +4092,11 @@ I had the same problem and as others said, after downgrading to version `1.13.2`
 | Field | Value |
 |-------|-------|
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1432 |
-| **State** | OPEN |
+| **State** | CLOSED |
 | **Author** | mjameswh (James Watkins-Harvey) |
 | **Created** | 2024-05-30 20:06:15.000 UTC (1y 7m ago) |
-| **Updated** | 2024-11-03 13:08:35.000 UTC |
+| **Updated** | 2026-01-08 17:46:13.000 UTC |
+| **Closed** | 2026-01-08 17:46:13.000 UTC |
 | **Upvotes** | 5 |
 | **Comments** | 1 |
 | **Priority Score** | 11 |
@@ -6861,7 +6863,7 @@ export async function update_schedule(id: string, args: UpdateScheduleArgs) {
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/915 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-10-11 23:49:28.000 UTC (3y 2m ago) |
+| **Created** | 2022-10-11 23:49:28.000 UTC (3y 3m ago) |
 | **Updated** | 2022-10-11 23:49:28.000 UTC |
 | **Upvotes** | 3 |
 | **Comments** | 0 |
@@ -7980,6 +7982,53 @@ Reactions: 👍 1
 
 ---
 
+<a id="1864"></a>
+
+### #1864: [Feature Request] Update AI SDK integration to v6
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-typescript/issues/1864 |
+| **State** | CLOSED |
+| **Author** | tconley1428 |
+| **Created** | 2025-12-22 18:27:09.000 UTC (17 days ago) |
+| **Updated** | 2026-01-08 19:48:34.000 UTC |
+| **Closed** | 2026-01-08 19:48:34.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 1 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 🎉 1 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+https://vercel.com/blog/ai-sdk-6
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>chris-olszewski</strong> commented on 2026-01-08 19:48:34.000 UTC</summary>
+
+Closed with #1865 
+
+</details>
+
+
+---
+
 <a id="1772"></a>
 
 ### #1772: extractSourceMap takes a huge amount of RAM on boot
@@ -8559,7 +8608,7 @@ Two possible work arounds:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1869 |
 | **State** | CLOSED |
 | **Author** | pvsone (Peter Sullivan) |
-| **Created** | 2026-01-04 20:30:22.000 UTC (3 days ago) |
+| **Created** | 2026-01-04 20:30:22.000 UTC (4 days ago) |
 | **Updated** | 2026-01-06 16:46:59.000 UTC |
 | **Closed** | 2026-01-06 16:46:59.000 UTC |
 | **Upvotes** | 0 |
@@ -8607,43 +8656,6 @@ This is a typo in the docs, the path should be `temporalio/temporal.toml` not `t
 Good catch.  I do have a toml file (created by the CLI) at the `$HOME/Library/Application Support/temporalio/temporal.toml` path, however it is still not being read by the typescript sdk
 
 </details>
-
-
----
-
-<a id="1864"></a>
-
-### #1864: [Feature Request] Update AI SDK integration to v6
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/sdk-typescript/issues/1864 |
-| **State** | OPEN |
-| **Author** | tconley1428 |
-| **Created** | 2025-12-22 18:27:09.000 UTC (16 days ago) |
-| **Updated** | 2025-12-22 18:27:29.000 UTC |
-| **Upvotes** | 1 |
-| **Comments** | 0 |
-| **Priority Score** | 2 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-| **Reactions** | 👍 1 🎉 1 |
-
-#### Description
-
-### Is your feature request related to a problem? Please describe.
-
-https://vercel.com/blog/ai-sdk-6
-
-### Describe the solution you'd like
-
-<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
-
-### Additional context
-
-<!-- Add any other context or screenshots about the feature request here. -->
-
 
 
 ---
@@ -9330,7 +9342,7 @@ or at least include stack traces of children in the stack trace of the top error
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1594 |
 | **State** | OPEN |
 | **Author** | jhecking (Jan Hecking) |
-| **Created** | 2025-01-08 03:19:11.000 UTC (12 months ago) |
+| **Created** | 2025-01-08 03:19:11.000 UTC (1 years ago) |
 | **Updated** | 2025-01-08 03:38:46.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -10147,7 +10159,7 @@ node_modules/@temporalio/testing/lib/index.d.ts:12:8 - error TS1259: Module '"no
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/959 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-11-10 02:54:30.000 UTC (3y 1m ago) |
+| **Created** | 2022-11-10 02:54:30.000 UTC (3y 2m ago) |
 | **Updated** | 2022-11-10 03:38:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -10229,7 +10241,7 @@ Maybe we can mark the re-exports as @hidden, this is probably an issue with the 
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/813 |
 | **State** | OPEN |
 | **Author** | izakfilmalter (Izak Filmalter) |
-| **Created** | 2022-08-12 19:43:34.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-12 19:43:34.000 UTC (3y 5m ago) |
 | **Updated** | 2022-08-18 21:29:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -11096,6 +11108,43 @@ Reactions: 👍 1
 
 ---
 
+<a id="1415"></a>
+
+### #1415: [chore] Update repo to NPM 7 workspaces
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-typescript/issues/1415 |
+| **State** | CLOSED |
+| **Author** | mjameswh (James Watkins-Harvey) |
+| **Created** | 2024-05-08 20:09:28.000 UTC (1y 8m ago) |
+| **Updated** | 2026-01-08 20:05:46.000 UTC |
+| **Closed** | 2026-01-08 20:05:45.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Description
+
+Now that we dropped support for Node 14, we can update our repo to use native NPM support for workspaces. Can also update to [lerna 7](https://github.com/lerna/lerna/releases/tag/7.0.0).
+
+#### Comments (1)
+
+<details>
+<summary><strong>mjameswh</strong> commented on 2026-01-08 20:05:45.000 UTC</summary>
+
+This is no longer applicable, as the repository has been transitioned to PNPM.
+
+</details>
+
+
+---
+
 <a id="1331"></a>
 
 ### #1331: [Feature Request] Schedule creation should create tracing span by default
@@ -11400,7 +11449,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/958 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-11-10 01:02:00.000 UTC (3y 1m ago) |
+| **Created** | 2022-11-10 01:02:00.000 UTC (3y 2m ago) |
 | **Updated** | 2022-11-29 23:27:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -11694,7 +11743,7 @@ Use `workflowInfo().unsafe.now()`
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1867 |
 | **State** | OPEN |
 | **Author** | TastyPi (Graham Rogers) |
-| **Created** | 2025-12-30 10:57:00.000 UTC (8 days ago) |
+| **Created** | 2025-12-30 10:57:00.000 UTC (9 days ago) |
 | **Updated** | 2025-12-30 10:58:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11740,7 +11789,7 @@ Allow the Logger to be configured at the Worker level. This would allow us to cr
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1862 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-12 19:10:26.000 UTC (26 days ago) |
+| **Created** | 2025-12-12 19:10:26.000 UTC (27 days ago) |
 | **Updated** | 2025-12-12 19:10:26.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -11772,7 +11821,7 @@ attached issue :- https://app.usepylon.com/issues?conversationID=aa9077dd-17e0-4
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1860 |
 | **State** | OPEN |
 | **Author** | mnahkies (Michael Nahkies) |
-| **Created** | 2025-12-10 09:32:18.000 UTC (28 days ago) |
+| **Created** | 2025-12-10 09:32:18.000 UTC (29 days ago) |
 | **Updated** | 2025-12-10 09:40:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13413,7 +13462,7 @@ It would be nice to have a specific API for activities to "intentionally fail so
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/1418 |
 | **State** | OPEN |
 | **Author** | ThomasBurgess2000 (Thomas Burgess) |
-| **Created** | 2024-05-14 04:04:46.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-14 04:04:46.000 UTC (1y 8m ago) |
 | **Updated** | 2024-05-14 04:04:46.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13436,33 +13485,6 @@ Currently it's a bit clumsy to fail a workflow from within an update. You have t
 
 There is a similar issue active in the Java SDK repo: https://github.com/temporalio/features/issues/650
 
-
-
----
-
-<a id="1415"></a>
-
-### #1415: [chore] Update repo to NPM 7 workspaces
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/sdk-typescript/issues/1415 |
-| **State** | OPEN |
-| **Author** | mjameswh (James Watkins-Harvey) |
-| **Created** | 2024-05-08 20:09:28.000 UTC (1y 8m ago) |
-| **Updated** | 2024-05-08 20:12:34.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | enhancement |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-### Description
-
-Now that we dropped support for Node 14, we can update our repo to use native NPM support for workspaces. Can also update to [lerna 7](https://github.com/lerna/lerna/releases/tag/7.0.0).
 
 
 ---
@@ -13771,7 +13793,7 @@ Roey:
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/962 |
 | **State** | OPEN |
 | **Author** | bergundy (Roey Berman) |
-| **Created** | 2022-11-10 21:30:44.000 UTC (3y 1m ago) |
+| **Created** | 2022-11-10 21:30:44.000 UTC (3y 2m ago) |
 | **Updated** | 2022-11-10 21:30:44.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -13997,7 +14019,7 @@ import { context, propagation } from '@opentelemetry/api';
 | **URL** | https://github.com/temporalio/sdk-typescript/issues/444 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2022-01-10 02:27:41.000 UTC (3y 12m ago) |
+| **Created** | 2022-01-10 02:27:41.000 UTC (4 years ago) |
 | **Updated** | 2024-12-17 21:30:42.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

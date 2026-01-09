@@ -1,7 +1,51 @@
 {
-  "generated_at": "2026-01-07T21:55:11.778Z",
-  "total_count": 533,
+  "generated_at": "2026-01-09T04:10:30.205Z",
+  "total_count": 536,
   "issues": [
+    {
+      "number": 8970,
+      "title": "Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory`",
+      "state": "OPEN",
+      "author": "stephanos",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-08T16:55:42Z",
+      "updatedAt": "2026-01-08T16:57:38Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/8970"
+    },
+    {
+      "number": 8968,
+      "title": "Same fairness key but different fairness weight?",
+      "state": "OPEN",
+      "author": "wencaiwulue",
+      "labels": [],
+      "createdAt": "2026-01-08T09:11:12Z",
+      "updatedAt": "2026-01-08T09:11:36Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/8968"
+    },
+    {
+      "number": 8967,
+      "title": "1.30.0 release version",
+      "state": "OPEN",
+      "author": "daravindth",
+      "labels": [],
+      "createdAt": "2026-01-08T06:55:18Z",
+      "updatedAt": "2026-01-08T06:55:18Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/8967"
+    },
     {
       "number": 8955,
       "title": "MCP Server for Temporal Workflows",
@@ -81,15 +125,15 @@
     {
       "number": 8901,
       "title": "Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Tomlord1122",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-24T09:43:00Z",
-      "updatedAt": "2026-01-04T08:18:38Z",
-      "closedAt": null,
-      "commentCount": 1,
+      "updatedAt": "2026-01-09T01:15:19Z",
+      "closedAt": "2026-01-09T01:15:19Z",
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/8901"
@@ -145,9 +189,9 @@
         "potential-bug"
       ],
       "createdAt": "2025-12-18T09:00:33Z",
-      "updatedAt": "2025-12-18T09:00:33Z",
+      "updatedAt": "2026-01-08T23:48:56Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/8864"
@@ -237,9 +281,9 @@
       "author": "jigar-shah-acquia",
       "labels": [],
       "createdAt": "2025-11-25T12:26:43Z",
-      "updatedAt": "2025-12-29T10:26:27Z",
+      "updatedAt": "2026-01-08T15:57:55Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/8698"
@@ -333,9 +377,9 @@
         "potential-bug"
       ],
       "createdAt": "2025-11-13T14:13:11Z",
-      "updatedAt": "2026-01-03T19:17:31Z",
+      "updatedAt": "2026-01-08T20:42:28Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 4,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/8631"
@@ -3256,9 +3300,9 @@
         "enhancement"
       ],
       "createdAt": "2024-04-08T12:11:43Z",
-      "updatedAt": "2025-10-07T12:15:29Z",
+      "updatedAt": "2026-01-09T00:51:06Z",
       "closedAt": null,
-      "commentCount": 14,
+      "commentCount": 15,
       "upvotes": 30,
       "totalReactions": 30,
       "url": "https://github.com/temporalio/temporal/issues/5680"
@@ -8689,8 +8733,8 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 532,
-      "CLOSED": 1
+      "OPEN": 534,
+      "CLOSED": 2
     },
     "by_label": {
       "enhancement": 349,
@@ -8700,7 +8744,7 @@
       "difficulty: easy": 20,
       "operations": 20,
       "devexp": 14,
-      "bug": 11,
+      "bug": 12,
       "refactoring": 11,
       "difficulty: medium": 11,
       "schedules": 9,
@@ -8733,9 +8777,9 @@
     },
     "engagement": {
       "total_upvotes": 900,
-      "total_comments": 872,
+      "total_comments": 881,
       "issues_with_upvotes": 144,
-      "issues_with_comments": 290,
+      "issues_with_comments": 291,
       "upvote_rate": "27%",
       "comment_rate": "54%"
     }
@@ -8769,7 +8813,7 @@
       "number": 5680,
       "title": "Official support for Opensearch",
       "upvotes": 30,
-      "comments": 14
+      "comments": 15
     },
     {
       "number": 537,
@@ -8888,6 +8932,12 @@
       "comments": 15
     },
     {
+      "number": 5680,
+      "title": "Official support for Opensearch",
+      "upvotes": 30,
+      "comments": 15
+    },
+    {
       "number": 4902,
       "title": "Custom authentication between frontend and other services",
       "upvotes": 0,
@@ -8897,12 +8947,6 @@
       "number": 7930,
       "title": "Replace \"github.com/olivere/elastic/v7\" with the official client \"github.com/elastic/go-elasticsearch\"",
       "upvotes": 0,
-      "comments": 14
-    },
-    {
-      "number": 5680,
-      "title": "Official support for Opensearch",
-      "upvotes": 30,
       "comments": 14
     },
     {

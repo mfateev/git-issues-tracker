@@ -1,6 +1,6 @@
 # .NET SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/sdk-dotnet
 **Data Source:** [issues.md](../repos/temporalio-sdk-dotnet/issues.md)
 
@@ -16,34 +16,116 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 52 |
-| Bugs | 13 |
-| Enhancements/Features | 31 |
-| Security Issues | 1 |
-| Total Upvotes (👍) | 13 |
-| Total Comments | 54 |
+| Total Open Issues | 49 |
+| Total Closed Issues | 3 |
+| Total All Issues | 52 |
+| Bugs (open) | 12 |
+| Enhancements/Features (open) | 30 |
+| Security Issues (open) | 1 |
+| Total Upvotes (👍) on open | 13 |
+| Total Comments on open | 46 |
 | Issues with Upvotes | 6 (12%) |
-| Issues with Comments | 27 (52%) |
-| Average Age (days) | 368 |
-| Stale Issues (>12 months) | 24 (46%) |
+| Issues with Comments | 24 (49%) |
+| Average Age (days) | 388 |
+| Stale Issues (>12 months) | 24 (49%) |
 
 ---
+## Resolution Metrics
 
-## Age Distribution
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 6% (3/52) |
+| Avg Time to Close (calendar) | 53 days |
+| Avg Time to Close (business) | 38 days |
+| Median Time to Close (calendar) | 25 days |
+| Median Time to Close (business) | 17 days |
+| 90th Percentile (calendar) | 132 days |
+| 90th Percentile (business) | 95 days |
+| Resolved within 30 days | 67% |
+| Resolved within 90 days | 67% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 0 | 0% |
+| Completed (features) | 0 | 0% |
+| Self-resolved | 3 | 100% |
+| Duplicate | 0 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 0 | 0% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 2 | 0 | +2 |
+| 2025-03 | 2 | 0 | +2 |
+| 2025-04 | 0 | 0 | 0 |
+| 2025-05 | 2 | 0 | +2 |
+| 2025-06 | 0 | 0 | 0 |
+| 2025-07 | 1 | 0 | +1 |
+| 2025-08 | 1 | 0 | +1 |
+| 2025-09 | 0 | 0 | 0 |
+| 2025-10 | 3 | 0 | +3 |
+| 2025-11 | 2 | 0 | +2 |
+| 2025-12 | 6 | 0 | +6 |
+| 2026-01 | 4 | 3 | +1 |
+| **Total** | **23** | **3** | **+20** |
+
+📈 **Backlog Growing:** 20 more issues opened than closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 17 |
+| Issues Closed | 3 |
+| Net Change | +14 |
+| Bugs Closed | 1 |
+| Enhancements Closed | 1 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 53 | 38 |
+| Median | 25 | 17 |
+| 90th Percentile | 132 | 95 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 67% |
+| Within 90 days | 67% |
+
+
+---
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 9 | 17% |
+| Last 30 days | 7 | 14% |
 | 1-3 months | 6 | 12% |
-| 3-6 months | 1 | 2% |
-| 6-12 months | 11 | 21% |
-| 1-2 years | 21 | 40% |
+| 3-6 months | 0 | 0% |
+| 6-12 months | 10 | 20% |
+| 1-2 years | 22 | 45% |
 | 2-3 years | 4 | 8% |
 | 3+ years | 0 | 0% |
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
@@ -56,7 +138,7 @@
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
@@ -66,34 +148,34 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#179](../repos/temporalio-sdk-dotnet/issues.md#179) | 8 | 0 | 8 | [Bug] Workflow Update hangs on time skipping envir... |
 | 3 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 7 | 2 | 3 | [Feature Request] F# Samples/Documentation |
 | 4 | [#563](../repos/temporalio-sdk-dotnet/issues.md#563) | 5 | 0 | 5 | Use global.json file to centralize SDK version |
-| 5 | [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | 4 | 0 | 4 | [Bug] Investigate test host crash flake |
-| 6 | [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | 4 | 0 | 4 | [Feature Request] OperatorService (RPC) and Workfl... |
-| 7 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 4 | 1 | 2 | [Feature Request] Make scoped IServiceProvider ava... |
-| 8 | [#585](../repos/temporalio-sdk-dotnet/issues.md#585) | 3 | 0 | 3 | Nexus operation ignores ScheduleToCloseTimeout and... |
-| 9 | [#420](../repos/temporalio-sdk-dotnet/issues.md#420) | 3 | 1 | 1 | [Feature Request] Provide synchronous Run method i... |
-| 10 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 3 | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation... |
-| 11 | [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 3 | 0 | 3 | [Bug] Unexpected reuse of payload instances in pay... |
-| 12 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 2 | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_w... |
-| 13 | [#256](../repos/temporalio-sdk-dotnet/issues.md#256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
-| 14 | [#131](../repos/temporalio-sdk-dotnet/issues.md#131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
-| 15 | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 1 | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` ... |
+| 5 | [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | 4 | 0 | 4 | [Feature Request] OperatorService (RPC) and Workfl... |
+| 6 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 4 | 1 | 2 | [Feature Request] Make scoped IServiceProvider ava... |
+| 7 | [#420](../repos/temporalio-sdk-dotnet/issues.md#420) | 3 | 1 | 1 | [Feature Request] Provide synchronous Run method i... |
+| 8 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 3 | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation... |
+| 9 | [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 3 | 0 | 3 | [Bug] Unexpected reuse of payload instances in pay... |
+| 10 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 2 | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_w... |
+| 11 | [#256](../repos/temporalio-sdk-dotnet/issues.md#256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
+| 12 | [#131](../repos/temporalio-sdk-dotnet/issues.md#131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
+| 13 | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 1 | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` ... |
+| 14 | [#496](../repos/temporalio-sdk-dotnet/issues.md#496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
+| 15 | [#478](../repos/temporalio-sdk-dotnet/issues.md#478) | 1 | 0 | 1 | [Feature Request] Investigate test flake for `CanR... |
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
 | 1 | [#179](../repos/temporalio-sdk-dotnet/issues.md#179) | 8 | 0 | [Bug] Workflow Update hangs on time skipping environment |
 | 2 | [#563](../repos/temporalio-sdk-dotnet/issues.md#563) | 5 | 0 | Use global.json file to centralize SDK version |
-| 3 | [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | 4 | 0 | [Bug] Investigate test host crash flake |
-| 4 | [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | 4 | 0 | [Feature Request] OperatorService (RPC) and WorkflowService ... |
-| 5 | [#585](../repos/temporalio-sdk-dotnet/issues.md#585) | 3 | 0 | Nexus operation ignores ScheduleToCloseTimeout and retries e... |
-| 6 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 3 | 0 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
-| 7 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 3 | 2 | [Feature Request] F# Samples/Documentation |
-| 8 | [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 3 | 0 | [Bug] Unexpected reuse of payload instances in payload codec... |
-| 9 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 2 | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| 10 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
+| 3 | [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | 4 | 0 | [Feature Request] OperatorService (RPC) and WorkflowService ... |
+| 4 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 3 | 0 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
+| 5 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 3 | 2 | [Feature Request] F# Samples/Documentation |
+| 6 | [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 3 | 0 | [Bug] Unexpected reuse of payload instances in payload codec... |
+| 7 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 2 | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
+| 8 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
+| 9 | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 1 | 0 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
+| 10 | [#496](../repos/temporalio-sdk-dotnet/issues.md#496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
 
 ---
 
@@ -104,33 +186,30 @@ Priority = Upvotes × 2 + Comments
 | 2026-01-07 | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
 | 2026-01-06 | [#587](../repos/temporalio-sdk-dotnet/issues.md#587) | 0 | Refactor Bridge.Client to be IDisposable instead of a SafeHa... |
 | 2026-01-06 | [#586](../repos/temporalio-sdk-dotnet/issues.md#586) | 0 | Separate unmanaged pointer lifecycle management into SafeHan... |
-| 2026-01-05 | [#585](../repos/temporalio-sdk-dotnet/issues.md#585) | 0 | Nexus operation ignores ScheduleToCloseTimeout and retries e... |
 | 2025-12-26 | [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | 0 | [Bug] Loading TLS certificates from path doesn't work |
 | 2025-12-17 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
 | 2025-12-17 | [#578](../repos/temporalio-sdk-dotnet/issues.md#578) | 0 | [Feature Request] Add tests to confirm proper Nexus support ... |
-| 2025-12-12 | [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | 0 | [Bug] Investigate test host crash flake |
 | 2025-12-12 | [#576](../repos/temporalio-sdk-dotnet/issues.md#576) | 0 | [Feature Request] .NET Analyzer for Checking Workflows |
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
-| enhancement | 31 |
-| bug | 13 |
+| enhancement | 30 |
+| bug | 12 |
 | mend: dependency security vulnerability | 1 |
 
 ---
 
-## Bugs (13 issues)
+## Bugs (12 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
 | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | 0 | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
 | [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | 0 | 4 | [Bug] Investigate test host crash flake |
 | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
 | [#549](../repos/temporalio-sdk-dotnet/issues.md#549) | 0 | 0 | [Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_Auto... |
 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
@@ -143,7 +222,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (24 issues with no activity >12 months)
+## Stale Issues (24 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 

@@ -1,8 +1,8 @@
 # Recent Issues (Last 30 Days)
 
-**Generated:** 2026-01-07
-**Period:** 2025-12-08 to 2026-01-07
-**New Issues:** 42
+**Generated:** 2026-01-09
+**Period:** 2025-12-10 to 2026-01-09
+**New Issues:** 48
 
 ## Related Documents
 
@@ -16,14 +16,14 @@
 
 | Repository | New Issues |
 |------------|------------|
-| temporal | 12 |
+| temporal | 15 |
 | sdk-dotnet | 9 |
-| sdk-java | 7 |
+| sdk-java | 6 |
 | sdk-typescript | 6 |
-| sdk-php | 2 |
-| sdk-python | 2 |
+| sdk-python | 4 |
+| sdk-php | 3 |
+| sdk-go | 2 |
 | features | 2 |
-| sdk-go | 1 |
 | sdk-ruby | 1 |
 
 ## Summary by Author
@@ -33,23 +33,23 @@
 | cretz | 4 |
 | jmaeagle99 | 3 |
 | deepika-awasthi | 3 |
-| Quinn-With-Two-Ns | 2 |
+| xepozz | 2 |
 | pvsone | 2 |
 | roshchha | 2 |
+| sashaneb | 1 |
+| stephanos | 1 |
+| marcoriopel | 1 |
+| wencaiwulue | 1 |
+| daravindth | 1 |
+| autocracy | 1 |
 | PurpleSquirrelMedia | 1 |
 | LaurynasKatkus | 1 |
 | adepretis | 1 |
 | HeartLF | 1 |
 | jmcnevin | 1 |
 | NielsKSchjoedt | 1 |
+| Quinn-With-Two-Ns | 1 |
 | neeraj-mathur | 1 |
-| 40lsgy1 | 1 |
-| TastyPi | 1 |
-| andropler | 1 |
-| TbirdDuncan | 1 |
-| maciejdudko | 1 |
-| hafiz-qasim | 1 |
-| Tomlord1122 | 1 |
 
 ---
 
@@ -57,6 +57,13 @@
 
 | Date | Repository | # | Author | Title |
 |------|------------|---|--------|-------|
+| 2026-01-09 | sdk-python | [#1268](../repos/temporalio-sdk-python/issues.md#1268) | sashaneb | [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings |
+| 2026-01-08 | temporal | [#8970](../repos/temporalio-temporal/issues.md#8970) | stephanos | Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory` |
+| 2026-01-08 | sdk-python | [#1267](../repos/temporalio-sdk-python/issues.md#1267) | marcoriopel | [Bug] Logs not emitted during workflow queries |
+| 2026-01-08 | temporal | [#8968](../repos/temporalio-temporal/issues.md#8968) | wencaiwulue | Same fairness key but different fairness weight? |
+| 2026-01-08 | sdk-php | [#692](../repos/temporalio-sdk-php/issues.md#692) | xepozz | [Bug] Minimal Composer requirements conflicts with react/promise v2 |
+| 2026-01-08 | temporal | [#8967](../repos/temporalio-temporal/issues.md#8967) | daravindth | 1.30.0 release version |
+| 2026-01-08 | sdk-go | [#2141](../repos/temporalio-sdk-go/issues.md#2141) | autocracy | Activity Alias Collision in Test Environment When Using Anonymous Functions |
 | 2026-01-07 | temporal | [#8955](../repos/temporalio-temporal/issues.md#8955) | PurpleSquirrelMedia | MCP Server for Temporal Workflows |
 | 2026-01-07 | sdk-dotnet | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | cretz | [Bug] Some unlikely workflow task failures like failure conversion issues may be lost |
 | 2026-01-07 | sdk-go | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | LaurynasKatkus | OpenTelemetry incorrect metric type for Counter |
@@ -98,14 +105,19 @@
 | 2025-12-12 | sdk-dotnet | [#576](../repos/temporalio-sdk-dotnet/issues.md#576) | cretz | [Feature Request] .NET Analyzer for Checking Workflows |
 | 2025-12-10 | temporal | [#8790](../repos/temporalio-temporal/issues.md#8790) | xtyinbiao | history_node table keeps growing |
 | 2025-12-10 | sdk-typescript | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | mnahkies | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
-| 2025-12-09 | sdk-java | [#2746](../repos/temporalio-sdk-java/issues.md#2746) | Quinn-With-Two-Ns | Jackson 3 support |
 
 ---
 
 ## Details by Repository
 
-### temporal (12 new)
+### temporal (15 new)
 
+- **[#8970](../repos/temporalio-temporal/issues.md#8970)** Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory`
+  - *2026-01-08 by stephanos* | Labels: bug
+- **[#8968](../repos/temporalio-temporal/issues.md#8968)** Same fairness key but different fairness weight?
+  - *2026-01-08 by wencaiwulue* | Labels: none
+- **[#8967](../repos/temporalio-temporal/issues.md#8967)** 1.30.0 release version
+  - *2026-01-08 by daravindth* | Labels: none
 - **[#8955](../repos/temporalio-temporal/issues.md#8955)** MCP Server for Temporal Workflows
   - *2026-01-07 by PurpleSquirrelMedia* | Labels: none
 - **[#8953](../repos/temporalio-temporal/issues.md#8953)** The scheduled time is incorrect.
@@ -152,7 +164,7 @@
 - **[#576](../repos/temporalio-sdk-dotnet/issues.md#576)** [Feature Request] .NET Analyzer for Checking Workflows
   - *2025-12-12 by cretz* | Labels: enhancement
 
-### sdk-java (7 new)
+### sdk-java (6 new)
 
 - **[#2755](../repos/temporalio-sdk-java/issues.md#2755)** Support using Temporal failures in Nexus APIs
   - *2026-01-05 by Quinn-With-Two-Ns* | Labels: enhancement
@@ -166,8 +178,6 @@
   - *2025-12-28 by TbirdDuncan* | Labels: none
 - **[#2747](../repos/temporalio-sdk-java/issues.md#2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
   - *2025-12-12 by karunagoyal* | Labels: none
-- **[#2746](../repos/temporalio-sdk-java/issues.md#2746)** Jackson 3 support
-  - *2025-12-09 by Quinn-With-Two-Ns* | Labels: enhancement
 
 ### sdk-typescript (6 new)
 
@@ -184,19 +194,32 @@
 - **[#1860](../repos/temporalio-sdk-typescript/issues.md#1860)** [Bug] Performance regression from 1.13.1 -> 1.13.2
   - *2025-12-10 by mnahkies* | Labels: bug
 
-### sdk-php (2 new)
+### sdk-python (4 new)
 
+- **[#1268](../repos/temporalio-sdk-python/issues.md#1268)** [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings
+  - *2026-01-09 by sashaneb* | Labels: bug
+- **[#1267](../repos/temporalio-sdk-python/issues.md#1267)** [Bug] Logs not emitted during workflow queries
+  - *2026-01-08 by marcoriopel* | Labels: bug
+- **[#1262](../repos/temporalio-sdk-python/issues.md#1262)** [Bug] Add ability to obtain `ApplicationError` details with type hint
+  - *2025-12-29 by cretz* | Labels: bug
+- **[#1254](../repos/temporalio-sdk-python/issues.md#1254)** [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox
+  - *2025-12-17 by VegetarianOrc* | Labels: bug
+
+### sdk-php (3 new)
+
+- **[#692](../repos/temporalio-sdk-php/issues.md#692)** [Bug] Minimal Composer requirements conflicts with react/promise v2
+  - *2026-01-08 by xepozz* | Labels: Bug
 - **[#689](../repos/temporalio-sdk-php/issues.md#689)** [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs`
   - *2026-01-07 by adepretis* | Labels: Bug
 - **[#670](../repos/temporalio-sdk-php/issues.md#670)** [Feature Request] Symfony 8.0 support
   - *2025-12-18 by xepozz* | Labels: enhancement
 
-### sdk-python (2 new)
+### sdk-go (2 new)
 
-- **[#1262](../repos/temporalio-sdk-python/issues.md#1262)** [Bug] Add ability to obtain `ApplicationError` details with type hint
-  - *2025-12-29 by cretz* | Labels: bug
-- **[#1254](../repos/temporalio-sdk-python/issues.md#1254)** [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox
-  - *2025-12-17 by VegetarianOrc* | Labels: bug
+- **[#2141](../repos/temporalio-sdk-go/issues.md#2141)** Activity Alias Collision in Test Environment When Using Anonymous Functions
+  - *2026-01-08 by autocracy* | Labels: bug
+- **[#2140](../repos/temporalio-sdk-go/issues.md#2140)** OpenTelemetry incorrect metric type for Counter
+  - *2026-01-07 by LaurynasKatkus* | Labels: bug
 
 ### features (2 new)
 
@@ -204,11 +227,6 @@
   - *2025-12-22 by deepika-awasthi* | Labels: enhancement
 - **[#712](../repos/temporalio-features/issues.md#712)** [Bug] Use `pnpm` when building TS worker from source
   - *2025-12-18 by THardy98* | Labels: none
-
-### sdk-go (1 new)
-
-- **[#2140](../repos/temporalio-sdk-go/issues.md#2140)** OpenTelemetry incorrect metric type for Counter
-  - *2026-01-07 by LaurynasKatkus* | Labels: bug
 
 ### sdk-ruby (1 new)
 

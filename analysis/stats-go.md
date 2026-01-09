@@ -1,6 +1,6 @@
 # Go SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/sdk-go
 **Data Source:** [issues.md](../repos/temporalio-sdk-go/issues.md)
 
@@ -16,80 +16,167 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 164 |
-| Bugs | 60 |
-| Enhancements/Features | 89 |
-| Security Issues | 1 |
-| Total Upvotes (👍) | 112 |
-| Total Comments | 214 |
-| Issues with Upvotes | 41 (25%) |
-| Issues with Comments | 86 (52%) |
-| Average Age (days) | 976 |
+| Total Open Issues | 163 |
+| Total Closed Issues | 2 |
+| Total All Issues | 165 |
+| Bugs (open) | 61 |
+| Enhancements/Features (open) | 87 |
+| Security Issues (open) | 1 |
+| Total Upvotes (👍) on open | 91 |
+| Total Comments on open | 215 |
+| Issues with Upvotes | 40 (25%) |
+| Issues with Comments | 87 (53%) |
+| Average Age (days) | 975 |
 | Stale Issues (>12 months) | 101 (62%) |
 
 ---
+## Resolution Metrics
 
-## Age Distribution
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 1% (2/165) |
+| Avg Time to Close (calendar) | 673 days |
+| Avg Time to Close (business) | 481 days |
+| Median Time to Close (calendar) | 673 days |
+| Median Time to Close (business) | 481 days |
+| 90th Percentile (calendar) | 1201 days |
+| 90th Percentile (business) | 858 days |
+| Resolved within 30 days | 0% |
+| Resolved within 90 days | 0% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 0 | 0% |
+| Completed (features) | 2 | 100% |
+| Self-resolved | 0 | 0% |
+| Duplicate | 0 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 0 | 0% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 3 | 0 | +3 |
+| 2025-03 | 2 | 0 | +2 |
+| 2025-04 | 2 | 0 | +2 |
+| 2025-05 | 2 | 0 | +2 |
+| 2025-06 | 2 | 0 | +2 |
+| 2025-07 | 1 | 0 | +1 |
+| 2025-08 | 3 | 0 | +3 |
+| 2025-09 | 1 | 0 | +1 |
+| 2025-10 | 5 | 0 | +5 |
+| 2025-11 | 5 | 0 | +5 |
+| 2025-12 | 3 | 0 | +3 |
+| 2026-01 | 2 | 2 | 0 |
+| **Total** | **31** | **2** | **+29** |
+
+📈 **Backlog Growing:** 29 more issues opened than closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 20 |
+| Issues Closed | 2 |
+| Net Change | +18 |
+| Bugs Closed | 0 |
+| Enhancements Closed | 2 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 673 | 481 |
+| Median | 673 | 481 |
+| 90th Percentile | 1201 | 858 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 0% |
+| Within 90 days | 0% |
+
+### Popular Requests Resolved (3+ upvotes)
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+| [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | Ability to mock/intercept side effect calls in test sui... |
+
+---
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 1 | 1% |
+| Last 30 days | 2 | 1% |
 | 1-3 months | 11 | 7% |
-| 3-6 months | 7 | 4% |
+| 3-6 months | 6 | 4% |
 | 6-12 months | 15 | 9% |
-| 1-2 years | 32 | 20% |
-| 2-3 years | 27 | 16% |
-| 3+ years | 71 | 43% |
+| 1-2 years | 31 | 19% |
+| 2-3 years | 28 | 17% |
+| 3+ years | 70 | 43% |
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | 0 | Ability to mock/intercept side effect calls in test suite |
-| 2 | [#181](../repos/temporalio-sdk-go/issues.md#181) | 16 | 0 | Add ability for a clean worker shutdown that waits for a ses... |
-| 3 | [#89](../repos/temporalio-sdk-go/issues.md#89) | 7 | 1 | Refactor SDK to avoid type aliasing |
-| 4 | [#829](../repos/temporalio-sdk-go/issues.md#829) | 6 | 5 | Use interceptor logger for all logs related to a workflow or... |
-| 5 | [#1282](../repos/temporalio-sdk-go/issues.md#1282) | 5 | 5 | Heartbeat timeout not raised while testing |
-| 6 | [#1352](../repos/temporalio-sdk-go/issues.md#1352) | 4 | 6 | Serialization context for codecs and converters |
-| 7 | [#1149](../repos/temporalio-sdk-go/issues.md#1149) | 4 | 3 | Allow custom trace attribute keys |
-| 8 | [#866](../repos/temporalio-sdk-go/issues.md#866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTim... |
-| 9 | [#313](../repos/temporalio-sdk-go/issues.md#313) | 4 | 2 | Allow including local activity input into the history |
-| 10 | [#2109](../repos/temporalio-sdk-go/issues.md#2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
-| 11 | [#1582](../repos/temporalio-sdk-go/issues.md#1582) | 2 | 0 | Updated context functions to match context library |
-| 12 | [#1410](../repos/temporalio-sdk-go/issues.md#1410) | 2 | 0 | Consider migrating away from golang/mock |
-| 13 | [#1208](../repos/temporalio-sdk-go/issues.md#1208) | 2 | 2 | Canceling a context with multiple child contexts can be non ... |
-| 14 | [#884](../repos/temporalio-sdk-go/issues.md#884) | 2 | 3 | [Feature Request] Add ability to support passing sessions fr... |
-| 15 | [#718](../repos/temporalio-sdk-go/issues.md#718) | 2 | 1 | Add metric for time passed from the activity scheduling to t... |
+| 1 | [#181](../repos/temporalio-sdk-go/issues.md#181) | 16 | 0 | Add ability for a clean worker shutdown that waits for a ses... |
+| 2 | [#89](../repos/temporalio-sdk-go/issues.md#89) | 7 | 1 | Refactor SDK to avoid type aliasing |
+| 3 | [#829](../repos/temporalio-sdk-go/issues.md#829) | 6 | 5 | Use interceptor logger for all logs related to a workflow or... |
+| 4 | [#1282](../repos/temporalio-sdk-go/issues.md#1282) | 5 | 5 | Heartbeat timeout not raised while testing |
+| 5 | [#1352](../repos/temporalio-sdk-go/issues.md#1352) | 4 | 6 | Serialization context for codecs and converters |
+| 6 | [#1149](../repos/temporalio-sdk-go/issues.md#1149) | 4 | 3 | Allow custom trace attribute keys |
+| 7 | [#866](../repos/temporalio-sdk-go/issues.md#866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTim... |
+| 8 | [#313](../repos/temporalio-sdk-go/issues.md#313) | 4 | 2 | Allow including local activity input into the history |
+| 9 | [#2109](../repos/temporalio-sdk-go/issues.md#2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
+| 10 | [#1582](../repos/temporalio-sdk-go/issues.md#1582) | 2 | 0 | Updated context functions to match context library |
+| 11 | [#1410](../repos/temporalio-sdk-go/issues.md#1410) | 2 | 0 | Consider migrating away from golang/mock |
+| 12 | [#1208](../repos/temporalio-sdk-go/issues.md#1208) | 2 | 2 | Canceling a context with multiple child contexts can be non ... |
+| 13 | [#884](../repos/temporalio-sdk-go/issues.md#884) | 2 | 3 | [Feature Request] Add ability to support passing sessions fr... |
+| 14 | [#718](../repos/temporalio-sdk-go/issues.md#718) | 2 | 1 | Add metric for time passed from the activity scheduling to t... |
+| 15 | [#351](../repos/temporalio-sdk-go/issues.md#351) | 2 | 0 | [Testing] Cancellation of Parent Workflow with Child Workflo... |
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
 | Rank | Issue | Score | 👍 | 💬 | Title |
 |------|-------|-------|-----|-----|-------|
-| 1 | [#916](../repos/temporalio-sdk-go/issues.md#916) | 42 | 21 | 0 | Ability to mock/intercept side effect calls in tes... |
-| 2 | [#181](../repos/temporalio-sdk-go/issues.md#181) | 32 | 16 | 0 | Add ability for a clean worker shutdown that waits... |
-| 3 | [#829](../repos/temporalio-sdk-go/issues.md#829) | 17 | 6 | 5 | Use interceptor logger for all logs related to a w... |
-| 4 | [#1282](../repos/temporalio-sdk-go/issues.md#1282) | 15 | 5 | 5 | Heartbeat timeout not raised while testing |
-| 5 | [#89](../repos/temporalio-sdk-go/issues.md#89) | 15 | 7 | 1 | Refactor SDK to avoid type aliasing |
-| 6 | [#1352](../repos/temporalio-sdk-go/issues.md#1352) | 14 | 4 | 6 | Serialization context for codecs and converters |
-| 7 | [#1149](../repos/temporalio-sdk-go/issues.md#1149) | 11 | 4 | 3 | Allow custom trace attribute keys |
-| 8 | [#313](../repos/temporalio-sdk-go/issues.md#313) | 10 | 4 | 2 | Allow including local activity input into the hist... |
-| 9 | [#866](../repos/temporalio-sdk-go/issues.md#866) | 9 | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowEx... |
-| 10 | [#642](../repos/temporalio-sdk-go/issues.md#642) | 9 | 1 | 7 | Inconsistent behavior when asserting invocations |
-| 11 | [#475](../repos/temporalio-sdk-go/issues.md#475) | 9 | 0 | 9 | Panic when querying during Workflow failure + retr... |
-| 12 | [#1330](../repos/temporalio-sdk-go/issues.md#1330) | 8 | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
-| 13 | [#1114](../repos/temporalio-sdk-go/issues.md#1114) | 8 | 1 | 6 | Support activity functions with variadic arguments... |
-| 14 | [#986](../repos/temporalio-sdk-go/issues.md#986) | 7 | 1 | 5 | AwaitWithTimeout does not cancel its timer when co... |
-| 15 | [#937](../repos/temporalio-sdk-go/issues.md#937) | 7 | 0 | 7 | Add ability to keep session open in case of a work... |
+| 1 | [#181](../repos/temporalio-sdk-go/issues.md#181) | 32 | 16 | 0 | Add ability for a clean worker shutdown that waits... |
+| 2 | [#829](../repos/temporalio-sdk-go/issues.md#829) | 17 | 6 | 5 | Use interceptor logger for all logs related to a w... |
+| 3 | [#1282](../repos/temporalio-sdk-go/issues.md#1282) | 15 | 5 | 5 | Heartbeat timeout not raised while testing |
+| 4 | [#89](../repos/temporalio-sdk-go/issues.md#89) | 15 | 7 | 1 | Refactor SDK to avoid type aliasing |
+| 5 | [#1352](../repos/temporalio-sdk-go/issues.md#1352) | 14 | 4 | 6 | Serialization context for codecs and converters |
+| 6 | [#1149](../repos/temporalio-sdk-go/issues.md#1149) | 11 | 4 | 3 | Allow custom trace attribute keys |
+| 7 | [#313](../repos/temporalio-sdk-go/issues.md#313) | 10 | 4 | 2 | Allow including local activity input into the hist... |
+| 8 | [#866](../repos/temporalio-sdk-go/issues.md#866) | 9 | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowEx... |
+| 9 | [#642](../repos/temporalio-sdk-go/issues.md#642) | 9 | 1 | 7 | Inconsistent behavior when asserting invocations |
+| 10 | [#475](../repos/temporalio-sdk-go/issues.md#475) | 9 | 0 | 9 | Panic when querying during Workflow failure + retr... |
+| 11 | [#1330](../repos/temporalio-sdk-go/issues.md#1330) | 8 | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
+| 12 | [#1114](../repos/temporalio-sdk-go/issues.md#1114) | 8 | 1 | 6 | Support activity functions with variadic arguments... |
+| 13 | [#986](../repos/temporalio-sdk-go/issues.md#986) | 7 | 1 | 5 | AwaitWithTimeout does not cancel its timer when co... |
+| 14 | [#937](../repos/temporalio-sdk-go/issues.md#937) | 7 | 0 | 7 | Add ability to keep session open in case of a work... |
+| 15 | [#884](../repos/temporalio-sdk-go/issues.md#884) | 7 | 2 | 3 | [Feature Request] Add ability to support passing s... |
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
@@ -110,24 +197,25 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-08 | [#2141](../repos/temporalio-sdk-go/issues.md#2141) | 0 | Activity Alias Collision in Test Environment When Using Anon... |
 | 2026-01-07 | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | 0 | OpenTelemetry incorrect metric type for Counter |
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
-| enhancement | 89 |
+| enhancement | 87 |
 | potential-bug | 45 |
-| bug | 16 |
+| bug | 17 |
 | external dependency | 5 |
 | mend: dependency security vulnerability | 1 |
 | next-gen | 1 |
 
 ---
 
-## Bugs (60 issues)
+## Bugs (61 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -142,6 +230,7 @@ Priority = Upvotes × 2 + Comments
 | [#1100](../repos/temporalio-sdk-go/issues.md#1100) | 1 | 2 | TestWorkflowEnvironment should surface errors and respect fa... |
 | [#982](../repos/temporalio-sdk-go/issues.md#982) | 1 | 4 | Cannot register mock activity with string name on test workf... |
 | [#642](../repos/temporalio-sdk-go/issues.md#642) | 1 | 7 | Inconsistent behavior when asserting invocations |
+| [#2141](../repos/temporalio-sdk-go/issues.md#2141) | 0 | 1 | Activity Alias Collision in Test Environment When Using Anon... |
 | [#2140](../repos/temporalio-sdk-go/issues.md#2140) | 0 | 0 | OpenTelemetry incorrect metric type for Counter |
 | [#2103](../repos/temporalio-sdk-go/issues.md#2103) | 0 | 3 | Cosmetic bug in logger |
 | [#2090](../repos/temporalio-sdk-go/issues.md#2090) | 0 | 0 | Starting a child workflow in tests leaks goroutines |
@@ -160,13 +249,12 @@ Priority = Upvotes × 2 + Comments
 | [#1574](../repos/temporalio-sdk-go/issues.md#1574) | 0 | 1 | Batched heartbeat got canceled due to caller context cancell... |
 | [#1536](../repos/temporalio-sdk-go/issues.md#1536) | 0 | 0 | TERMINATE_IF_RUNNING doesn't work for duplicate child workfl... |
 | [#1496](../repos/temporalio-sdk-go/issues.md#1496) | 0 | 0 | Workflow outcome is inconsistent between test env and real s... |
-| [#1468](../repos/temporalio-sdk-go/issues.md#1468) | 0 | 2 | Interceptors are skipped for mocked activities |
 
-*...and 30 more bugs*
+*...and 31 more bugs*
 
 ---
 
-## Stale Issues (101 issues with no activity >12 months)
+## Stale Issues (101 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 

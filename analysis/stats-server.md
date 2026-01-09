@@ -1,6 +1,6 @@
 # Server SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/temporal
 **Data Source:** [issues.md](../repos/temporalio-temporal/issues.md)
 
@@ -16,24 +16,106 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 533 |
-| Bugs | 139 |
-| Enhancements/Features | 353 |
-| Security Issues | 0 |
-| Total Upvotes (👍) | 900 |
-| Total Comments | 872 |
+| Total Open Issues | 534 |
+| Total Closed Issues | 2 |
+| Total All Issues | 536 |
+| Bugs (open) | 139 |
+| Enhancements/Features (open) | 352 |
+| Security Issues (open) | 0 |
+| Total Upvotes (👍) on open | 900 |
+| Total Comments on open | 878 |
 | Issues with Upvotes | 144 (27%) |
 | Issues with Comments | 290 (54%) |
 | Average Age (days) | 959 |
 | Stale Issues (>12 months) | 374 (70%) |
 
 ---
+## Resolution Metrics
 
-## Age Distribution
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 0% (2/536) |
+| Avg Time to Close (calendar) | 8 days |
+| Avg Time to Close (business) | 7 days |
+| Median Time to Close (calendar) | 8 days |
+| Median Time to Close (business) | 7 days |
+| 90th Percentile (calendar) | 16 days |
+| 90th Percentile (business) | 12 days |
+| Resolved within 30 days | 100% |
+| Resolved within 90 days | 100% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 1 | 50% |
+| Completed (features) | 0 | 0% |
+| Self-resolved | 1 | 50% |
+| Duplicate | 0 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 0 | 0% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 3 | 0 | +3 |
+| 2025-03 | 7 | 0 | +7 |
+| 2025-04 | 13 | 0 | +13 |
+| 2025-05 | 7 | 0 | +7 |
+| 2025-06 | 11 | 0 | +11 |
+| 2025-07 | 11 | 0 | +11 |
+| 2025-08 | 5 | 0 | +5 |
+| 2025-09 | 5 | 0 | +5 |
+| 2025-10 | 7 | 0 | +7 |
+| 2025-11 | 11 | 0 | +11 |
+| 2025-12 | 11 | 0 | +11 |
+| 2026-01 | 6 | 2 | +4 |
+| **Total** | **97** | **2** | **+95** |
+
+📈 **Backlog Growing:** 95 more issues opened than closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 55 |
+| Issues Closed | 2 |
+| Net Change | +53 |
+| Bugs Closed | 1 |
+| Enhancements Closed | 1 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 8 | 7 |
+| Median | 8 | 7 |
+| 90th Percentile | 16 | 12 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 100% |
+| Within 90 days | 100% |
+
+
+---
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 12 | 2% |
+| Last 30 days | 13 | 2% |
 | 1-3 months | 18 | 3% |
 | 3-6 months | 22 | 4% |
 | 6-12 months | 45 | 8% |
@@ -43,7 +125,7 @@
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
@@ -51,7 +133,7 @@
 | 2 | [#1507](../repos/temporalio-temporal/issues.md#1507) | 50 | 27 | Provide priority task queues |
 | 3 | [#2668](../repos/temporalio-temporal/issues.md#2668) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a descriptive va... |
 | 4 | [#2318](../repos/temporalio-temporal/issues.md#2318) | 46 | 7 | MongoDB as Persistent |
-| 5 | [#5680](../repos/temporalio-temporal/issues.md#5680) | 30 | 14 | Official support for Opensearch |
+| 5 | [#5680](../repos/temporalio-temporal/issues.md#5680) | 30 | 15 | Official support for Opensearch |
 | 6 | [#537](../repos/temporalio-temporal/issues.md#537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
 | 7 | [#131](../repos/temporalio-temporal/issues.md#131) | 28 | 4 | Different retry options based on failure type |
 | 8 | [#5302](../repos/temporalio-temporal/issues.md#5302) | 23 | 2 | YDB Temporal support. |
@@ -65,7 +147,7 @@
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
@@ -75,7 +157,7 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#1507](../repos/temporalio-temporal/issues.md#1507) | 127 | 50 | 27 | Provide priority task queues |
 | 3 | [#2668](../repos/temporalio-temporal/issues.md#2668) | 103 | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a desc... |
 | 4 | [#2318](../repos/temporalio-temporal/issues.md#2318) | 99 | 46 | 7 | MongoDB as Persistent |
-| 5 | [#5680](../repos/temporalio-temporal/issues.md#5680) | 74 | 30 | 14 | Official support for Opensearch |
+| 5 | [#5680](../repos/temporalio-temporal/issues.md#5680) | 75 | 30 | 15 | Official support for Opensearch |
 | 6 | [#537](../repos/temporalio-temporal/issues.md#537) | 62 | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
 | 7 | [#131](../repos/temporalio-temporal/issues.md#131) | 60 | 28 | 4 | Different retry options based on failure type |
 | 8 | [#328](../repos/temporalio-temporal/issues.md#328) | 54 | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
@@ -89,7 +171,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
@@ -97,9 +179,9 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#3006](../repos/temporalio-temporal/issues.md#3006) | 18 | 0 | Workflow Pause / Unpause |
 | 3 | [#328](../repos/temporalio-temporal/issues.md#328) | 16 | 19 | Try to run temporal on top of  Amazon Keyspaces |
 | 4 | [#6323](../repos/temporalio-temporal/issues.md#6323) | 15 | 0 | Frontend Service - goroutine (CPU & Memory) Leak |
-| 5 | [#4902](../repos/temporalio-temporal/issues.md#4902) | 15 | 0 | Custom authentication between frontend and other services |
-| 6 | [#7930](../repos/temporalio-temporal/issues.md#7930) | 14 | 0 | Replace "github.com/olivere/elastic/v7" with the official cl... |
-| 7 | [#5680](../repos/temporalio-temporal/issues.md#5680) | 14 | 30 | Official support for Opensearch |
+| 5 | [#5680](../repos/temporalio-temporal/issues.md#5680) | 15 | 30 | Official support for Opensearch |
+| 6 | [#4902](../repos/temporalio-temporal/issues.md#4902) | 15 | 0 | Custom authentication between frontend and other services |
+| 7 | [#7930](../repos/temporalio-temporal/issues.md#7930) | 14 | 0 | Replace "github.com/olivere/elastic/v7" with the official cl... |
 | 8 | [#680](../repos/temporalio-temporal/issues.md#680) | 14 | 70 | Add ability for workflow to wait for completion of an extern... |
 | 9 | [#3383](../repos/temporalio-temporal/issues.md#3383) | 13 | 4 | Schema name selection for postgres |
 | 10 | [#2582](../repos/temporalio-temporal/issues.md#2582) | 13 | 18 | Add health check handler for worker service |
@@ -110,12 +192,13 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-08 | [#8970](../repos/temporalio-temporal/issues.md#8970) | 0 | Client-set RPC deadline is ignored for long poll `GetWorkflo... |
+| 2026-01-08 | [#8968](../repos/temporalio-temporal/issues.md#8968) | 0 | Same fairness key but different fairness weight? |
+| 2026-01-08 | [#8967](../repos/temporalio-temporal/issues.md#8967) | 0 | 1.30.0 release version |
 | 2026-01-07 | [#8955](../repos/temporalio-temporal/issues.md#8955) | 0 | MCP Server for Temporal Workflows |
-| 2026-01-07 | [#8953](../repos/temporalio-temporal/issues.md#8953) | 0 | The scheduled time is incorrect. |
 | 2026-01-06 | [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | No admin-tools image for 1.29.2 |
 | 2025-12-29 | [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
 | 2025-12-24 | [#8902](../repos/temporalio-temporal/issues.md#8902) | 0 | History service memory usage upward trend |
-| 2025-12-24 | [#8901](../repos/temporalio-temporal/issues.md#8901) | 0 | Skip Re-executing Completed Activities on Workflow Retry (Re... |
 | 2025-12-20 | [#8889](../repos/temporalio-temporal/issues.md#8889) | 0 | Enhancing Temporal PR Review and Release Confidence with Hik... |
 | 2025-12-18 | [#8866](../repos/temporalio-temporal/issues.md#8866) | 0 | Address security vulnerability CVE-2025-61729 for golang:cry... |
 | 2025-12-18 | [#8865](../repos/temporalio-temporal/issues.md#8865) | 0 | Address security vulnerability CVE-2025-61727 for golang:cry... |
@@ -125,18 +208,18 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
-| enhancement | 349 |
-| potential-bug | 128 |
+| enhancement | 348 |
+| potential-bug | 127 |
 | up-for-grabs | 30 |
 | api | 25 |
 | difficulty: easy | 20 |
 | operations | 20 |
 | devexp | 14 |
-| bug | 11 |
+| bug | 12 |
 | refactoring | 11 |
 | difficulty: medium | 11 |
 | schedules | 9 |
@@ -162,7 +245,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (139 issues)
+## Bugs (139 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -193,7 +276,7 @@ Priority = Upvotes × 2 + Comments
 | [#1119](../repos/temporalio-temporal/issues.md#1119) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
 | [#787](../repos/temporalio-temporal/issues.md#787) | 1 | 1 | Frequent timeouts while archiving to S3 |
 | [#471](../repos/temporalio-temporal/issues.md#471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
-| [#8953](../repos/temporalio-temporal/issues.md#8953) | 0 | 0 | The scheduled time is incorrect. |
+| [#8970](../repos/temporalio-temporal/issues.md#8970) | 0 | 0 | Client-set RPC deadline is ignored for long poll `GetWorkflo... |
 | [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | 0 | No admin-tools image for 1.29.2 |
 | [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
 
@@ -201,7 +284,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (374 issues with no activity >12 months)
+## Stale Issues (374 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 

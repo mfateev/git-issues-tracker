@@ -1,6 +1,6 @@
 # PHP SDK - Issue Statistics
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Repository:** temporalio/sdk-php
 **Data Source:** [issues.md](../repos/temporalio-sdk-php/issues.md)
 
@@ -16,26 +16,27 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 48 |
-| Bugs | 8 |
-| Enhancements/Features | 31 |
-| Security Issues | 0 |
-| Total Upvotes (👍) | 12 |
-| Total Comments | 67 |
-| Issues with Upvotes | 7 (15%) |
-| Issues with Comments | 23 (48%) |
-| Average Age (days) | 465 |
-| Stale Issues (>12 months) | 18 (38%) |
+| Total Open Issues | 49 |
+| Total Closed Issues | 0 |
+| Total All Issues | 49 |
+| Bugs (open) | 9 |
+| Enhancements/Features (open) | 31 |
+| Security Issues (open) | 0 |
+| Total Upvotes (👍) on open | 12 |
+| Total Comments on open | 67 |
+| Issues with Upvotes | 7 (14%) |
+| Issues with Comments | 23 (47%) |
+| Average Age (days) | 457 |
+| Stale Issues (>12 months) | 18 (37%) |
 
 ---
-
-## Age Distribution
+## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 2 | 4% |
+| Last 30 days | 3 | 6% |
 | 1-3 months | 1 | 2% |
-| 3-6 months | 8 | 17% |
+| 3-6 months | 8 | 16% |
 | 6-12 months | 15 | 31% |
 | 1-2 years | 14 | 29% |
 | 2-3 years | 4 | 8% |
@@ -43,7 +44,7 @@
 
 ---
 
-## Top Issues by Upvotes
+## Top Issues by Upvotes (Open)
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
@@ -57,7 +58,7 @@
 
 ---
 
-## Top Issues by Priority Score
+## Top Issues by Priority Score (Open)
 
 Priority = Upvotes × 2 + Comments
 
@@ -81,7 +82,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Top Issues by Comments
+## Top Issues by Comments (Open)
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
@@ -102,17 +103,18 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-08 | [#692](../repos/temporalio-sdk-php/issues.md#692) | 0 | [Bug] Minimal Composer requirements conflicts with react/pro... |
 | 2026-01-07 | [#689](../repos/temporalio-sdk-php/issues.md#689) | 0 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | 2025-12-18 | [#670](../repos/temporalio-sdk-php/issues.md#670) | 0 | [Feature Request] Symfony 8.0 support |
 
 ---
 
-## Label Distribution
+## Label Distribution (Open Issues)
 
 | Label | Count |
 |-------|-------|
 | enhancement | 29 |
-| bug | 8 |
+| bug | 9 |
 | tests | 8 |
 | question | 5 |
 | feature | 2 |
@@ -120,10 +122,11 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (8 issues)
+## Bugs (9 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
+| [#692](../repos/temporalio-sdk-php/issues.md#692) | 0 | 0 | [Bug] Minimal Composer requirements conflicts with react/pro... |
 | [#689](../repos/temporalio-sdk-php/issues.md#689) | 0 | 1 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | [#636](../repos/temporalio-sdk-php/issues.md#636) | 0 | 0 | [Bug] Suppressed exception in worfklow child |
 | [#635](../repos/temporalio-sdk-php/issues.md#635) | 0 | 3 | [Bug] Memory leak workflow worker |
@@ -135,7 +138,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (18 issues with no activity >12 months)
+## Stale Issues (18 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 

@@ -1,7 +1,7 @@
 # temporalio/sdk-php - Complete Issue Dump
 
-**Generated:** 2026-01-07
-**Total Issues:** 48
+**Generated:** 2026-01-09
+**Total Issues:** 49
 **Total Upvotes:** 12
 **Total Comments:** 67
 
@@ -16,8 +16,8 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 48 |
-| Issues with Upvotes | 7 (15%) |
+| Open Issues | 49 |
+| Issues with Upvotes | 7 (14%) |
 | Total Upvotes | 12 |
 | Total Comments | 67 |
 
@@ -26,7 +26,7 @@
 | Label | Count |
 |-------|-------|
 | enhancement | 29 |
-| Bug | 8 |
+| Bug | 9 |
 | Tests | 8 |
 | Question | 5 |
 | Feature | 2 |
@@ -60,6 +60,7 @@
 | [#654](#654) | 0 | 1 | [Bug] upsertTypedSearchAttributes in test server |
 | [#382](#382) | 0 | 1 | [Bug] Methods without ActivityMethod attribute are registered as Activities (even magic) |
 | [#244](#244) | 0 | 1 | [Feature Request] FailureConverter allow more context in ordinary exceptions |
+| [#692](#692) | 0 | 0 | [Bug] Minimal Composer requirements conflicts with react/promise v2 |
 | [#670](#670) | 0 | 0 | [Feature Request] Symfony 8.0 support |
 | [#668](#668) | 0 | 0 | [Feature Request] Implement `SetCurrentDetails` for dynamic workflow details |
 | [#648](#648) | 0 | 0 | [Feature Request] Reclassify Benign Application errors in OpenTelemetry |
@@ -1733,7 +1734,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-php/issues/642 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-08-11 14:29:23.000 UTC (4 months ago) |
+| **Created** | 2025-08-11 14:29:23.000 UTC (5 months ago) |
 | **Updated** | 2025-12-26 16:53:58.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -1855,7 +1856,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-php/issues/568 |
 | **State** | OPEN |
 | **Author** | ArFeRR |
-| **Created** | 2025-02-12 18:07:49.000 UTC (10 months ago) |
+| **Created** | 2025-02-12 18:07:49.000 UTC (11 months ago) |
 | **Updated** | 2025-02-13 12:36:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -2065,7 +2066,7 @@ You can obtain `UntypedChildWorkflowStub` via `Workflow::newUntypedChildWorkflow
 | **URL** | https://github.com/temporalio/sdk-php/issues/501 |
 | **State** | OPEN |
 | **Author** | roxblnfk (Aleksei Gagarin) |
-| **Created** | 2024-09-10 10:08:58.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-10 10:08:58.000 UTC (1y 4m ago) |
 | **Updated** | 2025-02-11 14:17:54.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -2198,7 +2199,7 @@ Reactions: ❤️ 1
 | **URL** | https://github.com/temporalio/sdk-php/issues/689 |
 | **State** | OPEN |
 | **Author** | adepretis (Andreas de Pretis) |
-| **Created** | 2026-01-07 12:19:49.000 UTC (0 days ago) |
+| **Created** | 2026-01-07 12:19:49.000 UTC (1 days ago) |
 | **Updated** | 2026-01-07 13:14:34.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -2498,6 +2499,80 @@ interface HasFailureInfo
 
 ---
 
+<a id="692"></a>
+
+### #692: [Bug] Minimal Composer requirements conflicts with react/promise v2
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-php/issues/692 |
+| **State** | OPEN |
+| **Author** | xepozz (Dmitrii Derepko) |
+| **Created** | 2026-01-08 09:02:28.000 UTC (0 days ago) |
+| **Updated** | 2026-01-08 09:02:28.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | Bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### What are you really trying to do?
+
+<!-- 
+Tell us at a high level what you're doing, to avoid XY problem (https://en.wikipedia.org/wiki/XY_problem) 
+-->
+
+### Describe the bug
+
+CI pipelines fail to install the lowest dependencies versions:
+
+<img width="1415" height="878" alt="Image" src="https://github.com/user-attachments/assets/0aa64cb6-1cc6-4a70-a637-2cc597786a36" />
+
+It's also reproduces locally, by installing composer with a version greater than 2.9.
+
+<img width="1049" height="403" alt="Image" src="https://github.com/user-attachments/assets/8f1bf268-c2b3-484e-94c3-f9e050c435a6" />
+
+It seems like composer requires api package (`composer/composer`) as minimum as itself, so composer:^2.9 cannot install 2.8.* api package, so they cannot install internal/promise 2.* versions, and finally pipeline fails.
+
+There're several solutions, which may help:
+- bind composer as maximum of 2.8.* packages
+- drop internal/promise 2.* versions
+- ignore composer/composer requirements and allow to install internal/promise v2
+
+Related composer resources:
+https://github.com/composer/composer/pull/12188#issuecomment-3302159636
+https://github.com/composer/composer/commit/4ad19893aa38377fff6a59490d9e6e890090779b
+
+### Minimal Reproduction
+
+<!-- 
+Modify our hello world templates to demonstrate:
+
+- TypeScript: https://github.com/temporalio/samples-typescript/tree/main/hello-world
+- Go: https://github.com/temporalio/money-transfer-project-template-go
+- Java: https://github.com/temporalio/money-transfer-project-template-java
+- PHP: https://github.com/temporalio/samples-php#samples
+-->
+
+### Environment/Versions
+
+<!-- Please complete the following information where relevant. -->
+
+- OS and processor: [e.g. M1 Mac, x86 Windows, Linux]
+- Temporal Version: [e.g. 1.14.0?] and/or SDK version
+- Are you using Docker or Kubernetes or building Temporal from source?
+
+### Additional context
+
+<!-- Add any other context about the problem here. -->
+
+
+
+---
+
 <a id="670"></a>
 
 ### #670: [Feature Request] Symfony 8.0 support
@@ -2507,7 +2582,7 @@ interface HasFailureInfo
 | **URL** | https://github.com/temporalio/sdk-php/issues/670 |
 | **State** | OPEN |
 | **Author** | xepozz (Dmitrii Derepko) |
-| **Created** | 2025-12-18 18:07:27.000 UTC (20 days ago) |
+| **Created** | 2025-12-18 18:07:27.000 UTC (21 days ago) |
 | **Updated** | 2025-12-18 18:07:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3458,7 +3533,7 @@ I think we can remove the Workflow context and promises without throwing this ex
 | **URL** | https://github.com/temporalio/sdk-php/issues/502 |
 | **State** | OPEN |
 | **Author** | roxblnfk (Aleksei Gagarin) |
-| **Created** | 2024-09-10 10:15:36.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-10 10:15:36.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-10 10:15:36.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -3514,7 +3589,7 @@ As described in https://github.com/temporalio/features/issues/440, add support f
 | **URL** | https://github.com/temporalio/sdk-php/issues/454 |
 | **State** | OPEN |
 | **Author** | roxblnfk (Aleksei Gagarin) |
-| **Created** | 2024-06-12 11:12:12.000 UTC (1y 6m ago) |
+| **Created** | 2024-06-12 11:12:12.000 UTC (1y 7m ago) |
 | **Updated** | 2024-08-07 17:39:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

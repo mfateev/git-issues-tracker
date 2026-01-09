@@ -1,8 +1,8 @@
 # temporalio/sdk-python - Complete Issue Dump
 
-**Generated:** 2026-01-07
-**Total Issues:** 116
-**Total Upvotes:** 31
+**Generated:** 2026-01-09
+**Total Issues:** 118
+**Total Upvotes:** 33
 **Total Comments:** 212
 
 ## Table of Contents
@@ -16,9 +16,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 116 |
-| Issues with Upvotes | 17 (15%) |
-| Total Upvotes | 31 |
+| Open Issues | 118 |
+| Issues with Upvotes | 18 (15%) |
+| Total Upvotes | 33 |
 | Total Comments | 212 |
 
 ## Top Labels
@@ -26,7 +26,7 @@
 | Label | Count |
 |-------|-------|
 | enhancement | 65 |
-| bug | 47 |
+| bug | 49 |
 
 ## Issue Index
 
@@ -58,6 +58,7 @@
 | [#586](#586) | 0 | 5 | [Bug] workflow.start_child_workflow() behaving differently than workflow.execute_child_workflow() in tests |
 | [#476](#476) | 0 | 5 | [Bug] Failed during multiprocess queue poll for heartbeat |
 | [#321](#321) | 2 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
+| [#1267](#1267) | 2 | 0 | [Bug] Logs not emitted during workflow queries |
 | [#1250](#1250) | 1 | 2 | RuntimeError when starting Temporal test server in Python SDK |
 | [#928](#928) | 2 | 0 | [Feature Request] Research and make SDK free-threading capable/compatible |
 | [#697](#697) | 0 | 4 | [Feature Request] Handle edge case of recursive exceptions in failure converter |
@@ -90,6 +91,7 @@
 | [#597](#597) | 0 | 1 | [Bug] Cant build wheel temporalio when installing with pip |
 | [#563](#563) | 0 | 1 | [Feature Request] Update test running to replay |
 | [#360](#360) | 0 | 1 | [Feature Request] Allow use of type hints even if arg count mismatches in case of default params |
+| [#1268](#1268) | 0 | 0 | [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings |
 | [#1262](#1262) | 0 | 0 | [Bug] Add ability to obtain `ApplicationError` details with type hint |
 | [#1254](#1254) | 0 | 0 | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox |
 | [#1237](#1237) | 0 | 0 | [Bug] Converter returns bad value converting `dict[None, Any]` |
@@ -1627,7 +1629,7 @@ I don't think we have plans to support `ddtrace` specifically at this time. I do
 | **URL** | https://github.com/temporalio/sdk-python/issues/700 |
 | **State** | OPEN |
 | **Author** | andmis (Andrey Mishchenko) |
-| **Created** | 2024-12-09 19:54:17.000 UTC (1 years ago) |
+| **Created** | 2024-12-09 19:54:17.000 UTC (1y 1m ago) |
 | **Updated** | 2025-05-14 09:27:41.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 10 |
@@ -2241,7 +2243,7 @@ Assuming our guess at the issue is correct, fixing this is daunting because it p
 | **URL** | https://github.com/temporalio/sdk-python/issues/639 |
 | **State** | OPEN |
 | **Author** | duy-nguyen-ts (duy-nguyen-ts) |
-| **Created** | 2024-09-10 03:47:36.000 UTC (1y 3m ago) |
+| **Created** | 2024-09-10 03:47:36.000 UTC (1y 4m ago) |
 | **Updated** | 2024-09-13 02:49:54.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 7 |
@@ -4841,6 +4843,56 @@ We have merged #329 which does let conversion fail workflow, but we haven't done
 
 ---
 
+<a id="1267"></a>
+
+### #1267: [Bug] Logs not emitted during workflow queries
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-python/issues/1267 |
+| **State** | OPEN |
+| **Author** | marcoriopel |
+| **Created** | 2026-01-08 15:16:55.000 UTC (0 days ago) |
+| **Updated** | 2026-01-08 15:18:22.000 UTC |
+| **Upvotes** | 2 |
+| **Comments** | 0 |
+| **Priority Score** | 4 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 2 |
+
+#### Description
+
+### What are you really trying to do?
+Add some logs to query functions
+
+### Describe the bug
+When adding logs to a query function using the provided replay safe logger, it doesn't log anything.
+
+The log below will always be dropped:
+```
+from temporalio import workflow
+
+@workflow.defn
+class TestWorkflow:
+    @workflow.run
+    async def run(self) -> bool:
+       return True
+    
+    @workflow.query
+    def get_test(self) -> str:
+        workflow.logger.info("Query received")
+        return "Test"
+
+```
+
+It seems like `workflow.unsafe.is_replaying()` always returns True when in the context of a query. This is used by the replay safe logger to determine if to drop logs or not so I assume this is why we have this behaviour.
+
+
+
+---
+
 <a id="1250"></a>
 
 ### #1250: RuntimeError when starting Temporal test server in Python SDK
@@ -5708,7 +5760,7 @@ There is not currently a workaround since scheduled workflows are created server
 | **URL** | https://github.com/temporalio/sdk-python/issues/399 |
 | **State** | OPEN |
 | **Author** | devery59 (Kris) |
-| **Created** | 2023-10-12 01:56:27.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-12 01:56:27.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-20 12:38:56.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -6857,7 +6909,7 @@ Note, this can already be done be users using `setattr`/`getattr` on `workflow.i
 | **URL** | https://github.com/temporalio/sdk-python/issues/699 |
 | **State** | OPEN |
 | **Author** | andmis (Andrey Mishchenko) |
-| **Created** | 2024-12-09 19:04:53.000 UTC (1 years ago) |
+| **Created** | 2024-12-09 19:04:53.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-09 20:34:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -7336,6 +7388,146 @@ So maybe this limitation worth to be mentioned in README, somewhere around `@wor
 
 ---
 
+<a id="1268"></a>
+
+### #1268: [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-python/issues/1268 |
+| **State** | OPEN |
+| **Author** | sashaneb (Sasha Lopashev) |
+| **Created** | 2026-01-09 00:42:34.000 UTC (0 days ago) |
+| **Updated** | 2026-01-09 00:42:34.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### What are you really trying to do?
+
+Run Temporal workers that reliably poll for workflow and activity tasks. Workers should maintain active pollers as long as task slots are available.
+
+### Describe the bug
+
+Worker pollers (both activity and workflow) randomly drop to 0 despite available task slots and explicit poller configuration. This causes workflow/activity task timeouts as no worker is polling for tasks.
+
+**Tested configurations - all fail:**
+
+1. `PollerBehaviorAutoscaling(minimum=5, maximum=20, initial=10)` - pollers drop to 0 despite `minimum=5`
+2. Default behavior (no poller config) - pollers drop to 0
+3. `PollerBehaviorSimpleMaximum(maximum=5)` - pollers still drop to 0
+
+**Evidence from Prometheus metrics:**
+
+Worker with 14 available activity slots but 0 pollers:
+```
+temporal_num_pollers{poller_type="activity_task"} 0
+temporal_num_pollers{poller_type="sticky_workflow_task"} 3
+temporal_num_pollers{poller_type="workflow_task"} 1
+temporal_worker_task_slots_available{worker_type="ActivityWorker"} 14
+temporal_worker_task_slots_used{worker_type="ActivityWorker"} 1
+```
+
+The docs for `PollerBehaviorSimpleMaximum` state:
+> "A poller behavior that will attempt to poll as long as a slot is available, up to the provided maximum."
+
+This is, however, not what we're observing. With 14 available slots, there should be active pollers.
+
+**Timeline:**
+- Workers start healthy with expected poller counts
+- After 10-20 minutes, pollers drop to 0 on some/all workers
+- No errors in logs - worker appears healthy but doesn't poll
+- Happens randomly, affects different workers at different times
+
+**Impact:**
+- Workflow Task Timeouts: New workflows can't start
+- Activity Task Timeouts: Activities can't execute
+- Silent Failures: No errors logged, worker appears healthy
+
+### Minimal Reproduction
+
+```python
+import asyncio
+from temporalio.client import Client
+from temporalio.worker import Worker, PollerBehaviorSimpleMaximum
+from temporalio import workflow, activity
+
+@activity.defn
+async def my_activity() -> str:
+    return "done"
+
+@workflow.defn
+class MyWorkflow:
+    @workflow.run
+    async def run(self) -> str:
+        return await workflow.execute_activity(
+            my_activity,
+            start_to_close_timeout=timedelta(seconds=60),
+        )
+
+async def main():
+    client = await Client.connect("your-temporal-address")
+
+    worker = Worker(
+        client,
+        task_queue="test-queue",
+        workflows=[MyWorkflow],
+        activities=[my_activity],
+        max_concurrent_activities=15,
+        max_concurrent_workflow_tasks=10,
+        # Any of these configurations fail:
+        workflow_task_poller_behavior=PollerBehaviorSimpleMaximum(maximum=5),
+        activity_task_poller_behavior=PollerBehaviorSimpleMaximum(maximum=5),
+    )
+
+    # Run worker and monitor temporal_num_pollers metric
+    # After 10-20 minutes, activity_task pollers drop to 0
+    await worker.run()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+To observe:
+1. Start worker with Prometheus metrics enabled
+2. Run some workflows
+3. Monitor `temporal_num_pollers` metric over 15-20 minutes
+4. Observe `poller_type="activity_task"` drop to 0 despite available slots
+
+### Environment/Versions
+
+- OS and processor: Linux x86_64 (Kubernetes/EKS), also tested on M1 Mac
+- SDK version: `temporalio==1.21.1` (latest), as well as previously used `1.13.0`
+- Temporal: Temporal Cloud (us-east-1)
+- Python: 3.12
+- Using Kubernetes (EKS on AWS) with multiple worker pods autoscaled with KEDA
+
+### Additional context
+
+**Release notes reviewed:**
+- SDK 1.11.0 introduced `PollerBehaviorAutoscaling`
+- SDK 1.12.0 had fix for "low wft slots/pollers issue" (#877) but only for workflow tasks
+- SDK 1.19.0 removed "experimental" tag from worker tuners
+
+**Questions:**
+1. What causes pollers to drop to 0 despite available slots?
+2. Why does `minimum=5` in autoscaling not enforce the minimum?
+3. Is there a known issue with the Rust core's poller management?
+
+**Current workaround:**
+- Use `PollerBehaviorSimpleMaximum` (slightly more stable than autoscaling)
+- Run multiple workers and hope not all drop to 0 simultaneously
+- Consider periodic worker restarts to reset pollers (not ideal)
+
+
+
+---
+
 <a id="1262"></a>
 
 ### #1262: [Bug] Add ability to obtain `ApplicationError` details with type hint
@@ -7345,7 +7537,7 @@ So maybe this limitation worth to be mentioned in README, somewhere around `@wor
 | **URL** | https://github.com/temporalio/sdk-python/issues/1262 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-12-29 15:19:00.000 UTC (9 days ago) |
+| **Created** | 2025-12-29 15:19:00.000 UTC (10 days ago) |
 | **Updated** | 2025-12-29 15:19:00.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -7372,7 +7564,7 @@ For users of deserialized `ApplicationError`, today we only offer the deserializ
 | **URL** | https://github.com/temporalio/sdk-python/issues/1254 |
 | **State** | OPEN |
 | **Author** | VegetarianOrc (Alex Mazzeo) |
-| **Created** | 2025-12-17 23:35:07.000 UTC (20 days ago) |
+| **Created** | 2025-12-17 23:35:07.000 UTC (22 days ago) |
 | **Updated** | 2025-12-17 23:35:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8194,7 +8386,7 @@ See https://github.com/temporalio/features/issues/588
 | **URL** | https://github.com/temporalio/sdk-python/issues/722 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-08 22:38:17.000 UTC (12 months ago) |
+| **Created** | 2025-01-08 22:38:17.000 UTC (1 years ago) |
 | **Updated** | 2025-01-08 22:38:17.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9359,7 +9551,7 @@ Make them better hopefully without unnecessary performance penalty
 | **URL** | https://github.com/temporalio/sdk-python/issues/11 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-03-15 20:27:43.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-15 20:27:43.000 UTC (3y 10m ago) |
 | **Updated** | 2022-03-15 20:27:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

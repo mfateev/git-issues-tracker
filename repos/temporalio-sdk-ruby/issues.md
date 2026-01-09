@@ -1,6 +1,6 @@
 # temporalio/sdk-ruby - Complete Issue Dump
 
-**Generated:** 2026-01-07
+**Generated:** 2026-01-09
 **Total Issues:** 25
 **Total Upvotes:** 3
 **Total Comments:** 19
@@ -442,7 +442,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/373 |
 | **State** | CLOSED |
 | **Author** | NielsKSchjoedt (Niels Kristian Schjødt) |
-| **Created** | 2026-01-05 23:10:37.000 UTC (1 days ago) |
+| **Created** | 2026-01-05 23:10:37.000 UTC (3 days ago) |
 | **Updated** | 2026-01-07 17:23:21.000 UTC |
 | **Closed** | 2026-01-07 17:23:21.000 UTC |
 | **Upvotes** | 0 |
@@ -615,7 +615,7 @@ This definitely appears to be a bug and we are looking into it now.
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/360 |
 | **State** | OPEN |
 | **Author** | NielsKSchjoedt (Niels Kristian Schjødt) |
-| **Created** | 2025-11-09 22:46:12.000 UTC (1 months ago) |
+| **Created** | 2025-11-09 22:46:12.000 UTC (2 months ago) |
 | **Updated** | 2025-11-10 15:08:13.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -1204,7 +1204,7 @@ Alongside Nexus Ruby SDK, need Temporal-specific implementation in this SDK. See
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/222 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-02-12 18:34:14.000 UTC (10 months ago) |
+| **Created** | 2025-02-12 18:34:14.000 UTC (11 months ago) |
 | **Updated** | 2025-02-12 18:34:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -1320,7 +1320,7 @@ Go is currently needed for the "kitchen sink" workflow, but we now have the abil
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/191 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-13 12:53:44.000 UTC (11 months ago) |
+| **Created** | 2025-01-13 12:53:44.000 UTC (12 months ago) |
 | **Updated** | 2025-01-13 12:53:44.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -1347,7 +1347,7 @@ Today, deadlocked workflow does not get interrupted and the stack trace is where
 | **URL** | https://github.com/temporalio/sdk-ruby/issues/185 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-08 20:16:11.000 UTC (12 months ago) |
+| **Created** | 2025-01-08 20:16:11.000 UTC (1 years ago) |
 | **Updated** | 2025-01-08 20:16:11.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

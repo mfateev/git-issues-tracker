@@ -1,9 +1,9 @@
 # temporalio/temporal - Complete Issue Dump
 
-**Generated:** 2026-01-07
-**Total Issues:** 533
+**Generated:** 2026-01-09
+**Total Issues:** 536
 **Total Upvotes:** 900
-**Total Comments:** 872
+**Total Comments:** 881
 
 ## Table of Contents
 
@@ -16,10 +16,10 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 533 |
+| Open Issues | 536 |
 | Issues with Upvotes | 144 (27%) |
 | Total Upvotes | 900 |
-| Total Comments | 872 |
+| Total Comments | 881 |
 
 ## Top Labels
 
@@ -32,9 +32,9 @@
 | difficulty: easy | 20 |
 | operations | 20 |
 | devexp | 14 |
+| bug | 12 |
 | difficulty: medium | 11 |
 | refactoring | 11 |
-| bug | 11 |
 | schedules | 9 |
 | config | 7 |
 | planning | 7 |
@@ -49,7 +49,7 @@
 | [#1507](#1507) | 50 | 27 | Provide priority task queues |
 | [#2668](#2668) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a descriptive var name) |
 | [#2318](#2318) | 46 | 7 | MongoDB as Persistent |
-| [#5680](#5680) | 30 | 14 | Official support for Opensearch |
+| [#5680](#5680) | 30 | 15 | Official support for Opensearch |
 | [#537](#537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
 | [#131](#131) | 28 | 4 | Different retry options based on failure type |
 | [#328](#328) | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
@@ -161,6 +161,7 @@
 | [#1882](#1882) | 0 | 5 | support manual retries |
 | [#1739](#1739) | 2 | 1 | Return more accurate error codes |
 | [#469](#469) | 2 | 1 | Limit depth of child workflows |
+| [#8631](#8631) | 0 | 4 | Trying to create search attribute that already exists should return error |
 | [#8581](#8581) | 1 | 2 | [Scheduled Actions] - Update Schedule memo |
 | [#8202](#8202) | 0 | 4 | CrashLoopBackOff on GKE cluster. |
 | [#8109](#8109) | 2 | 0 | Support for Naming Timers in Temporal Workflows |
@@ -190,8 +191,10 @@
 | [#960](#960) | 2 | 0 | Support for in memory db and setup for running temporal with limited resources |
 | [#778](#778) | 0 | 4 | Add ScheduleToStart timeout to WorkflowTaskScheduledEvent |
 | [#674](#674) | 0 | 4 | Heartbeat WorkflowTask during history pagination |
+| [#8901](#8901) | 0 | 3 | Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option) |
 | [#8833](#8833) | 0 | 3 | Scheduler does not list workflows runned when using "triggerImmediately" |
 | [#8764](#8764) | 1 | 1 | Listing workflows and activities from temporal sdk |
+| [#8698](#8698) | 0 | 3 | [Security] Review & Fix Multiple CVEs affecting Go standard libraries |
 | [#8611](#8611) | 0 | 3 | Allowing workflow to specify max retry attempts / duration before an activity starts throwing non-BENIGN errors |
 | [#8432](#8432) | 0 | 3 | Set log level of dynamic config updated message in file_based_client to warn instead of info |
 | [#8153](#8153) | 1 | 1 | Address security vulnerability CVE-2025-22871 for golang:net/http/internal |
@@ -292,12 +295,10 @@
 | [#109](#109) | 0 | 2 | Docker: Docker image with schema loaded |
 | [#108](#108) | 0 | 2 | Make temporal docker to not emit noisy logs |
 | [#8909](#8909) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
-| [#8901](#8901) | 0 | 1 | Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option) |
-| [#8698](#8698) | 0 | 1 | [Security] Review & Fix Multiple CVEs affecting Go standard libraries |
+| [#8864](#8864) | 0 | 1 | Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state." |
 | [#8655](#8655) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-tools:1.29.1 |
 | [#8654](#8654) | 0 | 1 | Unable to view workflows in UI |
 | [#8652](#8652) | 0 | 1 | Documenting the current state of ScyllaDB as a Cassandra-compatible Backend |
-| [#8631](#8631) | 0 | 1 | Trying to create search attribute that already exists should return error |
 | [#8608](#8608) | 0 | 1 | Support opt-in ability to get workflow input and output (if closed) on describe workflow |
 | [#8537](#8537) | 0 | 1 | Add first execution run ID for already-started start workflow results |
 | [#8431](#8431) | 0 | 1 | Docker deployment TEMPORAL_ADMINTOOLS_VERSION |
@@ -378,6 +379,9 @@
 | [#266](#266) | 0 | 1 | Matching service degradation due to large number of task lists |
 | [#19](#19) | 0 | 1 | Clear indication that service is up and running |
 | [#13](#13) | 0 | 1 | Multi-phase activities |
+| [#8970](#8970) | 0 | 0 | Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory` |
+| [#8968](#8968) | 0 | 0 | Same fairness key but different fairness weight? |
+| [#8967](#8967) | 0 | 0 | 1.30.0 release version |
 | [#8955](#8955) | 0 | 0 | MCP Server for Temporal Workflows |
 | [#8953](#8953) | 0 | 0 | The scheduled time is incorrect. |
 | [#8943](#8943) | 0 | 0 | No admin-tools image for 1.29.2 |
@@ -385,7 +389,6 @@
 | [#8889](#8889) | 0 | 0 | Enhancing Temporal PR Review and Release Confidence with Hikaflow |
 | [#8866](#8866) | 0 | 0 | Address security vulnerability CVE-2025-61729 for golang:crypto/x509 |
 | [#8865](#8865) | 0 | 0 | Address security vulnerability CVE-2025-61727 for golang:crypto/x509 |
-| [#8864](#8864) | 0 | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state." |
 | [#8790](#8790) | 0 | 0 | history_node table keeps growing |
 | [#8648](#8648) | 0 | 0 | Add ExecutionStatus to visibility columns for archived executions |
 | [#8579](#8579) | 0 | 0 | Addressing security vulnerabilities in the Temporalio/server:1.29 1.29.1 |
@@ -1695,10 +1698,10 @@ Hi there, I have completed the mongodb persistence implementation. You can check
 | **State** | OPEN |
 | **Author** | jsecchiero (Jacopo Secchiero) |
 | **Created** | 2024-04-08 12:11:43.000 UTC (1y 9m ago) |
-| **Updated** | 2025-10-07 12:15:29.000 UTC |
+| **Updated** | 2026-01-09 00:51:06.000 UTC |
 | **Upvotes** | 30 |
-| **Comments** | 14 |
-| **Priority Score** | 74 |
+| **Comments** | 15 |
+| **Priority Score** | 75 |
 | **Labels** | enhancement |
 | **Assignees** | None |
 | **Milestone** | None |
@@ -1709,7 +1712,7 @@ Hi there, I have completed the mongodb persistence implementation. You can check
 As new versions are released, the features of OpenSearch and Elasticsearch will continue to diverge ([ref1](https://opensearch.org/faq/#q1.14) [ref2](https://nextbrick.com/opensearch-vs-elasticsearch-check-everything-before-you-choose/)). However, i'm wondering if there will be an official statement in the documentation about Temporal's support for OpenSearch in the future. 
 Currently, only recent versions [Elasticsearch are supported](https://docs.temporal.io/self-hosted-guide/visibility#elasticsearch). This information will be helpful when deciding on the datastore to use with Temporal
 
-#### Comments (14)
+#### Comments (15)
 
 <details>
 <summary><strong>yiminc</strong> commented on 2024-05-16 04:43:49.000 UTC</summary>
@@ -1864,6 +1867,16 @@ When should we expect Opensearch support to be implemented?
 
 </details>
 
+<details>
+<summary><strong>rodrigozhou</strong> commented on 2026-01-09 00:51:05.000 UTC</summary>
+
+Temporal 1.29.0+ should work with OpenSearch up to v2.7.0.
+OpenSearch 2.8.0+ has a bug pagination (see https://github.com/opensearch-project/OpenSearch/issues/8212#issuecomment-1615325095).
+
+We are working on a work around.
+
+</details>
+
 
 ---
 
@@ -1876,7 +1889,7 @@ When should we expect Opensearch support to be implemented?
 | **URL** | https://github.com/temporalio/temporal/issues/537 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-07-13 18:32:33.000 UTC (5y 5m ago) |
+| **Created** | 2020-07-13 18:32:33.000 UTC (5y 6m ago) |
 | **Updated** | 2025-09-22 22:44:44.000 UTC |
 | **Upvotes** | 30 |
 | **Comments** | 2 |
@@ -2584,7 +2597,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/temporal/issues/1460 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2021-04-14 17:42:05.000 UTC (4y 8m ago) |
+| **Created** | 2021-04-14 17:42:05.000 UTC (4y 9m ago) |
 | **Updated** | 2025-09-05 00:33:32.000 UTC |
 | **Upvotes** | 16 |
 | **Comments** | 11 |
@@ -5957,7 +5970,7 @@ I already asked about making the driver pluggable related to OpenSearch, but the
 | **URL** | https://github.com/temporalio/temporal/issues/3468 |
 | **State** | OPEN |
 | **Author** | yiminc (Yimin Chen) |
-| **Created** | 2022-10-10 23:16:47.000 UTC (3y 2m ago) |
+| **Created** | 2022-10-10 23:16:47.000 UTC (3y 3m ago) |
 | **Updated** | 2024-06-21 21:16:50.000 UTC |
 | **Upvotes** | 6 |
 | **Comments** | 2 |
@@ -6696,7 +6709,7 @@ we would love to have this too
 | **URL** | https://github.com/temporalio/temporal/issues/1289 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2021-02-14 02:04:40.000 UTC (4y 10m ago) |
+| **Created** | 2021-02-14 02:04:40.000 UTC (4y 11m ago) |
 | **Updated** | 2023-04-03 21:49:23.000 UTC |
 | **Upvotes** | 5 |
 | **Comments** | 2 |
@@ -12261,6 +12274,77 @@ Reactions: 👍 1
 
 ---
 
+<a id="8631"></a>
+
+### #8631: Trying to create search attribute that already exists should return error
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8631 |
+| **State** | OPEN |
+| **Author** | tsurdilo (Tihomir Surdilovic) |
+| **Created** | 2025-11-13 14:13:11.000 UTC (1 months ago) |
+| **Updated** | 2026-01-08 20:42:28.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 4 |
+| **Priority Score** | 4 |
+| **Labels** | potential-bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+How issue was found:
+Try adding same search attribute multiple times via cli - cli always gives "ok" response, for example try running this command multiple times:
+
+          temporal operator search-attribute create --name MyCustomSA --type Keyword
+          Search attributes have been added
+
+When adding SA server has this loop where it creates aliasToFieldMap - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L279
+
+In this loop server logs the warn message with errSearchAttributeAlreadyExistsMessage
+but because it does not add anything to map it just returns nil - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L334
+
+instead of serviceerror
+this then in turn return nil to cli as response. cli does check for already exists error, but since server returns nil, error is never shown to user.
+
+Ask is to change this code on server to return serviceError instead that tells cli/sdk/clients that they are trying to create a SA that already exists   
+
+#### Comments (4)
+
+<details>
+<summary><strong>DEVMANISHOFFL</strong> commented on 2026-01-03 19:17:31.000 UTC</summary>
+
+Hiii, I m interested in contributing to the project and this looks like a good starting point..... Is this issue still available to be picked up??
+If so, I woudl love to work on it.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2026-01-08 19:23:47.000 UTC</summary>
+
+I'll post this for discussion internally and see what people think is the right behavior.
+Sometimes we use a request ID for deduplication, looks like here we opted to ignore duplication regardless of whether we think the request was a duplicate (for reasons I can understand).
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2026-01-08 19:26:45.000 UTC</summary>
+
+I'm also concerned with changing this behavior now for backwards compatibility reasons. Users may already have the expectation that this request is idempotent. I would propose improving the server / CLI output to report that the search attribute already existed but not fail the API call or CLI command.
+
+</details>
+
+<details>
+<summary><strong>rodrigozhou</strong> commented on 2026-01-08 20:35:36.000 UTC</summary>
+
+The main reason why it doesn't return already exists error is because of dual visibility. When running with dual visibility, it's possible that custom search attributes had been added to the primary one which is Elasticsearch, and you need to add to the secondary (also Elasticsearch).
+
+</details>
+
+
+---
+
 <a id="8581"></a>
 
 ### #8581: [Scheduled Actions] - Update Schedule memo
@@ -14433,6 +14517,161 @@ I don't think workflow task timeout is the best solution. I would make this the 
 
 ---
 
+<a id="8901"></a>
+
+### #8901: Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option)
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8901 |
+| **State** | CLOSED |
+| **Author** | Tomlord1122 (Tom Liu (Liu Hsiu-Chi)) |
+| **Created** | 2025-12-24 09:43:00.000 UTC (15 days ago) |
+| **Updated** | 2026-01-09 01:15:19.000 UTC |
+| **Closed** | 2026-01-09 01:15:19.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+**Is your feature request related to a problem? Please describe.**
+
+Yes. When a Workflow fails after some Activities have completed successfully, and we want to retry the entire Workflow via Workflow-level Retry policy, Temporal re-executes all Activities from the beginning, including those that already succeeded.
+
+  This is problematic for systems with non-reversible side effects:
+
+1. Our Use Case: We have a workflow where: 
+
+   - `CreateCaseActivity` successfully creates a case record in an external database 
+
+   - `xxxActivity` fails 3 times (Activity-level retry exhausted)
+
+   - Workflow fails and triggers Workflow-level Retry
+
+   - Problem: Workflow Retry attempts to create the same case again → duplicate/conflict errors
+
+2. Why We Can't Simply Delete and Retry:
+
+   - The external case record is not reversible (once created, it shouldn't be deleted)
+
+   - Other teams' systems query and depend on these records
+
+   - Deleting records to enable retry is unreliable and error-prone
+
+3. Current Workaround (unsatisfactory):
+
+   - Manually detect failed Workflows
+
+   - Delete case records from external storage 
+
+   - Wait for Workflow Retry - This is dangerous, especially when other teams are actively using the same data
+
+**Describe the solution you'd like**
+
+
+Support an option in Workflow execution to replay Event History during Workflow Retry, similar to how Temporal handles Worker failover recovery:
+
+```go
+  options := client.StartWorkflowOptions{
+      ID:        "aifp-case-001",
+      TaskQueue: "aifp_queue",
+      RetryPolicy: &temporal.RetryPolicy{
+          MaximumAttempts: 10,
+          InitialInterval: 10 * time.Second,
+          // New feature: Skip completed activities on retry
+          ReplayOnRetry: true,  // 👈 Proposed flag
+      },
+  }
+```
+
+  Behavior when ReplayOnRetry: true:
+
+- Workflow Retry uses the existing Event History
+
+- Already-completed Activities are skipped (using their historical results)
+
+- Execution resumes from the point of last failure
+
+- This prevents duplicate side effects in external systems
+
+
+
+**Describe alternatives you've considered**
+
+1. Manual Reset via SDK (`client.ResetWorkflowExecution()`)
+
+   - Requires external monitoring and manual API calls
+
+   - Adds operational complexity
+
+   - Not suitable for automatic recovery scenarios
+
+2. Delete and Retry Pattern
+
+   - Currently, we must delete case records from external storage before retry 
+
+   - Risk: Other teams' queries may fail during deletion window
+
+   - Unreliable and dangerous in production
+
+3. `ContinueAsNew` with State Persistence
+
+   - Could save completion checkpoints and call `ContinueAsNew` on failure
+
+   - Adds significant complexity to Workflow code
+
+   - Doubles the size of Event History
+
+4. Manual Idempotency + Retry
+
+   - Make every Activity check if it's already been done before re-executin
+
+   - Requires external state tracking (defeats the purpose of Temporal)
+
+   - Adds unnecessary retry latency
+
+5. Saga Pattern with Compensation 
+
+   - We already use Saga for cleanup on failure. However, Saga compensation (deleting records) is not always safe or desired. For our use case, we'd rather skip re-execution than compensate
+
+***Additional Context***
+
+I’m new to Temporal and may be misinterpreting some aspects. Thank you for your patience. If there’s a recommended approach for this use case, I’d truly appreciate your guidance so I can handle it the right way.
+
+#### Comments (3)
+
+<details>
+<summary><strong>ziidu</strong> commented on 2026-01-04 08:18:38.000 UTC</summary>
+
+When will it be resolved?
+
+</details>
+
+<details>
+<summary><strong>gow</strong> commented on 2026-01-09 00:10:00.000 UTC</summary>
+
+Hello, Temporal strongly recommends that Activities be idempotent - https://docs.temporal.io/activity-definition#idempotency
+Please consider making `CreateCaseActivity` idempotent (alternative-4). This activity may be retried for many reasons other than workflow retry policy (network failures between worker-server for example). So making it idempotent is important. This is the ideal solution in this situation.
+
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>Tomlord1122</strong> commented on 2026-01-09 01:14:59.000 UTC</summary>
+
+Thanks for you suggestion!
+
+</details>
+
+
+---
+
 <a id="8833"></a>
 
 ### #8833: Scheduler does not list workflows runned when using "triggerImmediately"
@@ -14442,7 +14681,7 @@ I don't think workflow task timeout is the best solution. I would make this the 
 | **URL** | https://github.com/temporalio/temporal/issues/8833 |
 | **State** | OPEN |
 | **Author** | AlexMog (AlexMog) |
-| **Created** | 2025-12-16 16:56:49.000 UTC (22 days ago) |
+| **Created** | 2025-12-16 16:56:49.000 UTC (23 days ago) |
 | **Updated** | 2026-01-05 16:38:03.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -14577,6 +14816,99 @@ As of now server does not keep registry of Workflow and Activity Types. But this
 Another approach would be to get the info via server APIs from the workers. But that requires 1) workers be running 2) user gives task queue name in the request so server knows which worker to get the info from.
 
 Given the limitations of the second approach do you think it's going to still be helpful for your use case?
+
+</details>
+
+
+---
+
+<a id="8698"></a>
+
+### #8698: [Security] Review & Fix Multiple CVEs affecting Go standard libraries
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8698 |
+| **State** | OPEN |
+| **Author** | jigar-shah-acquia |
+| **Created** | 2025-11-25 12:26:43.000 UTC (1 months ago) |
+| **Updated** | 2026-01-08 15:57:55.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## 🔐 Security Vulnerability Review – Go Standard Library CVEs
+
+Several CVEs affecting Go standard libraries have been identified. We are requesting confirmation on whether Temporal is impacted, and if any patches or mitigations are already planned or required.
+
+---
+
+### 📌 List of CVEs
+
+| CVE ID | Description |
+|--------|-------------|
+| **CVE-2025-47912** | `Parse()` incorrectly allows non-IPv6 values inside square brackets in URL host (RFC 3986 violation). |
+| **CVE-2025-58185** | Malicious DER payloads may allocate excessive memory, leading to memory exhaustion. |
+| **CVE-2025-58186** | Unlimited cookie parsing may result in high memory usage when many small cookies are sent. |
+| **CVE-2025-58187** | Name constraint checking scales non-linearly with certificate size → potential performance issue. |
+| **CVE-2025-58188** | DSA-based certificate validation may cause program panic due to unsafe interface casting. |
+| **CVE-2025-58189** | `Conn.Handshake` may leak attacker-controlled ALPN protocol values without escaping. |
+| **CVE-2025-61724** | `Reader.ReadResponse()` uses repeated string concatenation, leading to high CPU usage. |
+| **CVE-2025-61725** | `ParseAddress()` repeatedly concatenates domain literals, causing CPU performance impact. |
+
+---
+
+### 🧪 Suggested Code Areas to Review
+
+The **installed version is `1.25.0`**, and as per the patch advisory, it should be **upgraded to `1.25.3`** to address the issue.
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>shriacquia</strong> commented on 2025-12-29 10:26:27.000 UTC</summary>
+
+New CVEs identified:
+
+CVE ID | CVSS Severity
+-- | --
+CVE-2025-47910 | MEDIUM
+CVE-2025-47912 | HIGH
+CVE-2025-47914 | MEDIUM
+CVE-2025-58181 | MEDIUM
+CVE-2025-58183 | LOW
+CVE-2025-58185 | MEDIUM
+CVE-2025-58186 | MEDIUM
+CVE-2025-58187 | MEDIUM
+CVE-2025-58188 | HIGH
+CVE-2025-58189 | MEDIUM
+CVE-2025-61723 | MEDIUM
+CVE-2025-61724 | MEDIUM
+CVE-2025-61725 | MEDIUM
+CVE-2025-61727 | MEDIUM
+CVE-2025-61729 | MEDIUM
+
+
+
+</details>
+
+<details>
+<summary><strong>jigar-shah-acquia</strong> commented on 2026-01-08 10:50:37.000 UTC</summary>
+
+New CVEs identified:
+CVE-2025-14986
+
+</details>
+
+<details>
+<summary><strong>shriacquia</strong> commented on 2026-01-08 15:57:35.000 UTC</summary>
+
+New CVEs identified: CVE-2025-14987
 
 </details>
 
@@ -21063,7 +21395,7 @@ It would be good if debug log is opt-in instead of default. Also, it should defa
 | **URL** | https://github.com/temporalio/temporal/issues/8909 |
 | **State** | OPEN |
 | **Author** | andropler |
-| **Created** | 2025-12-29 08:19:57.000 UTC (9 days ago) |
+| **Created** | 2025-12-29 08:19:57.000 UTC (10 days ago) |
 | **Updated** | 2025-12-30 05:12:01.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -21178,214 +21510,197 @@ go.temporal.io/server/common/rpc/interceptor.(*TelemetryInterceptor).UnaryInterc
 
 ---
 
-<a id="8901"></a>
+<a id="8864"></a>
 
-### #8901: Skip Re-executing Completed Activities on Workflow Retry (Replay-on-Retry Option)
+### #8864: Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state."
 
 | Field | Value |
 |-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8901 |
+| **URL** | https://github.com/temporalio/temporal/issues/8864 |
 | **State** | OPEN |
-| **Author** | Tomlord1122 (Hsiu-Chi Liu (Tomlord)) |
-| **Created** | 2025-12-24 09:43:00.000 UTC (14 days ago) |
-| **Updated** | 2026-01-04 08:18:38.000 UTC |
+| **Author** | vy-kauppinen (Vy Kauppinen) |
+| **Created** | 2025-12-18 09:00:33.000 UTC (21 days ago) |
+| **Updated** | 2026-01-08 23:48:56.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
 | **Priority Score** | 1 |
-| **Labels** | enhancement |
+| **Labels** | potential-bug |
 | **Assignees** | None |
 | **Milestone** | None |
 
 #### Description
 
-**Is your feature request related to a problem? Please describe.**
+### Describe the bug
 
-Yes. When a Workflow fails after some Activities have completed successfully, and we want to retry the entire Workflow via Workflow-level Retry policy, Temporal re-executes all Activities from the beginning, including those that already succeeded.
+I'm trying to deploy Temporal with our persistence PostgreSQL on our cloud service. I managed to set up the databases and schema for Temporal. However, when I run the worker and set up a Temporal Schedule, the workflow fails, and the UI continues to return the error message: "Unable to query workflow due to Workflow Task in failed state." I'm not sure what's causing this issue. I tried switching to MySQL, and after some time, the issue also occurred.
 
-  This is problematic for systems with non-reversible side effects:
+#### values.postgresql.yaml
 
-1. Our Use Case: We have a workflow where: 
+```yaml
+server:
+  config:
+    persistence:
+      default:
+        driver: "sql"
 
-   - `CreateCaseActivity` successfully creates a case record in an external database 
+        sql:
+          driver: "postgres12"
+          host: MY_HOST_IP
+          port: 5432
+          database: temporal
+          user: temporal
+          password: PASSWORD
+          # for a production deployment use this instead of `password` and provision the secret beforehand e.g. with a sealed secret
+          # it has a single key called `password`
+          # existingSecret: temporal-default-store
+          maxConns: 20
+          maxIdleConns: 20
+          maxConnLifetime: "1h"
+          # tls:
+          #  enabled: true
+          #  enableHostVerification: true
+          #  serverName: _HOST_ # this is strictly required when using serverless CRDB offerings
+          #  caFile: /path/to/certs/<CA-file> # Here we assumed that caFile, certFile, keyFile are stored in one secret mounted as 'secret-with-certs' (see: server.additionalVolumes and server.additionalVolumeMounts sections).
+          #  certFile: /path/to/certs/<client-cert-file>
+          #  keyFile: /path/to/certs/<client-key-file>
 
-   - `xxxActivity` fails 3 times (Activity-level retry exhausted)
+      visibility:
+        driver: "sql"
 
-   - Workflow fails and triggers Workflow-level Retry
+        sql:
+          driver: "postgres12"
+          host: MY_HOST_IP
+          port: 5432
+          database: temporal_visibility
+          user: temporal
+          password: MY_PASSWORD
+          # for a production deployment use this instead of `password` and provision the secret beforehand e.g. with a sealed secret
+          # it has a single key called `password`
+          # existingSecret: temporal-visibility-store
+          maxConns: 20
+          maxIdleConns: 20
+          maxConnLifetime: "1h"
+          # tls:
+          #  enabled: true
+          #  enableHostVerification: true
+          #  serverName: _HOST_ # this is strictly required when using serverless CRDB offerings
+          #  caFile: /path/to/certs/<CA-file> # Here we assumed that caFile, certFile, keyFile are stored in one secret mounted as 'secret-with-certs' (see: server.additionalVolumes and server.additionalVolumeMounts sections).
+          #  certFile: /path/to/certs/<client-cert-file>
+          #  keyFile: /path/to/certs/<client-key-file>
 
-   - Problem: Workflow Retry attempts to create the same case again → duplicate/conflict errors
+  # additionalVolumes:
+  #   - name: secret-with-certs
+  #     secret:
+  #       secretName: secret-with-certs
+  # additionalVolumeMounts:
+  #   - name: secret-with-certs
+  #     mountPath: /path/to/certs/
 
-2. Why We Can't Simply Delete and Retry:
+cassandra:
+  enabled: false
 
-   - The external case record is not reversible (once created, it shouldn't be deleted)
+mysql:
+  enabled: false
 
-   - Other teams' systems query and depend on these records
+postgresql:
+  enabled: true
 
-   - Deleting records to enable retry is unreliable and error-prone
+prometheus:
+  enabled: false
 
-3. Current Workaround (unsatisfactory):
+grafana:
+  enabled: false
+  
+elasticsearch:
+  enabled: false
 
-   - Manually detect failed Workflows
+schema:
+  createDatabase:
+    enabled: true
+  setup:
+    enabled: false
+  update:
+    enabled: false
 
-   - Delete case records from external storage 
-
-   - Wait for Workflow Retry - This is dangerous, especially when other teams are actively using the same data
-
-**Describe the solution you'd like**
-
-
-Support an option in Workflow execution to replay Event History during Workflow Retry, similar to how Temporal handles Worker failover recovery:
-
-```go
-  options := client.StartWorkflowOptions{
-      ID:        "aifp-case-001",
-      TaskQueue: "aifp_queue",
-      RetryPolicy: &temporal.RetryPolicy{
-          MaximumAttempts: 10,
-          InitialInterval: 10 * time.Second,
-          // New feature: Skip completed activities on retry
-          ReplayOnRetry: true,  // 👈 Proposed flag
-      },
-  }
 ```
 
-  Behavior when ReplayOnRetry: true:
+<img width="1682" height="182" alt="Image" src="https://github.com/user-attachments/assets/9e07d378-1478-4822-8174-8e4b179b53aa" />
 
-- Workflow Retry uses the existing Event History
+####Response
 
-- Already-completed Activities are skipped (using their historical results)
+```json
+{
+  "code": 9,
+  "message": "Unable to query workflow due to Workflow Task in failed state.",
+  "details": [
+    {
+      "@type": "type.googleapis.com/temporal.api.errordetails.v1.WorkflowNotReadyFailure"
+    }
+  ]
+}
 
-- Execution resumes from the point of last failure
+```
 
-- This prevents duplicate side effects in external systems
+### Minimal Reproduction
 
+# Create and initialize database
+# in https://github.com/temporalio/temporal git repo dir
+export SQL_PLUGIN=postgres12
+export SQL_HOST=postgresql_host
+export SQL_PORT=5432
+export SQL_USER=temporal
+export SQL_PASSWORD=postgresql_password
 
+make temporal-sql-tool
 
-**Describe alternatives you've considered**
+./temporal-sql-tool --database temporal create-database
+SQL_DATABASE=temporal ./temporal-sql-tool setup-schema -v 0.0
+SQL_DATABASE=temporal ./temporal-sql-tool update -schema-dir schema/postgresql/v12/temporal/versioned
 
-1. Manual Reset via SDK (`client.ResetWorkflowExecution()`)
-
-   - Requires external monitoring and manual API calls
-
-   - Adds operational complexity
-
-   - Not suitable for automatic recovery scenarios
-
-2. Delete and Retry Pattern
-
-   - Currently, we must delete case records from external storage before retry 
-
-   - Risk: Other teams' queries may fail during deletion window
-
-   - Unreliable and dangerous in production
-
-3. `ContinueAsNew` with State Persistence
-
-   - Could save completion checkpoints and call `ContinueAsNew` on failure
-
-   - Adds significant complexity to Workflow code
-
-   - Doubles the size of Event History
-
-4. Manual Idempotency + Retry
-
-   - Make every Activity check if it's already been done before re-executin
-
-   - Requires external state tracking (defeats the purpose of Temporal)
-
-   - Adds unnecessary retry latency
-
-5. Saga Pattern with Compensation 
-
-   - We already use Saga for cleanup on failure. However, Saga compensation (deleting records) is not always safe or desired. For our use case, we'd rather skip re-execution than compensate
-
-***Additional Context***
-
-I’m new to Temporal and may be misinterpreting some aspects. Thank you for your patience. If there’s a recommended approach for this use case, I’d truly appreciate your guidance so I can handle it the right way.
-
-#### Comments (1)
-
-<details>
-<summary><strong>ziidu</strong> commented on 2026-01-04 08:18:38.000 UTC</summary>
-
-When will it be resolved?
-
-</details>
+./temporal-sql-tool --database temporal_visibility create-database
+SQL_DATABASE=temporal_visibility ./temporal-sql-tool setup-schema -v 0.0
+SQL_DATABASE=temporal_visibility ./temporal-sql-tool update -schema-dir schema/postgresql/v12/visibility/versioned
 
 
----
+# I had to grant permission for temporal user for schema for each database
+GRANT ALL ON SCHEMA public TO temporal;
+GRANT ALL ON ALL TABLES IN SCHEMA public TO temporal;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO temporal;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO temporal;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO temporal;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO temporal;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO temporal;
 
-<a id="8698"></a>
 
-### #8698: [Security] Review & Fix Multiple CVEs affecting Go standard libraries
+helm install -f ./temporal/values/values.postgresql.yaml temporal ./temporal --timeout 900s
 
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8698 |
-| **State** | OPEN |
-| **Author** | jigar-shah-acquia |
-| **Created** | 2025-11-25 12:26:43.000 UTC (1 months ago) |
-| **Updated** | 2025-12-29 10:26:27.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 1 |
-| **Priority Score** | 1 |
-| **Labels** | None |
-| **Assignees** | None |
-| **Milestone** | None |
+kubectl --namespace=default get pods -l "app.kubernetes.io/instance=temporal"
 
-#### Description
 
-## 🔐 Security Vulnerability Review – Go Standard Library CVEs
+kubectl port-forward services/temporal-frontend 7233:7233
 
-Several CVEs affecting Go standard libraries have been identified. We are requesting confirmation on whether Temporal is impacted, and if any patches or mitigations are already planned or required.
+kubectl port-forward services/temporal-web 8080:8080
 
----
+### Environment/Versions
 
-### 📌 List of CVEs
+<!-- Please complete the following information where relevant. -->
 
-| CVE ID | Description |
-|--------|-------------|
-| **CVE-2025-47912** | `Parse()` incorrectly allows non-IPv6 values inside square brackets in URL host (RFC 3986 violation). |
-| **CVE-2025-58185** | Malicious DER payloads may allocate excessive memory, leading to memory exhaustion. |
-| **CVE-2025-58186** | Unlimited cookie parsing may result in high memory usage when many small cookies are sent. |
-| **CVE-2025-58187** | Name constraint checking scales non-linearly with certificate size → potential performance issue. |
-| **CVE-2025-58188** | DSA-based certificate validation may cause program panic due to unsafe interface casting. |
-| **CVE-2025-58189** | `Conn.Handshake` may leak attacker-controlled ALPN protocol values without escaping. |
-| **CVE-2025-61724** | `Reader.ReadResponse()` uses repeated string concatenation, leading to high CPU usage. |
-| **CVE-2025-61725** | `ParseAddress()` repeatedly concatenates domain literals, causing CPU performance impact. |
+- OS and processor: Linux
+- Temporal Version: 1.29.1
+- Are you using Docker or Kubernetes or building Temporal from source? - Kubernetes
 
----
-
-### 🧪 Suggested Code Areas to Review
-
-The **installed version is `1.25.0`**, and as per the patch advisory, it should be **upgraded to `1.25.3`** to address the issue.
 
 
 #### Comments (1)
 
 <details>
-<summary><strong>shriacquia</strong> commented on 2025-12-29 10:26:27.000 UTC</summary>
+<summary><strong>gow</strong> commented on 2026-01-08 23:48:56.000 UTC</summary>
 
-New CVEs identified:
-<google-sheets-html-origin><style type="text/css"><!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--></style>
-CVE ID | CVSS Severity
--- | --
-CVE-2025-47910 | MEDIUM
-CVE-2025-47912 | HIGH
-CVE-2025-47914 | MEDIUM
-CVE-2025-58181 | MEDIUM
-CVE-2025-58183 | LOW
-CVE-2025-58185 | MEDIUM
-CVE-2025-58186 | MEDIUM
-CVE-2025-58187 | MEDIUM
-CVE-2025-58188 | HIGH
-CVE-2025-58189 | MEDIUM
-CVE-2025-61723 | MEDIUM
-CVE-2025-61724 | MEDIUM
-CVE-2025-61725 | MEDIUM
-CVE-2025-61727 | MEDIUM
-CVE-2025-61729 | MEDIUM
-
-
+Looks like there is something wrong with the temporal scheduler. 
+Could you please do the following?
+1. Query the workflow list with this query.`TemporalNamespaceDivision = "TemporalScheduler"` (make sure to switch to manual query mode in the UI). This will show internal scheduler workflows. 
+2. Once you have this please identify the internal scheduler workflow (this would contain your schedule-id). 
+3. Check its history and please report so that we can continue the debugging?
 
 </details>
 
@@ -21607,55 +21922,6 @@ Hi! I’m revisiting this after a long break - would love to hear if anyone has 
 Tagging @dnr as you’ve been active on related PRs recently.
 
 Thanks in advance!
-
-</details>
-
-
----
-
-<a id="8631"></a>
-
-### #8631: Trying to create search attribute that already exists should return error
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8631 |
-| **State** | OPEN |
-| **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2025-11-13 14:13:11.000 UTC (1 months ago) |
-| **Updated** | 2026-01-03 19:17:31.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 1 |
-| **Priority Score** | 1 |
-| **Labels** | potential-bug |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-How issue was found:
-Try adding same search attribute multiple times via cli - cli always gives "ok" response, for example try running this command multiple times:
-
-          temporal operator search-attribute create --name MyCustomSA --type Keyword
-          Search attributes have been added
-
-When adding SA server has this loop where it creates aliasToFieldMap - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L279
-
-In this loop server logs the warn message with errSearchAttributeAlreadyExistsMessage
-but because it does not add anything to map it just returns nil - https://github.com/temporalio/temporal/blob/4c2403736409e6f38972df3be4de480026a5b6fa/service/frontend/operator_handler.go#L334
-
-instead of serviceerror
-this then in turn return nil to cli as response. cli does check for already exists error, but since server returns nil, error is never shown to user.
-
-Ask is to change this code on server to return serviceError instead that tells cli/sdk/clients that they are trying to create a SA that already exists   
-
-#### Comments (1)
-
-<details>
-<summary><strong>DEVMANISHOFFL</strong> commented on 2026-01-03 19:17:31.000 UTC</summary>
-
-Hiii, I m interested in contributing to the project and this looks like a good starting point..... Is this issue still available to be picked up??
-If so, I woudl love to work on it.
 
 </details>
 
@@ -23236,7 +23502,7 @@ I suggest if the server codes can be improved to use the same grpc "MaxRecvMsgSi
 | **URL** | https://github.com/temporalio/temporal/issues/6647 |
 | **State** | OPEN |
 | **Author** | yiminc (Yimin Chen) |
-| **Created** | 2024-10-11 00:21:12.000 UTC (1y 2m ago) |
+| **Created** | 2024-10-11 00:21:12.000 UTC (1y 3m ago) |
 | **Updated** | 2024-11-09 03:39:19.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -25609,7 +25875,7 @@ The issue can be fixed, using go mod tidy -compat=1.17 , but this is undesirable
 | **URL** | https://github.com/temporalio/temporal/issues/2283 |
 | **State** | OPEN |
 | **Author** | underrun (J Derek Wilson) |
-| **Created** | 2021-12-10 15:00:56.000 UTC (4 years ago) |
+| **Created** | 2021-12-10 15:00:56.000 UTC (4y 1m ago) |
 | **Updated** | 2023-03-03 20:21:11.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -26413,7 +26679,7 @@ Docker Configuration link: https://docs.docker.com/config/containers/logging/con
 | **URL** | https://github.com/temporalio/temporal/issues/13 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2019-11-12 04:09:32.000 UTC (6y 1m ago) |
+| **Created** | 2019-11-12 04:09:32.000 UTC (6y 2m ago) |
 | **Updated** | 2023-03-03 20:23:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -26453,6 +26719,97 @@ The second option in this proposal is interesting, which is to change heartbeat 
 
 ---
 
+<a id="8970"></a>
+
+### #8970: Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory`
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8970 |
+| **State** | OPEN |
+| **Author** | stephanos (Stephan Behnke) |
+| **Created** | 2026-01-08 16:55:42.000 UTC (0 days ago) |
+| **Updated** | 2026-01-08 16:57:38.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | stephanos |
+| **Milestone** | None |
+
+#### Description
+
+Client-set RPC timeouts/deadlines are ignored by the server for long poll `GetWorkflowExecutionHistory` calls starting in v1.29.0. The server waits the full long poll interval (~20s) instead of respecting the client's deadline.
+
+
+
+---
+
+<a id="8968"></a>
+
+### #8968: Same fairness key but different fairness weight?
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8968 |
+| **State** | OPEN |
+| **Author** | wencaiwulue (naison) |
+| **Created** | 2026-01-08 09:11:12.000 UTC (0 days ago) |
+| **Updated** | 2026-01-08 09:11:36.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+As the code shows, feature fairness works on workflow level. if two workflow with same fairness key but different fairness weight, which weight will use? 
+
+`    priority=Priority(priority_key=1, fairness_key=band.key, fairness_weight=band.weight),
+`
+
+```python
+await client.start_workflow(
+    FairnessWorkflow.run,
+    input_params,
+    id=f"{wf_config.workflowIdPrefix}-{workflow_num}",
+    task_queue=FAIRNESS_WORKFLOW_QUEUE,
+    start_delay=get_start_delay(start_time),
+    search_attributes=typed_search_attribs,
+    priority=Priority(priority_key=1, fairness_key=band.key, fairness_weight=band.weight),
+)
+```
+
+
+---
+
+<a id="8967"></a>
+
+### #8967: 1.30.0 release version
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/temporal/issues/8967 |
+| **State** | OPEN |
+| **Author** | daravindth |
+| **Created** | 2026-01-08 06:55:18.000 UTC (0 days ago) |
+| **Updated** | 2026-01-08 06:55:18.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+When can I expect 1.30.0 to be released?
+
+
+---
+
 <a id="8955"></a>
 
 ### #8955: MCP Server for Temporal Workflows
@@ -26462,7 +26819,7 @@ The second option in this proposal is interesting, which is to change heartbeat 
 | **URL** | https://github.com/temporalio/temporal/issues/8955 |
 | **State** | OPEN |
 | **Author** | PurpleSquirrelMedia (Purple Squirrel Media) |
-| **Created** | 2026-01-07 20:38:16.000 UTC (0 days ago) |
+| **Created** | 2026-01-07 20:38:16.000 UTC (1 days ago) |
 | **Updated** | 2026-01-07 20:38:16.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26497,7 +26854,7 @@ https://github.com/PurpleSquirrelMedia
 | **URL** | https://github.com/temporalio/temporal/issues/8953 |
 | **State** | CLOSED |
 | **Author** | HeartLF |
-| **Created** | 2026-01-07 06:47:35.000 UTC (0 days ago) |
+| **Created** | 2026-01-07 06:47:35.000 UTC (1 days ago) |
 | **Updated** | 2026-01-07 07:14:35.000 UTC |
 | **Closed** | 2026-01-07 07:14:35.000 UTC |
 | **Upvotes** | 0 |
@@ -26525,7 +26882,7 @@ I created a schedule and executed it immediately, setting it to run every 28 day
 | **URL** | https://github.com/temporalio/temporal/issues/8943 |
 | **State** | OPEN |
 | **Author** | jmcnevin (Jeremy McNevin) |
-| **Created** | 2026-01-06 16:44:10.000 UTC (1 days ago) |
+| **Created** | 2026-01-06 16:44:10.000 UTC (2 days ago) |
 | **Updated** | 2026-01-06 16:44:10.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26562,7 +26919,7 @@ There should be an admin-tools image tagged as 1.29.2 (with or without a suffix)
 | **URL** | https://github.com/temporalio/temporal/issues/8902 |
 | **State** | OPEN |
 | **Author** | hafiz-qasim (Hafiz Qasim) |
-| **Created** | 2025-12-24 10:03:38.000 UTC (14 days ago) |
+| **Created** | 2025-12-24 10:03:38.000 UTC (15 days ago) |
 | **Updated** | 2025-12-24 10:05:25.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26628,7 +26985,7 @@ Thanks in advance!
 | **URL** | https://github.com/temporalio/temporal/issues/8889 |
 | **State** | OPEN |
 | **Author** | RomirJ |
-| **Created** | 2025-12-20 08:03:21.000 UTC (18 days ago) |
+| **Created** | 2025-12-20 08:03:21.000 UTC (19 days ago) |
 | **Updated** | 2025-12-20 08:03:21.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26671,7 +27028,7 @@ I’d love to offer a two-week trial of Hikaflow on Temporal to see if these fea
 | **URL** | https://github.com/temporalio/temporal/issues/8866 |
 | **State** | OPEN |
 | **Author** | roshchha (Roshni Chhabria) |
-| **Created** | 2025-12-18 12:17:09.000 UTC (20 days ago) |
+| **Created** | 2025-12-18 12:17:09.000 UTC (21 days ago) |
 | **Updated** | 2025-12-18 12:17:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26696,7 +27053,7 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61729](https://nvd.ni
 | **URL** | https://github.com/temporalio/temporal/issues/8865 |
 | **State** | OPEN |
 | **Author** | roshchha (Roshni Chhabria) |
-| **Created** | 2025-12-18 12:15:27.000 UTC (20 days ago) |
+| **Created** | 2025-12-18 12:15:27.000 UTC (21 days ago) |
 | **Updated** | 2025-12-18 12:15:27.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -26712,190 +27069,6 @@ We see that golang:crypto/x509 has vulnerability [CVE-2025-61727](https://nvd.ni
 
 ---
 
-<a id="8864"></a>
-
-### #8864: Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state."
-
-| Field | Value |
-|-------|-------|
-| **URL** | https://github.com/temporalio/temporal/issues/8864 |
-| **State** | OPEN |
-| **Author** | vy-kauppinen (Vy Kauppinen) |
-| **Created** | 2025-12-18 09:00:33.000 UTC (20 days ago) |
-| **Updated** | 2025-12-18 09:00:33.000 UTC |
-| **Upvotes** | 0 |
-| **Comments** | 0 |
-| **Priority Score** | 0 |
-| **Labels** | potential-bug |
-| **Assignees** | None |
-| **Milestone** | None |
-
-#### Description
-
-### Describe the bug
-
-I'm trying to deploy Temporal with our persistence PostgreSQL on our cloud service. I managed to set up the databases and schema for Temporal. However, when I run the worker and set up a Temporal Schedule, the workflow fails, and the UI continues to return the error message: "Unable to query workflow due to Workflow Task in failed state." I'm not sure what's causing this issue. I tried switching to MySQL, and after some time, the issue also occurred.
-
-#### values.postgresql.yaml
-
-```yaml
-server:
-  config:
-    persistence:
-      default:
-        driver: "sql"
-
-        sql:
-          driver: "postgres12"
-          host: MY_HOST_IP
-          port: 5432
-          database: temporal
-          user: temporal
-          password: PASSWORD
-          # for a production deployment use this instead of `password` and provision the secret beforehand e.g. with a sealed secret
-          # it has a single key called `password`
-          # existingSecret: temporal-default-store
-          maxConns: 20
-          maxIdleConns: 20
-          maxConnLifetime: "1h"
-          # tls:
-          #  enabled: true
-          #  enableHostVerification: true
-          #  serverName: _HOST_ # this is strictly required when using serverless CRDB offerings
-          #  caFile: /path/to/certs/<CA-file> # Here we assumed that caFile, certFile, keyFile are stored in one secret mounted as 'secret-with-certs' (see: server.additionalVolumes and server.additionalVolumeMounts sections).
-          #  certFile: /path/to/certs/<client-cert-file>
-          #  keyFile: /path/to/certs/<client-key-file>
-
-      visibility:
-        driver: "sql"
-
-        sql:
-          driver: "postgres12"
-          host: MY_HOST_IP
-          port: 5432
-          database: temporal_visibility
-          user: temporal
-          password: MY_PASSWORD
-          # for a production deployment use this instead of `password` and provision the secret beforehand e.g. with a sealed secret
-          # it has a single key called `password`
-          # existingSecret: temporal-visibility-store
-          maxConns: 20
-          maxIdleConns: 20
-          maxConnLifetime: "1h"
-          # tls:
-          #  enabled: true
-          #  enableHostVerification: true
-          #  serverName: _HOST_ # this is strictly required when using serverless CRDB offerings
-          #  caFile: /path/to/certs/<CA-file> # Here we assumed that caFile, certFile, keyFile are stored in one secret mounted as 'secret-with-certs' (see: server.additionalVolumes and server.additionalVolumeMounts sections).
-          #  certFile: /path/to/certs/<client-cert-file>
-          #  keyFile: /path/to/certs/<client-key-file>
-
-  # additionalVolumes:
-  #   - name: secret-with-certs
-  #     secret:
-  #       secretName: secret-with-certs
-  # additionalVolumeMounts:
-  #   - name: secret-with-certs
-  #     mountPath: /path/to/certs/
-
-cassandra:
-  enabled: false
-
-mysql:
-  enabled: false
-
-postgresql:
-  enabled: true
-
-prometheus:
-  enabled: false
-
-grafana:
-  enabled: false
-  
-elasticsearch:
-  enabled: false
-
-schema:
-  createDatabase:
-    enabled: true
-  setup:
-    enabled: false
-  update:
-    enabled: false
-
-```
-
-<img width="1682" height="182" alt="Image" src="https://github.com/user-attachments/assets/9e07d378-1478-4822-8174-8e4b179b53aa" />
-
-####Response
-
-```json
-{
-  "code": 9,
-  "message": "Unable to query workflow due to Workflow Task in failed state.",
-  "details": [
-    {
-      "@type": "type.googleapis.com/temporal.api.errordetails.v1.WorkflowNotReadyFailure"
-    }
-  ]
-}
-
-```
-
-### Minimal Reproduction
-
-# Create and initialize database
-# in https://github.com/temporalio/temporal git repo dir
-export SQL_PLUGIN=postgres12
-export SQL_HOST=postgresql_host
-export SQL_PORT=5432
-export SQL_USER=temporal
-export SQL_PASSWORD=postgresql_password
-
-make temporal-sql-tool
-
-./temporal-sql-tool --database temporal create-database
-SQL_DATABASE=temporal ./temporal-sql-tool setup-schema -v 0.0
-SQL_DATABASE=temporal ./temporal-sql-tool update -schema-dir schema/postgresql/v12/temporal/versioned
-
-./temporal-sql-tool --database temporal_visibility create-database
-SQL_DATABASE=temporal_visibility ./temporal-sql-tool setup-schema -v 0.0
-SQL_DATABASE=temporal_visibility ./temporal-sql-tool update -schema-dir schema/postgresql/v12/visibility/versioned
-
-
-# I had to grant permission for temporal user for schema for each database
-GRANT ALL ON SCHEMA public TO temporal;
-GRANT ALL ON ALL TABLES IN SCHEMA public TO temporal;
-GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO temporal;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO temporal;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO temporal;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO temporal;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO temporal;
-
-
-helm install -f ./temporal/values/values.postgresql.yaml temporal ./temporal --timeout 900s
-
-kubectl --namespace=default get pods -l "app.kubernetes.io/instance=temporal"
-
-
-kubectl port-forward services/temporal-frontend 7233:7233
-
-kubectl port-forward services/temporal-web 8080:8080
-
-### Environment/Versions
-
-<!-- Please complete the following information where relevant. -->
-
-- OS and processor: Linux
-- Temporal Version: 1.29.1
-- Are you using Docker or Kubernetes or building Temporal from source? - Kubernetes
-
-
-
-
----
-
 <a id="8790"></a>
 
 ### #8790: history_node table keeps growing
@@ -26905,7 +27078,7 @@ kubectl port-forward services/temporal-web 8080:8080
 | **URL** | https://github.com/temporalio/temporal/issues/8790 |
 | **State** | OPEN |
 | **Author** | xtyinbiao (尹彪) |
-| **Created** | 2025-12-10 10:43:07.000 UTC (28 days ago) |
+| **Created** | 2025-12-10 10:43:07.000 UTC (29 days ago) |
 | **Updated** | 2025-12-10 10:48:37.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -27692,7 +27865,7 @@ I think this would be simple to implement and be a very nice feature
 | **URL** | https://github.com/temporalio/temporal/issues/6961 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2024-12-09 20:16:45.000 UTC (1 years ago) |
+| **Created** | 2024-12-09 20:16:45.000 UTC (1y 1m ago) |
 | **Updated** | 2024-12-09 20:16:46.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -30379,7 +30552,7 @@ Error Details: rpc error: code = Unavailable desc = connection error: desc = "tr
 | **URL** | https://github.com/temporalio/temporal/issues/5298 |
 | **State** | OPEN |
 | **Author** | MysticalMount (MysticalMount) |
-| **Created** | 2024-01-14 10:03:09.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-14 10:03:09.000 UTC (1y 12m ago) |
 | **Updated** | 2024-01-14 10:03:09.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -30724,7 +30897,7 @@ As it is now, buffered executions appears neither in `info.futureActionTimes`, `
 | **URL** | https://github.com/temporalio/temporal/issues/4958 |
 | **State** | OPEN |
 | **Author** | yux0 (Yu Xia) |
-| **Created** | 2023-10-11 17:50:12.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-11 17:50:12.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-11 17:50:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -30760,7 +30933,7 @@ PollMutableState contains a token which may include the version history item dat
 | **URL** | https://github.com/temporalio/temporal/issues/4957 |
 | **State** | OPEN |
 | **Author** | yux0 (Yu Xia) |
-| **Created** | 2023-10-11 16:15:13.000 UTC (2y 2m ago) |
+| **Created** | 2023-10-11 16:15:13.000 UTC (2y 3m ago) |
 | **Updated** | 2023-10-13 21:48:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -31075,7 +31248,7 @@ Originally discussed in this Temporal [Slack thread 🧵](https://temporalio.sla
 | **URL** | https://github.com/temporalio/temporal/issues/4171 |
 | **State** | OPEN |
 | **Author** | tsurdilo (Tihomir Surdilovic) |
-| **Created** | 2023-04-14 21:03:08.000 UTC (2y 8m ago) |
+| **Created** | 2023-04-14 21:03:08.000 UTC (2y 9m ago) |
 | **Updated** | 2023-04-14 21:03:08.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -32270,7 +32443,7 @@ Allow a flag to terminate the child workflow execution allowing reset command to
 | **URL** | https://github.com/temporalio/temporal/issues/3223 |
 | **State** | OPEN |
 | **Author** | aybabtme (Antoine Grondin) |
-| **Created** | 2022-08-12 19:20:24.000 UTC (3y 4m ago) |
+| **Created** | 2022-08-12 19:20:24.000 UTC (3y 5m ago) |
 | **Updated** | 2023-03-03 20:18:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -32879,7 +33052,7 @@ Add any other context or screenshots about the feature request here.
 | **URL** | https://github.com/temporalio/temporal/issues/2991 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2022-06-14 00:51:08.000 UTC (3y 6m ago) |
+| **Created** | 2022-06-14 00:51:08.000 UTC (3y 7m ago) |
 | **Updated** | 2023-03-03 20:19:31.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -33045,7 +33218,7 @@ Add support for push model in dynamic config so that a listener can be registere
 | **URL** | https://github.com/temporalio/temporal/issues/2849 |
 | **State** | OPEN |
 | **Author** | yiminc (Yimin Chen) |
-| **Created** | 2022-05-14 03:19:38.000 UTC (3y 7m ago) |
+| **Created** | 2022-05-14 03:19:38.000 UTC (3y 8m ago) |
 | **Updated** | 2023-03-03 20:20:11.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |

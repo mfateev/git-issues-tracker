@@ -1,9 +1,9 @@
 # temporalio/sdk-go - Complete Issue Dump
 
-**Generated:** 2026-01-07
-**Total Issues:** 164
+**Generated:** 2026-01-09
+**Total Issues:** 165
 **Total Upvotes:** 112
-**Total Comments:** 214
+**Total Comments:** 215
 
 ## Table of Contents
 
@@ -16,10 +16,10 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 164 |
+| Open Issues | 165 |
 | Issues with Upvotes | 41 (25%) |
 | Total Upvotes | 112 |
-| Total Comments | 214 |
+| Total Comments | 215 |
 
 ## Top Labels
 
@@ -27,7 +27,7 @@
 |-------|-------|
 | enhancement | 89 |
 | potential-bug | 45 |
-| bug | 16 |
+| bug | 17 |
 | external dependency | 5 |
 | next-gen | 1 |
 | Mend: dependency security vulnerability | 1 |
@@ -111,6 +111,7 @@
 | [#266](#266) | 1 | 0 | Expose activity start and completion information to the workflow code |
 | [#101](#101) | 1 | 0 | Add ability to pass Channel as a parameter to Child workflow and activity |
 | [#35](#35) | 1 | 0 | Add ability to pass configuration to a workflow |
+| [#2141](#2141) | 0 | 1 | Activity Alias Collision in Test Environment When Using Anonymous Functions |
 | [#2098](#2098) | 0 | 1 | Update ChildWorkflowOptions comment to indicate the default WorkflowIDReusePolicy and WorkflowIdConflictPolicy |
 | [#2039](#2039) | 0 | 1 | Joining errors causes TestWorkflowEnvironment to hide panics and pass test |
 | [#1705](#1705) | 0 | 1 | User-defined RequestId for SignalWorkflow |
@@ -749,7 +750,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-go/issues/1352 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-01-14 05:21:21.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-14 05:21:21.000 UTC (1y 12m ago) |
 | **Updated** | 2025-10-14 20:56:37.000 UTC |
 | **Upvotes** | 4 |
 | **Comments** | 6 |
@@ -2487,7 +2488,7 @@ A small note, from your second call to `MutableSideEffect`, you are putting the 
 | **URL** | https://github.com/temporalio/sdk-go/issues/1351 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-01-14 01:14:54.000 UTC (1y 11m ago) |
+| **Created** | 2024-01-14 01:14:54.000 UTC (1y 12m ago) |
 | **Updated** | 2024-01-16 15:28:06.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 3 |
@@ -3852,7 +3853,7 @@ If you are using a selector for receiving signals, the best way is to continuall
 | **URL** | https://github.com/temporalio/sdk-go/issues/444 |
 | **State** | OPEN |
 | **Author** | mastermanu |
-| **Created** | 2021-05-14 19:44:53.000 UTC (4y 7m ago) |
+| **Created** | 2021-05-14 19:44:53.000 UTC (4y 8m ago) |
 | **Updated** | 2025-04-09 12:26:14.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 4 |
@@ -5100,7 +5101,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/sdk-go/issues/1037 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2023-02-13 16:21:14.000 UTC (2y 10m ago) |
+| **Created** | 2023-02-13 16:21:14.000 UTC (2y 11m ago) |
 | **Updated** | 2023-02-13 17:02:57.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 3 |
@@ -6879,7 +6880,7 @@ The similar approach should work for child workflows as well.
 | **URL** | https://github.com/temporalio/sdk-go/issues/35 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-02-15 02:50:12.000 UTC (5y 10m ago) |
+| **Created** | 2020-02-15 02:50:12.000 UTC (5y 11m ago) |
 | **Updated** | 2020-11-23 23:39:13.000 UTC |
 | **Upvotes** | 1 |
 | **Comments** | 0 |
@@ -6900,6 +6901,344 @@ err := workflow.GetConfiguration(&config)
 ```
 The GetConfiguration should either use `SideEffect`, `MutableSideEffect` or local activity to ensure that configuration changes never break determinism.
 
+
+
+---
+
+<a id="2141"></a>
+
+### #2141: Activity Alias Collision in Test Environment When Using Anonymous Functions
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/sdk-go/issues/2141 |
+| **State** | OPEN |
+| **Author** | autocracy (Jeff Ferland) |
+| **Created** | 2026-01-08 02:07:59.000 UTC (1 days ago) |
+| **Updated** | 2026-01-08 21:08:03.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Summary
+
+The test environment's activity alias registry uses short function names (e.g., `func1`) as keys, which causes collisions when multiple packages register activities using anonymous functions. This results in local activities being incorrectly routed to unrelated registered activity mocks, causing panics due to signature mismatches.
+
+## Affected Version
+
+- `go.temporal.io/sdk` v1.38.0 (and likely earlier versions)
+
+## Reproduction
+
+### Minimal Test Case Demonstrating the Bug
+
+```go
+package alias_collision_test
+
+import (
+	"context"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/suite"
+	"go.temporal.io/sdk/activity"
+	"go.temporal.io/sdk/testsuite"
+	"go.temporal.io/sdk/workflow"
+)
+
+type AliasCollisionSuite struct {
+	suite.Suite
+	testsuite.WorkflowTestSuite
+}
+
+func TestAliasCollisionSuite(t *testing.T) {
+	suite.Run(t, new(AliasCollisionSuite))
+}
+
+// SomeActivityRequest is a request type for a registered activity
+type SomeActivityRequest struct {
+	Value string
+}
+
+// SomeActivityResponse is a response type for a registered activity
+type SomeActivityResponse struct {
+	Result string
+}
+
+// TestAliasCollision_Fails demonstrates the bug where anonymous functions
+// with the same short name collide in the activity alias registry.
+func (s *AliasCollisionSuite) TestAliasCollision_Fails() {
+	env := s.NewTestWorkflowEnvironment()
+
+	// Register an activity using an anonymous function.
+	// This anonymous function gets a short name like "func1" in the registry.
+	env.RegisterActivityWithOptions(
+		func(ctx context.Context, req *SomeActivityRequest) (*SomeActivityResponse, error) {
+			return &SomeActivityResponse{Result: "from registered activity"}, nil
+		},
+		activity.RegisterOptions{Name: "SomeActivity"},
+	)
+
+	// This workflow executes a LOCAL activity using an INLINE anonymous function.
+	// The inline function also gets a short name like "func1".
+	// Due to the collision, the test environment incorrectly tries to call
+	// the registered "SomeActivity" with the wrong arguments.
+	testWorkflow := func(ctx workflow.Context) (string, error) {
+		lao := workflow.LocalActivityOptions{
+			ScheduleToCloseTimeout: 10 * time.Second,
+		}
+		ctx = workflow.WithLocalActivityOptions(ctx, lao)
+
+		var result string
+		// This inline anonymous function takes only context and returns (string, error)
+		// but the registry thinks it should call SomeActivity which takes
+		// (context.Context, *SomeActivityRequest) -> (*SomeActivityResponse, error)
+		err := workflow.ExecuteLocalActivity(ctx, func(ctx context.Context) (string, error) {
+			return "from inline local activity", nil
+		}).Get(ctx, &result)
+
+		return result, err
+	}
+
+	env.ExecuteWorkflow(testWorkflow)
+
+	require.True(s.T(), env.IsWorkflowCompleted())
+	require.NoError(s.T(), env.GetWorkflowError())
+
+	var result string
+	require.NoError(s.T(), env.GetWorkflowResult(&result))
+	require.Equal(s.T(), "from inline local activity", result)
+}
+
+// TestAliasCollision_Workaround demonstrates the workaround: use named functions
+// instead of anonymous functions when registering activities.
+func (s *AliasCollisionSuite) TestAliasCollision_Workaround() {
+	env := s.NewTestWorkflowEnvironment()
+
+	// WORKAROUND: Use a named function instead of an anonymous function.
+	// Named functions have unique full names that won't collide.
+	env.RegisterActivityWithOptions(
+		namedActivityMock, // This gets a unique name like "alias_collision_test.namedActivityMock"
+		activity.RegisterOptions{Name: "SomeActivity"},
+	)
+
+	testWorkflow := func(ctx workflow.Context) (string, error) {
+		lao := workflow.LocalActivityOptions{
+			ScheduleToCloseTimeout: 10 * time.Second,
+		}
+		ctx = workflow.WithLocalActivityOptions(ctx, lao)
+
+		var result string
+		err := workflow.ExecuteLocalActivity(ctx, func(ctx context.Context) (string, error) {
+			return "from inline local activity", nil
+		}).Get(ctx, &result)
+
+		return result, err
+	}
+
+	env.ExecuteWorkflow(testWorkflow)
+
+	require.True(s.T(), env.IsWorkflowCompleted())
+	require.NoError(s.T(), env.GetWorkflowError())
+
+	var result string
+	require.NoError(s.T(), env.GetWorkflowResult(&result))
+	require.Equal(s.T(), "from inline local activity", result)
+}
+
+// namedActivityMock is a named function used as a workaround for the alias collision bug.
+func namedActivityMock(ctx context.Context, req *SomeActivityRequest) (*SomeActivityResponse, error) {
+	return &SomeActivityResponse{Result: "from registered activity"}, nil
+}
+```
+
+### Expected Behavior
+
+Both tests should pass. The inline local activity function should execute independently of the registered activity mock, as they are completely separate functions with different purposes.
+
+### Actual Behavior
+
+`TestAliasCollision_Fails` panics with:
+```
+reflect: Call with too few input arguments
+```
+
+The test environment incorrectly routes the inline local activity to the registered "SomeActivity" mock because both anonymous functions have the same short name (`func1`).
+
+## Root Cause Analysis
+
+### 1. Short function names used as alias keys
+
+In `internal/internal_worker.go`, the `getFunctionName` function returns only the short name:
+
+```go
+func getFunctionName(i interface{}) (name string, isMethod bool) {
+    fullName := runtime.FuncForPC(reflect.ValueOf(i).Pointer()).Name()
+    elements := strings.Split(fullName, ".")
+    shortName := elements[len(elements)-1]  // Returns "func1", "func2", etc.
+    return strings.TrimSuffix(shortName, "-fm"), isMethod
+}
+```
+
+### 2. Alias stored using short name
+
+In `internal/internal_worker.go` line ~730:
+```go
+if len(alias) > 0 && r.activityAliasMap != nil {
+    r.activityAliasMap[fnName] = alias  // fnName is "func1"
+}
+```
+
+### 3. Test environment looks up alias for local activities
+
+In `internal/internal_workflow_testsuite.go` line ~1559:
+```go
+func (env *testWorkflowEnvironmentImpl) ExecuteLocalActivity(...) {
+    ae := &activityExecutor{name: getActivityFunctionName(env.registry, params.ActivityFn), fn: params.ActivityFn}
+    if at, _ := getValidatedActivityFunction(params.ActivityFn, params.InputArgs, env.registry); at != nil {
+        // This finds the wrong alias because both functions have short name "func1"
+        ae.name = at.Name
+    }
+    // ...
+}
+```
+
+### 4. Mock lookup uses the wrong name
+
+In `internal/internal_workflow_testsuite.go` line ~1817:
+```go
+m := &mockWrapper{env: a.env, name: a.name, fn: a.fn, isWorkflow: false}
+if mockRet := m.getActivityMockReturnWithActualArgs(ctx, inputArgs); mockRet != nil {
+    // Finds the mock for "SomeActivity" when it shouldn't
+}
+```
+
+## Proposed Fix
+
+### Option 1: Use full function name as alias key (Recommended)
+
+Change the alias map to use full function names instead of short names:
+
+```go
+func (r *registry) RegisterActivityWithOptions(a interface{}, options RegisterActivityOptions) {
+    // ... existing code ...
+    
+    // Use full function name as alias key
+    fullName := runtime.FuncForPC(reflect.ValueOf(af).Pointer()).Name()
+    
+    if len(alias) > 0 && r.activityAliasMap != nil {
+        r.activityAliasMap[fullName] = alias
+    }
+}
+
+func (r *registry) getActivityAlias(fnName string) (string, bool) {
+    // fnName should also be the full function name
+    alias, ok := r.activityAliasMap[fnName]
+    return alias, ok
+}
+```
+
+This requires updating all callers of `getActivityAlias` to pass the full function name.
+
+### Option 2: Skip alias lookup for anonymous functions in test environment
+
+In `ExecuteLocalActivity`, detect anonymous functions and skip the alias lookup:
+
+```go
+func (env *testWorkflowEnvironmentImpl) ExecuteLocalActivity(...) {
+    ae := &activityExecutor{name: getActivityFunctionName(env.registry, params.ActivityFn), fn: params.ActivityFn}
+    
+    // Only look up alias if this is not an anonymous function
+    fullName := runtime.FuncForPC(reflect.ValueOf(params.ActivityFn).Pointer()).Name()
+    if !isAnonymousFunction(fullName) {
+        if at, _ := getValidatedActivityFunction(params.ActivityFn, params.InputArgs, env.registry); at != nil {
+            ae.name = at.Name
+        }
+    }
+    // ...
+}
+
+func isAnonymousFunction(fullName string) bool {
+    // Anonymous functions have names ending in ".funcN" where N is a number
+    parts := strings.Split(fullName, ".")
+    if len(parts) == 0 {
+        return false
+    }
+    lastPart := parts[len(parts)-1]
+    return strings.HasPrefix(lastPart, "func") && len(lastPart) > 4
+}
+```
+
+## Real-World Impact
+
+This bug affects users of [protoc-gen-go-temporal](https://github.com/cludden/protoc-gen-go-temporal), which generates code that uses anonymous functions for expression evaluation in workflow ID generation:
+
+```go
+// Generated code in lifecycle_temporal.pb.go
+func (o *ServerDrainChildOptions) Build(ctx workflow.Context, req protoreflect.Message) (workflow.ChildWorkflowOptions, error) {
+    // ...
+    if err := workflow.ExecuteLocalActivity(ctx, func(ctx context.Context) (string, error) {
+        id, err := expression.EvalExpression(ServerDrainIdexpression, req)
+        // ...
+    }).Get(ctx, &opts.WorkflowID); err != nil {
+        // ...
+    }
+    // ...
+}
+```
+
+When users register activities with anonymous functions in their tests, these collide with the generated expression evaluation functions.
+
+## Workaround
+
+Until this is fixed, users should use **named functions** instead of anonymous functions when calling `RegisterActivityWithOptions` or generated `Register*Activity` functions:
+
+```go
+// Instead of this (FAILS):
+env.RegisterActivityWithOptions(
+    func(ctx context.Context, req *MyRequest) (*MyResponse, error) {
+        return &MyResponse{}, nil
+    },
+    activity.RegisterOptions{Name: "MyActivity"},
+)
+
+// Do this (WORKS):
+func myActivityMock(ctx context.Context, req *MyRequest) (*MyResponse, error) {
+    return &MyResponse{}, nil
+}
+
+env.RegisterActivityWithOptions(myActivityMock, activity.RegisterOptions{Name: "MyActivity"})
+```
+
+## Environment
+
+- Go version: 1.25.5
+- OS: macOS (also affects Linux)
+- Temporal SDK version: v1.38.0
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>yuandrew</strong> commented on 2026-01-08 21:08:03.000 UTC</summary>
+
+Thanks for the issue and thorough write-up!
+
+We strongly discourage usage of anonymous functions for local activities, see the following line in the doc comment for [ExecuteLocalActivity](https://pkg.go.dev/go.temporal.io/sdk/workflow#ExecuteLocalActivity)
+
+> WARNING: Technically, an anonymous function can be used as a local activity, but this is not recommended as their name is generated by the Go runtime and is not deterministic. This is only allowed for backward compatibility.
+
+Changing alias lookup would be very difficult to do in a non-breaking way with old histories, so that is not something we want to do at the moment.
+
+We hope to eventually flag this in the WorkflowCheck tool as non-deterministic, https://github.com/temporalio/sdk-go/issues/1341. 
+
+</details>
 
 
 ---
@@ -8199,7 +8538,7 @@ This may be fixed by #779, but we will have to test after that is merged.
 | **URL** | https://github.com/temporalio/sdk-go/issues/698 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2022-01-15 02:13:13.000 UTC (3y 11m ago) |
+| **Created** | 2022-01-15 02:13:13.000 UTC (3y 12m ago) |
 | **Updated** | 2022-01-15 02:49:53.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -8314,7 +8653,7 @@ Ported from: Uber Cadence GO: Issue 616
 | **URL** | https://github.com/temporalio/sdk-go/issues/2140 |
 | **State** | OPEN |
 | **Author** | LaurynasKatkus |
-| **Created** | 2026-01-07 12:26:43.000 UTC (0 days ago) |
+| **Created** | 2026-01-07 12:26:43.000 UTC (1 days ago) |
 | **Updated** | 2026-01-07 12:26:43.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -8754,7 +9093,7 @@ Darwin Xinyis-Laptop.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54
 | **URL** | https://github.com/temporalio/sdk-go/issues/1869 |
 | **State** | OPEN |
 | **Author** | nicovak (Kovacs Nicolas) |
-| **Created** | 2025-03-14 13:07:24.000 UTC (9 months ago) |
+| **Created** | 2025-03-14 13:07:24.000 UTC (10 months ago) |
 | **Updated** | 2025-03-14 13:07:51.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9363,7 +9702,7 @@ The test env is consistent with the behavior of other SDKs, but it's likely too 
 | **URL** | https://github.com/temporalio/sdk-go/issues/1469 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-05-13 22:30:30.000 UTC (1y 7m ago) |
+| **Created** | 2024-05-13 22:30:30.000 UTC (1y 8m ago) |
 | **Updated** | 2025-02-04 18:24:24.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -9562,8 +9901,8 @@ https://github.com/temporalio/sdk-go/blob/5ca9a4dfd4c37a56f0dd886596494be4599f01
 | **URL** | https://github.com/temporalio/sdk-go/issues/1341 |
 | **State** | OPEN |
 | **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
-| **Created** | 2024-01-09 18:33:24.000 UTC (1y 12m ago) |
-| **Updated** | 2025-03-18 15:47:07.000 UTC |
+| **Created** | 2024-01-09 18:33:24.000 UTC (2 years ago) |
+| **Updated** | 2026-01-08 20:54:20.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
 | **Priority Score** | 0 |
@@ -9574,10 +9913,10 @@ https://github.com/temporalio/sdk-go/blob/5ca9a4dfd4c37a56f0dd886596494be4599f01
 #### Description
 
 ## Expected Behavior
-WorkflowChecker should consider anonymous functions in local activities deterministic.
+WorkflowChecker should consider anonymous functions in local activities non deterministic.
 
 ## Actual Behavior
-WorkflowChecker does not consider anonymous functions in local activities deterministic.
+WorkflowChecker does not consider anonymous functions in local activities non deterministic.
 
 ## Steps to Reproduce the Problem
 
@@ -10705,7 +11044,7 @@ Glancing at the code, these may not be removed properly
 | **URL** | https://github.com/temporalio/sdk-go/issues/755 |
 | **State** | OPEN |
 | **Author** | yycptt (Yichao Yang) |
-| **Created** | 2022-03-16 01:29:07.000 UTC (3y 9m ago) |
+| **Created** | 2022-03-16 01:29:07.000 UTC (3y 10m ago) |
 | **Updated** | 2022-03-16 01:29:07.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
