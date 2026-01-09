@@ -1,5 +1,7 @@
 #!/bin/bash
-# Incrementally update issues for a repository (only changed since last sync)
+# Incrementally update issues for a repository
+# - Downloads issues updated since last sync (both open and closed)
+# - Downloads missing issues that exist on GitHub but not locally
 # Usage: ./update-issues.sh <owner/repo> or ./update-issues.sh <repo-dir-name>
 # Example: ./update-issues.sh temporalio/sdk-java
 
@@ -46,26 +48,61 @@ echo "Repository: $REPO"
 echo "Last sync: $LAST_SYNC"
 echo ""
 
+# Get ALL issues from GitHub (both open and closed)
+echo "Fetching full issue list from GitHub..."
+ALL_REMOTE_ISSUES=$(gh issue list --repo "$REPO" --state all --limit 5000 --json number,updatedAt --jq '.[].number' | sort -n)
+
+# Get issues we already have locally
+LOCAL_ISSUES=$(ls "$OUTPUT_DIR" 2>/dev/null | grep -oE '[0-9]+' | sort -n)
+
+# Find issues that exist on GitHub but not locally (missing issues)
+MISSING_ISSUES=$(comm -23 <(echo "$ALL_REMOTE_ISSUES") <(echo "$LOCAL_ISSUES"))
+
 # Get issues updated since last sync
 echo "Checking for updates since $LAST_SYNC..."
-UPDATED_ISSUES=$(gh issue list --repo "$REPO" --state all --limit 1000 --json number,updatedAt --jq ".[] | select(.updatedAt > \"$LAST_SYNC\") | .number")
+UPDATED_ISSUES=$(gh issue list --repo "$REPO" --state all --limit 5000 --json number,updatedAt --jq ".[] | select(.updatedAt > \"$LAST_SYNC\") | .number")
 
-if [ -z "$UPDATED_ISSUES" ]; then
+# Combine updated and missing issues, removing duplicates
+if [ -n "$UPDATED_ISSUES" ] && [ -n "$MISSING_ISSUES" ]; then
+    ALL_TO_FETCH=$(echo -e "$UPDATED_ISSUES\n$MISSING_ISSUES" | sort -n | uniq)
+elif [ -n "$UPDATED_ISSUES" ]; then
+    ALL_TO_FETCH="$UPDATED_ISSUES"
+elif [ -n "$MISSING_ISSUES" ]; then
+    ALL_TO_FETCH="$MISSING_ISSUES"
+else
+    ALL_TO_FETCH=""
+fi
+
+# Count missing issues for reporting
+missing_count=0
+if [ -n "$MISSING_ISSUES" ]; then
+    missing_count=$(echo "$MISSING_ISSUES" | wc -l | tr -d ' ')
+fi
+
+# Count updated issues for reporting
+updated_count=0
+if [ -n "$UPDATED_ISSUES" ]; then
+    updated_count=$(echo "$UPDATED_ISSUES" | wc -l | tr -d ' ')
+fi
+
+if [ -z "$ALL_TO_FETCH" ]; then
     echo "No issues have been updated since last sync."
+    echo "No missing issues to download."
     # Update metadata
     node -e "
     const fs = require('fs');
     const data = JSON.parse(fs.readFileSync('$METADATA_FILE'));
     data.last_sync = new Date().toISOString();
     data.sync_type = 'incremental';
-    data.last_update_stats = { updated: 0, new: 0 };
+    data.last_update_stats = { updated: 0, new: 0, missing_downloaded: 0 };
     fs.writeFileSync('$METADATA_FILE', JSON.stringify(data, null, 2));
     "
     exit 0
 fi
 
-total=$(echo "$UPDATED_ISSUES" | wc -l | tr -d ' ')
-echo "Found $total issues to update"
+total=$(echo "$ALL_TO_FETCH" | wc -l | tr -d ' ')
+echo "Found $updated_count updated issues and $missing_count missing issues"
+echo "Total issues to download: $total"
 
 # Check rate limit - ensure we have at least 500 requests buffer
 RATE_LIMIT_BUFFER=500
@@ -93,12 +130,17 @@ echo ""
 count=0
 new_issues=0
 updated_issues=0
+missing_downloaded=0
 
-for num in $UPDATED_ISSUES; do
+for num in $ALL_TO_FETCH; do
     count=$((count + 1))
     output_file="$OUTPUT_DIR/issue-${num}.json"
 
-    if [ -f "$output_file" ]; then
+    # Determine if this is a missing issue, updated issue, or new issue
+    if echo "$MISSING_ISSUES" | grep -q "^${num}$"; then
+        missing_downloaded=$((missing_downloaded + 1))
+        status="missing"
+    elif [ -f "$output_file" ]; then
         updated_issues=$((updated_issues + 1))
         status="updated"
     else
@@ -124,6 +166,7 @@ data.sync_type = 'incremental';
 data.last_update_stats = {
     new_issues: $new_issues,
     updated_issues: $updated_issues,
+    missing_downloaded: $missing_downloaded,
     total_processed: $count
 };
 fs.writeFileSync('$METADATA_FILE', JSON.stringify(data, null, 2));
@@ -133,6 +176,7 @@ echo ""
 echo "=== Sync Complete ==="
 echo "New issues: $new_issues"
 echo "Updated issues: $updated_issues"
+echo "Missing issues downloaded: $missing_downloaded"
 echo "Total in database: $CURRENT_COUNT"
 echo ""
 echo "Run: node scripts/build-index.js $REPO_DIR_NAME"

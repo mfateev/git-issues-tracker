@@ -24,7 +24,7 @@ Local GitHub issue tracking system for Temporal repositories. Mirrors issues for
 ## Common Commands
 
 ```bash
-# Update all tracked repos (open issues only)
+# Update all tracked repos (syncs all issues - open and closed, including missing)
 ./scripts/update-all.sh
 
 # Track a new repository (open issues)
@@ -43,7 +43,7 @@ node scripts/build-index.js owner-repo
 # Fetch closed issues for single repo
 ./scripts/fetch-closed.sh temporalio-sdk-java
 
-# Update single repo (handles both open and closed)
+# Update single repo (syncs updated + downloads missing issues)
 ./scripts/update-issues.sh owner-repo
 
 # List tracked repositories
@@ -102,7 +102,7 @@ repos/                          # Per-repository data
 scripts/
 ├── fetch-issues.sh             # Full download (uses gh CLI, supports --state)
 ├── fetch-closed.sh             # Convenience: fetch closed issues for all repos
-├── update-issues.sh            # Incremental sync for one repo
+├── update-issues.sh            # Incremental sync + missing issues for one repo
 ├── update-all.sh               # Update all tracked repos
 ├── build-index.js              # Creates issues-index.json
 ├── analyze-issues.js           # Query and reporting tool (single repo)
