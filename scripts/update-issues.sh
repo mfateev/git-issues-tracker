@@ -48,9 +48,12 @@ echo "Repository: $REPO"
 echo "Last sync: $LAST_SYNC"
 echo ""
 
-# Get ALL issues from GitHub (both open and closed)
-echo "Fetching full issue list from GitHub..."
-ALL_REMOTE_ISSUES=$(gh issue list --repo "$REPO" --state all --limit 5000 --json number,updatedAt --jq '.[].number' | sort -n)
+# Get ALL issues from GitHub (both open and closed) - single API call
+echo "Fetching issue list from GitHub..."
+REMOTE_DATA=$(gh issue list --repo "$REPO" --state all --limit 5000 --json number,updatedAt)
+
+# Extract all remote issue numbers
+ALL_REMOTE_ISSUES=$(echo "$REMOTE_DATA" | jq -r '.[].number' | sort -n)
 
 # Get issues we already have locally
 LOCAL_ISSUES=$(ls "$OUTPUT_DIR" 2>/dev/null | grep -oE '[0-9]+' | sort -n)
@@ -58,9 +61,9 @@ LOCAL_ISSUES=$(ls "$OUTPUT_DIR" 2>/dev/null | grep -oE '[0-9]+' | sort -n)
 # Find issues that exist on GitHub but not locally (missing issues)
 MISSING_ISSUES=$(comm -23 <(echo "$ALL_REMOTE_ISSUES") <(echo "$LOCAL_ISSUES"))
 
-# Get issues updated since last sync
+# Get issues updated since last sync (filter locally, no extra API call)
 echo "Checking for updates since $LAST_SYNC..."
-UPDATED_ISSUES=$(gh issue list --repo "$REPO" --state all --limit 5000 --json number,updatedAt --jq ".[] | select(.updatedAt > \"$LAST_SYNC\") | .number")
+UPDATED_ISSUES=$(echo "$REMOTE_DATA" | jq -r ".[] | select(.updatedAt > \"$LAST_SYNC\") | .number")
 
 # Combine updated and missing issues, removing duplicates
 if [ -n "$UPDATED_ISSUES" ] && [ -n "$MISSING_ISSUES" ]; then
