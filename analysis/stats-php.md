@@ -17,17 +17,98 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 49 |
-| Total Closed Issues | 0 |
-| Total All Issues | 49 |
+| Total Closed Issues | 211 |
+| Total All Issues | 260 |
 | Bugs (open) | 9 |
 | Enhancements/Features (open) | 31 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 12 |
-| Total Comments on open | 67 |
+| Total Comments on open | 69 |
 | Issues with Upvotes | 7 (14%) |
 | Issues with Comments | 23 (47%) |
-| Average Age (days) | 457 |
+| Average Age (days) | 458 |
 | Stale Issues (>12 months) | 18 (37%) |
+
+---
+## Resolution Metrics
+
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 81% (211/260) |
+| Avg Time to Close (calendar) | 133 days |
+| Avg Time to Close (business) | 95 days |
+| Median Time to Close (calendar) | 27 days |
+| Median Time to Close (business) | 19 days |
+| 90th Percentile (calendar) | 394 days |
+| 90th Percentile (business) | 282 days |
+| Resolved within 30 days | 51% |
+| Resolved within 90 days | 63% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 63 | 30% |
+| Completed (features) | 72 | 34% |
+| Self-resolved | 33 | 16% |
+| Duplicate | 1 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 42 | 20% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 9 | 8 | +1 |
+| 2025-03 | 7 | 1 | +6 |
+| 2025-04 | 10 | 4 | +6 |
+| 2025-05 | 8 | 5 | +3 |
+| 2025-06 | 2 | 3 | -1 |
+| 2025-07 | 7 | 5 | +2 |
+| 2025-08 | 3 | 4 | -1 |
+| 2025-09 | 1 | 5 | -4 |
+| 2025-10 | 2 | 5 | -3 |
+| 2025-11 | 0 | 1 | -1 |
+| 2025-12 | 2 | 5 | -3 |
+| 2026-01 | 2 | 0 | +2 |
+| **Total** | **53** | **46** | **+7** |
+
+📈 **Backlog Growing:** 7 more issues opened than closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 15 |
+| Issues Closed | 23 |
+| Net Change | -8 |
+| Bugs Closed | 8 |
+| Enhancements Closed | 9 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 287 | 205 |
+| Median | 185 | 133 |
+| 90th Percentile | 710 | 508 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 13% |
+| Within 90 days | 26% |
+
 
 ---
 ## Age Distribution (Open Issues)
@@ -36,8 +117,8 @@
 |-----|-------|---|
 | Last 30 days | 3 | 6% |
 | 1-3 months | 1 | 2% |
-| 3-6 months | 8 | 16% |
-| 6-12 months | 15 | 31% |
+| 3-6 months | 6 | 12% |
+| 6-12 months | 17 | 35% |
 | 1-2 years | 14 | 29% |
 | 2-3 years | 4 | 8% |
 | 3+ years | 4 | 8% |
@@ -70,15 +151,15 @@ Priority = Upvotes × 2 + Comments
 | 4 | [#495](../repos/temporalio-sdk-php/issues.md#495) | 6 | 0 | 6 | [Discussion] Define a backwards compatibility prom... |
 | 5 | [#573](../repos/temporalio-sdk-php/issues.md#573) | 5 | 1 | 3 | [Bug] WorkerFactoryInterface seems to be missing a... |
 | 6 | [#529](../repos/temporalio-sdk-php/issues.md#529) | 5 | 2 | 1 | [Feature Request] registerDelayedCallback for test... |
-| 7 | [#302](../repos/temporalio-sdk-php/issues.md#302) | 4 | 1 | 2 | [Feature Request] Set the expectCompletion result ... |
-| 8 | [#123](../repos/temporalio-sdk-php/issues.md#123) | 4 | 0 | 4 | [Bug] withEnableSessionWorker causes to ActivityNo... |
-| 9 | [#640](../repos/temporalio-sdk-php/issues.md#640) | 3 | 1 | 1 | Enable `Discussions` |
-| 10 | [#635](../repos/temporalio-sdk-php/issues.md#635) | 3 | 0 | 3 | [Bug] Memory leak workflow worker |
-| 11 | [#580](../repos/temporalio-sdk-php/issues.md#580) | 3 | 1 | 1 | Initial Nexus implementation - PHP |
-| 12 | [#428](../repos/temporalio-sdk-php/issues.md#428) | 3 | 0 | 3 | [Bug] Unit test hangs with unit under test has run... |
-| 13 | [#399](../repos/temporalio-sdk-php/issues.md#399) | 3 | 0 | 3 | [Not a Bug] await doesn't interrupts on the activi... |
-| 14 | [#642](../repos/temporalio-sdk-php/issues.md#642) | 2 | 0 | 2 | [Feature Request] Add first execution run ID to wo... |
-| 15 | [#623](../repos/temporalio-sdk-php/issues.md#623) | 2 | 0 | 2 | [Feature Request] In test env - I can't unserializ... |
+| 7 | [#623](../repos/temporalio-sdk-php/issues.md#623) | 4 | 0 | 4 | [Feature Request] In test env - I can't unserializ... |
+| 8 | [#302](../repos/temporalio-sdk-php/issues.md#302) | 4 | 1 | 2 | [Feature Request] Set the expectCompletion result ... |
+| 9 | [#123](../repos/temporalio-sdk-php/issues.md#123) | 4 | 0 | 4 | [Bug] withEnableSessionWorker causes to ActivityNo... |
+| 10 | [#640](../repos/temporalio-sdk-php/issues.md#640) | 3 | 1 | 1 | Enable `Discussions` |
+| 11 | [#635](../repos/temporalio-sdk-php/issues.md#635) | 3 | 0 | 3 | [Bug] Memory leak workflow worker |
+| 12 | [#580](../repos/temporalio-sdk-php/issues.md#580) | 3 | 1 | 1 | Initial Nexus implementation - PHP |
+| 13 | [#428](../repos/temporalio-sdk-php/issues.md#428) | 3 | 0 | 3 | [Bug] Unit test hangs with unit under test has run... |
+| 14 | [#399](../repos/temporalio-sdk-php/issues.md#399) | 3 | 0 | 3 | [Not a Bug] await doesn't interrupts on the activi... |
+| 15 | [#642](../repos/temporalio-sdk-php/issues.md#642) | 2 | 0 | 2 | [Feature Request] Add first execution run ID to wo... |
 
 ---
 
@@ -90,12 +171,12 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#577](../repos/temporalio-sdk-php/issues.md#577) | 7 | 0 | [Bug] Can't run the tests of UpdateMethod |
 | 3 | [#592](../repos/temporalio-sdk-php/issues.md#592) | 6 | 5 | [Docs] Document SDK marshaller |
 | 4 | [#495](../repos/temporalio-sdk-php/issues.md#495) | 6 | 0 | [Discussion] Define a backwards compatibility promise |
-| 5 | [#123](../repos/temporalio-sdk-php/issues.md#123) | 4 | 0 | [Bug] withEnableSessionWorker causes to ActivityNotRegistere... |
-| 6 | [#635](../repos/temporalio-sdk-php/issues.md#635) | 3 | 0 | [Bug] Memory leak workflow worker |
-| 7 | [#573](../repos/temporalio-sdk-php/issues.md#573) | 3 | 1 | [Bug] WorkerFactoryInterface seems to be missing arguments f... |
-| 8 | [#428](../repos/temporalio-sdk-php/issues.md#428) | 3 | 0 | [Bug] Unit test hangs with unit under test has runtime or co... |
-| 9 | [#399](../repos/temporalio-sdk-php/issues.md#399) | 3 | 0 | [Not a Bug] await doesn't interrupts on the activity with er... |
-| 10 | [#642](../repos/temporalio-sdk-php/issues.md#642) | 2 | 0 | [Feature Request] Add first execution run ID to workflow inf... |
+| 5 | [#623](../repos/temporalio-sdk-php/issues.md#623) | 4 | 0 | [Feature Request] In test env - I can't unserialize object s... |
+| 6 | [#123](../repos/temporalio-sdk-php/issues.md#123) | 4 | 0 | [Bug] withEnableSessionWorker causes to ActivityNotRegistere... |
+| 7 | [#635](../repos/temporalio-sdk-php/issues.md#635) | 3 | 0 | [Bug] Memory leak workflow worker |
+| 8 | [#573](../repos/temporalio-sdk-php/issues.md#573) | 3 | 1 | [Bug] WorkerFactoryInterface seems to be missing arguments f... |
+| 9 | [#428](../repos/temporalio-sdk-php/issues.md#428) | 3 | 0 | [Bug] Unit test hangs with unit under test has runtime or co... |
+| 10 | [#399](../repos/temporalio-sdk-php/issues.md#399) | 3 | 0 | [Not a Bug] await doesn't interrupts on the activity with er... |
 
 ---
 

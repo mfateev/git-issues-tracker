@@ -16,17 +16,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 534 |
-| Total Closed Issues | 2 |
-| Total All Issues | 536 |
-| Bugs (open) | 139 |
+| Total Open Issues | 533 |
+| Total Closed Issues | 951 |
+| Total All Issues | 1484 |
+| Bugs (open) | 138 |
 | Enhancements/Features (open) | 352 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 900 |
 | Total Comments on open | 878 |
 | Issues with Upvotes | 144 (27%) |
 | Issues with Comments | 290 (54%) |
-| Average Age (days) | 959 |
+| Average Age (days) | 961 |
 | Stale Issues (>12 months) | 374 (70%) |
 
 ---
@@ -37,49 +37,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 0% (2/536) |
-| Avg Time to Close (calendar) | 8 days |
-| Avg Time to Close (business) | 7 days |
-| Median Time to Close (calendar) | 8 days |
-| Median Time to Close (business) | 7 days |
-| 90th Percentile (calendar) | 16 days |
-| 90th Percentile (business) | 12 days |
-| Resolved within 30 days | 100% |
-| Resolved within 90 days | 100% |
+| Resolution Rate | 64% (951/1484) |
+| Avg Time to Close (calendar) | 172 days |
+| Avg Time to Close (business) | 123 days |
+| Median Time to Close (calendar) | 41 days |
+| Median Time to Close (business) | 30 days |
+| 90th Percentile (calendar) | 585 days |
+| 90th Percentile (business) | 417 days |
+| Resolved within 30 days | 47% |
+| Resolved within 90 days | 62% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 1 | 50% |
-| Completed (features) | 0 | 0% |
-| Self-resolved | 1 | 50% |
-| Duplicate | 0 | 0% |
-| Won't Fix | 0 | 0% |
+| Fixed (bugs) | 353 | 37% |
+| Completed (features) | 246 | 26% |
+| Self-resolved | 209 | 22% |
+| Duplicate | 5 | 1% |
+| Won't Fix | 2 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 0 | 0% |
+| Other | 136 | 14% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 3 | 0 | +3 |
-| 2025-03 | 7 | 0 | +7 |
-| 2025-04 | 13 | 0 | +13 |
-| 2025-05 | 7 | 0 | +7 |
-| 2025-06 | 11 | 0 | +11 |
-| 2025-07 | 11 | 0 | +11 |
-| 2025-08 | 5 | 0 | +5 |
-| 2025-09 | 5 | 0 | +5 |
-| 2025-10 | 7 | 0 | +7 |
-| 2025-11 | 11 | 0 | +11 |
-| 2025-12 | 11 | 0 | +11 |
-| 2026-01 | 6 | 2 | +4 |
-| **Total** | **97** | **2** | **+95** |
+| 2025-02 | 9 | 7 | +2 |
+| 2025-03 | 9 | 7 | +2 |
+| 2025-04 | 22 | 7 | +15 |
+| 2025-05 | 11 | 7 | +4 |
+| 2025-06 | 19 | 6 | +13 |
+| 2025-07 | 20 | 8 | +12 |
+| 2025-08 | 12 | 10 | +2 |
+| 2025-09 | 19 | 16 | +3 |
+| 2025-10 | 17 | 14 | +3 |
+| 2025-11 | 12 | 9 | +3 |
+| 2025-12 | 12 | 4 | +8 |
+| 2026-01 | 6 | 3 | +3 |
+| **Total** | **168** | **98** | **+70** |
 
-📈 **Backlog Growing:** 95 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 70 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,35 +88,41 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 55 |
-| Issues Closed | 2 |
-| Net Change | +53 |
-| Bugs Closed | 1 |
-| Enhancements Closed | 1 |
+| Issues Opened | 97 |
+| Issues Closed | 64 |
+| Net Change | +33 |
+| Bugs Closed | 45 |
+| Enhancements Closed | 14 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 8 | 7 |
-| Median | 8 | 7 |
-| 90th Percentile | 16 | 12 |
+| Average | 130 | 93 |
+| Median | 24 | 19 |
+| 90th Percentile | 276 | 198 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 100% |
-| Within 90 days | 100% |
+| Within 30 days | 61% |
+| Within 90 days | 78% |
 
+### Popular Requests Resolved (3+ upvotes)
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+| [#2517](../repos/temporalio-temporal/issues.md#2517) | 7 | Make task queues more ordered |
+| [#8363](../repos/temporalio-temporal/issues.md#8363) | 6 | Task queue validator on occasions fails task queue name... |
 
 ---
 ## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 13 | 2% |
-| 1-3 months | 18 | 3% |
+| Last 30 days | 11 | 2% |
+| 1-3 months | 19 | 4% |
 | 3-6 months | 22 | 4% |
 | 6-12 months | 45 | 8% |
 | 1-2 years | 138 | 26% |
@@ -197,14 +203,12 @@ Priority = Upvotes × 2 + Comments
 | 2026-01-08 | [#8967](../repos/temporalio-temporal/issues.md#8967) | 0 | 1.30.0 release version |
 | 2026-01-07 | [#8955](../repos/temporalio-temporal/issues.md#8955) | 0 | MCP Server for Temporal Workflows |
 | 2026-01-06 | [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | No admin-tools image for 1.29.2 |
-| 2025-12-29 | [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
 | 2025-12-24 | [#8902](../repos/temporalio-temporal/issues.md#8902) | 0 | History service memory usage upward trend |
 | 2025-12-20 | [#8889](../repos/temporalio-temporal/issues.md#8889) | 0 | Enhancing Temporal PR Review and Release Confidence with Hik... |
 | 2025-12-18 | [#8866](../repos/temporalio-temporal/issues.md#8866) | 0 | Address security vulnerability CVE-2025-61729 for golang:cry... |
 | 2025-12-18 | [#8865](../repos/temporalio-temporal/issues.md#8865) | 0 | Address security vulnerability CVE-2025-61727 for golang:cry... |
 | 2025-12-18 | [#8864](../repos/temporalio-temporal/issues.md#8864) | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
 | 2025-12-16 | [#8833](../repos/temporalio-temporal/issues.md#8833) | 0 | Scheduler does not list workflows runned when using "trigger... |
-| 2025-12-10 | [#8790](../repos/temporalio-temporal/issues.md#8790) | 0 | history_node table keeps growing |
 
 ---
 
@@ -213,7 +217,7 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 348 |
-| potential-bug | 127 |
+| potential-bug | 126 |
 | up-for-grabs | 30 |
 | api | 25 |
 | difficulty: easy | 20 |
@@ -245,7 +249,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (139 open issues)
+## Bugs (138 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -278,9 +282,9 @@ Priority = Upvotes × 2 + Comments
 | [#471](../repos/temporalio-temporal/issues.md#471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
 | [#8970](../repos/temporalio-temporal/issues.md#8970) | 0 | 0 | Client-set RPC deadline is ignored for long poll `GetWorkflo... |
 | [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | 0 | No admin-tools image for 1.29.2 |
-| [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | 1 | Deprecation error log in v1.29.1 with Elasticsearch 8.19.2 |
+| [#8864](../repos/temporalio-temporal/issues.md#8864) | 0 | 1 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
 
-*...and 109 more bugs*
+*...and 108 more bugs*
 
 ---
 

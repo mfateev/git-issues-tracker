@@ -2,9 +2,9 @@
 
 **Generated:** 2026-01-09
 **Total Repositories:** 10
-**Total Open Issues:** 1548
-**Total Closed Issues:** 23
-**Total All Issues:** 1571
+**Total Open Issues:** 1547
+**Total Closed Issues:** 4223
+**Total All Issues:** 5770
 
 ## Related Documents
 
@@ -18,14 +18,14 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 1548 |
-| Total Closed Issues | 23 |
-| Total All Issues | 1571 |
-| Overall Resolution Rate | 1% |
-| Total Bugs (open) | 363 |
+| Total Open Issues | 1547 |
+| Total Closed Issues | 4223 |
+| Total All Issues | 5770 |
+| Overall Resolution Rate | 73% |
+| Total Bugs (open) | 362 |
 | Total Enhancements (open) | 1024 |
 | Total Upvotes (👍) on open | 1439 |
-| Total Comments on open | 2375 |
+| Total Comments on open | 2377 |
 | Total Stale Issues (>12 months) | 946 (61%) |
 
 ---
@@ -36,10 +36,10 @@
 
 | Metric | Value |
 |--------|-------|
-| Median Time to Close | 73 days |
-| Average Time to Close | 182 days |
-| Resolved within 30 days | 39% |
-| Resolved within 90 days | 65% |
+| Median Time to Close | 25 days |
+| Average Time to Close | 142 days |
+| Resolved within 30 days | 53% |
+| Resolved within 90 days | 69% |
 
 ---
 
@@ -51,29 +51,31 @@ Repositories ranked by resolution metrics:
 
 | Rank | Repository | Resolution Rate | Open | Closed |
 |------|------------|-----------------|------|--------|
-| 1 | [Ruby SDK](stats-ruby.md) | 12% | 22 | 3 |
-| 2 | [.NET SDK](stats-dotnet.md) | 6% | 49 | 3 |
-| 3 | [Python SDK](stats-python.md) | 3% | 114 | 4 |
-| 4 | [TypeScript SDK](stats-typescript.md) | 3% | 144 | 5 |
-| 5 | [Features](stats-features.md) | 1% | 244 | 3 |
-| 6 | [Go SDK](stats-go.md) | 1% | 163 | 2 |
-| 7 | [temporalio-api](stats-temporalio-api.md) | 0% | 13 | 0 |
-| 8 | [Java SDK](stats-java.md) | 0% | 216 | 1 |
-| 9 | [PHP SDK](stats-php.md) | 0% | 49 | 0 |
-| 10 | [Server](stats-server.md) | 0% | 534 | 2 |
+| 1 | [Ruby SDK](stats-ruby.md) | 88% | 22 | 158 |
+| 2 | [.NET SDK](stats-dotnet.md) | 83% | 49 | 240 |
+| 3 | [TypeScript SDK](stats-typescript.md) | 82% | 144 | 653 |
+| 4 | [PHP SDK](stats-php.md) | 81% | 49 | 211 |
+| 5 | [Python SDK](stats-python.md) | 81% | 114 | 475 |
+| 6 | [Go SDK](stats-go.md) | 80% | 163 | 661 |
+| 7 | [Java SDK](stats-java.md) | 77% | 216 | 724 |
+| 8 | [Server](stats-server.md) | 64% | 533 | 951 |
+| 9 | [temporalio-api](stats-temporalio-api.md) | 48% | 13 | 12 |
+| 10 | [Features](stats-features.md) | 36% | 244 | 138 |
 
 ### By Median Time to Close (Fastest First)
 
 | Rank | Repository | Median TTC | Avg TTC | Resolved <30d |
 |------|------------|------------|---------|---------------|
-| 1 | [Java SDK](stats-java.md) | 8d | 8d | 100% |
-| 2 | [Server](stats-server.md) | 8d | 8d | 100% |
-| 3 | [TypeScript SDK](stats-typescript.md) | 17d | 247d | 60% |
-| 4 | [.NET SDK](stats-dotnet.md) | 25d | 53d | 67% |
-| 5 | [Ruby SDK](stats-ruby.md) | 36d | 60d | 33% |
-| 6 | [Python SDK](stats-python.md) | 75d | 96d | 0% |
-| 7 | [Features](stats-features.md) | 76d | 290d | 0% |
-| 8 | [Go SDK](stats-go.md) | 673d | 673d | 0% |
+| 1 | [temporalio-api](stats-temporalio-api.md) | 7d | 29d | 75% |
+| 2 | [Go SDK](stats-go.md) | 16d | 126d | 59% |
+| 3 | [Python SDK](stats-python.md) | 16d | 52d | 65% |
+| 4 | [.NET SDK](stats-dotnet.md) | 21d | 66d | 60% |
+| 5 | [TypeScript SDK](stats-typescript.md) | 26d | 120d | 52% |
+| 6 | [Java SDK](stats-java.md) | 27d | 199d | 51% |
+| 7 | [PHP SDK](stats-php.md) | 27d | 133d | 51% |
+| 8 | [Server](stats-server.md) | 41d | 172d | 47% |
+| 9 | [Ruby SDK](stats-ruby.md) | 49d | 139d | 42% |
+| 10 | [Features](stats-features.md) | 151d | 274d | 30% |
 
 ---
 
@@ -81,21 +83,21 @@ Repositories ranked by resolution metrics:
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 32 | 0 | +32 |
-| 2025-03 | 31 | 0 | +31 |
-| 2025-04 | 39 | 0 | +39 |
-| 2025-05 | 28 | 0 | +28 |
-| 2025-06 | 28 | 0 | +28 |
-| 2025-07 | 34 | 0 | +34 |
-| 2025-08 | 31 | 0 | +31 |
-| 2025-09 | 28 | 0 | +28 |
-| 2025-10 | 29 | 0 | +29 |
-| 2025-11 | 32 | 0 | +32 |
-| 2025-12 | 49 | 0 | +49 |
-| 2026-01 | 20 | 22 | -2 |
-| **Total** | **381** | **22** | **+359** |
+| 2025-02 | 107 | 95 | +12 |
+| 2025-03 | 92 | 51 | +41 |
+| 2025-04 | 134 | 85 | +49 |
+| 2025-05 | 71 | 117 | -46 |
+| 2025-06 | 76 | 72 | +4 |
+| 2025-07 | 89 | 74 | +15 |
+| 2025-08 | 95 | 77 | +18 |
+| 2025-09 | 83 | 106 | -23 |
+| 2025-10 | 87 | 90 | -3 |
+| 2025-11 | 56 | 43 | +13 |
+| 2025-12 | 59 | 43 | +16 |
+| 2026-01 | 20 | 23 | -3 |
+| **Total** | **969** | **876** | **+93** |
 
-📈 **Backlog Growing:** 359 more issues opened than closed across all repos in the last 12 months.
+📈 **Backlog Growing:** 93 more issues opened than closed across all repos in the last 12 months.
 
 ---
 
@@ -103,17 +105,17 @@ Repositories ranked by resolution metrics:
 
 | Repository | Open | Closed | Rate | Bugs | Enh. | 👍 | 💬 | Stale | Median TTC |
 |------------|------|--------|------|------|------|-----|-----|-------|------------|
-| [Server](stats-server.md) | 534 | 2 | 0% | 139 | 352 | 900 | 878 | 374 | 8d |
-| [Features](stats-features.md) | 244 | 3 | 1% | 6 | 224 | 106 | 397 | 145 | 76d |
-| [Java SDK](stats-java.md) | 216 | 1 | 0% | 33 | 127 | 104 | 203 | 156 | 8d |
-| [Go SDK](stats-go.md) | 163 | 2 | 1% | 61 | 87 | 91 | 215 | 101 | 673d |
-| [TypeScript SDK](stats-typescript.md) | 144 | 5 | 3% | 49 | 84 | 171 | 342 | 58 | 17d |
-| [Python SDK](stats-python.md) | 114 | 4 | 3% | 47 | 63 | 33 | 203 | 53 | 75d |
-| [.NET SDK](stats-dotnet.md) | 49 | 3 | 6% | 12 | 30 | 13 | 46 | 24 | 25d |
-| [PHP SDK](stats-php.md) | 49 | 0 | 0% | 9 | 31 | 12 | 67 | 18 | 0d |
-| [Ruby SDK](stats-ruby.md) | 22 | 3 | 12% | 4 | 17 | 3 | 15 | 4 | 36d |
-| [temporalio-api](stats-temporalio-api.md) | 13 | 0 | 0% | 3 | 9 | 6 | 9 | 13 | 0d |
-| **Total** | **1548** | **23** | **1%** | **363** | **1024** | **1439** | **2375** | **946** | **73d** |
+| [Server](stats-server.md) | 533 | 951 | 64% | 138 | 352 | 900 | 878 | 374 | 41d |
+| [Features](stats-features.md) | 244 | 138 | 36% | 6 | 224 | 106 | 397 | 145 | 151d |
+| [Java SDK](stats-java.md) | 216 | 724 | 77% | 33 | 127 | 104 | 203 | 156 | 27d |
+| [Go SDK](stats-go.md) | 163 | 661 | 80% | 61 | 87 | 91 | 215 | 101 | 16d |
+| [TypeScript SDK](stats-typescript.md) | 144 | 653 | 82% | 49 | 84 | 171 | 342 | 58 | 26d |
+| [Python SDK](stats-python.md) | 114 | 475 | 81% | 47 | 63 | 33 | 203 | 53 | 16d |
+| [.NET SDK](stats-dotnet.md) | 49 | 240 | 83% | 12 | 30 | 13 | 46 | 24 | 21d |
+| [PHP SDK](stats-php.md) | 49 | 211 | 81% | 9 | 31 | 12 | 69 | 18 | 27d |
+| [Ruby SDK](stats-ruby.md) | 22 | 158 | 88% | 4 | 17 | 3 | 15 | 4 | 49d |
+| [temporalio-api](stats-temporalio-api.md) | 13 | 12 | 48% | 3 | 9 | 6 | 9 | 13 | 7d |
+| **Total** | **1547** | **4223** | **73%** | **362** | **1024** | **1439** | **2377** | **946** | **25d** |
 
 ---
 
@@ -122,7 +124,20 @@ Repositories ranked by resolution metrics:
 | Repo | Issue | 👍 | Title |
 |------|-------|-----|-------|
 | Go SDK | [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | Ability to mock/intercept side effect calls in tes... |
+| TypeScript SDK | [#1773](../repos/temporalio-sdk-typescript/issues.md#1773) | 11 | [Bug] error: TypeError: (0 , ms_1.default) is not ... |
+| Java SDK | [#1849](../repos/temporalio-sdk-java/issues.md#1849) | 9 | Expose an async API to start a workflow which woul... |
+| TypeScript SDK | [#1750](../repos/temporalio-sdk-typescript/issues.md#1750) | 7 | [Bug] Workflow logs not propagated unless telemetr... |
+| Server | [#2517](../repos/temporalio-temporal/issues.md#2517) | 7 | Make task queues more ordered |
+| Java SDK | [#2665](../repos/temporalio-sdk-java/issues.md#2665) | 6 | Serialization with `kotlinx.serialization` |
+| Server | [#8363](../repos/temporalio-temporal/issues.md#8363) | 6 | Task queue validator on occasions fails task queue... |
+| Java SDK | [#2724](../repos/temporalio-sdk-java/issues.md#2724) | 5 | Allow Configuration Option to Enable Spring Applic... |
 | TypeScript SDK | [#1432](../repos/temporalio-sdk-typescript/issues.md#1432) | 5 | [Feature Request] Simplify proper usage of `AsyncL... |
+| Python SDK | [#893](../repos/temporalio-sdk-python/issues.md#893) | 4 | [Bug] Pyright (strict mode) fails on `start`/`exec... |
+| Python SDK | [#441](../repos/temporalio-sdk-python/issues.md#441) | 4 | [Bug] GeneratorExit possibly causing issues on con... |
+| Java SDK | [#2671](../repos/temporalio-sdk-java/issues.md#2671) | 3 | Tracing - Native OpenTelemetry Interceptors |
+| Java SDK | [#704](../repos/temporalio-sdk-java/issues.md#704) | 3 | Allow exception logging to be customizable for act... |
+| Python SDK | [#1107](../repos/temporalio-sdk-python/issues.md#1107) | 3 | [Feature Request] Update dependency constraint for... |
+| TypeScript SDK | [#1348](../repos/temporalio-sdk-typescript/issues.md#1348) | 3 | [Feature Request] Eager Workflow Start |
 
 ---
 
@@ -219,7 +234,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Recent Open Issues (Last 30 Days) - 39 total
+## Recent Open Issues (Last 30 Days) - 36 total
 
 | Date | Repo | Issue | 👍 | Title |
 |------|------|-------|-----|-------|
@@ -242,7 +257,6 @@ Priority = Upvotes × 2 + Comments
 | 2025-12-30 | Java SDK | [#2752](../repos/temporalio-sdk-java/issues.md#2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - suppor... |
 | 2025-12-30 | TypeScript SDK | [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | 0 | [Feature Request] Per-Worker Logger |
 | 2025-12-29 | Python SDK | [#1262](../repos/temporalio-sdk-python/issues.md#1262) | 0 | [Bug] Add ability to obtain `ApplicationError` det... |
-| 2025-12-29 | Server | [#8909](../repos/temporalio-temporal/issues.md#8909) | 0 | Deprecation error log in v1.29.1 with Elasticsearc... |
 | 2025-12-28 | Java SDK | [#2750](../repos/temporalio-sdk-java/issues.md#2750) | 0 | Tests not passing: TestStatsReporter Flush not flu... |
 | 2025-12-26 | .NET SDK | [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | 0 | [Bug] Loading TLS certificates from path doesn't w... |
 | 2025-12-24 | Server | [#8902](../repos/temporalio-temporal/issues.md#8902) | 0 | History service memory usage upward trend |
@@ -260,8 +274,6 @@ Priority = Upvotes × 2 + Comments
 | 2025-12-12 | TypeScript SDK | [#1862](../repos/temporalio-sdk-typescript/issues.md#1862) | 0 | [Feature Request] importing workflow into activity... |
 | 2025-12-12 | Java SDK | [#2747](../repos/temporalio-sdk-java/issues.md#2747) | 0 | @WorkflowImpl(workers = "...") should support Spri... |
 | 2025-12-12 | .NET SDK | [#576](../repos/temporalio-sdk-dotnet/issues.md#576) | 0 | [Feature Request] .NET Analyzer for Checking Workf... |
-| 2025-12-10 | Server | [#8790](../repos/temporalio-temporal/issues.md#8790) | 0 | history_node table keeps growing |
-| 2025-12-10 | TypeScript SDK | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
 
 ---
 
@@ -271,7 +283,7 @@ Priority = Upvotes × 2 + Comments
 |-------|-------|------------------|
 | enhancement | 1008 | 65% |
 | bug | 192 | 12% |
-| potential-bug | 172 | 11% |
+| potential-bug | 171 | 11% |
 | test server | 37 | 2% |
 | up-for-grabs | 30 | 2% |
 | api | 25 | 2% |
@@ -307,7 +319,7 @@ Priority = Upvotes × 2 + Comments
 | Java SDK | 104 | 203 | 411 | 72% |
 | Go SDK | 91 | 215 | 397 | 62% |
 | Python SDK | 33 | 203 | 269 | 46% |
-| PHP SDK | 12 | 67 | 91 | 37% |
+| PHP SDK | 12 | 69 | 93 | 37% |
 | .NET SDK | 13 | 46 | 72 | 49% |
 | Ruby SDK | 3 | 15 | 21 | 18% |
 | temporalio-api | 6 | 9 | 21 | 100% |
@@ -318,13 +330,13 @@ Priority = Upvotes × 2 + Comments
 
 | Repository | Avg Age (days) | 3+ Years | 1-3 Years | <1 Year |
 |------------|----------------|----------|-----------|---------|
-| temporalio-api | 1075 | 7 | 6 | 0 |
+| temporalio-api | 1076 | 7 | 6 | 0 |
 | Features | 803 | 87 | 97 | 60 |
-| .NET SDK | 388 | 0 | 26 | 23 |
+| .NET SDK | 389 | 0 | 26 | 23 |
 | Go SDK | 975 | 70 | 59 | 34 |
-| Java SDK | 985 | 104 | 70 | 42 |
-| PHP SDK | 457 | 4 | 18 | 27 |
-| Python SDK | 476 | 6 | 61 | 47 |
-| Ruby SDK | 249 | 0 | 4 | 18 |
-| TypeScript SDK | 656 | 39 | 48 | 57 |
-| Server | 959 | 218 | 218 | 98 |
+| Java SDK | 985 | 104 | 71 | 41 |
+| PHP SDK | 458 | 4 | 18 | 27 |
+| Python SDK | 477 | 6 | 61 | 47 |
+| Ruby SDK | 250 | 0 | 4 | 18 |
+| TypeScript SDK | 657 | 39 | 48 | 57 |
+| Server | 961 | 218 | 218 | 97 |

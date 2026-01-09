@@ -2,28 +2,27 @@
 
 **Generated:** 2026-01-09
 **Total Open Issues:** 114
-**Total Closed Issues:** 4
+**Total Closed Issues:** 475
 **Repository:** [temporalio/sdk-python](https://github.com/temporalio/sdk-python)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-sdk-python/issues.md)
+<- [Summary](summary.md) . [Contributors](contributors.md) . [Recent](recent.md) . [Full Issue Data](../repos/temporalio-sdk-python/issues.md)
 
-**Other SDKs:** [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Server](server.md) · [Features](features.md)
+**Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [.NET](dotnet.md) | [PHP](php.md) | [Ruby](ruby.md)
 
 ---
 
 ## Executive Summary
 
-The Python SDK has 114 open issues with a notably low resolution rate (3%), indicating the backlog is growing significantly (+39 issues in the last 12 months). The primary pain points are sandbox-related issues affecting third-party library compatibility, debugging challenges across IDEs (VSCode, PyCharm), and OpenTelemetry integration problems. With 46% of issues being stale (>12 months old), there is a need for both active bug fixes and housekeeping.
+The Python SDK demonstrates strong resolution metrics with an 81% resolution rate and a median time to close of 16 days. The open issue backlog is moderately sized at 114 issues, with sandbox-related issues being the most common pain point for users. Developer experience concerns around debugging workflows and third-party library compatibility dominate user feedback.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Bugs | 47 | High - Core functionality issues |
-| Enhancements | 63 | Medium - Developer experience improvements |
-| Sandbox Issues | ~10 | High - Blocking third-party library usage |
-| Debugging Issues | 4 | High - Developer experience critical |
-| Stale Issues (>12 months) | 53 (46%) | Review for closure |
+| Bugs | 47 | High - includes sandbox compatibility, OpenTelemetry, and activity cancellation issues |
+| Enhancements | 63 | Medium - feature requests for debugging support, Python 3.14 compatibility, and serialization improvements |
+| Stale Issues (>12 months) | 53 | Low - housekeeping opportunity for 46% of open issues |
+| OpenAI Agents Integration | ~15 | Medium - newer feature area with active development |
 
 ### User Engagement Summary
 
@@ -40,18 +39,18 @@ The Python SDK has 114 open issues with a notably low resolution rate (3%), indi
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 3% (4/118) |
-| Median Time to Close | 75 days (calendar) / 53 days (business) |
-| Resolved within 30 days | 0% |
-| Resolved within 90 days | 75% |
+| Resolution Rate | 81% (475/589) |
+| Median Time to Close | 16 days (calendar) / 12 days (business) |
+| Resolved within 30 days | 65% |
+| Resolved within 90 days | 85% |
 
 ### Recommended Actions
 
-1. **Immediate:** Fix sandbox issues blocking Protobuf and ruamel.yaml usage
-2. **Short-term:** Address debugging issues (VSCode, PyCharm) - top user demand
-3. **Medium-term:** Resolve OpenTelemetry integration bugs, improve activity cancellation
-4. **Long-term:** Support Python 3.14 InterpreterPoolExecutor, free-threading research
-5. **Housekeeping:** Triage 53 stale issues, close outdated items
+1. **Immediate:** Address sandbox compatibility issues with popular libraries (ruamel.yaml, ddtrace, structlog) that affect multiple users
+2. **Short-term:** Improve debugging experience for VS Code and PyCharm users; document workarounds for sandbox restrictions
+3. **Medium-term:** Implement workflow logger sandbox opt-out ([#487](../repos/temporalio-sdk-python/issues.md#487)); improve activity cancellation semantics
+4. **Long-term:** Python 3.14/free-threading compatibility ([#928](../repos/temporalio-sdk-python/issues.md#928)); enhance OpenTelemetry integration
+5. **Housekeeping:** Triage 53 stale issues (46% of backlog); close resolved or outdated issues
 
 ---
 
@@ -59,26 +58,33 @@ The Python SDK has 114 open issues with a notably low resolution rate (3%), indi
 
 ### Velocity Trend (Last 12 Months)
 
-The backlog is growing steadily with limited closure activity.
-
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
-| Last 12 months | 42 | 3 | +39 |
+| Last 12 months | 171 | 150 | +21 |
 
-**Backlog Growing:** 39 more issues opened than closed in the last 12 months. The extremely low resolution rate (3%) indicates maintenance capacity is significantly below incoming issue volume.
+The backlog is slightly growing with 21 more issues opened than closed. Recent months show improvement with October (-8), December (-3), and January 2026 (-1) having net reductions.
 
 ### Last 6 Months: Detailed Analysis
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 24 |
-| Issues Closed | 3 |
-| Bugs Closed | 1 |
-| Enhancements Completed | 2 |
+| Issues Opened | 99 |
+| Issues Closed | 103 |
+| Bugs Closed | 45 |
+| Enhancements Completed | 48 |
+
+The last 6 months show a net improvement of -4 (more closed than opened), indicating the team is catching up on the backlog.
 
 ### Popular Requests Resolved (Last 6 Months)
 
-No issues with 3+ upvotes were closed in the last 6 months.
+| Issue | Upvotes | Title |
+|-------|-----|-------|
+| [#893](../repos/temporalio-sdk-python/issues.md#893) | 4 | [Bug] Pyright (strict mode) fails on `start`/`execute` activity/workflow calls |
+| [#441](../repos/temporalio-sdk-python/issues.md#441) | 4 | [Bug] GeneratorExit possibly causing issues on context detach in OTel finally |
+| [#1107](../repos/temporalio-sdk-python/issues.md#1107) | 3 | [Feature Request] Update dependency constraint for protobuf to protobuf>=3.20 |
+| [#621](../repos/temporalio-sdk-python/issues.md#621) | 20 | [Feature Request] Create official Pydantic contrib module |
+
+Notable: The highly-requested Pydantic contrib module ([#621](../repos/temporalio-sdk-python/issues.md#621) with 20 upvotes) was shipped in SDK 1.10.0.
 
 ---
 
@@ -86,207 +92,174 @@ No issues with 3+ upvotes were closed in the last 6 months.
 
 | Rank | Issue | Upvotes | Comments | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#487](../repos/temporalio-sdk-python/issues.md#487) | 6 | 3 | Allow workflow logger to opt-out of sandboxing |
-| 2 | [#603](../repos/temporalio-sdk-python/issues.md#603) | 3 | 1 | Investigate/document PyCharm debugger with workflows |
-| 3 | [#238](../repos/temporalio-sdk-python/issues.md#238) | 3 | 5 | Can't debug workflow using VSCode |
-| 4 | [#1267](../repos/temporalio-sdk-python/issues.md#1267) | 2 | 0 | Logs not emitted during workflow queries |
-| 5 | [#1154](../repos/temporalio-sdk-python/issues.md#1154) | 2 | 2 | Support InterpreterPoolExecutor from py3.14 |
-| 6 | [#928](../repos/temporalio-sdk-python/issues.md#928) | 2 | 0 | Research free-threading capability |
-| 7 | [#807](../repos/temporalio-sdk-python/issues.md#807) | 2 | 3 | Loss of stack trace information |
-| 8 | [#321](../repos/temporalio-sdk-python/issues.md#321) | 2 | 1 | Temporal exceptions from converters should fail workflow |
-| 9 | [#213](../repos/temporalio-sdk-python/issues.md#213) | 2 | 0 | Confirm VSCode debuggability within sandbox |
-| 10 | [#1250](../repos/temporalio-sdk-python/issues.md#1250) | 1 | 2 | RuntimeError when starting test server |
+| 1 | [#487](../repos/temporalio-sdk-python/issues.md#487) | 6 | 3 | [Feature Request] Allow workflow logger to opt-out of sandboxing |
+| 2 | [#603](../repos/temporalio-sdk-python/issues.md#603) | 3 | 1 | [Feature Request] Investigate/document how to use PyCharm debugger with workflows |
+| 3 | [#238](../repos/temporalio-sdk-python/issues.md#238) | 3 | 5 | [Bug] Can't debugging workflow using vscode |
+| 4 | [#1267](../repos/temporalio-sdk-python/issues.md#1267) | 2 | 0 | [Bug] Logs not emitted during workflow queries |
+| 5 | [#1154](../repos/temporalio-sdk-python/issues.md#1154) | 2 | 2 | [Feature Request] Support InterpreterPoolExecutor from py3.14 |
+| 6 | [#928](../repos/temporalio-sdk-python/issues.md#928) | 2 | 0 | [Feature Request] Research and make SDK free-threading capable/compatible |
+| 7 | [#807](../repos/temporalio-sdk-python/issues.md#807) | 2 | 3 | [Feature Request] Loss of stack trace information |
+| 8 | [#321](../repos/temporalio-sdk-python/issues.md#321) | 2 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
+| 9 | [#213](../repos/temporalio-sdk-python/issues.md#213) | 2 | 0 | [Feature Request] Confirm vscode debuggability within sandbox |
+| 10 | [#1250](../repos/temporalio-sdk-python/issues.md#1250) | 1 | 2 | RuntimeError when starting Temporal test server in Python SDK |
 
 ### Priority Score (Upvotes x 2 + Comments)
 
 | Rank | Issue | Score | Title |
 |------|-------|-------|-------|
 | 1 | [#487](../repos/temporalio-sdk-python/issues.md#487) | 15 | Allow workflow logger to opt-out of sandboxing |
-| 2 | [#638](../repos/temporalio-sdk-python/issues.md#638) | 14 | ruamel.yaml import causes validation failure |
+| 2 | [#638](../repos/temporalio-sdk-python/issues.md#638) | 14 | Importing 3rd party package `ruamel.yaml` anywhere causes failure |
 | 3 | [#688](../repos/temporalio-sdk-python/issues.md#688) | 12 | Workflow sandbox issues with Protobuf |
 | 4 | [#160](../repos/temporalio-sdk-python/issues.md#160) | 12 | OpenTelemetry interceptors report errors |
-| 5 | [#1048](../repos/temporalio-sdk-python/issues.md#1048) | 11 | Support cancellation in sync multiprocessed activities |
-| 6 | [#238](../repos/temporalio-sdk-python/issues.md#238) | 11 | Can't debug workflow using VSCode |
+| 5 | [#1048](../repos/temporalio-sdk-python/issues.md#1048) | 11 | Support raising cancellation in sync multiprocessed activities |
+| 6 | [#238](../repos/temporalio-sdk-python/issues.md#238) | 11 | Can't debugging workflow using vscode |
 | 7 | [#733](../repos/temporalio-sdk-python/issues.md#733) | 10 | Unable to run workflows with OpenTelemetry and ddtrace |
-| 8 | [#700](../repos/temporalio-sdk-python/issues.md#700) | 10 | No clean way to cancel activity and wait |
-| 9 | [#300](../repos/temporalio-sdk-python/issues.md#300) | 10 | PyGILState_Release issue for client |
+| 8 | [#700](../repos/temporalio-sdk-python/issues.md#700) | 10 | No clean way to cancel an activity and wait until it's cancelled |
+| 9 | [#300](../repos/temporalio-sdk-python/issues.md#300) | 10 | Investigate PyGILState_Release issue for client |
 | 10 | [#639](../repos/temporalio-sdk-python/issues.md#639) | 9 | Operation was canceled when start_workflow |
 
 ---
 
 ## Issue Analysis by Category
 
-### 1. Sandbox Issues (Critical - ~10 issues)
+### Sandbox Compatibility Issues (High Priority)
 
-The Python SDK's workflow sandbox is causing significant friction with third-party libraries. This is the most discussed category of issues.
-
-#### Third-Party Library Compatibility
+The workflow sandbox is the most significant source of friction for Python SDK users. The sandbox provides determinism guarantees but conflicts with many third-party libraries.
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#688](../repos/temporalio-sdk-python/issues.md#688) | 0 | Workflow sandbox issues with Protobuf (12 comments) |
-| [#638](../repos/temporalio-sdk-python/issues.md#638) | 1 | ruamel.yaml import causes validation failure (12 comments) |
-| [#655](../repos/temporalio-sdk-python/issues.md#655) | 0 | KeyError: 'warnings' due to sandbox |
-| [#399](../repos/temporalio-sdk-python/issues.md#399) | 0 | Older Python versions cannot auto-import activity return class |
+| [#487](../repos/temporalio-sdk-python/issues.md#487) | 6 | Advanced logger handlers (structlog) fail in sandbox mode. Workaround exists using `sandbox_unrestricted()` context manager |
+| [#638](../repos/temporalio-sdk-python/issues.md#638) | 1 | `ruamel.yaml` patches datetime, causing sandbox failures even when not used in workflows |
+| [#688](../repos/temporalio-sdk-python/issues.md#688) | 0 | Protobuf deserialization fails with `KeyError: 'google.protobuf'` in K8s environments |
+| [#733](../repos/temporalio-sdk-python/issues.md#733) | 0 | ddtrace + OpenTelemetry SDK 1.29+ causes sandbox errors due to runtime imports |
+| [#655](../repos/temporalio-sdk-python/issues.md#655) | 0 | `KeyError: 'warnings'` due to sandbox restrictions |
 
-#### Sandbox Configuration & Control
+**Root Cause Analysis:** Libraries that perform module-level patching or lazy imports at runtime conflict with the sandbox's import isolation. The sandbox re-imports modules for each workflow run, which breaks assumptions about module caching.
 
-| Issue | Upvotes | Description |
-|-------|-----|-------------|
-| [#487](../repos/temporalio-sdk-python/issues.md#487) | 6 | Allow workflow logger to opt-out of sandboxing (top upvoted) |
-| [#1254](../repos/temporalio-sdk-python/issues.md#1254) | 0 | WARN_ON_UNINTENTIONAL_PASSTHROUGH warns on workflow import |
-| [#585](../repos/temporalio-sdk-python/issues.md#585) | 0 | Test flake, may be sandbox import issue |
-| [#607](../repos/temporalio-sdk-python/issues.md#607) | 0 | Prevent hot-reload of workflow definitions from disk |
+**Workarounds:**
+- Use `with workflow.unsafe.imports_passed_through():` for third-party imports
+- Configure `SandboxedWorkflowRunner` with `with_passthrough_modules()`
+- For datetime-patching libraries like Pydantic, disable datetime proxying in sandbox restrictions
 
-**Recommendation:** The sandbox is critical for determinism but causing significant DX issues. Consider:
-1. Document known incompatible libraries and workarounds
-2. Implement [#487](../repos/temporalio-sdk-python/issues.md#487) - selective sandbox opt-out
-3. Fix Protobuf and ruamel.yaml compatibility issues
+### Debugging Experience (High Priority)
 
-### 2. Debugging Support Issues (High Priority - 4 issues)
-
-Debugging is a major pain point for Python SDK users, with multiple top-upvoted issues.
+Multiple users report difficulties debugging workflows in both VS Code and PyCharm.
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#238](../repos/temporalio-sdk-python/issues.md#238) | 3 | Can't debug workflow using VSCode |
-| [#603](../repos/temporalio-sdk-python/issues.md#603) | 3 | Investigate/document PyCharm debugger with workflows |
-| [#213](../repos/temporalio-sdk-python/issues.md#213) | 2 | Confirm VSCode debuggability within sandbox |
-| [#1104](../repos/temporalio-sdk-python/issues.md#1104) | 0 | debug_mode in Worker still doesn't allow breakpoints (7 comments) |
+| [#238](../repos/temporalio-sdk-python/issues.md#238) | 3 | VS Code debugger fails with `KeyError: 'warnings'` due to sandbox |
+| [#603](../repos/temporalio-sdk-python/issues.md#603) | 3 | PyCharm debugger breaks with custom asyncio implementations |
+| [#213](../repos/temporalio-sdk-python/issues.md#213) | 2 | Need confirmation of VS Code debuggability within sandbox |
+| [#1104](../repos/temporalio-sdk-python/issues.md#1104) | 0 | `debug_mode=True` doesn't enable breakpoints as expected |
 
-**Recommendation:** Debugging capability is essential for developer adoption. Prioritize:
-1. Create comprehensive debugging documentation
-2. Ensure debug_mode actually enables breakpoints
-3. Test and document both VSCode and PyCharm workflows
+**Workarounds:**
+1. Use `UnsandboxedWorkflowRunner()` during debugging
+2. Set `debug_mode=True` on Worker
+3. Use `Replayer` with `debug_mode=True` for stepping through workflow code without task timeouts
+4. For PyCharm: Enable `python.debug.asyncio.repl` in Registry settings
+5. Pass through `_pydevd_bundle` module in sandbox restrictions
 
-### 3. OpenTelemetry / Observability Issues (High Priority - 5 issues)
-
-Multiple users are experiencing issues with OpenTelemetry integration.
+### OpenTelemetry Integration Issues (Medium Priority)
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#160](../repos/temporalio-sdk-python/issues.md#160) | 0 | OpenTelemetry interceptors report errors (12 comments) |
-| [#733](../repos/temporalio-sdk-python/issues.md#733) | 0 | Unable to run workflows with OpenTelemetry and ddtrace (10 comments) |
-| [#1136](../repos/temporalio-sdk-python/issues.md#1136) | 0 | Langfuse Tracing not working with OpenAI Agents Plugin |
+| [#160](../repos/temporalio-sdk-python/issues.md#160) | 0 | "Failed to detach context" errors with TracingInterceptor on worker exit |
+| [#733](../repos/temporalio-sdk-python/issues.md#733) | 0 | ddtrace incompatibility with sandbox |
 | [#837](../repos/temporalio-sdk-python/issues.md#837) | 0 | Make Temporal logger adapter accommodate OpenTelemetry |
-| [#669](../repos/temporalio-sdk-python/issues.md#669) | 0 | Support OpenTelemetry with process-pool workers |
+| [#647](../repos/temporalio-sdk-python/issues.md#647) | 0 | OpenTelemetry Metrics OLTP/HTTP support |
 
-**Recommendation:** OpenTelemetry integration is critical for production deployments:
-1. Fix core OpenTelemetry interceptor errors
-2. Document ddtrace compatibility workarounds
-3. Support OpenTelemetry in multiprocess environments
+**Root Cause:** The `GeneratorExit` exception during context detachment combined with Python's GIL cleanup behavior causes context detachment failures on worker shutdown.
 
-### 4. Activity Cancellation & Lifecycle (High Priority - 4 issues)
+### Activity Cancellation Semantics (Medium Priority)
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#700](../repos/temporalio-sdk-python/issues.md#700) | 0 | No clean way to cancel activity and wait (10 comments) |
-| [#1048](../repos/temporalio-sdk-python/issues.md#1048) | 0 | Support cancellation in sync multiprocessed activities (11 comments) |
-| [#810](../repos/temporalio-sdk-python/issues.md#810) | 0 | Implement proper cancelled/uncancel/cancelling behavior |
-| [#782](../repos/temporalio-sdk-python/issues.md#782) | 1 | Cancelled timer callback causes InvalidStateError |
+| [#700](../repos/temporalio-sdk-python/issues.md#700) | 0 | No clean way to cancel an activity and wait until it's cancelled |
+| [#1048](../repos/temporalio-sdk-python/issues.md#1048) | 0 | Sync multiprocessed activities cannot receive cancellation signals |
 
-### 5. Python Runtime Issues (Medium Priority - 3 issues)
+**Key Insight:** Activity cancellation requires heartbeating. The `CancelledError` is only raised after a heartbeat call followed by an await point. For process pool executors, there's no built-in way to interrupt execution - users must manually check `activity.is_cancelled()` or use signals.
+
+### Python Runtime Issues (Medium Priority)
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#300](../repos/temporalio-sdk-python/issues.md#300) | 0 | PyGILState_Release issue for client (10 comments) |
+| [#300](../repos/temporalio-sdk-python/issues.md#300) | 0 | `PyGILState_Release` issue causes fatal error on short-lived client processes |
 | [#834](../repos/temporalio-sdk-python/issues.md#834) | 0 | Python 3.13.3 on macOS Intel hangs post-test |
-| [#637](../repos/temporalio-sdk-python/issues.md#637) | 0 | Windows 3.12.5 builds are broken |
+| [#1188](../repos/temporalio-sdk-python/issues.md#1188) | 0 | TypeError on Python 3.13 when using isinstance with typing.Literal |
 
-### 6. Recent Issues (Last 30 Days)
-
-| Date | Issue | Title |
-|------|-------|-------|
-| 2026-01-09 | [#1268](../repos/temporalio-sdk-python/issues.md#1268) | Activity/workflow pollers drop to 0 ignoring min/max settings |
-| 2026-01-08 | [#1267](../repos/temporalio-sdk-python/issues.md#1267) | Logs not emitted during workflow queries |
-| 2025-12-29 | [#1262](../repos/temporalio-sdk-python/issues.md#1262) | ApplicationError details with type hint |
-| 2025-12-17 | [#1254](../repos/temporalio-sdk-python/issues.md#1254) | SandboxImportNotificationPolicy warns on workflow import |
-
-**Notable Recent Pattern:** Multiple recent bugs relate to observability (#1267, #1268) and sandbox behavior (#1254, #1262).
+**Analysis:** The PyGIL issue ([#300](../repos/temporalio-sdk-python/issues.md#300)) stems from pyo3-asyncio assumptions about `Python::with_gil` succeeding during interpreter finalization. This is a challenging fix requiring potential vendoring of the pyo3-asyncio library.
 
 ---
 
 ## Enhancement Requests (63 issues)
 
-### Python Version Support & Future Compatibility
+### Python Version Support
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
+| [#928](../repos/temporalio-sdk-python/issues.md#928) | 2 | Research and make SDK free-threading capable/compatible (Python 3.13+) |
 | [#1154](../repos/temporalio-sdk-python/issues.md#1154) | 2 | Support InterpreterPoolExecutor from py3.14 |
-| [#928](../repos/temporalio-sdk-python/issues.md#928) | 2 | Research free-threading capability |
-| [#761](../repos/temporalio-sdk-python/issues.md#761) | 0 | Publish musl wheel |
-| [#921](../repos/temporalio-sdk-python/issues.md#921) | 0 | Remove eval_type_backport dependency |
+| [#863](../repos/temporalio-sdk-python/issues.md#863) | 0 | Confirm support for Python 3.14 |
 
-### Developer Experience Improvements
+### Developer Experience
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#807](../repos/temporalio-sdk-python/issues.md#807) | 2 | Loss of stack trace information |
+| [#807](../repos/temporalio-sdk-python/issues.md#807) | 2 | Improve stack trace information in exception chains |
 | [#722](../repos/temporalio-sdk-python/issues.md#722) | 0 | Stack trace on deadlock exception improvements |
-| [#758](../repos/temporalio-sdk-python/issues.md#758) | 1 | Activities extraction utilities |
-| [#676](../repos/temporalio-sdk-python/issues.md#676) | 0 | Support (str, Enum) like StrEnum (7 comments) |
+| [#531](../repos/temporalio-sdk-python/issues.md#531) | 1 | Include stack trace on deadlock detection exception |
 
-### API & Feature Enhancements
+### Serialization & Data Conversion
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#321](../repos/temporalio-sdk-python/issues.md#321) | 2 | Temporal exceptions from converters should fail workflow |
-| [#1089](../repos/temporalio-sdk-python/issues.md#1089) | 1 | Session implementations for OpenAI Agents |
-| [#1056](../repos/temporalio-sdk-python/issues.md#1056) | 0 | Add workflow MCP client |
+| [#627](../repos/temporalio-sdk-python/issues.md#627) | 3 | Support serialization of `datetime` values in default JSON converter |
+| [#676](../repos/temporalio-sdk-python/issues.md#676) | 0 | Support `(str, Enum)` like `StrEnum` |
+| [#796](../repos/temporalio-sdk-python/issues.md#796) | 2 | Serialization context for codecs and converters |
+
+### OpenAI Agents Integration
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
 | [#1009](../repos/temporalio-sdk-python/issues.md#1009) | 0 | OpenAI Agents Streaming support |
+| [#1089](../repos/temporalio-sdk-python/issues.md#1089) | 1 | Provide supported Session implementations for OpenAI Agents |
+| [#1090](../repos/temporalio-sdk-python/issues.md#1090) | 0 | Support `mcp_server` in OpenAI integration |
+| [#1056](../repos/temporalio-sdk-python/issues.md#1056) | 0 | Add workflow MCP client |
 
-### Metrics & Observability Enhancements
-
-| Issue | Upvotes | Request |
-|-------|-----|---------|
-| [#875](../repos/temporalio-sdk-python/issues.md#875) | 1 | Expose SDK metric for worker._count_not_evict_count |
-| [#1049](../repos/temporalio-sdk-python/issues.md#1049) | 0 | Support metric meter in multi-processed workers |
-| [#1121](../repos/temporalio-sdk-python/issues.md#1121) | 0 | Document runtime telemetry config fields |
-| [#1130](../repos/temporalio-sdk-python/issues.md#1130) | 0 | Support for custom tracing providers |
-
-### Testing Improvements
+### Testing & Observability
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#675](../repos/temporalio-sdk-python/issues.md#675) | 0 | Auto-skip time in time-skipping environment for update result |
-| [#851](../repos/temporalio-sdk-python/issues.md#851) | 0 | Test server in time-skipping mode doesn't return userMetadata.summary |
-| [#563](../repos/temporalio-sdk-python/issues.md#563) | 0 | Update test running to replay |
+| [#875](../repos/temporalio-sdk-python/issues.md#875) | 1 | Expose SDK metric for `worker._count_not_evict_count` |
+| [#777](../repos/temporalio-sdk-python/issues.md#777) | 0 | Allow custom metric buckets |
+| [#675](../repos/temporalio-sdk-python/issues.md#675) | 0 | Auto-skip time in time-skipping testing environment when waiting on update result |
 
 ---
 
 ## Housekeeping Recommendations
 
-### Stale Issues (>1 year, no activity) - 53 issues (46%)
+### Stale Issues (>1 year, no activity)
 
-**Top stale issues by upvotes:**
+53 issues (46% of open issues) have had no activity for over 12 months.
 
-| Issue | Upvotes | Last Updated | Title |
-|-------|-----|--------------|-------|
-| [#238](../repos/temporalio-sdk-python/issues.md#238) | 3 | 2024-11-16 | Can't debug workflow using VSCode |
-| [#321](../repos/temporalio-sdk-python/issues.md#321) | 2 | 2023-07-05 | Temporal exceptions from converters |
-| [#213](../repos/temporalio-sdk-python/issues.md#213) | 2 | 2022-11-28 | Confirm VSCode debuggability within sandbox |
+**Close candidates:**
+- [#213](../repos/temporalio-sdk-python/issues.md#213) - VS Code debuggability (2+ years old, superseded by newer issues)
+- [#321](../repos/temporalio-sdk-python/issues.md#321) - Temporal exceptions from converters (2.5+ years old)
+- Issues related to older Python versions no longer supported
 
-**Close Candidates:**
-- Issues older than 3 years with no recent activity or upvotes
-- Issues that may have been fixed in recent releases
-- [#488](../repos/temporalio-sdk-python/issues.md#488) - Fix typo in restriction set (trivial)
-- [#772](../repos/temporalio-sdk-python/issues.md#772) - Investigate unused bind_f function (internal)
+**Needs triage:**
+- [#238](../repos/temporalio-sdk-python/issues.md#238) - VS Code debugging (has workaround documented)
+- [#638](../repos/temporalio-sdk-python/issues.md#638) - ruamel.yaml sandbox issue (workaround exists)
+- [#639](../repos/temporalio-sdk-python/issues.md#639) - Operation was canceled (needs more info)
 
-**Needs Triage:**
-- [#300](../repos/temporalio-sdk-python/issues.md#300) - PyGILState_Release (3+ years old, 10 comments)
-- [#160](../repos/temporalio-sdk-python/issues.md#160) - OpenTelemetry interceptors (3+ years old, 12 comments)
-
-**Keep Open (Valid but Inactive):**
-- All debugging-related issues (#238, #213, #603) - high user demand
-- Sandbox compatibility issues - ongoing pain point
+**Keep open:**
+- [#300](../repos/temporalio-sdk-python/issues.md#300) - PyGILState_Release issue (valid but complex fix)
+- [#160](../repos/temporalio-sdk-python/issues.md#160) - OpenTelemetry context detach errors (known issue)
 
 ### Duplicate Candidates
 
-**Debugging Cluster:**
-- [#238](../repos/temporalio-sdk-python/issues.md#238), [#213](../repos/temporalio-sdk-python/issues.md#213), [#1104](../repos/temporalio-sdk-python/issues.md#1104) - Related debugging issues, consider consolidating
-
-**OpenTelemetry Cluster:**
-- [#160](../repos/temporalio-sdk-python/issues.md#160), [#733](../repos/temporalio-sdk-python/issues.md#733) - Both involve OpenTelemetry integration issues
+- [#238](../repos/temporalio-sdk-python/issues.md#238) and [#213](../repos/temporalio-sdk-python/issues.md#213) both address VS Code debugging within sandbox
+- [#603](../repos/temporalio-sdk-python/issues.md#603) (PyCharm) could be consolidated with other debugging issues into a single "IDE Debugging" meta-issue
 
 ---
 
@@ -296,65 +269,25 @@ Based on user demand and issue analysis:
 
 ### Phase 1: Stability (Immediate)
 
-- [ ] Fix sandbox Protobuf compatibility ([#688](../repos/temporalio-sdk-python/issues.md#688))
-- [ ] Fix sandbox ruamel.yaml compatibility ([#638](../repos/temporalio-sdk-python/issues.md#638))
-- [ ] Fix recent poller issue ([#1268](../repos/temporalio-sdk-python/issues.md#1268))
-- [ ] Fix logs during workflow queries ([#1267](../repos/temporalio-sdk-python/issues.md#1267))
+- Address sandbox passthrough documentation gaps
+- Create comprehensive debugging guide for VS Code and PyCharm
+- Document workarounds for common sandbox conflicts (ruamel.yaml, ddtrace, structlog)
 
 ### Phase 2: Developer Experience (Short-term)
 
-- [ ] Implement workflow logger sandbox opt-out ([#487](../repos/temporalio-sdk-python/issues.md#487)) - top upvoted
-- [ ] Document and fix VSCode debugging ([#238](../repos/temporalio-sdk-python/issues.md#238))
-- [ ] Document PyCharm debugging ([#603](../repos/temporalio-sdk-python/issues.md#603))
-- [ ] Fix debug_mode breakpoint support ([#1104](../repos/temporalio-sdk-python/issues.md#1104))
+- Implement [#487](../repos/temporalio-sdk-python/issues.md#487): Workflow logger sandbox opt-out helper
+- Improve activity cancellation documentation and semantics ([#700](../repos/temporalio-sdk-python/issues.md#700))
+- Better error messages for sandbox restriction violations
 
-### Phase 3: Observability (Medium-term)
+### Phase 3: Feature Expansion (Medium-term)
 
-- [ ] Fix OpenTelemetry interceptor errors ([#160](../repos/temporalio-sdk-python/issues.md#160))
-- [ ] Fix OpenTelemetry + ddtrace compatibility ([#733](../repos/temporalio-sdk-python/issues.md#733))
-- [ ] Support OpenTelemetry in process-pool workers ([#669](../repos/temporalio-sdk-python/issues.md#669))
+- Python 3.14/free-threading compatibility ([#928](../repos/temporalio-sdk-python/issues.md#928))
+- Enhanced OpenTelemetry integration ([#160](../repos/temporalio-sdk-python/issues.md#160), [#733](../repos/temporalio-sdk-python/issues.md#733))
+- OpenAI Agents SDK improvements (streaming, MCP support)
+- Address PyGILState_Release issue ([#300](../repos/temporalio-sdk-python/issues.md#300))
 
-### Phase 4: Feature Expansion (Medium-term)
+### Phase 4: Maintenance (Ongoing)
 
-- [ ] Clean activity cancellation handling ([#700](../repos/temporalio-sdk-python/issues.md#700))
-- [ ] Support cancellation in sync multiprocessed activities ([#1048](../repos/temporalio-sdk-python/issues.md#1048))
-- [ ] Improve stack trace information ([#807](../repos/temporalio-sdk-python/issues.md#807))
-
-### Phase 5: Future Python Support (Long-term)
-
-- [ ] Research and support free-threading ([#928](../repos/temporalio-sdk-python/issues.md#928))
-- [ ] Support InterpreterPoolExecutor from py3.14 ([#1154](../repos/temporalio-sdk-python/issues.md#1154))
-- [ ] Publish musl wheel ([#761](../repos/temporalio-sdk-python/issues.md#761))
-
-### Phase 6: Maintenance (Ongoing)
-
-- [ ] Triage 53 stale issues
-- [ ] Close resolved/outdated issues
-- [ ] Consolidate duplicate issues
-- [ ] Address backlog growth (currently +39/year)
-
----
-
-## Quick Reference: Top 15 High-Impact Issues
-
-Combining technical priority with user demand:
-
-| # | Issue | Category | Upvotes | Impact |
-|---|-------|----------|-----|--------|
-| 1 | [#487](../repos/temporalio-sdk-python/issues.md#487) | Enhancement | **6** | Workflow logger sandbox opt-out (most upvoted) |
-| 2 | [#688](../repos/temporalio-sdk-python/issues.md#688) | Bug | 0 | Sandbox Protobuf issues (12 comments) |
-| 3 | [#638](../repos/temporalio-sdk-python/issues.md#638) | Bug | 1 | Sandbox ruamel.yaml issues (12 comments) |
-| 4 | [#238](../repos/temporalio-sdk-python/issues.md#238) | Bug | **3** | VSCode debugging broken |
-| 5 | [#603](../repos/temporalio-sdk-python/issues.md#603) | Enhancement | **3** | PyCharm debugging documentation |
-| 6 | [#160](../repos/temporalio-sdk-python/issues.md#160) | Bug | 0 | OpenTelemetry interceptor errors (12 comments) |
-| 7 | [#1267](../repos/temporalio-sdk-python/issues.md#1267) | Bug | **2** | Logs not emitted during queries (new) |
-| 8 | [#1154](../repos/temporalio-sdk-python/issues.md#1154) | Enhancement | **2** | py3.14 InterpreterPoolExecutor |
-| 9 | [#928](../repos/temporalio-sdk-python/issues.md#928) | Enhancement | **2** | Free-threading research |
-| 10 | [#807](../repos/temporalio-sdk-python/issues.md#807) | Enhancement | **2** | Stack trace information loss |
-| 11 | [#700](../repos/temporalio-sdk-python/issues.md#700) | Bug | 0 | Activity cancellation (10 comments) |
-| 12 | [#1048](../repos/temporalio-sdk-python/issues.md#1048) | Enhancement | 0 | Multiprocess activity cancellation (11 comments) |
-| 13 | [#1104](../repos/temporalio-sdk-python/issues.md#1104) | Bug | 0 | debug_mode not working (7 comments) |
-| 14 | [#733](../repos/temporalio-sdk-python/issues.md#733) | Bug | 0 | OpenTelemetry + ddtrace (10 comments) |
-| 15 | [#1268](../repos/temporalio-sdk-python/issues.md#1268) | Bug | 0 | Pollers drop to 0 (new) |
-
-**Key Insight:** The most upvoted issues relate to sandbox flexibility (#487), debugging (#238, #603), and future Python support (#1154, #928). The most discussed issues (by comments) focus on sandbox compatibility (#688, #638, #160) and activity lifecycle (#1048, #700), indicating these are the areas causing the most user friction.
+- Triage and close 53 stale issues
+- Regular review of sandbox passthrough module list
+- Dependency updates for security and compatibility

@@ -17,8 +17,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 114 |
-| Total Closed Issues | 4 |
-| Total All Issues | 118 |
+| Total Closed Issues | 475 |
+| Total All Issues | 589 |
 | Bugs (open) | 47 |
 | Enhancements/Features (open) | 63 |
 | Security Issues (open) | 0 |
@@ -26,7 +26,7 @@
 | Total Comments on open | 203 |
 | Issues with Upvotes | 18 (16%) |
 | Issues with Comments | 53 (46%) |
-| Average Age (days) | 476 |
+| Average Age (days) | 477 |
 | Stale Issues (>12 months) | 53 (46%) |
 
 ---
@@ -37,49 +37,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 3% (4/118) |
-| Avg Time to Close (calendar) | 96 days |
-| Avg Time to Close (business) | 69 days |
-| Median Time to Close (calendar) | 75 days |
-| Median Time to Close (business) | 53 days |
-| 90th Percentile (calendar) | 202 days |
-| 90th Percentile (business) | 145 days |
-| Resolved within 30 days | 0% |
-| Resolved within 90 days | 75% |
+| Resolution Rate | 81% (475/589) |
+| Avg Time to Close (calendar) | 52 days |
+| Avg Time to Close (business) | 38 days |
+| Median Time to Close (calendar) | 16 days |
+| Median Time to Close (business) | 12 days |
+| 90th Percentile (calendar) | 141 days |
+| 90th Percentile (business) | 102 days |
+| Resolved within 30 days | 65% |
+| Resolved within 90 days | 85% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 1 | 25% |
-| Completed (features) | 2 | 50% |
-| Self-resolved | 1 | 25% |
+| Fixed (bugs) | 124 | 26% |
+| Completed (features) | 179 | 38% |
+| Self-resolved | 125 | 26% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 0 | 0% |
+| Other | 47 | 10% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 5 | 0 | +5 |
-| 2025-03 | 3 | 0 | +3 |
-| 2025-04 | 6 | 0 | +6 |
-| 2025-05 | 2 | 0 | +2 |
-| 2025-06 | 4 | 0 | +4 |
-| 2025-07 | 1 | 0 | +1 |
-| 2025-08 | 3 | 0 | +3 |
-| 2025-09 | 6 | 0 | +6 |
-| 2025-10 | 3 | 0 | +3 |
-| 2025-11 | 2 | 0 | +2 |
-| 2025-12 | 5 | 0 | +5 |
+| 2025-02 | 12 | 6 | +6 |
+| 2025-03 | 15 | 5 | +10 |
+| 2025-04 | 23 | 15 | +8 |
+| 2025-05 | 10 | 9 | +1 |
+| 2025-06 | 16 | 12 | +4 |
+| 2025-07 | 14 | 16 | -2 |
+| 2025-08 | 17 | 13 | +4 |
+| 2025-09 | 25 | 26 | -1 |
+| 2025-10 | 19 | 27 | -8 |
+| 2025-11 | 8 | 5 | +3 |
+| 2025-12 | 10 | 13 | -3 |
 | 2026-01 | 2 | 3 | -1 |
-| **Total** | **42** | **3** | **+39** |
+| **Total** | **171** | **150** | **+21** |
 
-📈 **Backlog Growing:** 39 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 21 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,27 +88,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 24 |
-| Issues Closed | 3 |
-| Net Change | +21 |
-| Bugs Closed | 1 |
-| Enhancements Closed | 2 |
+| Issues Opened | 99 |
+| Issues Closed | 103 |
+| Net Change | -4 |
+| Bugs Closed | 45 |
+| Enhancements Closed | 48 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 61 | 43 |
-| Median | 73 | 51 |
-| 90th Percentile | 76 | 54 |
+| Average | 65 | 47 |
+| Median | 11 | 9 |
+| 90th Percentile | 168 | 121 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 0% |
-| Within 90 days | 100% |
+| Within 30 days | 70% |
+| Within 90 days | 81% |
 
+### Popular Requests Resolved (3+ upvotes)
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+| [#893](../repos/temporalio-sdk-python/issues.md#893) | 4 | [Bug] Pyright (strict mode) fails on `start`/`execute` ... |
+| [#441](../repos/temporalio-sdk-python/issues.md#441) | 4 | [Bug] GeneratorExit possibly causing issues on context ... |
+| [#1107](../repos/temporalio-sdk-python/issues.md#1107) | 3 | [Feature Request] Update dependency constraint for prot... |
 
 ---
 ## Age Distribution (Open Issues)

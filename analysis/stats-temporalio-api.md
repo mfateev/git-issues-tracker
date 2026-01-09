@@ -17,8 +17,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 13 |
-| Total Closed Issues | 0 |
-| Total All Issues | 13 |
+| Total Closed Issues | 12 |
+| Total All Issues | 25 |
 | Bugs (open) | 3 |
 | Enhancements/Features (open) | 9 |
 | Security Issues (open) | 0 |
@@ -26,8 +26,89 @@
 | Total Comments on open | 9 |
 | Issues with Upvotes | 1 (8%) |
 | Issues with Comments | 3 (23%) |
-| Average Age (days) | 1075 |
+| Average Age (days) | 1076 |
 | Stale Issues (>12 months) | 13 (100%) |
+
+---
+## Resolution Metrics
+
+> **Note:** Closure reasons are *inferred* from labels, comment patterns, and issue metadata.
+> GitHub does not provide explicit closure reasons, so these are best-effort heuristics.
+
+| Metric | Value |
+|--------|-------|
+| Resolution Rate | 48% (12/25) |
+| Avg Time to Close (calendar) | 29 days |
+| Avg Time to Close (business) | 21 days |
+| Median Time to Close (calendar) | 7 days |
+| Median Time to Close (business) | 5 days |
+| 90th Percentile (calendar) | 105 days |
+| 90th Percentile (business) | 75 days |
+| Resolved within 30 days | 75% |
+| Resolved within 90 days | 83% |
+
+### Closure Reasons (Inferred)
+
+| Reason | Count | % |
+|--------|-------|---|
+| Fixed (bugs) | 2 | 17% |
+| Completed (features) | 4 | 33% |
+| Self-resolved | 1 | 8% |
+| Duplicate | 0 | 0% |
+| Won't Fix | 0 | 0% |
+| Stale/Inactive | 0 | 0% |
+| Invalid | 0 | 0% |
+| Other | 5 | 42% |
+
+---
+## Issue Velocity (Last 12 Months)
+
+| Month | Opened | Closed | Net Change |
+|-------|--------|--------|------------|
+| 2025-02 | 0 | 0 | 0 |
+| 2025-03 | 0 | 0 | 0 |
+| 2025-04 | 0 | 0 | 0 |
+| 2025-05 | 1 | 1 | 0 |
+| 2025-06 | 0 | 0 | 0 |
+| 2025-07 | 0 | 0 | 0 |
+| 2025-08 | 1 | 0 | +1 |
+| 2025-09 | 0 | 1 | -1 |
+| 2025-10 | 0 | 0 | 0 |
+| 2025-11 | 0 | 0 | 0 |
+| 2025-12 | 0 | 0 | 0 |
+| 2026-01 | 0 | 0 | 0 |
+| **Total** | **2** | **2** | **0** |
+
+⚖️ **Backlog Stable:** Equal issues opened and closed in the last 12 months.
+
+---
+## Last 6 Months: Detailed Analysis
+
+### Overview
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 1 |
+| Issues Closed | 1 |
+| Net Change | 0 |
+| Bugs Closed | 0 |
+| Enhancements Closed | 1 |
+
+### Time to Close (Last 6 Months)
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average | 17 | 12 |
+| Median | 17 | 12 |
+| 90th Percentile | 17 | 12 |
+
+### Resolution Speed (Last 6 Months)
+
+| Timeframe | % Resolved |
+|-----------|------------|
+| Within 30 days | 100% |
+| Within 90 days | 100% |
+
 
 ---
 ## Age Distribution (Open Issues)

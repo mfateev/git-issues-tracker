@@ -1,9 +1,9 @@
 # temporalio/api - Complete Issue Dump
 
 **Generated:** 2026-01-09
-**Total Issues:** 13
-**Total Upvotes:** 6
-**Total Comments:** 9
+**Total Issues:** 25
+**Total Upvotes:** 11
+**Total Comments:** 16
 
 ## Table of Contents
 
@@ -16,28 +16,36 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 13 |
-| Issues with Upvotes | 1 (8%) |
-| Total Upvotes | 6 |
-| Total Comments | 9 |
+| Open Issues | 25 |
+| Issues with Upvotes | 4 (16%) |
+| Total Upvotes | 11 |
+| Total Comments | 16 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
-| enhancement | 9 |
-| bug | 3 |
+| enhancement | 13 |
+| bug | 6 |
 
 ## Issue Index
 
 | # | 👍 | 💬 | Title |
 |---|-----|-----|-------|
 | [#328](#328) | 6 | 0 | [Feature Request] Publish and maintain buf schema registry |
+| [#355](#355) | 3 | 2 | [Bug] Unable to upgrade go.temporal.io/api 1.26->1.27 |
 | [#169](#169) | 0 | 7 | [Proposal] Allow languages to customize package/namespace structure of generated proto APIs |
+| [#24](#24) | 1 | 2 | Consider using buf for linting and clang-format for formatting |
+| [#631](#631) | 0 | 2 | [Feature Request] Add startDelay to WorkflowExecutionInfo |
+| [#409](#409) | 1 | 0 | [Feature Request] Remove /api/v1/ prefix from HTTP paths |
+| [#435](#435) | 0 | 1 | [Bug] Typo in the release tag |
 | [#427](#427) | 0 | 1 | Add configurable subpath for HTTP API |
 | [#131](#131) | 0 | 1 | Clean up "Should be removed" fields |
+| [#583](#583) | 0 | 0 | [Feature Request] Remove license headers from files |
+| [#428](#428) | 0 | 0 | [Feature Request] `/cluster-info` should just be `/cluster` |
 | [#421](#421) | 0 | 0 | [Bug] api-go update fails if the commit message contains "`" |
 | [#400](#400) | 0 | 0 | [Feature Request] Move/remove third party protos to a separate place instead of root |
+| [#349](#349) | 0 | 0 | [Bug] api-go failing to properly handle nested empty objects for shorthand payloads |
 | [#307](#307) | 0 | 0 | [Feature Request] Deprecate list workflow methods? |
 | [#299](#299) | 0 | 0 | [Document] Potentially misleading inline comment for PollWorkflowTaskQueueResponse |
 | [#232](#232) | 0 | 0 | [Feature Request] Remove RetryState.RETRY_STATE_IN_PROGRESS from public api |
@@ -45,6 +53,10 @@
 | [#172](#172) | 0 | 0 | [Feature Request] Use Payloads for ApplicationFailure message and stack trace |
 | [#154](#154) | 0 | 0 | Document SearchAttributes parsing |
 | [#136](#136) | 0 | 0 | ScheduledEventId to construct Idempotence Key |
+| [#47](#47) | 0 | 0 | Add Failure to Marker decision and event |
+| [#18](#18) | 0 | 0 | Decompose common and enums packages |
+| [#6](#6) | 0 | 0 | Fix ChildWorkflowExecutionFailedCause |
+| [#1](#1) | 0 | 0 | Address all TODO when code migration is complete |
 
 ---
 
@@ -78,6 +90,75 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 ### Describe the solution you'd like
 
 For others to use we want to publish and maintain a buf schema registry. This may be more challenging than it appears because we inline our google dependency which we need to make sure we don't publish. We could also consider generating code with buf but that is outside of the scope of this issue and we want to make sure raw protoc continues to work.
+
+
+---
+
+<a id="355"></a>
+
+### #355: [Bug] Unable to upgrade go.temporal.io/api 1.26->1.27
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/355 |
+| **State** | CLOSED |
+| **Author** | nickzelei (Nick Zelei) |
+| **Created** | 2024-02-10 01:18:32.000 UTC (1y 11m ago) |
+| **Updated** | 2024-02-12 16:28:00.000 UTC |
+| **Closed** | 2024-02-12 13:31:14.000 UTC |
+| **Upvotes** | 3 |
+| **Comments** | 2 |
+| **Priority Score** | 8 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 3 |
+
+#### Description
+
+I'm unable to bump temporal to the latest Go SDK version 1.27 of the `go.temporal.io/api` library.
+
+I upgraded the dependency but am now receiving errors from within the `go.temporal.io/sdk` library (1.25.1)
+
+```
+# go.temporal.io/sdk/internal/protocol
+/Users/nick/go/pkg/mod/go.temporal.io/sdk@v1.25.1/internal/protocol/util.go:39:40: cannot use msg.Body (variable of type *anypb.Any) as *types.Any value in argument to types.AnyMessageName
+# go.temporal.io/sdk/internal/common/metrics
+/Users/nick/go/pkg/mod/go.temporal.io/sdk@v1.25.1/internal/common/metrics/grpc.go:120:44: cannot use s (variable of type *"github.com/gogo/status".Status) as *"google.golang.org/grpc/internal/status".Status value in argument to serviceerror.FromStatus
+```
+
+Link to PR that I'm trying to upgrade:
+https://github.com/nucleuscloud/neosync/pull/1300
+
+Link to specific Github Action
+https://github.com/nucleuscloud/neosync/actions/runs/7851544426/job/21428758978?pr=1300
+
+Link to go.mod
+https://github.com/nucleuscloud/neosync/blob/dependabot/go_modules/backend/golang-minor-53d5c674f0/backend/go.mod
+
+#### Comments (2)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-02-12 13:31:14.000 UTC</summary>
+
+To use the newest Go API version, you have to be on the newest RC of the Go SDK. The Go API library underwent some changes to upgrade to the newest proto library, so you need to make sure you only use the API version that is in the SDK's go.mod. We cannot really update to v2 for larger compatibility and Go versioning reasons.
+
+(closing as question, but feel free to keep commenting or join us on Slack or our forums)
+
+</details>
+
+<details>
+<summary><strong>nickzelei</strong> commented on 2024-02-12 16:26:54.000 UTC</summary>
+
+I see, makes a lot more sense after looking at the RC release notes, which I did not see before. I just went to the homepage and saw the latest release of the sdk was 1.25.1.
+
+Thanks for the clarification!
+
+I suspect many folks will run into this that use dependabot as it sees an update to this library, but the SDK doesn't have a new official version yet.
+
+Reactions: 👍 1
+
+</details>
 
 
 ---
@@ -283,6 +364,213 @@ In general though, I think at least for now, having the .Net namespaces mirror t
 
 ---
 
+<a id="24"></a>
+
+### #24: Consider using buf for linting and clang-format for formatting
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/24 |
+| **State** | CLOSED |
+| **Author** | buyology (robin) |
+| **Created** | 2020-04-10 16:12:15.000 UTC (5y 9m ago) |
+| **Updated** | 2020-06-12 20:32:51.000 UTC |
+| **Closed** | 2020-06-11 20:04:43.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 2 |
+| **Priority Score** | 4 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 |
+
+#### Description
+
+First of all: It's so exciting to see the protos here as it means that the nice gRPC/Protobuf ecosystem can be leveraged and see Temporal expand into an array of languages!
+
+Consider using [`buf`](https://github.com/bufbuild/buf) for [linting](https://buf.build/docs/lint-overview) against the [Protobuf style guide](https://developers.google.com/protocol-buffers/docs/style):
+
+```sh
+--- » buf check lint | wc -l
+     823
+--- » buf check lint 
+…
+common/enum.proto:30:3:Enum value name "Proto3" should be prefixed with "ENCODING_TYPE_".
+common/enum.proto:30:3:Enum value name "Proto3" should be UPPER_SNAKE_CASE, such as "PROTO3".
+common/enum.proto:30:3:Enum zero value name "Proto3" should be suffixed with "_UNSPECIFIED".
+…
+```
+
+Also, consider using [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html) for autoformatting the protos:
+
+```
+--- » clang-format -i **/*.proto
+```
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>alexshtin</strong> commented on 2020-04-14 19:40:46.000 UTC</summary>
+
+Thanks for reporting this. We definitely want to follow proto style guide. We are basically there with few upcoming changes:
+1. Add UNSPECIFIED to all enums,
+2. Convert all enum values to SCREAMING_CASE,
+3. Convert field names to snake_case.
+
+We won't prefix enum values with enum type though. Actually I recently removed this prefix because we found it very unnice. Therefore, we won't be able to use DEFAULT rule set for `buf` but will have to add some excpetions.
+
+</details>
+
+<details>
+<summary><strong>alexshtin</strong> commented on 2020-06-12 20:32:51.000 UTC</summary>
+
+```
+$ buf check lint | wc -l         
+0
+```
+
+</details>
+
+
+---
+
+<a id="631"></a>
+
+### #631: [Feature Request] Add startDelay to WorkflowExecutionInfo
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/631 |
+| **State** | CLOSED |
+| **Author** | Alex-Tideman (Alex Tideman) |
+| **Created** | 2025-08-22 13:39:43.000 UTC (4 months ago) |
+| **Updated** | 2025-09-08 18:35:21.000 UTC |
+| **Closed** | 2025-09-08 18:35:21.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+When listing workflows, users would like an indication if the workflow has a start delay. Currently it shows running with no information to show that the start is delayed.
+
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2025-09-04 16:36:58.000 UTC</summary>
+
+- Add to WorkflowExecutionInfo
+  - Visible via DescribeWorkflowExecution and ListWorkflowExecutions
+  - For list, it needs to be stored in the memo
+  - For describe, it needs to be accessible in the internal workflow mutable state representation (it may be there already, need to verify)
+- Render this in the CLI on `temporal workflow describe` and `temporal workflow list` (potentially)
+- Make sure it's available in the UI where needed
+
+</details>
+
+<details>
+<summary><strong>chaptersix</strong> commented on 2025-09-08 18:35:21.000 UTC</summary>
+
+
+* **StartTime** = when the workflow execution request is created.
+* **ExecutionTime** = when the workflow is scheduled to start (`StartTime + StartDelay`, if set).
+* Without a start delay, **StartTime** and **ExecutionTime** are identical, even if no pollers are available.
+* With a start delay, **ExecutionTime** reflects the scheduled start in the future, regardless of worker availability.
+* Users want visibility into **when the workflow will begin execution**, not just when it was requested.
+* **ExecutionTime** is already available in both `ListWorkflowExecutionsResponse` and `DescribeWorkflowExecutionResponse` and shows up in CLI JSON output. ex: `temporal workflow list -o jsonl | jq`
+* The UI Exposes the Execution Time as an optional column in the List workflow view but not in the per workflow view.
+
+
+**Resolution:**
+The UI currently does not expose ExecutionTime, which causes confusion when workflows are scheduled with delays. We will address this by **surfacing ExecutionTime in the workflow page UI**
+
+</details>
+
+
+---
+
+<a id="409"></a>
+
+### #409: [Feature Request] Remove /api/v1/ prefix from HTTP paths
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/409 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-05-23 19:21:47.000 UTC (1y 7m ago) |
+| **Updated** | 2024-05-24 16:56:54.000 UTC |
+| **Closed** | 2024-05-24 16:56:54.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 0 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 |
+
+#### Description
+
+### Describe the solution you'd like
+
+Based on internal decision, we have decided to remove this unnecessary prefix from API paths. While this is technically an incompatible change, the HTTP API has not been fully released.
+
+
+---
+
+<a id="435"></a>
+
+### #435: [Bug] Typo in the release tag
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/435 |
+| **State** | CLOSED |
+| **Author** | rustatian (Valery Piashchynski) |
+| **Created** | 2024-07-13 13:26:06.000 UTC (1y 6m ago) |
+| **Updated** | 2024-07-15 13:09:47.000 UTC |
+| **Closed** | 2024-07-15 12:52:05.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+https://github.com/temporalio/api/releases/tag/v.1.36.0 should be `v1.36.0`, extra dot after `v` in the git tag.
+<img width="608" alt="image" src="https://github.com/user-attachments/assets/4b0964fb-ab65-4ffc-a2d3-301065025a4c">
+
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-07-15 12:52:05.000 UTC</summary>
+
+This should now be solved (thanks @bergundy)
+
+</details>
+
+
+---
+
 <a id="427"></a>
 
 ### #427: Add configurable subpath for HTTP API
@@ -371,6 +659,63 @@ Looks like there are still some TODOs that snuck in there too so address those
 
 ---
 
+<a id="583"></a>
+
+### #583: [Feature Request] Remove license headers from files
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/583 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2025-05-02 16:08:24.000 UTC (8 months ago) |
+| **Updated** | 2025-05-05 18:01:37.000 UTC |
+| **Closed** | 2025-05-05 18:01:37.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Following server in https://github.com/temporalio/temporal/pull/7689, license headers are no longer required on files. Remove from all files in the API and remove any tooling that generates them or requires them.
+
+
+
+---
+
+<a id="428"></a>
+
+### #428: [Feature Request] `/cluster-info` should just be `/cluster`
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/428 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-07-01 19:51:55.000 UTC (1y 6m ago) |
+| **Updated** | 2024-07-03 13:14:10.000 UTC |
+| **Closed** | 2024-07-03 13:14:10.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+We should only have roots of `/namespaces` (cloud-capable data plane), `/cluster` (self-hosted only), and `/system-info` (namespaceless static call). Make `GetClusterInfo` just be `/cluster`, not `/cluster-info`.
+
+
+---
+
 <a id="421"></a>
 
 ### #421: [Bug] api-go update fails if the commit message contains "`"
@@ -442,6 +787,58 @@ or:
 * Move `google/protobuf` to `thirdparty/google-protobuf/google/protobuf`
 * Add `-I thirdparty/google-api` and `-I thirdparty/google-protobuf` to _our_ `protoc`
 * Confirm the fact that `thirdparty` is nested under our root is ok and can easily be ignored by most `protoc` use
+
+
+---
+
+<a id="349"></a>
+
+### #349: [Bug] api-go failing to properly handle nested empty objects for shorthand payloads
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/349 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-01-23 15:05:58.000 UTC (1y 11m ago) |
+| **Updated** | 2024-01-23 19:43:01.000 UTC |
+| **Closed** | 2024-01-23 19:43:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | tdeebswihart |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the bug
+
+If the payload is something like `{"greeting":{}}`, it marshals to `{"greeting":}`. If you take [api-go as of this time](https://github.com/temporalio/api-go/tree/406a5810b501f1b75ee1ebe46c119174cc35e69f) and apply the following test patch you can see the error:
+
+```diff
+--- a/internal/temporalcommonv1/payload_json_test.go
++++ b/internal/temporalcommonv1/payload_json_test.go
+@@ -82,6 +82,16 @@ var tests = []struct {
+ 			},
+ 		},
+ 	},
++}, {
++	name:          "json/plain with empty object",
++	longformJSON:  `{"metadata":{"encoding":"anNvbi9wcm90b2J1Zg=="},"data":"eyJncmVldGluZyI6IHt9fQ=="}`,
++	shorthandJSON: `{"greeting": {}}`,
++	pb: &common.Payload{
++		Metadata: map[string][]byte{
++			"encoding": []byte("json/plain"),
++		},
++		Data: []byte(`{"greeting":{}}`),
++	},
+ }}
+ 
+ func TestMaybeMarshal_ShorthandEnabled(t *testing.T) {
+```
+
+(sorry for opening in `api` repo, the `api-go` repo has issues disabled for good reason)
 
 
 ---
@@ -698,5 +1095,180 @@ Add `ScheduledEventId` to `PollActivityTaskQueueResponse`.
 ### Additional context
 
 The tuple of `(PollActivityTaskQueueResponse.WorkflowExecution.RunId, PollActivityTaskQueueResponse.ScheduledEventId)` is unique per Activity Execution and may be used to construct an *Idempotence Key* to deduplicate side effects during Activity Task Executions.
+
+
+---
+
+<a id="47"></a>
+
+### #47: Add Failure to Marker decision and event
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/47 |
+| **State** | CLOSED |
+| **Author** | mfateev (Maxim Fateev) |
+| **Created** | 2020-05-31 21:03:45.000 UTC (5y 7m ago) |
+| **Updated** | 2020-06-11 20:03:45.000 UTC |
+| **Closed** | 2020-06-11 20:03:44.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Marker event is used for multiple features like local activities, side effect, etc. After the recent change of how failures are represented it is not practically possible to attach a failure to the marker without explicitly serializing it to a payload. It is not convenient and requires explicit UI and CLI hacks to show the Failure correctly.
+
+The proposal is to change the RecordMarkerDecisionAttributes and correspondent MarkerRecordedEventAttributes to include explicit map of Failure messages. Also, let's change details to a map as well to account for other possible uses. 
+
+```protobuf
+message MarkerRecordedEventAttributes {
+    string markerName = 1;
+    map<string, common.Payloads> details = 2;
+    map<string, failure.Failure> failures = 3;
+    int64 decisionTaskCompletedEventId = 4;
+    common.Header header = 5;
+}
+```
+
+
+---
+
+<a id="18"></a>
+
+### #18: Decompose common and enums packages
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/18 |
+| **State** | CLOSED |
+| **Author** | alexshtin (Alex Shtin) |
+| **Created** | 2020-04-03 22:29:51.000 UTC (5y 9m ago) |
+| **Updated** | 2020-04-14 19:16:06.000 UTC |
+| **Closed** | 2020-04-14 19:16:06.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Currently we have `common` and `enums` packages which has all enums and shared messages. This was done basically to match Thrift layout and simplify migration process. This approach has some issues:
+1. Some messages are used by server only but lives in [this](https://github.com/temporalio/temporal-proto) shared repo.
+2. Enums values have to use prefixes to avoid conflicts.
+3. Package names as `common` is a bad practice and should not be used.
+
+The proposal is to split `common` and `enums` packages into the many specific packages having messages and enums in them. And move server specific messages to [server repo](https://github.com/temporalio/temporal). This will:
+1. Make the repo looks nicer with clean names and only require messages/enums.
+2. Allow to avoid enum collisions and remove prefixes. Initial understanding was that it is not a big deal but now we see these bad names in CLI and on the Web. Also we are locked to gogo compiler and when we want to switch to protobuf v2 it's might be problematic.
+
+New directory layout:
+```
+packagename
+  enum.proto
+  message.proto 
+```
+File names doesn't really matter for generated code but helps to organize proto objects themselves.
+
+I was able to extract following packages:
+```
+common
+decision
+event
+execution
+filter
+namespace
+query
+replication
+tasklist
+version
+```
+With best of my knowledge I will move proto objects to these packages. Unfortunately `common` is still there, because for some objects I can't find a better place.
+
+Server will have same packages (as needed). Although due to `protoc` limitations file names can't be the same. Therefore server directory layout will be:
+```
+packagename
+  server_enum.proto
+  server_message.proto 
+```
+On Go side proto package imports should always use package alias with `pb` (very common among protobuf users) suffix:
+```
+commonpb "go.temporal.io/temporal-proto/common"
+eventpb "go.temporal.io/temporal-proto/event"
+executionpb "go.temporal.io/temporal-proto/execution"
+filterpb "go.temporal.io/temporal-proto/filter"
+namespacepb "go.temporal.io/temporal-proto/namespace"
+querypb "go.temporal.io/temporal-proto/query"
+```
+and `genpb` suffix for server protos:
+```
+eventgenpb "github.com/temporalio/temporal/.gen/proto/event"
+tokengenpb "github.com/temporalio/temporal/.gen/proto/token"
+```
+`commonproto` alias goes away.
+
+This repo reorg is done by #16.
+
+
+---
+
+<a id="6"></a>
+
+### #6: Fix ChildWorkflowExecutionFailedCause
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/6 |
+| **State** | CLOSED |
+| **Author** | mfateev (Maxim Fateev) |
+| **Created** | 2020-02-22 06:33:44.000 UTC (5y 10m ago) |
+| **Updated** | 2020-06-05 18:42:49.000 UTC |
+| **Closed** | 2020-06-05 18:42:49.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | alexshtin |
+| **Milestone** | Initial Temporal Release |
+
+#### Description
+
+[ChildWorkflowExecutionFailedCause](https://github.com/temporalio/temporal-proto/blob/b957b122aaf2e216e2e28334f019ce090bd4ef8a/enums/enums.proto#L152:6) has only one value `ChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning`. 
+
+But a child creation can fail if a child workflow is already closed and the `workflowIdReusePolicy` is not `AllowDuplicate`. 
+
+Let's rename `ChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning` to `ChildWorkflowExecutionFailedCauseWorkflowAlreadyStarted` to be not confusing and consistent with error returned from `StartWorkflowExecution` API.
+
+
+
+---
+
+<a id="1"></a>
+
+### #1: Address all TODO when code migration is complete
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/api/issues/1 |
+| **State** | CLOSED |
+| **Author** | alexshtin (Alex Shtin) |
+| **Created** | 2019-11-26 23:18:47.000 UTC (6y 1m ago) |
+| **Updated** | 2020-04-03 22:51:25.000 UTC |
+| **Closed** | 2020-04-03 22:51:25.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | alexshtin |
+| **Milestone** | Initial Temporal Release |
+
+#### Description
+
+There are few `TODO`s which I did not addressed to simplify migration process but they must be addressed after migration and before going public.
 
 

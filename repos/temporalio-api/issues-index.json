@@ -1,7 +1,71 @@
 {
-  "generated_at": "2026-01-09T04:10:30.049Z",
-  "total_count": 13,
+  "generated_at": "2026-01-09T17:29:47.813Z",
+  "total_count": 25,
   "issues": [
+    {
+      "number": 631,
+      "title": "[Feature Request] Add startDelay to WorkflowExecutionInfo",
+      "state": "CLOSED",
+      "author": "Alex-Tideman",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-08-22T13:39:43Z",
+      "updatedAt": "2025-09-08T18:35:21Z",
+      "closedAt": "2025-09-08T18:35:21Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/631"
+    },
+    {
+      "number": 583,
+      "title": "[Feature Request] Remove license headers from files",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-05-02T16:08:24Z",
+      "updatedAt": "2025-05-05T18:01:37Z",
+      "closedAt": "2025-05-05T18:01:37Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/583"
+    },
+    {
+      "number": 435,
+      "title": "[Bug] Typo in the release tag",
+      "state": "CLOSED",
+      "author": "rustatian",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-07-13T13:26:06Z",
+      "updatedAt": "2024-07-15T13:09:47Z",
+      "closedAt": "2024-07-15T12:52:05Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/435"
+    },
+    {
+      "number": 428,
+      "title": "[Feature Request] `/cluster-info` should just be `/cluster`",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-07-01T19:51:55Z",
+      "updatedAt": "2024-07-03T13:14:10Z",
+      "closedAt": "2024-07-03T13:14:10Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/428"
+    },
     {
       "number": 427,
       "title": "Add configurable subpath for HTTP API",
@@ -35,6 +99,22 @@
       "url": "https://github.com/temporalio/api/issues/421"
     },
     {
+      "number": 409,
+      "title": "[Feature Request] Remove /api/v1/ prefix from HTTP paths",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-05-23T19:21:47Z",
+      "updatedAt": "2024-05-24T16:56:54Z",
+      "closedAt": "2024-05-24T16:56:54Z",
+      "commentCount": 0,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/api/issues/409"
+    },
+    {
       "number": 400,
       "title": "[Feature Request] Move/remove third party protos to a separate place instead of root",
       "state": "OPEN",
@@ -49,6 +129,38 @@
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/api/issues/400"
+    },
+    {
+      "number": 355,
+      "title": "[Bug] Unable to upgrade go.temporal.io/api 1.26->1.27",
+      "state": "CLOSED",
+      "author": "nickzelei",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-02-10T01:18:32Z",
+      "updatedAt": "2024-02-12T16:28:00Z",
+      "closedAt": "2024-02-12T13:31:14Z",
+      "commentCount": 2,
+      "upvotes": 3,
+      "totalReactions": 3,
+      "url": "https://github.com/temporalio/api/issues/355"
+    },
+    {
+      "number": 349,
+      "title": "[Bug] api-go failing to properly handle nested empty objects for shorthand payloads",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-01-23T15:05:58Z",
+      "updatedAt": "2024-01-23T19:43:01Z",
+      "closedAt": "2024-01-23T19:43:01Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/349"
     },
     {
       "number": 328,
@@ -207,23 +319,94 @@
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/api/issues/131"
+    },
+    {
+      "number": 47,
+      "title": "Add Failure to Marker decision and event",
+      "state": "CLOSED",
+      "author": "mfateev",
+      "labels": [],
+      "createdAt": "2020-05-31T21:03:45Z",
+      "updatedAt": "2020-06-11T20:03:45Z",
+      "closedAt": "2020-06-11T20:03:44Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/47"
+    },
+    {
+      "number": 24,
+      "title": "Consider using buf for linting and clang-format for formatting",
+      "state": "CLOSED",
+      "author": "buyology",
+      "labels": [],
+      "createdAt": "2020-04-10T16:12:15Z",
+      "updatedAt": "2020-06-12T20:32:51Z",
+      "closedAt": "2020-06-11T20:04:43Z",
+      "commentCount": 2,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/api/issues/24"
+    },
+    {
+      "number": 18,
+      "title": "Decompose common and enums packages",
+      "state": "CLOSED",
+      "author": "alexshtin",
+      "labels": [],
+      "createdAt": "2020-04-03T22:29:51Z",
+      "updatedAt": "2020-04-14T19:16:06Z",
+      "closedAt": "2020-04-14T19:16:06Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/18"
+    },
+    {
+      "number": 6,
+      "title": "Fix ChildWorkflowExecutionFailedCause",
+      "state": "CLOSED",
+      "author": "mfateev",
+      "labels": [],
+      "createdAt": "2020-02-22T06:33:44Z",
+      "updatedAt": "2020-06-05T18:42:49Z",
+      "closedAt": "2020-06-05T18:42:49Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/6"
+    },
+    {
+      "number": 1,
+      "title": "Address all TODO when code migration is complete",
+      "state": "CLOSED",
+      "author": "alexshtin",
+      "labels": [],
+      "createdAt": "2019-11-26T23:18:47Z",
+      "updatedAt": "2020-04-03T22:51:25Z",
+      "closedAt": "2020-04-03T22:51:25Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/api/issues/1"
     }
   ],
   "stats": {
     "by_state": {
+      "CLOSED": 12,
       "OPEN": 13
     },
     "by_label": {
-      "enhancement": 9,
-      "bug": 3
+      "enhancement": 13,
+      "bug": 6
     },
     "engagement": {
-      "total_upvotes": 6,
-      "total_comments": 9,
-      "issues_with_upvotes": 1,
-      "issues_with_comments": 3,
-      "upvote_rate": "8%",
-      "comment_rate": "23%"
+      "total_upvotes": 11,
+      "total_comments": 16,
+      "issues_with_upvotes": 4,
+      "issues_with_comments": 7,
+      "upvote_rate": "16%",
+      "comment_rate": "28%"
     }
   },
   "top_by_upvotes": [
@@ -232,6 +415,24 @@
       "title": "[Feature Request] Publish and maintain buf schema registry",
       "upvotes": 6,
       "comments": 0
+    },
+    {
+      "number": 355,
+      "title": "[Bug] Unable to upgrade go.temporal.io/api 1.26->1.27",
+      "upvotes": 3,
+      "comments": 2
+    },
+    {
+      "number": 409,
+      "title": "[Feature Request] Remove /api/v1/ prefix from HTTP paths",
+      "upvotes": 1,
+      "comments": 0
+    },
+    {
+      "number": 24,
+      "title": "Consider using buf for linting and clang-format for formatting",
+      "upvotes": 1,
+      "comments": 2
     }
   ],
   "top_by_comments": [
@@ -240,6 +441,30 @@
       "title": "[Proposal] Allow languages to customize package/namespace structure of generated proto APIs",
       "upvotes": 0,
       "comments": 7
+    },
+    {
+      "number": 631,
+      "title": "[Feature Request] Add startDelay to WorkflowExecutionInfo",
+      "upvotes": 0,
+      "comments": 2
+    },
+    {
+      "number": 355,
+      "title": "[Bug] Unable to upgrade go.temporal.io/api 1.26->1.27",
+      "upvotes": 3,
+      "comments": 2
+    },
+    {
+      "number": 24,
+      "title": "Consider using buf for linting and clang-format for formatting",
+      "upvotes": 1,
+      "comments": 2
+    },
+    {
+      "number": 435,
+      "title": "[Bug] Typo in the release tag",
+      "upvotes": 0,
+      "comments": 1
     },
     {
       "number": 427,

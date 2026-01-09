@@ -1,9 +1,9 @@
 # temporalio/features - Complete Issue Dump
 
 **Generated:** 2026-01-09
-**Total Issues:** 247
-**Total Upvotes:** 106
-**Total Comments:** 400
+**Total Issues:** 382
+**Total Upvotes:** 132
+**Total Comments:** 676
 
 ## Table of Contents
 
@@ -16,21 +16,22 @@
 
 | Metric | Value |
 |--------|-------|
-| Open Issues | 247 |
-| Issues with Upvotes | 32 (13%) |
-| Total Upvotes | 106 |
-| Total Comments | 400 |
+| Open Issues | 382 |
+| Issues with Upvotes | 41 (11%) |
+| Total Upvotes | 132 |
+| Total Comments | 676 |
 
 ## Top Labels
 
 | Label | Count |
 |-------|-------|
-| enhancement | 216 |
-| feature-test | 8 |
-| bug | 6 |
-| Mend: dependency security vulnerability | 5 |
+| enhancement | 302 |
+| Mend: dependency security vulnerability | 30 |
+| bug | 13 |
+| feature-test | 11 |
 | features-platform | 2 |
 | cdutrkgkteivjjuckjjvehvtledkdhdigcbk | 1 |
+| duplicate | 1 |
 | documentation | 1 |
 
 ## Issue Index
@@ -42,80 +43,137 @@
 | [#649](#649) | 14 | 4 | Add support for unit testing workflow versioning |
 | [#558](#558) | 3 | 21 | Add WorkflowIdConflictPolicy in child workflow options |
 | [#562](#562) | 7 | 6 | [Feature Request] Session support |
+| [#231](#231) | 9 | 1 | [Feature Request] Tag workflow_task_execution_failed with error type |
 | [#443](#443) | 0 | 17 | [Feature Request] Implement activity task poll limit |
+| [#141](#141) | 4 | 9 | User metadata |
 | [#434](#434) | 6 | 1 | [Feature Request] Serialization context for codecs and converters |
+| [#117](#117) | 4 | 5 | [Feature Request] Upsert TemporalChangeVersion on patch |
 | [#51](#51) | 0 | 13 | [Feature Request] Standardize method for listing workflow queries/signals (and maybe other things like registered activities/workflows and other metadata) |
 | [#563](#563) | 0 | 12 | Tag workflow_failed counter metric with exception type |
 | [#456](#456) | 5 | 2 | [Feature Request] Provide worker status |
 | [#257](#257) | 0 | 12 | Update API: support not writing history when calling external failure |
 | [#229](#229) | 6 | 0 | [Feature Request] Auto heartbeating |
+| [#467](#467) | 1 | 9 | Updates getting dropped after continue as new |
+| [#432](#432) | 0 | 11 | [Feature Request] SDK should not return an update handle if the update has not reached the desired state |
+| [#426](#426) | 4 | 2 | [Feature Request] API key client option |
 | [#69](#69) | 0 | 10 | [Feature Request] Specify reset point in workflow code |
 | [#463](#463) | 2 | 5 | Customize activity failure logging (and more?) |
 | [#377](#377) | 0 | 9 | Support an option to disable "Close" timeouts for indefinitely running Activities |
 | [#119](#119) | 1 | 7 | Add upsertMemo command |
 | [#25](#25) | 2 | 5 | [Feature Request] SDK should expose workflow_started metric |
+| [#681](#681) | 0 | 8 | [Feature Request] Expose client identity information to the Workflow |
 | [#624](#624) | 2 | 4 | Gracefully fail gRPC-message-too-large issues in worker |
 | [#363](#363) | 4 | 0 | [Feature Request] Work around gRPC message size limit for task completion |
+| [#261](#261) | 0 | 8 | [Feature Request] Write spec for graceful worker shutdown |
 | [#223](#223) | 2 | 4 | [Feature Request] SDK metric for activity failure exhausting retries |
+| [#31](#31) | 0 | 8 | [Feature Request] Update workflow time when processing queries |
 | [#9](#9) | 0 | 8 | [Feature Request] Enhance error message & add error code for expired client cert |
 | [#515](#515) | 3 | 1 | Expose start delay in child workflow options |
 | [#503](#503) | 3 | 1 | Cancel and Signal should still propagate to child workflows after child CAN'ed |
+| [#466](#466) | 0 | 7 | Show update handler and ID in logging context |
 | [#422](#422) | 0 | 7 | [Bug] Incomplete Span Reporting: Only RunActivity Spans Sent When Workflow Triggered via scheduler |
 | [#322](#322) | 2 | 3 | [Feature Request] Configurable workflow failure exception types |
 | [#268](#268) | 0 | 7 | [Feature Request] Add SDK side metrics for Update |
 | [#146](#146) | 0 | 7 | [Feature Request] Eagerly initialize workflow/activity counters |
 | [#142](#142) | 0 | 7 | [Feature Request] SDKs should send client capabilities in gRPC metadata |
+| [#74](#74) | 0 | 7 | Data conversion and encryption for Failures and Stacktrace Query results |
+| [#55](#55) | 0 | 7 | [Feature Request] Eager activity dispatch |
+| [#16](#16) | 0 | 7 | SDKs should expose history length and size via Workflow info |
+| [#475](#475) | 0 | 6 | Set Temporal-Namespace header on every gRPC request |
 | [#380](#380) | 2 | 2 | [Feature Request] Every SDK needs a DataDog sample for sending metrics and traces to DataDog agent |
 | [#203](#203) | 2 | 2 | [Feature Request] Provide client from an activity |
 | [#175](#175) | 3 | 0 | [Feature Request] Endtoend latency metric for cron executions |
 | [#98](#98) | 3 | 0 | [Feature Request] New metric: worker_task_slots_total |
+| [#28](#28) | 0 | 6 | [Feature Request] Compile and package gRPC client for operator service for all SDKs |
 | [#685](#685) | 0 | 5 | [Feature Request] Omit HostedMCPTool headers from serialized activity input? |
+| [#590](#590) | 0 | 5 | [Feature Request] Add describe() method to ExternalWorkflowHanlde |
+| [#565](#565) | 0 | 5 | Create FIFO mutex mechanism for locking access to some part of a workflow |
 | [#561](#561) | 0 | 5 | [Feature Request] Add Mutable Side Effect in Core based SDKs |
 | [#392](#392) | 1 | 3 | [Feature Request] Add temporal_worker_task_slots_total metric |
+| [#341](#341) | 0 | 5 | [Feature Request] Allow SDKs to create Schedule specs from tctl json structure |
+| [#144](#144) | 0 | 5 | [Feature Request] Add gRPC error status code tag to request metrics |
 | [#138](#138) | 1 | 3 | [Feature Request] SDKs should have built-in contextual logging |
+| [#68](#68) | 0 | 5 | [Feature Request] Create compatible encryption libraries |
 | [#568](#568) | 0 | 4 | SDK should provide a native query builder |
 | [#564](#564) | 0 | 4 | Provide flag to tell the update handler that the handling is from a re-apply |
+| [#539](#539) | 0 | 4 | Add all java metrics to core/python. |
 | [#489](#489) | 0 | 4 | Provide sample to show  per workflow interceptor instead of global |
 | [#441](#441) | 0 | 4 | [Feature Request] Environment configuration |
+| [#348](#348) | 0 | 4 | [Feature Request] Expose AdminService api in sdks |
 | [#323](#323) | 0 | 4 | [Feature Request] Support for HTTP CONNECT proxies in SDKs |
+| [#253](#253) | 0 | 4 | [Feature Request] Expose build ID via WorkflowInfo. |
 | [#243](#243) | 0 | 4 | [Feature Request] Expose schedule specific info in Workflows through a API |
 | [#150](#150) | 0 | 4 | Nightly CI against server and SDK `master` |
 | [#140](#140) | 0 | 4 | [Feature Request] Expose history size bytes to workflow execution info |
 | [#114](#114) | 1 | 2 | [Feature Request] Setting namespace and task queue during replay |
+| [#50](#50) | 0 | 4 | [Feature Request] SAGAs |
 | [#46](#46) | 0 | 4 | SDKs should default set gRPC max receive message size to 128MB |
 | [#702](#702) | 1 | 1 | Add activity_fail_endtoend_latency metric |
+| [#655](#655) | 0 | 3 | Support for user groups mapped to Entry ID security groups |
 | [#633](#633) | 0 | 3 | Treat Activity start as the first heartbeat time |
+| [#557](#557) | 1 | 1 | Add "summary" metadata to scheduled Nexus operations |
 | [#525](#525) | 1 | 1 | High-level task queue describe call with default-build-ID stats |
 | [#498](#498) | 0 | 3 | Allow listing and filtering workflows based on current failures. |
+| [#461](#461) | 0 | 3 | TypeScript - TODO after core |
+| [#437](#437) | 0 | 3 | [Feature Request] Support for WorkflowIdConflictPolicy |
 | [#417](#417) | 0 | 3 | RestartWorkflow on workflow task failure |
 | [#402](#402) | 0 | 3 | [Feature Request] WorkflowService API to update activity rate limit on a task queue |
 | [#400](#400) | 0 | 3 | [Feature Request] Workflow-init support |
+| [#387](#387) | 0 | 3 | [Feature Request] Whitelist Retryable Error Types |
+| [#296](#296) | 1 | 1 | [Feature Request] Workflow Update SDK integration - Public Preview |
+| [#234](#234) | 0 | 3 | [Feature Request] Add API to count workflows |
+| [#232](#232) | 0 | 3 | [Feature Request] Send SDK name and version on workflow task completion |
+| [#221](#221) | 0 | 3 | Unregistered Local Activity should fail Workflow Task |
+| [#208](#208) | 0 | 3 | go.temporal.io/features/features-v1.0.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#195](#195) | 0 | 3 | Standardize unregistered Activity Type behavior |
+| [#172](#172) | 0 | 3 | [Bug] Flaky tests |
 | [#168](#168) | 0 | 3 | [Feature Request] Always flush completed local work when nearing the workflow task timeout |
+| [#134](#134) | 0 | 3 | go.temporal.io/sdk-v1.15.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#125](#125) | 0 | 3 | [Feature Request] Provide a way to augment SDK workflow and activity resolution |
 | [#96](#96) | 0 | 3 | [Feature Request] Backoff more on resource exhausted error |
+| [#89](#89) | 0 | 3 | [Feature Request] mTLS sample with explanations how to connect to Temporal Cloud |
+| [#73](#73) | 0 | 3 | [Feature Request] High level API for schedules |
+| [#71](#71) | 0 | 3 | Create test containers from sdk-features for each SDK |
+| [#59](#59) | 0 | 3 | Wrap gRPC errors |
 | [#54](#54) | 0 | 3 | WorkflowInfo.lastCompletionResult |
 | [#45](#45) | 0 | 3 | Lazy connectivity for Temporal client and healthCheck |
+| [#37](#37) | 0 | 3 | go.temporal.io/sdk-features/features-v1.0.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#3](#3) | 0 | 3 | [Feature Request] Add feature tests for SDK side validation of different server commands |
 | [#696](#696) | 1 | 0 | Worker Heartbeating |
 | [#675](#675) | 0 | 2 | [Feature Request] Optionally hide server startup banner |
+| [#606](#606) | 0 | 2 | Custom metric bucket sizes |
 | [#602](#602) | 0 | 2 | Heartbeating activities should be interrupted when the activities are paused. |
 | [#594](#594) | 1 | 0 | Natively support musl-based environments |
 | [#592](#592) | 1 | 0 | Add `temporalNamespace` tag to all tracing spans |
 | [#573](#573) | 0 | 2 | Add fine control for workflow cache eviction |
 | [#553](#553) | 0 | 2 | allow reset API to bring new signals as atomic operation |
+| [#518](#518) | 0 | 2 | Support upgrading handlers/loops easier |
+| [#505](#505) | 1 | 0 | Support "query" when listing schedules |
 | [#486](#486) | 0 | 2 | User metadata and workflow metadata query |
+| [#483](#483) | 0 | 2 | Wrap GRPC::CANCELED and DEADLINE_EXCEEDED in an SDK Timeout exception for Update |
+| [#469](#469) | 0 | 2 | Make start_update users aware that it's synchronous w/ worker. |
 | [#464](#464) | 0 | 2 | [Sample] Add samples showing certificate replacement |
 | [#455](#455) | 1 | 0 | [Feature Request] Consider TLS handshake failures as worker-fatal errors |
+| [#454](#454) | 0 | 2 | Enable users to easily run samples in Cloud |
 | [#451](#451) | 0 | 2 | [Feature Request] Feature test confirming unhandled-command update behavior |
 | [#439](#439) | 0 | 2 | Stack traces with source mappings in the UI |
 | [#394](#394) | 0 | 2 | [Feature Request] Worker tracing should upsert header with outer span |
 | [#383](#383) | 0 | 2 | [Feature Request] Dynamic Display Name for Activities in Temporal Go |
+| [#379](#379) | 0 | 2 | [Feature Request] Allow Continue-as-New from update handlers |
 | [#378](#378) | 0 | 2 | [Feature Request] Timer duration "jitter" out of box utility |
 | [#376](#376) | 0 | 2 | Add metric for payload size for input/output/signal of workflow/activity  |
+| [#373](#373) | 0 | 2 | Community SDKs? |
 | [#343](#343) | 0 | 2 | [Feature Request] Worker Pause |
 | [#339](#339) | 0 | 2 | [Feature Request] Add encryption codec to SDK |
+| [#336](#336) | 0 | 2 | [Feature Request] Typed Search Attributes |
 | [#334](#334) | 0 | 2 | [Feature Request] Worker Slot & Polling Auto-Tuning |
+| [#326](#326) | 0 | 2 | [Feature Request] Unified client gRPC retry periods |
+| [#321](#321) | 0 | 2 | [Feature Request] SDK name and version on workflow tasks |
 | [#293](#293) | 0 | 2 | [Feature Request] Expose UpdateID in an update handler |
+| [#258](#258) | 0 | 2 | [Feature Request] Expose TemporalScheduledStartTime search attribute as typed datetime from workflow info |
+| [#245](#245) | 0 | 2 | Swift SDK |
+| [#227](#227) | 1 | 0 | [Feature Request] Add samples using our versioning API |
+| [#216](#216) | 0 | 2 | [Bug] '/home/runner/work/temporal/temporal/./features'. No such file or directory |
 | [#206](#206) | 1 | 0 | [Feature Request] Add context propagators in all SDKs |
 | [#204](#204) | 1 | 0 | [Feature Request] Expose currently configured payload converter to workflow code |
 | [#193](#193) | 0 | 2 | Set identity to `ClientOptions.identity` in all possible client calls |
@@ -123,10 +181,15 @@
 | [#164](#164) | 0 | 2 | Support valid proto JSON in SDK replayers |
 | [#116](#116) | 0 | 2 | github.com/uber-go/tally/v4-v4.1.1: 2 vulnerabilities (highest severity is: 7.5) |
 | [#111](#111) | 0 | 2 | Emit warning log if a supplied client certificate has already expired |
+| [#107](#107) | 0 | 2 | Feature specs & tests for whole worker versioning |
 | [#92](#92) | 0 | 2 | [Feature Request] Provide details of previous Activity Task failure |
+| [#72](#72) | 0 | 2 | [Feature Request] Unify retry logic across all SDKs |
 | [#30](#30) | 0 | 2 | Add support for workflow.SignalExternalWorkflowWithStart (will probably also require server changes) |
+| [#23](#23) | 0 | 2 | [Bug] git checkout in typescript.yml failing for forked repos |
 | [#22](#22) | 0 | 2 | [Feature Request] Spec for expected client behavior when using handle or stub methods |
 | [#17](#17) | 0 | 2 | SDK API for describing workflow |
+| [#6](#6) | 0 | 2 | SDKs should stop retrying on "Internal" server error |
+| [#703](#703) | 0 | 1 | Support setting of Temporal Headers through CLI / GUI |
 | [#670](#670) | 0 | 1 | [Feature Request] Reclassify Benign Application errors in OpenTelemetry |
 | [#666](#666) | 0 | 1 | Add BadScheduleActivityAttributes failure_reason to temporal_workflow_task_execution_failed metric |
 | [#663](#663) | 0 | 1 | Setting headers on LocalActivities not recorded on EventHistory |
@@ -135,6 +198,7 @@
 | [#639](#639) | 0 | 1 | Add unregistered_activity_invocation |
 | [#637](#637) | 0 | 1 | Add Summary to LocalActivityOptions |
 | [#619](#619) | 0 | 1 | Expose `StartWorkflowExecutionResponse` fields to `ExecuteWorkflow` API |
+| [#616](#616) | 0 | 1 | Warn when the server-provided task start time is fairly different than time SDK begins processing the task |
 | [#615](#615) | 0 | 1 | Show retry policy on activity info |
 | [#614](#614) | 0 | 1 | Apply application failure logging and metrics behaviour according to `ApplicationErrorCategory` |
 | [#608](#608) | 0 | 1 | SDK should try to check if activity is completed before sending last buffered heartbeat |
@@ -143,37 +207,85 @@
 | [#604](#604) | 0 | 1 | Built-in query responses should use "RawValue" |
 | [#597](#597) | 0 | 1 | Research/solve truncating failure stack traces SDK-side so they don't get truncated server side |
 | [#596](#596) | 0 | 1 | Expose Workflow cancel cause/reason |
+| [#593](#593) | 0 | 1 | Task Queue Priority Options/Annotations |
+| [#582](#582) | 0 | 1 | [Features Platform] continue_as_new/continue_as_same feature does not pass against cloud |
+| [#580](#580) | 0 | 1 | [Features Platform] PHP schedule/basic fails when run against cloud |
 | [#576](#576) | 0 | 1 | Special behavior for Temporal built-in prefixes |
 | [#572](#572) | 0 | 1 | Access to workflow/activity instance created by Temporal from workflow/activity context where applicable |
 | [#571](#571) | 0 | 1 | Concept of "workflow local" value |
 | [#559](#559) | 0 | 1 | Include structured command/event diff/items in non-determinism error |
 | [#551](#551) | 0 | 1 | Waiting on update result should auto-skip time in time-skipping environments |
+| [#521](#521) | 0 | 1 | Add feature tests for .NET HTTP proxy support |
 | [#501](#501) | 0 | 1 | Warn when activities dangle |
+| [#500](#500) | 0 | 1 | Workflow-friendly concurrency control |
 | [#494](#494) | 0 | 1 | Easy search attributes in dev server |
 | [#472](#472) | 0 | 1 | TestWorkflowEnvironment - fail tests on workflow task failures |
+| [#471](#471) | 0 | 1 | Worker client TLS certificate update |
+| [#442](#442) | 0 | 1 | [Feature Request] Allow activity to specify backoff interval via failure |
+| [#440](#440) | 0 | 1 | [Feature Request] Cloud Ops API Client |
+| [#430](#430) | 0 | 1 | Add actions metrics dashboard |
 | [#428](#428) | 0 | 1 | [Feature Request] Workflow Update Get-Status (and Wait-For-Stage) Capability |
 | [#424](#424) | 0 | 1 | [Feature Request] Allow force complete current workflow task when localActivity is completed or failed |
+| [#405](#405) | 0 | 1 | [Feature Request] Disable eager activities if task queue rate limits is set |
+| [#397](#397) | 0 | 1 | [Feature Request] Do not require other Activity timeouts when Heartbeat timeout is specified |
 | [#396](#396) | 0 | 1 | [Feature Request] Use macOS M1/ARM runners for all SDK CI  |
+| [#395](#395) | 0 | 1 | Rust SDK Support |
+| [#388](#388) | 0 | 1 | [Feature Request] Worker dynamic config |
 | [#381](#381) | 0 | 1 | [Feature Request] Expose API to list enabled features for a namespace  |
+| [#367](#367) | 0 | 1 | go.temporal.io/api-v1.24.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#352](#352) | 0 | 1 | google.golang.org/grpc-v1.57.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#338](#338) | 0 | 1 | Feature Request] Add delay to workflow start options |
+| [#333](#333) | 0 | 1 | github.com/temporalio/features/features-v1.0.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#331](#331) | 0 | 1 | [Feature Request] Use codecs for headers in all SDKs |
+| [#304](#304) | 0 | 1 | common-1.5.2.tgz: 1 vulnerabilities (highest severity is: 5.5) - autoclosed |
 | [#273](#273) | 0 | 1 | [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task |
+| [#266](#266) | 0 | 1 | [Feature Request]  Update feature tests |
 | [#256](#256) | 0 | 1 | [Feature Request] Return input when describing WE |
+| [#249](#249) | 0 | 1 | worker-1.5.2.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#248](#248) | 0 | 1 | go.temporal.io/api-v1.16.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#242](#242) | 0 | 1 | [Feature Request] Eager Workflow Task Dispatch on SDKs |
 | [#228](#228) | 0 | 1 | [Feature Request] Test workflow changes are deterministic/nondeterministic |
 | [#219](#219) | 0 | 1 | [Feature Request] SDK workers should not intentionally time out failed workflow tasks if server supports backoff |
+| [#215](#215) | 0 | 1 | go.temporal.io/sdk-v1.19.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#201](#201) | 0 | 1 | [Feature Request] Support dynamic workflows, activities, signals, queries, and updates in all SDKs |
+| [#200](#200) | 0 | 1 | [Feature Request] Support a "version marker" like approach for internal SDK use for every workflow |
+| [#199](#199) | 0 | 1 | [Feature Request] Opt-in to having stack trace query use custom data converter |
+| [#198](#198) | 0 | 1 | [Feature Request] Fail on client without retry if gRPC message size exceeds 4MB |
+| [#197](#197) | 0 | 1 | [Feature Request] Standard mechanism for versioning SDK logic |
+| [#181](#181) | 0 | 1 | [Bug] [Harness] Ensure all started workflows always have a timeout |
+| [#179](#179) | 0 | 1 | [Feature Request] Add non-memoized versioning API |
 | [#178](#178) | 0 | 1 | [Feature Request] Add GetSignalInfo |
 | [#177](#177) | 0 | 1 | [Feature Request] Don't allow apis that generate commands to be invoked from side effects |
+| [#170](#170) | 0 | 1 | [Feature Request] Worker enforcement of activity timeouts |
 | [#167](#167) | 0 | 1 | [Feature Request] Align local_activity_execution_failed across SDKs |
+| [#149](#149) | 0 | 1 | [Feature Request] Expose `reason` field when requesting WF cancels from clients |
 | [#145](#145) | 0 | 1 | [Feature Request] Workfow sleep/await with 0 duration |
 | [#137](#137) | 0 | 1 | [Feature Request] Run a stress test to understand implications of eager activity dispatch |
+| [#136](#136) | 0 | 1 | temporalio-0.1b1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl: 1 vulnerabilities (highest severity is: 5.5) - autoclosed |
+| [#127](#127) | 0 | 1 | go.temporal.io/server-v1.17.4: 4 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#123](#123) | 0 | 1 | [Feature Request] SDK connections should enable keep-alive by default and allow keep-alive customization |
+| [#115](#115) | 0 | 1 | temporal-sdk-1.15.0.jar: 5 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#109](#109) | 0 | 1 | gson-2.8.8.jar: 2 vulnerabilities (highest severity is: 7.7) - autoclosed |
+| [#108](#108) | 0 | 1 | temporal-sdk-1.14.0.jar: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#88](#88) | 0 | 1 | temporalio-1.0.0-rc.1.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#86](#86) | 0 | 1 | [Feature Request] Add an http header indicating temporal namespace for each request |
+| [#84](#84) | 0 | 1 | Go: Implement opt-in to build-id based versioning flag |
 | [#78](#78) | 0 | 1 | [Feature Request] Implement signal features |
 | [#77](#77) | 0 | 1 | [Feature Request] Implement activity features |
 | [#75](#75) | 0 | 1 | [Feature Request] Friendly version of listWorkflowExecutions |
+| [#70](#70) | 0 | 1 | temporalio-1.0.0-rc.0.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#67](#67) | 0 | 1 | ✅ Activity Heartbeat Throttling |
 | [#66](#66) | 0 | 1 | [Feature Request] Allow running failure fields through codec |
 | [#65](#65) | 0 | 1 | [Feature Request] Attach info about unresolved commands to WFT completions |
+| [#60](#60) | 0 | 1 | github.com/stretchr/testify-v1.7.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#56](#56) | 0 | 1 | temporalio-0.21.1.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#47](#47) | 0 | 1 | [Feature Request] SDKs should differentiate between `NamespaceInvalidState` and `NamespaceNotFound` errors |
+| [#44](#44) | 0 | 1 | github.com/temporalio/temporal-v1.16.0: 3 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#38](#38) | 0 | 1 | github.com/temporalio/temporal-3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86: 3 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#36](#36) | 0 | 1 | tsconfig-paths-3.12.0.tgz: 1 vulnerabilities (highest severity is: 5.0) - autoclosed |
+| [#35](#35) | 0 | 1 | logback-classic-1.2.6.jar: 1 vulnerabilities (highest severity is: 6.6) - autoclosed |
+| [#34](#34) | 0 | 1 | go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c: 4 vulnerabilities (highest severity is: 7.5) - autoclosed |
+| [#33](#33) | 0 | 1 | temporal-sdk-1.5.0.jar: 3 vulnerabilities (highest severity is: 7.5) - autoclosed |
 | [#19](#19) | 0 | 1 | [Feature Request] Call ResetStickyTaskQueue on worker shutdown |
 | [#12](#12) | 0 | 1 | [Feature Request] Add a metric to track certificate expiration |
 | [#4](#4) | 0 | 1 | [Feature Request] Rename features/ to spec/ |
@@ -182,11 +294,15 @@
 | [#706](#706) | 0 | 0 | Support non-workflow activities |
 | [#705](#705) | 0 | 0 | Warn if SDK detects a workflow history over a certain size |
 | [#701](#701) | 0 | 0 | Warn if the SDK tried to send a payload above a specific size |
+| [#695](#695) | 0 | 0 | Set `GrpcMessageTooLarge` as `failure_reason` for workflow task failed metric |
 | [#694](#694) | 0 | 0 | Allow overriding of the Worker Deployment Version when invoking a Child Workflow. |
 | [#692](#692) | 0 | 0 | Nexus samples and docs should not encourage using request ID for workflow ID |
 | [#691](#691) | 0 | 0 | Deployment feature tests failing in Go docker build |
 | [#687](#687) | 0 | 0 | Assume TLS enabled if API key provided in SDKs |
 | [#684](#684) | 0 | 0 | Provide plugin implementations for contrib/extra integrations |
+| [#683](#683) | 0 | 0 | Add Nexus CONFLICT and REQUEST_TIMEOUT handler error types |
+| [#682](#682) | 0 | 0 | Remove fetchResult and fetchInfo from Nexus SDKs |
+| [#680](#680) | 0 | 0 | Remove mentions of tctl from the SDKs |
 | [#678](#678) | 0 | 0 | Nexus serialization context |
 | [#677](#677) | 0 | 0 | [Feature request] Idempotency token for activity |
 | [#676](#676) | 0 | 0 | Append some details to error messages |
@@ -195,17 +311,20 @@
 | [#672](#672) | 0 | 0 | Ensure tests exist to confirm custom slot supplier slot info has proper fields |
 | [#671](#671) | 0 | 0 | Ensure gRPC binary metadata keys are supported by clients |
 | [#669](#669) | 0 | 0 | Add ability to set timer options like summary on higher-level timer calls |
+| [#665](#665) | 0 | 0 | Nexus samples and dev guide docs to map a Nexus Operation input to multiple Workflow arguments |
 | [#664](#664) | 0 | 0 | Nexus samples and dev guide docs for sync Nexus ops that use signal, signal-with-start, update, query, ... |
 | [#658](#658) | 0 | 0 | Nexus operation testing environment |
 | [#657](#657) | 0 | 0 | Provide extra/advanced details on start/execute workflow |
 | [#656](#656) | 0 | 0 | Make metrics concerning unregistered activities (and maybe other things) consistent |
 | [#651](#651) | 0 | 0 | Add metric to indicate that poll rate is limited by client |
+| [#648](#648) | 0 | 0 | Write tests for worker shutdown |
 | [#636](#636) | 0 | 0 | Add task_queue information to long_request_latency |
 | [#635](#635) | 0 | 0 | Provide last result and last failure to workflows |
 | [#634](#634) | 0 | 0 | Add failure_reason=UnhandledCommand to workflow_task_execution_failed metric |
 | [#632](#632) | 0 | 0 | Add StartDelay to ContinueAsNewOptions |
 | [#620](#620) | 0 | 0 | SDK support for activity reset |
 | [#613](#613) | 0 | 0 | Explore ways of testing pre-patched code in SDKs |
+| [#612](#612) | 0 | 0 | Remove pinning of @grpc/grpc-js in the TS harness |
 | [#610](#610) | 0 | 0 | Add summary to Nexus operation |
 | [#609](#609) | 0 | 0 | Initial Nexus implementation |
 | [#603](#603) | 0 | 0 | "RawValue" support for non-converted payloads |
@@ -219,8 +338,12 @@
 | [#566](#566) | 0 | 0 | Support full query failure structure |
 | [#560](#560) | 0 | 0 | Add `WorkflowExecutionInfo.pendingActivities` |
 | [#550](#550) | 0 | 0 | Allow queries to target a certain event number in replayers (and maybe other interactions) |
+| [#548](#548) | 0 | 0 | Workflow annotations for versioning |
+| [#542](#542) | 0 | 0 | Call ShutdownWorker API on worker shutdown |
 | [#538](#538) | 0 | 0 | Allow SDKs to support connecting to multiple endpoints for Multi-region Namespaces |
 | [#534](#534) | 0 | 0 | Bidirectional linking of workflows through activity |
+| [#529](#529) | 0 | 0 | Centralize dynamic config |
+| [#522](#522) | 0 | 0 | Support local_activity_X based metrics in Core-based SDKs |
 | [#512](#512) | 0 | 0 | Support schedule search attribute update |
 | [#506](#506) | 0 | 0 | Support replaying past last successful workflow task completion |
 | [#499](#499) | 0 | 0 | Warn or error when update handlers dangle across CAN or workflow exit |
@@ -234,10 +357,14 @@
 | [#462](#462) | 0 | 0 | Expose attempts in `ActivityFailure` |
 | [#460](#460) | 0 | 0 | StickyTaskQueueDrainTimeout |
 | [#446](#446) | 0 | 0 | [Feature Request] provide a way to create a Temporal schedule which runs every last day of the month |
+| [#444](#444) | 0 | 0 | [Feature Request] Run history compatibility checks for all SDKs and all features |
+| [#431](#431) | 0 | 0 | [Feature Request] SDK clients should set a UpdateID on any update request even if the user did not specify one. |
 | [#429](#429) | 0 | 0 | Add SLA dashboard using SDK/client metrics |
 | [#427](#427) | 0 | 0 | [Feature Request] Unknown SDK flag should behave consistently across SDK |
+| [#421](#421) | 0 | 0 | [Bug] Why doesn't this repo trigger TS barfing on null activity timeouts? |
 | [#419](#419) | 0 | 0 | [Feature Request] Expose next retry delay on Application Failure in all SDKs |
 | [#384](#384) | 0 | 0 | logback-classic-1.2.9.jar: 2 vulnerabilities (highest severity is: 7.5) |
+| [#368](#368) | 0 | 0 | [Feature Request] Add an Eager Workflow Start test for Cloud |
 | [#366](#366) | 0 | 0 | xunit.assert.2.5.3.nupkg: 2 vulnerabilities (highest severity is: 7.5) |
 | [#353](#353) | 0 | 0 | [Features Platform] Make it possible to configure client interceptors in typescript |
 | [#330](#330) | 0 | 0 | [Bug] bugs/go/child_workflow_cancel_panic flaky |
@@ -246,16 +373,20 @@
 | [#314](#314) | 0 | 0 | [Feature Request] Add Client method for non blocking try-get-result |
 | [#305](#305) | 0 | 0 | [Feature Request] Block when workflow commands are produced in a read only context |
 | [#294](#294) | 0 | 0 | Safe Deploys API - Public Preview |
+| [#290](#290) | 0 | 0 | [Feature Request] Add feature that tests for update deduplication |
 | [#288](#288) | 0 | 0 | guava-31.1-jre.jar: 1 vulnerabilities (highest severity is: 7.1) |
 | [#279](#279) | 0 | 0 | [Feature Request] Harness history checker should have easier way to ignore new fields |
 | [#254](#254) | 0 | 0 | json-path-2.6.0.jar: 2 vulnerabilities (highest severity is: 7.5) |
 | [#241](#241) | 0 | 0 | [Feature Request] Support LastHeartbeatDetails on RespondActivityTaskFailedRequest |
 | [#240](#240) | 0 | 0 | [Feature Request] Ensure every SDK fails the workflow not the task on invalid workflow argument |
 | [#233](#233) | 0 | 0 | [Feature Request] Replayer API should return result of replayed workflow |
+| [#226](#226) | 0 | 0 | [Feature Request] .NET SDK Support |
 | [#222](#222) | 0 | 0 | workflow_completed and workflow_continue_as_new counters should be logged after a successful reporting to the server |
 | [#218](#218) | 0 | 0 | [Feature Request] SDKs should not fatal the worker on any error without a retry period |
+| [#210](#210) | 0 | 0 | [Bug] TS tests are flaky |
 | [#202](#202) | 0 | 0 | [Feature Request] Test schedule workflows have all required information set in their execution |
 | [#194](#194) | 0 | 0 | [Feature Request] Schedule timers even if duration is <= 0 |
+| [#184](#184) | 0 | 0 | [Bug] Python features/query/timeout_due_to_no_active_workers should check for deadline exceeded |
 | [#182](#182) | 0 | 0 | Document that list workflow/schedule calls are eventually consistent in specs |
 | [#166](#166) | 0 | 0 | [Feature Request] Support --version latest |
 | [#160](#160) | 0 | 0 | [Feature Request] Workflow only worker specs |
@@ -269,10 +400,14 @@
 | [#121](#121) | 0 | 0 | [Feature Request] No history JSON conversion if already done |
 | [#113](#113) | 0 | 0 | [Documentation] Testing feedback request |
 | [#105](#105) | 0 | 0 | [Feature Request] Auto timeout activity after heartbeat timeout |
+| [#104](#104) | 0 | 0 | [Feature Request] Support "preparing" an SDK to run |
+| [#103](#103) | 0 | 0 | [Feature Request] PHP harness |
 | [#94](#94) | 0 | 0 | [Feature Request] Group Temporal-specific log tags |
 | [#93](#93) | 0 | 0 | [Feature Request] Prefix span and span tag names  |
 | [#91](#91) | 0 | 0 | [Feature Request] SDKs should set `supported-features` header |
 | [#83](#83) | 0 | 0 | [Feature Request] Implement timer features |
+| [#82](#82) | 0 | 0 | [Feature Request] Implement query features |
+| [#81](#81) | 0 | 0 | [Feature Request] Implement data_converter features |
 | [#80](#80) | 0 | 0 | [Feature Request] Implement continue_as_new features |
 | [#79](#79) | 0 | 0 | [Feature Request] Implement child_workflow features |
 | [#76](#76) | 0 | 0 | [Feature Request] Friendly version of `getWorkflowExecutionHistory` |
@@ -284,6 +419,7 @@
 | [#11](#11) | 0 | 0 | [Feature Request] SDKs users should have a way to inject new certificates to a connection instance |
 | [#10](#10) | 0 | 0 | Confirm behavior of manually returning cancellation errors in all SDKs from workfows and activities |
 | [#8](#8) | 0 | 0 | [Feature Request] SDKs should backoff aggressively on `ResourceExhaustedError` |
+| [#7](#7) | 0 | 0 | SDKs should use `getSystemInfo` request to determine server capabilities |
 
 ---
 
@@ -302,7 +438,7 @@ Issues are sorted by priority score (upvotes × 2 + comments).
 | **URL** | https://github.com/temporalio/features/issues/399 |
 | **State** | OPEN |
 | **Author** | freisenhauer |
-| **Created** | 2024-01-10 14:08:09.000 UTC (1y 12m ago) |
+| **Created** | 2024-01-10 14:08:09.000 UTC (2 years ago) |
 | **Updated** | 2024-07-15 17:31:36.000 UTC |
 | **Upvotes** | 15 |
 | **Comments** | 12 |
@@ -1548,6 +1684,48 @@ Thank you for considering this feedback @mjameswh, and I look forward to contrib
 
 ---
 
+<a id="231"></a>
+
+### #231: [Feature Request] Tag workflow_task_execution_failed with error type
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/231 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2023-02-22 18:55:41.000 UTC (2y 10m ago) |
+| **Updated** | 2024-05-21 16:01:55.000 UTC |
+| **Closed** | 2024-05-21 16:01:55.000 UTC |
+| **Upvotes** | 9 |
+| **Comments** | 1 |
+| **Priority Score** | 19 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 9 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Add a tag to `workflow_task_execution_failed` called `failure_reason` that can be equal to `WorkflowError| NonDetermismError` depending on why the workflow task failed. We can also consider adding additional failure reasons in the future.
+
+* [x] Go - https://github.com/temporalio/sdk-go/issues/1289
+* [x] Java - https://github.com/temporalio/sdk-java/issues/1929
+* [x] Core - https://github.com/temporalio/sdk-core/issues/730
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2024-05-21 16:01:55.000 UTC</summary>
+
+Complete in all places
+
+</details>
+
+
+---
+
 <a id="443"></a>
 
 ### #443: [Feature Request] Implement activity task poll limit
@@ -1766,6 +1944,116 @@ Reactions: 👍 1 🎉 1
 
 ---
 
+<a id="141"></a>
+
+### #141: User metadata
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/141 |
+| **State** | CLOSED |
+| **Author** | mfateev (Maxim Fateev) |
+| **Created** | 2021-01-11 23:41:35.000 UTC (4y 12m ago) |
+| **Updated** | 2024-05-22 15:40:57.000 UTC |
+| **Closed** | 2024-05-22 15:40:57.000 UTC |
+| **Upvotes** | 4 |
+| **Comments** | 9 |
+| **Priority Score** | 17 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 4 |
+
+#### Description
+
+**Is your feature request related to a problem? Please describe.**
+There is a need to attach additional information to commands for troubleshooting and diagraming purposes. [For example ](https://community.temporal.io/t/is-worker-threadid-available-in-event-history/1290)thread-id of a thread that invoked an activity or scheduled a timer.
+
+**Describe the solution you'd like**
+The proposal is to add a metadata field to the [Command](https://github.com/temporalio/api/blob/e1c0551f105bd580c286ce816f8e1b05faa48e4b/temporal/api/command/v1/message.proto#L174) protobuf. Then SDKs would be able to add use case specific information to commands.
+
+
+
+#### Comments (9)
+
+<details>
+<summary><strong>williambanfield</strong> commented on 2023-05-31 18:02:26.000 UTC</summary>
+
+This would be pretty helpful for us. At the moment, I am planning on creating a small activity called 'annotate' that takes a list of strings so that the list of strings will be stored and output alongside workflow information.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-05-31 18:21:08.000 UTC</summary>
+
+We have since added a SDK metadata command at https://github.com/temporalio/api/pull/259 but it is task level meant for SDK internal use.
+
+> I am planning on creating a small activity called 'annotate'
+
+Note, you'll probably want to make this a local activity that is a single-event marker instead of a full activity. But agreed, we should support arbitrary metadata on commands (and maybe an arbitrary log marker).
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-05-31 18:29:51.000 UTC</summary>
+
+Another user [ask ](https://github.com/temporalio/sdk-java/issues/396#issuecomment-1553527210) that would be solved if we could attach metadata to commands
+
+</details>
+
+<details>
+<summary><strong>williambanfield</strong> commented on 2023-05-31 18:41:57.000 UTC</summary>
+
+@cretz 
+
+>  single-event marker instead of a full activity
+
+How does one go about doing this?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-05-31 18:44:27.000 UTC</summary>
+
+Use a local activity. It's automatically an inline single-command/event thing as opposed to activities which is multi-event and may execute on a remote worker.
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-01-05 14:44:05.000 UTC</summary>
+
+To be more specific here, I think we take an approach similar to https://github.com/temporalio/api/pull/259 but for commands/events. We should add `temporal.api.sdk.v1.WorkflowEventMetadata` to both `temporal.api.command.v1.Command` and `temporal.api.history.v1.HistoryEvent` (or just to specific attributes we know can handle them). And server should put the metadata on the events created from the commands. `WorkflowEventMetadata` can have common, well-typed fields like `string friendly_name` or in generic cases in cahoots with UI, there can be a `map<string, string> ui_info` or similar.
+
+Reactions: 👍 2
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-05 23:05:16.000 UTC</summary>
+
+After internal discussion, it was decided that the approach here is an event metadata that, for now, is a map of enumerate keys and payload values. The enumerate keys are well-known metadata keys that UI can leverage, and the payload values are encryptable. I will link an API PR when available. Arbitrary user-defined keys is not going to be available at this time, but the well-known keys will have lots of opportunity for users to provide extra event information.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-18 20:11:54.000 UTC</summary>
+
+This has been changed to "user metadata" and after internal discussion, the initial API PR for public discussion is available at https://github.com/temporalio/api/pull/371.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-05-22 15:40:57.000 UTC</summary>
+
+I am closing this in favor of the clearer #486.
+
+</details>
+
+
+---
+
 <a id="434"></a>
 
 ### #434: [Feature Request] Serialization context for codecs and converters
@@ -1816,6 +2104,104 @@ A solution similar to the Java SDK in other languages, see https://github.com/te
 <summary><strong>GSmithApps</strong> commented on 2025-06-23 14:48:00.000 UTC</summary>
 
 ~~ignore this -- just posting to follow this issue~~
+
+</details>
+
+
+---
+
+<a id="117"></a>
+
+### #117: [Feature Request] Upsert TemporalChangeVersion on patch
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/117 |
+| **State** | CLOSED |
+| **Author** | lorensr (Loren ☺️) |
+| **Created** | 2022-07-06 19:20:51.000 UTC (3y 6m ago) |
+| **Updated** | 2025-07-08 18:06:29.000 UTC |
+| **Closed** | 2025-07-08 18:06:29.000 UTC |
+| **Upvotes** | 4 |
+| **Comments** | 5 |
+| **Priority Score** | 13 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 4 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+Can't do:
+
+`tctl workflow list --query='TemporalChangeVersion="<change_id>-<version_id>"'`
+
+Which our docs say you should be able to do when using patch API.
+
+<img width="1109" alt="image" src="https://user-images.githubusercontent.com/251288/177626500-6ef94ed0-7a67-4217-b03a-c4321941aa8c.png">
+
+https://docs.temporal.io/concepts/what-is-a-search-attribute
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+Add an `UpsertSearchAttributes` with `TemporalChangeVersion: <change_id>-<version_id>` with each patch command. Apparently Go SDK does this, but Java doesn't.
+
+### SDKs
+
+- [x] Go
+- [ ] Java https://github.com/temporalio/sdk-java/issues/587
+- [ ] TS https://github.com/temporalio/sdk-typescript/issues/817
+- [ ] Python
+- [ ] PHP
+
+### Additional context
+
+Internal slack link
+
+#### Comments (5)
+
+<details>
+<summary><strong>rupalivohra</strong> commented on 2022-08-09 20:36:16.000 UTC</summary>
+
+This also appears to not work for the TS SDK, but I'm guessing solving it in the Core will address that as well?
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-08-09 20:59:23.000 UTC</summary>
+
+Yes.
+
+@Sushisource I was envisioning this done only in Core, but that would mean `workflowInfo().searchAttributes` wouldn't have `TemporalChangeVersion`?
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2022-08-09 21:05:34.000 UTC</summary>
+
+@lorensr It should be able to have it just fine - maybe not in the same workflow task that you do the upsert, but that's correct in some sense anyway.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-10 16:07:39.000 UTC</summary>
+
+We could add the search attribute when a patch is applied in the TS workflow runtime so it's available when processing the "current" workflow task.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-16 03:37:59.000 UTC</summary>
+
+I think we decided to close this and implement in lang, it's much much simpler
+
+Reactions: 👍 1
 
 </details>
 
@@ -2559,6 +2945,401 @@ func MyActivity(ctx context.Context) error {
 
 ---
 
+<a id="467"></a>
+
+### #467: Updates getting dropped after continue as new
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/467 |
+| **State** | CLOSED |
+| **Author** | drewhoskins-temporal (Drew Hoskins) |
+| **Created** | 2024-04-24 00:57:02.000 UTC (1y 8m ago) |
+| **Updated** | 2025-04-26 05:01:14.000 UTC |
+| **Closed** | 2025-04-26 05:01:13.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 9 |
+| **Priority Score** | 11 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+It seems continue-as-new can cause near-simultaneous updates to drop, and it's difficult to write the code to figure out what to do about it.
+
+Also, I feel like many users will be caught unawares.  The docs call attention to this problem, which is good, but I feel lucky that I noticed that.
+
+As far as remediating it in my code, the simplest version I thought of was to bookend every update with:
+
+```python
+self.num_running_updates += 1
+# do stuff
+self.num_running_updates -= 1
+```
+
+and then use 
+```
+await workflow.wait_condition(self.running_updates==0)
+```
+
+at the end.  But this was not easy to work out and feels "advanced."
+
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+### Describe the solution you'd like
+
+I don't have a specific solution in mind, but I'd ideally like the SDK to prevent this from happening, or at least inform me that it is happening and provide a facility for me to track the outstanding updates so I can wait for them.
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - 
+- [ ] Java - 
+- [ ] Core - 
+- [ ] TypeScript - 
+- [ ] Python - 
+- [ ] .NET - 
+- [ ] PHP - 
+- [ ] Temporal CLI - 
+
+
+#### Comments (9)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-04-24 01:05:22.000 UTC</summary>
+
+Note the same applies to completing a workflow (since that is what continue as new is). When you complete a workflow all in-progress updates are dropped. I don't think we should build anything special for **just** continue as new. ie if we want to have some warning it should apply anytime a users tries to complete a workflow with non-complete updates,
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-24 13:41:42.000 UTC</summary>
+
+My preference: completing a workflow run today (via failure w/ retry, continue-as-new, etc) should consistently not carryover anything (signals, in-flight queries, in-flight updates, activities, child workflows, etc). We can have a general discussion about carryover on everything at some point though.
+
+For pending admitted-only updates, we should reject workflow completion attempts with unhandled-command same as we do for signals. For accepted updates that are not completed by the workflow, we should fail the update as workflow completed.
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-04-26 00:39:50.000 UTC</summary>
+
+@cretz I think it's too early to shut this conversation down.  I do agree we should consider other similar cases as we design it, but there's no reason update can't lead the way.  Update is also quite distinct from those other cases and enough different that impacts of shipping as-is should be considered separately.
+
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-26 12:38:03.000 UTC</summary>
+
+> there's no reason update can't lead the way
+
+On some things sure, but continue-as-new carryover I think is a large server side discussion that needs to be had holistically. At the least, the default behavior of update matching the default behavior of everything else is consistent while those discussions are being had. Meaning, you can easily support the consistent/simple approach today (it's needed anyways IMO), and then allow the carryover approach later if/when you develop it.
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-04-26 23:37:18.000 UTC</summary>
+
+I don't agree that consistency trumps other considerations here.  Consistency is one of several concerns to weigh.  
+I also wouldn't call the current approach simple--it's simple for us, but could be complex and mind-bending for the customers who encounter it.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-29 12:40:19.000 UTC</summary>
+
+It's not that consistence always trumps other things, it's that we have a chance to consistently solve for updates in the near term, and consistently solve for everything in the long term. But we are not considering solving for continue-as-new so we are not addressing the general problem. I don't believe giving update special continue-as-new behavior in the near term is valuable (in fact, if we care about this type value, we should do it with activities and child workflows immediately where there is arguably more value than update).
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-05-03 22:52:29.000 UTC</summary>
+
+Agreed that continue-as-new carryover is a larger discussion.  But I'm not ready to concede that we should do nothing now in hopes that it will happen one day.  I don't like to bank on things unless they're actually on the immediate roadmap.
+
+In theory, you're right that activity is much more common.  But activities are usually kicked off by the Workflow and workflows are generally written in such a way that you hold onto a future with the activity and can await them before exiting/continuing.  Whereas signals and updates come from outside and are often handled out of the main workflow flow, making it both (a) much more likely (as a percentage) that they will run into trouble, and (b) harder to figure out what to do about it when it does happen.
+
+All that's to say, the use cases are distinct and there may be strong and general mitigations we can do for the update/signal cases.
+
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-05-03 22:54:09.000 UTC</summary>
+
+I want to raise the idea that the root cause here is the same as that for interleaved signals/updates: we're not serializing, which means it can race with all the things: other signals/updates, workflow code, or the end of the workflow.
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2025-04-26 05:01:13.000 UTC</summary>
+
+This was partially fixed by the addition of mutexes.
+
+</details>
+
+
+---
+
+<a id="432"></a>
+
+### #432: [Feature Request] SDK should not return an update handle if the update has not reached the desired state
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/432 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2024-03-06 17:56:52.000 UTC (1y 10m ago) |
+| **Updated** | 2024-08-06 19:11:49.000 UTC |
+| **Closed** | 2024-08-06 19:11:49.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 11 |
+| **Priority Score** | 11 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+When users make a request to update a workflow execution they specify the update life cycle stage they would like to wait for before returning. Depending on the SDK this is specified either directly through an option or through the SDK API they use. Currently the SDK just passes this option to the gRPC call, but that is not sufficient since the gRPC call can return early if the server encounters an internal timeout. If the server encounters an internal timeout it will return an empty response and the SDK should poll. Currently the SDK returns an update handle if the server returns an empty response. This is dangerous since updates are not durable until accepted so it is possible to return a handle to a non durable update that can be lost. 
+
+### Solution
+
+If the server returns an update not in the desired life cycle stage,  the SDK should start polling the update request until it reaches the desired life cycle stage before returning the handle to the user.
+
+Client places:
+
+* [x] Go - https://github.com/temporalio/sdk-go/issues/1414
+* [ ] CLI  - Should be covered by the Go SDK
+* [ ] Java - https://github.com/temporalio/sdk-java/issues/2002
+* [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1372
+* [x] Python - https://github.com/temporalio/sdk-python/issues/485
+* [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/199
+
+
+#### Comments (11)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-06 19:19:01.000 UTC</summary>
+
+To clarify, we originally thought it would be best to have the handle contain a wait-for-stage call that we ourselves could leverage inside the start call, but since "admitted" is not supported, there's not much value at this time.
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-03-08 19:20:32.000 UTC</summary>
+
+Talking with @mfateev about this, he brought up the server should return the `Updates Request` current life cycle state instead of an empty response when the servers internal deadline is reached. If the server returns the current life cycle state I purpose the logic should be:
+
+If the Update Request reaches or passes the desired lifecycle state:
+ - Return the update handle to the user
+
+else If the server hits an internal deadline while waiting for the desired lifecycle state it returns a response with the current life cycle state:
+ - If the `Update Request` state is `ADMITTED`
+    - SDK should retry the request since the update request it could be lost. (SDK must be supplying an update ID in this case)
+ - else If the `Update Request` is `ACCEPTED`
+     - Poll until the update is `COMPLETED`
+
+There is also a potential optimization we can make for low latency use cases by allowing users to specify two different `WaitStages`, one for the initial update request and one for polling. This would allow a users to say that if an update completes quickly they just want to wait for completed, but if it is taking longer then expected just return after it is accepted.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-08 20:26:47.000 UTC</summary>
+
+> he brought up the server should return the Updates Request current life cycle state instead of an empty response when the servers internal deadline is reached
+
+I thought it already did this
+
+> If the server returns the current life cycle state I purpose the logic should be
+
+I propose similar, but stated simply: "SDK should wait for user-provided lifecycle stage or `ACCEPTED` by default. `ADMITTED` is not a valid lifecycle stage the user can give at this time (which means it will always wait for `ACCEPTED` or `COMPLETED` today)."
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-03-08 21:36:17.000 UTC</summary>
+
+>I thought it already did this
+
+It does not, I confirmed 
+
+> I propose similar, but stated simply: "SDK should wait for user-provided lifecycle stage or ACCEPTED by default. ADMITTED is not a valid lifecycle stage the user can give at this time (which means it will always wait for ACCEPTED or COMPLETED today)."
+
+Users cannot give `ADMITTED` correct, but the server could still return `ADMITTED` if the update is in that stage when it reaches the deadline. At that point we have two options,
+
+1. poll and hope the update doesn't get lost 
+2. retry and know the update won't get lost.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-08 21:49:03.000 UTC</summary>
+
+> It does not, I confirmed
+
+Documentation at https://github.com/temporalio/api/blob/6776e414d82c7f469e470caa1a60b22e88231342/temporal/api/workflowservice/v1/request_response.proto#L1251-L1261 says it sets this value on timeout and the poll response has this too. I wonder if there's just a server version mismatch compared to API.
+
+> At that point we have two options,
+>   1. poll and hope the update doesn't get lost
+>   2. retry and know the update won't get lost.
+
+Hrmm, I was thinking option 1 would be best here, but now I see what you're saying. So you're saying never poll on start, always continually call the start call because the start call with the same ID is the same as polling?
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-03-11 15:52:27.000 UTC</summary>
+
+The documentation aligns with what I am saying 
+```
+    // UNSPECIFIED will be returned if and only if the server's maximum wait
+    // time was reached before the Update reached the stage specified in the
+    // request WaitPolicy, and before the context deadline expired; clients may
+    // may then retry the call as needed.
+```
+
+Yes just keep calling start until the update is durable then we can poll
+
+
+
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-11 17:08:56.000 UTC</summary>
+
+I see, I thought "known to have reached" applied regardless (I didn't read far enough, sorry). I think we should change the current behavior and docs. It should never return `UNSPECIFIED` IMO, so we're all in agreement I think here.
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>alexshtin</strong> commented on 2024-03-15 23:47:42.000 UTC</summary>
+
+I am going to fix "empty response return" to include actually reached state (`ADMITTED` or `ACCEPTED`) although I propose not to rely on it's value. I'm also making server to return specific error if update is lost and server knows about it. Roughly internals of `UpdateWorkflow` should be:
+
+Step 1: Call to `UpdateWorkflowExecution` API. If it returns:
+  - non-retryable error => return error to the caller
+  - "update is lost" error => repeat Step 1
+  - non-empty response => return it to the caller
+  - empty response => start polling (Step 2)
+
+Step 2: Call `PollWorflowExecutionUpdate`. If it returns:
+  - non-retryable error => return error to the caller
+  - "update is lost" or NotFound error => go to Step 1
+  - non-empty response => return it to the caller
+  - empty response => continue polling (go to Step 2)
+
+Timeout needs special tricky handling.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-18 12:21:19.000 UTC</summary>
+
+@alexshtin - This can't work exactly as stated, I have started an internal discussion.
+
+</details>
+
+<details>
+<summary><strong>tlalfano</strong> commented on 2024-03-26 17:01:03.000 UTC</summary>
+
+We may want to add PHP to the description list, Update has been implemented there as well.
+
+</details>
+
+<details>
+<summary><strong>alexshtin</strong> commented on 2024-04-05 22:14:55.000 UTC</summary>
+
+I just merged server side support for this: https://github.com/temporalio/temporal/pull/5623.
+
+</details>
+
+
+---
+
+<a id="426"></a>
+
+### #426: [Feature Request] API key client option
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/426 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-02-27 15:19:32.000 UTC (1y 10m ago) |
+| **Updated** | 2024-08-15 21:39:53.000 UTC |
+| **Closed** | 2024-08-15 21:39:53.000 UTC |
+| **Upvotes** | 4 |
+| **Comments** | 2 |
+| **Priority Score** | 10 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 4 |
+
+#### Description
+
+### Describe the solution you'd like
+
+Every place that creates a client (nay a connection) should have an option to accept an API key which becomes the `Authorization` header of `Bearer <api-key>`. This is commonly used in self-hosted setups and will become common for cloud.
+
+Client places:
+
+* [x] Go - https://github.com/temporalio/sdk-go/issues/1401
+* [x] CLI (after Go) - https://github.com/temporalio/cli/issues/478
+* [x] Java - https://github.com/temporalio/sdk-java/issues/1997
+* [x] Core - https://github.com/temporalio/sdk-core/issues/695
+* [x] TypeScript (after Core) - https://github.com/temporalio/sdk-typescript/issues/1367
+* [x] Python (after Core) - https://github.com/temporalio/sdk-python/issues/482
+* [x] .NET (after Core) - https://github.com/temporalio/sdk-dotnet/issues/191
+* [x] PHP - https://github.com/temporalio/sdk-php/issues/410
+
+Thought was given to whether this should be lang only or core, but it became clear that "rpc metadata" (aka gRPC metadata aka headers) should remain separate from this setting all the way until headers are actually applied because people copy this client config in other places and it shouldn't just be a shallow alias for setting RPC metadata at that level.
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>tlalfano</strong> commented on 2024-03-26 18:17:42.000 UTC</summary>
+
+Do we need to add PHP to the list here? @cretz 
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-26 19:27:54.000 UTC</summary>
+
+@tlalfano - yes, I just added it
+
+Reactions: 🎉 1
+
+</details>
+
+
+---
+
 <a id="69"></a>
 
 ### #69: [Feature Request] Specify reset point in workflow code
@@ -2568,7 +3349,7 @@ func MyActivity(ctx context.Context) error {
 | **URL** | https://github.com/temporalio/features/issues/69 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2022-07-14 17:14:02.000 UTC (3y 5m ago) |
+| **Created** | 2022-07-14 17:14:02.000 UTC (3y 6m ago) |
 | **Updated** | 2024-07-13 01:08:12.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 10 |
@@ -3158,6 +3939,115 @@ Has value in both places. This specific request is to track specific-worker work
 
 ---
 
+<a id="681"></a>
+
+### #681: [Feature Request] Expose client identity information to the Workflow
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/681 |
+| **State** | CLOSED |
+| **Author** | TastyPi (Graham Rogers) |
+| **Created** | 2025-10-08 08:56:45.000 UTC (3 months ago) |
+| **Updated** | 2025-10-24 15:55:15.000 UTC |
+| **Closed** | 2025-10-24 15:54:18.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 8 |
+| **Priority Score** | 8 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+We have some Workflows which are triggered manually from the Temporal UI. For auditing purposes, we want to record who initiated the workflow along with our change events. This information is available in the `WorkflowExecutionStarted` event, but the Workflow does not have access to that (without building an Activity which calls the Temporal API to retrieve it).
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+Add the `identity` field of the `WorkflowExecutionStarted` event somewhere in the Workflow info.
+
+It would also be nice to be able to get something similar for Signals and Updates, but for our use case those aren't triggered manually so currently we pass that info in as an input.
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+https://temporalio.slack.com/archives/C01DKSMU94L/p1759393994977249
+
+
+#### Comments (8)
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-10-08 15:28:36.000 UTC</summary>
+
+> Add the `identity` field of the `WorkflowExecutionStarted` event somewhere in the Workflow info.
+
+This doesn't require any API updates in this repo, can be done just SDK side. But it should be known that client `identity` is not the same as "user". By default in SDKs it's process ID + hostname (and sometimes system username if sent from CLI), but it can be overridden. There are discussions underway about providing user identifying information in these events.
+
+Is exposing `identity` enough, or should this be for a general concept of user identity (which may not be the same as client identity)?
+
+</details>
+
+<details>
+<summary><strong>tsurdilo</strong> commented on 2025-10-08 16:50:10.000 UTC</summary>
+
+imho client identity thats available in WorkflowExecutionStarted event is good
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-10-08 19:28:50.000 UTC</summary>
+
+Ok, I have transferred this issue from API to the `features` repository and altered the title. We do have a concept of workflow info and workflow update info we can add this if the team deems it acceptable. We can also look into a concept of "workflow signal info".
+
+</details>
+
+<details>
+<summary><strong>TastyPi</strong> commented on 2025-10-10 16:10:32.000 UTC</summary>
+
+> Is exposing identity enough, or should this be for a general concept of user identity (which may not be the same as client identity)?
+
+For our use case, we want to know the user that triggered the workflow, so something like the email address or some kind of ID of the user we can use to look up their username/email.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-10-22 18:04:17.000 UTC</summary>
+
+@TastyPi We can potentially plumb through client identity into the workflow info, but since it sounds like what you really want is some kind of user ID, we're wondering if a good fit for your use case would be to attach that as an explicit field in client headers, which are already available in workflow info. WDYT?
+
+</details>
+
+<details>
+<summary><strong>TastyPi</strong> commented on 2025-10-24 10:14:37.000 UTC</summary>
+
+If I'm logged in to the Temporal UI, and trigger a Workflow, I want some way to link something that identifies me to the changes the Workflow makes, ideally without using in input. I don't really know what the difference is between client identity and user ID for this scenario, I'm not familiar enough with how the Temporal UI authenticates requests.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-10-24 15:04:01.000 UTC</summary>
+
+Ah, ok yes that makes sense. We'll look into adding this since we've got more than one request for that information as it relates to operations started from the UI
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-10-24 15:54:18.000 UTC</summary>
+
+Ok, we got our expectations crossed a bit here. I have opened https://github.com/temporalio/temporal/issues/8538 to track this request and am closing this in favor of that one. I am not aware of any need to expose client identity from inside the workflow. When the user identity is available in history, we may be able to expose it to the workflow.
+
+</details>
+
+
+---
+
 <a id="624"></a>
 
 ### #624: Gracefully fail gRPC-message-too-large issues in worker
@@ -3167,7 +4057,7 @@ Has value in both places. This specific request is to track specific-worker work
 | **URL** | https://github.com/temporalio/features/issues/624 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-05-14 14:49:28.000 UTC (7 months ago) |
+| **Created** | 2025-05-14 14:49:28.000 UTC (8 months ago) |
 | **Updated** | 2025-08-28 14:35:28.000 UTC |
 | **Upvotes** | 2 |
 | **Comments** | 4 |
@@ -3267,6 +4157,117 @@ Task completion of many medium-input-payload activities in one task will cause i
 
 ---
 
+<a id="261"></a>
+
+### #261: [Feature Request] Write spec for graceful worker shutdown
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/261 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-04-13 23:10:36.000 UTC (2y 9m ago) |
+| **Updated** | 2025-07-14 17:23:17.000 UTC |
+| **Closed** | 2025-07-14 17:23:17.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 8 |
+| **Priority Score** | 8 |
+| **Labels** | feature-test |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Different SDKs implement graceful shutdown differently.
+
+TypeScript traditionally treated the graceful shutdown period as "give up on shutdown after this period" and recently changed the semantics to be inline with Python / .NET where graceful shutdown refers to when to issue cancellations to running activities.
+
+By default all Core based SDKs now will wait for activities to complete before returning from `Worker.run`.
+
+Go does not wait for activities to complete today and should change to be consistent with Core based SDKs.
+Need to verify what Java does here.
+
+#### Comments (8)
+
+<details>
+<summary><strong>edmondop</strong> commented on 2023-04-25 03:40:42.000 UTC</summary>
+
+Do you have by chance the issue/review on Typescript so I can start to look there and write a draft for the spec? Also if you have spec of other features that I could use as a reference that would be useful
+
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-04-28 06:54:45.000 UTC</summary>
+
+Most of our specs are just written on the feature test for them for example https://github.com/temporalio/features/blob/main/features/activity/cancel_try_cancel/README.md\
+
+
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>edmondop</strong> commented on 2023-04-30 20:32:45.000 UTC</summary>
+
+@Quinn-With-Two-Ns after our discussion, I am confused by the title of the issue. It looks like the spec already exist, and we are just missing the feature tests? https://github.com/temporalio/features/blob/main/features/activity/shutdown/README.md
+
+Maybe the right thing to do is just to:
+
+- [ ] write the tests
+- [ ] fix the non compliant SDK
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-07-23 17:44:52.000 UTC</summary>
+
+Note, https://github.com/temporalio/features/blob/main/features/activity/shutdown/README.md may be out of date and may not accurately reflect how we want to approach this with regards to graceful shutdown. It may be revisited as part of this issue.
+
+</details>
+
+<details>
+<summary><strong>saward</strong> commented on 2025-03-11 05:44:51.000 UTC</summary>
+
+I've experienced an issue where when a worker is given the kill signal (SIGTERM I'm guessing), the server doesn't seem to know that the activity is no longer running in the worker, so doesn't retry until it times out.  Depending on timeout settings, this can take a long time.  I think it's related to this feature request.
+
+Is there a way right now with Go SDK to handle the killing of a worker, so that the temporal server knows immediately that the in-progress activities now need to be given to new workers?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-03-11 14:54:11.000 UTC</summary>
+
+@saward - in Go, activity contexts are canceled on graceful worker shutdown (after optional grace period) and there are other values in the `activity` package that show a worker is shutting down. The retry policy governs when failed activities are retried (regardless of reason for failure, including caused by worker shutdown's context cancel). There are ways to capture this situation and instead return a special error that retries sooner.
+
+But this GitHub issue is just about properly documenting. For Go-specific questions/support, can ask on Slack or our forums (see https://temporal.io/community), or open a cloud ticket if you're a cloud user.
+
+</details>
+
+<details>
+<summary><strong>JCMais</strong> commented on 2025-05-24 15:41:52.000 UTC</summary>
+
+Reading the link above I see no mention of a grace period being given to activities _before_ the activity gets the WORKER SHUTDOWN cancellation signal, is that really the case?
+
+What is the grace period used for in that case? (e.g on TypeScript, where the worker has a shutdownGracePeriod option)
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-05-27 14:50:52.000 UTC</summary>
+
+> Reading the link above I see no mention of a grace period being given to activities before the activity gets the WORKER SHUTDOWN cancellation signal, is that really the case?
+
+https://typescript.temporal.io/api/interfaces/worker.WorkerOptions#shutdowngracetime mentions "In-flight activities will be cancelled _after_ this period" (emphasis mine)
+
+This is a language specific question at this time (though we are hoping to write consistent spec/docs as part of this issue). Can ask in Slack or forums for the specific language concern.
+
+</details>
+
+
+---
+
 <a id="223"></a>
 
 ### #223: [Feature Request] SDK metric for activity failure exhausting retries
@@ -3324,6 +4325,133 @@ Reading the release notes for https://github.com/temporalio/temporal/releases/ta
 `activity_fail`: Number of final failures for activities
 
 Is my understanding right from the release notes ?
+
+</details>
+
+
+---
+
+<a id="31"></a>
+
+### #31: [Feature Request] Update workflow time when processing queries
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/31 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-03-31 18:06:00.000 UTC (3y 9m ago) |
+| **Updated** | 2022-08-02 04:22:46.000 UTC |
+| **Closed** | 2022-08-02 04:22:46.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 8 |
+| **Priority Score** | 8 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Sometimes it's required to get the Date at the time a query is processed as opposed to the last processed workflow task's time.
+For example this query will always return the same result:
+
+```ts
+setHandler(timerSettingsQuery, () => {
+  const deadlineMs = timer.getDeadline();
+  return { sleepIntervalMs: timer.sleepMs, timeLeftMs: deadlineMs - Date.now(), deadlineMs: deadlineMs };
+});
+```
+
+### Describe the solution you'd like
+
+Update workflow time before processing queries (and possibly immediately reset back to workflow time)
+Special care should be taken not to trigger any `condition`s (`Workflow.await`).
+
+#### Comments (8)
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-05-25 13:47:32.000 UTC</summary>
+
+Hrmm, the idea that anything in a query can be different for each invocation of the same query is a bit concerning. I am not sure we should support one worker giving a different result to a query than another worker (or replayer). I am not convinced we should support this.
+
+Basically with this change we've now said that queries aren't idempotent (in the strict sense that for the same input they get the same output). For this specific use case, the deadline can be returned and the caller can use their notion of "now" to do any calculations. While that may be different than the worker's, both may be different than the server's which is what really matters here. No worker-specific anything should affect a query's output.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2022-05-25 16:07:30.000 UTC</summary>
+
+I agree, think I mentioned when we talked about this briefly earlier. IMO it makes no sense for a query to return wall-clock time. Queries query _workflow_ state, and that should be consistent with the concept of what that means everywhere else. It seems very unintuitive for queries to behave one way, and everything else another.
+
+If it's really important to access wall clock time, make it available behind a special API inside the `unsafe` type package, or similar (only usable during query). 
+
+Even then, I can't imagine almost any possible reason it's necessary, as the thing doing the querying ostensibly can just... look at the wall clock either before or after the query.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-05-26 05:01:27.000 UTC</summary>
+
+Queries are different than other workflow events, they don't need to be deterministic. I initially argued with @mfateev (who originally suggested this feature) for the same reasons both of you bring up here but after thinking about it I don't see a reason why we shouldn't support this.
+
+I agree the handler above could be implemented on the caller side like @Sushisource points out but why not in the workflow?
+As for the replayer you've mentioned @cretz, do the Go or Java replayers support running additional queries after replay? That could be a useful feature.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-05-26 13:24:05.000 UTC</summary>
+
+> after thinking about it I don't see a reason why we shouldn't support this.
+
+Of course the question is why we _should_. With TS maybe, but with other SDKs we don't have sandbox restrictions (yet) that prevent them from using the non-workflow "now" if they really want.
+
+The other question is: Is it ok for the same query to have different responses depending on where it's run?
+
+Are you planning on also restoring system rand for query calls instead of our seeded workflow one?
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-05-26 14:07:17.000 UTC</summary>
+
+I think this would mostly be relevant to TS where the wall clock isn’t available. Since user might want the workflow time in some cases, right now I think the right thing is to expose system time in the unsafe part of WorkflowInfo, it could be useful in other situations like tracing. 
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2022-05-26 20:37:11.000 UTC</summary>
+
+> Of course the question is why we should. 
+
+This is the critical point. Good API design IMHO is about providing the smallest most composable set of things to allow you to do what you need. 
+
+I think I referenced this quote before:
+> ["Simplify, then add lightness"](https://www.lotuscars.com/en-US/lotus-philosophy/)
+
+Anyway, sounds like we're on the same page here w/ how to expose it, but I just love driving that point home.
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-05-26 20:51:34.000 UTC</summary>
+
+I like the ability to provide a `timeLeftQuery`, and our current sample doesn't return the intended value:
+
+https://github.com/temporalio/samples-typescript/blob/main/timer-examples/src/updatable-timer.ts#L18
+
+I like it being in `workflowInfo().unsafe.now`
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-02 04:22:46.000 UTC</summary>
+
+Closing in favor of the linked TS issue, not needed for non-sandboxed runtimes.
 
 </details>
 
@@ -3594,6 +4722,161 @@ Basically, I believe that server should treat `RequestCancelExternalWorkflowExec
 <summary><strong>shu8</strong> commented on 2025-08-26 13:36:08.000 UTC</summary>
 
 Hi @mjameswh, we seem to be running into the same issue (TS SDK) - I was wondering if you'd had any time to look at this issue? I'd also be happy to help look into the issue more if you could point me in the right direction! 🙂 
+
+</details>
+
+
+---
+
+<a id="466"></a>
+
+### #466: Show update handler and ID in logging context
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/466 |
+| **State** | CLOSED |
+| **Author** | drewhoskins-temporal (Drew Hoskins) |
+| **Created** | 2024-04-24 00:22:21.000 UTC (1y 8m ago) |
+| **Updated** | 2025-01-29 19:58:34.000 UTC |
+| **Closed** | 2025-01-29 19:58:33.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 7 |
+| **Priority Score** | 7 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+It's hard to tell when log lines occurred within an update (or signal, or query) handler.
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+### Describe the solution you'd like
+
+I logged from within an update handler in the python SDK with `self.logger.info`
+Imagining I saw this line in production, and I didn’t build the workflow, I could be confused as to why this code is getting executed.  In fact, my update handler can also be called by the workflow itself, meaning it'd be nice if the context clarified whether I'm in an update handler or the main workflow.
+
+Or I might want to grep the logs for all the times when an update/signal/query was called.
+
+```
+INFO:batch_orchestrator:This is my log message. ({'attempt': 1, 'namespace': 'default', 'run_id': '183ba64c-a415-492a-b569-a0e97d1a3114', 'task_queue': 'my-task-queue', 'workflow_id': 'inflate_product_prices-37acbbae-d941-4be8-8242-56f15a91d892', 'workflow_type': 'BatchOrchestrator'})
+```
+I'd love if the context or prefix listed which handler it's in somehow and perhaps whether it was a signal/update/query.  In the case of an update, I'd like to see the update ID.
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+* [x] Go https://github.com/temporalio/sdk-go/issues/1648
+* [x] .NET https://github.com/temporalio/sdk-dotnet/issues/351
+* [x] Python https://github.com/temporalio/sdk-python/issues/648
+* [x] TypeScript https://github.com/temporalio/sdk-typescript/issues/1532
+* [x] Java https://github.com/temporalio/sdk-java/issues/2237
+* [x] PHP https://github.com/temporalio/sdk-php/issues/512
+
+
+#### Comments (7)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-04-24 00:32:13.000 UTC</summary>
+
+>Imagining I saw this line in production, and I didn’t build the workflow, I could be confused as to why this code is getting executed.
+
+If you didn't write the workflow how will knowing what handler the log came from  really help? What if a user wants to know all the logs that came from a particular  update request? It doesn't  help with query or signal, but we could consider adding the updateID as another KV in the logger.
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-04-24 00:37:02.000 UTC</summary>
+
+> If you didn't write the workflow how will knowing what handler the log
+came from really help?
+If I'm debugging, it will help me understand at-a-glance that this event
+came from an external source and not the workflow itself.  Suppose the
+workflow is running, then there's an update, and the failure happens soon
+afterward, I can be like "a ha!  This bug was triggered by an update!"
+
+On Tue, Apr 23, 2024 at 5:32 PM Quinn Klassen ***@***.***>
+wrote:
+
+> Imagining I saw this line in production, and I didn’t build the workflow,
+> I could be confused as to why this code is getting executed.
+>
+> If you didn't write the workflow how will knowing what handler the log
+> came from really help? What if a user wants to know all the logs that came
+> from a particular update request? It doesn't help with query or signal, but
+> we could consider adding the updateID as another KV in the logger.
+>
+> —
+> Reply to this email directly, view it on GitHub
+> <https://github.com/temporalio/features/issues/466#issuecomment-2073710306>,
+> or unsubscribe
+> <https://github.com/notifications/unsubscribe-auth/BHV3GXIZUPOVF225K4AX2DTY634SHAVCNFSM6AAAAABGV4LGSSVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMZDANZTG4YTAMZQGY>
+> .
+> You are receiving this because you authored the thread.Message ID:
+> ***@***.***>
+>
+
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-04-24 00:53:55.000 UTC</summary>
+
+If you had multiple updates how would you tell which one caused your bug if all you  have is the handle?
+
+
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-24 13:45:01.000 UTC</summary>
+
+We/users can add logging scope if we need to in some langs, but in other langs that's non-standard. But it's important to understand that code that runs as a result of one of these interactions cannot always know it came from one of these interactions (e.g. a signal in Go is a channel, there's no handler, and e.g. many signal handlers just append something to a list to be processed by the primary coroutine). If it is important for a user to ship an action-specific logger around, they may.
+
+In Python you might:
+
+```python
+@workflow.update
+async def do_update(self, in: MyUpdateInput) -> MyUpdateOutput:
+    workflow.logger.info("This is my log message", extra={"handler": "do_update"})
+    ...
+```
+
+^ This is how Python users are expected to add things to loggers. We only do workflow-level contextual information implicitly because the logger is workflow specific. Some languages (not Python) have a concept of scoped loggers, and some languages (Python) expect you to pass contextual information if you want it on your logs.
+
+We can consider adding `contextvars` for logger, but in Python the common way is to carry state that the log caller sets on the log message or create an entirely new logger with an adapter (which is basically what we do at the workflow level). For other languages, we can discuss their most common way to add scope. But it is very important we are language idiomatic and that all languages approaches are understood well for issues like this.
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-06-04 03:58:20.000 UTC</summary>
+
+Max is bought in to doing something here.  I'm tagging it as part of update GA.
+
+</details>
+
+<details>
+<summary><strong>drewhoskins-temporal</strong> commented on 2024-09-24 16:36:29.000 UTC</summary>
+
+Interesting somewhat-related conversation about tracing with a customer.  Because update is synchronous, and datadog doesn't support being part of two traces, they wanted their updates to be traced as part of the caller's traces rather than the workflow's.
+I think that may underscore that the user will want to see logs associated with the update operation even moreso than the workflow.  Even in the absence of tracing, logging the Update ID could help connect the client to the update handler in debugging scenarios, and the update name will greatly clarify what's going on.
+
+</details>
+
+<details>
+<summary><strong>dandavison</strong> commented on 2025-01-29 19:58:33.000 UTC</summary>
+
+This has been implemented across all SDKs.
 
 </details>
 
@@ -4132,6 +5415,479 @@ I'd personally like to wait until the case where a value cannot be put into the 
 
 ---
 
+<a id="74"></a>
+
+### #74: Data conversion and encryption for Failures and Stacktrace Query results
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/74 |
+| **State** | CLOSED |
+| **Author** | Spikhalskiy (Dmitry Spikhalsky) |
+| **Created** | 2022-07-19 15:57:42.000 UTC (3y 5m ago) |
+| **Updated** | 2023-10-13 22:20:26.000 UTC |
+| **Closed** | 2023-10-13 22:20:20.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 7 |
+| **Priority Score** | 7 |
+| **Labels** | duplicate, enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+1. We need to separate two concepts in SDK: data converter and encoder. These are two separate things and should be set explicitly differently. Data Converter is 'objects -> bytes'. Data Encoder is 'bytes -> bytes'.
+2. Stacktrace query results and stacktraces of Temporal Failures should always be converter using a standard Temporal Data Converter. There is no reason to apply a custom user data converter for these text values that should be displayable in Temporal UI as easily as possible.
+3. By default, Data Encoder is not applied to Stacktrace Query results and stacktraces of Temporal Failures. This is a reasonable default to allow users the easiest direct access to the failure information during investigations. 
+4. Temporal SDK should provide an opt-in flag to apply Data Encrypter to stacktraces.
+5. Everything said above is not applied for additional 'values' payload of Temporal Failures which is a piece of additional information that may be attached by users for propagation. This additional payload is a normal user object and should be processed by a custom user data converter and encrypted (or not) like any other regular Payload like an activity input parameter or result for example).
+
+_This task will be updated with specific method names_
+
+#### Comments (7)
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-07-19 17:28:20.000 UTC</summary>
+
+In ts/go/python, we use these terms:
+
+- Payload Converter: `object -> bytes`
+- Payload Codec: `bytes -> bytes` (can do encryption, compression, etc)
+- Data Converter: tuple of (payloadConverter, single payloadCodec or list of payloadCodecs)
+
+Docs:
+
+https://docs.temporal.io/concepts/what-is-a-data-converter/#payload-codecs
+
+
+
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-07-19 18:47:10.000 UTC</summary>
+
+> 4. Temporal SDK should provide an opt-in flag to apply Data Encrypter to stacktraces.
+
+Maybe: 
+
+```
+WorkerOptions.applyCodecsToFailures
+WorkerOptions.applyCodecsToStackTraceQueryResults
+```
+
+both default false.
+
+> 5. Everything said above is not applied for additional 'values' payload of Temporal Failures
+
+`details` and `last_heartbeat_details`:
+
+https://github.com/temporalio/api/blob/c8a79e6cb7db277a3a990ee6d6118a77750e9f50/temporal/api/failure/v1/message.proto#L40-L60
+
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>Spikhalskiy</strong> commented on 2023-03-07 21:30:14.000 UTC</summary>
+
+Implemented in JavaSDK:
+- [x] https://github.com/temporalio/sdk-java/pull/1330 PayloadCodec framework and abstraction
+- [x] https://github.com/temporalio/sdk-java/pull/1645 Failure conversion / encryption
+- [ ]  https://github.com/temporalio/sdk-java/issues/1586
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-13 21:25:08.000 UTC</summary>
+
+Possibly-dumb question, but how is this related to #66? Seems like (3) and (4) is exactly what #66 is asking for? Not sure about the data converter parts though—if I read the docs, I get the impression that these are the same thing, except Dmitry's point (1) seems to indicate they're different.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-13 21:46:39.000 UTC</summary>
+
+I suspect this is essentially a duplicate of that one
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2023-10-13 21:53:24.000 UTC</summary>
+
+I think dup, also a lot of this may have been implemented since these issues were opened 
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-13 22:20:20.000 UTC</summary>
+
+Closing as dup of #66.
+
+</details>
+
+
+---
+
+<a id="55"></a>
+
+### #55: [Feature Request] Eager activity dispatch
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/55 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2022-05-19 19:51:16.000 UTC (3y 7m ago) |
+| **Updated** | 2023-10-13 22:17:37.000 UTC |
+| **Closed** | 2023-10-13 22:17:36.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 7 |
+| **Priority Score** | 7 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Overview
+
+SDKs need to support "eager activity dispatch" by default which is essentially just setting `ScheduleActivityTaskCommandAttributes.request_eager_execution` to true if there is "room". Then if supported on the server, the server will give the work right back to the worker requesting.
+
+### Unbalanced Worker Concern
+
+This feature is purely for server benefit, and is actually possibly harmful to SDK and users. It can cause unbalancing of workers. For example, say you have 10 workers with 1000 activity slots each and just one workflow is running. If that workflow starts 300 activities, those are all gonna be on the one worker and the other 9 will idle. Today the server does not have a load balancing policy and therefore which worker work is given to is random, but even that may distribute load better than same-worker-as-workflow-by-default.
+
+### Features
+
+* Set eager execution boolean when scheduling activity if the worker is known to have activity slots available
+* Have worker option for "max eager activities" that represents the maximum number
+  * Make sure this can be set to "off" (or use a separate config boolean)
+  * Research - what is the default? Unset which means max activities of the worker?
+  * Research - ~can we reliably determine when to add a eager-activity slot back to the pool? This means we have to know when an eager activity is no longer running. Are we expected to track activity completion? How does this work with retries? Are retries also sent back to the same worker? If we're in a many-minute backoff period for retry which means it is not "running", does that still take an eager-activity slot? How can the workflow side even tell that the activity side is in backoff?~ EDIT: The activity tasks come back in the WFT complete response, not the activty poll response, so you know then.
+* Should we have way in activity options to disallow eager dispatch?
+
+### Issues
+
+* [x] Core - https://github.com/temporalio/sdk-core/pull/296
+* [x] TypeScript
+* [x] Go
+* [x] Python
+* [x] Java https://github.com/temporalio/sdk-java/issues/1339
+* [x] PHP
+
+
+
+#### Comments (7)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-05-19 21:32:13.000 UTC</summary>
+
+> Should we have way in activity options to disallow eager dispatch?
+
+https://github.com/temporalio/sdk-core/pull/296/files#diff-df2313a0cc3597f2135b2972c7f8ca12c4377fce2d1f6b97a41b0aff18e9fb50R83
+
+> Make sure this can be set to "off" (or use a separate config boolean)
+
+This would be setting the max eager activities to 0
+
+> Research - what is the default? Unset which means max activities of the worker?
+
+Good question, I'd consider adding a rate limiter for eager activities to make sure we don't overload a single worker, it might be more useful than concurrency limiter.
+
+> Research - can we reliably determine when to add a eager-activity slot back to the pool
+
+Once a worker accepts these activities the rest of the flow is exactly the same as with non-eager activities.
+We essentially accept a single activity attempt (task), retries and timeouts are handled by the server.
+
+> Unbalanced Worker Concern
+
+This is a valid concern but as workload grows it become increasingly insignificant AFAICT.
+
+
+</details>
+
+<details>
+<summary><strong>yiminc</strong> commented on 2022-05-19 22:37:12.000 UTC</summary>
+
+> This feature is purely for server benefit
+
+This is not true. User get benefit of much faster dispatch and less overhead. 
+
+I think we should just start conservatively, only allow small number of eager execution. Small number like 2 or 3 should cover the majority of the cases and thus harvest most of the benefit we want.
+
+
+</details>
+
+<details>
+<summary><strong>yiminc</strong> commented on 2022-05-20 03:23:19.000 UTC</summary>
+
+> Should we have way in activity options to disallow eager dispatch?
+
+I don't think we need this on SDK. Server side has control to disable this feature per namespace, if we ever need to do so.
+
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-05-20 11:45:47.000 UTC</summary>
+
+> This is not true. User get benefit of much faster dispatch and less overhead.
+
+Sorry, I wasn't clear/accurate when I said only for server benefit. I mean this optimization is only exposed to users so the server can provide a performance benefit. The server is a black box to users and ideally we wouldn't have to bother SDK or users with a new concept to improve performance. But if course I understand why.
+
+> I don't think we need this on SDK. Server side has control to disable this feature per namespace, if we ever need to do so.
+
+We already are going to have max eager worker option, so technically 0 is disabling. The question here is whether to also support disabling at the activity options level inside the workflow. Is there a use case where a workflow dev may know they don't want to eagerly dispatch a certain type of activity? Is this similar to the decision we allow them to make about choosing whether an activity is locally dispatched?
+
+
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-13 18:07:17.000 UTC</summary>
+
+I see all the langs are checked off as being done—can this be closed?
+
+Reactions: 👍 2
+
+</details>
+
+<details>
+<summary><strong>mjameswh</strong> commented on 2023-10-13 19:35:40.000 UTC</summary>
+
+There's some outstanding discussion regarding interaction of Eager Activity Execution + Workflow Versioning, but I strongly feel like this is outside of the scope of this ticket.
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-13 22:17:37.000 UTC</summary>
+
+Great. Closing.
+
+</details>
+
+
+---
+
+<a id="16"></a>
+
+### #16: SDKs should expose history length and size via Workflow info
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/16 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-02-01 00:22:35.000 UTC (3y 11m ago) |
+| **Updated** | 2025-05-16 03:24:18.000 UTC |
+| **Closed** | 2025-05-16 03:24:17.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 7 |
+| **Priority Score** | 7 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+History length:
+
+- Golang - https://github.com/temporalio/sdk-go/pull/851
+- TS - https://github.com/temporalio/sdk-typescript/issues/357
+- Java - https://github.com/temporalio/sdk-java/issues/1300
+- Python - https://github.com/temporalio/sdk-python/pull/73
+- PHP - https://github.com/temporalio/sdk-php/issues/222
+- .NET - https://github.com/temporalio/sdk-dotnet/issues/122
+
+History size and "should continue as new":
+
+- Server - https://github.com/temporalio/temporal/issues/2726 (https://github.com/temporalio/temporal/pull/3055)
+- Golang - https://github.com/temporalio/sdk-go/issues/628
+- Core - https://github.com/temporalio/sdk-core/issues/564
+- TS - https://github.com/temporalio/sdk-typescript/issues/695
+- Java - https://github.com/temporalio/sdk-java/pull/1853
+- Python - https://github.com/temporalio/sdk-python/pull/361
+- PHP - TODO
+- .NET - https://github.com/temporalio/sdk-dotnet/issues/122
+
+#### Comments (7)
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-02-01 00:42:30.000 UTC</summary>
+
+Related:
+
+> We should give `Workflow.isContinueAsNewNeeded` flag to the SDKs. And it should be coming from the service.
+
+https://temporaltechnologies.slack.com/archives/C01FT8U10GK/p1643400086752909?thread_ts=1643398281.925129&cid=C01FT8U10GK
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2023-06-14 22:41:14.000 UTC</summary>
+
+I think we should expose `shouldContinueAsNew` as well in all SDKs.
+
+1. If server is [able to take into account other things](https://github.com/temporalio/temporal/issues/4117), then it's better than history length/size
+2. This:
+
+```ts
+if (workflowInfo().shouldContinueAsNew) {
+  cAN()
+}
+```
+is shorter & easier to read/understand compared to:
+```ts
+if (workflowInfo().historyLength < 10_000 && workflowInfo().historySize < 10_000_000) {
+  cAN()
+}
+```
+3. We'll no longer need to teach people the right numbers to use
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-06-15 13:23:43.000 UTC</summary>
+
+> I think we should expose `shouldContinueAsNew` as well in all SDKs.
+
+Concur, when available in server (no benefit in supporting before server). Or is it already available in server? What is the logic there and is it configurable?
+
+</details>
+
+<details>
+<summary><strong>mjameswh</strong> commented on 2023-06-15 13:32:14.000 UTC</summary>
+
+It will be important to mention in documentation the fact that relying on these properties is useless and dangerous if using an older server.
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-06-15 14:01:26.000 UTC</summary>
+
+We could make it a capability and error (i.e. wft failure) if invoked for older server. But I think this is a good enough reason to not even expose this until it is available _on cloud_.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-08-02 19:10:42.000 UTC</summary>
+
+Note, we should call this "continue as new suggested" across all SDKs I think.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-08-02 20:49:03.000 UTC</summary>
+
+A caveat that SDKs need to note here: these three values may be delayed if viewed via query. Since the value is on wft start, a query-only poll response won't have updated history. So if you, say, sent a signal to start far-out 50 timers, and then, even after already in history stored, sent just a query, there is no new wft and therefore no value updates even though current event count is actually quite different on the server.
+
+Basically every SDK needs to document that these values may be delayed if accessed in a query.
+
+</details>
+
+
+---
+
+<a id="475"></a>
+
+### #475: Set Temporal-Namespace header on every gRPC request
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/475 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-05-09 13:04:36.000 UTC (1y 8m ago) |
+| **Updated** | 2025-10-27 17:22:55.000 UTC |
+| **Closed** | 2025-10-27 17:02:02.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 6 |
+| **Priority Score** | 6 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Every gRPC request that contains a namespace should have a `Temporal-Namespace` header (i.e. gRPC metadata) set on the request with the namespace value. This can/should be done with interceptors and needs to be future proof. This means if at all possible the namespace should be extracted out of the request without having to know about specific requests.
+
+We have ensured that every namespace-specific gRPC request has a `string namespace` field and new RPCs will too.
+
+In Go the extraction can be done with a simple interface assertion containing `GetNamespace() string`.
+
+In Java and Core this may be a bit more difficult. Not sure if we want to use Java reflection or core macros or what. Or it can be done hardcoded with a the set of requests objects in big switch/match, but there must be a test to confirm nothing is missed when a new RPC is introduced. This could be done by starting a no-op/unavailable-response-only gRPC server that confirms via server-side interceptor that every call has a `Temporal-Namespace` header. Then simply make a client call for every RPC available, set a namespace on it (reflectively or whatever), and confirm set. But all this doesn't have to be done if there are other ways to make sure new RPCs break the build if not accounted for.
+
+### Per-SDK Tickets
+
+- [x] Go - https://github.com/temporalio/sdk-go/issues/1458
+- [x] Java - https://github.com/temporalio/sdk-java/issues/2058
+- [x] Core - https://github.com/temporalio/sdk-core/issues/736
+- [x] TypeScript - Requires Core upgrade, and https://github.com/temporalio/sdk-typescript/issues/1697 for pure JS side
+- [x] Python - Requires Core upgrade
+- [x] .NET - Requires Core upgrade
+- [ ] PHP - Requires Go SDK upgrade
+- [x] Temporal CLI - Requires Go SDK upgrade
+
+
+#### Comments (6)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-05-11 18:15:23.000 UTC</summary>
+
+Does `GetSystemInfo` also need to have this header set?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-05-13 13:43:27.000 UTC</summary>
+
+@Quinn-With-Two-Ns - no I don't believe so. It is a cross-namespace call. I will confirm internally.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2024-07-30 00:00:26.000 UTC</summary>
+
+Note, HTTP2 requires headers to be lowercase: https://www.rfc-editor.org/rfc/rfc7540#section-8.1.2
+
+We should be using `temporal-namespace` and cloud should be aware of that
+
+</details>
+
+<details>
+<summary><strong>matlegit</strong> commented on 2025-10-27 16:59:20.000 UTC</summary>
+
+Hi there, has this been implemented in the Python SDK yet? The description says "Requires Core upgrade" but https://github.com/temporalio/sdk-core/issues/736 is completed already. Thanks
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-10-27 17:02:02.000 UTC</summary>
+
+Yes, this is in all SDKs at this time, we just had not closed this issue. Closing now.
+
+Note, this may not be for _every_ gRPC call for Python (and other Core SDKs), just high-level ones. Direct gRPC calls still may require setting this header (i.e. "rpc metadata") yourself.
+
+</details>
+
+<details>
+<summary><strong>matlegit</strong> commented on 2025-10-27 17:22:55.000 UTC</summary>
+
+@cretz Great to hear, thank you!
+
+</details>
+
+
+---
+
 <a id="380"></a>
 
 ### #380: [Feature Request] Every SDK needs a DataDog sample for sending metrics and traces to DataDog agent
@@ -4320,6 +6076,85 @@ An alternative would be to emit a metric worker_task_slots_usage showing the cur
 
 ---
 
+<a id="28"></a>
+
+### #28: [Feature Request] Compile and package gRPC client for operator service for all SDKs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/28 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-03-14 18:36:25.000 UTC (3y 10m ago) |
+| **Updated** | 2022-09-12 16:33:18.000 UTC |
+| **Closed** | 2022-09-12 16:33:18.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 6 |
+| **Priority Score** | 6 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+OperatorService was added here:
+https://github.com/temporalio/api/tree/master/temporal/api/operatorservice/v1
+
+- [x] TS
+- [x] Java
+- [x] Go https://github.com/temporalio/sdk-go/issues/896
+- [x] Python temporalio/sdk-python/issues/93
+- [x] PHP temporalio/sdk-php/issues/229
+
+#### Comments (6)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-07-29 23:59:51.000 UTC</summary>
+
+@Sushisource is exposing the service from Core so it can be used in Python
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-03 17:40:32.000 UTC</summary>
+
+Confirmed this is available for Go: https://github.com/temporalio/api-go/tree/master/operatorservice/v1
+
+</details>
+
+<details>
+<summary><strong>wolfy-j</strong> commented on 2022-08-03 17:51:16.000 UTC</summary>
+
+PHP should already have it.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-08-03 18:28:54.000 UTC</summary>
+
+@bergundy - We still need to expose this in Go same as we do for `Client.WorkflowService()`
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-03 21:45:14.000 UTC</summary>
+
+Unchecked for Go, makes sense, thanks.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-09-12 16:32:26.000 UTC</summary>
+
+@cretz this is done, right?
+
+Reactions: 👍 1
+
+</details>
+
+
+---
+
 <a id="685"></a>
 
 ### #685: [Feature Request] Omit HostedMCPTool headers from serialized activity input?
@@ -4392,6 +6227,208 @@ We'll triage that request, but it would be a pretty large feature across more th
 <summary><strong>tconley1428</strong> commented on 2025-10-16 16:14:05.000 UTC</summary>
 
 Received some new information from other folks on the team actually. Since you have a codec and see the payloads in the UI, I'm assuming you are also running a codec server. Your response from the codec server for these payloads can omit these portions of the payload so that they will not appear in the UI.
+
+</details>
+
+
+---
+
+<a id="590"></a>
+
+### #590: [Feature Request] Add describe() method to ExternalWorkflowHanlde
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/590 |
+| **State** | CLOSED |
+| **Author** | koliaVasyliv (Mykola Vasyliv) |
+| **Created** | 2022-08-23 14:33:02.000 UTC (3y 4m ago) |
+| **Updated** | 2025-04-01 17:47:18.000 UTC |
+| **Closed** | 2025-04-01 17:47:17.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 5 |
+| **Priority Score** | 5 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+It would be great if we could add a `describe()` method the same as in [WorkflowHandle](https://github.com/temporalio/sdk-typescript/blob/73ebc35db9255152518e47f3c89d04c965977a12/packages/client/src/workflow-client.ts#L128) to `ExternalWorkflowHanlde` that we get in the workflow. 
+
+### Additional context
+
+I personally need it to get the workflow status, and it would remove the necessity to add extra activity to receive it.
+
+
+#### Comments (5)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-23 15:01:23.000 UTC</summary>
+
+Right now the server doesn’t support this command, it’d have to be added there before it can be made available in the SDKs.
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-08-23 15:52:48.000 UTC</summary>
+
+Submitted the feature request to Server: https://github.com/temporalio/temporal/issues/3261
+
+</details>
+
+<details>
+<summary><strong>koliaVasyliv</strong> commented on 2022-08-23 17:54:53.000 UTC</summary>
+
+@bergundy  got it, thanks for the quick response.
+
+</details>
+
+<details>
+<summary><strong>mjameswh</strong> commented on 2025-01-28 19:15:02.000 UTC</summary>
+
+Moving to the [temporalio/features](https://github.com/temporalio/features) repo, as this is a platform level feature request.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-01 17:47:17.000 UTC</summary>
+
+Closing this since it's a server-driven feature. See https://github.com/temporalio/temporal/issues/3261
+
+</details>
+
+
+---
+
+<a id="565"></a>
+
+### #565: Create FIFO mutex mechanism for locking access to some part of a workflow
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/565 |
+| **State** | CLOSED |
+| **Author** | Noot-tooN (Aleksa Novcic) |
+| **Created** | 2024-12-05 13:47:40.000 UTC (1y 1m ago) |
+| **Updated** | 2024-12-06 22:48:19.000 UTC |
+| **Closed** | 2024-12-06 22:48:19.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 5 |
+| **Priority Score** | 5 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Imagine that you want to guarantee a chain of events for some user as they come in the workflow.
+First created event (lets call it event `A`) inside the workflow will have no parent
+Second created event (event `B`) inside the workflow should have event `A` as parent, etc...
+
+You can imagine the following pseudo code:
+1. Get latest from DB
+2. Run a long lasting `if` branch if result from step 1 fulfills some constraints
+3. Create row in DB with parent from step 1 if its not null
+
+We would need to guarantee that for some user id `Get` from second workflow doesn't execute before the `Create` from first workflow is finished.
+
+### Describe the solution you'd like
+
+I would like to have some workflow function that i could simply call to Lock or Unlock critical sections of the code.
+For example, taking in the previous example
+1. `workflow.Lock(ctx, "someLockKey")`
+2. Get latest from DB
+3. Run a long lasting `if` branch if result from step 1 fulfills some constraints
+4. Create row in DB with parent from step 1 if its not null
+5. `workflow.Unlock(ctx, "someLockKey")`
+
+The `Lock` and `Unlock` functionality should be able to lock based on some key. In my case that would be some `userId` for example, but i believe that should be general enough for any use case.
+The mechanism would need to guarantee FIFO order.
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - 
+- [ ] Java - 
+- [ ] Core - 
+- [ ] TypeScript - 
+- [ ] Python - 
+- [ ] .NET - 
+- [ ] Ruby - 
+- [ ] PHP - 
+- [ ] Temporal CLI - 
+
+
+#### Comments (5)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-12-05 17:35:40.000 UTC</summary>
+
+> I would like to have some workflow function that i could simply call to Lock or Unlock critical sections of the code.
+
+Mutex support that mimics the language's standard library equivalent (or reuses it) should already exist now in all SDKs as part of #500. For example, `workflow.NewMutex` now exists to return a `workflow.Mutex` that can be used similar to `sync.Mutex` in the standard library. If you need key-specific mutexes, you can do that the same way you would with `sync.Mutex`.
+
+</details>
+
+<details>
+<summary><strong>Noot-tooN</strong> commented on 2024-12-06 09:31:02.000 UTC</summary>
+
+I am not sure if this can be achieved with a regular mutex.
+
+If i were to just use a mutex it would lock a specific workflow type for all other workers, and that's not what i want to achieve. If one user was waiting on something i don't want other users to wait for that as well.
+
+In order to achieve the key-specific mutex i think that i would have to implement some kind of never ending for loop in a separate workflow (it would act as a centralised lock manager) that would have a `map[string]MutexQueue` and 2 channels 1 for locking and 1 for unlocking and perform async actions on the appropriate queues from the map.
+But i think this is an anti-pattern in Temporal. Also that would probably get filled up quickly because there is a limit of 50k events per workflow. At that point in time i would probably have to perform continue-as-new but that would lose the potentially filled up queues in the map.
+
+Am i missing something?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-12-06 13:35:15.000 UTC</summary>
+
+> If i were to just use a mutex it would lock a specific workflow type for all other workers, and that's not what i want to achieve
+
+No, the mutex I mentioned is only for inside the single workflow run. Are you looking for a mutex that works across workflows? If so, https://github.com/temporalio/samples-go/tree/main/mutex may be what you are looking for. It does accept a key name.
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>Noot-tooN</strong> commented on 2024-12-06 15:40:05.000 UTC</summary>
+
+First of all thanks!
+
+Tried out the sample code and it seems to be working with some errors, which are probably from my bad implementation. When i have have some workflows waiting on the lock when the lock gets freed, the workflows get duplicated for some reason. There is only 1 activity before the lock which always finishes successfully. Would appreciate help if you can assume what's going on, but i'll probably figure it out on my own after some trial and error.
+
+Although there is currently a sample how to achieve something like this i still think it would be more convenient if we simply had something like `workflow.Lock(ctx, key)` or maybe `AtomicChildWorkflow(key)` but i guess that `workflow.Lock` is more universal.
+Some benefits i see from this:
+- It could probably avoid showing up in the temporal history in the UI
+- No manual creation of workers for "mutex" queue. I guess that "mutex" queue is hardcoded in the mutex package for a reason to separate from other queues (or it may as well not be, not sure).
+- Easier for devs to use, i probably wouldn't have this duplication of workflows happening :smile: 
+- Temporal would guarantee that this works as intended
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-12-06 16:23:29.000 UTC</summary>
+
+The benefit of Temporal workflows being a primitive is you can do anything you want here instead of Temporal providing some rigid primitive. What if you wanted a semaphore instead of a single item lock? Or what if you wanted some different logic on lock release? Or what if you wanted some other kind of critical section barrier across workflows that uses some other custom logic beyond naive lock/unlock? This is why we offer this as a sample so each can customize as they need, even if your current need is just for a simple lock/unlock.
+
+It is possible in the future we may provide cross-workflow built-ins like this, but there are no near term plans to do so.
+
+Reactions: 👍 1
 
 </details>
 
@@ -4550,6 +6587,175 @@ Well, it's known somewhere.  But it's not conveniently accessible to metrics/das
 
 ---
 
+<a id="341"></a>
+
+### #341: [Feature Request] Allow SDKs to create Schedule specs from tctl json structure
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/341 |
+| **State** | CLOSED |
+| **Author** | XerxesDGreat (Josh Wickham) |
+| **Created** | 2023-10-05 21:40:26.000 UTC (2y 3m ago) |
+| **Updated** | 2023-10-06 19:15:27.000 UTC |
+| **Closed** | 2023-10-06 19:15:27.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 5 |
+| **Priority Score** | 5 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+In the documentation regarding [schedule specs](https://docs.temporal.io/workflows#spec), there is a sample json structure which can be used by tctl to schedule the running of workflows. By contrast, the SDKs (in particular, the Java SDK) require rigidly structured and often cumbersome operations to create the same. This discrepancy means that it is impossible to simply copy the configuration from one place and use it in another which makes development of schedule specs in different languages more risky.
+
+Further, the fact that the method of defining a schedule spec requires construction of multiple objects in a very particular way means it's more difficult for a less technical person to define a schedule spec and considerably decreases the readability of the spec.
+
+### Describe the solution you'd like
+
+The proposal is to provide a method which accepts a json structure (as on the page linked above) and, from that, constructs a ScheduleSpec. This would allow for potential extraction of schedule definition to a config file, meaning source code doesn't need to be changed whilst making changes to a schedule. Further, one could copy the schedule spec from one application to another, even in a different language, and have confidence that the resulting runtime operates on the same schedule. This translation from json to schedule spec already happens in the `tctl` application; porting that logic to the other temporal libraries would be incredibly helpful.
+
+### Additional context
+
+
+
+
+#### Comments (5)
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-06 14:50:03.000 UTC</summary>
+
+I believe this is a duplicate of #118. Can you confirm?
+
+</details>
+
+<details>
+<summary><strong>XerxesDGreat</strong> commented on 2023-10-06 16:59:33.000 UTC</summary>
+
+No, that's not a duplicate; that ticket is asking for being able to define schedules in code at all. What I would like is for the SDKs to have a method which accepts a json blob defining the calendar specification, the same type of blob specified in the docs linked above which is accepted by `tctl`. For example:
+
+```
+String json = """
+{
+  "year": "2022",
+  "month": "Jan,Apr,Jul,Oct",
+  "dayOfMonth": "1,15",
+  "hour": "11-14"
+}
+"""
+ScheduleSpec spec = ScheduleSpec.fromJson(json);
+```
+
+This would provide the ability to use _exactly_ the same specification (the json blob) in all the SDKs, ensuring consistency of schedules across the various languages. This also provides a much easier method for defining the schedule since the Java analog of the spec above looks like 
+```
+ScheduleCalendarSpec.Builder builder = ScheduleCalendarSpec.newBuilder()
+  .setYear(listOf(ScheduleRange(2022)))
+  .setMonth(listOf(ScheduleRange(1), ScheduleRange(4), ScheduleRange(7), ScheduleRange(10)))
+  .setDayOfMonth(listOf(ScheduleRange(1), ScheduleRange(15)))
+  .setHour(listOf(ScheduleRange(11,14)))
+ScheduleSpec = ScheduleSpec.newBuilder()
+  .setCalendars(listOf(builder.build())
+  .build()
+```
+It is far harder to grok what is going on in that code which makes it more difficult and risky to add or change schedules, which is compounded by each of the SDKs having different ways of doing things. Introducing helper functions to make them as consistent with each other as possible leads to less risk of bugs and misconfiguration going forward.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-06 17:40:05.000 UTC</summary>
+
+That aforementioned issue will be tracking the ability to create schedules from a declarative language like YAML/JSON (JSON is a bit rough for humans that may want to add comments and such). And it would be the same format across all SDKs/CLI and there will be SDK methods to use that declarative language to create/update schedules.
+
+</details>
+
+<details>
+<summary><strong>XerxesDGreat</strong> commented on 2023-10-06 18:05:29.000 UTC</summary>
+
+if that's what it means, fine. That's not what I got from reading the issue is all. If you think this is a dupe, then the history on that ticket will show this link so it's not lost to the ether :-)
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-06 19:15:27.000 UTC</summary>
+
+:+1: I added clarification over there
+
+</details>
+
+
+---
+
+<a id="144"></a>
+
+### #144: [Feature Request] Add gRPC error status code tag to request metrics
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/144 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-10-18 16:19:58.000 UTC (3y 2m ago) |
+| **Updated** | 2024-05-14 20:46:14.000 UTC |
+| **Closed** | 2024-05-14 20:46:14.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 5 |
+| **Priority Score** | 5 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+This should be available server-side so there might be duplication.
+Need to investigate whether it's worth adding this.
+
+#### Comments (5)
+
+<details>
+<summary><strong>yiminc</strong> commented on 2022-10-31 03:08:11.000 UTC</summary>
+
+It is useful to expose resource exhausted error and their cause as tag to metrics.
+
+Not all user has access to all server side metrics. So this is critical.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-10-31 12:34:48.000 UTC</summary>
+
+EDIT: After seeing that resource exhausted cause is present as an enum, we are going to add a new counter for this.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-10-31 17:17:17.000 UTC</summary>
+
+We are making a `temporal_request_resource_exhausted` and `temporal_long_request_resource_exhausted` that have the same tags as `X_request_failure` but also have a `cause` which is the "string" of https://github.com/temporalio/api/blob/e381e51864ec8f43a90750ef936705258b8f64b2/temporal/api/enums/v1/failed_cause.proto#L90.
+
+For SDK implementers, to match server this is not a normal enum string. Rather, this is auto-generated from our gogo proto hack. Use one of the strings at https://github.com/temporalio/api-go/blob/3622cc780d3eee12a6f29788460fdf7d3c94f048/enums/v1/failed_cause.pb.go#L235-L241.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-12-16 18:27:08.000 UTC</summary>
+
+To clarify for issue readers, the resource exhausted tangent is unrelated to the general request for error codes on request metrics.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2024-05-14 16:26:59.000 UTC</summary>
+
+Used label `status_code` and the SCREAMING_SNAKE names from the gRPC spec as the values for codes. This applies to the `*request_failure` metrics
+
+</details>
+
+
+---
+
 <a id="138"></a>
 
 ### #138: [Feature Request] SDKs should have built-in contextual logging
@@ -4628,6 +6834,93 @@ Python differences from TS:
 * Has `attempt` workflow tag
 * Does not have "isLocal" activity tag
 * Does not have "taskToken" activity tag
+
+</details>
+
+
+---
+
+<a id="68"></a>
+
+### #68: [Feature Request] Create compatible encryption libraries
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/68 |
+| **State** | CLOSED |
+| **Author** | lorensr (Loren ☺️) |
+| **Created** | 2022-07-13 17:22:43.000 UTC (3y 6m ago) |
+| **Updated** | 2024-07-15 07:43:52.000 UTC |
+| **Closed** | 2024-07-15 07:43:51.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 5 |
+| **Priority Score** | 5 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+TS and Go encryption samples aren't compatible (despite my attempt to do things the same way): https://temporalio.slack.com/archives/C01DKSMU94L/p1657704501033689
+
+Would be helpful to users if we gave them a cross-sdk tested library.
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+
+- Get the TS sample to be compatible, tested in this repo, and maybe change them all from samples to libraries.
+- Maybe change them to use [NaCl](https://nacl.cr.yp.to/)? 
+
+From @cretz:
+
+> I'd recommend nacl-based encryption instead of AES-based encryption for cross-language compatibility for many reasons. 
+
+
+
+#### Comments (5)
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-07-13 17:37:19.000 UTC</summary>
+
+> Would be helpful to users if we gave them a cross-sdk tested library.
+
+I think we need to be a bit careful giving any encryption "library" per se. But I would definitely support altering both the Go and TS samples to make them compatible with each other and use NaCl. How you'll test that is a different story.
+
+I think the simplest approach for authenticated encryption is just secret box (no need for PKI setup). So https://pkg.go.dev/golang.org/x/crypto/nacl/secretbox in Go and I guess https://github.com/dchest/tweetnacl-js#secret-key-authenticated-encryption-secretbox or https://github.com/tonyg/js-nacl#secret-key-authenticated-encryption-crypto_secretbox or something in JS.
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2022-07-13 19:08:47.000 UTC</summary>
+
+@robholland agrees on not providing a library, and offered to help with compatibility
+
+</details>
+
+<details>
+<summary><strong>robholland</strong> commented on 2022-07-14 11:49:55.000 UTC</summary>
+
+https://github.com/temporalio/samples-typescript/pull/171
+
+</details>
+
+<details>
+<summary><strong>robholland</strong> commented on 2022-07-14 11:54:29.000 UTC</summary>
+
+To get to interop quickly I just adjusted the TS crypto usage rather than porting all of our samples to nacl.
+
+</details>
+
+<details>
+<summary><strong>robholland</strong> commented on 2024-07-15 07:43:51.000 UTC</summary>
+
+@josh-berry this can actually be closed, the mentioned PR fixed the incompatibility. Not sure why it hadn't been closed already.
 
 </details>
 
@@ -4801,6 +7094,86 @@ That's true. So that workflow context is less ideal. But should be enough if I w
 <summary><strong>dandavison</strong> commented on 2025-01-14 16:42:27.000 UTC</summary>
 
 - [ ] Go: https://github.com/temporalio/sdk-go/issues/1776
+
+</details>
+
+
+---
+
+<a id="539"></a>
+
+### #539: Add all java metrics to core/python.
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/539 |
+| **State** | CLOSED |
+| **Author** | mukul-atomicwork |
+| **Created** | 2024-09-16 11:06:05.000 UTC (1y 3m ago) |
+| **Updated** | 2025-04-01 17:31:50.000 UTC |
+| **Closed** | 2025-04-01 17:31:48.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 4 |
+| **Priority Score** | 4 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Currently, not all the necessary metrics are available for Python SDK. Out of 32 only 18 are available in the python.
+
+### Describe the solution you'd like
+
+All the metrics available in Java are available in core/python.
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - 
+- [ ] Java - 
+- [ ] Core - 
+- [ ] TypeScript - 
+- [ ] Python - 
+- [ ] .NET - 
+- [ ] PHP - 
+- [ ] Temporal CLI - 
+
+
+#### Comments (4)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-09-16 12:59:51.000 UTC</summary>
+
+We are working to get some metrics to reach parity (e.g. local activity at https://github.com/temporalio/sdk-core/issues/796), but others may not make sense. Can you be more specific in exactly the metrics you need?
+
+</details>
+
+<details>
+<summary><strong>yusufhalabi</strong> commented on 2024-09-18 20:45:17.000 UTC</summary>
+
+@cretz  interested in how you've set up SDK development at Temporal. At Fern (buildwithfern.com), we auto-generate idiomatic SDKs direct from an OpenAPI spec so all SDKs are synced with the most recent features. Interested in chatting? 
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-09-23 13:16:21.000 UTC</summary>
+
+This issue is concerning metrics and not APIs. You can contact us via separate channels if needed instead of on GitHub issues.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-01 17:31:48.000 UTC</summary>
+
+Closing this as a dupe of https://github.com/temporalio/features/issues/607
 
 </details>
 
@@ -4996,6 +7369,70 @@ Developers henceforth can use Python's impl at https://github.com/temporalio/sdk
 
 ---
 
+<a id="348"></a>
+
+### #348: [Feature Request] Expose AdminService api in sdks
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/348 |
+| **State** | CLOSED |
+| **Author** | tsurdilo (Tihomir Surdilovic) |
+| **Created** | 2023-10-12 00:04:27.000 UTC (2y 3m ago) |
+| **Updated** | 2023-10-18 21:49:07.000 UTC |
+| **Closed** | 2023-10-18 21:48:54.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 4 |
+| **Priority Score** | 4 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+https://github.com/temporalio/temporal/tree/main/api/adminservice
+
+#### Comments (4)
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-12 12:32:33.000 UTC</summary>
+
+We don't expose any internal server services in APIs. Temporal API that should be exposed in SDKs should be exposed via https://github.com/temporalio/api. If this service is one of those, it needs to be exposed out of the frontend via that repo.
+
+Can we close this and if we want to expose more Temporal API we open a server issue to expose that via our normal API repo?
+
+</details>
+
+<details>
+<summary><strong>darshan-au</strong> commented on 2023-10-18 20:05:42.000 UTC</summary>
+
+@cretz: We are currently experiencing issues where workflow executions are stuck and not starting workflow task executions.
+While we are still trying to root cause the problem, currently we are able to work around it by running `tctl admin wf refresh_tasks`. 
+In order to automate this, we are requesting for the AdminService api to be exposed via the SDKs
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-18 21:22:59.000 UTC</summary>
+
+Our SDKs only support official API at https://github.com/temporalio/api, but that API is internal API that we happened to expose previously via our old `tctl` tool but not in our new `temporal` CLI tool intentionally.
+
+I think the specific request here would be to expose the internal refresh task API to the public API. I will bring up with team and change title if needed.
+
+In the meantime, you can generate a gRPC client from [the protos](https://github.com/temporalio/temporal/tree/main/proto/internal/temporal/server/api/adminservice/v1) if you must call programmatically and using the CLI programmatically is not an option.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-18 21:48:54.000 UTC</summary>
+
+Ok, after discussion, we can't really expose these via SDK because they are server internal APIs. But if you need to access programmatically you can use the server as a library in Go e.g. `import "go.temporal.io/server/api/adminservice/v1"` + `client := adminservice.NewAdminServiceClient(connection)`, or you can call the CLI programmatically, or you can generate the gRPC if you must.
+
+</details>
+
+
+---
+
 <a id="323"></a>
 
 ### #323: [Feature Request] Support for HTTP CONNECT proxies in SDKs
@@ -5055,6 +7492,76 @@ HTTP proxies should be stable in java grpc https://github.com/grpc/grpc-java/iss
 <summary><strong>cretz</strong> commented on 2024-04-19 16:41:36.000 UTC</summary>
 
 :+1: Just need to document HTTP CONNECT proxies for them. But will mark both checkboxes as done (we also have feature tests for them in #448)
+
+</details>
+
+
+---
+
+<a id="253"></a>
+
+### #253: [Feature Request] Expose build ID via WorkflowInfo.
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/253 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-03-16 17:07:43.000 UTC (2y 10m ago) |
+| **Updated** | 2024-01-12 21:21:32.000 UTC |
+| **Closed** | 2024-01-12 21:21:32.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 4 |
+| **Priority Score** | 4 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Workers are identified by a build ID (a.k.a binary checksum), which is stored on workflow task completions for debugging and resetting purposes.
+
+When a user makes a bad deployment that breaks determinism - e.g. adding an activity - without using workflow versioning, there may be histories generated by both old and new versions of workflow code.
+When the system reaches this state, versioning APIs may not be used since they will cause further non determinism.
+At this point, users will either terminate, reset, or try to deploy new workflow code that uses start time or other heuristics for switching the old/new logic.
+
+### Describe the solution you'd like
+
+Expose build ID via WorkflowInfo so that users can switch based on it and unblock both new and old workflows.
+
+#### Comments (4)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2024-01-02 19:28:32.000 UTC</summary>
+
+I just reopened this, we need it in Java and Go too and to be exposed in lang SDKs on top of Core.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-01-03 16:05:38.000 UTC</summary>
+
+Can you clarify whether we should consider this "unsafe" information? Also, can you come up with a good name for "most recent build ID" that we can share across SDKs?
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2024-01-03 18:30:05.000 UTC</summary>
+
+It safe to use since the build ID is taken from workflow task completion.
+
+I think `latest build ID` or `most recent build ID` both work.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2024-01-12 21:21:32.000 UTC</summary>
+
+Done everywhere
+
+Reactions: 🎉 1
 
 </details>
 
@@ -5325,6 +7832,91 @@ Yes, this needs to be assigned at least to confirm behavior. We probably need to
 
 ---
 
+<a id="50"></a>
+
+### #50: [Feature Request] SAGAs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/50 |
+| **State** | CLOSED |
+| **Author** | lorensr (Loren ☺️) |
+| **Created** | 2022-05-04 04:08:39.000 UTC (3y 8m ago) |
+| **Updated** | 2025-04-01 17:18:56.000 UTC |
+| **Closed** | 2025-04-01 17:18:55.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 4 |
+| **Priority Score** | 4 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+SAGA: https://microservices.io/patterns/data/saga.html
+
+## Current state
+
+We have SAGA helpers in:
+
+- [Java](https://github.com/temporalio/samples-java/blob/main/src/main/java/io/temporal/samples/bookingsaga/TripBookingWorkflowImpl.java) (Basic—it's just cleanup code. Mostly users implement their own classes.)
+- [PHP](https://github.com/temporalio/samples-php/blob/master/app/src/BookingSaga/TripBookingWorkflow.php)
+- `coinbase-ruby`
+
+## Discussion excerpts
+
+- One benefit of having Saga in Java SDK that people see it as a "feature" of the platform. We know that it is implementable from scratch in a few hours. But new users look for a "checkbox" to check.
+-  It is one of the core use cases we want to support natively
+- My only argument that we should actually design Sagas and improve this class functionally. We need to make some better wrapper around this whole Subtransactions Implemented As Child Workflow Waiting For Signal (which is more of two-factor-commit than a saga). We don’t even have it written right now as our advice how to implement SAGAs. We need a better and safer abstraction. 
+- It requires PM/Design work. So I would say SAGA looks like a stream of work to me.
+-  It needs a careful design aligned with our best practices that we usually recommend to people. Decomposition into typical scenarios, understanding what kind of tooling will be covering them best in the most flexible way.
+- There are two pretty distinct scenarios for Saga: synchronous and asynchronous (which is not time bound). I think we should think hard how to make Sagas work efficiently in the synchronous scenario. This might require significant server side changes. But the payout can be pretty significant as can take on a lot of transactional use cases.
+
+## Related
+
+- TS issue: https://github.com/temporalio/sdk-typescript/issues/456
+
+cc @mnichols 
+
+#### Comments (4)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-05-04 04:30:14.000 UTC</summary>
+
+We pretty much decided we don’t want this in the sdks
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-05-04 05:45:54.000 UTC</summary>
+
+I’d be open to seeing a more concrete proposal, worth thinking about.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-05-04 13:22:13.000 UTC</summary>
+
+Same. @Spikhalskiy has mentioned that even the rudimentary Saga implementation in Java does not have the full, proper feature set.
+
+The three existing implementations are so simple, anyone can just collect activities and run them in parallel and/or cleanup when they are done and/or continue on error. Having a utility called "Saga" that is just a loop seems a bit silly, but if it was a more full-featured implementation it may make sense.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-01 17:18:55.000 UTC</summary>
+
+This issue is pretty stale and we feel that we have some pretty good docs on this at this point without making top-level APIs:
+
+https://temporal.io/blog/compensating-actions-part-of-a-complete-breakfast-with-sagas
+
+https://temporal.io/blog/saga-pattern-made-easy
+
+</details>
+
+
+---
+
 <a id="46"></a>
 
 ### #46: SDKs should default set gRPC max receive message size to 128MB
@@ -5431,6 +8023,65 @@ Does that work?
 
 ---
 
+<a id="655"></a>
+
+### #655: Support for user groups mapped to Entry ID security groups
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/655 |
+| **State** | CLOSED |
+| **Author** | petrkoutnycz (Petr Koutny) |
+| **Created** | 2025-07-11 06:07:15.000 UTC (6 months ago) |
+| **Updated** | 2025-07-21 07:55:38.000 UTC |
+| **Closed** | 2025-07-11 19:50:31.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+We use the SSO with Microsoft Entra ID in our organization now. We're giving access to more and more users and it is becoming a nightmare to manage their permissions to namespaces.
+
+### Describe the solution you'd like
+
+We already have groups set up in Entra and would like to leverage them in Temporal as well. So instead of giving permissions to specific users, I would like to give permissions to groups and manage those groups in Entra.
+
+#### Comments (3)
+
+<details>
+<summary><strong>echean</strong> commented on 2025-07-11 19:44:49.000 UTC</summary>
+
+SCIM with Entra can solve the user/group management. This feature release will be available end of July. 
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-07-11 19:50:31.000 UTC</summary>
+
+This is not an open-source/SDK feature request. Closing, but feel free to open a ticket if needed.
+
+Reactions: 👍 1
+
+</details>
+
+<details>
+<summary><strong>petrkoutnycz</strong> commented on 2025-07-21 07:55:38.000 UTC</summary>
+
+> SCIM with Entra can solve the user/group management. This feature release will be available end of July.
+
+Thank you!
+
+</details>
+
+
+---
+
 <a id="633"></a>
 
 ### #633: Treat Activity start as the first heartbeat time
@@ -5485,6 +8136,71 @@ cc @mfateev to add more details please if needed
 
 I believe adding a "force heartbeat" option and not emitting the first heartbeat right away is a pretty intuitive behavior. I agree that the clock skew might be an issue that needs to be accounted for. 
 
+
+</details>
+
+
+---
+
+<a id="557"></a>
+
+### #557: Add "summary" metadata to scheduled Nexus operations
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/557 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2024-11-04 19:39:40.000 UTC (1y 2m ago) |
+| **Updated** | 2025-04-01 17:33:25.000 UTC |
+| **Closed** | 2025-04-01 17:33:23.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 1 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Add a fixed "summary" metadata to scheduled Nexus operations like we have for timers, child workflows and activities.
+
+### Describe the solution you'd like
+
+Add an additional option to Nexus operations in a workflow to set a summary.
+
+### Additional context
+
+https://github.com/temporalio/features/issues/486
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - 
+- [ ] Java - 
+- [ ] Core - 
+- [ ] TypeScript - 
+- [ ] Python - 
+- [ ] .NET - 
+- [ ] Ruby - 
+- [ ] PHP - 
+- [ ] Temporal CLI - 
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-01 17:33:23.000 UTC</summary>
+
+Looks like this is a dupe of https://github.com/temporalio/features/issues/610
+
+@Quinn-With-Two-Ns please update that if these are different somehow
+
+Reactions: 👍 1
 
 </details>
 
@@ -5619,6 +8335,130 @@ this would be super helpful, are there any plans on supporting this?
 <summary><strong>GSmithApps</strong> commented on 2025-12-03 21:01:17.000 UTC</summary>
 
 Hey @drewhoskins-temporal I think we can revise this now that we have visibility into stuck workflows — wdyt?
+
+</details>
+
+
+---
+
+<a id="461"></a>
+
+### #461: TypeScript - TODO after core
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/461 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-04-19 12:33:25.000 UTC (1y 8m ago) |
+| **Updated** | 2024-04-19 15:14:38.000 UTC |
+| **Closed** | 2024-04-19 15:14:20.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+*No description provided.*
+
+#### Comments (3)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-19 12:33:35.000 UTC</summary>
+
+Accidental click.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2024-04-19 14:00:34.000 UTC</summary>
+
+@cretz should this be moved to the TS SDK?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-19 15:14:20.000 UTC</summary>
+
+No, it was an accidental click of that icon next to the checkboxes that auto-creates a sub-issue, sorry. Closing.
+
+</details>
+
+
+---
+
+<a id="437"></a>
+
+### #437: [Feature Request] Support for WorkflowIdConflictPolicy
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/437 |
+| **State** | CLOSED |
+| **Author** | stephanos (Stephan Behnke) |
+| **Created** | 2024-03-12 02:48:26.000 UTC (1y 10m ago) |
+| **Updated** | 2024-12-13 06:15:54.000 UTC |
+| **Closed** | 2024-12-13 06:15:54.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+The Start Workflow and Signal-with-Start APIs has a new field, `WorkflowIdConflictPolicy`.
+
+Support for the new policy in both APIs is needed.
+
+Furthermore, the comments should emphasize that `WorkflowIdReusePolicy` is for _closed_ Workflows, and WorkflowIdConflictPolicy` is for _running_ Workflows.
+
+### Describe the solution you'd like
+
+A new field/parameter in each SDK's Start Workflow and Signal-With-Start API struct/function.
+
+* [x] Go - https://github.com/temporalio/sdk-go/issues/1447
+* [x] Java - https://github.com/temporalio/sdk-java/issues/2033
+* [x] Core (maybe nothing required but proto update) - https://github.com/temporalio/sdk-core/issues/715
+* [x] TypeScript (after core) - https://github.com/temporalio/sdk-typescript/issues/1392
+* [x] Python (after core) - https://github.com/temporalio/sdk-python/issues/504
+* [x] .NET (after core) - https://github.com/temporalio/sdk-dotnet/issues/217
+* [x] .NET follow-up https://github.com/temporalio/sdk-dotnet/issues/316
+* [x] CLI (after Go) - https://github.com/temporalio/cli/issues/528
+* [x] PHP (after Go) - https://github.com/temporalio/sdk-php/issues/416
+
+### Additional context
+
+See https://github.com/temporalio/api/pull/359.
+
+#### Comments (3)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-12 14:50:29.000 UTC</summary>
+
+Updated description to add checkboxes for each SDK. Feel free to create issues/PRs as needed.
+
+</details>
+
+<details>
+<summary><strong>stephanos</strong> commented on 2024-03-18 17:00:59.000 UTC</summary>
+
+@cretz should the CLI be tracked here, too, or elsewhere?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-18 17:17:56.000 UTC</summary>
+
+Here is good, I added a checkbox. If/when ready, issues can be created in each repo.
+
+Reactions: 👍 1
 
 </details>
 
@@ -5815,6 +8655,497 @@ Reactions: 👍 1
 
 ---
 
+<a id="387"></a>
+
+### #387: [Feature Request] Whitelist Retryable Error Types
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/387 |
+| **State** | CLOSED |
+| **Author** | sebl1ngt0n |
+| **Created** | 2023-12-14 11:40:21.000 UTC (2 years ago) |
+| **Updated** | 2024-01-03 17:33:56.000 UTC |
+| **Closed** | 2024-01-03 17:33:56.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Add the ability to "whitelist" error types that you want your RetryPolicy to handle.
+
+```
+RetryPolicy = new Temporalio.Common.RetryPolicy
+{
+    RetryableErrorTypes = [ "RetryableError" ]
+}
+```
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-12-14 15:58:40.000 UTC</summary>
+
+What is the use case for this? Generally all errors are retryable unless the error says not to retry it or the retry policy says so through `NonRetryableErrorTypes`.
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-12-14 15:59:10.000 UTC</summary>
+
+Transferring to features since this is not a dotnet specific ask
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-01-03 17:33:56.000 UTC</summary>
+
+Closing issue for now, but @sebl1ngt0n - feel free to add more clarity as a comment (and reopen if desired) or join us on `#dotnet-sdk` on Slack to discuss options here.
+
+</details>
+
+
+---
+
+<a id="296"></a>
+
+### #296: [Feature Request] Workflow Update SDK integration - Public Preview
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/296 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-07-05 16:49:13.000 UTC (2y 6m ago) |
+| **Updated** | 2024-10-08 02:51:36.000 UTC |
+| **Closed** | 2024-10-08 02:51:36.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 1 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 ❤️ 1 |
+
+#### Description
+
+[https://docs.temporal.io/workflows#update](https://docs.temporal.io/workflows#update)
+
+* [x] Go
+* [x] Java
+* [x] temporalio/sdk-typescript#1160
+* [x] temporalio/sdk-python#336
+* [x] temporalio/sdk-dotnet#100
+* [x] temporalio/sdk-php#323
+* [x] temporalio/sdk-ruby#141
+
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-10-06 22:07:52.000 UTC</summary>
+
+For Core based SDKs, they should have a test which uses a canned history that looks like this: https://github.com/temporalio/sdk-core/pull/613/files#diff-d113bbfb7860d7e5dee861d8f2e48bdc2b479d240048832263075a1b4d7db9f7R14
+
+Importantly, there is a complete WFT before the next WFT which has an update's acceptance. Core will send the first activation for this (when replaying) with two jobs: `[StartWorkflow, DoUpdate]`. If the SDK supports lazily registering update handlers (which, hopefully maybe just... don't, is the nice solution), then the SDK must take care to ensure that the workflow function is run at least once first so that the update handler has a chance to be registered. Otherwise, the SDK will erroneously encounter a nondeterminism error, thinking the update should be rejected (because no handler was found) when it was in fact accepted.
+
+</details>
+
+
+---
+
+<a id="234"></a>
+
+### #234: [Feature Request] Add API to count workflows
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/234 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-03-03 21:55:23.000 UTC (2y 10m ago) |
+| **Updated** | 2025-05-16 03:24:07.000 UTC |
+| **Closed** | 2025-05-16 03:24:07.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Similar to the list API but would return the count instead of an iterator.
+
+See https://github.com/temporalio/api/blob/44e4397262d480b9e6f17771be9ae1812d97384e/temporal/api/workflowservice/v1/service.proto#L291 and https://github.com/temporalio/api/blob/44e4397262d480b9e6f17771be9ae1812d97384e/temporal/api/workflowservice/v1/request_response.proto#L749 for reference.
+
+Checklist:
+
+- [x] Go
+- [x] temporalio/sdk-java#1685
+- [x] temporalio/sdk-typescript/issues/1069
+- [x] temporalio/sdk-python#294
+- [x] temporalio/sdk-dotnet#30
+- [x] temporalio/sdk-php#291
+
+#### Comments (3)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2023-03-03 22:09:35.000 UTC</summary>
+
+Go supports this already, although the API isn't ideal.
+I suggest leaving it as is.
+
+```
+CountWorkflow(ctx context.Context, request *workflowservice.CountWorkflowExecutionsRequest) (*workflowservice.CountWorkflowExecutionsResponse, error)
+```
+
+Reactions: 👍 2
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-07-14 12:46:22.000 UTC</summary>
+
+Note for those implementing this, be prepared to support a response with many values (see https://github.com/temporalio/api/pull/303). So don't just return an integer.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-26 15:09:09.000 UTC</summary>
+
+The .NET PR at https://github.com/temporalio/sdk-dotnet/pull/206 provides a good approach to follow here
+
+</details>
+
+
+---
+
+<a id="232"></a>
+
+### #232: [Feature Request] Send SDK name and version on workflow task completion
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/232 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-02-23 17:44:47.000 UTC (2y 10m ago) |
+| **Updated** | 2024-01-10 14:17:17.000 UTC |
+| **Closed** | 2024-01-10 14:17:16.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+The information should be persisted in the `WorkflowTaskCompleted` event for debugging purposes.
+
+Possibly, we'd use the [sdk_metadata](https://github.com/temporalio/api/blob/44e4397262d480b9e6f17771be9ae1812d97384e/temporal/api/history/v1/message.proto#L201) field to store this.
+
+#### Comments (3)
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-02-23 17:50:44.000 UTC</summary>
+
+Can you clarify the debugging purpose for adding this information to every task complete? Specifically, what are people unable to do today that this would enable? Is there concern a user does not know the SDK and version they are running under and/or we would be unwilling to ask for that if we are debugging?
+
+</details>
+
+<details>
+<summary><strong>mfateev</strong> commented on 2023-02-23 18:05:07.000 UTC</summary>
+
+For storage size reasons, we can send them only if they have changed since the previous workflow task. 
+
+I believe knowing the exact SDK version might help in troubleshooting certain failure scenarios.
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-01-10 14:17:16.000 UTC</summary>
+
+Duplicate of  https://github.com/temporalio/features/issues/321
+
+</details>
+
+
+---
+
+<a id="221"></a>
+
+### #221: Unregistered Local Activity should fail Workflow Task
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/221 |
+| **State** | CLOSED |
+| **Author** | Spikhalskiy (Dmitry Spikhalsky) |
+| **Created** | 2023-01-29 18:13:15.000 UTC (2y 11m ago) |
+| **Updated** | 2025-05-15 19:57:41.000 UTC |
+| **Closed** | 2025-05-15 19:57:41.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Describe the solution you'd like
+
+If user deployed a worker with unregistered Local Activity implementation, this should fail workflow task and the user should get a chance to redeploy the fixed worker. Such deployment shouldn't lead to workflow failures, as it's clearly a bug and a deployment issue.
+
+## Why
+
+- If Local Activity is not registered, it's pointless to keep retrying on the same worker. It will not be fixed without worker redeployment. Hence Workflow Task failure is a prerequisite to fixing the issue.
+- Most users wouldn't want their executions to be failed because of incorrect workers deployment that doesn't have one of the activities registered
+- If user has non-homogenous deployment (some workers stuck on older code versions), it actually allows the task to be dispatched on a worker with registered activity 
+
+Tasks:
+
+- [x] Java - https://github.com/temporalio/sdk-java/issues/1561
+- [x] Go - Done, but does not seem to fail the workflow task, returns error
+- [x] TypeScript - Done
+- [ ] Python - https://github.com/temporalio/sdk-python/issues/845
+- [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/463
+- [ ] Ruby - https://github.com/temporalio/sdk-ruby/issues/253
+
+# Context
+
+[Related Slack Discussion](https://github.com/temporalio/features/files/10530498/C01FG4BRQVB-1674766048.292769.txt)
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-22 21:50:19.000 UTC</summary>
+
+Does _not_ fail workflow task in Python as of 1.10
+
+Reactions: 😕 1
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-22 23:00:49.000 UTC</summary>
+
+Typescript will throw a `ReferenceError` up to the workflow, so, all good there.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-04-23 13:41:25.000 UTC</summary>
+
+Opened issues for .NET and Ruby too. Core-based SDKs need to check on the workflow side before sending to Core if the local activity is not found (so they can fail the task), and of course they should not fail if a dynamic activity is on the worker.
+
+</details>
+
+
+---
+
+<a id="208"></a>
+
+### #208: go.temporal.io/features/features-v1.0.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/208 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-01-11 00:12:12.000 UTC (2y 12m ago) |
+| **Updated** | 2023-08-25 20:39:59.000 UTC |
+| **Closed** | 2023-08-25 20:39:58.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/features/features-v1.0.0</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/features/features-v1.0.0 version) | Remediation Possible** |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2019-0205](https://www.mend.io/vulnerability-database/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | github.com/uber-go/tally/v4-v4.1.7 | Transitive | N/A* | &#10060; |
+| [CVE-2019-0210](https://www.mend.io/vulnerability-database/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | github.com/uber-go/tally/v4-v4.1.7 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the "Details" section below to see if there is a version of transitive dependency where vulnerability is fixed.</p><p>**In some cases, Remediation PR cannot be created automatically for a vulnerability despite the availability of remediation</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/uber-go/tally/v4-v4.1.7</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip">https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/features/features-v1.0.0 (Root Library)
+    - :x: **github.com/uber-go/tally/v4-v4.1.7** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/uber-go/tally/v4-v4.1.7</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip">https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/features/features-v1.0.0 (Root Library)
+    - :x: **github.com/uber-go/tally/v4-v4.1.7** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (3)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-06-30 19:48:32.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-08-02 13:52:27.000 UTC</summary>
+
+:information_source: This issue was automatically re-opened by Mend because the vulnerable library in the specific branch(es) has been detected in the Mend inventory.
+
+</details>
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-08-25 20:39:58.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
 <a id="195"></a>
 
 ### #195: Standardize unregistered Activity Type behavior
@@ -5859,6 +9190,58 @@ I think we should just close this in favor of #201. @lorensr @cretz what do you 
 <summary><strong>cretz</strong> commented on 2023-10-09 20:22:40.000 UTC</summary>
 
 Works for me
+
+</details>
+
+
+---
+
+<a id="172"></a>
+
+### #172: [Bug] Flaky tests
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/172 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-11-29 04:15:09.000 UTC (3y 1m ago) |
+| **Updated** | 2023-08-23 18:07:29.000 UTC |
+| **Closed** | 2023-08-23 18:07:29.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+TypeScript docker: https://github.com/temporalio/sdk-features/actions/runs/3528486923/jobs/5918644287
+Java docker: https://github.com/temporalio/sdk-features/actions/runs/3528486923/jobs/5918643970
+
+#### Comments (3)
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-12-07 18:14:35.000 UTC</summary>
+
+Specifically for those searching issues, here's the TypeScript error
+
+> Feature query/unexpected_query_type_name failed with AssertionError [ERR_ASSERTION]: The error is expected to be an instance of "QueryNotRegisteredError". Received "ServiceError"
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-12-07 20:40:48.000 UTC</summary>
+
+Should be fixed once the SDK is upgraded 
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-08-23 18:07:29.000 UTC</summary>
+
+Closing old bug
 
 </details>
 
@@ -5913,6 +9296,248 @@ This could paper over real problems where the lang SDK is routinely slow, so it'
 <summary><strong>bergundy</strong> commented on 2022-11-24 17:02:20.000 UTC</summary>
 
 I don’t see an issue with this, it’s a matter of timing. Can you elaborate why you are concerned with this?
+
+</details>
+
+
+---
+
+<a id="134"></a>
+
+### #134: go.temporal.io/sdk-v1.15.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/134 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-09-16 19:05:18.000 UTC (3y 3m ago) |
+| **Updated** | 2022-11-14 20:04:33.000 UTC |
+| **Closed** | 2022-11-14 20:04:32.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/sdk-v1.15.0</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/b73e0605c538b029c3c9477715a58801acb3fe04">b73e0605c538b029c3c9477715a58801acb3fe04</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/sdk-v1.15.0 version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2022-27664](https://www.mend.io/vulnerability-database/CVE-2022-27664) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | golang.org/x/net-v0.0.0-20220708220712-1185a9018129 | Transitive | N/A* | &#10060; |
+| [CVE-2022-32149](https://www.mend.io/vulnerability-database/CVE-2022-32149) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | golang.org/x/text-v0.3.7 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the section "Details" below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-27664</summary>
+
+
+###  Vulnerable Library - <b>golang.org/x/net-v0.0.0-20220708220712-1185a9018129</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20220708220712-1185a9018129.zip">https://proxy.golang.org/golang.org/x/net/@v/v0.0.0-20220708220712-1185a9018129.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/sdk-v1.15.0 (Root Library)
+    - google.golang.org/grpc-v1.48.0
+      - :x: **golang.org/x/net-v0.0.0-20220708220712-1185a9018129** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/b73e0605c538b029c3c9477715a58801acb3fe04">b73e0605c538b029c3c9477715a58801acb3fe04</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In net/http in Go before 1.18.6 and 1.19.x before 1.19.1, attackers can cause a denial of service because an HTTP/2 connection can hang during closing if shutdown were preempted by a fatal error.
+
+<p>Publish Date: 2022-09-06
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-27664>CVE-2022-27664</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-32149</summary>
+
+
+###  Vulnerable Library - <b>golang.org/x/text-v0.3.7</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/golang.org/x/text/@v/v0.3.7.zip">https://proxy.golang.org/golang.org/x/text/@v/v0.3.7.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/sdk-v1.15.0 (Root Library)
+    - google.golang.org/grpc-v1.48.0
+      - golang.org/x/net-v0.0.0-20220708220712-1185a9018129
+        - :x: **golang.org/x/text-v0.3.7** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/b73e0605c538b029c3c9477715a58801acb3fe04">b73e0605c538b029c3c9477715a58801acb3fe04</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+An attacker may cause a denial of service by crafting an Accept-Language header which ParseAcceptLanguage will take significant time to parse.
+
+<p>Publish Date: 2022-10-14
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-32149>CVE-2022-32149</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://www.cve.org/CVERecord?id=CVE-2022-32149">https://www.cve.org/CVERecord?id=CVE-2022-32149</a></p>
+<p>Release Date: 2022-10-14</p>
+<p>Fix Resolution: v0.3.8</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (3)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-09-26 17:02:34.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-10-20 20:57:34.000 UTC</summary>
+
+:information_source: This issue was automatically re-opened by Mend because the vulnerable library in the specific branch(es) has been detected in the Mend inventory.
+
+</details>
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-11-14 20:04:33.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="125"></a>
+
+### #125: [Feature Request] Provide a way to augment SDK workflow and activity resolution
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/125 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-09-07 00:04:50.000 UTC (3y 4m ago) |
+| **Updated** | 2023-10-13 22:28:45.000 UTC |
+| **Closed** | 2023-10-13 22:28:45.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Java has DynamicWorkflow and DynamicActivity that serve as fallback for when the SDK does not find a matching workflow or activity implementation to execute.
+
+Other SDKs should surface this functionality as well.
+
+Some alternative APIs discussed in slack were:
+1. providing additional inbound interceptor methods (e.g `resolve` | `prepare` | `preExecute`)
+2. a worker option callback
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-06 23:49:00.000 UTC</summary>
+
+This feels like it might be old—do we have tickets already for the various SDKs that don't already have dynamic workflow/activity support? Which SDKs are still missing this?
+
+</details>
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-10-06 23:51:25.000 UTC</summary>
+
+I believe it is only Go https://github.com/temporalio/sdk-go/issues/543
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-09 12:49:49.000 UTC</summary>
+
+> do we have tickets already for the various SDKs that don't already have dynamic workflow/activity support? Which SDKs are still missing this?
+
+Yes, #201. Go and TypeScript. This issue can probably be closed.
 
 </details>
 
@@ -5994,6 +9619,246 @@ https://github.com/temporalio/temporal/blob/3182dc2cde75e3e49fccb1de2905db5d30db
 For now we will add the custom behavior as requested.
 Not sure we'd want to do what the server retry does, I'd expect that attempt is persisted and the backoff duration is calculated based on the error type and the current attempt. In the server retrier, if the error flakes from "resource exhausted" to another error the attempt number is effectively reset.
 So we'd replace the `NextBackOff()` method with a `Backoff(attempt)` method.
+
+</details>
+
+
+---
+
+<a id="89"></a>
+
+### #89: [Feature Request] mTLS sample with explanations how to connect to Temporal Cloud
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/89 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-07-26 23:19:44.000 UTC (3y 5m ago) |
+| **Updated** | 2022-10-11 00:03:21.000 UTC |
+| **Closed** | 2022-10-11 00:03:21.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | bergundy, cretz |
+| **Milestone** | None |
+
+#### Description
+
+Cloud customers frequently request a sample that they can use as reference for setting up their connection.
+
+We should provide a sample in each of the SDK sample repos.
+
+- [x] TS
+- [x] Python https://github.com/temporalio/samples-python/issues/8
+- [x] Go https://github.com/temporalio/samples-go/issues/210
+- [x] Java https://github.com/temporalio/samples-java/issues/331
+- [x] PHP temporalio/samples-php/issues/23
+
+Also port https://docs.temporal.io/typescript/security#connecting-to-temporal-cloud-with-mtls to the app dev guide and reference the per language samples.
+
+#### Comments (3)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-07-30 00:11:41.000 UTC</summary>
+
+There's still an ongoing discussion whether all samples should be configurable or a single mtls sample is preferable.
+Not working on this for now.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-01 18:28:13.000 UTC</summary>
+
+Removed the blocked label, we can proceed.
+I'll make the individual issues.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-10 19:53:36.000 UTC</summary>
+
+TS sample can be found here: https://github.com/temporalio/samples-typescript/tree/main/hello-world-mtls
+
+</details>
+
+
+---
+
+<a id="73"></a>
+
+### #73: [Feature Request] High level API for schedules
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/73 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-07-19 04:27:37.000 UTC (3y 5m ago) |
+| **Updated** | 2024-02-01 19:41:03.000 UTC |
+| **Closed** | 2024-02-01 19:41:03.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | lorensr |
+| **Milestone** | None |
+
+#### Description
+
+The [Schedules](https://docs.temporal.io/workflows#schedule) feature is currently only exposed via raw gRPC or `tctl`.
+
+SDKs should provide a friendly (high level) interface for this.
+
+- [x] TS reference proposal temporalio/proposals/pull/62
+- [x] Go temporalio/sdk-go#871
+- [x] Java temporalio/sdk-java/issues/1333
+- [x] TS temporalio/sdk-typescript/issues/794
+- [x] Python temporalio/sdk-python/issues/87
+- [x] .NET https://github.com/temporalio/sdk-dotnet/issues/23
+- [x] PHP temporalio/sdk-php/issues/228
+
+#### Comments (3)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-07-19 23:54:09.000 UTC</summary>
+
+@lorensr's assigned to come up with a TS proposal, for each SDK we'll roughly follow the proposal and adapt to fit language idioms.
+
+</details>
+
+<details>
+<summary><strong>wolfy-j</strong> commented on 2023-04-18 12:37:06.000 UTC</summary>
+
+The link - https://docs.temporal.io/next/workflows#schedules is currently dead.
+
+</details>
+
+<details>
+<summary><strong>lorensr</strong> commented on 2023-04-26 04:13:40.000 UTC</summary>
+
+Thanks, fixed in OP
+
+https://docs.temporal.io/workflows#schedule
+
+</details>
+
+
+---
+
+<a id="71"></a>
+
+### #71: Create test containers from sdk-features for each SDK
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/71 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-07-19 00:55:23.000 UTC (3y 5m ago) |
+| **Updated** | 2023-08-25 14:32:46.000 UTC |
+| **Closed** | 2023-08-25 14:32:46.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | bergundy |
+| **Milestone** | None |
+
+#### Description
+
+Checklist:
+
+- [x] Go
+- [x] Java
+- [x] TypeScript
+- [x] Python
+
+#### Comments (3)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-07-19 00:59:18.000 UTC</summary>
+
+We want to continuously test different SDK versions against Temporal Cloud and different OSS deployments to verify compatibility is maintained over time.
+
+For that purpose, we should build a container from the sdk-feature test suite for each SDK version: `master`, latest release, previous X releases and use those containers for E2E testing.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2022-07-19 10:43:19.000 UTC</summary>
+
+I think instead we should make a container that will properly download whatever is needed and then run it instead of making separate containers. Can we make an issue to have the sdk-features tool also work on commit hashes the way it does with versions/paths today? I know exactly how I'd support commit hashes in all 4 of our SDK languages in this repo.
+
+Then you have just one container for "sdk features" (updated as the features and harness are) and it's able to be run for any SDK lang and version or commit hash.
+
+That is way better than making a container for every push to every SDK and every push to this repo. It's silly to create a hundreds of containers instead of just maintaining one sdk-features container that is capable of loading what is wanted. It is also a powerful abstraction to have one, up-to-date sdk-features container anyone can use to test any server with any SDK lang and version/commit.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-07-20 03:59:31.000 UTC</summary>
+
+As discussed during planning today, we'll build a separate container per SDK version but make sure to use the runner for downloading the SDK and building the docker image.
+
+</details>
+
+
+---
+
+<a id="59"></a>
+
+### #59: Wrap gRPC errors
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/59 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2022-06-01 18:00:56.000 UTC (3y 7m ago) |
+| **Updated** | 2023-10-13 22:18:52.000 UTC |
+| **Closed** | 2023-10-13 22:18:52.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Instead of just rethrowing gRPC errors, most (all?) SDKs wrap them. This is especially true for not-found.
+
+### Describe the solution you'd like
+
+Maybe use `WorkflowNotFound` and `ActivityNotFound` that wrap the gRPC versions? But what about the newer namespace not found that can be thrown instead of workflow not found but both have the not found code? Maybe it should just be `NotFound`? And if so, what does that really add over the raw gRPC errors?
+
+Needs discussion.
+
+
+#### Comments (3)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-06-01 18:02:31.000 UTC</summary>
+
+We should make this an sdk-features issue to make sure it's done properly in all of our SDKs
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-13 21:15:15.000 UTC</summary>
+
+The current error-handling regime seems like it's been pretty reasonable, and this would be a breaking change, no? Should we keep this or just close it?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-10-13 21:45:40.000 UTC</summary>
+
+Yeah, I would close this. If we want to revisit and discuss we can
 
 </details>
 
@@ -6111,6 +9976,199 @@ SDKs should have the main client or one of the clients that:
 <summary><strong>bergundy</strong> commented on 2022-08-03 17:56:36.000 UTC</summary>
 
 Thanks @cretz I checked Go off the list
+
+</details>
+
+
+---
+
+<a id="37"></a>
+
+### #37: go.temporal.io/sdk-features/features-v1.0.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/37 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-07 18:55:56.000 UTC (3y 9m ago) |
+| **Updated** | 2023-01-11 00:12:18.000 UTC |
+| **Closed** | 2023-01-11 00:12:17.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 3 |
+| **Priority Score** | 3 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/sdk-features/features-v1.0.0</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/sdk-features/features-v1.0.0 version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2019-0205](https://www.mend.io/vulnerability-database/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/uber-go/tally/v4-v4.1.2 | Transitive | N/A* | &#10060; |
+| [CVE-2019-0210](https://www.mend.io/vulnerability-database/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/uber-go/tally/v4-v4.1.2 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the section "Details" below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/uber-go/tally/v4-v4.1.2</b></p>
+
+<p>A Go metrics interface with fast buffered metrics and third party reporters</p>
+<p>Library home page: <a href="https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.2.zip">https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.2.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/sdk-features/features-v1.0.0 (Root Library)
+    - :x: **github.com/uber-go/tally/v4-v4.1.2** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/uber-go/tally/v4-v4.1.2</b></p>
+
+<p>A Go metrics interface with fast buffered metrics and third party reporters</p>
+<p>Library home page: <a href="https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.2.zip">https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.2.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/sdk-features/features-v1.0.0 (Root Library)
+    - :x: **github.com/uber-go/tally/v4-v4.1.2** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (3)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-06-22 16:44:24.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-10-20 20:57:40.000 UTC</summary>
+
+:information_source: This issue was automatically re-opened by Mend because the vulnerable library in the specific branch(es) has been detected in the Mend inventory.
+
+</details>
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-01-11 00:12:18.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
 
 </details>
 
@@ -6285,6 +10343,65 @@ Reactions: 👍 1
 <summary><strong>DanielYang59</strong> commented on 2025-09-12 12:31:03.000 UTC</summary>
 
 Hi thanks for the quick response, yes I agree we should ideally reuse the same worker across test functions and we need some refactoring from our side to be able to do that 
+
+</details>
+
+
+---
+
+<a id="606"></a>
+
+### #606: Custom metric bucket sizes
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/606 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2025-02-26 19:48:09.000 UTC (10 months ago) |
+| **Updated** | 2025-06-20 17:38:55.000 UTC |
+| **Closed** | 2025-06-20 17:38:55.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Users should be able to configure bucket sizes for histogram metrics we emit (or they emit using our metrics abstraction). This seems to only apply to Core-based SDKs since other SDKs have more flexibility here already.
+
+### Per-SDK Tickets
+
+- [x] Go - Already doable
+- [x] Java - Already doable
+- [ ] Core - Done: https://github.com/temporalio/sdk-core/pull/844 (but there is a bug at https://github.com/temporalio/sdk-core/issues/873)
+- [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1634
+- [ ] Python - https://github.com/temporalio/sdk-python/issues/777
+- [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/416
+- [ ] Ruby - https://github.com/temporalio/sdk-ruby/issues/228
+- [x] PHP - Probably already doable
+- [x] Temporal CLI - N/A
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>GSmithApps</strong> commented on 2025-06-20 17:15:27.000 UTC</summary>
+
+👋  @cretz can we close this issue as completed?
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-06-20 17:38:55.000 UTC</summary>
+
+Yes, this has been done for some time
+
+Reactions: 🎉 1
 
 </details>
 
@@ -6597,6 +10714,94 @@ Yeah that looks very similar: https://github.com/temporalio/temporal/issues/1203
 
 ---
 
+<a id="518"></a>
+
+### #518: Support upgrading handlers/loops easier
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/518 |
+| **State** | CLOSED |
+| **Author** | recht (Joakim Recht) |
+| **Created** | 2024-07-29 16:01:46.000 UTC (1y 5m ago) |
+| **Updated** | 2025-04-01 17:58:39.000 UTC |
+| **Closed** | 2025-04-01 17:58:38.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+We have a couple of long-running workflows, which currently use `workflow.GetVersion` for backwards compatibility. The workflows usually sit in a loop handling signals. It would be very nice if it was possible to upgrade the signal handler code safely so that new signals run with the latest version while history is processed with the version used at that point in time.
+
+Right now, `workflow.GetVersion` will always return the same value, so it gets locked into a specific behavior. It would be great if there was an alternative `GetVersion`, which would switch to the latest version once the history has been replayed, or some similar solution.
+
+
+For reference here's the conversation from Slack: https://temporalio.slack.com/archives/CTRCR8RBP/p1721843534985449
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-08-01 04:46:28.000 UTC</summary>
+
+Moving this issue to features because this applies to more then just the Go SDK. All SDKs should have similar features to make versioning signal handler easier. 
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-01 17:58:38.000 UTC</summary>
+
+Closing as dupe of https://github.com/temporalio/features/issues/591 which has more concrete thinking around this
+
+</details>
+
+
+---
+
+<a id="505"></a>
+
+### #505: Support "query" when listing schedules
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/505 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-07-08 14:19:16.000 UTC (1y 6m ago) |
+| **Updated** | 2025-07-08 18:07:28.000 UTC |
+| **Closed** | 2025-07-08 18:07:28.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 0 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | justinp-tt |
+| **Milestone** | None |
+| **Reactions** | 👍 1 |
+
+#### Description
+
+### Describe the solution you'd like
+Need to support the `query` option when listing schedules same as we do when listing workflows.
+
+### Per-SDK Tickets
+* [x] Go - [https://github.com/temporalio/sdk-go/issues/1539](https://github.com/temporalio/sdk-go/issues/1539)
+* [x] Java - [https://github.com/temporalio/sdk-java/issues/2139](https://github.com/temporalio/sdk-java/issues/2139)
+* [x] Core - N/A
+* [x] TypeScript - [https://github.com/temporalio/sdk-typescript/issues/1457](https://github.com/temporalio/sdk-typescript/issues/1457)
+* [x] Python - [https://github.com/temporalio/sdk-python/issues/573](https://github.com/temporalio/sdk-python/issues/573)
+* [x] .NET - [https://github.com/temporalio/sdk-dotnet/issues/300](https://github.com/temporalio/sdk-dotnet/issues/300)
+* [ ] PHP - [https://github.com/temporalio/sdk-php/issues/472](https://github.com/temporalio/sdk-php/issues/472)
+* [x] Temporal CLI - [https://github.com/temporalio/cli/issues/616](https://github.com/temporalio/cli/issues/616)
+
+
+
+
+---
+
 <a id="486"></a>
 
 ### #486: User metadata and workflow metadata query
@@ -6657,6 +10862,146 @@ The text format of summary/description is TBD (probably some form of mini markdo
 <summary><strong>cretz</strong> commented on 2024-09-23 13:15:00.000 UTC</summary>
 
 Yes, I think it basically is (or rather this includes that).
+
+</details>
+
+
+---
+
+<a id="483"></a>
+
+### #483: Wrap GRPC::CANCELED and DEADLINE_EXCEEDED in an SDK Timeout exception for Update
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/483 |
+| **State** | CLOSED |
+| **Author** | drewhoskins-temporal (Drew Hoskins) |
+| **Created** | 2024-05-18 00:43:31.000 UTC (1y 7m ago) |
+| **Updated** | 2024-10-08 02:49:15.000 UTC |
+| **Closed** | 2024-10-08 02:49:15.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Make a common exception for update that represents timeout or cancel.
+
+### Per-SDK Tickets
+
+- [x] Go - https://github.com/temporalio/sdk-go/issues/1479
+- [x] Java - https://github.com/temporalio/sdk-java/issues/2069
+- [ ] Core - N/A
+- [x] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1422
+- [x] Python - https://github.com/temporalio/sdk-python/issues/529
+- [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/250
+- [ ] PHP - https://github.com/temporalio/sdk-php/issues/436
+- [ ] Temporal CLI - N/A
+
+#### Comments (2)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-05-20 12:14:02.000 UTC</summary>
+
+Need to decide what best to call this. Maybe `WorkflowUpdateDeadlineExceededX` (where `X` is language specific suffix like `Exception` or `Error`)?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-06-05 19:46:28.000 UTC</summary>
+
+It has been decided to do the following:
+
+* Have a new `WorkflowUpdateRPCTimeoutOrCanceled` exception/error in every language (or similar)
+  * If the language supports it, have it inherit a base `RPCTimeoutOrCanceled` exception/error for future use (or similar)
+  * Exception name and docs should make it clear in docs this is for RPC call timeout/cancel and _not_ some concept of "update timeout/cancel" (which may appear someday but does not today)
+* Have that thrown/raised when start update or poll for update returns either `Canceled` or `DeadlineExceeded` status codes (or if the language has its own cancel exception, catch that)
+  * Use the language's wrapping mechanism to wrap the gRPC exception/error instead of replace it
+* Confirm via tests that a timed out update uses this exception/error by using a low timeout in an update that doesn't complete for a long time
+
+</details>
+
+
+---
+
+<a id="469"></a>
+
+### #469: Make start_update users aware that it's synchronous w/ worker.
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/469 |
+| **State** | CLOSED |
+| **Author** | drewhoskins-temporal (Drew Hoskins) |
+| **Created** | 2024-04-25 01:10:48.000 UTC (1y 8m ago) |
+| **Updated** | 2024-10-29 14:53:09.000 UTC |
+| **Closed** | 2024-10-29 14:53:09.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+By default, `start_update` waits until the (often remote) worker accepts it.
+
+It misleads customers into thinking it's fully async, as `start_activity` and `start_workflow` are.  Customers won’t be aware that the remote worker blocks this call and might inadvertently take a dependency on a worker, for example, that has a lower availability level than the service calling it.  Such a mistake would cause an outage to a critical service.
+
+In the future, we want users to be able to choose durable-on-admitted.  Removing the default here would make space for that.
+
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+### Describe the solution you'd like
+We decided to force customers to explicitly pass in a flag saying what’s being awaited. (e.g. start_update(wait_for_stage=ACCEPTED/COMPLETED)) and then if they don’t provide it.
+We should also make sure the comments are clear that the remote worker must be present for the operation to work.
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [x] Go - https://github.com/temporalio/sdk-go/issues/1449
+- [x] Java - https://github.com/temporalio/sdk-java/issues/2045
+- [x] Core - 
+- [x] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1403
+- [x] Python - https://github.com/temporalio/sdk-python/issues/514
+- [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/231
+- [x] PHP - https://github.com/temporalio/sdk-php/issues/426
+- [x] Temporal CLI - https://github.com/temporalio/cli/issues/597
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-25 12:52:40.000 UTC</summary>
+
+> Or force customers to explicitly pass in a flag saying what’s being awaited
+
+I like this required-wait-stage approach and we can remove the requirement and default to durable on-admitted if/when it becomes available. If there's no objection from others, would love to make this the way in all SDKs
+
+There is a set of pending work for updates in SDKs once internal metering is improved that this work can be a part of. This issue, #431, and #432 should all be knocked out by each SDK (some are already done).
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2024-10-29 14:53:09.000 UTC</summary>
+
+Closing since afaik this is done. @drewhoskins-temporal please re-open if you disagree.
 
 </details>
 
@@ -6763,6 +11108,75 @@ On any TLS failure do the normal retry we should do for all worker poll calls, t
 * [x] Temporal CLI - N/A
 
 
+
+
+---
+
+<a id="454"></a>
+
+### #454: Enable users to easily run samples in Cloud
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/454 |
+| **State** | CLOSED |
+| **Author** | josh-berry (Josh Berry) |
+| **Created** | 2024-04-12 23:50:43.000 UTC (1y 9m ago) |
+| **Updated** | 2025-10-06 21:39:27.000 UTC |
+| **Closed** | 2025-10-06 21:13:05.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+From Spencer and Maxim: 
+
+We should have a defaultConnection() type static method in all the SDKs that uses localhost by default but, if some file path/env vars/etc are provided, will use those to connect to cloud.
+
+Idea being people can run all our samples easily locally, and then make this `~/.config/temporalconnection` file or whatever and boom now it switches to connecting to cloud.
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - https://github.com/temporalio/sdk-go/issues/1442
+- [ ] Java - https://github.com/temporalio/sdk-java/issues/2035
+- [ ] Core - https://github.com/temporalio/sdk-core/issues/717
+- [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1395
+- [ ] Python - https://github.com/temporalio/sdk-python/issues/509
+- [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/219
+- [ ] PHP - https://github.com/temporalio/sdk-php/issues/420
+
+### Samples Tickets
+
+- [ ] Go - https://github.com/temporalio/samples-go/issues/341
+- [ ] Java - https://github.com/temporalio/samples-java/issues/613
+- [ ] .NET - https://github.com/temporalio/samples-dotnet/issues/62
+- [ ] TypeScript - https://github.com/temporalio/samples-typescript/issues/359
+- [ ] Python - https://github.com/temporalio/samples-python/issues/109
+- [ ] PHP - https://github.com/temporalio/samples-php/issues/53
+
+#### Comments (2)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-04-15 13:28:08.000 UTC</summary>
+
+This should all depend on https://github.com/temporalio/features/issues/441, where a proper generally-applicable design needs to be made.
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-10-06 21:39:27.000 UTC</summary>
+
+Note for others, this is all being done as part of #441
+
+</details>
 
 
 ---
@@ -7025,6 +11439,58 @@ Reactions: 👍 1
 
 ---
 
+<a id="379"></a>
+
+### #379: [Feature Request] Allow Continue-as-New from update handlers
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/379 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2023-11-29 20:08:29.000 UTC (2y 1m ago) |
+| **Updated** | 2024-05-17 18:20:42.000 UTC |
+| **Closed** | 2024-05-17 18:17:49.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Users may want to continue as new from update handlers the same way they continue as new from signal handlers
+
+Note: The Go SDK is intentionally left out of this due to how continue as new is exposed 
+
+* [x] Java
+* [ ] TypeScript
+* [ ] Python - https://github.com/temporalio/sdk-python/issues/439
+* [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/161
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-05-13 17:47:00.000 UTC</summary>
+
+An option question is if the workflow method completes and the update method continues-as-new in the same WFT which takes precedent 
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-05-17 18:17:49.000 UTC</summary>
+
+We have since decided against doing this. I am opening an issue in Java to revert. In languages where continue as new is an exception, may just want to treat it like any other exception the user may raise or may want to eagerly fail if they try. Undecided.
+
+</details>
+
+
+---
+
 <a id="378"></a>
 
 ### #378: [Feature Request] Timer duration "jitter" out of box utility
@@ -7122,6 +11588,67 @@ Moving out of the java SDK since this feature isn't specific to that SDK
 
 ---
 
+<a id="373"></a>
+
+### #373: Community SDKs?
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/373 |
+| **State** | CLOSED |
+| **Author** | Nezteb (Noah Betzen) |
+| **Created** | 2023-11-07 01:10:40.000 UTC (2y 2m ago) |
+| **Updated** | 2025-06-17 21:16:47.000 UTC |
+| **Closed** | 2025-06-17 20:26:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | tlalfano |
+| **Milestone** | None |
+
+#### Description
+
+**Describe the solution you'd like**
+
+I was looking at evaluating Temporal, but my company uses [Elixir](https://elixir-lang.org/) (built on [Erlang/OTP](https://www.erlang.org/)). So I tried to see if there were any community [Temporal SDK implementations](https://docs.temporal.io/dev-guide/sdks).
+
+The closest thing I can find is [an Elixir wrapper](https://github.com/mruoss/temporalio.ex) around [Temporal's gRPC API](https://github.com/temporalio/api), though [it lacks generated docs](https://hexdocs.pm/temporalio/api-reference.html), but that's [a different issue](https://github.com/elixir-protobuf/protobuf/issues/266).
+
+For my purposes this is sufficient, but the but it would be cool if the Temporal team could either:
+- Maintain a list of working/popular community SDKs/wrappers that the community could contribute to
+- Publish some sort of document with an example/guide on generating and using an unofficial client/SDK from the gRPC definitions
+
+What do y'all think? 😄
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-11-27 16:46:19.000 UTC</summary>
+
+> Maintain a list of working/popular community SDKs/wrappers that the community could contribute to
+
+We have https://github.com/temporalio/awesome-temporal. We welcome contributions there if we are missing something.
+
+> Publish some sort of document with an example/guide on generating and using an unofficial client/SDK from the gRPC definitions
+
+The simple guide is "Use protobuf to generate from https://github.com/temporalio/api". Any more in depth than that and you start getting into a guide on how to write an SDK which is a significant undertaking. (I generated gRPC once at https://github.com/cretz/elixoral myself)
+
+Reactions: 👍 1 ❤️ 1
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-06-17 21:16:47.000 UTC</summary>
+
+Closed this out since it seems like we've got a sufficient answer here and no updates since it was opened
+
+</details>
+
+
+---
+
 <a id="343"></a>
 
 ### #343: [Feature Request] Worker Pause
@@ -7183,7 +11710,7 @@ Reactions: 👍 1
 | **URL** | https://github.com/temporalio/features/issues/339 |
 | **State** | OPEN |
 | **Author** | lorensr (Loren ☺️) |
-| **Created** | 2023-09-12 17:29:29.000 UTC (2y 3m ago) |
+| **Created** | 2023-09-12 17:29:29.000 UTC (2y 4m ago) |
 | **Updated** | 2024-01-08 18:24:40.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 2 |
@@ -7221,6 +11748,71 @@ I think there are too many choices in how to do encryption for this to be in SDK
 <summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-01-08 18:24:38.000 UTC</summary>
 
 I agree with @cretz that it isn't as simple as saying "key and algorithm". That being said there are examples of other [SDKs](https://docs.aws.amazon.com/amazon-s3-encryption-client/latest/developerguide/go-examples.html) for products providing helpers for client side encryption we could take inspiration from.
+
+</details>
+
+
+---
+
+<a id="336"></a>
+
+### #336: [Feature Request] Typed Search Attributes
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/336 |
+| **State** | CLOSED |
+| **Author** | lorensr (Loren ☺️) |
+| **Created** | 2023-08-31 22:18:22.000 UTC (2y 4m ago) |
+| **Updated** | 2025-04-23 17:32:22.000 UTC |
+| **Closed** | 2025-04-23 17:32:16.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Proposal: https://github.com/temporalio/proposals/blob/master/sdk-typed-search-attributes.md
+
+* [x] Go - https://github.com/temporalio/sdk-go/issues/1218
+* [x] Java - https://github.com/temporalio/sdk-java/issues/1855
+* [x] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1232
+* [x] Python - https://github.com/temporalio/sdk-python/issues/381
+* [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/132
+* [x] PHP - https://github.com/temporalio/sdk-php/issues/516
+
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>arlyon</strong> commented on 2023-12-14 09:22:23.000 UTC</summary>
+
+May I ask that you ensure that there are code samples included with major feature PRs (especially when deprecating old APIs). All my pytest tests are failing because I am updating an old project and search_attribute is deprecated, and I can't find an example of the new API anywhere (even the code samples https://github.com/temporalio/samples-python/blob/ecdfcd69b7a7894d5ed847549c0f045d41bdcb67/hello/hello_search_attributes.py#L17)
+
+edit: found a test in the codebase for anyone on the python SDK https://github.com/cretz/temporal-sdk-python/blob/main/tests/test_client.py#L1066-L1074
+
+edit: nevermind this feature is incompatible with my code. I specify only a single search attribute when the workflow is created, and potentially add new ones down the line once more data becomes available, meaning that all my existing workflows do not have typed search attributes in the info type for all of my data and upserting is just doesn't work, because you can update but not insert...
+
+This code raises an exception when doing the 'insert' portion of an upsert
+
+https://github.com/cretz/temporal-sdk-python/blob/main/temporalio/worker/_workflow_instance.py#L1287-L1294
+
+Edit nevermind again this bug was fixed
+
+https://github.com/temporalio/sdk-python/commit/6f966c7ca59d01c02243561d186867e199f252a6
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-23 17:32:16.000 UTC</summary>
+
+Done!
+
+Reactions: 👍 1
 
 </details>
 
@@ -7277,6 +11869,136 @@ Had a discussion with Marcelo and @tsurdilo earlier this week, where they indica
 <summary><strong>josh-berry</strong> commented on 2024-08-27 21:36:03.000 UTC</summary>
 
 Whups my bad, I missed that this was about pollers AND slots. Reopening.
+
+</details>
+
+
+---
+
+<a id="326"></a>
+
+### #326: [Feature Request] Unified client gRPC retry periods
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/326 |
+| **State** | CLOSED |
+| **Author** | lorensr (Loren ☺️) |
+| **Created** | 2023-08-21 00:14:51.000 UTC (2y 4m ago) |
+| **Updated** | 2024-02-27 20:37:12.000 UTC |
+| **Closed** | 2024-02-27 20:37:03.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
+
+CGS believes all SDKs retry for longer than the longest namespace migration Unavailable period (10s), which is why they say that Cloud's expected downtime is not SDK calls failing—it's just higher latency. It's [possible](https://github.com/temporalio/sdk-typescript/pull/1012) for the TS Client to retry for less than that.
+
+### Describe the solution you'd like
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+Figure out what default retry period we want Clients to have (& maybe ask Server & Cloud teams what they want Clients to do) and apply it across the board. IMO it should be at least 10s + some buffer.
+
+I think all Workers indefinitely retry retryable error codes, but we could confirm that while we're at it.
+
+### Current status
+<!-- Add any other context or screenshots about the feature request here. -->
+
+* TS: 
+  * [Client](https://github.com/temporalio/sdk-typescript/blob/8112c9fcd666f093091fc5515b097a8179a59b50/packages/client/src/grpc-retry.ts#L69-L77): maxAttempts 10, factor 2, initial interval 20ms (see [spreadsheet](https://github.com/temporalio/sdk-typescript/pull/1012) with minimum cumulative)
+  * Worker: indefinite
+* Java:
+  * [Client](https://github.com/temporalio/sdk-java/blob/efce2f17cc373cc717cf9152c0d5f59d9969c139/temporal-serviceclient/src/main/java/io/temporal/serviceclient/rpcretry/DefaultStubServiceOperationRpcRetryOptions.java#L34): 1m
+  * Worker: indefinite
+
+### Related
+https://github.com/temporalio/features/issues/27
+
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>lorensr</strong> commented on 2023-09-22 21:55:49.000 UTC</summary>
+
+Also make sure that Clients retry the initial connection, not just methods called after connection is established. 
+
+@rross reports that Java Client doesn't retry.
+
+TypeScript does:
+
+<img width="724" alt="image" src="https://github.com/temporalio/features/assets/251288/7dab083a-3405-447a-9e60-127906da60d5">
+
+
+</details>
+
+<details>
+<summary><strong>chronos-tachyon</strong> commented on 2024-02-27 20:37:12.000 UTC</summary>
+
+NB: the Java retry issue has been filed as a separate ticket (SDK-1742 in internal Jira) that I hope to get to in the next two weeks.  There currently isn't a public GitHub ticket but I'd be happy to create one if it's needed.
+
+</details>
+
+
+---
+
+<a id="321"></a>
+
+### #321: [Feature Request] SDK name and version on workflow tasks
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/321 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-08-08 20:40:40.000 UTC (2y 5m ago) |
+| **Updated** | 2025-03-25 00:58:22.000 UTC |
+| **Closed** | 2025-03-25 00:58:22.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+Add the same value we do on `client-name` and `client-version` gRPC header on the workflow task. This is done by setting SDK metadata only if the value changed from before (yes this means upon the first SDK update after this is built, all new tasks will get it).
+
+Tasks:
+
+* [x] Update API: https://github.com/temporalio/api/pull/306
+* [x] Update Go SDK: https://github.com/temporalio/sdk-go/issues/1194
+* [x] Update Java SDK: https://github.com/temporalio/sdk-java/issues/1838
+* [x] Update Core: https://github.com/temporalio/sdk-core/issues/588
+
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-08-08 22:25:37.000 UTC</summary>
+
+Not just Core, but we'll need to pass it through on all Core SDKs too (ie: I don't think name should just be core)
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-08-09 13:56:46.000 UTC</summary>
+
+Core SDKs already set this value as `ClientOptions.client_name` and `ClientOptions.client_version` for Core to put as gRPC headers. It just has to also now put it on this proto if it changed since last.
+
+I considered calling this `client_name` and `client_version` in the proto to match the `client-name` and `client-version` gRPC headers, but SDK name/version sounds more right in this case.
+
+Reactions: 👍 1
 
 </details>
 
@@ -7362,6 +12084,196 @@ Out of curiosity, what's the use case behind this request?
 @stephanos There are multiple use cases for knowing an update ID including for continue as new (see typescript issue https://github.com/temporalio/sdk-typescript/issues/1317), wanting to interact with specific update requests in a workflow (see cancellation POC https://github.com/temporalio/samples-go/pull/297), or the update ID may also have some significance for the business process.
 
 Reactions: 👍 1
+
+</details>
+
+
+---
+
+<a id="258"></a>
+
+### #258: [Feature Request] Expose TemporalScheduledStartTime search attribute as typed datetime from workflow info
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/258 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-04-11 19:18:16.000 UTC (2y 9m ago) |
+| **Updated** | 2023-04-11 21:56:31.000 UTC |
+| **Closed** | 2023-04-11 21:56:31.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+This info is already available as a search attribute, need language-friendly exposure of it instead of requiring they use string names.
+
+#### Comments (2)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-04-11 19:21:31.000 UTC</summary>
+
+duplicate of https://github.com/temporalio/features/issues/243?
+
+</details>
+
+<details>
+<summary><strong>cretz</strong> commented on 2023-04-11 21:56:31.000 UTC</summary>
+
+Yes! Closing in favor of that one.
+
+</details>
+
+
+---
+
+<a id="245"></a>
+
+### #245: Swift SDK
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/245 |
+| **State** | CLOSED |
+| **Author** | mgesmundo (Marcello Gesmundo) |
+| **Created** | 2023-03-07 11:32:58.000 UTC (2y 10m ago) |
+| **Updated** | 2023-03-11 09:55:41.000 UTC |
+| **Closed** | 2023-03-11 09:55:41.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Hello,
+there is a plan to add a Swift SDK? Do you have some guidelines to develop it myself and share here if there is some interest?
+Thank you.
+All the best
+
+
+
+#### Comments (2)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2023-03-10 22:53:42.000 UTC</summary>
+
+Hi,
+
+There currently is no plan to officially support a Swift SDK.
+If you were to take this on, I would go over some of these proposals for reference:
+
+https://github.com/temporalio/proposals/tree/master/dotnet
+https://github.com/temporalio/proposals/tree/master/python
+
+And base your SDK on our Rust Core SDK as we have done for the recent SDKs we've developed.
+
+https://github.com/temporalio/sdk-core
+
+</details>
+
+<details>
+<summary><strong>mgesmundo</strong> commented on 2023-03-11 09:55:35.000 UTC</summary>
+
+Thank you @bergundy 
+All the best.
+
+</details>
+
+
+---
+
+<a id="227"></a>
+
+### #227: [Feature Request] Add samples using our versioning API
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/227 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2023-02-13 21:21:48.000 UTC (2y 11m ago) |
+| **Updated** | 2025-09-09 01:00:25.000 UTC |
+| **Closed** | 2025-09-09 01:00:25.000 UTC |
+| **Upvotes** | 1 |
+| **Comments** | 0 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👍 1 👀 1 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Provide samples in each SDK for using that SDKs workflow versioning API
+
+### Describe the solution you'd like
+
+Code examples showing the three versioning strategy https://community.temporal.io/t/workflow-versioning-strategies/6911
+
+- [ ] Go
+- [ ] Java
+- [ ] Python
+- [ ] Typescript
+- [ ] Dotnet
+
+
+
+---
+
+<a id="216"></a>
+
+### #216: [Bug] '/home/runner/work/temporal/temporal/./features'. No such file or directory
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/216 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-01-20 19:25:38.000 UTC (2y 11m ago) |
+| **Updated** | 2023-10-20 04:23:49.000 UTC |
+| **Closed** | 2023-10-20 04:23:49.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | bug |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+Test failing with:
+
+```
+Error: An error occurred trying to start process '/usr/bin/bash' with working directory '/home/runner/work/temporal/temporal/./features'. No such file or directory
+```
+
+https://github.com/temporalio/temporal/actions/runs/3961521809/jobs/6787213991
+
+#### Comments (2)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2023-01-20 21:32:52.000 UTC</summary>
+
+More context: This is happening on docker-compose shutdown, it seems like a flake and I'm not sure when it started.
+
+</details>
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-10-09 20:48:28.000 UTC</summary>
+
+I looked at runs against `main` in the last month, and all of them seem to be passing, or failing for unrelated reasons. @bergundy Can this be closed?
 
 </details>
 
@@ -7852,6 +12764,52 @@ I am moving this to SDK features so that all SDKs have to do it.
 
 ---
 
+<a id="107"></a>
+
+### #107: Feature specs & tests for whole worker versioning
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/107 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-08-05 22:47:45.000 UTC (3y 5m ago) |
+| **Updated** | 2025-01-14 19:48:30.000 UTC |
+| **Closed** | 2025-01-14 19:48:28.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | None |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+- [x] Go
+- [ ] TypeScript
+- [ ] Python
+- [ ] Java
+- [ ] .NET
+
+#### Comments (2)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-04-17 22:30:36.000 UTC</summary>
+
+Testcase specs are here https://www.notion.so/temporalio/Testcases-for-matching-a10357f9df114fd9ae4e42688052aa4e
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-01-14 19:48:28.000 UTC</summary>
+
+Closing this since we're doing totally different versioning stuff now anyway
+
+</details>
+
+
+---
+
 <a id="92"></a>
 
 ### #92: [Feature Request] Provide details of previous Activity Task failure
@@ -7916,6 +12874,53 @@ This has come up a couple more times, server FR here: https://github.com/tempora
 
 ---
 
+<a id="72"></a>
+
+### #72: [Feature Request] Unify retry logic across all SDKs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/72 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-07-19 04:03:14.000 UTC (3y 5m ago) |
+| **Updated** | 2022-08-03 16:55:44.000 UTC |
+| **Closed** | 2022-08-03 16:55:43.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | enhancement |
+| **Assignees** | bergundy |
+| **Milestone** | None |
+
+#### Description
+
+Retry logic in all SDKs:
+- [https://github.com/temporalio/sdk-core/blob/76239450c8cf33c7df118558b92b580de7677bc0/client/src/retry.rs#L16](https://github.com/temporalio/sdk-core/blob/76239450c8cf33c7df118558b92b580de7677bc0/client/src/retry.rs#L16)
+- [https://github.com/temporalio/sdk-typescript/blob/e1213da8883386aa8547d74b279a46ca8ff76e1c/packages/client/src/grpc-retry.ts#L35](https://github.com/temporalio/sdk-typescript/blob/e1213da8883386aa8547d74b279a46ca8ff76e1c/packages/client/src/grpc-retry.ts#L35)
+- [https://github.com/temporalio/sdk-java/blob/acce87ebde1072cb35445963a6ea1827cc5fb0d9/temporal-serviceclient/src/main/java/io/temporal/serviceclient/rpcretry/DefaultStubServiceOperationRpcRetryOptions.java#L39](https://github.com/temporalio/sdk-java/blob/acce87ebde1072cb35445963a6ea1827cc5fb0d9/temporal-serviceclient/src/main/java/io/temporal/serviceclient/rpcretry/DefaultStubServiceOperationRpcRetryOptions.java#L39)
+- [https://github.com/temporalio/sdk-go/blob/b12bc712d0d390acbccfb04c2868c0b02454199d/internal/common/retry/interceptor.go#L121](https://github.com/temporalio/sdk-go/blob/b12bc712d0d390acbccfb04c2868c0b02454199d/internal/common/retry/interceptor.go#L121)
+- [https://github.com/temporalio/sdk-php/blob/2dd8ea6fe044cca870793b11bcdf41a1df7ad1a2/src/Client/GRPC/BaseClient.php#L127](https://github.com/temporalio/sdk-php/blob/2dd8ea6fe044cca870793b11bcdf41a1df7ad1a2/src/Client/GRPC/BaseClient.php#L127)
+
+#### Comments (2)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-07-19 17:34:34.000 UTC</summary>
+
+@bergundy will write a spec and start a discussion
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-03 16:55:43.000 UTC</summary>
+
+Duplicate of #27
+
+</details>
+
+
+---
+
 <a id="30"></a>
 
 ### #30: Add support for workflow.SignalExternalWorkflowWithStart (will probably also require server changes)
@@ -7956,6 +12961,58 @@ Yes, this will require server and API work because there is no such command toda
 We have one on server: https://github.com/temporalio/temporal/issues/537
 
 Reactions: 👍 1
+
+</details>
+
+
+---
+
+<a id="23"></a>
+
+### #23: [Bug] git checkout in typescript.yml failing for forked repos
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/23 |
+| **State** | CLOSED |
+| **Author** | lorensr (Loren ☺️) |
+| **Created** | 2022-02-23 18:36:49.000 UTC (3y 10m ago) |
+| **Updated** | 2022-03-04 22:10:52.000 UTC |
+| **Closed** | 2022-03-04 22:10:51.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | bug |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+I think this is failing:
+
+https://github.com/temporalio/sdk-features/blob/main/.github/workflows/typescript.yaml#L33
+
+When running on a fork, like this:
+
+[sdk-features-tests / build-ts](https://github.com/temporalio/sdk-typescript/runs/5308260603?check_suite_focus=true#logs)
+
+Perhaps this would fix:
+
+https://github.com/actions/checkout/issues/455#issuecomment-792228083
+
+#### Comments (2)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2022-02-23 23:59:54.000 UTC</summary>
+
+@lorensr This is already fixed in https://github.com/temporalio/sdk-features/pull/21 -- I think probably wherever you saw this just wasn't using latest HEAD of the TS repo. Reopen if I'm wrong.
+
+</details>
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2022-02-25 00:00:52.000 UTC</summary>
+
+NM. Is a real bug with _some_ forks
 
 </details>
 
@@ -8050,6 +13107,120 @@ We might consider making this more generally about "wrap grpc call responses in 
 <summary><strong>cretz</strong> commented on 2022-02-10 18:11:35.000 UTC</summary>
 
 Describe is the only call I think that applies to across all SDKs atm. Granted it applies for errors and such too. But I don't think any other calls we generally wrap are complex enough to need raw protos _yet_.
+
+</details>
+
+
+---
+
+<a id="6"></a>
+
+### #6: SDKs should stop retrying on "Internal" server error
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/6 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2021-12-29 23:22:54.000 UTC (4 years ago) |
+| **Updated** | 2023-09-11 23:19:38.000 UTC |
+| **Closed** | 2023-09-11 23:19:37.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 2 |
+| **Priority Score** | 2 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+There was some work done for `Internal` and `Unavailable` errors differentiation on the server. Previously server returned only `Internal` and SDKs always retried it. Also SDKs always retry `Unavailable` but it wasn't returned by server until few month ago. Now, server returns both codes and uses `Internal` for non-retryable (something really bad happened on the server) and `Unavailable` for retryable.
+
+To complete this work stream SDKs need to stop retry on `Internal`. In order to distinguish between the server versions that properly report `Internal` and `Unavailable` errors SDKs should use the [capabilities](https://github.com/temporalio/api/blob/b2b8ae6592a8730dd5be6d90569d1aea84e1712f/temporal/api/workflowservice/v1/request_response.proto#L751) reported in the `getSystemInfo` API call.
+
+- [x] Go SDK (should automatically be supported in PHP SDK, verify with Anton)
+- [x] Core SDK
+- [x] TS SDK (client)
+- [x] https://github.com/temporalio/sdk-java/issues/1315
+- [x] PHP SDK https://github.com/temporalio/sdk-php/issues/221
+
+#### Comments (2)
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-09-11 22:01:28.000 UTC</summary>
+
+@bergundy Can this be closed? Looks like it's done in all the SDKs.
+
+</details>
+
+<details>
+<summary><strong>bergundy</strong> commented on 2023-09-11 23:19:37.000 UTC</summary>
+
+This can be closed.
+Note that there's still work to be done to unify the retry behavior across SDKs: https://github.com/temporalio/features/issues/27
+
+</details>
+
+
+---
+
+<a id="703"></a>
+
+### #703: Support setting of Temporal Headers through CLI / GUI
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/703 |
+| **State** | CLOSED |
+| **Author** | Tamoghnasen9 (Tamoghna Sen) |
+| **Created** | 2025-11-20 12:30:57.000 UTC (1 months ago) |
+| **Updated** | 2025-11-20 14:11:29.000 UTC |
+| **Closed** | 2025-11-20 14:11:29.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+We are using `ContextPropagator` to set headers in the MDC on our client and propagate them to workflows.
+However, when a workflow fails and we attempt to restart it from GUI, the headers set by the `ContextPropagator` are no longer available.
+
+
+### Describe the solution you'd like
+1. Support setting of setting `temporal` headers through CLI.
+2. Support setting of `temporal` headers from GUI.
+
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - 
+- [ ] Java - 
+- [ ] Core - 
+- [ ] TypeScript - 
+- [ ] Python - 
+- [ ] .NET - 
+- [ ] Ruby - 
+- [ ] PHP - 
+- [ ] Temporal CLI - 
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-11-20 14:11:29.000 UTC</summary>
+
+Thanks for the report! I have opened independent issues at https://github.com/temporalio/cli/issues/876 and https://github.com/temporalio/ui/issues/3029 for the two projects and am closing this one since there aren't SDK aspects to it. Please follow those for updates.
 
 </details>
 
@@ -8314,7 +13485,7 @@ Note to implementers - there are also replayer behaviors that have to be account
 | **URL** | https://github.com/temporalio/features/issues/650 |
 | **State** | OPEN |
 | **Author** | mfateev (Maxim Fateev) |
-| **Created** | 2020-05-15 16:06:47.000 UTC (5y 7m ago) |
+| **Created** | 2020-05-15 16:06:47.000 UTC (5y 8m ago) |
 | **Updated** | 2025-07-09 15:27:15.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -8521,6 +13692,61 @@ func ExecuteWorkflow(...) (...) {
 <summary><strong>cretz</strong> commented on 2025-04-23 13:56:59.000 UTC</summary>
 
 For links, we need to first wait on https://github.com/temporalio/api/pull/563 to be merged and released and available in a server so we can test it even works. We may also need to decide whether we are going to expose the raw proto link or going to make a high level form. We should also update the `Started` boolean, may change the name from "result info" (too confusing with actual workflow result IMO), and this may look different in different SDKs of course.
+
+</details>
+
+
+---
+
+<a id="616"></a>
+
+### #616: Warn when the server-provided task start time is fairly different than time SDK begins processing the task
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/616 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2025-04-18 21:38:02.000 UTC (8 months ago) |
+| **Updated** | 2025-09-23 20:07:42.000 UTC |
+| **Closed** | 2025-09-23 20:07:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+There are two common situations where the server task start time (activities and workflows) could be different than SDK side when the SDK starts processing the task (not when polled unless it's the same in the SDK language):
+
+* Clock skew - server clock is different than worker clock
+* Worker slowdown between poll response and processing - so for Python for instance, could be enqueued on a thread pool executor instead of processed immediately
+
+We should issue a warning if the difference in these times is significant. TBD the exact values, but early thoughts are "if the task start time is +/- 1 minute from current worker system time when task is started". For Core SDKs, this needs to be done in lang because it's important to check when the task is actually being worked on and not when it's received from server, and only lang knows that. It's TBD on whether this users need to be able to disable/customize this.
+
+### Per-SDK Tickets
+
+- [ ] Go - https://github.com/temporalio/sdk-go/issues/1926
+- [ ] Java - https://github.com/temporalio/sdk-java/issues/2484
+- [x] Core - N/A (we _think_ Core exposes all the times necessary here, but may need to check)
+- [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1688
+- [ ] Python - https://github.com/temporalio/sdk-python/issues/839
+- [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/459
+- [ ] Ruby - https://github.com/temporalio/sdk-ruby/issues/250
+- [ ] PHP - https://github.com/temporalio/sdk-php/issues/603
+- [x] Temporal CLI - N/A
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-09-23 20:07:42.000 UTC</summary>
+
+We're not gonna do this. Too niche.
 
 </details>
 
@@ -8926,6 +14152,371 @@ Core done here: https://github.com/temporalio/sdk-core/pull/875
 
 ---
 
+<a id="593"></a>
+
+### #593: Task Queue Priority Options/Annotations
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/593 |
+| **State** | CLOSED |
+| **Author** | Sushisource (Spencer Judge) |
+| **Created** | 2025-02-03 18:19:08.000 UTC (11 months ago) |
+| **Updated** | 2025-07-23 15:57:44.000 UTC |
+| **Closed** | 2025-07-23 15:57:44.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 🎉 1 |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Options to affect the priority of tasks in tasks queues were introduced in https://github.com/temporalio/api/pull/513 (note, that's not a merge to main - we should update this item with the merge to main once it happens). Support setting those options in SDKs.
+
+Initial implementation in Go (also not a merge to main) may be referenced here: https://github.com/temporalio/sdk-go/pull/1792
+
+### Describe the solution you'd like
+
+See the Go PR. This is all fairly straightforward pass-through of some new options.
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [x] Go - PR: https://github.com/temporalio/sdk-go/pull/1792
+- [x] Java - https://github.com/temporalio/sdk-java/issues/2399
+- [x] Core - https://github.com/temporalio/sdk-core/issues/871
+- [x] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1620
+- [x] Python - https://github.com/temporalio/sdk-python/issues/760
+- [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/403
+- [x] Ruby - https://github.com/temporalio/sdk-ruby/issues/210
+- [x] PHP - https://github.com/temporalio/sdk-php/issues/559
+- [ ] Temporal CLI - tbd - open if anything needed
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-03-25 17:03:43.000 UTC</summary>
+
+Tests for these need only consist of verifying that priority info is sent to server and is received (ex: You can read it out of workflow info)
+
+</details>
+
+
+---
+
+<a id="582"></a>
+
+### #582: [Features Platform] continue_as_new/continue_as_same feature does not pass against cloud
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/582 |
+| **State** | CLOSED |
+| **Author** | dandavison (Dan Davison) |
+| **Created** | 2025-01-17 19:31:27.000 UTC (11 months ago) |
+| **Updated** | 2025-02-21 21:53:42.000 UTC |
+| **Closed** | 2025-02-21 21:53:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+See e.g. https://github.com/temporalio/features/actions/runs/12835436433/job/35794872814?pr=577
+
+The workflow seems to be exiting prematurely. Let's double-check that the assertions are being made at the correct point in the workflow lifecycle also.
+
+@roxblnfk @rustation
+
+
+<details>
+
+```
+Running check Harness\Feature\ContinueAsNew\ContinueAsSame\FeatureChecker::check FAILED
+Temporal\Exception\Client\TimeoutException {#325
+  #message: "Deadline Exceeded (code: 4)"
+  #code: 4
+  #file: "./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php"
+  #line: 291
+  -previous: Temporal\Exception\Client\ServiceClientException {#307
+    #message: "Deadline Exceeded (code: 4)"
+    #code: 4
+    #file: "./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php"
+    #line: [28](https://github.com/temporalio/features/actions/runs/12835436433/job/35794872814?pr=577#step:9:29)4
+    -status: Google\Rpc\Status {#314
+      message: "google.rpc.Status"
+      values: []
+    }
+    trace: {
+      ./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:284 { …}
+      ./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:252 { …}
+      ./vendor/temporal/sdk/src/Client/GRPC/ServiceClient.php:137 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:576 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:491 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:423 { …}
+      ./vendor/temporal/sdk/src/Internal/Interceptor/Pipeline.php:92 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:432 { …}
+      /app/features/continue_as_new/continue_as_same/feature.php:62 {
+        Harness\Feature\ContinueAsNew\ContinueAsSame\FeatureChecker::check(WorkflowStubInterface $stub): void
+        › ): void {
+        ›     Assert::same($stub->getResult(), INPUT_DATA);
+        ›     # Workflow ID does not change after continue as new
+      }
+      Harness\Feature\ContinueAsNew\ContinueAsSame\FeatureChecker::check() {}
+      ./vendor/spiral/core/src/Internal/Invoker.php:59 { …}
+      ./vendor/spiral/core/src/Container.php:[29](https://github.com/temporalio/features/actions/runs/12835436433/job/35794872814?pr=577#step:9:30)2 { …}
+      /app/harness/php/runner.php:108 { …}
+      {closure}() {}
+      ./vendor/spiral/core/src/Internal/Invoker.php:77 { …}
+      ./vendor/spiral/core/src/Container.php:292 { …}
+      ./vendor/spiral/core/src/Container.php:404 { …}
+      ./vendor/spiral/core/src/ContainerScope.php:46 { …}
+      ./vendor/spiral/core/src/Container.php:399 { …}
+      ./vendor/spiral/core/src/Container.php:181 { …}
+      /app/harness/php/runner.php:99 { …}
+    }
+  }
+  trace: {
+    ./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:291 { …}
+    ./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:252 { …}
+    ./vendor/temporal/sdk/src/Client/GRPC/ServiceClient.php:137 { …}
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:576 { …}
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:491 { …}
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:423 { …}
+    ./vendor/temporal/sdk/src/Internal/Interceptor/Pipeline.php:92 { …}
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStub.php:4[32](https://github.com/temporalio/features/actions/runs/12835436433/job/35794872814?pr=577#step:9:33) { …}
+    /app/features/continue_as_new/continue_as_same/feature.php:62 {
+      Harness\Feature\ContinueAsNew\ContinueAsSame\FeatureChecker::check(WorkflowStubInterface $stub): void
+      › ): void {
+      ›     Assert::same($stub->getResult(), INPUT_DATA);
+      ›     # Workflow ID does not change after continue as new
+    }
+    Harness\Feature\ContinueAsNew\ContinueAsSame\FeatureChecker::check() {}
+    ./vendor/spiral/core/src/Internal/Invoker.php:59 { …}
+    ./vendor/spiral/core/src/Container.php:292 { …}
+    /app/harness/php/runner.php:108 { …}
+    {closure}() {}
+    ./vendor/spiral/core/src/Internal/Invoker.php:77 { …}
+    ./vendor/spiral/core/src/Container.php:292 { …}
+    ./vendor/spiral/core/src/Container.php:404 { …}
+    ./vendor/spiral/core/src/ContainerScope.php:46 { …}
+    ./vendor/spiral/core/src/Container.php:[39](https://github.com/temporalio/features/actions/runs/12835436433/job/35794872814?pr=577#step:9:40)9 { …}
+    ./vendor/spiral/core/src/Container.php:181 { …}
+    /app/harness/php/runner.php:99 { …}
+  }
+}
+-> /app/features/continue_as_new/continue_as_same/feature.php:62
+TimeoutException
+Deadline Exceeded (code: 4)
+ServiceClientException
+Deadline Exceeded (code: 4)
+```
+
+</details>
+
+<details>
+
+```
+Temporal\Exception\Client\WorkflowExecutionAlreadyStartedException {#321
+  #message: "runId='ea5a377f-b9a2-4285-a72b-af2541b1719d', workflowType='Workflow'"
+  #code: 0
+  #file: "./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php"
+  #line: 291
+  -previous: Temporal\Exception\Client\ServiceClientException {#264
+    #message: "Workflow execution already finished successfully. WorkflowId: TestID, RunId: ea5a377f-b9a2-4285-a72b-af2541b1719d. Workflow Id reuse policy: allow duplicate workflow Id if last run failed. (code: 6)"
+    #code: 6
+    #file: "./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php"
+    #line: 284
+    -status: Google\Rpc\Status {#312
+      message: "google.rpc.Status"
+      values: array:3 [
+        "code" => 6
+        "message" => "Workflow execution already finished successfully. WorkflowId: TestID, RunId: ea5a377f-b9a2-4285-a72b-af2541b1719d. Workflow Id reuse policy: allow duplicate workflow Id if last run failed."
+        "details" => array:1 [
+          0 => array:3 [
+            "@type" => "type.googleapis.com/temporal.api.errordetails.v1.WorkflowExecutionAlreadyStartedFailure"
+            "startRequestId" => "79be0125-9281-44e5-bf9b-f1a48fd20adc"
+            "runId" => "ea5a377f-b9a2-4285-a72b-af2541b1719d"
+          ]
+        ]
+      ]
+    }
+    trace: {
+      ./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:284 { …}
+      ./vendor/temporal/sdk/src/Client/GRPC/BaseClient.php:252 { …}
+      ./vendor/temporal/sdk/src/Client/GRPC/ServiceClient.php:96 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php:283 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php:76 { …}
+      ./vendor/temporal/sdk/src/Internal/Interceptor/Pipeline.php:92 { …}
+      ./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php:81 { …}
+      ./vendor/temporal/sdk/src/Client/WorkflowClient.php:136 { …}
+      /app/harness/php/src/Feature/WorkflowStubInjector.php:60 {
+        Harness\Feature\WorkflowStubInjector->createInjection(ReflectionClass $class, ReflectionParameter|string|null $context = null): WorkflowStubInterface
+        › $stub = $client->newUntypedWorkflowStub($attribute->type, $options);
+        › $client->start($stub, ...$attribute->args);
+        › 
+        arguments: {
+          $workflow: Temporal\Internal\Client\WorkflowStub {#315 …}
+          ...$args: {
+            "InputData"
+          }
+        }
+      }
+      ./vendor/spiral/core/src/Internal/Factory.php:157 { …}
+      ./vendor/spiral/core/src/Internal/Factory.php:101 { …}
+      ./vendor/spiral/core/src/Internal/Factory.php:331 { …}
+      ./vendor/spiral/core/src/Internal/Factory.php:78 { …}
+      ./vendor/spiral/core/src/Internal/Container.php:59 { …}
+      ./vendor/spiral/core/src/Internal/Resolver.php:276 { …}
+      ./vendor/spiral/core/src/Internal/Resolver.php:218 { …}
+      ./vendor/spiral/core/src/Internal/Resolver.php:52 { …}
+      ./vendor/spiral/core/src/Internal/Invoker.php:61 { …}
+      ./vendor/spiral/core/src/Container.php:282 { …}
+      /app/harness/php/runner.php:108 { …}
+      {closure}() {}
+      ./vendor/spiral/core/src/Internal/Invoker.php:77 { …}
+      ./vendor/spiral/core/src/Container.php:282 { …}
+      ./vendor/spiral/core/src/Container.php:407 { …}
+      ./vendor/spiral/core/src/ContainerScope.php:45 { …}
+      ./vendor/spiral/core/src/Container.php:402 { …}
+      ./vendor/spiral/core/src/Container.php:169 { …}
+      /app/harness/php/runner.php:99 { …}
+    }
+  }
+  -execution: Temporal\Workflow\WorkflowExecution {#284
+    -id: "TestID"
+    -runId: "ea5a377f-b9a2-4285-a72b-af2541b1719d"
+  }
+  -type: "Workflow"
+  trace: {
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php:291 { …}
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php:76 { …}
+    ./vendor/temporal/sdk/src/Internal/Interceptor/Pipeline.php:92 { …}
+    ./vendor/temporal/sdk/src/Internal/Client/WorkflowStarter.php:81 { …}
+    ./vendor/temporal/sdk/src/Client/WorkflowClient.php:136 { …}
+    /app/harness/php/src/Feature/WorkflowStubInjector.php:60 {
+      Harness\Feature\WorkflowStubInjector->createInjection(ReflectionClass $class, ReflectionParameter|string|null $context = null): WorkflowStubInterface
+      › $stub = $client->newUntypedWorkflowStub($attribute->type, $options);
+      › $client->start($stub, ...$attribute->args);
+      › 
+      arguments: {
+        $workflow: Temporal\Internal\Client\WorkflowStub {#315 …}
+        ...$args: {
+          "InputData"
+        }
+      }
+    }
+    ./vendor/spiral/core/src/Internal/Factory.php:157 { …}
+    ./vendor/spiral/core/src/Internal/Factory.php:101 { …}
+    ./vendor/spiral/core/src/Internal/Factory.php:331 { …}
+    ./vendor/spiral/core/src/Internal/Factory.php:78 { …}
+    ./vendor/spiral/core/src/Internal/Container.php:59 { …}
+    ./vendor/spiral/core/src/Internal/Resolver.php:276 { …}
+    ./vendor/spiral/core/src/Internal/Resolver.php:218 { …}
+    ./vendor/spiral/core/src/Internal/Resolver.php:52 { …}
+    ./vendor/spiral/core/src/Internal/Invoker.php:61 { …}
+    ./vendor/spiral/core/src/Container.php:282 { …}
+    /app/harness/php/runner.php:108 { …}
+    {closure}() {}
+    ./vendor/spiral/core/src/Internal/Invoker.php:77 { …}
+    ./vendor/spiral/core/src/Container.php:282 { …}
+    ./vendor/spiral/core/src/Container.php:407 { …}
+    ./vendor/spiral/core/src/ContainerScope.php:45 { …}
+    ./vendor/spiral/core/src/Container.php:402 { …}
+    ./vendor/spiral/core/src/Container.php:169 { …}
+    /app/harness/php/runner.php:99 { …}
+  }
+}
+```
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>roxblnfk</strong> commented on 2025-01-20 10:27:30.000 UTC</summary>
+
+The problem related with https://github.com/temporalio/sdk-php/issues/481
+
+A temporary solution could be to set a unique name for the Workflow to avoid conflicts with Workflows of the same name from other TaskQueues:
+https://github.com/temporalio/sdk-php/blob/fc67190d6176f7fb145167d5ad0a2d5273fedf06/tests/Acceptance/Harness/ContinueAsNew/ContinueAsSameTest.php#L44
+https://github.com/temporalio/sdk-php/blob/fc67190d6176f7fb145167d5ad0a2d5273fedf06/tests/Acceptance/Harness/ContinueAsNew/ContinueAsSameTest.php#L25
+https://github.com/temporalio/sdk-php/blob/fc67190d6176f7fb145167d5ad0a2d5273fedf06/tests/Acceptance/Harness/ContinueAsNew/ContinueAsSameTest.php#L52
+
+With this bug, all Harness tests might be flaky because the Workflow type "Workflow" is used everywhere (but with different TaskQueues) 🤯 
+
+</details>
+
+
+---
+
+<a id="580"></a>
+
+### #580: [Features Platform] PHP schedule/basic fails when run against cloud
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/580 |
+| **State** | CLOSED |
+| **Author** | dandavison (Dan Davison) |
+| **Created** | 2025-01-17 18:48:59.000 UTC (11 months ago) |
+| **Updated** | 2025-02-21 21:53:41.000 UTC |
+| **Closed** | 2025-02-21 21:53:41.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+See e.g. https://github.com/temporalio/features/actions/runs/12834770491/job/35792794659?pr=577
+
+```
+Running check Harness\Feature\Schedule\Basic\FeatureChecker::check FAILED
+```
+
+```
+MarshallerException
+Unable to unmarshal field `info` of class Temporal\Client\Schedule\Info\ScheduleListEntry
+MarshallerException
+Unable to unmarshal field `spec` of class Temporal\Client\Schedule\Info\ScheduleListInfo
+MarshallerException
+Unable to unmarshal field `jitter` of class Temporal\Client\Schedule\Spec\ScheduleSpec
+InvalidArgumentException
+
+Unrecognized date time interval format
+```
+
+cc @roxblnfk @rustatian
+
+#### Comments (1)
+
+<details>
+<summary><strong>roxblnfk</strong> commented on 2025-01-20 09:33:35.000 UTC</summary>
+
+I suppose we get `null` value in `ScheduleSpec.jitter`
+
+</details>
+
+
+---
+
 <a id="576"></a>
 
 ### #576: Special behavior for Temporal built-in prefixes
@@ -8935,7 +14526,7 @@ Core done here: https://github.com/temporalio/sdk-core/pull/875
 | **URL** | https://github.com/temporalio/features/issues/576 |
 | **State** | OPEN |
 | **Author** | cretz (Chad Retz) |
-| **Created** | 2025-01-14 17:18:38.000 UTC (11 months ago) |
+| **Created** | 2025-01-14 17:18:38.000 UTC (12 months ago) |
 | **Updated** | 2025-07-08 18:06:48.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 1 |
@@ -9194,6 +14785,41 @@ A couple approaches here:
 
 ---
 
+<a id="521"></a>
+
+### #521: Add feature tests for .NET HTTP proxy support
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/521 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-08-06 15:30:27.000 UTC (1y 5m ago) |
+| **Updated** | 2024-08-30 19:54:46.000 UTC |
+| **Closed** | 2024-08-30 19:54:46.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Need tests at https://github.com/temporalio/features/tree/main/features/client/http_proxy and https://github.com/temporalio/features/tree/main/features/client/http_proxy_auth now that https://github.com/temporalio/sdk-dotnet/pull/318 has landed.
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-08-29 14:03:53.000 UTC</summary>
+
+Done at https://github.com/temporalio/features/commit/2376f0dcde96dabe2ffb6dfcd8c9a1c86d72b0a9
+
+</details>
+
+
+---
+
 <a id="501"></a>
 
 ### #501: Warn when activities dangle
@@ -9248,6 +14874,49 @@ We should consider providing a similar warning when activities dangle.
 <summary><strong>cretz</strong> commented on 2024-06-21 18:22:02.000 UTC</summary>
 
 Same for child workflows (at least starting), external signals, nexus, and any other async thing a user should not be abandoning the response to. Things like timers make more sense to trivially abandon. An argument could be made for doing this for _all_ coroutines, but that may be a bit cumbersome for users doing background work (though there is precedent in language runtimes about unresolved promises or unawaited tasks and such).
+
+</details>
+
+
+---
+
+<a id="500"></a>
+
+### #500: Workflow-friendly concurrency control
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/500 |
+| **State** | CLOSED |
+| **Author** | drewhoskins-temporal (Drew Hoskins) |
+| **Created** | 2024-06-18 17:14:11.000 UTC (1y 6m ago) |
+| **Updated** | 2024-10-29 14:54:42.000 UTC |
+| **Closed** | 2024-10-29 14:54:41.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+We need a mechanism for concurrency control (mutex/semaphore) that fits with the language but is reentrant and deterministic within workflow coroutines.  To be used within signal and update handlers and the main workflow coroutine.
+
+- [x] PHP https://github.com/temporalio/sdk-php/issues/462
+- [x] TypeScript https://github.com/temporalio/sdk-typescript/issues/1446
+- [x] Go https://github.com/temporalio/sdk-go/issues/1521
+- [x] Java https://github.com/temporalio/sdk-java/issues/2116
+- [x] .NET https://github.com/temporalio/sdk-dotnet/issues/281
+- [x] Python https://github.com/temporalio/sdk-python/issues/554
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2024-10-29 14:54:41.000 UTC</summary>
+
+Closing because I think this is done. @drewhoskins-temporal please reopen if you disagree.
 
 </details>
 
@@ -9333,6 +15002,193 @@ Feature request to fail tests on workflow task failures.
 <summary><strong>cretz</strong> commented on 2024-05-06 14:02:21.000 UTC</summary>
 
 Unsure if this issue is referring to all SDKs (does not have checkboxes from https://github.com/temporalio/features/blob/main/.github/ISSUE_TEMPLATE/epic.md). I think this can be part of #322 for most SDKs and needs to be documented/clarified. This is a worker option I believe not an environment one (but those are one in the same in some SDKs).
+
+</details>
+
+
+---
+
+<a id="471"></a>
+
+### #471: Worker client TLS certificate update
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/471 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-05-03 20:14:12.000 UTC (1y 8m ago) |
+| **Updated** | 2024-05-03 20:20:25.000 UTC |
+| **Closed** | 2024-05-03 20:20:25.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Users need to be able to change TLS certificate for a running worker without shutting the worker down
+
+### Per-SDK Tickets
+
+- [ ] Go - Already supported (TODO: sample)
+- [ ] Java - Already supported (TODO: sample)
+- [ ] Core - Done via client replacement: https://github.com/temporalio/sdk-core/pull/721
+- [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1412
+- [ ] Python - https://github.com/temporalio/sdk-python/issues/513
+- [ ] .NET - https://github.com/temporalio/sdk-dotnet/issues/235
+- [ ] PHP - TODO
+- [ ] Temporal CLI - N/A
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-05-03 20:20:25.000 UTC</summary>
+
+Dupe of #11
+
+</details>
+
+
+---
+
+<a id="442"></a>
+
+### #442: [Feature Request] Allow activity to specify backoff interval via failure
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/442 |
+| **State** | CLOSED |
+| **Author** | yiminc (Yimin Chen) |
+| **Created** | 2024-03-27 02:37:33.000 UTC (1y 9m ago) |
+| **Updated** | 2024-03-27 13:43:40.000 UTC |
+| **Closed** | 2024-03-27 13:43:40.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Allow activity to specify backoff interval for next retry when return failure. This is now supported by server https://github.com/temporalio/temporal/issues/1515
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-03-27 13:43:40.000 UTC</summary>
+
+Closing as a duplicate of https://github.com/temporalio/features/issues/419
+
+</details>
+
+
+---
+
+<a id="440"></a>
+
+### #440: [Feature Request] Cloud Ops API Client
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/440 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-03-21 22:11:18.000 UTC (1y 9m ago) |
+| **Updated** | 2025-10-24 13:17:49.000 UTC |
+| **Closed** | 2025-10-24 13:17:49.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+We need to bring https://github.com/temporalio/api-cloud into the fold. Implementation notes:
+
+* Need every SDK to utilize as much existing gRPC service mechanism as it can, but leave room for potential high-level wrappers
+  * Make new high-level client that only has access to the raw for now, knowing high-level wrappers may come
+* Keep high-level cloud client separate from existing high-level client since this is not namespace specific
+  * Share the connection/service/gRPC logic but not the high-level client logic
+* Make sure things work the same wrt metrics and RPC metadata options and such
+* No two SDKs are alike here unfortunately, but they are close enough
+
+Tasks:
+
+* [ ] Incorporate into https://github.com/temporalio/api and https://github.com/temporalio/api-go
+  * Merge approach rejected - https://github.com/temporalio/api/pull/378
+  * Doing per-lang submodule, first step is to backport needed things: https://github.com/temporalio/api-cloud/pull/20
+* [x] Go SDK - https://github.com/temporalio/sdk-go/issues/1459
+* [x] Java SDK - https://github.com/temporalio/sdk-java/issues/2059
+* [x] SDK Core - https://github.com/temporalio/sdk-core/issues/737
+* [ ] TypeScript SDK - https://github.com/temporalio/sdk-typescript/issues/1416
+* [x] Python SDK - https://github.com/temporalio/sdk-python/issues/522
+* [x] .NET SDK - https://github.com/temporalio/sdk-dotnet/issues/244
+* [ ] PHP SDK - https://github.com/temporalio/sdk-php/issues/476
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-10-24 13:16:08.000 UTC</summary>
+
+Note, this approach has been deprecated. We are making Cloud SDKs in each language. We have started with https://github.com/temporalio/cloud-sdk-go and will be making others. Once the SDK for a language is present, the cloud service APIs in the existing SDKs will be removed.
+
+</details>
+
+
+---
+
+<a id="430"></a>
+
+### #430: Add actions metrics dashboard
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/430 |
+| **State** | CLOSED |
+| **Author** | yiminc (Yimin Chen) |
+| **Created** | 2024-03-05 00:21:46.000 UTC (1y 10m ago) |
+| **Updated** | 2024-04-03 22:31:14.000 UTC |
+| **Closed** | 2024-04-03 21:56:13.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | prathyushpv |
+| **Milestone** | None |
+
+#### Description
+
+Server is emitting `action` metrics. It would be valuable to expose that to our https://github.com/temporalio/dashboards 
+
+#### Comments (1)
+
+<details>
+<summary><strong>yiminc</strong> commented on 2024-04-03 22:31:13.000 UTC</summary>
+
+https://github.com/temporalio/dashboards/pull/53
 
 </details>
 
@@ -9428,6 +15284,95 @@ This sounds like you want to just expose the internal concept we have called wor
 
 ---
 
+<a id="405"></a>
+
+### #405: [Feature Request] Disable eager activities if task queue rate limits is set
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/405 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2024-01-16 22:02:24.000 UTC (1y 11m ago) |
+| **Updated** | 2025-03-26 16:31:39.000 UTC |
+| **Closed** | 2025-03-26 16:31:39.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Currently server does not properly rate limit eager activities. Until server can address this we have agreed to disable eager activities if the task queue rate limit is active
+
+- [x] Go - https://github.com/temporalio/sdk-go/pull/1350
+- [x] Java - https://github.com/temporalio/sdk-java/issues/1978
+- [x] Core - https://github.com/temporalio/sdk-core/issues/840
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2024-11-12 18:48:59.000 UTC</summary>
+
+We hope in some future the server will allow these to work together: https://github.com/temporalio/temporal/issues/6800. But in the meantime, SDK needs to work around.
+
+</details>
+
+
+---
+
+<a id="397"></a>
+
+### #397: [Feature Request] Do not require other Activity timeouts when Heartbeat timeout is specified
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/397 |
+| **State** | CLOSED |
+| **Author** | husam-e |
+| **Created** | 2024-01-08 16:43:28.000 UTC (2 years ago) |
+| **Updated** | 2024-01-08 17:45:44.000 UTC |
+| **Closed** | 2024-01-08 17:45:44.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Activities currently require setting either a `StartToClose` or `ScheduleToClose` timeout.
+
+This does not lend itself well to indefinite or "infinite" activities, and requires users to set some large timeout value as a workaround.
+
+### Describe the solution you'd like
+
+Relax the requirement for other timeouts whenever a `Heartbeat` timeout is set, as that indicates that the activity is long running and ensures that there is a mechanism to kill it and reschedule if it's not making progress.
+
+### Additional context
+
+Discussed with Temporal support who requested that an issue be raised for this.
+
+#### Comments (1)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-01-08 17:45:44.000 UTC</summary>
+
+This is a duplicate of https://github.com/temporalio/features/issues/377, marking as closed to keep the discussion organized 
+
+Reactions: 👍 1
+
+</details>
+
+
+---
+
 <a id="396"></a>
 
 ### #396: [Feature Request] Use macOS M1/ARM runners for all SDK CI 
@@ -9472,6 +15417,92 @@ M1 runners are now available https://github.blog/changelog/2024-01-30-github-act
 
 ---
 
+<a id="395"></a>
+
+### #395: Rust SDK Support
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/395 |
+| **State** | CLOSED |
+| **Author** | liamwh (Liam Woodleigh-Hardinge) |
+| **Created** | 2024-01-03 23:31:52.000 UTC (2 years ago) |
+| **Updated** | 2024-01-08 17:35:26.000 UTC |
+| **Closed** | 2024-01-08 17:35:25.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 👀 1 |
+
+#### Description
+
+I'd like to use Rust with Temporal; it would be great to have a Rust SDK.
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2024-01-08 17:35:25.000 UTC</summary>
+
+Hi @liamwh - we haven't yet decided to commit to a production release of a Rust SDK but it's very much on our radar. You can track the issue [here](https://github.com/temporalio/sdk-core/issues/222) for updates.
+
+Reactions: 👍 1
+
+</details>
+
+
+---
+
+<a id="388"></a>
+
+### #388: [Feature Request] Worker dynamic config
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/388 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2023-12-15 15:57:25.000 UTC (2 years ago) |
+| **Updated** | 2025-02-04 19:00:01.000 UTC |
+| **Closed** | 2025-02-04 19:00:00.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Allow users  to change worker configs like number of pollers and slots while a worker is running
+
+* [ ] Go - https://github.com/temporalio/sdk-go/issues/1323
+* [ ] Java - https://github.com/temporalio/sdk-java/issues/1955
+* [ ] Core - https://github.com/temporalio/sdk-core/issues/661 
+* [ ] TypeScript - TODO after core
+* [ ] Python - TODO after core
+* [ ] .NET - TODO after core
+
+### Additional context
+
+[related](https://github.com/temporalio/features/issues/334)
+
+#### Comments (1)
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2025-02-04 19:00:00.000 UTC</summary>
+
+Unclear what/how we want to do this, and a lot has changed since this was opened (e.g. we are building Nexus now, which could be a transport for config changes). Closing for now.
+
+</details>
+
+
+---
+
 <a id="381"></a>
 
 ### #381: [Feature Request] Expose API to list enabled features for a namespace 
@@ -9509,6 +15540,243 @@ this endpoint should be available in Temporal Cloud.
 <summary><strong>cretz</strong> commented on 2023-12-04 14:04:03.000 UTC</summary>
 
 May not need every SDK issue opened at this time, but may make sense to open server issue now.
+
+</details>
+
+
+---
+
+<a id="367"></a>
+
+### #367: go.temporal.io/api-v1.24.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/367 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-11-01 16:16:54.000 UTC (2y 2m ago) |
+| **Updated** | 2023-11-22 00:21:01.000 UTC |
+| **Closed** | 2023-11-22 00:20:59.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/api-v1.24.0</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go.mod,/go.mod,/harness/go/go.mod</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/api-v1.24.0 version) | Remediation Possible** |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2023-39325](https://www.mend.io/vulnerability-database/CVE-2023-39325) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | golang.org/x/net-v0.14.0 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the "Details" section below to see if there is a version of transitive dependency where vulnerability is fixed.</p><p>**In some cases, Remediation PR cannot be created automatically for a vulnerability despite the availability of remediation</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2023-39325</summary>
+
+
+###  Vulnerable Library - <b>golang.org/x/net-v0.14.0</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/golang.org/x/net/@v/v0.14.0.zip">https://proxy.golang.org/golang.org/x/net/@v/v0.14.0.zip</a></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go.mod,/go.mod,/harness/go/go.mod</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/api-v1.24.0 (Root Library)
+    - google.golang.org/grpc-v1.57.0
+      - :x: **golang.org/x/net-v0.14.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A malicious HTTP/2 client which rapidly creates requests and immediately resets them can cause excessive server resource consumption. While the total number of requests is bounded by the http2.Server.MaxConcurrentStreams setting, resetting an in-progress request allows the attacker to create a new request while the existing one is still executing. With the fix applied, HTTP/2 servers now bound the number of simultaneously executing handler goroutines to the stream concurrency limit (MaxConcurrentStreams). New requests arriving when at the limit (which can only happen after the client has reset an existing, in-flight request) will be queued until a handler exits. If the request queue grows too large, the server will terminate the connection. This issue is also fixed in golang.org/x/net/http2 for users manually configuring HTTP/2. The default stream concurrency limit is 250 streams (requests) per HTTP/2 connection. This value may be adjusted using the golang.org/x/net/http2 package; see the Server.MaxConcurrentStreams setting and the ConfigureServer function.
+
+<p>Publish Date: 2023-10-11
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2023-39325>CVE-2023-39325</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://pkg.go.dev/vuln/GO-2023-2102">https://pkg.go.dev/vuln/GO-2023-2102</a></p>
+<p>Release Date: 2023-10-11</p>
+<p>Fix Resolution: go1.20.10, go1.21.3, golang.org/x/net - v0.17.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-11-22 00:21:00.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="352"></a>
+
+### #352: google.golang.org/grpc-v1.57.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/352 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-10-20 18:04:44.000 UTC (2y 2m ago) |
+| **Updated** | 2023-11-01 16:16:57.000 UTC |
+| **Closed** | 2023-11-01 16:16:56.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>google.golang.org/grpc-v1.57.0</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go.mod,/go.mod,/harness/go/go.mod</p>
+<p>
+
+</details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (google.golang.org/grpc-v1.57.0 version) | Remediation Possible** |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2023-39325](https://www.mend.io/vulnerability-database/CVE-2023-39325) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | golang.org/x/net-v0.14.0 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the "Details" section below to see if there is a version of transitive dependency where vulnerability is fixed.</p><p>**In some cases, Remediation PR cannot be created automatically for a vulnerability despite the availability of remediation</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2023-39325</summary>
+
+
+###  Vulnerable Library - <b>golang.org/x/net-v0.14.0</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/golang.org/x/net/@v/v0.14.0.zip">https://proxy.golang.org/golang.org/x/net/@v/v0.14.0.zip</a></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go.mod,/go.mod,/harness/go/go.mod</p>
+<p>
+
+Dependency Hierarchy:
+  - google.golang.org/grpc-v1.57.0 (Root Library)
+    - :x: **golang.org/x/net-v0.14.0** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A malicious HTTP/2 client which rapidly creates requests and immediately resets them can cause excessive server resource consumption. While the total number of requests is bounded by the http2.Server.MaxConcurrentStreams setting, resetting an in-progress request allows the attacker to create a new request while the existing one is still executing. With the fix applied, HTTP/2 servers now bound the number of simultaneously executing handler goroutines to the stream concurrency limit (MaxConcurrentStreams). New requests arriving when at the limit (which can only happen after the client has reset an existing, in-flight request) will be queued until a handler exits. If the request queue grows too large, the server will terminate the connection. This issue is also fixed in golang.org/x/net/http2 for users manually configuring HTTP/2. The default stream concurrency limit is 250 streams (requests) per HTTP/2 connection. This value may be adjusted using the golang.org/x/net/http2 package; see the Server.MaxConcurrentStreams setting and the ConfigureServer function.
+
+<p>Publish Date: 2023-10-11
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2023-39325>CVE-2023-39325</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://pkg.go.dev/vuln/GO-2023-2102">https://pkg.go.dev/vuln/GO-2023-2102</a></p>
+<p>Release Date: 2023-10-11</p>
+<p>Fix Resolution: go1.20.10, go1.21.3, golang.org/x/net - v0.17.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-11-01 16:16:57.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
 
 </details>
 
@@ -9570,6 +15838,188 @@ A new field named something like `WorkflowOptions.delay` or `WorkflowOptions.del
 
 ---
 
+<a id="333"></a>
+
+### #333: github.com/temporalio/features/features-v1.0.0: 2 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/333 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-08-25 20:39:55.000 UTC (2y 4m ago) |
+| **Updated** | 2023-12-22 12:49:49.000 UTC |
+| **Closed** | 2023-12-22 12:49:46.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/temporalio/features/features-v1.0.0</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go/pkg/mod/cache/download/github.com/uber-go/tally/v4/@v/v4.1.7.mod</p>
+<p>
+
+</details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (github.com/temporalio/features/features-v1.0.0 version) | Remediation Possible** |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2019-0205](https://www.mend.io/vulnerability-database/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | github.com/uber-go/tally/v4-v4.1.7 | Transitive | N/A* | &#10060; |
+| [CVE-2019-0210](https://www.mend.io/vulnerability-database/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | github.com/uber-go/tally/v4-v4.1.7 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the "Details" section below to see if there is a version of transitive dependency where vulnerability is fixed.</p><p>**In some cases, Remediation PR cannot be created automatically for a vulnerability despite the availability of remediation</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/uber-go/tally/v4-v4.1.7</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip">https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip</a></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go/pkg/mod/cache/download/github.com/uber-go/tally/v4/@v/v4.1.7.mod</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/features/features-v1.0.0 (Root Library)
+    - :x: **github.com/uber-go/tally/v4-v4.1.7** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/uber-go/tally/v4-v4.1.7</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip">https://proxy.golang.org/github.com/uber-go/tally/v4/@v/v4.1.7.zip</a></p>
+<p>Path to dependency file: /go.mod</p>
+<p>Path to vulnerable library: /go/pkg/mod/cache/download/github.com/uber-go/tally/v4/@v/v4.1.7.mod</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/features/features-v1.0.0 (Root Library)
+    - :x: **github.com/uber-go/tally/v4-v4.1.7** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-12-22 12:49:47.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
 <a id="331"></a>
 
 ### #331: [Feature Request] Use codecs for headers in all SDKs
@@ -9614,6 +16064,125 @@ We need to align behavior with what we're doing in .Net and Ruby.
 
 ---
 
+<a id="304"></a>
+
+### #304: common-1.5.2.tgz: 1 vulnerabilities (highest severity is: 5.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/304 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-07-05 17:38:40.000 UTC (2y 6m ago) |
+| **Updated** | 2023-07-13 05:23:08.000 UTC |
+| **Closed** | 2023-07-13 05:23:06.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>common-1.5.2.tgz</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/protobufjs/package.json</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (common version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2023-36665](https://www.mend.io/vulnerability-database/CVE-2023-36665) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png?' width=19 height=20> Medium | 5.5 | protobufjs-7.1.2.tgz | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the "Details" section below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png?' width=19 height=20> CVE-2023-36665</summary>
+
+
+###  Vulnerable Library - <b>protobufjs-7.1.2.tgz</b></p>
+
+<p>Protocol Buffers for JavaScript (& TypeScript).</p>
+<p>Library home page: <a href="https://registry.npmjs.org/protobufjs/-/protobufjs-7.1.2.tgz">https://registry.npmjs.org/protobufjs/-/protobufjs-7.1.2.tgz</a></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/protobufjs/package.json</p>
+<p>
+
+Dependency Hierarchy:
+  - common-1.5.2.tgz (Root Library)
+    - :x: **protobufjs-7.1.2.tgz** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+protobuf.js (aka protobufjs) 6.10.0 through 7.x before 7.2.4 allows Prototype Pollution, a different vulnerability than CVE-2022-25878. A user-controlled protobuf message can be used by an attacker to pollute the prototype of Object.prototype by adding and overwriting its data and functions. Exploitation can involve: (1) using the function parse to parse protobuf messages on the fly, (2) loading .proto files by using load/loadSync functions, or (3) providing untrusted input to the functions ReflectionObject.setParsedOption and util.setProperty. NOTE: this CVE Record is about "Object.constructor.prototype.<new-property> = ...;" whereas CVE-2022-25878 was about "Object.__proto__.<new-property> = ...;" instead.
+
+<p>Publish Date: 2023-07-05
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2023-36665>CVE-2023-36665</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>5.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Local
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: Required
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665">https://www.code-intelligence.com/blog/cve-protobufjs-prototype-pollution-cve-2023-36665</a></p>
+<p>Release Date: 2023-07-05</p>
+<p>Fix Resolution: protobufjs - 7.2.4</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-07-13 05:23:07.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
 <a id="273"></a>
 
 ### #273: [Feature Request] Temporal exceptions from converters and codecs should fail the workflow not task
@@ -9651,6 +16220,52 @@ Need to fail workflow if Temporal error comes back from converter or codec. Toda
 <summary><strong>cretz</strong> commented on 2023-06-15 21:20:58.000 UTC</summary>
 
 Not sure this should include codec which is often at the edge and out of the workflow sandbox
+
+</details>
+
+
+---
+
+<a id="266"></a>
+
+### #266: [Feature Request]  Update feature tests
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/266 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2023-04-18 21:57:28.000 UTC (2y 8m ago) |
+| **Updated** | 2024-01-31 21:43:41.000 UTC |
+| **Closed** | 2024-01-31 21:43:41.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+Add feature tests for update workflow.
+
+- [x] Go
+- [x] Java
+- [x] Typescript
+- [x] Python
+- [ ] Dotnet
+
+
+https://github.com/temporalio/features/tree/main/features/update
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>josh-berry</strong> commented on 2023-09-11 18:44:37.000 UTC</summary>
+
+Do we need #150 for this? I noticed that the update tests are failing in CI because the server version is too old.
 
 </details>
 
@@ -9717,6 +16332,377 @@ And I consider input as part of history, server should not change/hack just for 
 Can you provide proposals to make this easier SDK side without infecting the simple concept of "describe" and without unnecessary server alterations? We have the ability to get result, do you need a separate "get input"? Or do you need some helpers/shortcuts when getting history?
 
 Reactions: 👍 1
+
+</details>
+
+
+---
+
+<a id="249"></a>
+
+### #249: worker-1.5.2.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/249 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-03-14 09:18:38.000 UTC (2y 10m ago) |
+| **Updated** | 2024-01-12 19:19:01.000 UTC |
+| **Closed** | 2024-01-12 19:18:59.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>worker-1.5.2.tgz</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /package.json</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (worker version) | Remediation Possible** |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2022-25883](https://www.mend.io/vulnerability-database/CVE-2022-25883) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> High | 7.5 | semver-7.3.8.tgz | Transitive | 1.7.0 | &#9989; |
+<p>**In some cases, Remediation PR cannot be created automatically for a vulnerability despite the availability of remediation</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png?' width=19 height=20> CVE-2022-25883</summary>
+
+
+###  Vulnerable Library - <b>semver-7.3.8.tgz</b></p>
+
+<p>The semantic version parser used by npm.</p>
+<p>Library home page: <a href="https://registry.npmjs.org/semver/-/semver-7.3.8.tgz">https://registry.npmjs.org/semver/-/semver-7.3.8.tgz</a></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /package.json</p>
+<p>
+
+Dependency Hierarchy:
+  - worker-1.5.2.tgz (Root Library)
+    - :x: **semver-7.3.8.tgz** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+Versions of the package semver before 7.5.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the function new Range, when untrusted user data is provided as a range.
+
+<p>Publish Date: 2023-06-21
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-25883>CVE-2022-25883</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://github.com/advisories/GHSA-c2qf-rxjj-qqgw">https://github.com/advisories/GHSA-c2qf-rxjj-qqgw</a></p>
+<p>Release Date: 2023-06-21</p>
+<p>Fix Resolution (semver): 7.5.2</p>
+<p>Direct dependency fix Resolution (@temporalio/worker): 1.7.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation will be attempted for this issue.
+</details>
+
+***
+
+<p>:rescue_worker_helmet:Automatic Remediation will be attempted for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2024-01-12 19:19:00.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="248"></a>
+
+### #248: go.temporal.io/api-v1.16.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/248 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-03-13 18:25:33.000 UTC (2y 10m ago) |
+| **Updated** | 2023-04-13 17:49:25.000 UTC |
+| **Closed** | 2023-04-13 17:49:24.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/api-v1.16.0</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/api-v1.16.0 version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2022-41723](https://www.mend.io/vulnerability-database/CVE-2022-41723) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | golang.org/x/net-v0.5.0 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the "Details" section below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-41723</summary>
+
+
+###  Vulnerable Library - <b>golang.org/x/net-v0.5.0</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/golang.org/x/net/@v/v0.5.0.zip">https://proxy.golang.org/golang.org/x/net/@v/v0.5.0.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/api-v1.16.0 (Root Library)
+    - google.golang.org/grpc-v1.52.3
+      - :x: **golang.org/x/net-v0.5.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A maliciously crafted HTTP/2 stream could cause excessive CPU consumption in the HPACK decoder, sufficient to cause a denial of service from a small number of small requests.
+
+<p>Publish Date: 2023-02-28
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-41723>CVE-2022-41723</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://osv.dev/vulnerability/GO-2023-1568">https://osv.dev/vulnerability/GO-2023-1568</a></p>
+<p>Release Date: 2022-09-29</p>
+<p>Fix Resolution: v0.7.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-04-13 17:49:25.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="242"></a>
+
+### #242: [Feature Request] Eager Workflow Task Dispatch on SDKs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/242 |
+| **State** | CLOSED |
+| **Author** | Spikhalskiy (Dmitry Spikhalsky) |
+| **Created** | 2023-03-07 03:42:46.000 UTC (2y 10m ago) |
+| **Updated** | 2025-09-03 22:41:20.000 UTC |
+| **Closed** | 2025-09-03 22:41:20.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+## Objective
+
+To reduce the latency between `WorkflowClient#start` call and the dispatching of the workflow task to the worker, a new Server feature that performs an "Eager Workflow Task Dispatch" on a start call was implemented.
+See relevant Server PRs for details:
+https://github.com/temporalio/temporal/pull/3835 
+https://github.com/temporalio/temporal/pull/3928
+
+TL;DR
+A `WorkflowClient` that is aware of an existing local workflow worker can request an eager Workflow Task on the `start` call and get the first Workflow Task of the Workflow Execution back immediately in the Start call response. This allows Server to
+- skip matching for this workflow task
+- use one transaction instead of two for persisting both the `WorkflowExecutionStarted+WorkflowTaskScheduled` events and `WorkflowTaskStarted` event.
+
+## Start Call
+
+```mermaid
+sequenceDiagram
+    actor C as UserCode
+    participant Stub as WorkflowStub
+    participant WC as WorkfkflowClient
+    participant WF as WorkerFactory 
+    participant W as Worker
+    participant S as Server
+
+    C->>WF: getWorkflowClient
+    C->>+WC: start(eagerDispatch=true[default])
+    WC->>WF: getWorker(taskQueue)
+    alt there is a worker for the task queue
+        WC->>+W: reserveWorkflowExecutor
+        W-->>-WC: wftDispatchHandle [optional]
+
+        opt if reserved a worker slot
+            rect rgba(191, 223, 255, 0.4)  
+                WC->>+S: start(eagerDispatch=true)
+                S-->>-WC: eager WFT [optional]
+                opt Server gave us back an eager task
+                    WC->>W: wftDispatchHandle.dispatch(wft)
+                  
+                end
+            end    
+
+            WC->>WC: wftDispatchHandle.release()
+            Note right of WC: .release() should be a no-op if .dispatch(wft) was called
+            
+        end
+    else no worker or no free worker slot
+        rect rgba(250, 50, 50, 0.3)
+            WC->>S: start(eager=false)
+        end   
+    end
+    WC-->>-C: WorkflowStub(execution)
+```
+
+## WorkflowClient awareness of WorkerFactory
+
+1.  `WorkerFactory` should `register` itself on the `WorkflowClient` the last thing during start and `deregister` itself as the first step during a shutdown.
+2. `WorkflowClient` implementation should maintain a set of registered `WorkflowFactory`.
+3. When routing an eager task `WorkflowClient` MUST try `WorkflowFactory` from the registered ones in random order. 
+    1. It’s not enough to just select one random `WorkflowFactory`, as its corresponding worker can be paused or get into a shutdown state right after selection. If this happens, `Worker#reserveWorkflowExecution` will return a null or another token meaning unsuccessful reservation and the next random `WorkflowFactory` SHOULD be used in an attempt to get the reservation.
+    2. In normal use cases, `WorkflowClient` should have one `WorkflowFactory` at a time. So the performance of this random selection is not that important. Legitimate situations when `WorkflowClient` has several registered `WorkerFactory`:
+        1. User “restarts” a WorkerFactory. With different sets of workers or different options. Users would typically start a new WorkerFactory first and shut down an old one after that. This will lead to a period of time with two active Worker fleets.
+        2. Users use several `WorkerFactory` as means of “horizontal” scaling. It doesn’t make much sense to do. Instead, users should be scaling workers up. But it’s totally allowed by the current API at the moment. And it’s not an illegitimate approach. We don’t want all eager tasks from a WorkflowClient to be dispatched to only one WorkerFactory out of all assigned to the WorkflowClient.
+
+## Eager Dispatch Flow implementation notes
+
+1. `WorkflowOptions` gets a `disableEagerExecution` flag that is “false” by default.
+2. Eager Dispatch is “best effort”. If it doesn’t go through, an old-style dispatch is used. `WorkflowOptions#disableEagerExecution==false``is not a guarantee for an eager dispatch. 
+    1. The same instance of `WorkflowClient` that was used to create `WorkerFactory` SHOULD be used for `WorkflowClient#start` call to be performed with a local eager dispatch. This `WorkflowClient` MAY also be obtained from `WorkflowFactory`
+    2. A corresponded worker MAY decline eager dispatch for any reason by 
+        1. Not providing a `WFTDispatchHandle` on `Worker#reserveWorkflowExecutor` call. WorkflowClient shouldn’t request eager dispatch from the Server then.
+        2. Responding with `false` to `WFTDispatchHandle#dispatch` call on an already obtained reservation.
+        
+        It SHOULD decline if 
+        
+        1. there are no free workflow task executor slots 
+        2. it is in any other state that is not `ACTIVE` (Considering `NOT_STARTED`, `ACTIVE`, `PAUSED`, `SHUTDOWN`, `TERMINATED`)
+        3. it is unhealthy (definition may vary by SDK)
+
+### Local Workflow Completion
+
+The original proposal included the concept of Local Workflow Completion. The idea was that a worker after receiving an eagerly dispatched workflow task may return a workflow completion promise that will be completed once the workflow is completed locally. 
+
+Later it was taken out because it was understood that this concept will provide little to no benefits. Reasoning: to provide local completion consistently with persisted history, the local completion should be filled by the worker only after receiving a response from the Server on the workflow task completion request. There is currently no reason to assume that this response will be received much earlier than a completion of a long poll opened by the Workflow Client for a workflow completion event. Both should typically be arriving on a single server → client trip.
+
+## SDKs supports
+
+- [x] https://github.com/temporalio/sdk-java/issues/1646 
+- [x] GoSDK
+- [x] Core
+- [x] TsSDK
+- [x] PythonSDK
+- [x] .NetSDK
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-09-03 22:41:17.000 UTC</summary>
+
+Done in all SDKs! Yay!
+
+(ps: Hey @Spikhalskiy 😄 )
+
+Reactions: 🎉 1 ❤️ 1
 
 </details>
 
@@ -9799,6 +16785,110 @@ Reactions: 👍 1
 
 ---
 
+<a id="215"></a>
+
+### #215: go.temporal.io/sdk-v1.19.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/215 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2023-01-16 19:17:07.000 UTC (2y 11m ago) |
+| **Updated** | 2023-02-03 23:58:30.000 UTC |
+| **Closed** | 2023-02-03 23:58:29.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/sdk-v1.19.0</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/sdk-v1.19.0 version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2022-41721](https://www.mend.io/vulnerability-database/CVE-2022-41721) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | golang.org/x/net-v0.1.0 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the section "Details" below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-41721</summary>
+
+
+###  Vulnerable Library - <b>golang.org/x/net-v0.1.0</b></p>
+
+<p>[mirror] Go supplementary network libraries</p>
+<p>Library home page: <a href="https://proxy.golang.org/golang.org/x/net/@v/v0.1.0.zip">https://proxy.golang.org/golang.org/x/net/@v/v0.1.0.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/sdk-v1.19.0 (Root Library)
+    - github.com/grpc-ecosystem/go-grpc-middleware-v1.3.0
+      - :x: **golang.org/x/net-v0.1.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/8bf5c60f2589d31108d22a338800a4bcb4c42f3f">8bf5c60f2589d31108d22a338800a4bcb4c42f3f</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A request smuggling attack is possible when using MaxBytesHandler. When using MaxBytesHandler, the body of an HTTP request is not fully consumed. When the server attempts to read HTTP2 frames from the connection, it will instead be reading the body of the HTTP request, which could be attacker-manipulated to represent arbitrary HTTP2 requests.
+
+<p>Publish Date: 2023-01-13
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-41721>CVE-2022-41721</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-02-03 23:58:30.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
 <a id="201"></a>
 
 ### #201: [Feature Request] Support dynamic workflows, activities, signals, queries, and updates in all SDKs
@@ -9835,6 +16925,259 @@ All SDKs should support "dynamic" workflows, activities, signals, and queries wh
 <summary><strong>cretz</strong> commented on 2023-06-12 13:19:50.000 UTC</summary>
 
 For implementers - please make sure the parameters of these handlers are "raw payloads" (raw already-decoded payloads for workflows/signals/queries, raw still-encoded payloads for activities). Do not assume they are JSON or can be decoded into the language's unknown type by default.
+
+</details>
+
+
+---
+
+<a id="200"></a>
+
+### #200: [Feature Request] Support a "version marker" like approach for internal SDK use for every workflow
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/200 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-01-05 13:32:45.000 UTC (3 years ago) |
+| **Updated** | 2024-02-26 22:07:32.000 UTC |
+| **Closed** | 2024-02-26 22:07:32.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+SDKs need to fix things that don't affect older workflows sometimes. 
+
+### Describe the solution you'd like
+
+We should get to leverage the same type of versioning/patching our users do. However, it may be a bit unreasonable to add a new marker event for every single workflow henceforth (we charge for these). So we should consider maybe adding some kind of incremental integer to `temporal.api.workflowservice.v1.RespondWorkflowTaskCompletedRequest` that will appear on `temporal.api.history.v1.WorkflowTaskCompletedEventAttributes`.
+
+Or maybe we add something inside `temporal.api.taskqueue.v1.VersionId`?
+
+Either way, we also need to relay this capability in the capabilities response from server's get system info since we need to know whether we can add SDK versions on the _first_ task and therefore leverage it at all. E.g. if we need to fix the non-zero timer doesn't create task issue in Go, we need to know that the server supports this kind of versioning before applying fix (if it doesn't we won't have this value on replay).
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2024-02-26 22:07:32.000 UTC</summary>
+
+This should've been closed way back.
+
+</details>
+
+
+---
+
+<a id="199"></a>
+
+### #199: [Feature Request] Opt-in to having stack trace query use custom data converter
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/199 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-01-05 13:14:27.000 UTC (3 years ago) |
+| **Updated** | 2023-02-28 16:20:13.000 UTC |
+| **Closed** | 2023-02-28 16:20:12.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+All queries need to be subject to the configured custom converter _except_ `__stack_trace`. Per SDK issues:
+
+* Go - https://github.com/temporalio/sdk-go/issues/996
+* Java - https://github.com/temporalio/sdk-java/issues/1586
+* TypeScript - https://github.com/temporalio/sdk-typescript/issues/1014
+* Python - https://github.com/temporalio/sdk-python/issues/241
+
+#### Comments (1)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2023-02-28 16:20:12.000 UTC</summary>
+
+Won't do this due to complexity with remote encoders and proxies.
+We'll need to address Java, it's the only SDK that doesn't encode stack trace query, can make it opt-in there.
+
+</details>
+
+
+---
+
+<a id="198"></a>
+
+### #198: [Feature Request] Fail on client without retry if gRPC message size exceeds 4MB
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/198 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-01-05 13:03:02.000 UTC (3 years ago) |
+| **Updated** | 2025-05-14 14:53:59.000 UTC |
+| **Closed** | 2025-05-14 14:53:45.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+When 4MB limit hit in server, we get a `ResourceExhausted` with an error message like:
+
+> grpc: received message larger than max (10248653 vs. 4194304)
+
+We auto-retry resource exhausted, but we shouldn't retry _this_ resource exhausted
+
+### Describe the solution you'd like
+
+Different SDKs need different approaches:
+
+* Go - https://github.com/temporalio/sdk-go/issues/995
+* Java - https://github.com/temporalio/sdk-java/issues/1585
+* Core - https://github.com/temporalio/sdk-core/issues/462
+
+We just need to make sure we fail the workflow task if it happens for now. 
+
+#### Comments (1)
+
+<details>
+<summary><strong>cretz</strong> commented on 2025-05-14 14:53:57.000 UTC</summary>
+
+Closing as duplicate of https://github.com/temporalio/features/issues/624, see that issue.
+
+</details>
+
+
+---
+
+<a id="197"></a>
+
+### #197: [Feature Request] Standard mechanism for versioning SDK logic
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/197 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-01-04 23:24:08.000 UTC (3 years ago) |
+| **Updated** | 2023-01-05 19:19:42.000 UTC |
+| **Closed** | 2023-01-05 19:19:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+Occasionally, there's a need to modify SDK behavior in a history-incompatible manner.
+For user logic, we have the marker based `getVersion` and `patched` APIs.
+We do not have a standard mechanism for doing this in our SDKs apart from TypeScript where we use the `patched` API.
+Ideally there would be a way to encode this internal SDK version without creating new history events.
+
+A possible approach for solving this would be to add fields to the WorkflowTaskCompleted event and CompleteWorkflowTaskRequest proto messages.
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2023-01-05 19:19:42.000 UTC</summary>
+
+Closing in favor of the more detailed #200 
+
+</details>
+
+
+---
+
+<a id="181"></a>
+
+### #181: [Bug] [Harness] Ensure all started workflows always have a timeout
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/181 |
+| **State** | CLOSED |
+| **Author** | Sushisource (Spencer Judge) |
+| **Created** | 2022-12-06 00:14:16.000 UTC (3y 1m ago) |
+| **Updated** | 2023-08-23 18:07:47.000 UTC |
+| **Closed** | 2023-08-23 18:07:47.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Especially now that we run regularly against cloud, every started workflow needs a reasonable timeout attached. All workflows should get something like a 1hr timeout by default. Shorter timeouts are of course allowed for the needs of specific feature tests.
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-08-23 18:07:47.000 UTC</summary>
+
+Dupe of https://github.com/temporalio/features/issues/315
+
+</details>
+
+
+---
+
+<a id="179"></a>
+
+### #179: [Feature Request] Add non-memoized versioning API
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/179 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-12-05 17:49:18.000 UTC (3y 1m ago) |
+| **Updated** | 2025-01-29 23:29:22.000 UTC |
+| **Closed** | 2025-01-29 23:29:22.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+The `getVersion` (`patched` in Core based SDKs) API call is memoized to allow coordinating patches across the code.
+In TS we accidentally implemented a non-memoized version by default which has some nice benefits like being embeddable in a loop or `condition` (`Workflow.await`).
+
+The TS implementation will be corrected and aligned with the other SDKs but we should consider having an opt-in option to disable memoization.
+
+#### Comments (1)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2023-02-03 16:19:22.000 UTC</summary>
+
+related https://github.com/temporalio/sdk-go/issues/1016
 
 </details>
 
@@ -9919,6 +17262,68 @@ More operations may have to be restricted. Not just the ones that generate comma
 
 ---
 
+<a id="170"></a>
+
+### #170: [Feature Request] Worker enforcement of activity timeouts
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/170 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-11-23 20:00:46.000 UTC (3y 1m ago) |
+| **Updated** | 2023-11-03 16:17:20.000 UTC |
+| **Closed** | 2023-11-03 16:17:20.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Currently the only way for an activity to get notified that a timeout has expired (such as start-to-close) is by heartbeating.
+The SDK throttles heartbeats and does not notify (`*`) the activity implementation that it should stop running since the server will reject the completion after timeout has expired.
+While for sensitive workloads, there's no way around making activity implementations reentrant, adding the worker side timeout notification lowers the chance of duplicate activity executions.
+
+A couple things worth noting:
+- In the future the server might want to accept the activity after start-to-close timeout has expired assuming that it hasn't issued a new activity task to avoid needlessly losing the progress made by the activity (TODO: verify this is not supported today).
+- We plan on adding an operator API to modify activity attributes such as timeouts, to support this properly, we would have to propagate the activity configuration to the worker running the activity
+
+### Open questions
+- Which timeouts would we want to notify the activity about?
+  - start-to-close?
+  - schedule-to-close?
+  - heartbeat
+
+(`*`) Apart from Go which sets a deadline on the context
+
+### SDK specific implementation
+- Go could cancel the context (it already does this today)
+- Java would throw from heartbeat method
+- Core based SDKs will propagate this via the per SDK cancellation mechanism
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-10-26 20:38:43.000 UTC</summary>
+
+After a little discussion:
+
+Re:
+>API to modify activity attributes such as timeouts
+
+As long as this modification only applies to the *next attempt* that's fine, that information can already be delivered via activity tasks. Something that changes the *current attempt*'s timeout would be an obnoxious new path which should be able to be sufficed by the normal existing cancel mechanisms (since the SDK would need to have a working connection to server already to receive the new timeouts).
+
+* We should respect all 3 of the listed timeouts
+* SDK does not reply to server w/ timeout (since by definition it should have already timed out server side and all we'd get is a "not found")
+
+</details>
+
+
+---
+
 <a id="167"></a>
 
 ### #167: [Feature Request] Align local_activity_execution_failed across SDKs
@@ -9948,6 +17353,55 @@ Currently there is a difference between Go and Java SDKs and Docs https://docs.t
 <summary><strong>Quinn-With-Two-Ns</strong> commented on 2022-11-29 01:16:27.000 UTC</summary>
 
 Note: this is done for [Go](https://github.com/temporalio/sdk-go/pull/966), still needs to be done for Core SDKs
+
+</details>
+
+
+---
+
+<a id="149"></a>
+
+### #149: [Feature Request] Expose `reason` field when requesting WF cancels from clients
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/149 |
+| **State** | CLOSED |
+| **Author** | Sushisource (Spencer Judge) |
+| **Created** | 2022-10-25 16:58:48.000 UTC (3y 2m ago) |
+| **Updated** | 2025-04-01 17:55:27.000 UTC |
+| **Closed** | 2025-04-01 17:55:26.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Workflow cancel requests now accept a reason field:
+https://github.com/temporalio/api/pull/168
+
+We should expose this in the high-level clients so that users may specify reason information when requesting a workflow cancellation. 
+
+### Describe the solution you'd like
+
+Add optional reason field to workflow cancel request APIs.
+
+### Additional context
+
+This reason should show up in whatever mechanism each SDK uses to notify the user's workflow code of the cancel request. EX: If we throw an exception, that exception should contain the reason (or it should otherwise be available, if it cannot be attached to the exception).
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2025-04-01 17:55:26.000 UTC</summary>
+
+Closing as older version of the now-current https://github.com/temporalio/features/issues/596
 
 </details>
 
@@ -10042,6 +17496,1394 @@ We should try tuning the maximum requested eager activities (internal SDK consta
 We may as well try to set this up to be something that can be re-usable for general perf testing as well. We'll want a dedicated host for this too, so we don't have any noisy neighbors and each run is using the same hardware.
 
 Reactions: 👍 1
+
+</details>
+
+
+---
+
+<a id="136"></a>
+
+### #136: temporalio-0.1b1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl: 1 vulnerabilities (highest severity is: 5.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/136 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-09-23 18:30:49.000 UTC (3y 3m ago) |
+| **Updated** | 2022-09-26 17:02:32.000 UTC |
+| **Closed** | 2022-09-26 17:02:31.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporalio-0.1b1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2022-1941](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-1941) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 5.5 | protobuf-3.20.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2022-1941</summary>
+
+
+###  Vulnerable Library - <b>protobuf-3.20.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl</b></p>
+
+<p>Protocol Buffers</p>
+<p>Library home page: <a href="https://files.pythonhosted.org/packages/21/9b/258771d72fd2cf27eed3cfea1fc957a12666ccde394b294ac563fca23f2d/protobuf-3.20.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl">https://files.pythonhosted.org/packages/21/9b/258771d72fd2cf27eed3cfea1fc957a12666ccde394b294ac563fca23f2d/protobuf-3.20.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl</a></p>
+<p>
+
+Dependency Hierarchy:
+  - temporalio-0.1b1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (Root Library)
+    - :x: **protobuf-3.20.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A parsing vulnerability for the MessageSet type in the ProtocolBuffers versions prior to and including 3.16.1, 3.17.3, 3.18.2, 3.19.4, 3.20.1 and 3.21.5 for protobuf-cpp, and versions prior to and including 3.16.1, 3.17.3, 3.18.2, 3.19.4, 3.20.1 and 4.21.5 for protobuf-python can lead to out of memory failures. A specially crafted message with multiple key-value per elements creates parsing issues, and can lead to a Denial of Service against services receiving unsanitized input. We recommend upgrading to versions 3.18.3, 3.19.5, 3.20.2, 3.21.6 for protobuf-cpp and 3.18.3, 3.19.5, 3.20.2, 4.21.6 for protobuf-python. Versions for 3.16 and 3.17 are no longer updated.
+
+<p>Publish Date: 2022-09-22
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-1941>CVE-2022-1941</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>5.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Local
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: Required
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cloud.google.com/support/bulletins#GCP-2022-019">https://cloud.google.com/support/bulletins#GCP-2022-019</a></p>
+<p>Release Date: 2022-09-22</p>
+<p>Fix Resolution: Google.Protobuf  - 3.18.3,3.19.5,3.20.2,3.21.6;protobuf-python - 3.18.3,3.19.5,3.20.2,4.21.6</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-09-26 17:02:32.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="127"></a>
+
+### #127: go.temporal.io/server-v1.17.4: 4 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/127 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-09-07 22:39:27.000 UTC (3y 4m ago) |
+| **Updated** | 2022-11-14 20:04:30.000 UTC |
+| **Closed** | 2022-11-14 20:04:29.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/server-v1.17.4</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/995e925ee7def25f13eb0960a0c9408af7157fbe">995e925ee7def25f13eb0960a0c9408af7157fbe</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (go.temporal.io/server-v1.17.4 version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2019-0205](https://www.mend.io/vulnerability-database/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A* | &#10060; |
+| [CVE-2019-0210](https://www.mend.io/vulnerability-database/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A* | &#10060; |
+| [CVE-2018-11798](https://www.mend.io/vulnerability-database/CVE-2018-11798) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 6.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A* | &#10060; |
+| [CVE-2020-28928](https://www.mend.io/vulnerability-database/CVE-2020-28928) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 5.5 | modernc.org/libc-v1.16.10 | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the section "Details" below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.17.4 (Root Library)
+    - github.com/temporalio/ringpop-go-v0.0.0-20211012191444-6f91b5915e95
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/995e925ee7def25f13eb0960a0c9408af7157fbe">995e925ee7def25f13eb0960a0c9408af7157fbe</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.17.4 (Root Library)
+    - github.com/temporalio/ringpop-go-v0.0.0-20211012191444-6f91b5915e95
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/995e925ee7def25f13eb0960a0c9408af7157fbe">995e925ee7def25f13eb0960a0c9408af7157fbe</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2018-11798</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.17.4 (Root Library)
+    - github.com/temporalio/ringpop-go-v0.0.0-20211012191444-6f91b5915e95
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/995e925ee7def25f13eb0960a0c9408af7157fbe">995e925ee7def25f13eb0960a0c9408af7157fbe</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The Apache Thrift Node.js static web server in versions 0.9.2 through 0.11.0 have been determined to contain a security vulnerability in which a remote user has the ability to access files outside the set webservers docroot path.
+
+<p>Publish Date: 2019-01-07
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2018-11798>CVE-2018-11798</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>6.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: Low
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: High
+  - Integrity Impact: None
+  - Availability Impact: None
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798</a></p>
+<p>Release Date: 2019-01-07</p>
+<p>Fix Resolution: v0.12.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2020-28928</summary>
+
+
+###  Vulnerable Library - <b>modernc.org/libc-v1.16.10</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://proxy.golang.org/modernc.org/libc/@v/v1.16.10.zip">https://proxy.golang.org/modernc.org/libc/@v/v1.16.10.zip</a></p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.17.4 (Root Library)
+    - modernc.org/sqlite-v1.17.3
+      - :x: **modernc.org/libc-v1.16.10** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/995e925ee7def25f13eb0960a0c9408af7157fbe">995e925ee7def25f13eb0960a0c9408af7157fbe</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In musl libc through 1.2.1, wcsnrtombs mishandles particular combinations of destination buffer size and source character limit, as demonstrated by an invalid write access (buffer overflow).
+
+<p>Publish Date: 2020-11-24
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2020-28928>CVE-2020-28928</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>5.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Local
+  - Attack Complexity: Low
+  - Privileges Required: Low
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28928">https://nvd.nist.gov/vuln/detail/CVE-2020-28928</a></p>
+<p>Release Date: 2020-11-24</p>
+<p>Fix Resolution: musl - 1.2.2-1,1.2.2-1,1.1.16-3+deb9u1</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-11-14 20:04:30.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="123"></a>
+
+### #123: [Feature Request] SDK connections should enable keep-alive by default and allow keep-alive customization
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/123 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-08-30 20:14:14.000 UTC (3y 4m ago) |
+| **Updated** | 2024-01-31 00:02:15.000 UTC |
+| **Closed** | 2024-01-31 00:02:15.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Due to the number of issues we've gotten where idle clients take a long time to discover when a TCP connection is closed we decided to turn keep-alive on by default. We also should allow users to customize it if they can't today.
+
+Links:
+- https://github.com/grpc/grpc/blob/master/doc/keepalive.md
+- https://github.com/temporalio/sdk-java/issues/362#issuecomment-788200971
+- https://github.com/temporalio/sdk-go/pull/371 (Go SDK issue where this was made opt-in)
+
+SDK issues:
+
+- [x] TS - https://github.com/temporalio/sdk-typescript/pull/855 (TODO: Expose some of these options to users?)
+- [x] Core - https://github.com/temporalio/sdk-core/issues/585
+- [ ] TS worker - https://github.com/temporalio/sdk-typescript/issues/1275
+- [x] Python - https://github.com/temporalio/sdk-python/issues/395
+- [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/125
+- [x] Go - https://github.com/temporalio/sdk-go/issues/1248
+- [x] Java - https://github.com/temporalio/sdk-java/issues/1872
+- [ ] PHP
+
+
+#### Comments (1)
+
+<details>
+<summary><strong>bergundy</strong> commented on 2022-08-30 20:55:22.000 UTC</summary>
+
+Setting the default to:
+```
+      'grpc.keepalive_permit_without_calls': 1,
+      'grpc.keepalive_time_ms': 30_000,
+      'grpc.keepalive_timeout_ms': 15_000,
+```
+
+Based on the [previous Go SDK default](https://github.com/temporalio/sdk-go/pull/371/files).
+
+</details>
+
+
+---
+
+<a id="115"></a>
+
+### #115: temporal-sdk-1.15.0.jar: 5 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/115 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-08-15 21:16:49.000 UTC (3y 4m ago) |
+| **Updated** | 2022-11-16 18:46:08.000 UTC |
+| **Closed** | 2022-11-16 18:46:06.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporal-sdk-1.15.0.jar</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.1/698b2d2b15d9a1b7aae025f1d9f576842285e7f6/jackson-databind-2.13.1.jar</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/4825d7a1d490bff575d88fd93c54031e3243c5a2">4825d7a1d490bff575d88fd93c54031e3243c5a2</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (temporal-sdk version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2022-42004](https://www.mend.io/vulnerability-database/CVE-2022-42004) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | jackson-databind-2.13.1.jar | Transitive | N/A* | &#10060; |
+| [CVE-2022-42003](https://www.mend.io/vulnerability-database/CVE-2022-42003) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | jackson-databind-2.13.1.jar | Transitive | N/A* | &#10060; |
+| [CVE-2022-3509](https://www.mend.io/vulnerability-database/CVE-2022-3509) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | protobuf-java-3.21.4.jar | Transitive | N/A* | &#10060; |
+| [CVE-2020-36518](https://www.mend.io/vulnerability-database/CVE-2020-36518) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | jackson-databind-2.13.1.jar | Transitive | N/A* | &#10060; |
+| [CVE-2022-3171](https://www.mend.io/vulnerability-database/CVE-2022-3171) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | protobuf-java-3.21.4.jar | Transitive | N/A* | &#10060; |
+<p>*For some transitive vulnerabilities, there is no version of direct dependency with a fix. Check the section "Details" below to see if there is a version of transitive dependency where vulnerability is fixed.</p>
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-42004</summary>
+
+
+###  Vulnerable Library - <b>jackson-databind-2.13.1.jar</b></p>
+
+<p>General data-binding functionality for Jackson: works on core streaming API</p>
+<p>Library home page: <a href="http://github.com/FasterXML/jackson">http://github.com/FasterXML/jackson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.1/698b2d2b15d9a1b7aae025f1d9f576842285e7f6/jackson-databind-2.13.1.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.15.0.jar (Root Library)
+    - :x: **jackson-databind-2.13.1.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/4825d7a1d490bff575d88fd93c54031e3243c5a2">4825d7a1d490bff575d88fd93c54031e3243c5a2</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In FasterXML jackson-databind before 2.13.4, resource exhaustion can occur because of a lack of a check in BeanDeserializer._deserializeFromArray to prevent use of deeply nested arrays. An application is vulnerable only with certain customized choices for deserialization.
+
+<p>Publish Date: 2022-10-02
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-42004>CVE-2022-42004</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-10-02</p>
+<p>Fix Resolution: com.fasterxml.jackson.core:jackson-databind:2.13.4</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-42003</summary>
+
+
+###  Vulnerable Library - <b>jackson-databind-2.13.1.jar</b></p>
+
+<p>General data-binding functionality for Jackson: works on core streaming API</p>
+<p>Library home page: <a href="http://github.com/FasterXML/jackson">http://github.com/FasterXML/jackson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.1/698b2d2b15d9a1b7aae025f1d9f576842285e7f6/jackson-databind-2.13.1.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.15.0.jar (Root Library)
+    - :x: **jackson-databind-2.13.1.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/4825d7a1d490bff575d88fd93c54031e3243c5a2">4825d7a1d490bff575d88fd93c54031e3243c5a2</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In FasterXML jackson-databind before 2.14.0-rc1, resource exhaustion can occur because of a lack of a check in primitive value deserializers to avoid deep wrapper array nesting, when the UNWRAP_SINGLE_VALUE_ARRAYS feature is enabled. Additional fix version in 2.13.4.1 and 2.12.17.1
+
+<p>Publish Date: 2022-10-02
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-42003>CVE-2022-42003</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-10-02</p>
+<p>Fix Resolution: com.fasterxml.jackson.core:jackson-databind:2.12.7.1,2.13.4.1</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-3509</summary>
+
+
+###  Vulnerable Library - <b>protobuf-java-3.21.4.jar</b></p>
+
+<p>Core Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an
+    efficient yet extensible format.</p>
+<p>Library home page: <a href="https://developers.google.com/protocol-buffers/">https://developers.google.com/protocol-buffers/</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.21.4/9947febd7a6d0695726c78f603a149b7b7c108e0/protobuf-java-3.21.4.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.15.0.jar (Root Library)
+    - temporal-serviceclient-1.15.0.jar
+      - protobuf-java-util-3.21.4.jar
+        - :x: **protobuf-java-3.21.4.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/4825d7a1d490bff575d88fd93c54031e3243c5a2">4825d7a1d490bff575d88fd93c54031e3243c5a2</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A parsing issue similar to CVE-2022-3171, but with textformat in proto ...
+
+<p>Publish Date: 2022-10-14
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-3509>CVE-2022-3509</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-10-14</p>
+<p>Fix Resolution: com.google.protobuf:protobuf-java:3.21.7</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2020-36518</summary>
+
+
+###  Vulnerable Library - <b>jackson-databind-2.13.1.jar</b></p>
+
+<p>General data-binding functionality for Jackson: works on core streaming API</p>
+<p>Library home page: <a href="http://github.com/FasterXML/jackson">http://github.com/FasterXML/jackson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.1/698b2d2b15d9a1b7aae025f1d9f576842285e7f6/jackson-databind-2.13.1.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.15.0.jar (Root Library)
+    - :x: **jackson-databind-2.13.1.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/4825d7a1d490bff575d88fd93c54031e3243c5a2">4825d7a1d490bff575d88fd93c54031e3243c5a2</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.
+ Mend Note: After conducting further research, Mend has determined that all versions of com.fasterxml.jackson.core:jackson-databind up to version 2.13.2 are vulnerable to CVE-2020-36518.
+
+<p>Publish Date: 2022-03-11
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2020-36518>CVE-2020-36518</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-03-11</p>
+<p>Fix Resolution: com.fasterxml.jackson.core:jackson-databind:2.12.6.1,2.13.2.1</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-3171</summary>
+
+
+###  Vulnerable Library - <b>protobuf-java-3.21.4.jar</b></p>
+
+<p>Core Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an
+    efficient yet extensible format.</p>
+<p>Library home page: <a href="https://developers.google.com/protocol-buffers/">https://developers.google.com/protocol-buffers/</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.21.4/9947febd7a6d0695726c78f603a149b7b7c108e0/protobuf-java-3.21.4.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.15.0.jar (Root Library)
+    - temporal-serviceclient-1.15.0.jar
+      - protobuf-java-util-3.21.4.jar
+        - :x: **protobuf-java-3.21.4.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/4825d7a1d490bff575d88fd93c54031e3243c5a2">4825d7a1d490bff575d88fd93c54031e3243c5a2</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+A parsing issue with binary data in protobuf-java core and lite versions prior to 3.21.7, 3.20.3, 3.19.6 and 3.16.3 can lead to a denial of service attack. Inputs containing multiple instances of non-repeated embedded messages with repeated or unknown fields causes objects to be converted back-n-forth between mutable and immutable forms, resulting in potentially long garbage collection pauses. We recommend updating to the versions mentioned above.
+
+<p>Publish Date: 2022-10-12
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2022-3171>CVE-2022-3171</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://github.com/advisories/GHSA-h4h5-3hr4-j3g2">https://github.com/advisories/GHSA-h4h5-3hr4-j3g2</a></p>
+<p>Release Date: 2022-10-12</p>
+<p>Fix Resolution: com.google.protobuf:protobuf-java:3.16.3,3.19.6,3.20.3,3.21.7;com.google.protobuf:protobuf-javalite:3.16.3,3.19.6,3.20.3,3.21.7;com.google.protobuf:protobuf-kotlin:3.19.6,3.20.3,3.21.7;com.google.protobuf:protobuf-kotlin-lite:3.19.6,3.20.3,3.21.7;google-protobuf - 3.19.6,3.20.3,3.21.7</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-11-16 18:46:07.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="109"></a>
+
+### #109: gson-2.8.8.jar: 2 vulnerabilities (highest severity is: 7.7) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/109 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-08-08 13:35:09.000 UTC (3y 5m ago) |
+| **Updated** | 2022-08-15 21:16:56.000 UTC |
+| **Closed** | 2022-08-15 21:16:55.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>gson-2.8.8.jar</b></p></summary>
+
+<p></p>
+<p>Library home page: <a href="https://github.com/google/gson">https://github.com/google/gson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /e/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar,/home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/fe4a60758608c06701ba0d60aa2115949bee146b">fe4a60758608c06701ba0d60aa2115949bee146b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [WS-2021-0419](https://github.com/google/gson/pull/1991) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.7 | gson-2.8.8.jar | Direct | 2.8.9 | &#9989; |
+| [CVE-2022-25647](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25647) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | gson-2.8.8.jar | Direct | 2.8.9 | &#9989; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> WS-2021-0419</summary>
+
+
+###  Vulnerable Library - <b>gson-2.8.8.jar</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://github.com/google/gson">https://github.com/google/gson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /e/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar,/home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - :x: **gson-2.8.8.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/fe4a60758608c06701ba0d60aa2115949bee146b">fe4a60758608c06701ba0d60aa2115949bee146b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+Denial of Service vulnerability was discovered in gson before 2.8.9 via the writeReplace() method.
+
+<p>Publish Date: 2021-10-11
+<p>URL: <a href=https://github.com/google/gson/pull/1991>WS-2021-0419</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.7</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: High
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: Low
+  - Integrity Impact: High
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2021-10-11</p>
+<p>Fix Resolution: 2.8.9</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-25647</summary>
+
+
+###  Vulnerable Library - <b>gson-2.8.8.jar</b></p>
+
+<p></p>
+<p>Library home page: <a href="https://github.com/google/gson">https://github.com/google/gson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /e/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar,/home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - :x: **gson-2.8.8.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/fe4a60758608c06701ba0d60aa2115949bee146b">fe4a60758608c06701ba0d60aa2115949bee146b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The package com.google.code.gson:gson before 2.8.9 are vulnerable to Deserialization of Untrusted Data via the writeReplace() method in internal classes, which may lead to DoS attacks.
+
+<p>Publish Date: 2022-05-01
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25647>CVE-2022-25647</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25647`">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25647`</a></p>
+<p>Release Date: 2022-05-01</p>
+<p>Fix Resolution: 2.8.9</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details>
+
+***
+
+<p>:rescue_worker_helmet: Automatic Remediation is available for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-08-15 21:16:56.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="108"></a>
+
+### #108: temporal-sdk-1.14.0.jar: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/108 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-08-08 13:35:06.000 UTC (3y 5m ago) |
+| **Updated** | 2022-08-15 21:16:54.000 UTC |
+| **Closed** | 2022-08-15 21:16:53.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporal-sdk-1.14.0.jar</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.1/698b2d2b15d9a1b7aae025f1d9f576842285e7f6/jackson-databind-2.13.1.jar</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/fe4a60758608c06701ba0d60aa2115949bee146b">fe4a60758608c06701ba0d60aa2115949bee146b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2020-36518](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-36518) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | jackson-databind-2.13.1.jar | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2020-36518</summary>
+
+
+###  Vulnerable Library - <b>jackson-databind-2.13.1.jar</b></p>
+
+<p>General data-binding functionality for Jackson: works on core streaming API</p>
+<p>Library home page: <a href="http://github.com/FasterXML/jackson">http://github.com/FasterXML/jackson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.1/698b2d2b15d9a1b7aae025f1d9f576842285e7f6/jackson-databind-2.13.1.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.14.0.jar (Root Library)
+    - :x: **jackson-databind-2.13.1.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/fe4a60758608c06701ba0d60aa2115949bee146b">fe4a60758608c06701ba0d60aa2115949bee146b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.
+ Mend Note: After conducting further research, Mend has determined that all versions of com.fasterxml.jackson.core:jackson-databind up to version 2.13.2 are vulnerable to CVE-2020-36518.
+
+<p>Publish Date: 2022-03-11
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-36518>CVE-2020-36518</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-03-11</p>
+<p>Fix Resolution: com.fasterxml.jackson.core:jackson-databind:2.12.6.1,2.13.2.1</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-08-15 21:16:54.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="88"></a>
+
+### #88: temporalio-1.0.0-rc.1.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/88 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-07-25 20:27:46.000 UTC (3y 5m ago) |
+| **Updated** | 2022-08-02 14:28:13.000 UTC |
+| **Closed** | 2022-08-02 14:28:12.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporalio-1.0.0-rc.1.tgz</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/protobufjs/package.json</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2022-25878](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25878) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | protobufjs-6.11.2.tgz | Transitive | 1.0.0 | &#9989; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-25878</summary>
+
+
+###  Vulnerable Library - <b>protobufjs-6.11.2.tgz</b></p>
+
+<p>Protocol Buffers for JavaScript (& TypeScript).</p>
+<p>Library home page: <a href="https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz">https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz</a></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/protobufjs/package.json</p>
+<p>
+
+Dependency Hierarchy:
+  - temporalio-1.0.0-rc.1.tgz (Root Library)
+    - client-1.0.0-rc.1.tgz
+      - :x: **protobufjs-6.11.2.tgz** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The package protobufjs before 6.11.3 are vulnerable to Prototype Pollution which can allow an attacker to add/modify properties of the Object.prototype. This vulnerability can occur in multiple ways: 1. by providing untrusted user input to util.setProperty or to ReflectionObject.setParsedOption functions 2. by parsing/loading .proto files
+
+<p>Publish Date: 2022-05-27
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25878>CVE-2022-25878</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: High
+  - Availability Impact: None
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25878">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25878</a></p>
+<p>Release Date: 2022-05-27</p>
+<p>Fix Resolution (protobufjs): 6.11.3</p>
+<p>Direct dependency fix Resolution (temporalio): 1.0.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details>
+
+***
+
+<p>:rescue_worker_helmet: Automatic Remediation is available for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-08-02 14:28:13.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="86"></a>
+
+### #86: [Feature Request] Add an http header indicating temporal namespace for each request
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/86 |
+| **State** | CLOSED |
+| **Author** | underrun (J Derek Wilson) |
+| **Created** | 2022-07-21 22:51:33.000 UTC (3y 5m ago) |
+| **Updated** | 2024-07-30 15:36:47.000 UTC |
+| **Closed** | 2024-07-30 15:36:47.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+There are conditions under which it would be advantageous to make routing, balancing, rate limiting decisions on requests at L7 based on the namespace associated with the request. This is especially true for multitenant environments to manage QoS across many namespaces. Currently a workaround for this is to create DNS names per namespace that all point to the same temporal server and inject SNI info into the http header at the edge, but this can also get unmanageable at scale and requires coordinating creating a domain with registering a namespace which should ordinarily be a light weight operation.
+
+### Describe the solution you'd like
+
+Ideally, all requests from all SDKs would include an http header that indicates the temporal namespace the request is associated with. This leaves out operations that don't relate to a namespace, but as these are relatively few it shouldn't be an issue (or could be addressed in the future if it becomes a problem).
+
+### Additional context
+
+This can also be useful in the context of very large temporal services where namespaces are sharded across multiple temporal servers behind the same L7 loadbalancer but that do not require the SDK client to know which temporal server the namespace is hosted on.
+
+#### Comments (1)
+
+<details>
+<summary><strong>Quinn-With-Two-Ns</strong> commented on 2024-07-30 15:36:47.000 UTC</summary>
+
+duplicate of https://github.com/temporalio/features/issues/475
+
+</details>
+
+
+---
+
+<a id="84"></a>
+
+### #84: Go: Implement opt-in to build-id based versioning flag
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/84 |
+| **State** | CLOSED |
+| **Author** | Sushisource (Spencer Judge) |
+| **Created** | 2022-07-21 18:30:58.000 UTC (3y 5m ago) |
+| **Updated** | 2023-06-09 17:47:18.000 UTC |
+| **Closed** | 2023-06-09 17:46:28.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | None |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+SDKs must opt-in to build-id based versioning.
+When SDKs enable this, they poll on TQ `foo`, using the worker id option added in https://github.com/temporalio/api/pull/217
+
+This ensures they will get un-versioned tasks, and tasks compatible with their version.
+
+#### Comments (1)
+
+<details>
+<summary><strong>Sushisource</strong> commented on 2023-06-09 17:45:29.000 UTC</summary>
+
+Remaining SDKs tracked in Jira (which should at some point sync to this repo)
 
 </details>
 
@@ -10162,6 +19004,128 @@ SDKs:
 Definitely would like to see proposal/ideas here on filter builder before seeing in impl in TS or elsewhere. One of the important things we must capture is that some filters can work without "advanced visibility" and some can work with. But we don't want some locked down advanced filter builder because many people will prefer strings and you'll end up with some full AST-building DSL if you try to solve too much. I think a TS proposal API would be enough to see what it'd look like for other langs.
 
 Also, I am not sure you can make pagination that much easier (no you don't want an iterator, you need full pages so you can know/control calls to the server). Also, there's archived, count, etc. And from what I see, `WorkflowExecutionDescription` can be reused here, so this is kinda combined with #17.
+
+</details>
+
+
+---
+
+<a id="70"></a>
+
+### #70: temporalio-1.0.0-rc.0.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/70 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-07-17 22:02:13.000 UTC (3y 5m ago) |
+| **Updated** | 2022-07-25 20:27:49.000 UTC |
+| **Closed** | 2022-07-25 20:27:48.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporalio-1.0.0-rc.0.tgz</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/terser/package.json</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2022-25858](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25858) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | terser-5.14.1.tgz | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-25858</summary>
+
+
+###  Vulnerable Library - <b>terser-5.14.1.tgz</b></p>
+
+<p>JavaScript parser, mangler/compressor and beautifier toolkit for ES6+</p>
+<p>Library home page: <a href="https://registry.npmjs.org/terser/-/terser-5.14.1.tgz">https://registry.npmjs.org/terser/-/terser-5.14.1.tgz</a></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/terser/package.json</p>
+<p>
+
+Dependency Hierarchy:
+  - temporalio-1.0.0-rc.0.tgz (Root Library)
+    - worker-1.0.0-rc.0.tgz
+      - webpack-5.73.0.tgz
+        - terser-webpack-plugin-5.3.3.tgz
+          - :x: **terser-5.14.1.tgz** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The package terser before 4.8.1, from 5.0.0 and before 5.14.2 are vulnerable to Regular Expression Denial of Service (ReDoS) due to insecure usage of regular expressions.
+
+<p>Publish Date: 2022-07-15
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25858>CVE-2022-25858</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25858">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25858</a></p>
+<p>Release Date: 2022-07-15</p>
+<p>Fix Resolution: terser - 4.8.1,5.14.2</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-07-25 20:27:48.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
 
 </details>
 
@@ -10355,6 +19319,246 @@ Concur. My specific proto suggestion would be adding needed fields on `temporal.
 
 ---
 
+<a id="60"></a>
+
+### #60: github.com/stretchr/testify-v1.7.0: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/60 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-06-07 18:41:38.000 UTC (3y 7m ago) |
+| **Updated** | 2022-06-11 01:01:44.000 UTC |
+| **Closed** | 2022-06-11 01:01:43.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/stretchr/testify-v1.7.0</b></p></summary>
+
+<p></p>
+<p>
+
+</details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2022-28948](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-28948) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/go-yaml/yaml-496545a6307b2a7d7a710fd516e5e16e8ab62dbc | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-28948</summary>
+
+
+###  Vulnerable Library - <b>github.com/go-yaml/yaml-496545a6307b2a7d7a710fd516e5e16e8ab62dbc</b></p>
+
+<p>YAML support for the Go language.</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/stretchr/testify-v1.7.0 (Root Library)
+    - :x: **github.com/go-yaml/yaml-496545a6307b2a7d7a710fd516e5e16e8ab62dbc** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.
+
+<p>Publish Date: 2022-05-19
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-28948>CVE-2022-28948</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://github.com/advisories/GHSA-hp87-p4gw-j4gq">https://github.com/advisories/GHSA-hp87-p4gw-j4gq</a></p>
+<p>Release Date: 2022-05-19</p>
+<p>Fix Resolution: 3.0.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+<!-- <REMEDIATE>[{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/go-yaml/yaml","packageVersion":"496545a6307b2a7d7a710fd516e5e16e8ab62dbc","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"github.com/stretchr/testify:v1.7.0;github.com/go-yaml/yaml:496545a6307b2a7d7a710fd516e5e16e8ab62dbc","isMinimumFixVersionAvailable":true,"minimumFixVersion":"3.0.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2022-28948","vulnerabilityDetails":"An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-28948","cvss3Severity":"high","cvss3Score":"7.5","cvss3Metrics":{"A":"High","AC":"Low","PR":"None","S":"Unchanged","C":"None","UI":"None","AV":"Network","I":"None"},"extraData":{}}]</REMEDIATE> -->
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-06-11 01:01:44.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="56"></a>
+
+### #56: temporalio-0.21.1.tgz: 1 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/56 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-05-29 15:18:48.000 UTC (3y 7m ago) |
+| **Updated** | 2022-06-22 19:06:10.000 UTC |
+| **Closed** | 2022-06-22 19:06:09.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporalio-0.21.1.tgz</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/protobufjs/package.json</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2022-25878](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25878) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | protobufjs-6.11.2.tgz | Transitive | 0.22.0 | &#9989; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-25878</summary>
+
+
+###  Vulnerable Library - <b>protobufjs-6.11.2.tgz</b></p>
+
+<p>Protocol Buffers for JavaScript (& TypeScript).</p>
+<p>Library home page: <a href="https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz">https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz</a></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/protobufjs/package.json</p>
+<p>
+
+Dependency Hierarchy:
+  - temporalio-0.21.1.tgz (Root Library)
+    - client-0.21.0.tgz
+      - :x: **protobufjs-6.11.2.tgz** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The package protobufjs before 6.11.3 are vulnerable to Prototype Pollution which can allow an attacker to add/modify properties of the Object.prototype. This vulnerability can occur in multiple ways: 1. by providing untrusted user input to util.setProperty or to ReflectionObject.setParsedOption functions 2. by parsing/loading .proto files
+
+<p>Publish Date: 2022-05-27
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-25878>CVE-2022-25878</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: High
+  - Availability Impact: None
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25878">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25878</a></p>
+<p>Release Date: 2022-05-27</p>
+<p>Fix Resolution (protobufjs): 6.11.3</p>
+<p>Direct dependency fix Resolution (temporalio): 0.22.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details>
+
+***
+
+<p>:rescue_worker_helmet: Automatic Remediation is available for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-06-22 19:06:10.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
 <a id="47"></a>
 
 ### #47: [Feature Request] SDKs should differentiate between `NamespaceInvalidState` and `NamespaceNotFound` errors
@@ -10394,6 +19598,1332 @@ Checklist:
 <summary><strong>cretz</strong> commented on 2022-05-02 13:57:32.000 UTC</summary>
 
 And specifically, the worker should consider `NamespaceNotFound` error a fatal error, but not `NamespaceInvalidState`.
+
+</details>
+
+
+---
+
+<a id="44"></a>
+
+### #44: github.com/temporalio/temporal-v1.16.0: 3 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/44 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-21 04:35:24.000 UTC (3y 8m ago) |
+| **Updated** | 2022-06-22 16:44:22.000 UTC |
+| **Closed** | 2022-06-22 16:44:21.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/temporalio/temporal-v1.16.0</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2019-0205](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+| [CVE-2019-0210](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+| [CVE-2018-11798](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 6.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/temporal-v1.16.0 (Root Library)
+    - github.com/temporalio/ringpop-go-6f91b5915e95e7b08817aae78fea3a38ea1b5bd2
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/temporal-v1.16.0 (Root Library)
+    - github.com/temporalio/ringpop-go-6f91b5915e95e7b08817aae78fea3a38ea1b5bd2
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2018-11798</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/temporal-v1.16.0 (Root Library)
+    - github.com/temporalio/ringpop-go-6f91b5915e95e7b08817aae78fea3a38ea1b5bd2
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The Apache Thrift Node.js static web server in versions 0.9.2 through 0.11.0 have been determined to contain a security vulnerability in which a remote user has the ability to access files outside the set webservers docroot path.
+
+<p>Publish Date: 2019-01-07
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798>CVE-2018-11798</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>6.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: Low
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: High
+  - Integrity Impact: None
+  - Availability Impact: None
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798</a></p>
+<p>Release Date: 2019-01-07</p>
+<p>Fix Resolution: v0.12.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-06-22 16:44:22.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="38"></a>
+
+### #38: github.com/temporalio/temporal-3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86: 3 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/38 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-07 18:55:59.000 UTC (3y 9m ago) |
+| **Updated** | 2022-04-21 04:35:33.000 UTC |
+| **Closed** | 2022-04-21 04:35:32.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>github.com/temporalio/temporal-3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86</b></p></summary>
+
+<p></p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/d4f21b69321f143cfcf0cb7f4b94f2df2babc906">d4f21b69321f143cfcf0cb7f4b94f2df2babc906</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2019-0205](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+| [CVE-2019-0210](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+| [CVE-2018-11798](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 6.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/temporal-3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86 (Root Library)
+    - github.com/temporalio/ringpop-go-6f91b5915e95e7b08817aae78fea3a38ea1b5bd2
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/d4f21b69321f143cfcf0cb7f4b94f2df2babc906">d4f21b69321f143cfcf0cb7f4b94f2df2babc906</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/temporal-3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86 (Root Library)
+    - github.com/temporalio/ringpop-go-6f91b5915e95e7b08817aae78fea3a38ea1b5bd2
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/d4f21b69321f143cfcf0cb7f4b94f2df2babc906">d4f21b69321f143cfcf0cb7f4b94f2df2babc906</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2018-11798</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - github.com/temporalio/temporal-3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86 (Root Library)
+    - github.com/temporalio/ringpop-go-6f91b5915e95e7b08817aae78fea3a38ea1b5bd2
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/d4f21b69321f143cfcf0cb7f4b94f2df2babc906">d4f21b69321f143cfcf0cb7f4b94f2df2babc906</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The Apache Thrift Node.js static web server in versions 0.9.2 through 0.11.0 have been determined to contain a security vulnerability in which a remote user has the ability to access files outside the set webservers docroot path.
+
+<p>Publish Date: 2019-01-07
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798>CVE-2018-11798</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>6.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: Low
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: High
+  - Integrity Impact: None
+  - Availability Impact: None
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798</a></p>
+<p>Release Date: 2019-01-07</p>
+<p>Fix Resolution: v0.12.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+<!-- <REMEDIATE>[{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/apache/thrift","packageVersion":"0.10.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"github.com/temporalio/temporal:3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86;github.com/temporalio/ringpop-go:6f91b5915e95e7b08817aae78fea3a38ea1b5bd2;github.com/apache/thrift:0.10.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"org.apache.thrift:libthrift:0.13.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2019-0205","vulnerabilityDetails":"In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205","cvss3Severity":"high","cvss3Score":"7.5","cvss3Metrics":{"A":"High","AC":"Low","PR":"None","S":"Unchanged","C":"None","UI":"None","AV":"Network","I":"None"},"extraData":{}},{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/apache/thrift","packageVersion":"0.10.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"github.com/temporalio/temporal:3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86;github.com/temporalio/ringpop-go:6f91b5915e95e7b08817aae78fea3a38ea1b5bd2;github.com/apache/thrift:0.10.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"0.13.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2019-0210","vulnerabilityDetails":"In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210","cvss3Severity":"high","cvss3Score":"7.5","cvss3Metrics":{"A":"High","AC":"Low","PR":"None","S":"Unchanged","C":"None","UI":"None","AV":"Network","I":"None"},"extraData":{}},{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/apache/thrift","packageVersion":"0.10.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"github.com/temporalio/temporal:3b8f6932d9fcb12c58cba0d461ac72a30fc9bb86;github.com/temporalio/ringpop-go:6f91b5915e95e7b08817aae78fea3a38ea1b5bd2;github.com/apache/thrift:0.10.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"v0.12.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2018-11798","vulnerabilityDetails":"The Apache Thrift Node.js static web server in versions 0.9.2 through 0.11.0 have been determined to contain a security vulnerability in which a remote user has the ability to access files outside the set webservers docroot path.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798","cvss3Severity":"medium","cvss3Score":"6.5","cvss3Metrics":{"A":"None","AC":"Low","PR":"Low","S":"Unchanged","C":"High","UI":"None","AV":"Network","I":"None"},"extraData":{}}]</REMEDIATE> -->
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-04-21 04:35:33.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by WhiteSource because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the WhiteSource inventory.
+
+</details>
+
+
+---
+
+<a id="36"></a>
+
+### #36: tsconfig-paths-3.12.0.tgz: 1 vulnerabilities (highest severity is: 5.0) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/36 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-02 01:03:15.000 UTC (3y 9m ago) |
+| **Updated** | 2022-06-22 16:44:27.000 UTC |
+| **Closed** | 2022-06-22 16:44:26.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>tsconfig-paths-3.12.0.tgz</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/minimist/package.json</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2021-44906](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2021-44906) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 5.0 | minimist-1.2.5.tgz | Transitive | 4.0.0 | &#9989; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2021-44906</summary>
+
+
+###  Vulnerable Library - <b>minimist-1.2.5.tgz</b></p>
+
+<p>parse argument options</p>
+<p>Library home page: <a href="https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz">https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz</a></p>
+<p>Path to dependency file: /package.json</p>
+<p>Path to vulnerable library: /node_modules/minimist/package.json</p>
+<p>
+
+Dependency Hierarchy:
+  - tsconfig-paths-3.12.0.tgz (Root Library)
+    - :x: **minimist-1.2.5.tgz** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).
+
+<p>Publish Date: 2022-03-17
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2021-44906>CVE-2021-44906</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>5.0</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: High
+  - Privileges Required: Low
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: Low
+  - Integrity Impact: Low
+  - Availability Impact: Low
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-03-17</p>
+<p>Fix Resolution (minimist): 1.2.6</p>
+<p>Direct dependency fix Resolution (tsconfig-paths): 4.0.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details>
+
+***
+
+<p>:rescue_worker_helmet: Automatic Remediation is available for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-06-22 16:44:27.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="35"></a>
+
+### #35: logback-classic-1.2.6.jar: 1 vulnerabilities (highest severity is: 6.6) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/35 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-02 01:03:13.000 UTC (3y 9m ago) |
+| **Updated** | 2023-01-26 22:24:28.000 UTC |
+| **Closed** | 2023-01-26 22:24:27.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>logback-classic-1.2.6.jar</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.2.6/25be1abb32e870ff042e698a799b56587e0dca9a/logback-core-1.2.6.jar</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in (logback-classic version) | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | ------------- | --- |
+| [CVE-2021-42550](https://www.mend.io/vulnerability-database/CVE-2021-42550) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 6.6 | detected in multiple dependencies | Transitive | 1.2.8 | &#9989; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2021-42550</summary>
+
+
+###  Vulnerable Libraries - <b>logback-core-1.2.6.jar</b>, <b>logback-classic-1.2.6.jar</b></p>
+<p>
+
+
+### <b>logback-core-1.2.6.jar</b></p>
+
+<p>logback-core module</p>
+<p>Library home page: <a href="http://logback.qos.ch">http://logback.qos.ch</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.2.6/25be1abb32e870ff042e698a799b56587e0dca9a/logback-core-1.2.6.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - logback-classic-1.2.6.jar (Root Library)
+    - :x: **logback-core-1.2.6.jar** (Vulnerable Library)
+
+
+### <b>logback-classic-1.2.6.jar</b></p>
+
+<p>logback-classic module</p>
+<p>Library home page: <a href="http://logback.qos.ch">http://logback.qos.ch</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.2.6/b09efa852337fa0dd9859614389eec58dc287116/logback-classic-1.2.6.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - :x: **logback-classic-1.2.6.jar** (Vulnerable Library)
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In logback version 1.2.7 and prior versions, an attacker with the required privileges to edit configurations files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers.
+
+<p>Publish Date: 2021-12-16
+<p>URL: <a href=https://www.mend.io/vulnerability-database/CVE-2021-42550>CVE-2021-42550</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>6.6</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: High
+  - Privileges Required: High
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: High
+  - Integrity Impact: High
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=VE-2021-42550">https://cve.mitre.org/cgi-bin/cvename.cgi?name=VE-2021-42550</a></p>
+<p>Release Date: 2021-12-16</p>
+<p>Fix Resolution (ch.qos.logback:logback-core): 1.2.8</p>
+<p>Direct dependency fix Resolution (ch.qos.logback:logback-classic): 1.2.8</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details>
+
+***
+
+<p>:rescue_worker_helmet: Automatic Remediation is available for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2023-01-26 22:24:28.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
+
+</details>
+
+
+---
+
+<a id="34"></a>
+
+### #34: go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c: 4 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/34 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-02 01:03:11.000 UTC (3y 9m ago) |
+| **Updated** | 2022-04-07 18:56:02.000 UTC |
+| **Closed** | 2022-04-07 18:56:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c</b></p></summary>
+
+<p></p>
+<p>
+
+</details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2019-0205](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+| [CVE-2022-21698](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-21698) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/prometheus/client_golang-v1.11.0 | Transitive | N/A | &#10060; |
+| [CVE-2019-0210](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+| [CVE-2018-11798](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 6.5 | github.com/apache/thrift-0.10.0 | Transitive | N/A | &#10060; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0205</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c (Root Library)
+    - github.com/uber/tchannel-go-v1.21.0
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205>CVE-2019-0205</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-0205</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: org.apache.thrift:libthrift:0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2022-21698</summary>
+
+
+###  Vulnerable Library - <b>github.com/prometheus/client_golang-v1.11.0</b></p>
+
+<p>Prometheus instrumentation library for Go applications</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c (Root Library)
+    - :x: **github.com/prometheus/client_golang-v1.11.0** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+client_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.
+
+<p>Publish Date: 2022-02-15
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-21698>CVE-2022-21698</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://github.com/prometheus/client_golang/security/advisories/GHSA-cg3q-j54f-5p7p">https://github.com/prometheus/client_golang/security/advisories/GHSA-cg3q-j54f-5p7p</a></p>
+<p>Release Date: 2022-02-15</p>
+<p>Fix Resolution: v1.11.1</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2019-0210</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c (Root Library)
+    - github.com/uber/tchannel-go-v1.21.0
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.
+
+<p>Publish Date: 2019-10-29
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210>CVE-2019-0210</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E">http://mail-archives.apache.org/mod_mbox/thrift-dev/201910.mbox/%3C277A46CA87494176B1BBCF5D72624A2A%40HAGGIS%3E</a></p>
+<p>Release Date: 2019-10-29</p>
+<p>Fix Resolution: 0.13.0</p>
+
+</p>
+
+<p></p>
+
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2018-11798</summary>
+
+
+###  Vulnerable Library - <b>github.com/apache/thrift-0.10.0</b></p>
+
+<p>Apache Thrift</p>
+<p>
+
+Dependency Hierarchy:
+  - go.temporal.io/server-v1.13.1-0.20211213192924-3c44e562605c (Root Library)
+    - github.com/uber/tchannel-go-v1.21.0
+      - :x: **github.com/apache/thrift-0.10.0** (Vulnerable Library)
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+The Apache Thrift Node.js static web server in versions 0.9.2 through 0.11.0 have been determined to contain a security vulnerability in which a remote user has the ability to access files outside the set webservers docroot path.
+
+<p>Publish Date: 2019-01-07
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798>CVE-2018-11798</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>6.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: Low
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: High
+  - Integrity Impact: None
+  - Availability Impact: None
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-11798</a></p>
+<p>Release Date: 2019-01-07</p>
+<p>Fix Resolution: v0.12.0</p>
+
+</p>
+
+<p></p>
+
+</details>
+<!-- <REMEDIATE>[{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/apache/thrift","packageVersion":"0.10.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"server:v1.13.1-0.20211213192924-3c44e562605c;github.com/uber/tchannel-go:v1.21.0;github.com/apache/thrift:0.10.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"org.apache.thrift:libthrift:0.13.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2019-0205","vulnerabilityDetails":"In Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data. Because the issue had already been partially fixed in version 0.11.0, depending on the installed version it affects only certain language bindings.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0205","cvss3Severity":"high","cvss3Score":"7.5","cvss3Metrics":{"A":"High","AC":"Low","PR":"None","S":"Unchanged","C":"None","UI":"None","AV":"Network","I":"None"},"extraData":{}},{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/prometheus/client_golang","packageVersion":"v1.11.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"server:v1.13.1-0.20211213192924-3c44e562605c;github.com/prometheus/client_golang:v1.11.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"v1.11.1","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2022-21698","vulnerabilityDetails":"client_golang is the instrumentation library for Go applications in Prometheus, and the promhttp package in client_golang provides tooling around HTTP servers and clients. In client_golang prior to version 1.11.1, HTTP server is susceptible to a Denial of Service through unbounded cardinality, and potential memory exhaustion, when handling requests with non-standard HTTP methods. In order to be affected, an instrumented software must use any of `promhttp.InstrumentHandler*` middleware except `RequestsInFlight`; not filter any specific methods (e.g GET) before middleware; pass metric with `method` label name to our middleware; and not have any firewall/LB/proxy that filters away requests with unknown `method`. client_golang version 1.11.1 contains a patch for this issue. Several workarounds are available, including removing the `method` label name from counter/gauge used in the InstrumentHandler; turning off affected promhttp handlers; adding custom middleware before promhttp handler that will sanitize the request method given by Go http.Request; and using a reverse proxy or web application firewall, configured to only allow a limited set of methods.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2022-21698","cvss3Severity":"high","cvss3Score":"7.5","cvss3Metrics":{"A":"High","AC":"Low","PR":"None","S":"Unchanged","C":"None","UI":"None","AV":"Network","I":"None"},"extraData":{}},{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/apache/thrift","packageVersion":"0.10.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"server:v1.13.1-0.20211213192924-3c44e562605c;github.com/uber/tchannel-go:v1.21.0;github.com/apache/thrift:0.10.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"0.13.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2019-0210","vulnerabilityDetails":"In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2019-0210","cvss3Severity":"high","cvss3Score":"7.5","cvss3Metrics":{"A":"High","AC":"Low","PR":"None","S":"Unchanged","C":"None","UI":"None","AV":"Network","I":"None"},"extraData":{}},{"isOpenPROnVulnerability":true,"isPackageBased":true,"isDefaultBranch":true,"packages":[{"packageType":"GO","packageName":"github.com/apache/thrift","packageVersion":"0.10.0","packageFilePaths":[],"isTransitiveDependency":true,"dependencyTree":"server:v1.13.1-0.20211213192924-3c44e562605c;github.com/uber/tchannel-go:v1.21.0;github.com/apache/thrift:0.10.0","isMinimumFixVersionAvailable":true,"minimumFixVersion":"v0.12.0","isBinary":true}],"baseBranches":["main"],"vulnerabilityIdentifier":"CVE-2018-11798","vulnerabilityDetails":"The Apache Thrift Node.js static web server in versions 0.9.2 through 0.11.0 have been determined to contain a security vulnerability in which a remote user has the ability to access files outside the set webservers docroot path.","vulnerabilityUrl":"https://vuln.whitesourcesoftware.com/vulnerability/CVE-2018-11798","cvss3Severity":"medium","cvss3Score":"6.5","cvss3Metrics":{"A":"None","AC":"Low","PR":"Low","S":"Unchanged","C":"High","UI":"None","AV":"Network","I":"None"},"extraData":{}}]</REMEDIATE> -->
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-04-07 18:56:02.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by WhiteSource because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the WhiteSource inventory.
+
+</details>
+
+
+---
+
+<a id="33"></a>
+
+### #33: temporal-sdk-1.5.0.jar: 3 vulnerabilities (highest severity is: 7.5) - autoclosed
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/33 |
+| **State** | CLOSED |
+| **Author** | app/mend-for-github-com |
+| **Created** | 2022-04-02 01:03:09.000 UTC (3y 9m ago) |
+| **Updated** | 2022-08-08 13:35:12.000 UTC |
+| **Closed** | 2022-08-08 13:35:11.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 1 |
+| **Priority Score** | 1 |
+| **Labels** | Mend: dependency security vulnerability |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+<details><summary><img src='https://whitesource-resources.whitesourcesoftware.com/vulnerability_details.png' width=19 height=20> Vulnerable Library - <b>temporal-sdk-1.5.0.jar</b></p></summary>
+
+<p></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.18.1/492c35bb914d122cf12ab3acaf2ba576b40f92ce/protobuf-java-3.18.1.jar</p>
+<p>
+
+
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p></details>
+
+## Vulnerabilities
+
+| CVE | Severity | <img src='https://whitesource-resources.whitesourcesoftware.com/cvss3.png' width=19 height=20> CVSS | Dependency | Type | Fixed in | Remediation Available |
+| ------------- | ------------- | ----- | ----- | ----- | --- | --- |
+| [CVE-2020-36518](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-36518) | <img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> High | 7.5 | jackson-databind-2.13.0.jar | Transitive | 1.8.0 | &#9989; |
+| [WS-2021-0616](https://github.com/FasterXML/jackson-databind/commit/3ccde7d938fea547e598fdefe9a82cff37fed5cb) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 5.9 | jackson-databind-2.13.0.jar | Transitive | 1.7.0 | &#9989; |
+| [CVE-2021-22569](https://vuln.whitesourcesoftware.com/vulnerability/CVE-2021-22569) | <img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> Medium | 5.5 | protobuf-java-3.18.1.jar | Transitive | 1.6.0 | &#9989; |
+
+
+## Details
+
+<details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/high_vul.png' width=19 height=20> CVE-2020-36518</summary>
+
+
+###  Vulnerable Library - <b>jackson-databind-2.13.0.jar</b></p>
+
+<p>General data-binding functionality for Jackson: works on core streaming API</p>
+<p>Library home page: <a href="http://github.com/FasterXML/jackson">http://github.com/FasterXML/jackson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.0/889672a1721d6d85b2834fcd29d3fda92c8c8891/jackson-databind-2.13.0.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.5.0.jar (Root Library)
+    - jackson-datatype-jsr310-2.13.0.jar
+      - :x: **jackson-databind-2.13.0.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.
+ Mend Note: After conducting further research, Mend has determined that all versions of com.fasterxml.jackson.core:jackson-databind up to version 2.13.2 are vulnerable to CVE-2020-36518.
+
+<p>Publish Date: 2022-03-11
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2020-36518>CVE-2020-36518</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>7.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2022-03-11</p>
+<p>Fix Resolution (com.fasterxml.jackson.core:jackson-databind): 2.13.2.1</p>
+<p>Direct dependency fix Resolution (io.temporal:temporal-sdk): 1.8.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> WS-2021-0616</summary>
+
+
+###  Vulnerable Library - <b>jackson-databind-2.13.0.jar</b></p>
+
+<p>General data-binding functionality for Jackson: works on core streaming API</p>
+<p>Library home page: <a href="http://github.com/FasterXML/jackson">http://github.com/FasterXML/jackson</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.13.0/889672a1721d6d85b2834fcd29d3fda92c8c8891/jackson-databind-2.13.0.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.5.0.jar (Root Library)
+    - jackson-datatype-jsr310-2.13.0.jar
+      - :x: **jackson-databind-2.13.0.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+FasterXML jackson-databind before 2.12.6 and 2.13.1  there is DoS when using JDK serialization to serialize JsonNode.
+
+<p>Publish Date: 2021-11-20
+<p>URL: <a href=https://github.com/FasterXML/jackson-databind/commit/3ccde7d938fea547e598fdefe9a82cff37fed5cb>WS-2021-0616</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>5.9</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Network
+  - Attack Complexity: High
+  - Privileges Required: None
+  - User Interaction: None
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Release Date: 2021-11-20</p>
+<p>Fix Resolution (com.fasterxml.jackson.core:jackson-databind): 2.13.1</p>
+<p>Direct dependency fix Resolution (io.temporal:temporal-sdk): 1.7.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details><details>
+
+<summary><img src='https://whitesource-resources.whitesourcesoftware.com/medium_vul.png' width=19 height=20> CVE-2021-22569</summary>
+
+
+###  Vulnerable Library - <b>protobuf-java-3.18.1.jar</b></p>
+
+<p>Core Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an
+    efficient yet extensible format.</p>
+<p>Library home page: <a href="https://developers.google.com/protocol-buffers/">https://developers.google.com/protocol-buffers/</a></p>
+<p>Path to dependency file: /build.gradle</p>
+<p>Path to vulnerable library: /home/wss-scanner/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.18.1/492c35bb914d122cf12ab3acaf2ba576b40f92ce/protobuf-java-3.18.1.jar</p>
+<p>
+
+Dependency Hierarchy:
+  - temporal-sdk-1.5.0.jar (Root Library)
+    - temporal-serviceclient-1.5.0.jar
+      - protobuf-java-util-3.18.1.jar
+        - :x: **protobuf-java-3.18.1.jar** (Vulnerable Library)
+<p>Found in HEAD commit: <a href="https://github.com/temporalio/sdk-features/commit/08aad3472da56f93f12cc85ec600e9824ae7f41b">08aad3472da56f93f12cc85ec600e9824ae7f41b</a></p>
+<p>Found in base branch: <b>main</b></p>
+</p>
+
+<p></p>
+
+###  Vulnerability Details
+<p>  
+  
+An issue in protobuf-java allowed the interleaving of com.google.protobuf.UnknownFieldSet fields in such a way that would be processed out of order. A small malicious payload can occupy the parser for several minutes by creating large numbers of short-lived objects that cause frequent, repeated pauses. We recommend upgrading libraries beyond the vulnerable versions.
+
+<p>Publish Date: 2022-01-10
+<p>URL: <a href=https://vuln.whitesourcesoftware.com/vulnerability/CVE-2021-22569>CVE-2021-22569</a></p>
+</p>
+
+<p></p>
+
+###  CVSS 3 Score Details (<b>5.5</b>)
+<p>
+
+Base Score Metrics:
+- Exploitability Metrics:
+  - Attack Vector: Local
+  - Attack Complexity: Low
+  - Privileges Required: None
+  - User Interaction: Required
+  - Scope: Unchanged
+- Impact Metrics:
+  - Confidentiality Impact: None
+  - Integrity Impact: None
+  - Availability Impact: High
+</p>
+For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/calculator/3.0">here</a>.
+</p>
+
+<p></p>
+
+###  Suggested Fix
+<p>
+
+<p>Type: Upgrade version</p>
+<p>Origin: <a href="https://github.com/advisories/GHSA-wrvw-hg22-4m67">https://github.com/advisories/GHSA-wrvw-hg22-4m67</a></p>
+<p>Release Date: 2022-01-10</p>
+<p>Fix Resolution (com.google.protobuf:protobuf-java): 3.18.2</p>
+<p>Direct dependency fix Resolution (io.temporal:temporal-sdk): 1.6.0</p>
+
+</p>
+
+<p></p>
+
+
+:rescue_worker_helmet: Automatic Remediation is available for this issue
+</details>
+
+***
+
+<p>:rescue_worker_helmet: Automatic Remediation is available for this issue.</p>
+
+#### Comments (1)
+
+<details>
+<summary><strong>mend-for-github-com</strong> commented on 2022-08-08 13:35:12.000 UTC</summary>
+
+:heavy_check_mark: This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.
 
 </details>
 
@@ -10518,7 +21048,7 @@ I like it, let’s do that
 | **URL** | https://github.com/temporalio/features/issues/715 |
 | **State** | OPEN |
 | **Author** | deepika-awasthi |
-| **Created** | 2025-12-22 17:24:50.000 UTC (17 days ago) |
+| **Created** | 2025-12-22 17:24:50.000 UTC (18 days ago) |
 | **Updated** | 2025-12-28 18:34:22.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10558,7 +21088,7 @@ Describe alternatives you've considered
 | **URL** | https://github.com/temporalio/features/issues/712 |
 | **State** | OPEN |
 | **Author** | THardy98 (Thomas Hardy) |
-| **Created** | 2025-12-18 07:29:14.000 UTC (21 days ago) |
+| **Created** | 2025-12-18 07:29:14.000 UTC (22 days ago) |
 | **Updated** | 2025-12-18 07:31:52.000 UTC |
 | **Upvotes** | 0 |
 | **Comments** | 0 |
@@ -10732,6 +21262,49 @@ https://docs.temporal.io/cloud/limits#transaction-payload-size-limit
 - [ ] Ruby - 
 - [ ] PHP - 
 - [ ] Temporal CLI - 
+
+
+
+---
+
+<a id="695"></a>
+
+### #695: Set `GrpcMessageTooLarge` as `failure_reason` for workflow task failed metric
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/695 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2025-11-07 13:52:07.000 UTC (2 months ago) |
+| **Updated** | 2025-12-02 22:02:26.000 UTC |
+| **Closed** | 2025-12-02 22:02:26.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+If the workflow task failure is due to gRPC message too large, set `GrpcMessageTooLarge` as `failure_reason` on `temporal_workflow_task_execution_failed`. This should not overly expand cardinality on users with properly operating workers/workflows.
+
+Also while doing this, please confirm this "gRPC message too large" determining condition/code works on cloud as expected instead of just self-hosted/dev-server.
+
+### Per-SDK Tickets
+
+- [ ] Go - https://github.com/temporalio/sdk-go/issues/2114
+- [ ] Java - https://github.com/temporalio/sdk-java/issues/2732
+- [ ] Core - https://github.com/temporalio/sdk-core/issues/1065
+- [x] TypeScript - N/A
+- [x] Python - N/A
+- [x] .NET - N/A
+- [x] Ruby - N/A
+- [x] PHP - N/A
+- [x] Temporal CLI - N/A
 
 
 
@@ -10941,6 +21514,111 @@ Most (all?) SDKs have contrib/extra libraries for, say, OpenTelemetry or other a
 - [ ] PHP - TODO
 - [x] Temporal CLI - N/A
 
+
+
+---
+
+<a id="683"></a>
+
+### #683: Add Nexus CONFLICT and REQUEST_TIMEOUT handler error types
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/683 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2025-10-14 13:49:41.000 UTC (2 months ago) |
+| **Updated** | 2025-10-22 18:17:54.000 UTC |
+| **Closed** | 2025-10-22 18:17:54.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+As specified in the SPEC: https://github.com/nexus-rpc/api/blob/dc2055899501f338f5483c776020fdbd3eae762b/SPEC.md#predefined-handler-errors
+
+- [x] Go - https://github.com/nexus-rpc/sdk-go/pull/56
+- [x] Java - https://github.com/nexus-rpc/sdk-java/issues/37
+- [x] Core - N/A
+- [x] TypeScript - https://github.com/nexus-rpc/sdk-typescript/issues/23
+- [x] Python - https://github.com/nexus-rpc/sdk-python/issues/22
+- [x] .NET - https://github.com/nexus-rpc/sdk-dotnet/issues/9
+
+
+
+---
+
+<a id="682"></a>
+
+### #682: Remove fetchResult and fetchInfo from Nexus SDKs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/682 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2025-10-10 21:29:22.000 UTC (3 months ago) |
+| **Updated** | 2025-11-21 16:24:01.000 UTC |
+| **Closed** | 2025-11-21 16:24:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Additional context
+
+Recently removed from the spec: https://github.com/nexus-rpc/api/pull/25
+
+### Per-SDK Tickets
+
+- [x] Go - https://github.com/nexus-rpc/sdk-go/pull/64
+- [x] Java - https://github.com/nexus-rpc/sdk-java/issues/38
+- [x] TypeScript - https://github.com/nexus-rpc/sdk-typescript/issues/25
+- [x] Python - https://github.com/nexus-rpc/sdk-python/issues/23
+- [x] .NET - https://github.com/nexus-rpc/sdk-dotnet/issues/10
+
+### Details
+
+- Remove `[Get|Fetch]Info` and `[Get|Fetch]Result` requests at all Handler levels.
+- Remove the associated Operation Context types.
+- Remove the `OperationStillRunning` error type in SDKs that defines such a thing.
+
+
+
+
+
+---
+
+<a id="680"></a>
+
+### #680: Remove mentions of tctl from the SDKs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/680 |
+| **State** | CLOSED |
+| **Author** | yuandrew (Andrew Yuan) |
+| **Created** | 2025-10-07 16:14:17.000 UTC (3 months ago) |
+| **Updated** | 2025-10-24 22:52:30.000 UTC |
+| **Closed** | 2025-10-24 22:52:30.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Did a quick search, Go, Python, and TS all have mentions of it in various comments. We should probably switch over to using CLI instead,  since tctl is deprecated.
 
 
 ---
@@ -11259,6 +21937,55 @@ Currently timer options are available on `.newTimer` which allows setting summar
 
 ---
 
+<a id="665"></a>
+
+### #665: Nexus samples and dev guide docs to map a Nexus Operation input to multiple Workflow arguments
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/665 |
+| **State** | CLOSED |
+| **Author** | prasek (Phil Prasek) |
+| **Created** | 2025-08-14 20:03:09.000 UTC (4 months ago) |
+| **Updated** | 2025-09-15 19:32:43.000 UTC |
+| **Closed** | 2025-09-15 19:32:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+It's difficult for users to understand if Nexus supports mapping a Nexus Operation input to multiple Workflow arguments and how it should be done. This knowledge is often passed along on Slack DMs but should be broadly available to all users.
+
+In the Java Nexus dev guide we describe how Nexus supports [Mapping a Nexus Operation input to multiple Workflow arguments](https://docs.temporal.io/develop/java/nexus#map-a-nexus-operation-input-to-multiple-workflow-arguments) with the Java SDK, but not other languages. A [Nexus multi-arg sample](https://github.com/temporalio/samples-java/tree/nexus-snip-sync/core/src/main/java/io/temporal/samples/nexusmultipleargs) exists, but the [Java Nexus dev guide doesn't link to it](https://docs.temporal.io/develop/java/nexus#map-a-nexus-operation-input-to-multiple-workflow-arguments) like [other samples](https://docs.temporal.io/develop/java/nexus#develop-an-asynchronous-nexus-operation-handler-to-start-a-workflow).
+
+### Describe the solution you'd like
+
+1. create Nexus multi-arg samples for all SDKs similar to the [Java SDK sample](https://github.com/temporalio/samples-java/tree/nexus-snip-sync/core/src/main/java/io/temporal/samples/nexusmultipleargs)
+2. add docs section [Mapping a Nexus Operation input to multiple Workflow arguments](https://docs.temporal.io/develop/java/nexus#map-a-nexus-operation-input-to-multiple-workflow-arguments) in all Nexus SDK dev guides similar to mirror the Java SDK dev guide.
+3. update Java dev guide [Mapping a Nexus Operation input to multiple Workflow arguments](https://docs.temporal.io/develop/java/nexus#map-a-nexus-operation-input-to-multiple-workflow-arguments) to link to the underlying [Nexus multi-arg sample](https://github.com/temporalio/samples-java/tree/nexus-snip-sync/core/src/main/java/io/temporal/samples/nexusmultipleargs) like the other code samples in the docs do.
+
+<img width="720" height="470" alt="Image" src="https://github.com/user-attachments/assets/1dd21e93-cd82-4a00-a779-29d486edb1f5" />
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [x] Go - 
+- [x] Java - 
+- [x] TypeScript - 
+- [x] Python - 
+- [ ] .NET - 
+- [ ] Ruby - 
+
+
+---
+
 <a id="664"></a>
 
 ### #664: Nexus samples and dev guide docs for sync Nexus ops that use signal, signal-with-start, update, query, ...
@@ -11523,6 +22250,66 @@ There are multiple reasons for polls being slowed down. I'm not sure if we need 
 
 ---
 
+<a id="648"></a>
+
+### #648: Write tests for worker shutdown
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/648 |
+| **State** | CLOSED |
+| **Author** | yuandrew (Andrew Yuan) |
+| **Created** | 2025-07-08 21:57:07.000 UTC (6 months ago) |
+| **Updated** | 2025-08-21 20:48:00.000 UTC |
+| **Closed** | 2025-08-21 20:48:00.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Once the worker shutdown features spec is updated #261, we should write tests in each language
+
+### Describe the solution you'd like
+
+<!-- A clear and concise description of what you want to happen. SCREENSHOTS OR CODE SAMPLES ARE VERY HELPFUL -->
+
+This is a blurb from `features/activity/shutdown/README.md`, if test ends up being written differently, the README should be updated as well
+
+```
+The feature workflow should start a few activities and wait for their completion. Then the driver should
+start worker shutdown. The activities should varyingly accept the cancel, complete successfully,
+complete with failure, and ignore the cancel. The one which ignores the cancel should eventually
+encounter a hard timeout.
+```
+
+### Additional context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [ ] Go - 
+- [ ] Java - 
+- [ ] Core - 
+- [ ] TypeScript - 
+- [ ] Python - 
+- [ ] .NET - 
+- [ ] Ruby - 
+- [ ] PHP - 
+- [ ] Temporal CLI - 
+
+
+
+---
+
 <a id="636"></a>
 
 ### #636: Add task_queue information to long_request_latency
@@ -11726,6 +22513,35 @@ SDKs today only tests new workflow runs which means only the newer patch/getVers
 - [ ] Ruby - 
 - [ ] PHP - 
 - [x] Temporal CLI - N/A
+
+
+---
+
+<a id="612"></a>
+
+### #612: Remove pinning of @grpc/grpc-js in the TS harness
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/612 |
+| **State** | CLOSED |
+| **Author** | antlai-temporal (Antonio Lain) |
+| **Created** | 2025-03-19 19:16:17.000 UTC (9 months ago) |
+| **Updated** | 2025-06-04 16:00:58.000 UTC |
+| **Closed** | 2025-06-04 16:00:58.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+The latest @grpc/grpc-js library 1.13.0  fails to connect to our custom http proxy for testing, and two related proxy features fail. By default TS always upgrades to the latest version since it does not use a `package-lock.json`, and 
+an override to 1.10.10 was added in PR #611 . 
+
+This does not affect any other features, and it is likely just an artifact of our http proxy, but further investigation is needed...  
 
 
 ---
@@ -12259,6 +23075,100 @@ Replayers should allow users to provide a query and a certain task boundary to r
 
 ---
 
+<a id="548"></a>
+
+### #548: Workflow annotations for versioning
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/548 |
+| **State** | CLOSED |
+| **Author** | antlai-temporal (Antonio Lain) |
+| **Created** | 2024-10-08 18:46:47.000 UTC (1y 3m ago) |
+| **Updated** | 2025-06-03 16:22:01.000 UTC |
+| **Closed** | 2025-06-03 16:22:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+The new worker versioning-3 implementation requires the annotation of workflows so that if they are pinned, it will not try to move them immediately to a new version, waiting for them to finish before garbage-collecting workers. The benefit of that is that short-running workflows, marked as pinned, do not need to get patched.
+
+### Describe the solution you'd like
+
+The goal is to take advantage of code annotations when the language supports them, and the SDK already uses them for other purposes. If that is not the case, a programmatic API should be provided to add this annotation, and it should be invoked during the first workflow task executed by the workflow. 
+ 
+### Additional context
+
+> [!WARNING]
+> Make sure we mark old APIs deprecated 
+
+### Per-SDK Tickets
+
+<!-- Add links here once the tickets are created (no need to create them immediately). -->
+
+- [x] Go - https://github.com/temporalio/sdk-go/pull/1832
+- [x] Java - https://github.com/temporalio/sdk-java/issues/2458
+- [x] Core - https://github.com/temporalio/sdk-core/issues/889
+- [x] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1659
+- [x] Python - https://github.com/temporalio/sdk-python/issues/793
+- [x] .NET - https://github.com/temporalio/sdk-dotnet/issues/437
+- [x] Ruby - https://github.com/temporalio/sdk-ruby/issues/237
+- [ ] PHP - https://github.com/temporalio/sdk-php/issues/586
+
+
+
+---
+
+<a id="542"></a>
+
+### #542: Call ShutdownWorker API on worker shutdown
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/542 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-09-24 14:26:00.000 UTC (1y 3m ago) |
+| **Updated** | 2024-11-19 18:03:01.000 UTC |
+| **Closed** | 2024-11-19 18:03:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+New server-side shutdown worker API is being made. Make sure to ignore unimplemented errors (and only log on any other errors).
+
+### Per-SDK Tickets
+
+- [x] API - https://github.com/temporalio/api/pull/443
+- [x] Server - https://github.com/temporalio/temporal/pull/6511
+- [x] Go - https://github.com/temporalio/sdk-go/pull/1645
+- [x] Java - https://github.com/temporalio/sdk-java/issues/2236
+- [x] Core - https://github.com/temporalio/sdk-core/issues/822
+- [ ] TypeScript - N/A
+- [ ] Python - N/A
+- [ ] .NET - N/A
+- [ ] Ruby - N/A
+- [ ] PHP - N/A
+- [ ] Temporal CLI - N/A
+
+
+
+---
+
 <a id="538"></a>
 
 ### #538: Allow SDKs to support connecting to multiple endpoints for Multi-region Namespaces
@@ -12347,6 +23257,84 @@ There should also be a server / SDK side config to limit the number of links tra
 - [ ] Ruby
 - [ ] PHP - 
 - [ ] Temporal CLI - 
+
+
+
+---
+
+<a id="529"></a>
+
+### #529: Centralize dynamic config
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/529 |
+| **State** | CLOSED |
+| **Author** | Sushisource (Spencer Judge) |
+| **Created** | 2024-08-21 22:50:32.000 UTC (1y 4m ago) |
+| **Updated** | 2024-10-10 16:47:42.000 UTC |
+| **Closed** | 2024-10-10 16:47:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+We have some hardcoded dynamic config values for embedded server here: https://github.com/temporalio/features/blob/main/cmd/run.go#L208
+
+As well as a file for the docker way of running things here:
+https://github.com/temporalio/features/blob/main/dockerfiles/dynamicconfig/docker.yaml
+
+We should use one file, I suppose keep the yaml format, so that we always use the same options.
+
+Another motivation for this is that the server folks would like to use it so they know what options should apply to server when they're running it in a full infra environment for nightly pipelines.
+
+
+---
+
+<a id="522"></a>
+
+### #522: Support local_activity_X based metrics in Core-based SDKs
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/522 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2024-08-14 21:22:10.000 UTC (1y 4m ago) |
+| **Updated** | 2024-09-16 20:08:09.000 UTC |
+| **Closed** | 2024-09-16 20:08:09.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+In Go and Java, the `activity_` metrics are separate from the `local_activity_` metrics but in Core they are combined (ref https://docs.temporal.io/references/sdk-metrics). It has been decided to:
+
+* Align `local_activity_` metrics in Core with Go and Java by default
+* Have an opt-in option that can be set to revert to today's behavior
+* Make sure every Core-based SDK, when they upgrade core next, also expose this option
+* Make sure every Core-based SDK, when they released with upgraded core next, have very clear release notes about this metric behavior change
+
+### Per-SDK Tickets
+
+- [x] Go - N/A
+- [x] Java - N/A
+- [ ] Core - https://github.com/temporalio/sdk-core/issues/796
+- [ ] TypeScript - After Core
+- [ ] Python - After Core
+- [ ] .NET - After Core
+- [x] PHP - N/A
+- [x] Temporal CLI - N/A
 
 
 
@@ -12949,6 +23937,85 @@ We have the same ask from customers
 
 ---
 
+<a id="444"></a>
+
+### #444: [Feature Request] Run history compatibility checks for all SDKs and all features
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/444 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2024-03-29 18:21:34.000 UTC (1y 9m ago) |
+| **Updated** | 2024-06-07 15:08:05.000 UTC |
+| **Closed** | 2024-06-07 15:08:05.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+When we created this repo, one of the goals was to automate history compatibility testing to verify that new SDK releases are history-compatible with older SDKs.
+
+Support was added for Go and Java tests to record histories and compare them to histories created during a run.
+History comparison is a sensitive process and requires scrubbing logic:
+
+https://github.com/temporalio/features/blob/70121c2754758a529ebfc016eea20cf7f38d1176/cmd/run.go#L394
+
+Total scope of work is:
+
+- [ ] Capture histories for all features
+- [ ] Add support for recording histories in TS
+- [ ] Add support for recording histories in Python
+- [ ] Add support for recording histories in .NET
+- [ ] Add CI check to validate all features in all languages have recorded histories (unless marked for an exception)
+
+
+---
+
+<a id="431"></a>
+
+### #431: [Feature Request] SDK clients should set a UpdateID on any update request even if the user did not specify one.
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/431 |
+| **State** | CLOSED |
+| **Author** | Quinn-With-Two-Ns (Quinn Klassen) |
+| **Created** | 2024-03-06 17:32:40.000 UTC (1y 10m ago) |
+| **Updated** | 2024-08-06 19:11:53.000 UTC |
+| **Closed** | 2024-08-06 19:11:53.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+When the SDK sends an update request the UpdateID is optional, in practice leaving this field empty is a bad idea as there is no way to deduplicate retried update request. SDK should always set an UpdateID even if the user did not provide one before sending the request. 
+
+Client places:
+
+* [x] Go - https://github.com/temporalio/sdk-go/pull/1106
+* [x] CLI  - Should be covered by the Go SDK
+* [x] Java - Always done this way
+* [ ] TypeScript - https://github.com/temporalio/sdk-typescript/issues/1371
+* [ ] Python - https://github.com/temporalio/sdk-python/issues/484
+* [ ] .NET  - https://github.com/temporalio/sdk-dotnet/issues/198
+
+
+
+
+
+---
+
 <a id="429"></a>
 
 ### #429: Add SLA dashboard using SDK/client metrics
@@ -13006,6 +24073,52 @@ If the SDK encounters an unknown SDK flag on replay, often due to downgrading an
 
 Originally when we added SDK flags we said the SDK should fail on an unknown flag. Ignoring the unknown flag makes it easier to roll back an SDK, but also puts the workflow into an inconsistent state.
 
+
+
+---
+
+<a id="421"></a>
+
+### #421: [Bug] Why doesn't this repo trigger TS barfing on null activity timeouts?
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/421 |
+| **State** | CLOSED |
+| **Author** | Sushisource (Spencer Judge) |
+| **Created** | 2024-02-22 00:41:53.000 UTC (1y 10m ago) |
+| **Updated** | 2024-02-22 23:43:28.000 UTC |
+| **Closed** | 2024-02-22 23:43:28.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+| **Reactions** | 🚀 1 |
+
+#### Description
+
+### What are you really trying to do?
+
+<!-- 
+Tell us at a high level what you're doing, to avoid XY problem (https://en.wikipedia.org/wiki/XY_problem) 
+-->
+
+### Describe the bug
+
+Recently there was a bug in TS sdk triggered by protos changing some activity timeout values from 0 to nil. Fixed by https://github.com/temporalio/temporal/pull/5444 and https://github.com/temporalio/temporal/pull/5445
+
+The relevant question is why did our features tests (as run by the server repo) not catch this? Even though our activity coverage as of the time of writing is anemic (only two tests). It still should've been caught. It's unclear why it wasn't.
+
+When I run the hello world sample as mention in Tim's fix, indeed, it repros running against server main (before his or Roey's fix). But... when I run the exact same TS version as in samples (1.8.4) with the exact same code, except inside of features, it does not repro. 
+
+### Minimal Reproduction
+
+Running https://github.com/temporalio/features/tree/main/features/activity/cancel_try_cancel against server before the linked PRs should trigger the bug, but it doesn't. Alternatively creating a new feature with the simplest possible code (like the hello world sample) still doesn't trigger it.
+
+
+If I had to guess, there's some weird dependency magic going on here where maybe the version we think we're running isn't the version we're really running... but it sure looks like everything is working right.
 
 
 ---
@@ -13239,6 +24352,40 @@ For more information on CVSS3 Scores, click <a href="https://www.first.org/cvss/
 ***
 
 <p>:rescue_worker_helmet:Automatic Remediation will be attempted for this issue.</p>
+
+
+---
+
+<a id="368"></a>
+
+### #368: [Feature Request] Add an Eager Workflow Start test for Cloud
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/368 |
+| **State** | CLOSED |
+| **Author** | antlai-temporal (Antonio Lain) |
+| **Created** | 2023-11-06 23:59:59.000 UTC (2y 2m ago) |
+| **Updated** | 2023-11-22 00:40:01.000 UTC |
+| **Closed** | 2023-11-22 00:40:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Eager Workflow Start (EWS) is a latency optimization that eliminates matching, and a database round trip, for the first task of a workflow. See #242 for details.  EWS in Cloud is currently blocked on the need of an end-to-end test that demonstrates that the first workflow task is eagerly dispatched to a local worker. 
+
+### Describe the solution you'd like
+
+The solution should reuse the client connection for starter and worker, and initiate a simple workflow with the eager flag set to true. The first task of this workflow should be immediately returned to the starter, and dispatched to the worker without retries.
+
+
 
 
 ---
@@ -13682,6 +24829,37 @@ SDK checklist:
 
 ---
 
+<a id="290"></a>
+
+### #290: [Feature Request] Add feature that tests for update deduplication
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/290 |
+| **State** | CLOSED |
+| **Author** | antlai-temporal (Antonio Lain) |
+| **Created** | 2023-06-28 02:04:36.000 UTC (2y 6m ago) |
+| **Updated** | 2023-06-30 20:00:52.000 UTC |
+| **Closed** | 2023-06-30 20:00:52.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+Updates that reuse the update ID, and target the same workflow, should only be performed once.
+
+Add Java and Go features that show update deduplication.
+
+Linked to JIRA OSS-1250
+
+
+
+---
+
 <a id="288"></a>
 
 ### #288: guava-31.1-jre.jar: 1 vulnerabilities (highest severity is: 7.1)
@@ -14109,6 +25287,34 @@ A new replayer API that returns the replayed workflow result.
 
 ---
 
+<a id="226"></a>
+
+### #226: [Feature Request] .NET SDK Support
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/226 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2023-02-13 20:02:10.000 UTC (2y 11m ago) |
+| **Updated** | 2023-08-30 18:12:46.000 UTC |
+| **Closed** | 2023-08-30 18:12:46.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | cretz |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the solution you'd like
+
+Need to support building/running .NET SDK features. Needed for https://github.com/temporalio/sdk-dotnet/issues/23
+
+
+---
+
 <a id="222"></a>
 
 ### #222: workflow_completed and workflow_continue_as_new counters should be logged after a successful reporting to the server
@@ -14176,6 +25382,38 @@ Today Go (and probably Java) will fatal error the worker if server returns `Inva
 ### Describe the solution you'd like
 
 Every SDK should react the same to seeing a worker error. They should probably mimic core in that they retry for so long, even fatal ones, before actually being fatal.
+
+
+---
+
+<a id="210"></a>
+
+### #210: [Bug] TS tests are flaky
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/210 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2023-01-11 01:15:48.000 UTC (2y 12m ago) |
+| **Updated** | 2023-01-11 03:02:16.000 UTC |
+| **Closed** | 2023-01-11 03:02:16.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | Quinn-With-Two-Ns |
+| **Milestone** | None |
+
+#### Description
+
+Getting:
+```
+{"Feature": "schedule/backfill", "error": "failed getting history: after 5s, 1 workflow(s) are still running: schedule-backfill-...
+```
+
+See job log:
+https://github.com/temporalio/features/actions/runs/3888697322/jobs/6636280300#step:14:2097
 
 
 ---
@@ -14260,6 +25498,34 @@ SDKs should ideally always schedule the timer to avoid triggering the non-determ
 See also:
 https://github.com/temporalio/sdk-java/issues/1579
 https://github.com/temporalio/features/issues/378
+
+
+---
+
+<a id="184"></a>
+
+### #184: [Bug] Python features/query/timeout_due_to_no_active_workers should check for deadline exceeded
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/184 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2022-12-07 17:35:18.000 UTC (3y 1m ago) |
+| **Updated** | 2022-12-07 18:24:01.000 UTC |
+| **Closed** | 2022-12-07 18:24:01.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | bug |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Describe the bug
+
+Other langs check for the right error type, this one does not because it was left over from manual client-side timeout
 
 
 ---
@@ -14694,6 +25960,67 @@ SDK should set a heartbeat timeout, and cancel the context so activity could fai
 
 ---
 
+<a id="104"></a>
+
+### #104: [Feature Request] Support "preparing" an SDK to run
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/104 |
+| **State** | CLOSED |
+| **Author** | cretz (Chad Retz) |
+| **Created** | 2022-08-03 17:46:17.000 UTC (3y 5m ago) |
+| **Updated** | 2022-08-08 13:32:44.000 UTC |
+| **Closed** | 2022-08-08 13:32:44.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | cretz |
+| **Milestone** | None |
+
+#### Description
+
+### Is your feature request related to a problem? Please describe.
+
+Right now the CLI makes a temp dir and has the package manager lazily download things when it's run. We want to bake all pre-run steps into a container.
+
+### Describe the solution you'd like
+
+* Need a command to "prepare" a dir for run the same way we prepare a temp dir during run today
+* Need to be able to provide `--prepared-dir` to the `run` command to use a prepared directory we won't delete instead of a temp dir we do delete
+
+Needed by https://github.com/temporalio/sdk-features/issues/71
+
+
+---
+
+<a id="103"></a>
+
+### #103: [Feature Request] PHP harness
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/103 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-08-03 17:37:48.000 UTC (3y 5m ago) |
+| **Updated** | 2024-10-29 19:26:42.000 UTC |
+| **Closed** | 2024-10-29 19:26:42.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | enhancement |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+So we can start creating PHP specs
+
+
+---
+
 <a id="94"></a>
 
 ### #94: [Feature Request] Group Temporal-specific log tags
@@ -14816,6 +26143,58 @@ https://github.com/temporalio/temporal/blob/c2a3a2bdfb6377a633928203ffe577281da2
 | **Priority Score** | 0 |
 | **Labels** | enhancement |
 | **Assignees** | macrogreg |
+| **Milestone** | None |
+
+#### Description
+
+*No description provided.*
+
+
+---
+
+<a id="82"></a>
+
+### #82: [Feature Request] Implement query features
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/82 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-07-20 23:57:22.000 UTC (3y 5m ago) |
+| **Updated** | 2022-10-20 20:55:22.000 UTC |
+| **Closed** | 2022-10-20 20:55:22.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | feature-test |
+| **Assignees** | Sushisource |
+| **Milestone** | None |
+
+#### Description
+
+*No description provided.*
+
+
+---
+
+<a id="81"></a>
+
+### #81: [Feature Request] Implement data_converter features
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/81 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2022-07-20 23:56:51.000 UTC (3y 5m ago) |
+| **Updated** | 2023-07-14 21:54:03.000 UTC |
+| **Closed** | 2023-07-14 21:54:03.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | feature-test |
+| **Assignees** | antlai-temporal |
 | **Milestone** | None |
 
 #### Description
@@ -15203,5 +26582,41 @@ It is unclear how SDKs behave in the face of manually returned cancellation erro
 #### Description
 
 SDKs currently backoff on retryable errors, some errors e.g. `ResourceExhaustedError` should backoff more aggressively than others.
+
+
+---
+
+<a id="7"></a>
+
+### #7: SDKs should use `getSystemInfo` request to determine server capabilities
+
+| Field | Value |
+|-------|-------|
+| **URL** | https://github.com/temporalio/features/issues/7 |
+| **State** | CLOSED |
+| **Author** | bergundy (Roey Berman) |
+| **Created** | 2021-12-29 23:23:05.000 UTC (4 years ago) |
+| **Updated** | 2025-07-08 18:07:12.000 UTC |
+| **Closed** | 2025-07-08 18:07:12.000 UTC |
+| **Upvotes** | 0 |
+| **Comments** | 0 |
+| **Priority Score** | 0 |
+| **Labels** | None |
+| **Assignees** | None |
+| **Milestone** | None |
+
+#### Description
+
+### Discussion items
+- Should this call replace the health check call that Go and Java use when they establish a connection?
+- Should the SDK user be able require a set of capabilities (e.g. headers in signals and queries) and have the connection fail if server is incapable?
+
+### Per SDK work
+
+- [x] https://github.com/temporalio/sdk-go/issues/701
+- [x] https://github.com/temporalio/sdk-typescript/pull/682
+- [x] https://github.com/temporalio/sdk-core/issues/290
+- [x] https://github.com/temporalio/sdk-java/issues/1312
+- [ ] PHP https://github.com/temporalio/sdk-php/issues/223
 
 

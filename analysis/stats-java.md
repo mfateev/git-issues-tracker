@@ -17,8 +17,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 216 |
-| Total Closed Issues | 1 |
-| Total All Issues | 217 |
+| Total Closed Issues | 724 |
+| Total All Issues | 940 |
 | Bugs (open) | 33 |
 | Enhancements/Features (open) | 127 |
 | Security Issues (open) | 4 |
@@ -37,49 +37,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 0% (1/217) |
-| Avg Time to Close (calendar) | 8 days |
-| Avg Time to Close (business) | 7 days |
-| Median Time to Close (calendar) | 8 days |
-| Median Time to Close (business) | 7 days |
-| 90th Percentile (calendar) | 8 days |
-| 90th Percentile (business) | 7 days |
-| Resolved within 30 days | 100% |
-| Resolved within 90 days | 100% |
+| Resolution Rate | 77% (724/940) |
+| Avg Time to Close (calendar) | 199 days |
+| Avg Time to Close (business) | 143 days |
+| Median Time to Close (calendar) | 27 days |
+| Median Time to Close (business) | 20 days |
+| 90th Percentile (calendar) | 805 days |
+| 90th Percentile (business) | 575 days |
+| Resolved within 30 days | 51% |
+| Resolved within 90 days | 66% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 0 | 0% |
-| Completed (features) | 0 | 0% |
-| Self-resolved | 0 | 0% |
+| Fixed (bugs) | 86 | 12% |
+| Completed (features) | 235 | 32% |
+| Self-resolved | 104 | 14% |
 | Duplicate | 0 | 0% |
-| Won't Fix | 0 | 0% |
+| Won't Fix | 13 | 2% |
 | Stale/Inactive | 0 | 0% |
-| Invalid | 0 | 0% |
-| Other | 1 | 100% |
+| Invalid | 7 | 1% |
+| Other | 279 | 39% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 1 | 0 | +1 |
-| 2025-03 | 1 | 0 | +1 |
-| 2025-04 | 3 | 0 | +3 |
-| 2025-05 | 3 | 0 | +3 |
-| 2025-06 | 1 | 0 | +1 |
-| 2025-07 | 5 | 0 | +5 |
-| 2025-08 | 3 | 0 | +3 |
-| 2025-09 | 6 | 0 | +6 |
-| 2025-10 | 2 | 0 | +2 |
-| 2025-11 | 4 | 0 | +4 |
-| 2025-12 | 6 | 0 | +6 |
+| 2025-02 | 13 | 10 | +3 |
+| 2025-03 | 8 | 9 | -1 |
+| 2025-04 | 13 | 8 | +5 |
+| 2025-05 | 11 | 55 | -44 |
+| 2025-06 | 8 | 27 | -19 |
+| 2025-07 | 14 | 9 | +5 |
+| 2025-08 | 12 | 12 | 0 |
+| 2025-09 | 13 | 12 | +1 |
+| 2025-10 | 11 | 13 | -2 |
+| 2025-11 | 9 | 7 | +2 |
+| 2025-12 | 6 | 2 | +4 |
 | 2026-01 | 2 | 1 | +1 |
-| **Total** | **37** | **1** | **+36** |
+| **Total** | **120** | **165** | **-45** |
 
-📈 **Backlog Growing:** 36 more issues opened than closed in the last 12 months.
+📉 **Backlog Shrinking:** 45 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,27 +88,36 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 27 |
-| Issues Closed | 1 |
-| Net Change | +26 |
-| Bugs Closed | 0 |
-| Enhancements Closed | 0 |
+| Issues Opened | 65 |
+| Issues Closed | 54 |
+| Net Change | +11 |
+| Bugs Closed | 2 |
+| Enhancements Closed | 24 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 8 | 7 |
-| Median | 8 | 7 |
-| 90th Percentile | 8 | 7 |
+| Average | 137 | 99 |
+| Median | 6 | 4 |
+| 90th Percentile | 482 | 344 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 100% |
-| Within 90 days | 100% |
+| Within 30 days | 69% |
+| Within 90 days | 76% |
 
+### Popular Requests Resolved (3+ upvotes)
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+| [#1849](../repos/temporalio-sdk-java/issues.md#1849) | 9 | Expose an async API to start a workflow which would all... |
+| [#2665](../repos/temporalio-sdk-java/issues.md#2665) | 6 | Serialization with `kotlinx.serialization` |
+| [#2724](../repos/temporalio-sdk-java/issues.md#2724) | 5 | Allow Configuration Option to Enable Spring Application... |
+| [#2671](../repos/temporalio-sdk-java/issues.md#2671) | 3 | Tracing - Native OpenTelemetry Interceptors |
+| [#704](../repos/temporalio-sdk-java/issues.md#704) | 3 | Allow exception logging to be customizable for activity... |
 
 ---
 ## Age Distribution (Open Issues)
@@ -118,8 +127,8 @@
 | Last 30 days | 5 | 2% |
 | 1-3 months | 8 | 4% |
 | 3-6 months | 12 | 6% |
-| 6-12 months | 17 | 8% |
-| 1-2 years | 38 | 18% |
+| 6-12 months | 16 | 7% |
+| 1-2 years | 39 | 18% |
 | 2-3 years | 32 | 15% |
 | 3+ years | 104 | 48% |
 

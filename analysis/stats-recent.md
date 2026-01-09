@@ -2,7 +2,7 @@
 
 **Generated:** 2026-01-09
 **Period:** 2025-12-10 to 2026-01-09
-**New Issues:** 48
+**New Issues:** 49
 
 ## Related Documents
 
@@ -18,9 +18,9 @@
 |------------|------------|
 | temporal | 15 |
 | sdk-dotnet | 9 |
+| sdk-python | 6 |
 | sdk-java | 6 |
-| sdk-typescript | 6 |
-| sdk-python | 4 |
+| sdk-typescript | 5 |
 | sdk-php | 3 |
 | sdk-go | 2 |
 | features | 2 |
@@ -95,16 +95,17 @@
 | 2025-12-18 | temporal | [#8865](../repos/temporalio-temporal/issues.md#8865) | roshchha | Address security vulnerability CVE-2025-61727 for golang:crypto/x509 |
 | 2025-12-18 | temporal | [#8864](../repos/temporalio-temporal/issues.md#8864) | vy-kauppinen | Workflow cannot run with the dedicated cloud PostgreSQL: "Unable to query workflow due to Workflow Task in failed state." |
 | 2025-12-18 | features | [#712](../repos/temporalio-features/issues.md#712) | THardy98 | [Bug] Use `pnpm` when building TS worker from source |
+| 2025-12-18 | sdk-python | [#1255](../repos/temporalio-sdk-python/issues.md#1255) | ilovepb | [Bug] Update openai-agents dependency |
 | 2025-12-17 | sdk-python | [#1254](../repos/temporalio-sdk-python/issues.md#1254) | VegetarianOrc | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox |
 | 2025-12-17 | sdk-dotnet | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | cfauchere | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux |
 | 2025-12-17 | sdk-dotnet | [#578](../repos/temporalio-sdk-dotnet/issues.md#578) | cretz | [Feature Request] Add tests to confirm proper Nexus support for time-skipping environment |
 | 2025-12-16 | temporal | [#8833](../repos/temporalio-temporal/issues.md#8833) | AlexMog | Scheduler does not list workflows runned when using "triggerImmediately" |
+| 2025-12-15 | sdk-python | [#1252](../repos/temporalio-sdk-python/issues.md#1252) | ClemDoum | [Feature Request] add client support for sync activities run by `ThreadPoolExecutor` |
 | 2025-12-12 | sdk-dotnet | [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | jmaeagle99 | [Bug] Investigate test host crash flake |
 | 2025-12-12 | sdk-typescript | [#1862](../repos/temporalio-sdk-typescript/issues.md#1862) | deepika-awasthi | [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error |
 | 2025-12-12 | sdk-java | [#2747](../repos/temporalio-sdk-java/issues.md#2747) | karunagoyal | @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does |
 | 2025-12-12 | sdk-dotnet | [#576](../repos/temporalio-sdk-dotnet/issues.md#576) | cretz | [Feature Request] .NET Analyzer for Checking Workflows |
-| 2025-12-10 | temporal | [#8790](../repos/temporalio-temporal/issues.md#8790) | xtyinbiao | history_node table keeps growing |
-| 2025-12-10 | sdk-typescript | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | mnahkies | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
+| 2025-12-11 | temporal | [#8806](../repos/temporalio-temporal/issues.md#8806) | gow | Test ticket |
 
 ---
 
@@ -140,8 +141,8 @@
   - *2025-12-18 by vy-kauppinen* | Labels: potential-bug
 - **[#8833](../repos/temporalio-temporal/issues.md#8833)** Scheduler does not list workflows runned when using "triggerImmediately"
   - *2025-12-16 by AlexMog* | Labels: potential-bug
-- **[#8790](../repos/temporalio-temporal/issues.md#8790)** history_node table keeps growing
-  - *2025-12-10 by xtyinbiao* | Labels: none
+- **[#8806](../repos/temporalio-temporal/issues.md#8806)** Test ticket
+  - *2025-12-11 by gow* | Labels: potential-bug
 
 ### sdk-dotnet (9 new)
 
@@ -164,6 +165,21 @@
 - **[#576](../repos/temporalio-sdk-dotnet/issues.md#576)** [Feature Request] .NET Analyzer for Checking Workflows
   - *2025-12-12 by cretz* | Labels: enhancement
 
+### sdk-python (6 new)
+
+- **[#1268](../repos/temporalio-sdk-python/issues.md#1268)** [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings
+  - *2026-01-09 by sashaneb* | Labels: bug
+- **[#1267](../repos/temporalio-sdk-python/issues.md#1267)** [Bug] Logs not emitted during workflow queries
+  - *2026-01-08 by marcoriopel* | Labels: bug
+- **[#1262](../repos/temporalio-sdk-python/issues.md#1262)** [Bug] Add ability to obtain `ApplicationError` details with type hint
+  - *2025-12-29 by cretz* | Labels: bug
+- **[#1255](../repos/temporalio-sdk-python/issues.md#1255)** [Bug] Update openai-agents dependency
+  - *2025-12-18 by ilovepb* | Labels: bug
+- **[#1254](../repos/temporalio-sdk-python/issues.md#1254)** [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox
+  - *2025-12-17 by VegetarianOrc* | Labels: bug
+- **[#1252](../repos/temporalio-sdk-python/issues.md#1252)** [Feature Request] add client support for sync activities run by `ThreadPoolExecutor`
+  - *2025-12-15 by ClemDoum* | Labels: enhancement
+
 ### sdk-java (6 new)
 
 - **[#2755](../repos/temporalio-sdk-java/issues.md#2755)** Support using Temporal failures in Nexus APIs
@@ -179,7 +195,7 @@
 - **[#2747](../repos/temporalio-sdk-java/issues.md#2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
   - *2025-12-12 by karunagoyal* | Labels: none
 
-### sdk-typescript (6 new)
+### sdk-typescript (5 new)
 
 - **[#1869](../repos/temporalio-sdk-typescript/issues.md#1869)** Environment Configuration does not read the correct file path on macOS
   - *2026-01-04 by pvsone* | Labels: bug
@@ -191,19 +207,6 @@
   - *2025-12-22 by tconley1428* | Labels: enhancement
 - **[#1862](../repos/temporalio-sdk-typescript/issues.md#1862)** [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
   - *2025-12-12 by deepika-awasthi* | Labels: enhancement
-- **[#1860](../repos/temporalio-sdk-typescript/issues.md#1860)** [Bug] Performance regression from 1.13.1 -> 1.13.2
-  - *2025-12-10 by mnahkies* | Labels: bug
-
-### sdk-python (4 new)
-
-- **[#1268](../repos/temporalio-sdk-python/issues.md#1268)** [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings
-  - *2026-01-09 by sashaneb* | Labels: bug
-- **[#1267](../repos/temporalio-sdk-python/issues.md#1267)** [Bug] Logs not emitted during workflow queries
-  - *2026-01-08 by marcoriopel* | Labels: bug
-- **[#1262](../repos/temporalio-sdk-python/issues.md#1262)** [Bug] Add ability to obtain `ApplicationError` details with type hint
-  - *2025-12-29 by cretz* | Labels: bug
-- **[#1254](../repos/temporalio-sdk-python/issues.md#1254)** [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox
-  - *2025-12-17 by VegetarianOrc* | Labels: bug
 
 ### sdk-php (3 new)
 

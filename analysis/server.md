@@ -1,8 +1,8 @@
 # Temporal Server - Issues Analysis & Remediation Proposal
 
 **Generated:** 2026-01-09
-**Total Open Issues:** 534
-**Total Closed Issues:** 2
+**Total Open Issues:** 533
+**Total Closed Issues:** 951
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
 <- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) | [Full Issue Data](../repos/temporalio-temporal/issues.md)
@@ -13,18 +13,19 @@
 
 ## Executive Summary
 
-The Temporal Server repository has 534 open issues with strong community engagement: 900 total upvotes and 878 comments across 27% and 54% of issues respectively. The most requested features center around workflow orchestration capabilities (external workflow completion, priority queues), alternative database backends (MongoDB, OpenSearch, YDB), and improved operational tooling. With 70% of issues being stale (>12 months old) and a growing backlog (+95 issues in the last 12 months), there is significant opportunity for strategic triage and prioritization.
+The Temporal Server repository has 533 open issues with strong community engagement: 900 total upvotes and 878 comments across open issues. The most requested features center around workflow orchestration capabilities (external workflow completion with 70 upvotes, priority queues with 50 upvotes), alternative database backends (MongoDB at 46 upvotes, OpenSearch at 30 upvotes), and improved configuration/operations (POSTGRES_SEEDS documentation at 46 upvotes). With 70% of issues being stale (>12 months old) and a growing backlog (+70 issues net in the last 12 months), there is significant opportunity for strategic triage and prioritization.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
 | Enhancements/Features | 352 | High - represents core user demand for new capabilities |
-| Potential Bugs | 127 | Medium-High - requires investigation to confirm severity |
+| Potential Bugs | 126 | Medium-High - requires investigation to confirm severity |
 | Confirmed Bugs | 12 | High - known issues affecting users |
 | Operations/DevOps | 20 | Medium - improves deployment and monitoring |
 | API Changes | 25 | Medium - enables new SDK capabilities |
 | Up-for-grabs | 30 | Low - good for community contributions |
+| Good First Issue | 7 | Low - onboarding opportunities |
 
 ### User Engagement Summary
 
@@ -41,10 +42,16 @@ The Temporal Server repository has 534 open issues with strong community engagem
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 0% (2/536) |
-| Median Time to Close | 8 days (calendar) / 7 days (business) |
-| Resolved within 30 days | 100% |
-| Resolved within 90 days | 100% |
+| Resolution Rate | 64% (951/1484) |
+| Median Time to Close | 41 days (calendar) / 30 days (business) |
+| Resolved within 30 days | 47% |
+| Resolved within 90 days | 62% |
+
+**Closure Reasons (Inferred):**
+- Fixed (bugs): 353 (37%)
+- Completed (features): 246 (26%)
+- Self-resolved: 209 (22%)
+- Other: 143 (15%)
 
 ---
 
@@ -54,29 +61,34 @@ The Temporal Server repository has 534 open issues with strong community engagem
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
-| Last 12 months | 97 | 2 | +95 |
+| Last 12 months | 168 | 98 | +70 |
 
-Backlog Growing: 95 more issues opened than closed in the last 12 months. The extremely low resolution rate indicates either issues are being addressed through other means (PRs without linked issues), or there is a significant maintenance backlog requiring attention.
+**Backlog Growing:** 70 more issues opened than closed in the last 12 months. The monthly trend shows consistent growth with April 2025 (+15) and June 2025 (+13) being the highest net increase months.
 
 ### Last 6 Months: Detailed Analysis
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 55 |
-| Issues Closed | 2 |
-| Bugs Closed | 1 |
-| Enhancements Completed | 1 |
+| Issues Opened | 97 |
+| Issues Closed | 64 |
+| Net Change | +33 |
+| Bugs Closed | 45 |
+| Enhancements Closed | 14 |
+| Median Time to Close | 24 days (calendar) / 19 days (business) |
 
 ### Popular Requests Resolved (Last 6 Months)
 
-No high-demand issues (3+ upvotes) were closed in the last 6 months. This represents an opportunity to address top-voted items to improve community satisfaction.
+| Issue | Upvotes | Title |
+|-------|-----|-------|
+| [#2517](../repos/temporalio-temporal/issues.md#2517) | 7 | Make task queues more ordered |
+| [#8363](../repos/temporalio-temporal/issues.md#8363) | 6 | Task queue validator on occasions fails task queue name... |
 
 ---
 
 ## User Demand: Top Issues by Upvotes
 
 | Rank | Issue | Upvotes | Comments | Title |
-|------|-------|---------|----------|-------|
+|------|-------|-----|-----|-------|
 | 1 | [#680](../repos/temporalio-temporal/issues.md#680) | 70 | 14 | Add ability for workflow to wait for completion of an external workflow |
 | 2 | [#1507](../repos/temporalio-temporal/issues.md#1507) | 50 | 27 | Provide priority task queues |
 | 3 | [#2668](../repos/temporalio-temporal/issues.md#2668) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a descriptive var name) |
@@ -100,135 +112,125 @@ No high-demand issues (3+ upvotes) were closed in the last 6 months. This repres
 | 6 | [#537](../repos/temporalio-temporal/issues.md#537) | 62 | Add SignalWithStart/UpdateWithStart command |
 | 7 | [#131](../repos/temporalio-temporal/issues.md#131) | 60 | Different retry options based on failure type |
 | 8 | [#328](../repos/temporalio-temporal/issues.md#328) | 54 | Try to run temporal on top of Amazon Keyspaces |
-| 9 | [#2609](../repos/temporalio-temporal/issues.md#2609) | 53 | Transfer child workflows to new parent |
+| 9 | [#2609](../repos/temporalio-temporal/issues.md#2609) | 53 | Transfer child workflows to new parent run on continue-as-new |
 | 10 | [#2582](../repos/temporalio-temporal/issues.md#2582) | 49 | Add health check handler for worker service |
 
 ---
 
 ## Top Request Categories
 
-### 1. Workflow Orchestration Capabilities (Very High Demand)
+### 1. Workflow Orchestration Enhancements (Very High Demand)
 
-Users consistently request enhanced workflow coordination features to handle complex multi-workflow scenarios.
+Users consistently request advanced workflow coordination capabilities that enable more complex inter-workflow relationships and better state management.
 
 | Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#680](../repos/temporalio-temporal/issues.md#680) | 70 | Wait for external workflow completion |
-| [#537](../repos/temporalio-temporal/issues.md#537) | 30 | SignalWithStart/UpdateWithStart command |
+|-------|-----|---------|
+| [#680](../repos/temporalio-temporal/issues.md#680) | 70 | Wait for external workflow completion from within a workflow (5 years old, 14 comments, workaround via Nexus available) |
+| [#1507](../repos/temporalio-temporal/issues.md#1507) | 50 | Priority task queues for fairness and priority ordering (partially shipped in v1.28.0, ongoing development) |
+| [#537](../repos/temporalio-temporal/issues.md#537) | 30 | SignalWithStart/UpdateWithStart from workflow code (currently activity-only workaround) |
 | [#131](../repos/temporalio-temporal/issues.md#131) | 28 | Different retry options based on failure type |
 | [#2609](../repos/temporalio-temporal/issues.md#2609) | 23 | Transfer child workflows to new parent on continue-as-new |
-| [#3228](../repos/temporalio-temporal/issues.md#3228) | 16 | Metadata for Timers |
-| [#685](../repos/temporalio-temporal/issues.md#685) | 9 | Delay workflow completion until abandoned children start |
-| [#3006](../repos/temporalio-temporal/issues.md#3006) | 0 | Workflow Pause / Unpause (18 comments - high discussion) |
 
-### 2. Alternative Database Backends (High Demand)
+**Analysis:** The top issue ([#680](../repos/temporalio-temporal/issues.md#680)) requesting external workflow completion has been open for 5 years with consistent community demand. A workaround using Nexus WorkflowRunOperation is now available (v1.28+), but users want this without going through a Nexus handler. Issue [#1507](../repos/temporalio-temporal/issues.md#1507) for priority queues is actively being developed with simple priority shipped in v1.28.0 and fairness features in progress.
 
-Strong community interest in running Temporal on databases other than the default options.
+### 2. Alternative Database/Storage Backends (High Demand)
+
+Users operating in various cloud environments and enterprise contexts need database options beyond MySQL, PostgreSQL, and Cassandra.
 
 | Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#2318](../repos/temporalio-temporal/issues.md#2318) | 46 | MongoDB as Persistent store |
+|-------|-----|---------|
+| [#2318](../repos/temporalio-temporal/issues.md#2318) | 46 | MongoDB as persistent store (community member completed implementation in #8908) |
+| [#5680](../repos/temporalio-temporal/issues.md#5680) | 30 | Official OpenSearch support (v1.29.0+ works with OpenSearch up to v2.7.0, workarounds for newer versions) |
 | [#5302](../repos/temporalio-temporal/issues.md#5302) | 23 | YDB Temporal support |
 | [#328](../repos/temporalio-temporal/issues.md#328) | 19 | Amazon Keyspaces support |
-| [#3366](../repos/temporalio-temporal/issues.md#3366) | 16 | Support SQLite in production |
+| [#3366](../repos/temporalio-temporal/issues.md#3366) | 16 | SQLite support in production |
 | [#4180](../repos/temporalio-temporal/issues.md#4180) | 13 | Official CockroachDB (CRDB) support |
-| [#4105](../repos/temporalio-temporal/issues.md#4105) | 8 | Full support for ScyllaDB as persistence layer |
 
-### 3. Task Queue Management (High Demand)
+**Analysis:** MongoDB implementation has been completed by a community contributor (#8908). OpenSearch support is progressing with v1.29.0+ supporting OpenSearch up to v2.7.0, with work ongoing for a workaround for newer versions. SQLite production support aligns with the Temporalite use case for low-budget deployments.
 
-Users need better control over task distribution and prioritization.
+### 3. Configuration & Operations (High Demand)
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#1507](../repos/temporalio-temporal/issues.md#1507) | 50 | Priority task queues |
-| [#1797](../repos/temporalio-temporal/issues.md#1797) | 22 | Get all task queues per namespace |
-| [#1988](../repos/temporalio-temporal/issues.md#1988) | 15 | Dynamic task queue routing |
-| [#1460](../repos/temporalio-temporal/issues.md#1460) | 16 | Add task queue query |
-| [#3468](../repos/temporalio-temporal/issues.md#3468) | 6 | List task queues for a given namespace |
-| [#3309](../repos/temporalio-temporal/issues.md#3309) | 7 | Notify all workers on a task queue |
-
-### 4. Search and Visibility (Medium Demand)
-
-Improved visibility store options and search capabilities.
+Users deploying Temporal in production environments struggle with configuration complexity and operational visibility.
 
 | Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#5680](../repos/temporalio-temporal/issues.md#5680) | 30 | Official support for Opensearch |
-| [#3056](../repos/temporalio-temporal/issues.md#3056) | 11 | Support wildcard search for workflows |
-| [#7930](../repos/temporalio-temporal/issues.md#7930) | 0 | Replace olivere/elastic with official ES client (14 comments) |
-
-### 5. Operational Improvements (Medium Demand)
-
-Features to improve deployment, monitoring, and maintenance.
-
-| Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#2668](../repos/temporalio-temporal/issues.md#2668) | 46 | Document POSTGRES_SEEDS / use descriptive var name |
+|-------|-----|---------|
+| [#2668](../repos/temporalio-temporal/issues.md#2668) | 46 | Document POSTGRES_SEEDS (confusing env var naming persists since 2022) |
+| [#1797](../repos/temporalio-temporal/issues.md#1797) | 22 | List all task queues per namespace |
 | [#2582](../repos/temporalio-temporal/issues.md#2582) | 18 | Health check handler for worker service |
-| [#298](../repos/temporalio-temporal/issues.md#298) | 14 | Support embedded version of the service |
+| [#298](../repos/temporalio-temporal/issues.md#298) | 14 | Embedded version of the service |
 | [#4383](../repos/temporalio-temporal/issues.md#4383) | 10 | Log-less graceful shutdown |
+
+**Analysis:** The POSTGRES_SEEDS documentation issue ([#2668](../repos/temporalio-temporal/issues.md#2668)) has frustrated users for 3+ years with comments from 2023, 2024, and 2025 all expressing confusion. This is a low-hanging fruit for improving developer experience. Task queue listing ([#1797](../repos/temporalio-temporal/issues.md#1797)) is needed for client-side tooling and debugging.
+
+### 4. Task Queue & Scheduling Improvements (Medium Demand)
+
+Users need better control over task distribution, scheduling, and worker management.
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1988](../repos/temporalio-temporal/issues.md#1988) | 15 | Dynamic task queue routing |
+| [#1460](../repos/temporalio-temporal/issues.md#1460) | 16 | Task queue query (being solved via per-process Nexus endpoint) |
+| [#3228](../repos/temporalio-temporal/issues.md#3228) | 16 | Metadata for timers (naming/tagging for UI clarity) |
 | [#1428](../repos/temporalio-temporal/issues.md#1428) | 11 | Error-free rolling bounces and upgrades |
 
-### 6. Schedule Enhancements (Medium Demand)
+**Analysis:** Dynamic task queue routing ([#1988](../repos/temporalio-temporal/issues.md#1988)) enables development/troubleshooting scenarios. Task queue query ([#1460](../repos/temporalio-temporal/issues.md#1460)) is being addressed via Nexus service endpoints. Timer metadata ([#3228](../repos/temporalio-temporal/issues.md#3228)) is a UX improvement for workflow debugging.
 
-Improvements to the scheduling system.
+### 5. Authentication & Security (Medium Demand)
 
 | Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#5811](../repos/temporalio-temporal/issues.md#5811) | 12 | Support last day of month as recurring schedule option |
-| [#4795](../repos/temporalio-temporal/issues.md#4795) | 14 | Schedules - execution workflowid "as-is" option |
-| [#8205](../repos/temporalio-temporal/issues.md#8205) | 2 | Improve DST handling in schedules |
+|-------|-----|---------|
+| [#8724](../repos/temporalio-temporal/issues.md#8724) | 6 | Azure Entra ID Authentication for PostgreSQL Backend |
+| [#8636](../repos/temporalio-temporal/issues.md#8636) | 1 | Auth plugin design |
+| [#4902](../repos/temporalio-temporal/issues.md#4902) | 0 | Custom authentication between frontend and other services |
 
 ---
 
 ## Bugs Requiring Attention
 
-### Confirmed Bugs
+### Confirmed Bugs (Labeled 'bug')
 
 | Issue | Upvotes | Impact |
-|-------|---------|--------|
-| [#2941](../repos/temporalio-temporal/issues.md#2941) | 9 | Host level cache for history - performance impact |
+|-------|-----|--------|
+| [#8970](../repos/temporalio-temporal/issues.md#8970) | 0 | Client-set RPC deadline ignored for long poll GetWorkflowExecutionHistory |
+| [#8943](../repos/temporalio-temporal/issues.md#8943) | 0 | No admin-tools image for 1.29.2 |
+| [#8864](../repos/temporalio-temporal/issues.md#8864) | 0 | Workflow cannot run with dedicated cloud PostgreSQL |
+
+### Potential Bugs (High Upvotes - Need Investigation)
+
+| Issue | Upvotes | Impact |
+|-------|-----|--------|
+| [#2941](../repos/temporalio-temporal/issues.md#2941) | 9 | Host level cache for history (may have been addressed in v1.25.0 via enableHostHistoryCache) |
 | [#6995](../repos/temporalio-temporal/issues.md#6995) | 6 | Error during VisibilityDeleteExecution |
-| [#4233](../repos/temporalio-temporal/issues.md#4233) | 6 | Too high memory usage on history service |
+| [#4233](../repos/temporalio-temporal/issues.md#4233) | 6 | Too high memory usage on history service (multiple reports, assigned but stale) |
 | [#7037](../repos/temporalio-temporal/issues.md#7037) | 5 | Viewing schedule throws 504 "context deadline exceeded" |
 | [#5455](../repos/temporalio-temporal/issues.md#5455) | 5 | docker-compose multirole sometimes stuck on boot |
-| [#983](../repos/temporalio-temporal/issues.md#983) | 5 | Logging/exception stack trace not capturing underlying errors |
-| [#8719](../repos/temporalio-temporal/issues.md#8719) | 3 | Stale internode gRPC connections after pod termination |
-| [#6806](../repos/temporalio-temporal/issues.md#6806) | 3 | WorkflowTaskTimedOut if submitting large number of activities |
 
-### Potential Bugs (Need Investigation)
+### Memory/Performance Issues
 
-The repository has 127 issues labeled as "potential-bug" requiring triage:
-
-| Issue | Upvotes | Title |
-|-------|---------|-------|
-| [#6323](../repos/temporalio-temporal/issues.md#6323) | 0 | Frontend Service - goroutine (CPU & Memory) Leak (15 comments) |
-| [#4000](../repos/temporalio-temporal/issues.md#4000) | 2 | Concurrent map read and map write |
-| [#8490](../repos/temporalio-temporal/issues.md#8490) | 2 | Scheduled Actions doesn't clear ContinuedFailure on null success payloads |
-| [#7894](../repos/temporalio-temporal/issues.md#7894) | 2 | Cannot load Archived Workflows on UI even archived are present in S3 |
-
-### Recent Security Issues
-
-| Issue | Date | Title |
-|-------|------|-------|
-| [#8866](../repos/temporalio-temporal/issues.md#8866) | 2025-12-18 | CVE-2025-61729 for golang:crypto/x509 |
-| [#8865](../repos/temporalio-temporal/issues.md#8865) | 2025-12-18 | CVE-2025-61727 for golang:crypto/x509 |
-| [#8110](../repos/temporalio-temporal/issues.md#8110) | - | v1.28.0 vulnerabilities (10 comments) |
+The history service memory issue ([#4233](../repos/temporalio-temporal/issues.md#4233)) has multiple reports from users experiencing high memory usage with cache settings seemingly ignored. Related issue [#2941](../repos/temporalio-temporal/issues.md#2941) about host-level cache was supposedly addressed in v1.25.0 but needs confirmation.
 
 ---
 
 ## Community Contribution Opportunities
 
-Issues marked as up-for-grabs or good-first-issue (37 total):
+### Up-for-grabs Issues
 
 | Issue | Area | Description |
 |-------|------|-------------|
-| [#421](../repos/temporalio-temporal/issues.md#421) | CLI | Add admin command to dump dynamic config value(s) |
-| [#453](../repos/temporalio-temporal/issues.md#453) | Docker | Implement docker healthcheck |
-| [#607](../repos/temporalio-temporal/issues.md#607) | Testing | Add proper unit/integration tests for parentclosepolicy workflow |
-| [#3532](../repos/temporalio-temporal/issues.md#3532) | Refactoring | Remove unused methods in ClientBean |
-| [#5553](../repos/temporalio-temporal/issues.md#5553) | CI | Update license check script to verify current year |
-| [#5544](../repos/temporalio-temporal/issues.md#5544) | Errors | Use different error when signalName is empty |
+| [#680](../repos/temporalio-temporal/issues.md#680) | API/DevExp | Wait for external workflow completion (labeled up-for-grabs) |
+| [#537](../repos/temporalio-temporal/issues.md#537) | API | SignalWithStart/UpdateWithStart command (easy difficulty) |
+| [#2582](../repos/temporalio-temporal/issues.md#2582) | Enhancement | Health check handler for worker service |
+| [#1460](../repos/temporalio-temporal/issues.md#1460) | DevExp | Task queue query (medium difficulty) |
+
+### Good First Issues
+
+| Issue | Area | Description |
+|-------|------|-------------|
+| [#6196](../repos/temporalio-temporal/issues.md#6196) | Chore | Easy difficulty, good for newcomers |
+
+### Recently Contributed
+
+- [#8908](../repos/temporalio-temporal/issues.md#8908): MongoDB persistence implementation (community contribution completing [#2318](../repos/temporalio-temporal/issues.md#2318))
 
 ---
 
@@ -236,54 +238,73 @@ Issues marked as up-for-grabs or good-first-issue (37 total):
 
 ### Stale Issues
 
-- **Issues >3 years old:** 218 (41% of all open issues)
-- **Issues >1 year old:** 374 (70% of all open issues)
+- **Issues >3 years old:** 218 (41% of open issues)
+- **Issues >2 years old:** 298 (56% of open issues)
+- **Issues >12 months old:** 374 (70% of open issues)
 
-**Recommended for closure (likely obsolete or superseded):**
-- [#109](../repos/temporalio-temporal/issues.md#109) - Docker: Docker image with schema loaded (6+ years old)
-- [#108](../repos/temporalio-temporal/issues.md#108) - Make temporal docker to not emit noisy logs (6+ years old)
-- [#13](../repos/temporalio-temporal/issues.md#13) - Multi-phase activities (very old concept)
-- [#19](../repos/temporalio-temporal/issues.md#19) - Clear indication that service is up and running (likely addressed)
+### Recommended for Closure Review
 
-**Needs maintainer review:**
-- [#245](../repos/temporalio-temporal/issues.md#245) - Cassandra timestamp type (6 comments, very old)
-- [#2685](../repos/temporalio-temporal/issues.md#2685) - Interpreter Proposal - New way to write workflow
-- [#1994](../repos/temporalio-temporal/issues.md#1994) - Cron tailgate-like workflow triggering
+| Issue | Age | Reason |
+|-------|-----|--------|
+| [#131](../repos/temporalio-temporal/issues.md#131) | 5+ years | Different retry options - may be addressed by current retry capabilities or deprioritized |
+| [#537](../repos/temporalio-temporal/issues.md#537) | 5+ years | SignalWithStart from workflow - evaluate if activity workaround is sufficient |
+| [#298](../repos/temporalio-temporal/issues.md#298) | 5+ years | Embedded version - evaluate if dev server satisfies use case |
+
+### Needs Maintainer Decision
+
+| Issue | Status | Decision Needed |
+|-------|--------|-----------------|
+| [#2668](../repos/temporalio-temporal/issues.md#2668) | Assigned | When will POSTGRES_SEEDS documentation/renaming happen? (3+ years) |
+| [#1507](../repos/temporalio-temporal/issues.md#1507) | In Progress | Update issue with v1.28.0 progress and remaining roadmap |
+| [#5680](../repos/temporalio-temporal/issues.md#5680) | Active | Clarify official OpenSearch support status and version compatibility |
 
 ### Documentation Gaps
 
-| Issue | Upvotes | Gap |
-|-------|---------|-----|
-| [#2668](../repos/temporalio-temporal/issues.md#2668) | 46 | POSTGRES_SEEDS documentation (top-voted doc issue) |
-| [#2891](../repos/temporalio-temporal/issues.md#2891) | 0 | Document configuration (development.yaml, dynamicconfig) |
-| [#954](../repos/temporalio-temporal/issues.md#954) | 3 | Multi-region deployment documentation |
-| [#8461](../repos/temporalio-temporal/issues.md#8461) | 2 | Self-hosting documentation for cloud environments |
-| [#1821](../repos/temporalio-temporal/issues.md#1821) | 2 | Elasticsearch permissions required by Temporal |
+| Issue | Description |
+|-------|-------------|
+| [#2668](../repos/temporalio-temporal/issues.md#2668) | POSTGRES_SEEDS and other env var documentation - causes repeated user confusion |
+| [#5680](../repos/temporalio-temporal/issues.md#5680) | OpenSearch compatibility matrix needs documentation |
+
+---
+
+## Recent Activity (Last 30 Days)
+
+| Date | Issue | Title |
+|------|-------|-------|
+| 2026-01-08 | [#8970](../repos/temporalio-temporal/issues.md#8970) | Client-set RPC deadline is ignored for long poll |
+| 2026-01-08 | [#8968](../repos/temporalio-temporal/issues.md#8968) | Same fairness key but different fairness weight? |
+| 2026-01-08 | [#8967](../repos/temporalio-temporal/issues.md#8967) | 1.30.0 release version |
+| 2026-01-07 | [#8955](../repos/temporalio-temporal/issues.md#8955) | MCP Server for Temporal Workflows |
+| 2026-01-06 | [#8943](../repos/temporalio-temporal/issues.md#8943) | No admin-tools image for 1.29.2 |
+| 2025-12-24 | [#8902](../repos/temporalio-temporal/issues.md#8902) | History service memory usage upward trend |
+| 2025-12-18 | [#8866](../repos/temporalio-temporal/issues.md#8866) | Address security vulnerability CVE-2025-61729 |
+| 2025-12-18 | [#8865](../repos/temporalio-temporal/issues.md#8865) | Address security vulnerability CVE-2025-61727 |
 
 ---
 
 ## Recommendations
 
-1. **High Priority Features:**
-   - [#680](../repos/temporalio-temporal/issues.md#680) External workflow completion (70 upvotes) - highest user demand
-   - [#1507](../repos/temporalio-temporal/issues.md#1507) Priority task queues (50 upvotes) - enables critical workload management
-   - [#5680](../repos/temporalio-temporal/issues.md#5680) OpenSearch support (30 upvotes) - expands visibility store options
-   - [#131](../repos/temporalio-temporal/issues.md#131) Failure-type based retry options (28 upvotes) - improves error handling
-   - [#1797](../repos/temporalio-temporal/issues.md#1797) List all task queues per namespace (22 upvotes) - operational visibility
+### 1. High Priority Features (Top User Demand)
 
-2. **Bug Fixes:**
-   - [#2941](../repos/temporalio-temporal/issues.md#2941) Host level cache for history - performance critical
-   - [#4233](../repos/temporalio-temporal/issues.md#4233) History service memory usage - scalability concern
-   - [#8719](../repos/temporalio-temporal/issues.md#8719) Stale gRPC connections in Kubernetes - operational stability
-   - Address CVE security issues in [#8866](../repos/temporalio-temporal/issues.md#8866) and [#8865](../repos/temporalio-temporal/issues.md#8865)
+1. **Continue priority/fairness work ([#1507](../repos/temporalio-temporal/issues.md#1507))** - v1.28.0 shipped simple priority; fairness features are actively being developed. Update issue with current status and timeline.
+2. **External workflow completion ([#680](../repos/temporalio-temporal/issues.md#680))** - 70 upvotes, 5+ years old. Nexus workaround exists but native support without Nexus handler is requested.
+3. **Documentation for POSTGRES_SEEDS ([#2668](../repos/temporalio-temporal/issues.md#2668))** - Quick win, 46 upvotes, 3+ years of user frustration. Rename or document the environment variable.
+4. **OpenSearch official support ([#5680](../repos/temporalio-temporal/issues.md#5680))** - v1.29.0+ supports up to OpenSearch 2.7.0. Document compatibility matrix and workarounds.
 
-3. **Community:**
-   - Prioritize the 37 up-for-grabs issues for external contributors
-   - [#421](../repos/temporalio-temporal/issues.md#421) and [#453](../repos/temporalio-temporal/issues.md#453) are good entry points (difficulty: easy)
-   - Create contributor guide for database backend integrations given high demand
+### 2. Bug Fixes (Critical)
 
-4. **Housekeeping:**
-   - Review and close ~50 issues older than 5 years that are likely obsolete
-   - Consolidate duplicate database backend requests into tracking issues
-   - Address the 127 potential-bug issues through systematic triage
-   - Update documentation for POSTGRES_SEEDS ([#2668](../repos/temporalio-temporal/issues.md#2668)) - quick win with high impact
+1. **History service memory issues ([#4233](../repos/temporalio-temporal/issues.md#4233), [#8902](../repos/temporalio-temporal/issues.md#8902))** - Multiple users reporting high memory usage. Stale PR needs revival.
+2. **Admin-tools image missing ([#8943](../repos/temporalio-temporal/issues.md#8943))** - Blocks users on v1.29.2.
+3. **Visibility deletion errors ([#6995](../repos/temporalio-temporal/issues.md#6995))** - 6 upvotes, affects cleanup operations.
+
+### 3. Community Engagement
+
+1. **Celebrate MongoDB contribution** - Community member completed [#8908](../repos/temporalio-temporal/issues.md#8908), closing long-standing [#2318](../repos/temporalio-temporal/issues.md#2318) (46 upvotes).
+2. **Promote up-for-grabs issues** - 30 issues available for community contribution, including high-visibility [#680](../repos/temporalio-temporal/issues.md#680) and [#537](../repos/temporalio-temporal/issues.md#537).
+3. **Good first issues** - 7 issues available for onboarding new contributors.
+
+### 4. Housekeeping
+
+1. **Triage stale issues** - 374 issues (70%) have no activity in 12+ months. Consider batch triage with "stale" label and closure warnings.
+2. **Update priority queue issue** - [#1507](../repos/temporalio-temporal/issues.md#1507) has extensive discussion but needs status update reflecting v1.28.0 progress.
+3. **Close or update 5+ year old issues** - Evaluate if [#131](../repos/temporalio-temporal/issues.md#131), [#537](../repos/temporalio-temporal/issues.md#537), [#298](../repos/temporalio-temporal/issues.md#298) are still relevant or have been addressed by newer features.

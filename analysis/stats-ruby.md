@@ -17,8 +17,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 22 |
-| Total Closed Issues | 3 |
-| Total All Issues | 25 |
+| Total Closed Issues | 158 |
+| Total All Issues | 180 |
 | Bugs (open) | 4 |
 | Enhancements/Features (open) | 17 |
 | Security Issues (open) | 0 |
@@ -26,7 +26,7 @@
 | Total Comments on open | 15 |
 | Issues with Upvotes | 2 (9%) |
 | Issues with Comments | 8 (36%) |
-| Average Age (days) | 249 |
+| Average Age (days) | 250 |
 | Stale Issues (>12 months) | 4 (18%) |
 
 ---
@@ -37,49 +37,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 12% (3/25) |
-| Avg Time to Close (calendar) | 60 days |
-| Avg Time to Close (business) | 44 days |
-| Median Time to Close (calendar) | 36 days |
-| Median Time to Close (business) | 27 days |
-| 90th Percentile (calendar) | 143 days |
-| 90th Percentile (business) | 102 days |
-| Resolved within 30 days | 33% |
-| Resolved within 90 days | 67% |
+| Resolution Rate | 88% (158/180) |
+| Avg Time to Close (calendar) | 139 days |
+| Avg Time to Close (business) | 100 days |
+| Median Time to Close (calendar) | 49 days |
+| Median Time to Close (business) | 35 days |
+| 90th Percentile (calendar) | 536 days |
+| 90th Percentile (business) | 384 days |
+| Resolved within 30 days | 42% |
+| Resolved within 90 days | 62% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 1 | 33% |
-| Completed (features) | 2 | 67% |
-| Self-resolved | 0 | 0% |
+| Fixed (bugs) | 12 | 8% |
+| Completed (features) | 45 | 28% |
+| Self-resolved | 26 | 16% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 0 | 0% |
+| Other | 75 | 47% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 2 | 0 | +2 |
-| 2025-03 | 2 | 0 | +2 |
-| 2025-04 | 0 | 0 | 0 |
-| 2025-05 | 1 | 0 | +1 |
-| 2025-06 | 0 | 0 | 0 |
-| 2025-07 | 1 | 0 | +1 |
-| 2025-08 | 3 | 0 | +3 |
-| 2025-09 | 2 | 0 | +2 |
-| 2025-10 | 1 | 0 | +1 |
-| 2025-11 | 2 | 0 | +2 |
-| 2025-12 | 2 | 0 | +2 |
+| 2025-02 | 11 | 9 | +2 |
+| 2025-03 | 7 | 5 | +2 |
+| 2025-04 | 10 | 5 | +5 |
+| 2025-05 | 10 | 9 | +1 |
+| 2025-06 | 8 | 10 | -2 |
+| 2025-07 | 6 | 8 | -2 |
+| 2025-08 | 10 | 6 | +4 |
+| 2025-09 | 3 | 9 | -6 |
+| 2025-10 | 3 | 3 | 0 |
+| 2025-11 | 3 | 0 | +3 |
+| 2025-12 | 2 | 2 | 0 |
 | 2026-01 | 1 | 3 | -2 |
-| **Total** | **17** | **3** | **+14** |
+| **Total** | **74** | **69** | **+5** |
 
-📈 **Backlog Growing:** 14 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 5 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,26 +88,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 12 |
-| Issues Closed | 3 |
-| Net Change | +9 |
-| Bugs Closed | 1 |
-| Enhancements Closed | 2 |
+| Issues Opened | 26 |
+| Issues Closed | 29 |
+| Net Change | -3 |
+| Bugs Closed | 5 |
+| Enhancements Closed | 22 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 60 | 44 |
-| Median | 36 | 27 |
-| 90th Percentile | 143 | 102 |
+| Average | 62 | 45 |
+| Median | 40 | 29 |
+| 90th Percentile | 154 | 111 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 33% |
-| Within 90 days | 67% |
+| Within 30 days | 31% |
+| Within 90 days | 76% |
 
 
 ---

@@ -17,8 +17,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 144 |
-| Total Closed Issues | 5 |
-| Total All Issues | 149 |
+| Total Closed Issues | 653 |
+| Total All Issues | 797 |
 | Bugs (open) | 49 |
 | Enhancements/Features (open) | 84 |
 | Security Issues (open) | 0 |
@@ -26,7 +26,7 @@
 | Total Comments on open | 342 |
 | Issues with Upvotes | 37 (26%) |
 | Issues with Comments | 73 (51%) |
-| Average Age (days) | 656 |
+| Average Age (days) | 657 |
 | Stale Issues (>12 months) | 58 (40%) |
 
 ---
@@ -37,49 +37,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 3% (5/149) |
-| Avg Time to Close (calendar) | 247 days |
-| Avg Time to Close (business) | 177 days |
-| Median Time to Close (calendar) | 17 days |
-| Median Time to Close (business) | 14 days |
-| 90th Percentile (calendar) | 610 days |
-| 90th Percentile (business) | 436 days |
-| Resolved within 30 days | 60% |
-| Resolved within 90 days | 60% |
+| Resolution Rate | 82% (653/797) |
+| Avg Time to Close (calendar) | 120 days |
+| Avg Time to Close (business) | 86 days |
+| Median Time to Close (calendar) | 26 days |
+| Median Time to Close (business) | 19 days |
+| 90th Percentile (calendar) | 440 days |
+| 90th Percentile (business) | 314 days |
+| Resolved within 30 days | 52% |
+| Resolved within 90 days | 70% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 1 | 20% |
-| Completed (features) | 2 | 40% |
-| Self-resolved | 2 | 40% |
-| Duplicate | 0 | 0% |
+| Fixed (bugs) | 171 | 26% |
+| Completed (features) | 218 | 33% |
+| Self-resolved | 144 | 22% |
+| Duplicate | 2 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 0 | 0% |
+| Other | 118 | 18% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 2 | 0 | +2 |
-| 2025-03 | 7 | 0 | +7 |
-| 2025-04 | 7 | 0 | +7 |
-| 2025-05 | 8 | 0 | +8 |
-| 2025-06 | 3 | 0 | +3 |
-| 2025-07 | 6 | 0 | +6 |
-| 2025-08 | 4 | 0 | +4 |
-| 2025-09 | 2 | 0 | +2 |
-| 2025-10 | 2 | 0 | +2 |
-| 2025-11 | 3 | 0 | +3 |
-| 2025-12 | 10 | 0 | +10 |
+| 2025-02 | 9 | 10 | -1 |
+| 2025-03 | 10 | 4 | +6 |
+| 2025-04 | 21 | 5 | +16 |
+| 2025-05 | 9 | 14 | -5 |
+| 2025-06 | 7 | 2 | +5 |
+| 2025-07 | 11 | 5 | +6 |
+| 2025-08 | 9 | 11 | -2 |
+| 2025-09 | 5 | 4 | +1 |
+| 2025-10 | 4 | 6 | -2 |
+| 2025-11 | 4 | 6 | -2 |
+| 2025-12 | 11 | 5 | +6 |
 | 2026-01 | 1 | 5 | -4 |
-| **Total** | **55** | **5** | **+50** |
+| **Total** | **101** | **77** | **+24** |
 
-📈 **Backlog Growing:** 50 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 24 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,44 +88,47 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 26 |
-| Issues Closed | 5 |
-| Net Change | +21 |
-| Bugs Closed | 2 |
-| Enhancements Closed | 3 |
+| Issues Opened | 43 |
+| Issues Closed | 44 |
+| Net Change | -1 |
+| Bugs Closed | 12 |
+| Enhancements Closed | 26 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 247 | 177 |
-| Median | 17 | 14 |
-| 90th Percentile | 610 | 436 |
+| Average | 235 | 168 |
+| Median | 120 | 87 |
+| 90th Percentile | 588 | 420 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 60% |
-| Within 90 days | 60% |
+| Within 30 days | 27% |
+| Within 90 days | 43% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
 | Issue | 👍 | Title |
 |-------|-----|-------|
+| [#1773](../repos/temporalio-sdk-typescript/issues.md#1773) | 11 | [Bug] error: TypeError: (0 , ms_1.default) is not a fun... |
+| [#1750](../repos/temporalio-sdk-typescript/issues.md#1750) | 7 | [Bug] Workflow logs not propagated unless telemetryOpti... |
 | [#1432](../repos/temporalio-sdk-typescript/issues.md#1432) | 5 | [Feature Request] Simplify proper usage of `AsyncLocalS... |
+| [#1348](../repos/temporalio-sdk-typescript/issues.md#1348) | 3 | [Feature Request] Eager Workflow Start |
 
 ---
 ## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 3 | 2% |
-| 1-3 months | 9 | 6% |
+| Last 30 days | 2 | 1% |
+| 1-3 months | 10 | 7% |
 | 3-6 months | 10 | 7% |
 | 6-12 months | 35 | 24% |
-| 1-2 years | 27 | 19% |
-| 2-3 years | 21 | 15% |
+| 1-2 years | 26 | 18% |
+| 2-3 years | 22 | 15% |
 | 3+ years | 39 | 27% |
 
 ---
@@ -199,7 +202,6 @@ Priority = Upvotes × 2 + Comments
 |------|-------|-----|-------|
 | 2025-12-30 | [#1867](../repos/temporalio-sdk-typescript/issues.md#1867) | 0 | [Feature Request] Per-Worker Logger |
 | 2025-12-12 | [#1862](../repos/temporalio-sdk-typescript/issues.md#1862) | 0 | [Feature Request] importing workflow into activity dependenc... |
-| 2025-12-10 | [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
 
 ---
 

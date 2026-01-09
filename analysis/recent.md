@@ -1,170 +1,185 @@
 # Recent Issues Analysis
 
 **Generated:** 2026-01-09
-**Period:** Last 30 days (48 new issues)
+**Period:** Last 30 days (49 new issues)
 **Data Source:** [stats-recent.md](stats-recent.md)
 
 ---
 
 ## Urgent Issues Requiring Attention
 
-### Critical: Security Vulnerabilities
+### Critical: Security Vulnerabilities (2 issues)
+- Server [#8866](../repos/temporalio-temporal/issues.md#8866) - CVE-2025-61729 golang:crypto/x509
+- Server [#8865](../repos/temporalio-temporal/issues.md#8865) - CVE-2025-61727 golang:crypto/x509
 
-Two CVEs have been reported affecting the golang crypto/x509 package used by Temporal Server. These should be prioritized for patching in an upcoming release.
+**Recommendation:** Address in next server release. These crypto/x509 vulnerabilities in the Go standard library could affect TLS certificate validation.
 
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#8866](../repos/temporalio-temporal/issues.md#8866) | Server | CVE-2025-61729 - golang:crypto/x509 vulnerability |
-| [#8865](../repos/temporalio-temporal/issues.md#8865) | Server | CVE-2025-61727 - golang:crypto/x509 vulnerability |
+### High: Production Bugs & Crashes (5 issues)
+- .NET [#579](../repos/temporalio-sdk-dotnet/issues.md#579) - SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux
+- .NET [#584](../repos/temporalio-sdk-dotnet/issues.md#584) - TLS certificates from path doesn't work
+- Ruby [#373](../repos/temporalio-sdk-ruby/issues.md#373) - Fiber state corruption after Workflow.timeout expires
+- Server [#8902](../repos/temporalio-temporal/issues.md#8902) - History service memory usage upward trend
+- Python [#1268](../repos/temporalio-sdk-python/issues.md#1268) - Activity/workflow pollers drop to 0
 
-**Recommendation:** Address in next Server patch release. Users running self-hosted Temporal should plan for upgrade once fixes are available.
+**Recommendation:** Prioritize native bridge crashes (.NET, Ruby) as they affect production stability. Memory leaks in history service require investigation before they cause outages.
 
-### High: Production Crashes and Stability Issues
+### Medium: Operational Concerns (4 issues)
+- Server [#8943](../repos/temporalio-temporal/issues.md#8943) - No admin-tools image for 1.29.2
+- Server [#8864](../repos/temporalio-temporal/issues.md#8864) - Workflow cannot run with dedicated cloud PostgreSQL
+- Server [#8970](../repos/temporalio-temporal/issues.md#8970) - Client-set RPC deadline ignored for long poll
+- Server [#8909](../repos/temporalio-temporal/issues.md#8909) - Deprecation error log with Elasticsearch 8.19.2
 
-Several SDKs are experiencing crashes and stability issues that can impact production workloads.
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | .NET | SIGSEGV crash in workflow activation polling on Linux |
-| [#577](../repos/temporalio-sdk-dotnet/issues.md#577) | .NET | Test host crash flake - intermittent failures |
-| [#373](../repos/temporalio-sdk-ruby/issues.md#373) | Ruby | Fiber state corruption after Workflow.timeout expires (critical for Ruby users) |
-| [#1268](../repos/temporalio-sdk-python/issues.md#1268) | Python | Activity/workflow pollers drop to 0 - workers become unresponsive |
-| [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | .NET | Workflow task failures may be lost silently |
-
-**Recommendation:** The .NET SIGSEGV crash and Ruby Fiber corruption are particularly severe as they cause worker process termination. Prioritize investigation and fixes.
-
-### High: Performance and Operational Issues
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#1860](../repos/temporalio-sdk-typescript/issues.md#1860) | TypeScript | Performance regression from 1.13.1 to 1.13.2 |
-| [#8902](../repos/temporalio-temporal/issues.md#8902) | Server | History service memory usage trending upward |
-| [#8790](../repos/temporalio-temporal/issues.md#8790) | Server | history_node table keeps growing unboundedly |
-| [#8970](../repos/temporalio-temporal/issues.md#8970) | Server | Client-set RPC deadline ignored for long poll GetWorkflowExecutionHistory |
-
-**Recommendation:** The TypeScript regression should be investigated before wider 1.13.2 adoption. Server memory and storage growth issues may indicate retention or cleanup problems.
-
-### Medium: Functionality Regressions
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#1866](../repos/temporalio-sdk-typescript/issues.md#1866) | TypeScript | Signal caused condition to fail with CancelledFailure in v1.14.0 |
-| [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | .NET | Loading TLS certificates from path does not work |
-| [#8833](../repos/temporalio-temporal/issues.md#8833) | Server | Scheduler does not list workflows when using triggerImmediately |
-| [#8864](../repos/temporalio-temporal/issues.md#8864) | Server | Workflow cannot run with dedicated cloud PostgreSQL |
-
-**Recommendation:** These represent broken functionality that users expect to work. The TLS certificate issue blocks secure deployments.
+**Recommendation:** Release admin-tools image, investigate cloud PostgreSQL compatibility, verify Elasticsearch 8.x support.
 
 ---
 
 ## Emerging Themes
 
-### 1. .NET SDK Stability Concerns
+### 1. Native Bridge Stability Issues
+The .NET SDK is seeing concentrated work on native bridge lifecycle management. Multiple issues relate to SafeHandle and unmanaged pointer handling:
+- [#586](../repos/temporalio-sdk-dotnet/issues.md#586) - Separate unmanaged pointer lifecycle into SafeHandles
+- [#587](../repos/temporalio-sdk-dotnet/issues.md#587) - Refactor Bridge.Client to IDisposable
+- [#577](../repos/temporalio-sdk-dotnet/issues.md#577) - Investigate test host crash flake
+- [#579](../repos/temporalio-sdk-dotnet/issues.md#579) - SIGSEGV crash on Linux
+- [#588](../repos/temporalio-sdk-dotnet/issues.md#588) - Workflow task failures may be lost
 
-The .NET SDK has the highest volume of new issues (9) this period, with multiple crash-related bugs. This suggests the SDK may be gaining adoption while encountering edge cases in production environments.
+Ruby also reports native bridge issues: [#373](../repos/temporalio-sdk-ruby/issues.md#373) - Fiber corruption after timeout.
 
-- SIGSEGV crash during workflow activation polling ([#579](../repos/temporalio-sdk-dotnet/issues.md#579))
-- Test host crash flake ([#577](../repos/temporalio-sdk-dotnet/issues.md#577))
-- Workflow task failures may be lost ([#588](../repos/temporalio-sdk-dotnet/issues.md#588))
-- TLS certificate loading broken ([#584](../repos/temporalio-sdk-dotnet/issues.md#584))
-- Nexus operation timeout issues ([#585](../repos/temporalio-sdk-dotnet/issues.md#585))
+**Recommendation:** Coordinate cross-SDK review of Rust core bridge integration patterns. The SafeHandle refactoring work in .NET ([#586](../repos/temporalio-sdk-dotnet/issues.md#586), [#587](../repos/temporalio-sdk-dotnet/issues.md#587)) may establish patterns applicable to other language bindings.
 
-**Recommendation:** Consider a focused stability sprint for .NET SDK. The SafeHandle refactoring issues (#586, #587) may help address underlying memory management concerns.
+### 2. Environment Configuration Bug (Cross-SDK)
+Two SDKs report the same macOS file path issue:
+- TypeScript [#1869](../repos/temporalio-sdk-typescript/issues.md#1869)
+- Java [#2754](../repos/temporalio-sdk-java/issues.md#2754)
 
-### 2. Cross-SDK Configuration Consistency
+Both reported by the same author (pvsone) on the same day (2026-01-04), suggesting a shared configuration reading component or common SDK tooling issue.
 
-An identical bug was reported in both Java and TypeScript SDKs regarding environment configuration file path handling on macOS, suggesting shared code or design patterns that need review.
+**Recommendation:** Fix in shared SDK tooling to prevent similar issues in other SDKs. Check if Python, Go, .NET have the same bug.
 
-- Java: Environment configuration reads wrong file path on macOS ([#2754](../repos/temporalio-sdk-java/issues.md#2754))
-- TypeScript: Same issue ([#1869](../repos/temporalio-sdk-typescript/issues.md#1869))
+### 3. Nexus Integration Expansion
+Multiple SDKs are extending Nexus support:
+- Java [#2755](../repos/temporalio-sdk-java/issues.md#2755) - Support Temporal failures in Nexus APIs
+- .NET [#578](../repos/temporalio-sdk-dotnet/issues.md#578) - Add Nexus tests for time-skipping environment
+- .NET [#585](../repos/temporalio-sdk-dotnet/issues.md#585) - Nexus operation ignores ScheduleToCloseTimeout
 
-**Recommendation:** Review configuration loading logic across all SDKs to ensure consistent behavior and fix the macOS-specific path handling issue.
+**Recommendation:** Track Nexus feature parity across SDKs. The timeout behavior in [#585](../repos/temporalio-sdk-dotnet/issues.md#585) may indicate a protocol-level issue.
 
-### 3. Observability and Monitoring Gaps
+### 4. OpenTelemetry Metric Type Correctness
+- Go [#2140](../repos/temporalio-sdk-go/issues.md#2140) - OpenTelemetry incorrect metric type for Counter
 
-Multiple issues relate to logging, metrics, and tracing functionality not working as expected.
+This could indicate similar issues in other SDKs using the core bridge for metrics.
 
-- Python logs not emitted during workflow queries ([#1267](../repos/temporalio-sdk-python/issues.md#1267))
-- Go OpenTelemetry incorrect metric type for Counter ([#2140](../repos/temporalio-sdk-go/issues.md#2140))
-- Java OpenTracing interceptor missing updateWithStart support ([#2752](../repos/temporalio-sdk-java/issues.md#2752))
-- TypeScript per-worker logger request ([#1867](../repos/temporalio-sdk-typescript/issues.md#1867))
+**Recommendation:** Audit OTel metric types across all SDKs to ensure counters, histograms, and gauges are correctly categorized.
 
-**Recommendation:** Audit observability features across SDKs to ensure consistent and complete coverage, especially for newer features like updateWithStart.
+### 5. Server Release Concerns
+Several issues around the 1.29.x and 1.30.0 releases:
+- [#8967](../repos/temporalio-temporal/issues.md#8967) - 1.30.0 release version inquiry
+- [#8943](../repos/temporalio-temporal/issues.md#8943) - No admin-tools image for 1.29.2
+- [#8909](../repos/temporalio-temporal/issues.md#8909) - Deprecation error log with Elasticsearch 8.19.2
 
-### 4. Server Storage and Resource Management
+**Recommendation:** Ensure release artifacts are complete and tested with common infrastructure versions (Elasticsearch 8.x, PostgreSQL cloud offerings).
 
-Multiple Server issues point to potential resource management problems that could impact long-running deployments.
+### 6. MCP/AI Integration Interest
+- Server [#8955](../repos/temporalio-temporal/issues.md#8955) - MCP Server for Temporal Workflows
+- TypeScript [#1864](../repos/temporalio-sdk-typescript/issues.md#1864) - Update AI SDK integration to v6
+- Python [#1255](../repos/temporalio-sdk-python/issues.md#1255) - Update openai-agents dependency
 
-- History service memory trending upward ([#8902](../repos/temporalio-temporal/issues.md#8902))
-- history_node table unbounded growth ([#8790](../repos/temporalio-temporal/issues.md#8790))
-- Missing admin-tools image for 1.29.2 ([#8943](../repos/temporalio-temporal/issues.md#8943))
+Growing interest in AI/ML workflow integration, with requests for MCP (Model Context Protocol) server support and updated AI SDK integrations.
 
-**Recommendation:** Review retention policies and cleanup mechanisms. Ensure operational tooling keeps pace with server releases.
+### 7. Scheduler and Timing Issues
+- Server [#8953](../repos/temporalio-temporal/issues.md#8953) - The scheduled time is incorrect
+- Server [#8833](../repos/temporalio-temporal/issues.md#8833) - Scheduler does not list workflows when using triggerImmediately
 
-### 5. Nexus Integration Maturity
-
-Several issues relate to Nexus operations, indicating this newer feature is seeing adoption but encountering edge cases.
-
-- .NET Nexus operation ignores ScheduleToCloseTimeout ([#585](../repos/temporalio-sdk-dotnet/issues.md#585))
-- Java support for Temporal failures in Nexus APIs ([#2755](../repos/temporalio-sdk-java/issues.md#2755))
-- .NET tests for Nexus in time-skipping environment ([#578](../repos/temporalio-sdk-dotnet/issues.md#578))
-
-**Recommendation:** Continue hardening Nexus support across SDKs as adoption grows.
-
-### 6. PHP SDK Ecosystem Compatibility
-
-Two of three PHP issues relate to Composer dependency management, suggesting friction with the broader PHP ecosystem.
-
-- Composer conflicts with react/promise v2 ([#692](../repos/temporalio-sdk-php/issues.md#692))
-- SDK extension check breaking --ignore-platform-reqs ([#689](../repos/temporalio-sdk-php/issues.md#689))
-- Symfony 8.0 support request ([#670](../repos/temporalio-sdk-php/issues.md#670))
-
-**Recommendation:** Review PHP SDK packaging and dependency constraints to improve ecosystem compatibility.
+**Recommendation:** Review scheduler implementation for edge cases around immediate triggers and time calculations.
 
 ---
 
 ## By Category
 
-### Bugs (28 issues)
-- **Server:** 10 (security CVEs x2, scheduling, memory, storage, PostgreSQL compatibility, RPC deadlines)
-- **.NET:** 5 (crashes, TLS, workflow task failures)
-- **TypeScript:** 4 (performance regression, signal handling, config path)
-- **Python:** 4 (pollers, logging, sandbox warnings, error handling)
-- **PHP:** 2 (Composer conflicts, extension checks)
-- **Go:** 2 (activity alias collision, OpenTelemetry metrics)
-- **Ruby:** 1 (Fiber state corruption - critical)
+### Bugs (26 issues)
+| Area | Count | Key Issues |
+|------|-------|------------|
+| Server | 7 | Security CVEs, memory usage, scheduling, deadlines, PostgreSQL |
+| .NET SDK | 5 | SIGSEGV crash, TLS loading, workflow task failures, test flake |
+| Python SDK | 5 | Pollers, logs, ApplicationError, sandbox, openai-agents |
+| TypeScript SDK | 3 | Env config, signal condition, gRPC deadline error |
+| PHP SDK | 2 | Composer conflicts, extension check |
+| Go SDK | 2 | Activity alias collision, OTel metric types |
+| Ruby SDK | 1 | Fiber state corruption |
+| Features | 1 | pnpm build |
 
-### Feature Requests (14 issues)
-- **Server:** 2 (MCP server integration, 1.30.0 release)
-- **.NET:** 3 (workflow analyzer, Nexus time-skip tests, SafeHandle refactoring)
-- **TypeScript:** 3 (per-worker logger, AI SDK v6, workflow import improvements)
-- **Java:** 3 (Nexus failures, OpenTracing updateWithStart, Spring placeholders)
-- **PHP:** 1 (Symfony 8.0)
-- **Features:** 1 (worker custom metadata)
+### Feature Requests (13 issues)
+| Area | Count | Key Issues |
+|------|-------|------------|
+| Server | 3 | MCP server, skip re-executing activities, PR review tool |
+| .NET SDK | 3 | SafeHandle refactor x2, Nexus time-skipping tests, workflow analyzer |
+| TypeScript SDK | 2 | Per-worker logger, AI SDK v6 |
+| Java SDK | 3 | Nexus failures, OpenTracing updateWithStart, Spring placeholders |
+| Python SDK | 1 | Sync activities for ThreadPoolExecutor |
+| PHP SDK | 1 | Symfony 8.0 support |
+| Features | 1 | Worker metadata in UI/CLI |
 
-### Internal/Testing (6 issues)
-- .NET SafeHandle lifecycle refactoring (#586, #587)
-- Java test reporter issues (#2750)
-- Features pnpm build fix (#712)
-- Server Hikaflow integration proposal (#8889)
-- Java activity timeout edge case documentation (#2753)
+### Questions & Other (10 issues)
+- Server test ticket ([#8806](../repos/temporalio-temporal/issues.md#8806))
+- Release version inquiry ([#8967](../repos/temporalio-temporal/issues.md#8967))
+- Fairness weight question ([#8968](../repos/temporalio-temporal/issues.md#8968))
+- Java activity timeout behavior ([#2753](../repos/temporalio-sdk-java/issues.md#2753))
+- Java test failures ([#2750](../repos/temporalio-sdk-java/issues.md#2750))
+- Various SDK internal improvements and tracking issues
+
+---
+
+## By Repository
+
+| Repository | New Issues | Bugs | Features | Other |
+|------------|------------|------|----------|-------|
+| Server | 15 | 7 | 3 | 5 |
+| .NET SDK | 9 | 5 | 3 | 1 |
+| Python SDK | 6 | 5 | 1 | 0 |
+| Java SDK | 6 | 1 | 3 | 2 |
+| TypeScript SDK | 5 | 3 | 2 | 0 |
+| PHP SDK | 3 | 2 | 1 | 0 |
+| Go SDK | 2 | 2 | 0 | 0 |
+| Features | 2 | 1 | 1 | 0 |
+| Ruby SDK | 1 | 1 | 0 | 0 |
+
+---
+
+## Active Contributors
+
+Top contributors in the last 30 days:
+- **cretz** (4 issues) - .NET SDK improvements, Python bug fixes
+- **jmaeagle99** (3 issues) - .NET SDK native bridge refactoring
+- **deepika-awasthi** (3 issues) - Java SDK, TypeScript SDK, Features
+- **xepozz** (2 issues) - PHP SDK improvements
+- **pvsone** (2 issues) - Cross-SDK environment configuration bugs
+- **roshchha** (2 issues) - Security vulnerability reports
 
 ---
 
 ## Recommendations
 
-1. **Immediate:** Patch CVE-2025-61729 and CVE-2025-61727 in the next Server release. Communicate timeline to users running self-hosted deployments.
+### Immediate (This Week)
+1. **Security:** Address CVE-2025-61727 and CVE-2025-61729 security vulnerabilities in Server ([#8865](../repos/temporalio-temporal/issues.md#8865), [#8866](../repos/temporalio-temporal/issues.md#8866))
+2. **Release:** Publish admin-tools image for 1.29.2 ([#8943](../repos/temporalio-temporal/issues.md#8943))
 
-2. **High Priority:** Investigate and fix .NET SIGSEGV crash (#579) and Ruby Fiber corruption (#373) - these cause worker process termination.
+### High Priority (This Sprint)
+3. **Stability:** Fix .NET SIGSEGV crash ([#579](../repos/temporalio-sdk-dotnet/issues.md#579)) - production crash on Linux
+4. **Stability:** Fix .NET TLS certificate loading ([#584](../repos/temporalio-sdk-dotnet/issues.md#584)) - blocks secure deployments
+5. **Stability:** Investigate Ruby fiber corruption ([#373](../repos/temporalio-sdk-ruby/issues.md#373)) - similar native bridge root cause
+6. **Operations:** Investigate Python poller issue ([#1268](../repos/temporalio-sdk-python/issues.md#1268)) - workers becoming unresponsive
 
-3. **High Priority:** Address TypeScript performance regression (#1860) before it impacts more users upgrading to 1.13.2.
+### Medium Priority (This Month)
+7. **Cross-SDK:** Fix shared environment configuration bug affecting TypeScript ([#1869](../repos/temporalio-sdk-typescript/issues.md#1869)) and Java ([#2754](../repos/temporalio-sdk-java/issues.md#2754))
+8. **Server:** Investigate history service memory trend ([#8902](../repos/temporalio-temporal/issues.md#8902))
+9. **Server:** Verify Elasticsearch 8.x compatibility ([#8909](../repos/temporalio-temporal/issues.md#8909))
+10. **Nexus:** Review timeout handling across SDKs ([#585](../repos/temporalio-sdk-dotnet/issues.md#585))
 
-4. **High Priority:** Fix Python poller scaling issue (#1268) - workers becoming unresponsive impacts production reliability.
+### Track & Monitor
+11. **Native Bridge:** Monitor .NET SafeHandle refactoring progress ([#586](../repos/temporalio-sdk-dotnet/issues.md#586), [#587](../repos/temporalio-sdk-dotnet/issues.md#587)) - may establish patterns for other SDKs
+12. **AI Integration:** Track MCP server interest ([#8955](../repos/temporalio-temporal/issues.md#8955)) and AI SDK updates
+13. **Scheduler:** Watch for additional timing-related reports
 
-5. **Medium Priority:** Resolve cross-SDK macOS configuration path issue (#2754, #1869) to ensure consistent developer experience.
+---
 
-6. **Medium Priority:** Investigate Server resource management issues (#8902, #8790) to prevent long-term operational problems.
-
-7. **Track:** Monitor .NET SDK issue volume and consider focused stability improvements given high bug count this period.
-
-8. **Track:** Continue hardening Nexus support as adoption grows and edge cases are discovered.
+*See [stats-recent.md](stats-recent.md) for the complete issue list.*
