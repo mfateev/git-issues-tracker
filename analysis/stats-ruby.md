@@ -1,8 +1,7 @@
 # Ruby SDK - Issue Statistics
 
 **Generated:** 2026-01-09
-**Repository:** temporalio/sdk-ruby
-**Data Source:** [issues.md](../repos/temporalio-sdk-ruby/issues.md)
+**Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
 
@@ -129,8 +128,8 @@
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | 2 | 1 | [Feature Request] Look into client-side trimming of failures... |
-| 2 | [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test t... |
+| 1 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 2 | 1 | [Feature Request] Look into client-side trimming of failures... |
+| 2 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test t... |
 
 ---
 
@@ -140,15 +139,15 @@ Priority = Upvotes × 2 + Comments
 
 | Rank | Issue | Score | 👍 | 💬 | Title |
 |------|-------|-------|-----|-----|-------|
-| 1 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | 5 | 2 | 1 | [Feature Request] Look into client-side trimming o... |
-| 2 | [#162](../repos/temporalio-sdk-ruby/issues.md#162) | 5 | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fib... |
-| 3 | [#315](../repos/temporalio-sdk-ruby/issues.md#315) | 4 | 0 | 4 | [Bug] ScopedLogger fails attempting to compare sym... |
-| 4 | [#306](../repos/temporalio-sdk-ruby/issues.md#306) | 2 | 1 | 0 | [Feature Request] Update build-gems GH workflow sm... |
-| 5 | [#360](../repos/temporalio-sdk-ruby/issues.md#360) | 1 | 0 | 1 | Problem: Testing Temporal Workflows with Signals i... |
-| 6 | [#334](../repos/temporalio-sdk-ruby/issues.md#334) | 1 | 0 | 1 | [Feature Request] Ensure fibers and workflow insta... |
-| 7 | [#238](../repos/temporalio-sdk-ruby/issues.md#238) | 1 | 0 | 1 | [Feature Request] Serialization context for codecs... |
-| 8 | [#203](../repos/temporalio-sdk-ruby/issues.md#203) | 1 | 0 | 1 | [Feature Request] Contributing Guide |
-| 9 | [#172](../repos/temporalio-sdk-ruby/issues.md#172) | 1 | 0 | 1 | [Bug] Windows CI segfaulting during tests |
+| 1 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 5 | 2 | 1 | [Feature Request] Look into client-side trimming o... |
+| 2 | [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 5 | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fib... |
+| 3 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | 4 | [Bug] ScopedLogger fails attempting to compare sym... |
+| 4 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 2 | 1 | 0 | [Feature Request] Update build-gems GH workflow sm... |
+| 5 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | 1 | Problem: Testing Temporal Workflows with Signals i... |
+| 6 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | 1 | [Feature Request] Ensure fibers and workflow insta... |
+| 7 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | 1 | [Feature Request] Serialization context for codecs... |
+| 8 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | 1 | [Feature Request] Contributing Guide |
+| 9 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | 1 | [Bug] Windows CI segfaulting during tests |
 
 ---
 
@@ -156,14 +155,14 @@ Priority = Upvotes × 2 + Comments
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#162](../repos/temporalio-sdk-ruby/issues.md#162) | 5 | 0 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
-| 2 | [#315](../repos/temporalio-sdk-ruby/issues.md#315) | 4 | 0 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
-| 3 | [#360](../repos/temporalio-sdk-ruby/issues.md#360) | 1 | 0 | Problem: Testing Temporal Workflows with Signals in Ruby SDK... |
-| 4 | [#334](../repos/temporalio-sdk-ruby/issues.md#334) | 1 | 0 | [Feature Request] Ensure fibers and workflow instances are p... |
-| 5 | [#319](../repos/temporalio-sdk-ruby/issues.md#319) | 1 | 2 | [Feature Request] Look into client-side trimming of failures... |
-| 6 | [#238](../repos/temporalio-sdk-ruby/issues.md#238) | 1 | 0 | [Feature Request] Serialization context for codecs and conve... |
-| 7 | [#203](../repos/temporalio-sdk-ruby/issues.md#203) | 1 | 0 | [Feature Request] Contributing Guide |
-| 8 | [#172](../repos/temporalio-sdk-ruby/issues.md#172) | 1 | 0 | [Bug] Windows CI segfaulting during tests |
+| 1 | [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 5 | 0 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
+| 2 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
+| 3 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | Problem: Testing Temporal Workflows with Signals in Ruby SDK... |
+| 4 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | [Feature Request] Ensure fibers and workflow instances are p... |
+| 5 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 1 | 2 | [Feature Request] Look into client-side trimming of failures... |
+| 6 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | [Feature Request] Serialization context for codecs and conve... |
+| 7 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | [Feature Request] Contributing Guide |
+| 8 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | [Bug] Windows CI segfaulting during tests |
 
 ---
 
@@ -186,10 +185,10 @@ No issues created in the last 30 days.
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
-| [#355](../repos/temporalio-sdk-ruby/issues.md#355) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due ... |
-| [#315](../repos/temporalio-sdk-ruby/issues.md#315) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
-| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
-| [#162](../repos/temporalio-sdk-ruby/issues.md#162) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
+| [#355](https://github.com/temporalio/sdk-ruby/issues/355) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due ... |
+| [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
+| [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
+| [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
 
 ---
 
@@ -199,7 +198,7 @@ Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
-| [#185](../repos/temporalio-sdk-ruby/issues.md#185) | 0 | 2025-01-08 | [Feature Request] Warn on unawaited workflow futur... |
-| [#179](../repos/temporalio-sdk-ruby/issues.md#179) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
-| [#172](../repos/temporalio-sdk-ruby/issues.md#172) | 0 | 2024-10-17 | [Bug] Windows CI segfaulting during tests |
-| [#162](../repos/temporalio-sdk-ruby/issues.md#162) | 0 | 2024-10-10 | Investigate issue with Ruby 3.1/3.2 and worker fib... |
+| [#185](https://github.com/temporalio/sdk-ruby/issues/185) | 0 | 2025-01-08 | [Feature Request] Warn on unawaited workflow futur... |
+| [#179](https://github.com/temporalio/sdk-ruby/issues/179) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
+| [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 0 | 2024-10-17 | [Bug] Windows CI segfaulting during tests |
+| [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 0 | 2024-10-10 | Investigate issue with Ruby 3.1/3.2 and worker fib... |

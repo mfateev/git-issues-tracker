@@ -23,19 +23,19 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 
 ## Tracked Repositories
 
-| Repository | Issues | Top User Request |
-|------------|--------|------------------|
-| [Server](https://github.com/temporalio/temporal) | 530 | External workflow wait (70 upvotes) |
-| [Features](https://github.com/temporalio/features) | 247 | Custom workflow markers (15 upvotes) |
-| [Java SDK](https://github.com/temporalio/sdk-java) | 215 | Kotlin coroutines support |
-| [Go SDK](https://github.com/temporalio/sdk-go) | 163 | Improved error handling |
-| [TypeScript SDK](https://github.com/temporalio/sdk-typescript) | 148 | Bun support (46 upvotes) |
-| [Python SDK](https://github.com/temporalio/sdk-python) | 115 | Sandbox/debugging improvements |
-| [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 48 | .NET Trimming support |
-| [PHP SDK](https://github.com/temporalio/sdk-php) | 47 | Marshaller documentation |
-| [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 24 | SDK stability |
-| [API](https://github.com/temporalio/api) | 13 | Buf schema registry (6 upvotes) |
-| **Total** | **1,550** | |
+| Repository | Open | Closed | Total | Top User Request |
+|------------|------|--------|-------|------------------|
+| [Server](https://github.com/temporalio/temporal) | 533 | 951 | 1,484 | External workflow wait (70 upvotes) |
+| [Java SDK](https://github.com/temporalio/sdk-java) | 216 | 724 | 940 | Kotlin coroutines support |
+| [Go SDK](https://github.com/temporalio/sdk-go) | 163 | 661 | 824 | Clean worker shutdown (16 upvotes) |
+| [TypeScript SDK](https://github.com/temporalio/sdk-typescript) | 144 | 653 | 797 | Bun support (46 upvotes) |
+| [Python SDK](https://github.com/temporalio/sdk-python) | 114 | 475 | 589 | Sandbox/debugging improvements |
+| [Features](https://github.com/temporalio/features) | 244 | 138 | 382 | Custom workflow markers (15 upvotes) |
+| [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 49 | 240 | 289 | .NET Trimming support (7 upvotes) |
+| [PHP SDK](https://github.com/temporalio/sdk-php) | 49 | 211 | 260 | Marshaller documentation |
+| [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 22 | 158 | 180 | SDK stability |
+| [API](https://github.com/temporalio/api) | 13 | 12 | 25 | Buf schema registry (6 upvotes) |
+| **Total** | **1,547** | **4,223** | **5,770** | |
 
 ## Quick Start
 
@@ -58,7 +58,6 @@ analysis/
 repos/{owner}-{repo}/
 ├── issues/                 # Individual issue JSON files
 ├── issues-index.json       # Quick lookup index with engagement stats
-├── issues.md               # Human-readable issue list
 └── sync-metadata.json      # Tracks sync state
 ```
 

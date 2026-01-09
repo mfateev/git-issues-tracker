@@ -11,7 +11,7 @@ Use this template when generating analysis for the Temporal Server repository (t
 **Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-temporal/issues.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
 
 **SDKs:** [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Features](features.md)
 
@@ -85,7 +85,7 @@ Use this template when generating analysis for the Temporal Server repository (t
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#{NUMBER}](../repos/temporalio-temporal/issues.md#{NUMBER}) | {upvotes} | {comments} | {title} |
+| 1 | [#{NUMBER}](https://github.com/temporalio/temporal/issues/{NUMBER}) | {upvotes} | {comments} | {title} |
 ...
 
 ### Priority Score (Upvotes×2 + Comments)

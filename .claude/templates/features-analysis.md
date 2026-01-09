@@ -11,7 +11,7 @@ Use this template when generating analysis for the Features repository (temporal
 **Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-features/issues.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
 
 **SDKs:** [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md) · [PHP](php.md) · [Ruby](ruby.md) · [Server](server.md)
 
@@ -67,7 +67,7 @@ The Features repository contains cross-SDK conformance tests and feature impleme
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#{NUMBER}](../repos/temporalio-features/issues.md#{NUMBER}) | {upvotes} | {comments} | {title} |
+| 1 | [#{NUMBER}](https://github.com/temporalio/features/issues/{NUMBER}) | {upvotes} | {comments} | {title} |
 ...
 
 ---

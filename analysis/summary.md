@@ -15,7 +15,7 @@
 **Per-Repository Analysis:**
 [Server](server.md) | [Features](features.md) | [API](api.md) | [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [PHP](php.md) | [Ruby](ruby.md)
 
-**Full Issue Data:** See `repos/<repo>/issues.md` for complete issue dumps with all comments.
+**Full Issue Data:** Individual issue JSON files available in `repos/<repo>/issues/` directories.
 
 ---
 
@@ -101,21 +101,21 @@
 
 | Repo | Issue | Upvotes | Title |
 |------|-------|---------|-------|
-| Go SDK | [#916](../repos/temporalio-sdk-go/issues.md#916) | 21 | Ability to mock/intercept side effect calls in test suite |
-| TypeScript SDK | [#1773](../repos/temporalio-sdk-typescript/issues.md#1773) | 11 | [Bug] error: TypeError: (0 , ms_1.default) is not a function |
-| Java SDK | [#1849](../repos/temporalio-sdk-java/issues.md#1849) | 9 | Expose an async API to start a workflow |
-| TypeScript SDK | [#1750](../repos/temporalio-sdk-typescript/issues.md#1750) | 7 | [Bug] Workflow logs not propagated unless telemetryOptions set |
-| Server | [#2517](../repos/temporalio-temporal/issues.md#2517) | 7 | Make task queues more ordered |
-| Java SDK | [#2665](../repos/temporalio-sdk-java/issues.md#2665) | 6 | Serialization with `kotlinx.serialization` |
-| Server | [#8363](../repos/temporalio-temporal/issues.md#8363) | 6 | Task queue validator on occasions fails task queue name |
-| Java SDK | [#2724](../repos/temporalio-sdk-java/issues.md#2724) | 5 | Allow Configuration Option to Enable Spring ApplicationContext |
-| TypeScript SDK | [#1432](../repos/temporalio-sdk-typescript/issues.md#1432) | 5 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` |
-| Python SDK | [#893](../repos/temporalio-sdk-python/issues.md#893) | 4 | [Bug] Pyright (strict mode) fails on `start`/`execute` |
-| Python SDK | [#441](../repos/temporalio-sdk-python/issues.md#441) | 4 | [Bug] GeneratorExit possibly causing issues on context exit |
-| Java SDK | [#2671](../repos/temporalio-sdk-java/issues.md#2671) | 3 | Tracing - Native OpenTelemetry Interceptors |
-| Java SDK | [#704](../repos/temporalio-sdk-java/issues.md#704) | 3 | Allow exception logging to be customizable for activities |
-| Python SDK | [#1107](../repos/temporalio-sdk-python/issues.md#1107) | 3 | [Feature Request] Update dependency constraint for protobuf |
-| TypeScript SDK | [#1348](../repos/temporalio-sdk-typescript/issues.md#1348) | 3 | [Feature Request] Eager Workflow Start |
+| Go SDK | [#916](https://github.com/temporalio/sdk-go/issues/916) | 21 | Ability to mock/intercept side effect calls in test suite |
+| TypeScript SDK | [#1773](https://github.com/temporalio/sdk-typescript/issues/1773) | 11 | [Bug] error: TypeError: (0 , ms_1.default) is not a function |
+| Java SDK | [#1849](https://github.com/temporalio/sdk-java/issues/1849) | 9 | Expose an async API to start a workflow |
+| TypeScript SDK | [#1750](https://github.com/temporalio/sdk-typescript/issues/1750) | 7 | [Bug] Workflow logs not propagated unless telemetryOptions set |
+| Server | [#2517](https://github.com/temporalio/temporal/issues/2517) | 7 | Make task queues more ordered |
+| Java SDK | [#2665](https://github.com/temporalio/sdk-java/issues/2665) | 6 | Serialization with `kotlinx.serialization` |
+| Server | [#8363](https://github.com/temporalio/temporal/issues/8363) | 6 | Task queue validator on occasions fails task queue name |
+| Java SDK | [#2724](https://github.com/temporalio/sdk-java/issues/2724) | 5 | Allow Configuration Option to Enable Spring ApplicationContext |
+| TypeScript SDK | [#1432](https://github.com/temporalio/sdk-typescript/issues/1432) | 5 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` |
+| Python SDK | [#893](https://github.com/temporalio/sdk-python/issues/893) | 4 | [Bug] Pyright (strict mode) fails on `start`/`execute` |
+| Python SDK | [#441](https://github.com/temporalio/sdk-python/issues/441) | 4 | [Bug] GeneratorExit possibly causing issues on context exit |
+| Java SDK | [#2671](https://github.com/temporalio/sdk-java/issues/2671) | 3 | Tracing - Native OpenTelemetry Interceptors |
+| Java SDK | [#704](https://github.com/temporalio/sdk-java/issues/704) | 3 | Allow exception logging to be customizable for activities |
+| Python SDK | [#1107](https://github.com/temporalio/sdk-python/issues/1107) | 3 | [Feature Request] Update dependency constraint for protobuf |
+| TypeScript SDK | [#1348](https://github.com/temporalio/sdk-typescript/issues/1348) | 3 | [Feature Request] Eager Workflow Start |
 
 ---
 
@@ -123,43 +123,43 @@
 
 | Rank | Repo | Issue | Upvotes | Title |
 |------|------|-------|---------|-------|
-| 1 | Server | [#680](../repos/temporalio-temporal/issues.md#680) | 70 | Add ability for workflow to wait for completion of external activity |
-| 2 | Server | [#1507](../repos/temporalio-temporal/issues.md#1507) | 50 | Provide priority task queues |
-| 3 | TypeScript SDK | [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) | 46 | [Feature Request] Run temporal worker in bun |
-| 4 | Server | [#2668](../repos/temporalio-temporal/issues.md#2668) | 46 | Document POSTGRES_SEEDS (or better yet, use a descriptive var) |
-| 5 | Server | [#2318](../repos/temporalio-temporal/issues.md#2318) | 46 | MongoDB as Persistent storage |
-| 6 | Server | [#5680](../repos/temporalio-temporal/issues.md#5680) | 30 | Official support for Opensearch |
-| 7 | Server | [#537](../repos/temporalio-temporal/issues.md#537) | 30 | Add SignalWithStart/UpdateWithStart command |
-| 8 | Server | [#131](../repos/temporalio-temporal/issues.md#131) | 28 | Different retry options based on failure type |
-| 9 | Server | [#5302](../repos/temporalio-temporal/issues.md#5302) | 23 | YDB Temporal support |
-| 10 | Server | [#2609](../repos/temporalio-temporal/issues.md#2609) | 23 | Add ability to transfer child workflows to new parent |
-| 11 | Server | [#1797](../repos/temporalio-temporal/issues.md#1797) | 22 | Ability to get all task queues per namespace |
-| 12 | TypeScript SDK | [#1755](../repos/temporalio-sdk-typescript/issues.md#1755) | 20 | [Feature Request] Temporal integration for `@openai/agents` |
-| 13 | TypeScript SDK | [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) | 19 | [Feature Request] Add support for opentelemetry v2 |
-| 14 | Server | [#328](../repos/temporalio-temporal/issues.md#328) | 19 | Try to run temporal on top of Amazon Keyspaces |
-| 15 | Server | [#2582](../repos/temporalio-temporal/issues.md#2582) | 18 | Add health check handler for worker service |
+| 1 | Server | [#680](https://github.com/temporalio/temporal/issues/680) | 70 | Add ability for workflow to wait for completion of external activity |
+| 2 | Server | [#1507](https://github.com/temporalio/temporal/issues/1507) | 50 | Provide priority task queues |
+| 3 | TypeScript SDK | [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) | 46 | [Feature Request] Run temporal worker in bun |
+| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | Document POSTGRES_SEEDS (or better yet, use a descriptive var) |
+| 5 | Server | [#2318](https://github.com/temporalio/temporal/issues/2318) | 46 | MongoDB as Persistent storage |
+| 6 | Server | [#5680](https://github.com/temporalio/temporal/issues/5680) | 30 | Official support for Opensearch |
+| 7 | Server | [#537](https://github.com/temporalio/temporal/issues/537) | 30 | Add SignalWithStart/UpdateWithStart command |
+| 8 | Server | [#131](https://github.com/temporalio/temporal/issues/131) | 28 | Different retry options based on failure type |
+| 9 | Server | [#5302](https://github.com/temporalio/temporal/issues/5302) | 23 | YDB Temporal support |
+| 10 | Server | [#2609](https://github.com/temporalio/temporal/issues/2609) | 23 | Add ability to transfer child workflows to new parent |
+| 11 | Server | [#1797](https://github.com/temporalio/temporal/issues/1797) | 22 | Ability to get all task queues per namespace |
+| 12 | TypeScript SDK | [#1755](https://github.com/temporalio/sdk-typescript/issues/1755) | 20 | [Feature Request] Temporal integration for `@openai/agents` |
+| 13 | TypeScript SDK | [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) | 19 | [Feature Request] Add support for opentelemetry v2 |
+| 14 | Server | [#328](https://github.com/temporalio/temporal/issues/328) | 19 | Try to run temporal on top of Amazon Keyspaces |
+| 15 | Server | [#2582](https://github.com/temporalio/temporal/issues/2582) | 18 | Add health check handler for worker service |
 
 ---
 
 ## Common Themes
 
 ### 1. Alternative Database & Infrastructure Support
-Server has strong demand for alternative backends: MongoDB ([#2318](../repos/temporalio-temporal/issues.md#2318), 46 upvotes), OpenSearch ([#5680](../repos/temporalio-temporal/issues.md#5680), 30 upvotes), YDB ([#5302](../repos/temporalio-temporal/issues.md#5302), 23 upvotes), Amazon Keyspaces ([#328](../repos/temporalio-temporal/issues.md#328), 19 upvotes), SQLite in production ([#3366](../repos/temporalio-temporal/issues.md#3366), 16 upvotes).
+Server has strong demand for alternative backends: MongoDB ([#2318](https://github.com/temporalio/temporal/issues/2318), 46 upvotes), OpenSearch ([#5680](https://github.com/temporalio/temporal/issues/5680), 30 upvotes), YDB ([#5302](https://github.com/temporalio/temporal/issues/5302), 23 upvotes), Amazon Keyspaces ([#328](https://github.com/temporalio/temporal/issues/328), 19 upvotes), SQLite in production ([#3366](https://github.com/temporalio/temporal/issues/3366), 16 upvotes).
 
 ### 2. Workflow Orchestration Enhancements
-Users want more sophisticated workflow control: wait for activity completion ([#680](../repos/temporalio-temporal/issues.md#680), 70 upvotes), priority task queues ([#1507](../repos/temporalio-temporal/issues.md#1507), 50 upvotes), transfer child workflows ([#2609](../repos/temporalio-temporal/issues.md#2609), 23 upvotes), timer metadata ([#3228](../repos/temporalio-temporal/issues.md#3228), 16 upvotes).
+Users want more sophisticated workflow control: wait for activity completion ([#680](https://github.com/temporalio/temporal/issues/680), 70 upvotes), priority task queues ([#1507](https://github.com/temporalio/temporal/issues/1507), 50 upvotes), transfer child workflows ([#2609](https://github.com/temporalio/temporal/issues/2609), 23 upvotes), timer metadata ([#3228](https://github.com/temporalio/temporal/issues/3228), 16 upvotes).
 
 ### 3. Developer Experience & Testing
-Testing improvements across SDKs: Bun support in TypeScript ([#1334](../repos/temporalio-sdk-typescript/issues.md#1334), 46 upvotes), Jest open handles ([#928](../repos/temporalio-sdk-typescript/issues.md#928), 7 upvotes), time-skipping issues (.NET [#179](../repos/temporalio-sdk-dotnet/issues.md#179), Go [#1282](../repos/temporalio-sdk-go/issues.md#1282)), workflow versioning testing (Features [#649](../repos/temporalio-features/issues.md#649), 14 upvotes).
+Testing improvements across SDKs: Bun support in TypeScript ([#1334](https://github.com/temporalio/sdk-typescript/issues/1334), 46 upvotes), Jest open handles ([#928](https://github.com/temporalio/sdk-typescript/issues/928), 7 upvotes), time-skipping issues (.NET [#179](https://github.com/temporalio/sdk-dotnet/issues/179), Go [#1282](https://github.com/temporalio/sdk-go/issues/1282)), workflow versioning testing (Features [#649](https://github.com/temporalio/features/issues/649), 14 upvotes).
 
 ### 4. Observability & Metrics
-OpenTelemetry v2 support (TypeScript [#1658](../repos/temporalio-sdk-typescript/issues.md#1658), 19 upvotes), custom markers for workflow timeline (Features [#399](../repos/temporalio-features/issues.md#399), 15 upvotes), declarative schedules (Features [#118](../repos/temporalio-features/issues.md#118), 8 upvotes), OTel metric types (Go [#2140](../repos/temporalio-sdk-go/issues.md#2140)).
+OpenTelemetry v2 support (TypeScript [#1658](https://github.com/temporalio/sdk-typescript/issues/1658), 19 upvotes), custom markers for workflow timeline (Features [#399](https://github.com/temporalio/features/issues/399), 15 upvotes), declarative schedules (Features [#118](https://github.com/temporalio/features/issues/118), 8 upvotes), OTel metric types (Go [#2140](https://github.com/temporalio/sdk-go/issues/2140)).
 
 ### 5. Framework Integrations
-NestJS integration (TypeScript [#483](../repos/temporalio-sdk-typescript/issues.md#483), 45 priority score), OpenAPI/agents integration (TypeScript [#1755](../repos/temporalio-sdk-typescript/issues.md#1755), 20 upvotes), NextJS 15 issues (TypeScript [#1615](../repos/temporalio-sdk-typescript/issues.md#1615)), Spring Boot 4 support (Java [#2738](../repos/temporalio-sdk-java/issues.md#2738)).
+NestJS integration (TypeScript [#483](https://github.com/temporalio/sdk-typescript/issues/483), 45 priority score), OpenAPI/agents integration (TypeScript [#1755](https://github.com/temporalio/sdk-typescript/issues/1755), 20 upvotes), NextJS 15 issues (TypeScript [#1615](https://github.com/temporalio/sdk-typescript/issues/1615)), Spring Boot 4 support (Java [#2738](https://github.com/temporalio/sdk-java/issues/2738)).
 
 ### 6. Native Bridge Stability (Core SDKs)
-.NET, Ruby, and Python SDKs all report issues with the Rust core bridge: SIGSEGV crashes (.NET [#579](../repos/temporalio-sdk-dotnet/issues.md#579)), fiber corruption (Ruby [#162](../repos/temporalio-sdk-ruby/issues.md#162)), sandbox edge cases (Python [#1254](../repos/temporalio-sdk-python/issues.md#1254)).
+.NET, Ruby, and Python SDKs all report issues with the Rust core bridge: SIGSEGV crashes (.NET [#579](https://github.com/temporalio/sdk-dotnet/issues/579)), fiber corruption (Ruby [#162](https://github.com/temporalio/sdk-ruby/issues/162)), sandbox edge cases (Python [#1254](https://github.com/temporalio/sdk-python/issues/1254)).
 
 ---
 
@@ -167,16 +167,16 @@ NestJS integration (TypeScript [#483](../repos/temporalio-sdk-typescript/issues.
 
 | Repository | Top Request | Key Concern |
 |------------|-------------|-------------|
-| [Server](server.md) | Workflow wait for activity ([#680](../repos/temporalio-temporal/issues.md#680), 70 upvotes) | Alternative database backends |
-| [Features](features.md) | Custom workflow markers ([#399](../repos/temporalio-features/issues.md#399), 15 upvotes) | Cross-SDK feature parity |
-| [Java](java.md) | Different coroutine models ([#1845](../repos/temporalio-sdk-java/issues.md#1845), 15 upvotes) | Spring integration improvements |
-| [Go](go.md) | Clean worker shutdown ([#181](../repos/temporalio-sdk-go/issues.md#181), 16 upvotes) | Testing environment edge cases |
-| [TypeScript](typescript.md) | Bun runtime support ([#1334](../repos/temporalio-sdk-typescript/issues.md#1334), 46 upvotes) | Framework integrations (NestJS, Next.js) |
-| [Python](python.md) | VSCode debugging ([#238](../repos/temporalio-sdk-python/issues.md#238), 3 upvotes) | Sandbox compatibility |
-| [.NET](dotnet.md) | .NET Trimming support ([#286](../repos/temporalio-sdk-dotnet/issues.md#286), 7 upvotes) | Native bridge stability |
-| [PHP](php.md) | Marshaller documentation ([#592](../repos/temporalio-sdk-php/issues.md#592), 5 upvotes) | Dependency compatibility |
-| [Ruby](ruby.md) | Client-side failure trimming ([#319](../repos/temporalio-sdk-ruby/issues.md#319), 2 upvotes) | Fiber/native bridge issues |
-| [API](api.md) | Buf schema registry ([#328](../repos/temporalio-api/issues.md#328), 6 upvotes) | Proto organization |
+| [Server](server.md) | Workflow wait for activity ([#680](https://github.com/temporalio/temporal/issues/680), 70 upvotes) | Alternative database backends |
+| [Features](features.md) | Custom workflow markers ([#399](https://github.com/temporalio/features/issues/399), 15 upvotes) | Cross-SDK feature parity |
+| [Java](java.md) | Different coroutine models ([#1845](https://github.com/temporalio/sdk-java/issues/1845), 15 upvotes) | Spring integration improvements |
+| [Go](go.md) | Clean worker shutdown ([#181](https://github.com/temporalio/sdk-go/issues/181), 16 upvotes) | Testing environment edge cases |
+| [TypeScript](typescript.md) | Bun runtime support ([#1334](https://github.com/temporalio/sdk-typescript/issues/1334), 46 upvotes) | Framework integrations (NestJS, Next.js) |
+| [Python](python.md) | VSCode debugging ([#238](https://github.com/temporalio/sdk-python/issues/238), 3 upvotes) | Sandbox compatibility |
+| [.NET](dotnet.md) | .NET Trimming support ([#286](https://github.com/temporalio/sdk-dotnet/issues/286), 7 upvotes) | Native bridge stability |
+| [PHP](php.md) | Marshaller documentation ([#592](https://github.com/temporalio/sdk-php/issues/592), 5 upvotes) | Dependency compatibility |
+| [Ruby](ruby.md) | Client-side failure trimming ([#319](https://github.com/temporalio/sdk-ruby/issues/319), 2 upvotes) | Fiber/native bridge issues |
+| [API](api.md) | Buf schema registry ([#328](https://github.com/temporalio/api/issues/328), 6 upvotes) | Proto organization |
 
 ---
 
@@ -185,38 +185,38 @@ NestJS integration (TypeScript [#483](../repos/temporalio-sdk-typescript/issues.
 ### 1. Alternative Database Backend Support
 **Impact:** Self-hosted users wanting to use existing infrastructure
 **Related Issues:**
-- Server [#2318](../repos/temporalio-temporal/issues.md#2318) (MongoDB, 46 upvotes)
-- Server [#5680](../repos/temporalio-temporal/issues.md#5680) (OpenSearch, 30 upvotes)
-- Server [#5302](../repos/temporalio-temporal/issues.md#5302) (YDB, 23 upvotes)
-- Server [#328](../repos/temporalio-temporal/issues.md#328) (Keyspaces, 19 upvotes)
+- Server [#2318](https://github.com/temporalio/temporal/issues/2318) (MongoDB, 46 upvotes)
+- Server [#5680](https://github.com/temporalio/temporal/issues/5680) (OpenSearch, 30 upvotes)
+- Server [#5302](https://github.com/temporalio/temporal/issues/5302) (YDB, 23 upvotes)
+- Server [#328](https://github.com/temporalio/temporal/issues/328) (Keyspaces, 19 upvotes)
 
 ### 2. Testing Infrastructure Improvements
 **Impact:** All SDK users - critical for development velocity
 **Related Issues:**
-- Features [#649](../repos/temporalio-features/issues.md#649) (workflow versioning testing, 14 upvotes)
-- TypeScript [#928](../repos/temporalio-sdk-typescript/issues.md#928) (Jest handles), [#1334](../repos/temporalio-sdk-typescript/issues.md#1334) (Bun)
-- .NET [#179](../repos/temporalio-sdk-dotnet/issues.md#179), [#77](../repos/temporalio-sdk-dotnet/issues.md#77) (time-skipping)
-- Go [#1282](../repos/temporalio-sdk-go/issues.md#1282) (heartbeat timeout)
+- Features [#649](https://github.com/temporalio/features/issues/649) (workflow versioning testing, 14 upvotes)
+- TypeScript [#928](https://github.com/temporalio/sdk-typescript/issues/928) (Jest handles), [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) (Bun)
+- .NET [#179](https://github.com/temporalio/sdk-dotnet/issues/179), [#77](https://github.com/temporalio/sdk-dotnet/issues/77) (time-skipping)
+- Go [#1282](https://github.com/temporalio/sdk-go/issues/1282) (heartbeat timeout)
 
 ### 3. Native Bridge Stabilization
 **Impact:** .NET, Ruby, Python users experiencing crashes
 **Related Issues:**
-- .NET [#579](../repos/temporalio-sdk-dotnet/issues.md#579) (SIGSEGV)
-- Ruby [#162](../repos/temporalio-sdk-ruby/issues.md#162) (fiber issues)
-- Python [#1254](../repos/temporalio-sdk-python/issues.md#1254) (sandbox issues)
+- .NET [#579](https://github.com/temporalio/sdk-dotnet/issues/579) (SIGSEGV)
+- Ruby [#162](https://github.com/temporalio/sdk-ruby/issues/162) (fiber issues)
+- Python [#1254](https://github.com/temporalio/sdk-python/issues/1254) (sandbox issues)
 
 ### 4. Observability Standardization
 **Impact:** Production monitoring across all SDKs
 **Related Issues:**
-- TypeScript [#1658](../repos/temporalio-sdk-typescript/issues.md#1658) (OpenTelemetry v2)
-- Features [#399](../repos/temporalio-features/issues.md#399) (custom markers)
-- Go [#2140](../repos/temporalio-sdk-go/issues.md#2140) (OTel metric types)
+- TypeScript [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) (OpenTelemetry v2)
+- Features [#399](https://github.com/temporalio/features/issues/399) (custom markers)
+- Go [#2140](https://github.com/temporalio/sdk-go/issues/2140) (OTel metric types)
 
 ### 5. Framework Integration Packages
 **Impact:** Web framework users (NestJS, Next.js, Spring)
 **Related Issues:**
-- TypeScript [#483](../repos/temporalio-sdk-typescript/issues.md#483) (NestJS), [#1615](../repos/temporalio-sdk-typescript/issues.md#1615) (Next.js 15)
-- Java [#2747](../repos/temporalio-sdk-java/issues.md#2747) (Spring placeholders), [#2738](../repos/temporalio-sdk-java/issues.md#2738) (Spring Boot 4)
+- TypeScript [#483](https://github.com/temporalio/sdk-typescript/issues/483) (NestJS), [#1615](https://github.com/temporalio/sdk-typescript/issues/1615) (Next.js 15)
+- Java [#2747](https://github.com/temporalio/sdk-java/issues/2747) (Spring placeholders), [#2738](https://github.com/temporalio/sdk-java/issues/2738) (Spring Boot 4)
 
 ---
 

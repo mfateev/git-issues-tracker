@@ -139,24 +139,6 @@ node scripts/analyze-all.js <command>
 
 ### Human-Readable Output
 
-#### `scripts/generate-readable.js`
-Generate markdown files with full issue data.
-
-```bash
-node scripts/generate-readable.js owner-repo     # Single repo
-node scripts/generate-readable.js --all          # All repos
-```
-
-Output: `repos/<repo>/issues.md` containing:
-- Summary stats and top labels
-- Issue index with clickable links
-- Complete data for each issue:
-  - Full description/body text
-  - All comments (in collapsible blocks)
-  - Author, assignees, milestone
-  - All labels and reactions
-  - Timestamps and age
-
 #### `scripts/generate-contributors.js`
 Generate contributor statistics.
 

@@ -181,7 +181,7 @@ function generateContributors() {
         data.issues.forEach(issue => {
             const title = issue.title;
             const shortRepo = issue.repo.replace('temporalio/', '');
-            md += `| ${shortRepo} | [#${issue.number}](../repos/${issue.repoDir}/issues.md#${issue.number}) | ${title} |\n`;
+            md += `| ${shortRepo} | [#${issue.number}](https://github.com/temporalio/${issue.repoDir.replace('temporalio-', '')}/issues/${issue.number}) | ${title} |\n`;
         });
         md += `\n`;
     });

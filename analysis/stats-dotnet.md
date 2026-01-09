@@ -1,8 +1,7 @@
 # .NET SDK - Issue Statistics
 
 **Generated:** 2026-01-09
-**Repository:** temporalio/sdk-dotnet
-**Data Source:** [issues.md](../repos/temporalio-sdk-dotnet/issues.md)
+**Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 
 ## Related Documents
 
@@ -129,12 +128,12 @@
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#286](../repos/temporalio-sdk-dotnet/issues.md#286) | 7 | 1 | Support .NET Trimming |
-| 2 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 2 | 3 | [Feature Request] F# Samples/Documentation |
-| 3 | [#420](../repos/temporalio-sdk-dotnet/issues.md#420) | 1 | 1 | [Feature Request] Provide synchronous Run method in testing |
-| 4 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 1 | 2 | [Feature Request] Make scoped IServiceProvider available to ... |
-| 5 | [#256](../repos/temporalio-sdk-dotnet/issues.md#256) | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMeter is use... |
-| 6 | [#131](../repos/temporalio-sdk-dotnet/issues.md#131) | 1 | 0 | [Feature Request] Support single-platform local NuGet packag... |
+| 1 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | 1 | Support .NET Trimming |
+| 2 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 2 | 3 | [Feature Request] F# Samples/Documentation |
+| 3 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | 1 | [Feature Request] Provide synchronous Run method in testing |
+| 4 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | 2 | [Feature Request] Make scoped IServiceProvider available to ... |
+| 5 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMeter is use... |
+| 6 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | 0 | [Feature Request] Support single-platform local NuGet packag... |
 
 ---
 
@@ -144,21 +143,21 @@ Priority = Upvotes × 2 + Comments
 
 | Rank | Issue | Score | 👍 | 💬 | Title |
 |------|-------|-------|-----|-----|-------|
-| 1 | [#286](../repos/temporalio-sdk-dotnet/issues.md#286) | 15 | 7 | 1 | Support .NET Trimming |
-| 2 | [#179](../repos/temporalio-sdk-dotnet/issues.md#179) | 8 | 0 | 8 | [Bug] Workflow Update hangs on time skipping envir... |
-| 3 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 7 | 2 | 3 | [Feature Request] F# Samples/Documentation |
-| 4 | [#563](../repos/temporalio-sdk-dotnet/issues.md#563) | 5 | 0 | 5 | Use global.json file to centralize SDK version |
-| 5 | [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | 4 | 0 | 4 | [Feature Request] OperatorService (RPC) and Workfl... |
-| 6 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 4 | 1 | 2 | [Feature Request] Make scoped IServiceProvider ava... |
-| 7 | [#420](../repos/temporalio-sdk-dotnet/issues.md#420) | 3 | 1 | 1 | [Feature Request] Provide synchronous Run method i... |
-| 8 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 3 | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation... |
-| 9 | [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 3 | 0 | 3 | [Bug] Unexpected reuse of payload instances in pay... |
-| 10 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 2 | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_w... |
-| 11 | [#256](../repos/temporalio-sdk-dotnet/issues.md#256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
-| 12 | [#131](../repos/temporalio-sdk-dotnet/issues.md#131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
-| 13 | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 1 | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` ... |
-| 14 | [#496](../repos/temporalio-sdk-dotnet/issues.md#496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
-| 15 | [#478](../repos/temporalio-sdk-dotnet/issues.md#478) | 1 | 0 | 1 | [Feature Request] Investigate test flake for `CanR... |
+| 1 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 15 | 7 | 1 | Support .NET Trimming |
+| 2 | [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 8 | 0 | 8 | [Bug] Workflow Update hangs on time skipping envir... |
+| 3 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 7 | 2 | 3 | [Feature Request] F# Samples/Documentation |
+| 4 | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | 5 | 0 | 5 | Use global.json file to centralize SDK version |
+| 5 | [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 4 | 0 | 4 | [Feature Request] OperatorService (RPC) and Workfl... |
+| 6 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 4 | 1 | 2 | [Feature Request] Make scoped IServiceProvider ava... |
+| 7 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 3 | 1 | 1 | [Feature Request] Provide synchronous Run method i... |
+| 8 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation... |
+| 9 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | 0 | 3 | [Bug] Unexpected reuse of payload instances in pay... |
+| 10 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_w... |
+| 11 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
+| 12 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
+| 13 | [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 1 | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` ... |
+| 14 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
+| 15 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | 1 | [Feature Request] Investigate test flake for `CanR... |
 
 ---
 
@@ -166,16 +165,16 @@ Priority = Upvotes × 2 + Comments
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#179](../repos/temporalio-sdk-dotnet/issues.md#179) | 8 | 0 | [Bug] Workflow Update hangs on time skipping environment |
-| 2 | [#563](../repos/temporalio-sdk-dotnet/issues.md#563) | 5 | 0 | Use global.json file to centralize SDK version |
-| 3 | [#553](../repos/temporalio-sdk-dotnet/issues.md#553) | 4 | 0 | [Feature Request] OperatorService (RPC) and WorkflowService ... |
-| 4 | [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 3 | 0 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
-| 5 | [#390](../repos/temporalio-sdk-dotnet/issues.md#390) | 3 | 2 | [Feature Request] F# Samples/Documentation |
-| 6 | [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 3 | 0 | [Bug] Unexpected reuse of payload instances in payload codec... |
-| 7 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 2 | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| 8 | [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
-| 9 | [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 1 | 0 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
-| 10 | [#496](../repos/temporalio-sdk-dotnet/issues.md#496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
+| 1 | [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 8 | 0 | [Bug] Workflow Update hangs on time skipping environment |
+| 2 | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | 5 | 0 | Use global.json file to centralize SDK version |
+| 3 | [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 4 | 0 | [Feature Request] OperatorService (RPC) and WorkflowService ... |
+| 4 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | 0 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
+| 5 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 3 | 2 | [Feature Request] F# Samples/Documentation |
+| 6 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | 0 | [Bug] Unexpected reuse of payload instances in payload codec... |
+| 7 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
+| 8 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
+| 9 | [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 1 | 0 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
+| 10 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
 
 ---
 
@@ -183,13 +182,13 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-01-07 | [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
-| 2026-01-06 | [#587](../repos/temporalio-sdk-dotnet/issues.md#587) | 0 | Refactor Bridge.Client to be IDisposable instead of a SafeHa... |
-| 2026-01-06 | [#586](../repos/temporalio-sdk-dotnet/issues.md#586) | 0 | Separate unmanaged pointer lifecycle management into SafeHan... |
-| 2025-12-26 | [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | 0 | [Bug] Loading TLS certificates from path doesn't work |
-| 2025-12-17 | [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| 2025-12-17 | [#578](../repos/temporalio-sdk-dotnet/issues.md#578) | 0 | [Feature Request] Add tests to confirm proper Nexus support ... |
-| 2025-12-12 | [#576](../repos/temporalio-sdk-dotnet/issues.md#576) | 0 | [Feature Request] .NET Analyzer for Checking Workflows |
+| 2026-01-07 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
+| 2026-01-06 | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | 0 | Refactor Bridge.Client to be IDisposable instead of a SafeHa... |
+| 2026-01-06 | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | 0 | Separate unmanaged pointer lifecycle management into SafeHan... |
+| 2025-12-26 | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | [Bug] Loading TLS certificates from path doesn't work |
+| 2025-12-17 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
+| 2025-12-17 | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | 0 | [Feature Request] Add tests to confirm proper Nexus support ... |
+| 2025-12-12 | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | 0 | [Feature Request] .NET Analyzer for Checking Workflows |
 
 ---
 
@@ -207,18 +206,18 @@ Priority = Upvotes × 2 + Comments
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
-| [#588](../repos/temporalio-sdk-dotnet/issues.md#588) | 0 | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
-| [#584](../repos/temporalio-sdk-dotnet/issues.md#584) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
-| [#579](../repos/temporalio-sdk-dotnet/issues.md#579) | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| [#550](../repos/temporalio-sdk-dotnet/issues.md#550) | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
-| [#549](../repos/temporalio-sdk-dotnet/issues.md#549) | 0 | 0 | [Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_Auto... |
-| [#395](../repos/temporalio-sdk-dotnet/issues.md#395) | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
-| [#357](../repos/temporalio-sdk-dotnet/issues.md#357) | 0 | 1 | [Bug] Unexpected Serialization of Activity Results |
-| [#305](../repos/temporalio-sdk-dotnet/issues.md#305) | 0 | 1 | Handle multiple completion commands |
-| [#280](../repos/temporalio-sdk-dotnet/issues.md#280) | 0 | 1 | [Bug] TaskQueue not forwarded when using Test Environment, b... |
-| [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 0 | 3 | [Bug] Unexpected reuse of payload instances in payload codec... |
-| [#179](../repos/temporalio-sdk-dotnet/issues.md#179) | 0 | 8 | [Bug] Workflow Update hangs on time skipping environment |
-| [#77](../repos/temporalio-sdk-dotnet/issues.md#77) | 0 | 0 | [Bug] Time skipping test server not auto skipping time prope... |
+| [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
+| [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
+| [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
+| [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
+| [#549](https://github.com/temporalio/sdk-dotnet/issues/549) | 0 | 0 | [Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_Auto... |
+| [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
+| [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | 0 | 1 | [Bug] Unexpected Serialization of Activity Results |
+| [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 0 | 1 | Handle multiple completion commands |
+| [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | 0 | 1 | [Bug] TaskQueue not forwarded when using Test Environment, b... |
+| [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 0 | 3 | [Bug] Unexpected reuse of payload instances in payload codec... |
+| [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 0 | 8 | [Bug] Workflow Update hangs on time skipping environment |
+| [#77](https://github.com/temporalio/sdk-dotnet/issues/77) | 0 | 0 | [Bug] Time skipping test server not auto skipping time prope... |
 
 ---
 
@@ -228,25 +227,25 @@ Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
-| [#286](../repos/temporalio-sdk-dotnet/issues.md#286) | 7 | 2024-06-25 | Support .NET Trimming |
-| [#363](../repos/temporalio-sdk-dotnet/issues.md#363) | 1 | 2024-11-12 | [Feature Request] Make scoped IServiceProvider ava... |
-| [#256](../repos/temporalio-sdk-dotnet/issues.md#256) | 1 | 2024-05-30 | [Feature Request] Clarify what the ICustomMetricMe... |
-| [#131](../repos/temporalio-sdk-dotnet/issues.md#131) | 1 | 2023-09-01 | [Feature Request] Support single-platform local Nu... |
-| [#387](../repos/temporalio-sdk-dotnet/issues.md#387) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
-| [#386](../repos/temporalio-sdk-dotnet/issues.md#386) | 0 | 2025-01-06 | [Feature Request] Improve WaitConditionAsync seman... |
-| [#360](../repos/temporalio-sdk-dotnet/issues.md#360) | 0 | 2024-10-21 | [Feature Request] Auto-skip time in time-skipping ... |
-| [#357](../repos/temporalio-sdk-dotnet/issues.md#357) | 0 | 2024-10-11 | [Bug] Unexpected Serialization of Activity Results |
-| [#337](../repos/temporalio-sdk-dotnet/issues.md#337) | 0 | 2024-09-10 | [Feature Request] Include more details from tonic ... |
-| [#307](../repos/temporalio-sdk-dotnet/issues.md#307) | 0 | 2024-07-16 | [Feature Request] Replace `System.TimeProvider` in... |
-| [#305](../repos/temporalio-sdk-dotnet/issues.md#305) | 0 | 2024-07-15 | Handle multiple completion commands |
-| [#299](../repos/temporalio-sdk-dotnet/issues.md#299) | 0 | 2024-07-03 | [Feature Request] Upon initial client connection, ... |
-| [#291](../repos/temporalio-sdk-dotnet/issues.md#291) | 0 | 2024-06-27 | [Feature Request] Update test running to replay |
-| [#280](../repos/temporalio-sdk-dotnet/issues.md#280) | 0 | 2024-06-18 | [Bug] TaskQueue not forwarded when using Test Envi... |
-| [#247](../repos/temporalio-sdk-dotnet/issues.md#247) | 0 | 2024-05-10 | [Feature Request] Support for win-x86 |
-| [#246](../repos/temporalio-sdk-dotnet/issues.md#246) | 0 | 2024-05-10 | [Feature Request] Expose raw proto objects on Work... |
-| [#243](../repos/temporalio-sdk-dotnet/issues.md#243) | 0 | 2024-05-08 | [Feature Request] Enforce no-commands-allowed rest... |
-| [#234](../repos/temporalio-sdk-dotnet/issues.md#234) | 0 | 2024-04-26 | [Bug] Unexpected reuse of payload instances in pay... |
-| [#229](../repos/temporalio-sdk-dotnet/issues.md#229) | 0 | 2024-04-22 | [Feature Request] Make Temporalio.Testing to a sep... |
-| [#194](../repos/temporalio-sdk-dotnet/issues.md#194) | 0 | 2024-03-05 | coverlet.collector.3.1.2.nupkg: 1 vulnerabilities ... |
+| [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | 2024-06-25 | Support .NET Trimming |
+| [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | 2024-11-12 | [Feature Request] Make scoped IServiceProvider ava... |
+| [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | 2024-05-30 | [Feature Request] Clarify what the ICustomMetricMe... |
+| [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | 2023-09-01 | [Feature Request] Support single-platform local Nu... |
+| [#387](https://github.com/temporalio/sdk-dotnet/issues/387) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
+| [#386](https://github.com/temporalio/sdk-dotnet/issues/386) | 0 | 2025-01-06 | [Feature Request] Improve WaitConditionAsync seman... |
+| [#360](https://github.com/temporalio/sdk-dotnet/issues/360) | 0 | 2024-10-21 | [Feature Request] Auto-skip time in time-skipping ... |
+| [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | 0 | 2024-10-11 | [Bug] Unexpected Serialization of Activity Results |
+| [#337](https://github.com/temporalio/sdk-dotnet/issues/337) | 0 | 2024-09-10 | [Feature Request] Include more details from tonic ... |
+| [#307](https://github.com/temporalio/sdk-dotnet/issues/307) | 0 | 2024-07-16 | [Feature Request] Replace `System.TimeProvider` in... |
+| [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 0 | 2024-07-15 | Handle multiple completion commands |
+| [#299](https://github.com/temporalio/sdk-dotnet/issues/299) | 0 | 2024-07-03 | [Feature Request] Upon initial client connection, ... |
+| [#291](https://github.com/temporalio/sdk-dotnet/issues/291) | 0 | 2024-06-27 | [Feature Request] Update test running to replay |
+| [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | 0 | 2024-06-18 | [Bug] TaskQueue not forwarded when using Test Envi... |
+| [#247](https://github.com/temporalio/sdk-dotnet/issues/247) | 0 | 2024-05-10 | [Feature Request] Support for win-x86 |
+| [#246](https://github.com/temporalio/sdk-dotnet/issues/246) | 0 | 2024-05-10 | [Feature Request] Expose raw proto objects on Work... |
+| [#243](https://github.com/temporalio/sdk-dotnet/issues/243) | 0 | 2024-05-08 | [Feature Request] Enforce no-commands-allowed rest... |
+| [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 0 | 2024-04-26 | [Bug] Unexpected reuse of payload instances in pay... |
+| [#229](https://github.com/temporalio/sdk-dotnet/issues/229) | 0 | 2024-04-22 | [Feature Request] Make Temporalio.Testing to a sep... |
+| [#194](https://github.com/temporalio/sdk-dotnet/issues/194) | 0 | 2024-03-05 | coverlet.collector.3.1.2.nupkg: 1 vulnerabilities ... |
 
 *...and 4 more stale issues*

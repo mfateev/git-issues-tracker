@@ -11,7 +11,7 @@ Use this template when generating analysis for the API repository (temporalio/ap
 **Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/temporalio-api/issues.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
 
 **Related:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md)
 
@@ -58,7 +58,7 @@ The API repository contains Temporal's Protobuf definitions used by all SDKs and
 
 | Issue | 👍 | Proposal |
 |-------|-----|----------|
-| [#{NUMBER}](../repos/temporalio-api/issues.md#{NUMBER}) | {upvotes} | {description} |
+| [#{NUMBER}](https://github.com/temporalio/api/issues/{NUMBER}) | {upvotes} | {description} |
 ...
 
 ### Bugs/Fixes

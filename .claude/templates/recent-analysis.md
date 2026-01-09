@@ -22,7 +22,7 @@ Use this template when generating the recent issues analysis (analysis/recent.md
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {SDK} | {description} |
+| [#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}) | {SDK} | {description} |
 ...
 
 **Recommendation:** {action required}
@@ -40,7 +40,7 @@ Use this template when generating the recent issues analysis (analysis/recent.md
 {Description of the pattern}
 
 {List related issues:}
-- {issue description} ([#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}))
+- {issue description} ([#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}))
 - ...
 
 **Recommendation:** {suggested action}

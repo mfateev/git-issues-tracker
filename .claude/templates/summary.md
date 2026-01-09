@@ -21,7 +21,7 @@ Use this template when generating the cross-repository summary document (analysi
 **Per-Repository Analysis:**
 {List links to all tracked repository analysis documents}
 
-**Full Issue Data:** See `repos/<repo>/issues.md` for complete issue dumps with all comments.
+**Full Issue Data:** Individual issue JSON files in `repos/<repo>/issues/` or view on GitHub.
 
 ---
 
@@ -89,7 +89,7 @@ Use this template when generating the cross-repository summary document (analysi
 
 | Repo | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| {repo} | [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {upvotes} | {title} |
+| {repo} | [#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}) | {upvotes} | {title} |
 ...
 
 ---
@@ -100,7 +100,7 @@ Use this template when generating the cross-repository summary document (analysi
 
 | Rank | Repo | Issue | 👍 | Request |
 |------|------|-------|-----|---------|
-| 1 | {repo} | [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | **{upvotes}** | {title} |
+| 1 | {repo} | [#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}) | **{upvotes}** | {title} |
 ...
 
 ---

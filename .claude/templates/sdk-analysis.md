@@ -11,7 +11,7 @@ Use this template when generating analysis documents for SDK repositories (Java,
 **Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/{REPO_NAME}](https://github.com/temporalio/{REPO_NAME})
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Full Issue Data](../repos/{REPO_DIR}/issues.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
 
 **Other SDKs:** [list other SDK analysis docs, excluding current one]
 
@@ -89,7 +89,7 @@ Use this template when generating analysis documents for SDK repositories (Java,
 
 | Issue | 👍 | Title |
 |-------|-----|-------|
-| [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {upvotes} | {title} |
+| [#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}) | {upvotes} | {title} |
 ...
 
 ---
@@ -100,7 +100,7 @@ Use this template when generating analysis documents for SDK repositories (Java,
 
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {upvotes} | {comments} | {title} |
+| 1 | [#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}) | {upvotes} | {comments} | {title} |
 ...
 
 ### Priority Score (Upvotes×2 + Comments)
@@ -124,7 +124,7 @@ Use this template when generating analysis documents for SDK repositories (Java,
 
 | Issue | 👍 | Description |
 |-------|-----|-------------|
-| [#{NUMBER}](../repos/{REPO_DIR}/issues.md#{NUMBER}) | {upvotes} | {description} |
+| [#{NUMBER}](https://github.com/{REPO}/issues/{NUMBER}) | {upvotes} | {description} |
 ...
 
 {For bugs, consider grouping by priority (High/Medium) or subsystem}

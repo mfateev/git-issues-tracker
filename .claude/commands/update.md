@@ -12,11 +12,7 @@ Run `./scripts/update-all.sh` to:
 - Generate contributors.md (with navigation links)
 - Generate stats-recent.md (with navigation links)
 
-### 2. Regenerate Human-Readable Issue Files
-
-Run `node scripts/generate-readable.js --all` to regenerate all `repos/<sdk>/issues.md` files with latest data.
-
-### 3. Generate Statistics (Script-Based)
+### 2. Generate Statistics (Script-Based)
 
 Run `node scripts/generate-stats.js --all` to generate `analysis/stats-<sdk>.md` files for each repository.
 
@@ -24,9 +20,9 @@ Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.m
 
 **Note:** These scripts automatically generate navigation links to related documents (summary, analysis docs, other stats files).
 
-### 4. Generate SDK Analysis Documents (LLM)
+### 3. Generate SDK Analysis Documents (LLM)
 
-For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issues file (`repos/<sdk>/issues.md`), then update or create `analysis/<sdk>.md`.
+For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and issue JSON files in `repos/<sdk>/issues/`, then update or create `analysis/<sdk>.md`.
 
 **Templates:** Follow the structure defined in these template files:
 - **SDK analysis:** `.claude/templates/sdk-analysis.md` (Java, Go, TypeScript, Python, .NET, PHP, Ruby)
@@ -48,24 +44,24 @@ This provides full context for understanding the issue's importance and communit
 - Analysis documents should contain only issue analysis content, not tooling documentation
 
 **Issue Link Format (CRITICAL):**
-All issue references MUST link to local files, NOT GitHub URLs.
+All issue references MUST link to GitHub URLs.
 
-✅ Correct: `[#680](../repos/temporalio-temporal/issues.md#680)`
-❌ Wrong: `[#680](https://github.com/temporalio/temporal/issues/680)`
+✅ Correct: `[#680](https://github.com/temporalio/temporal/issues/680)`
+❌ Wrong: `[#680](../repos/temporalio-temporal/issues.md#680)`
 
 Repository mapping for links:
-- Server issues: `../repos/temporalio-temporal/issues.md#<number>`
-- Features issues: `../repos/temporalio-features/issues.md#<number>`
-- API issues: `../repos/temporalio-api/issues.md#<number>`
-- Java SDK: `../repos/temporalio-sdk-java/issues.md#<number>`
-- Go SDK: `../repos/temporalio-sdk-go/issues.md#<number>`
-- TypeScript SDK: `../repos/temporalio-sdk-typescript/issues.md#<number>`
-- Python SDK: `../repos/temporalio-sdk-python/issues.md#<number>`
-- .NET SDK: `../repos/temporalio-sdk-dotnet/issues.md#<number>`
-- PHP SDK: `../repos/temporalio-sdk-php/issues.md#<number>`
-- Ruby SDK: `../repos/temporalio-sdk-ruby/issues.md#<number>`
+- Server issues: `https://github.com/temporalio/temporal/issues/<number>`
+- Features issues: `https://github.com/temporalio/features/issues/<number>`
+- API issues: `https://github.com/temporalio/api/issues/<number>`
+- Java SDK: `https://github.com/temporalio/sdk-java/issues/<number>`
+- Go SDK: `https://github.com/temporalio/sdk-go/issues/<number>`
+- TypeScript SDK: `https://github.com/temporalio/sdk-typescript/issues/<number>`
+- Python SDK: `https://github.com/temporalio/sdk-python/issues/<number>`
+- .NET SDK: `https://github.com/temporalio/sdk-dotnet/issues/<number>`
+- PHP SDK: `https://github.com/temporalio/sdk-php/issues/<number>`
+- Ruby SDK: `https://github.com/temporalio/sdk-ruby/issues/<number>`
 
-### 5. Generate Cross-Repository Summary (LLM)
+### 4. Generate Cross-Repository Summary (LLM)
 
 Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, then update `analysis/summary.md`.
 
@@ -78,9 +74,9 @@ Read `analysis/stats-all.md` and all individual `analysis/<sdk>.md` documents, t
 - The summary should contain only analysis content, not tooling documentation
 
 **Issue Link Format (CRITICAL):**
-Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
+Same rules as SDK documents - use GitHub URLs. See mapping in Step 3.
 
-### 6. Generate Recent Issues Analysis (LLM)
+### 5. Generate Recent Issues Analysis (LLM)
 
 Read `analysis/stats-recent.md` (the raw list of recent issues), then update `analysis/recent.md` with deep analysis.
 
@@ -101,4 +97,4 @@ This helps understand the full scope of bugs, security issues, and user-reported
 - Group related issues together to identify systemic problems
 
 **Issue Link Format (CRITICAL):**
-Same rules as SDK documents - use local file links, NOT GitHub URLs. See mapping in Step 4.
+Same rules as SDK documents - use GitHub URLs. See mapping in Step 3.

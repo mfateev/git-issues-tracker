@@ -452,7 +452,7 @@ Repositories ranked by resolution metrics:
   } else {
     recentlyResolved.forEach(issue => {
       const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-      md += `| ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+      md += `| ${displayName} | [#${issue.number}](https://github.com/temporalio/${issue.repo.replace('temporalio-', '')}/issues/${issue.number}) | ${issue.upvotes || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
     });
   }
 
@@ -467,7 +467,7 @@ Repositories ranked by resolution metrics:
 
   topByUpvotes.forEach((issue, idx) => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](https://github.com/temporalio/${issue.repo.replace('temporalio-', '')}/issues/${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -483,7 +483,7 @@ Priority = Upvotes × 2 + Comments
 
   topByPriority.forEach((issue, idx) => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.priority} | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 45)}${issue.title.length > 45 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](https://github.com/temporalio/${issue.repo.replace('temporalio-', '')}/issues/${issue.number}) | ${issue.priority} | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 45)}${issue.title.length > 45 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -497,7 +497,7 @@ Priority = Upvotes × 2 + Comments
 
   topBugs.forEach((issue, idx) => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
-    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+    md += `| ${idx + 1} | ${displayName} | [#${issue.number}](https://github.com/temporalio/${issue.repo.replace('temporalio-', '')}/issues/${issue.number}) | ${issue.upvotes || 0} | ${issue.commentCount || issue.comments || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
   });
 
   md += `
@@ -512,7 +512,7 @@ Priority = Upvotes × 2 + Comments
   recentIssues.slice(0, 50).forEach(issue => {
     const displayName = SDK_DISPLAY_NAMES[issue.sdkName] || issue.sdkName;
     const date = new Date(issue.createdAt).toISOString().split('T')[0];
-    md += `| ${date} | ${displayName} | [#${issue.number}](../repos/${issue.repo}/issues.md#${issue.number}) | ${issue.upvotes || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
+    md += `| ${date} | ${displayName} | [#${issue.number}](https://github.com/temporalio/${issue.repo.replace('temporalio-', '')}/issues/${issue.number}) | ${issue.upvotes || 0} | ${issue.title.substring(0, 50)}${issue.title.length > 50 ? '...' : ''} |\n`;
   });
 
   if (recentIssues.length > 50) {
