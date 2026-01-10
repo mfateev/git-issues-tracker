@@ -1,7 +1,7 @@
 # Recent Issues (Last 30 Days)
 
-**Generated:** 2026-01-09
-**Period:** 2025-12-10 to 2026-01-09
+**Generated:** 2026-01-10
+**Period:** 2025-12-11 to 2026-01-10
 **New Issues:** 50
 
 ## Related Documents

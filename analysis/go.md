@@ -1,11 +1,11 @@
 # Temporal Go SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Total Open Issues:** 163
 **Total Closed Issues:** 661
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
-<< [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) 
+<< [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md)
 
 **Other SDKs:** [Java](java.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [PHP](php.md) | [Ruby](ruby.md) | [Server](server.md) | [Features](features.md)
 

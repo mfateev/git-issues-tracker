@@ -1,6 +1,6 @@
 # Features SDK - Issue Statistics
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
 ## Related Documents

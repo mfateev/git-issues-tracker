@@ -1,6 +1,6 @@
 # Java SDK - Issue Statistics
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
 ## Related Documents

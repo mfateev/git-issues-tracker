@@ -1,6 +1,6 @@
 # PHP SDK - Issue Statistics
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
 ## Related Documents

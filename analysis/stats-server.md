@@ -1,6 +1,6 @@
 # Server SDK - Issue Statistics
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
 ## Related Documents

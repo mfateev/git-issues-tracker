@@ -1,6 +1,6 @@
 # Go SDK - Issue Statistics
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
 ## Related Documents

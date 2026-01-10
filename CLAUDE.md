@@ -67,6 +67,9 @@ Analysis commands: `stats`, `age`, `bugs`, `testserver`, `security`, `upvotes`, 
 node scripts/get-issue.js <repo> <issue-number>
 node scripts/get-issue.js temporalio-temporal 680
 node scripts/get-issue.js sdk-typescript 1334   # 'temporalio-' prefix optional
+
+# List open issues for a repo (number|title|labels|upvotes|comments)
+./scripts/list-open-issues.sh temporalio-sdk-ruby
 ```
 
 ## Architecture
@@ -107,7 +110,8 @@ scripts/
 ├── generate-aggregate-stats.js # Generate cross-repo statistics
 ├── generate-contributors.js    # Generate contributors.md
 ├── generate-recent.js          # Generate stats-recent.md
-└── get-issue.js                # Get full content of single issue
+├── get-issue.js                # Get full content of single issue
+└── list-open-issues.sh         # List open issues from repo dir
 ```
 
 ## Key Patterns

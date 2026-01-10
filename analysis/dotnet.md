@@ -1,29 +1,28 @@
 # Temporal .NET SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Total Open Issues:** 49
 **Total Closed Issues:** 240
 **Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 
 <- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md)
 
-**Other SDKs:** [Go](go.md) | [Java](java.md) | [TypeScript](typescript.md) | [Python](python.md) | [PHP](php.md) | [Ruby](ruby.md)
+**Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [PHP](php.md) | [Ruby](ruby.md)
 
 ---
 
 ## Executive Summary
 
-The .NET SDK has a relatively small open issue count (49) with an excellent resolution rate of 83%, indicating a well-maintained codebase. The SDK is maturing with strong developer experience focus, though key gaps remain around .NET ecosystem integration (trimming support, F# support) and testing infrastructure stability. The primary concerns are native bridge stability issues on Linux and time-skipping test server limitations.
+The .NET SDK demonstrates excellent health with an 83% resolution rate and a median time to close of 21 calendar days (16 business days). The backlog is effectively stable with only +3 net issues over the past 12 months. The SDK is relatively mature with a small issue volume compared to other Temporal SDKs, but nearly half of open issues (49%) are stale, indicating an opportunity for housekeeping. Top user demand centers on .NET ecosystem improvements including trimming/AOT support (7 upvotes) and F# language support (2 upvotes).
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Bugs | 12 | High - Includes critical native bridge crashes and testing issues |
-| Enhancements | 30 | Medium - Focus on DX improvements and .NET ecosystem integration |
-| Security Vulnerabilities | 1 | Low - Dev dependency only (coverlet.collector) |
-| Test Server Issues | 4 | Medium - Blocking for time-skipping workflows in tests |
-| Stale Issues (>12 months) | 24 | Low - 49% of open issues need triage |
+| Bugs | 12 | High - includes a SIGSEGV crash on Linux and test server issues |
+| Enhancements | 30 | Medium - ecosystem support (trimming, F#) and testing improvements |
+| Security Vulnerabilities | 1 | Low - dependency vulnerability requiring assessment |
+| Stale Issues (>12 months) | 24 (49%) | Medium - significant housekeeping opportunity |
 
 ### User Engagement Summary
 
@@ -47,11 +46,11 @@ The .NET SDK has a relatively small open issue count (49) with an excellent reso
 
 ### Recommended Actions
 
-1. **Immediate:** Investigate Linux SIGSEGV crash in native bridge ([#579](https://github.com/temporalio/sdk-dotnet/issues/579)) - critical stability issue
-2. **Short-term:** Fix TLS certificate loading from path ([#584](https://github.com/temporalio/sdk-dotnet/issues/584)) - blocks Temporal Cloud mTLS usage
-3. **Medium-term:** Implement .NET Trimming support ([#286](https://github.com/temporalio/sdk-dotnet/issues/286)) - most upvoted feature request (7 upvotes)
-4. **Long-term:** Build .NET Analyzer for workflow checking ([#576](https://github.com/temporalio/sdk-dotnet/issues/576)) - parity with Go/Java SDKs
-5. **Housekeeping:** Triage 24 stale issues - nearly half of open issues have no activity in 12+ months
+1. **Immediate:** Investigate SIGSEGV crash on Linux ([#579](https://github.com/temporalio/sdk-dotnet/issues/579)) - critical production stability issue
+2. **Short-term:** Fix TLS certificate loading from path ([#584](https://github.com/temporalio/sdk-dotnet/issues/584)) - blocks secure deployments
+3. **Medium-term:** Implement .NET trimming/AOT support ([#286](https://github.com/temporalio/sdk-dotnet/issues/286)) - highest user demand with 7 upvotes
+4. **Long-term:** Develop .NET Analyzer for workflow checking ([#576](https://github.com/temporalio/sdk-dotnet/issues/576)) - will improve developer experience significantly
+5. **Housekeeping:** Triage 24 stale issues (49% of backlog) - many appear resolved or low-priority
 
 ---
 
@@ -59,17 +58,17 @@ The .NET SDK has a relatively small open issue count (49) with an excellent reso
 
 ### Velocity Trend (Last 12 Months)
 
-The SDK maintains a near-balanced velocity with slight backlog growth.
+The backlog is effectively stable with negligible growth over the past year.
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
 | Last 12 months | 87 | 84 | +3 |
 
-Backlog Stable: Only 3 more issues opened than closed, indicating effective maintenance.
+The .NET SDK team maintains excellent velocity parity, with closures closely tracking new issues each month. The small +3 net change indicates sustainable maintenance capacity.
 
 ### Last 6 Months: Detailed Analysis
 
-The last 6 months show healthy maintenance with balanced opened/closed rates and strong bug resolution.
+The last 6 months show perfect equilibrium with 41 issues opened and 41 closed.
 
 | Metric | Value |
 |--------|-------|
@@ -80,12 +79,7 @@ The last 6 months show healthy maintenance with balanced opened/closed rates and
 
 ### Popular Requests Resolved (Last 6 Months)
 
-| Issue | Upvotes | Title |
-|-------|---------|-------|
-| [#436](https://github.com/temporalio/sdk-dotnet/issues/436) | 3 | Add ability to temporarily disable tracing event listener in workflows |
-| [#385](https://github.com/temporalio/sdk-dotnet/issues/385) | 2 | Add support for win-arm64 |
-| [#408](https://github.com/temporalio/sdk-dotnet/issues/408) | 2 | Include musl-based build in NuGet package |
-| [#282](https://github.com/temporalio/sdk-dotnet/issues/282) | 2 | Accept search attributes in dev server startup |
+No high-upvote issues (3+) were closed in the last 6 months. Recent closures focused on internal improvements and bug fixes rather than user-requested features.
 
 ---
 
@@ -98,7 +92,7 @@ The last 6 months show healthy maintenance with balanced opened/closed rates and
 | 3 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | 1 | Provide synchronous Run method in testing |
 | 4 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | 2 | Make scoped IServiceProvider available to ActivityInboundInterceptor |
 | 5 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | 0 | Clarify what the ICustomMetricMeter is used for |
-| 6 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | 0 | Support single-platform local NuGet package build |
+| 6 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | 0 | Support single-platform local NuGet package |
 
 ### Priority Score (Upvotes x 2 + Comments)
 
@@ -108,119 +102,118 @@ The last 6 months show healthy maintenance with balanced opened/closed rates and
 | 2 | [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 8 | Workflow Update hangs on time skipping environment |
 | 3 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 7 | F# Samples/Documentation |
 | 4 | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | 5 | Use global.json file to centralize SDK version |
-| 5 | [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 4 | OperatorService and WorkflowService virtual/interface |
+| 5 | [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 4 | OperatorService and WorkflowService members virtual or interface |
 | 6 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 4 | Make scoped IServiceProvider available to ActivityInboundInterceptor |
 | 7 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 3 | Provide synchronous Run method in testing |
 | 8 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | RpcException: operation was canceled |
 | 9 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | Unexpected reuse of payload instances in payload codec |
-| 10 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | SIGSEGV crash in temporal_core_worker_poll_workflow_activation |
+| 10 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | SIGSEGV crash on Linux |
 
 ---
 
 ## Issue Analysis by Category
 
-### Critical Bugs (3 issues)
-
-These bugs affect core functionality and stability.
-
-| Issue | Upvotes | Description |
-|-------|---------|-------------|
-| [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | **SIGSEGV crash in native bridge on Linux** - Intermittent segfault during workflow activation polling in CI/Linux environments. The crash occurs in the Rust bridge (`temporal_core_worker_poll_workflow_activation`) and is preceded by activity heartbeat warnings. Critical stability issue affecting production deployments on Linux. |
-| [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | **TLS certificate loading from path broken** - `TEMPORAL_TLS_CLIENT_CERT_PATH` env var is ignored; only `TEMPORAL_TLS_CLIENT_CERT_DATA` works. The `ClientEnvConfig.Tls.ToTlsOptions` method only reads `Data` property and ignores `Path`. Blocks standard mTLS configuration for Temporal Cloud. |
-| [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | **Workflow task failures may be lost** - Some unlikely workflow task failures like failure converting payloads to complete child workflows may not be properly logged or handled. |
-
-### Test Server / Testing Infrastructure (4 issues)
-
-Issues related to the time-skipping test server and testing utilities.
-
-| Issue | Upvotes | Description |
-|-------|---------|-------------|
-| [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 0 | **Workflow Update hangs on time-skipping environment** - Update calls hang indefinitely when using time-skipping test server. Known upstream issue in Java SDK test server (where time-skipping implementation lives). Workaround: use local server instead of time-skipping environment for update tests. |
-| [#77](https://github.com/temporalio/sdk-dotnet/issues/77) | 0 | **Time skipping not working in some cases** - When starting a workflow with a long timer (no activity), `env.DelayAsync` sleeps real time instead of skipping. Open since May 2023. |
-| [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 0 | **CustomSlotSupplier test flake** - Intermittent test failures need investigation. |
-| [#549](https://github.com/temporalio/sdk-dotnet/issues/549) | 0 | **PollingBehavior_Autoscaling test flake** - Intermittent test failures need investigation. |
-
-### Other Bugs (5 issues)
-
-| Issue | Upvotes | Description |
-|-------|---------|-------------|
-| [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 0 | **RpcException: operation was canceled** - Immediate timeout (2ms) when calling `DescribeNamespaceAsync`. The user reports sharing `TemporalClient` across threads in health checks. Occurring in Azure App Service on Linux. |
-| [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 0 | **Payload instance reuse in codec** - Same payload instance passed to codec for both activity and workflow failures in certain scenarios. Documentation clarifies codecs should always create new payloads and never mutate input. |
-| [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | 0 | **Unexpected serialization of activity results** - Activity results serialized unexpectedly in certain scenarios. |
-| [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | 0 | **TaskQueue not forwarded for ContinueAsNew in Test Environment** - Causes hangs when testing continue-as-new workflows. |
-| [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 0 | **Handle multiple completion commands** - Edge case with multiple workflow completion commands. |
-
-### Security Vulnerability (1 issue)
+### Security Vulnerabilities (1 issue)
 
 | Issue | Severity | Description |
 |-------|----------|-------------|
-| [#194](https://github.com/temporalio/sdk-dotnet/issues/194) | High (7.5) | **coverlet.collector Newtonsoft.Json vulnerability** - CVE-2024-21907 in test dependency (coverlet.collector 3.1.2). Crafted JSON can trigger StackOverflow exception in `JsonConvert.DeserializeObject`. Dev-only impact; fix available by upgrading Newtonsoft.Json to 13.0.1. |
+| [#194](https://github.com/temporalio/sdk-dotnet/issues/194) | Unknown | coverlet.collector.3.1.2.nupkg vulnerability - stale issue from 2024, likely outdated dependency |
+
+**Recommendation:** Verify if the coverlet.collector dependency has been updated. If resolved, close the issue.
+
+### Bugs (12 open issues)
+
+#### Critical: Platform Stability
+
+| Issue | Comments | Description |
+|-------|----------|-------------|
+| [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | **SIGSEGV crash in `temporal_core_worker_poll_workflow_activation` on Linux.** Intermittent crash during workflow polling in CI environments on Ubuntu. Crash occurs in the native Rust bridge, not user code. Works on Windows but fails on Linux. High priority - affects production deployments. |
+| [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | **TLS certificates from path don't work.** `TEMPORAL_TLS_CLIENT_CERT_PATH` env var is ignored; only `TEMPORAL_TLS_CLIENT_CERT_DATA` works. Bug in `ClientEnvConfig.Tls.ToTlsOptions` which only reads `Data` property. Blocks secure deployments using file-based certificates. |
+
+#### High: Test Server Issues
+
+| Issue | Comments | Description |
+|-------|----------|-------------|
+| [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 8 | **Workflow Update hangs on time skipping environment.** Long-standing issue (2+ years) where workflow updates hang in time-skipping test server. Linked to Java SDK test server issue. Workaround: use local server instead of time-skipping for update tests. |
+| [#77](https://github.com/temporalio/sdk-dotnet/issues/77) | 0 | **Time skipping test server not auto-skipping properly.** When using time-skipping server with long timers (no activities), `env.DelayAsync` sleeps real time instead of skipping. 2+ years old. |
+
+#### Medium: Operational Issues
+
+| Issue | Comments | Description |
+|-------|----------|-------------|
+| [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | **RpcException: operation was canceled.** Intermittent cancellation errors when using `DescribeNamespaceAsync` for health checks with singleton client. |
+| [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | **Payload instance reuse in codec.** Same payload instance passed to codec for both activity and workflow failures in specific `ApplicationFailureException` scenarios. Affects custom payload codecs. |
+| [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | 1 | **Unexpected serialization of activity results.** |
+| [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | 1 | **TaskQueue not forwarded when using Test Environment with child workflows.** |
+| [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 1 | **Handle multiple completion commands.** |
+
+#### Low: Test Flakes
+
+| Issue | Comments | Description |
+|-------|----------|-------------|
+| [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | Workflow task failures during conversion not properly retried |
+| [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 1 | Investigate `CanRunWith_CustomSlotSupplier` flake |
+| [#549](https://github.com/temporalio/sdk-dotnet/issues/549) | 0 | Investigate `ExecuteWorkflowAsync_PollingBehavior_Auto` flake |
 
 ---
 
 ## Enhancement Requests (30 issues)
 
-### .NET Ecosystem Integration (5 issues)
-
-Key requests for better .NET platform integration.
+### .NET Ecosystem Support
 
 | Issue | Upvotes | Request |
 |-------|---------|---------|
-| [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | **Support .NET Trimming** - Most requested feature. Required for AOT compilation and smaller deployments. Needs trimming annotations and review of PInvoke/reflection usage. Maintainer acknowledged as valid feature request pending interest level. |
-| [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 2 | **F# Samples/Documentation** - Growing F# community interest. Users successfully using F# with workarounds (FSharp.SystemTextJson converter). Full support would likely require `Temporalio.Extensions.FSharp` package. |
-| [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | 0 | **.NET Analyzer for Checking Workflows** - Roslyn analyzer for transitive workflow constraint checking, similar to Go/Java equivalents. Would check for invalid workflow operations and invert/disable non-applicable analyzer warnings. |
-| [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | **Support single-platform local NuGet package build** - Reduce package size for single-platform scenarios. |
-| [#247](https://github.com/temporalio/sdk-dotnet/issues/247) | 0 | **Support for win-x86** - Windows 32-bit platform support. |
+| [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | **Support .NET Trimming/AOT** - Top user request. Current SDK uses PInvoke and reflection which breaks trimming. Would enable publishing trimmed/AOT applications. Requires adding trimming annotations and running all tests while trimmed. |
+| [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 2 | **F# Samples/Documentation** - Request for F# examples and documentation. Community has shared workarounds for F# usage including custom `DataConverter` with `FSharp.SystemTextJson`. Maintainers note this would likely require a `Temporalio.Extensions.FSharp` package. |
+| [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | **Single-platform local NuGet package** - Support for platform-specific NuGet packages. |
+| [#247](https://github.com/temporalio/sdk-dotnet/issues/247) | 0 | **Support for win-x86** - 32-bit Windows support. |
 
-### Dependency Injection & Testing (5 issues)
-
-| Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | **Make scoped IServiceProvider available to ActivityInboundInterceptor** - Enable DI in activity interceptors for cross-cutting concerns. Proposed solution: `ActivityServiceLocator` pattern similar to ASP.NET's `HttpContextAccessor`. PR [#364](https://github.com/temporalio/sdk-dotnet/pull/364) open for discussion. |
-| [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | **Provide synchronous Run method in testing** - Simplify testing of synchronous activity methods that access `ActivityExecutionContext.Current`. Maintainer suggests using `.GetAwaiter().GetResult()` as workaround. |
-| [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 0 | **OperatorService/WorkflowService virtual or interface** - Enable mocking for unit tests with NSubstitute. Maintainer recommends using ephemeral dev server or mocking abstract `InvokeRpcAsync` method instead. |
-| [#421](https://github.com/temporalio/sdk-dotnet/issues/421) | 0 | **ActivityOptions provider capability for testing** - Better test configuration options. |
-| [#229](https://github.com/temporalio/sdk-dotnet/issues/229) | 0 | **Make Temporalio.Testing a separate NuGet** - Reduce main package dependencies. |
-
-### Nexus Support (5 issues)
+### Developer Experience
 
 | Issue | Upvotes | Request |
 |-------|---------|---------|
-| [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | 0 | Add tests to confirm proper Nexus support for time-skipping environment |
-| [#536](https://github.com/temporalio/sdk-dotnet/issues/536) | 0 | Support Nexus in Temporalio.Extensions.Hosting |
-| [#528](https://github.com/temporalio/sdk-dotnet/issues/528) | 0 | Nexus custom slot suppliers |
-| [#515](https://github.com/temporalio/sdk-dotnet/issues/515) | 0 | Nexus OpenTelemetry support |
-| [#514](https://github.com/temporalio/sdk-dotnet/issues/514) | 0 | Nexus cancellation type support |
+| [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | 0 | **.NET Analyzer for Checking Workflows** - Roslyn analyzer to transitively check invalid actions in workflows. Would match Go and Java equivalents. Would detect workflow constraint violations at compile time. |
+| [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | **Synchronous Run method in testing** - Request for sync `Run` method on `ActivityEnvironment`. Maintainer response: use `.GetAwaiter().GetResult()` as workaround; async kept for future compatibility. |
+| [#291](https://github.com/temporalio/sdk-dotnet/issues/291) | 0 | **Update test running to replay** |
+| [#229](https://github.com/temporalio/sdk-dotnet/issues/229) | 0 | **Separate Temporalio.Testing package** |
 
-### Worker Versioning & Deployment (3 issues)
-
-| Issue | Upvotes | Request |
-|-------|---------|---------|
-| [#558](https://github.com/temporalio/sdk-dotnet/issues/558) | 0 | Allow overriding Worker Deployment Version for child workflows |
-| [#551](https://github.com/temporalio/sdk-dotnet/issues/551) | 0 | Enable Worker Heartbeating |
-| [#479](https://github.com/temporalio/sdk-dotnet/issues/479) | 0 | Worker Versioning high level client |
-
-### Observability & Metrics (4 issues)
+### Dependency Injection & Services
 
 | Issue | Upvotes | Request |
 |-------|---------|---------|
-| [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | **Clarify ICustomMetricMeter usage** - Better documentation for custom metrics. |
-| [#573](https://github.com/temporalio/sdk-dotnet/issues/573) | 0 | Allow custom meter implementation to disable tracing event listener |
-| [#510](https://github.com/temporalio/sdk-dotnet/issues/510) | 0 | Reclassify benign application errors in OpenTelemetry |
-| [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 0 | Inconsistent log property names for workflow run identifier |
+| [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | **Scoped IServiceProvider for ActivityInboundInterceptor** - Allow interceptors to access scoped services. PR opened for discussion. Would enable cross-cutting concerns in interceptors that depend on scoped services. |
+| [#387](https://github.com/temporalio/sdk-dotnet/issues/387) | 0 | **Workflow local variables** - Workflow-scoped storage similar to `AsyncLocal`. Would work like `public static readonly WorkflowLocal<string> MyValue = new()`. |
 
-### API & Infrastructure Improvements (8 issues)
+### API & Testability
 
 | Issue | Upvotes | Request |
 |-------|---------|---------|
-| [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | 0 | **Use global.json file to centralize SDK version** - Improve contributor experience and build consistency. Assigned and in discussion. |
-| [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | 0 | Refactor Bridge.Client to be IDisposable instead of SafeHandle |
-| [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | 0 | Separate unmanaged pointer lifecycle management into SafeHandle classes |
-| [#387](https://github.com/temporalio/sdk-dotnet/issues/387) | 0 | Provide "workflow local" storage |
-| [#386](https://github.com/temporalio/sdk-dotnet/issues/386) | 0 | Improve WaitConditionAsync semantics |
-| [#360](https://github.com/temporalio/sdk-dotnet/issues/360) | 0 | Auto-skip time when waiting on update result |
-| [#337](https://github.com/temporalio/sdk-dotnet/issues/337) | 0 | Include more details from tonic on RPC failures |
-| [#307](https://github.com/temporalio/sdk-dotnet/issues/307) | 0 | Replace System.TimeProvider in workflows |
+| [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 0 | **Virtual methods on OperatorService/WorkflowService** - Enable mocking for unit tests. Maintainer suggests using ephemeral dev server or mocking `InvokeRpcAsync` instead. |
+| [#246](https://github.com/temporalio/sdk-dotnet/issues/246) | 0 | **Expose raw proto objects on WorkflowHistory** |
+| [#243](https://github.com/temporalio/sdk-dotnet/issues/243) | 0 | **Enforce no-commands-allowed restriction in tests** |
+
+### Testing Infrastructure
+
+| Issue | Upvotes | Request |
+|-------|---------|---------|
+| [#360](https://github.com/temporalio/sdk-dotnet/issues/360) | 0 | **Auto-skip time in time-skipping server** |
+| [#386](https://github.com/temporalio/sdk-dotnet/issues/386) | 0 | **Improve WaitConditionAsync semantics** |
+
+### Observability & Configuration
+
+| Issue | Upvotes | Request |
+|-------|---------|---------|
+| [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | **Clarify ICustomMetricMeter usage** - Documentation for custom metrics. |
+| [#337](https://github.com/temporalio/sdk-dotnet/issues/337) | 0 | **Include more details from tonic errors** |
+| [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 0 | **Inconsistent log property names for workflow run identifier** |
+| [#299](https://github.com/temporalio/sdk-dotnet/issues/299) | 0 | **Log server version upon initial client connection** |
+| [#307](https://github.com/temporalio/sdk-dotnet/issues/307) | 0 | **Replace System.TimeProvider in workflow context** |
+
+### Nexus Support
+
+| Issue | Upvotes | Request |
+|-------|---------|---------|
+| [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | 0 | **Add tests for Nexus support in .NET 9** |
 
 ---
 
@@ -228,25 +221,28 @@ Key requests for better .NET platform integration.
 
 ### Stale Issues (>1 year, no activity)
 
-24 issues (49% of open issues) have had no activity for over 12 months. This is a significant portion that needs triage.
+24 issues (49% of open backlog) have had no activity for over 12 months.
 
-**Close candidates:**
-- [#77](https://github.com/temporalio/sdk-dotnet/issues/77) - Time skipping bug from 2023, may be superseded by newer fixes
-- [#194](https://github.com/temporalio/sdk-dotnet/issues/194) - Security vulnerability in dev dependency, should verify if addressed
+#### Close Candidates
 
-**Needs triage:**
-- [#286](https://github.com/temporalio/sdk-dotnet/issues/286) - .NET Trimming support - valid but needs roadmap decision (7 upvotes)
-- [#131](https://github.com/temporalio/sdk-dotnet/issues/131) - Single-platform NuGet build - needs product decision
-- [#256](https://github.com/temporalio/sdk-dotnet/issues/256) - Documentation clarification - quick fix possible
+- **[#194](https://github.com/temporalio/sdk-dotnet/issues/194)** - coverlet.collector vulnerability from March 2024. Likely resolved with dependency updates.
+- **[#131](https://github.com/temporalio/sdk-dotnet/issues/131)** - Single-platform NuGet request from September 2023. Low interest, may not align with distribution strategy.
 
-**Keep open:**
-- [#363](https://github.com/temporalio/sdk-dotnet/issues/363) - IServiceProvider for interceptors - has active PR
-- [#234](https://github.com/temporalio/sdk-dotnet/issues/234) - Payload codec documentation - documentation update needed
+#### Needs Triage
+
+- **[#77](https://github.com/temporalio/sdk-dotnet/issues/77)** - Time skipping auto-skip issue from May 2023. May be superseded by other time-skipping fixes.
+- **[#179](https://github.com/temporalio/sdk-dotnet/issues/179)** - Workflow Update hanging. Linked to upstream Java SDK issue. Check if upstream fix resolves this.
+- **[#234](https://github.com/temporalio/sdk-dotnet/issues/234)** - Payload reuse bug. Has reproduction repo. Needs investigation.
+
+#### Keep Open
+
+- **[#286](https://github.com/temporalio/sdk-dotnet/issues/286)** - .NET Trimming support. Highest upvoted issue, valid feature request.
+- **[#363](https://github.com/temporalio/sdk-dotnet/issues/363)** - Scoped IServiceProvider. Valid DI improvement with active PR discussion.
+- **[#256](https://github.com/temporalio/sdk-dotnet/issues/256)** - ICustomMetricMeter documentation. Valid documentation gap.
 
 ### Duplicate Candidates
 
-- [#550](https://github.com/temporalio/sdk-dotnet/issues/550) and [#478](https://github.com/temporalio/sdk-dotnet/issues/478) - Both track CustomSlotSupplier test flake
-- [#579](https://github.com/temporalio/sdk-dotnet/issues/579) and [#577](https://github.com/temporalio/sdk-dotnet/issues/577) - Both track segfaults in tests, may be related
+No obvious duplicates identified. The issue backlog is well-organized.
 
 ---
 
@@ -256,62 +252,23 @@ Based on user demand and issue analysis:
 
 ### Phase 1: Stability (Immediate)
 
-- Fix SIGSEGV crash on Linux ([#579](https://github.com/temporalio/sdk-dotnet/issues/579)) - critical for production reliability
-- Fix TLS certificate path loading ([#584](https://github.com/temporalio/sdk-dotnet/issues/584)) - blocks Temporal Cloud adoption
-- Update coverlet.collector dependency ([#194](https://github.com/temporalio/sdk-dotnet/issues/194)) - security hygiene
+- **[#579](https://github.com/temporalio/sdk-dotnet/issues/579)** - Investigate and fix SIGSEGV crash on Linux
+- **[#584](https://github.com/temporalio/sdk-dotnet/issues/584)** - Fix TLS certificate loading from path
+- **[#194](https://github.com/temporalio/sdk-dotnet/issues/194)** - Assess and close dependency vulnerability issue
 
 ### Phase 2: Developer Experience (Short-term)
 
-- Address time-skipping test server issues ([#179](https://github.com/temporalio/sdk-dotnet/issues/179), [#77](https://github.com/temporalio/sdk-dotnet/issues/77))
-- Improve RPC error handling ([#395](https://github.com/temporalio/sdk-dotnet/issues/395), [#337](https://github.com/temporalio/sdk-dotnet/issues/337))
-- Complete Nexus Extensions.Hosting support ([#536](https://github.com/temporalio/sdk-dotnet/issues/536))
+- **[#179](https://github.com/temporalio/sdk-dotnet/issues/179)** - Address Workflow Update time-skipping hang (coordinate with Java SDK team)
+- **[#576](https://github.com/temporalio/sdk-dotnet/issues/576)** - Begin development of .NET Analyzer for workflow checking
+- **[#363](https://github.com/temporalio/sdk-dotnet/issues/363)** - Complete scoped IServiceProvider for interceptors
 
-### Phase 3: Feature Expansion (Medium-term)
+### Phase 3: Ecosystem Expansion (Medium-term)
 
-- Implement .NET Trimming/AOT support ([#286](https://github.com/temporalio/sdk-dotnet/issues/286)) - 7 upvotes, highest demand
-- Build .NET Analyzer for workflow checking ([#576](https://github.com/temporalio/sdk-dotnet/issues/576)) - parity with Go/Java
-- IServiceProvider in activity interceptors ([#363](https://github.com/temporalio/sdk-dotnet/issues/363)) - has PR ready
+- **[#286](https://github.com/temporalio/sdk-dotnet/issues/286)** - Implement .NET trimming/AOT support (highest user demand)
+- **[#390](https://github.com/temporalio/sdk-dotnet/issues/390)** - Create F# samples and consider `Temporalio.Extensions.FSharp` package
 
 ### Phase 4: Maintenance (Ongoing)
 
-- Triage 24 stale issues - close or update as appropriate
-- F# samples and documentation ([#390](https://github.com/temporalio/sdk-dotnet/issues/390)) - growing community interest
-- Additional platform builds (win-x86, additional architectures)
-
----
-
-## Recent Activity (Last 30 Days)
-
-| Date | Issue | Type | Title |
-|------|-------|------|-------|
-| 2026-01-07 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | Bug | Workflow task failures may be lost |
-| 2026-01-06 | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | Enhancement | Refactor Bridge.Client to IDisposable |
-| 2026-01-06 | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | Enhancement | Separate unmanaged pointer lifecycle management |
-| 2025-12-26 | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | Bug | Loading TLS certificates from path doesn't work |
-| 2025-12-17 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | Bug | SIGSEGV crash in temporal_core_worker_poll |
-| 2025-12-17 | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | Enhancement | Add Nexus tests for time-skipping environment |
-| 2025-12-12 | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | Enhancement | .NET Analyzer for Checking Workflows |
-
-**Key Insight:** Recent activity is heavily focused on improving the native bridge lifecycle management (#586, #587) and addressing stability issues. The TLS certificate loading bug (#584) is a quick win that would unblock Temporal Cloud users.
-
----
-
-## Quick Reference: Top 15 High-Impact Issues
-
-| # | Issue | Category | Upvotes | Impact |
-|---|-------|----------|---------|--------|
-| 1 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | Enhancement | 7 | .NET Trimming (TOP USER REQUEST) |
-| 2 | [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | Bug | 0 | Update hangs on time-skipping (8 comments) |
-| 3 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | Enhancement | 2 | F# support |
-| 4 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | Bug | 0 | SIGSEGV crash on Linux |
-| 5 | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | Bug | 0 | TLS certificate loading |
-| 6 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | Bug | 0 | Workflow task failures lost |
-| 7 | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | Enhancement | 0 | .NET Analyzer for workflows |
-| 8 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | Enhancement | 1 | Synchronous test Run method |
-| 9 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | Enhancement | 1 | Scoped IServiceProvider |
-| 10 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | Enhancement | 1 | ICustomMetricMeter docs |
-| 11 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | Enhancement | 1 | Single-platform NuGet |
-| 12 | [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | Enhancement | 0 | Virtual service methods |
-| 13 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | Bug | 0 | RpcException canceled |
-| 14 | [#77](https://github.com/temporalio/sdk-dotnet/issues/77) | Bug | 0 | Time-skipping issues |
-| 15 | [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | Bug | 0 | ContinueAsNew hangs |
+- Triage 24 stale issues - close resolved items, reprioritize valid requests
+- Monitor test flakes and stabilize CI ([#550](https://github.com/temporalio/sdk-dotnet/issues/550), [#549](https://github.com/temporalio/sdk-dotnet/issues/549), [#588](https://github.com/temporalio/sdk-dotnet/issues/588))
+- Continue maintaining excellent closure velocity (currently ~7 issues/month)

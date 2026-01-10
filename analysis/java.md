@@ -1,11 +1,11 @@
 # Temporal Java SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-09
+**Generated:** 2026-01-10
 **Total Open Issues:** 217
 **Total Closed Issues:** 724
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
-<- [Summary](summary.md) . [Contributors](contributors.md) . [Recent](recent.md)
+[Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md)
 
 **Other SDKs:** [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [PHP](php.md) | [Ruby](ruby.md)
 
@@ -13,7 +13,7 @@
 
 ## Executive Summary
 
-The Java SDK has a mature codebase with 941 total issues (77% resolution rate), reflecting its position as one of the most established Temporal SDKs. The backlog is actively shrinking (44 more issues closed than opened in the last 12 months), indicating healthy maintenance. However, 72% of open issues are stale (>12 months old), with 48% being over 3 years old, suggesting a need for aggressive triage. Key user demands center around test server improvements, Spring Boot 4 ecosystem integration, and modern JVM feature support (virtual threads, Kotlin coroutines).
+The Java SDK has a mature codebase with 941 total issues (77% resolution rate), reflecting its position as one of the most established Temporal SDKs. The backlog is actively shrinking (44 more issues closed than opened in the last 12 months), indicating healthy maintenance. However, 72% of open issues are stale (>12 months old), with 48% being over 3 years old, suggesting a need for aggressive triage. Key user demands center around virtual threads (Project Loom), test server improvements, Spring Boot 4 ecosystem integration, and Kotlin coroutine support.
 
 ### Key Findings
 
@@ -21,6 +21,7 @@ The Java SDK has a mature codebase with 941 total issues (77% resolution rate), 
 |----------|-------|----------|
 | Test Server Issues | 37 | High - Blocks testing capabilities for users |
 | Bugs | 33 | High - Active defects affecting production usage |
+| Spring Boot Integration | 31 | High - Spring Boot 4 support highly requested |
 | Enhancements | 127 | Medium - Many are feature requests awaiting prioritization |
 | Security Vulnerabilities | 4 | Medium - Build/dev dependency vulnerabilities, most in alpha modules |
 | Stale Issues | 156 | Medium - 72% of backlog needs triage decision |
@@ -50,7 +51,7 @@ The Java SDK has a mature codebase with 941 total issues (77% resolution rate), 
 1. **Immediate:** Triage 4 open security vulnerabilities - most are in build tools (ktlint) or alpha Spring Boot modules using older dependencies
 2. **Short-term:** Implement `listWorkflowExecutions` in test server ([#1693](https://github.com/temporalio/sdk-java/issues/1693) - 16 upvotes) - blocks testing for many users
 3. **Medium-term:** Spring Boot 4 support ([#2738](https://github.com/temporalio/sdk-java/issues/2738)) and Jackson 3 support ([#2746](https://github.com/temporalio/sdk-java/issues/2746)) as ecosystem modernizes
-4. **Long-term:** Kotlin coroutine support ([#1845](https://github.com/temporalio/sdk-java/issues/1845) - 15 upvotes) for better Kotlin developer experience
+4. **Long-term:** Virtual threads support ([#1448](https://github.com/temporalio/sdk-java/issues/1448) - 25 upvotes) - highest community demand for modern JVM features
 5. **Housekeeping:** Triage 156 stale issues - close resolved/obsolete ones, mark valid long-term items appropriately
 
 ---
@@ -100,31 +101,31 @@ The last 6 months show continued progress, though the pace of closures has slowe
 
 | Rank | Issue | Upvotes | Comments | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | 5 | Support listWorkflowExecutions in test server |
-| 2 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | 8 | Support different coroutine models in workflows and activities |
-| 3 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | 0 | Add the possibility to run Temporal CLI server from test |
-| 4 | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 7 | 4 | Spring Boot 4 Support |
-| 5 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | 0 | @SignalMethod threading configuration |
-| 6 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 4 | 0 | Support for using Temporal Annotations as Meta Annotation |
-| 7 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | 0 | Provide a recommended way to pass configuration into workflow |
-| 8 | [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 3 | 0 | Jackson 3 support |
-| 9 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | 1 | Add the ability to keep heartbeating while the worker is shutting down |
-| 10 | [#1163](https://github.com/temporalio/sdk-java/issues/1163) | 3 | 1 | Allow contributions of tags of root worker metrics scope per workflow execution |
+| 1 | [#1448](https://github.com/temporalio/sdk-java/issues/1448) | 25 | 1 | Support for virtual threads (Project Loom) |
+| 2 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | 5 | Support listWorkflowExecutions in test server |
+| 3 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | 8 | Support different coroutine models in workflows and activities |
+| 4 | [#8](https://github.com/temporalio/sdk-java/issues/8) | 11 | 1 | Spring Boot Integration |
+| 5 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | 0 | Add the possibility to run Temporal CLI server from test |
+| 6 | [#587](https://github.com/temporalio/sdk-java/issues/587) | 10 | 15 | Set TemporalChangeVersion when workflow version is updated |
+| 7 | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 7 | 4 | Spring Boot 4 Support |
+| 8 | [#623](https://github.com/temporalio/sdk-java/issues/623) | 7 | 1 | Upsert memo support |
+| 9 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | 0 | @SignalMethod threading configuration |
+| 10 | [#865](https://github.com/temporalio/sdk-java/issues/865) | 5 | 2 | Add init method to workflow |
 
 ### Priority Score (Upvotes x 2 + Comments)
 
 | Rank | Issue | Score | Title |
 |------|-------|-------|-------|
-| 1 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 38 | Support different coroutine models in workflows and activities |
-| 2 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 37 | Support listWorkflowExecutions in test server |
-| 3 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 20 | Add the possibility to run Temporal CLI server from test |
-| 4 | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 18 | Spring Boot 4 Support |
-| 5 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 12 | @SignalMethod threading configuration |
-| 6 | [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 11 | Scala module |
-| 7 | [#952](https://github.com/temporalio/sdk-java/issues/952) | 10 | OpenTracing duplicates user created spans during replay |
-| 8 | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 8 | temporal java sdk is using an older version of grpc-netty-shaded with vulnerabilities |
-| 9 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 8 | Support for using Temporal Annotations as Meta Annotation |
-| 10 | [#1241](https://github.com/temporalio/sdk-java/issues/1241) | 8 | DynamicWorkflow not taking in account WorkflowImplementationOptions |
+| 1 | [#1448](https://github.com/temporalio/sdk-java/issues/1448) | 51 | Support for virtual threads (Project Loom) |
+| 2 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 38 | Support different coroutine models in workflows and activities |
+| 3 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 37 | Support listWorkflowExecutions in test server |
+| 4 | [#587](https://github.com/temporalio/sdk-java/issues/587) | 35 | Set TemporalChangeVersion when workflow version is updated |
+| 5 | [#8](https://github.com/temporalio/sdk-java/issues/8) | 23 | Spring Boot Integration |
+| 6 | [#2100](https://github.com/temporalio/sdk-java/issues/2100) | 22 | Scheduled workflow retries do not work |
+| 7 | [#1407](https://github.com/temporalio/sdk-java/issues/1407) | 22 | ARM64 build for Test Server |
+| 8 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 20 | Add the possibility to run Temporal CLI server from test |
+| 9 | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 18 | Spring Boot 4 Support |
+| 10 | [#623](https://github.com/temporalio/sdk-java/issues/623) | 15 | Upsert memo support |
 
 ---
 
@@ -155,6 +156,7 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 |-------|-----|-------------|
 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | listWorkflowExecutions not supported - blocks workflow listing in tests. Maintainers confirm this requires adding search attribute support, which is substantial work. |
 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | Cannot run Temporal CLI server from tests - other SDKs (TypeScript) support this via `TestWorkflowEnvironment.createLocal()` |
+| [#1407](https://github.com/temporalio/sdk-java/issues/1407) | 0 | ARM64 build for Test Server (22 comments - significant discussion) |
 | [#2642](https://github.com/temporalio/sdk-java/issues/2642) | 2 | TestWorkflowEnvironment sleep incorrect behavior |
 | [#1426](https://github.com/temporalio/sdk-java/issues/1426) | 0 | Test server timeouts improperly set to 10 years - caused production issues for users who relied on test validation |
 | [#1540](https://github.com/temporalio/sdk-java/issues/1540) | 0 | Time skipping broken in child workflows |
@@ -163,11 +165,20 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 
 | Issue | Description |
 |-------|-------------|
+| [#2388](https://github.com/temporalio/sdk-java/issues/2388) | Schedule testing not supported (3 upvotes) |
 | [#1158](https://github.com/temporalio/sdk-java/issues/1158) | DescribeNamespace not implemented |
 | [#1093](https://github.com/temporalio/sdk-java/issues/1093) | ResetWorkflowExecution not supported |
 | [#1788](https://github.com/temporalio/sdk-java/issues/1788) | Build ID versioning not supported |
-| [#2388](https://github.com/temporalio/sdk-java/issues/2388) | Schedule testing not supported |
 | [#1429](https://github.com/temporalio/sdk-java/issues/1429) | Does not error on already-started child workflow |
+| [#2219](https://github.com/temporalio/sdk-java/issues/2219) | User metadata support missing |
+
+**Time Skipping Issues:**
+
+| Issue | Description |
+|-------|-------------|
+| [#2670](https://github.com/temporalio/sdk-java/issues/2670) | TestWorkflowEnvironment#sleep hangs indefinitely |
+| [#2283](https://github.com/temporalio/sdk-java/issues/2283) | Auto-skip time not working when waiting on update result |
+| [#1138](https://github.com/temporalio/sdk-java/issues/1138) | Does not decrement time skipping lock for outstanding activities |
 
 ### Bugs (33 open issues)
 
@@ -175,6 +186,7 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
+| [#1536](https://github.com/temporalio/sdk-java/issues/1536) | 3 | Activity stub throws IllegalArgumentException from toString method (good first issue) |
 | [#2046](https://github.com/temporalio/sdk-java/issues/2046) | 2 | Failed promise before calling allOf is not failing the wrapped promise - confirmed bug with workaround provided |
 | [#2391](https://github.com/temporalio/sdk-java/issues/2391) | 1 | Cancelling an activity results in FailedPrecondition: ACTIVITY_UNKNOWN error |
 | [#1241](https://github.com/temporalio/sdk-java/issues/1241) | 1 | DynamicWorkflow not taking in account WorkflowImplementationOptions |
@@ -201,7 +213,21 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 
 ## Enhancement Requests (127 open issues)
 
-### Spring Boot Integration
+### JVM Modernization (Virtual Threads & Kotlin)
+
+The highest user demand is for modern JVM feature support, particularly Project Loom virtual threads and Kotlin coroutines.
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1448](https://github.com/temporalio/sdk-java/issues/1448) | 25 | **Support for virtual threads (Project Loom)** - Highest community demand. Would enable more efficient workflow and activity execution on modern JVMs. |
+| [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | Kotlin coroutine support in workflows and activities - maintainers confirm no active plans but SDK now supports Java Virtual Threads (JDK 21+) |
+| [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 2 | Scala module - community has created [zio-temporal](https://github.com/vitaliihonta/zio-temporal) |
+| [#1489](https://github.com/temporalio/sdk-java/issues/1489) | 2 | Support Scala references to workflow methods |
+| [#2595](https://github.com/temporalio/sdk-java/issues/2595) | 0 | Support for Kotlin 2.0 and newer gRPC/Netty versions |
+
+**Note:** The SDK now supports Java Virtual Threads (JDK 21+), which provides some benefits similar to coroutines. However, Kotlin coroutine support for first-class `suspend fun` calls remains highly requested. Users note that bridging workflow/activity context thread locals into coroutine contexts requires extra work.
+
+### Spring Boot Integration (31 issues, 22 upvotes)
 
 Spring Boot is the most popular framework for Java enterprise applications, and Temporal's integration is a key adoption driver. With Spring Boot 4 released in November 2025, users are already requesting support.
 
@@ -211,24 +237,14 @@ Spring Boot is the most popular framework for Java enterprise applications, and 
 | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | 0 | Spring Metrics Configuration fails with Spring Boot 4 (reported 2026-01-09) |
 | [#2747](https://github.com/temporalio/sdk-java/issues/2747) | 0 | @WorkflowImpl should support Spring property placeholders |
 | [#1837](https://github.com/temporalio/sdk-java/issues/1837) | 3 | Use Spring Boot ApplicationReadyEvent to start workers |
-| [#1823](https://github.com/temporalio/sdk-java/issues/1823) | 1 | Config flag to disable temporal entirely with spring-boot-auto-configure |
 | [#1799](https://github.com/temporalio/sdk-java/issues/1799) | 1 | Add support for multiple namespaces |
+| [#1984](https://github.com/temporalio/sdk-java/issues/1984) | 1 | Customizing workflow options by workflow type |
+| [#1823](https://github.com/temporalio/sdk-java/issues/1823) | 1 | Config flag to disable temporal entirely with spring-boot-auto-configure |
 | [#1647](https://github.com/temporalio/sdk-java/issues/1647) | 1 | Allow WorkflowImplementationOptions via config |
+| [#1839](https://github.com/temporalio/sdk-java/issues/1839) | 0 | Add HealthIndicator to spring-boot library |
+| [#1840](https://github.com/temporalio/sdk-java/issues/1840) | 0 | Spring Boot 3 native image support |
 
-### Kotlin Support
-
-Kotlin users represent a significant portion of the Java SDK user base, especially in the Android and modern backend communities.
-
-| Issue | Upvotes | Request |
-|-------|-----|---------|
-| [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | Kotlin coroutine support in workflows and activities - maintainers confirm no active plans but SDK now supports Java Virtual Threads (JDK 21+) |
-| [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 2 | Scala module - community has created [zio-temporal](https://github.com/vitaliihonta/zio-temporal) |
-| [#1489](https://github.com/temporalio/sdk-java/issues/1489) | 2 | Support Scala references to workflow methods |
-| [#2595](https://github.com/temporalio/sdk-java/issues/2595) | 0 | Support for Kotlin 2.0 and newer gRPC/Netty versions |
-
-**Note:** The SDK now supports Java Virtual Threads (JDK 21+), which provides some benefits similar to coroutines. However, Kotlin coroutine support for first-class `suspend fun` calls remains highly requested. Users note that bridging workflow/activity context thread locals into coroutine contexts requires extra work.
-
-### Observability & Tracing
+### Observability & Tracing (17 issues, 5 upvotes)
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
@@ -238,11 +254,14 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 | [#2117](https://github.com/temporalio/sdk-java/issues/2117) | 0 | Allow customization of OTel span tags |
 | [#2752](https://github.com/temporalio/sdk-java/issues/2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for updates |
 
-### API Improvements
+### Workflow & Activity Features
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
+| [#587](https://github.com/temporalio/sdk-java/issues/587) | 10 | Set TemporalChangeVersion when workflow version is updated |
+| [#623](https://github.com/temporalio/sdk-java/issues/623) | 7 | Upsert memo support |
 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | @SignalMethod threading configuration - control signal dispatch (single-threaded vs multi-threaded) |
+| [#865](https://github.com/temporalio/sdk-java/issues/865) | 5 | Add init method to workflow |
 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 4 | Support Temporal annotations as meta-annotations |
 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | Provide a recommended way to pass configuration into workflow |
 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | Keep heartbeating during worker shutdown |
@@ -255,6 +274,15 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 | [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 3 | Jackson 3 support - required for full Spring Boot 4 compatibility. Jackson 3 has entirely different packages/artifacts. |
 | [#2498](https://github.com/temporalio/sdk-java/issues/2498) | 0 | Make Jackson serialization optional/separate module |
 | [#139](https://github.com/temporalio/sdk-java/issues/139) | 2 | Need ability to modify ObjectMapper in JacksonJsonPayloadConverter |
+
+### Worker & Activity Management
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#1256](https://github.com/temporalio/sdk-java/issues/1256) | 6 | Last cached activity heartbeat should be drained with completion |
+| [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | Add ability to keep heartbeating during worker shutdown |
+| [#704](https://github.com/temporalio/sdk-java/issues/704) | 3 | Allow exception logging to be customizable for activity failures |
+| [#1163](https://github.com/temporalio/sdk-java/issues/1163) | 3 | Allow contributions of tags to root worker metrics scope |
 
 ### Dependency Management
 
@@ -288,6 +316,7 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 
 **Keep Open (valid long-term requests):**
 
+- [#1448](https://github.com/temporalio/sdk-java/issues/1448) - Virtual threads (25 upvotes, highest community demand)
 - [#1845](https://github.com/temporalio/sdk-java/issues/1845) - Kotlin coroutines (15 upvotes, explicitly not planned but highly requested)
 - [#1693](https://github.com/temporalio/sdk-java/issues/1693) - listWorkflowExecutions in test server (16 upvotes, confirmed large work item)
 - [#2738](https://github.com/temporalio/sdk-java/issues/2738) - Spring Boot 4 (7 upvotes, actively being considered)
@@ -295,7 +324,7 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 ### Duplicate Candidates
 
 - [#2594](https://github.com/temporalio/sdk-java/issues/2594) and [#2595](https://github.com/temporalio/sdk-java/issues/2595) - Both request Kotlin 2.0 support
-- Multiple gRPC upgrade requests ([#2676](https://github.com/temporalio/sdk-java/issues/2676), [#2565](https://github.com/temporalio/sdk-java/issues/2565), [#2508](https://github.com/temporalio/sdk-java/issues/2508), [#1985](https://github.com/temporalio/sdk-java/issues/1985), [#918](https://github.com/temporalio/sdk-java/issues/918)) - Consider consolidating into a tracking issue
+- Multiple gRPC upgrade requests ([#2676](https://github.com/temporalio/sdk-java/issues/2676), [#2565](https://github.com/temporalio/sdk-java/issues/2565), [#1985](https://github.com/temporalio/sdk-java/issues/1985), [#918](https://github.com/temporalio/sdk-java/issues/918)) - Consider consolidating into a tracking issue
 
 ---
 
@@ -307,6 +336,7 @@ Based on user demand and issue analysis:
 
 - **Dependencies:** Upgrade Spring Boot alpha modules from 2.7.x to 3.x to resolve critical CVEs
 - **Dependencies:** Document gRPC version override pattern in README for users with vulnerability scanners
+- **Bugs:** Fix Activity stub toString ([#1536](https://github.com/temporalio/sdk-java/issues/1536)) - good first issue
 - **Bugs:** Fix Promise.allOf not failing on pre-failed promises ([#2046](https://github.com/temporalio/sdk-java/issues/2046))
 - **Bugs:** Address DynamicWorkflow options issue ([#1241](https://github.com/temporalio/sdk-java/issues/1241))
 
@@ -314,15 +344,18 @@ Based on user demand and issue analysis:
 
 - **Test Server:** Implement listWorkflowExecutions ([#1693](https://github.com/temporalio/sdk-java/issues/1693)) - highest user demand
 - **Test Server:** Fix time skipping issues with child workflows ([#1540](https://github.com/temporalio/sdk-java/issues/1540))
+- **Test Server:** Schedule testing support ([#2388](https://github.com/temporalio/sdk-java/issues/2388))
 - **Spring Boot:** Investigate Spring Boot 4 compatibility ([#2738](https://github.com/temporalio/sdk-java/issues/2738))
 - **Worker:** Implement heartbeat continuation during shutdown ([#2075](https://github.com/temporalio/sdk-java/issues/2075))
 
 ### Phase 3: Feature Expansion (Medium-term - Q3-Q4 2026)
 
+- **JVM Modernization:** Virtual threads support ([#1448](https://github.com/temporalio/sdk-java/issues/1448)) - highest priority based on community demand
 - **Serialization:** Jackson 3 support ([#2746](https://github.com/temporalio/sdk-java/issues/2746))
 - **Test Server:** Enable running Temporal CLI server from tests ([#1804](https://github.com/temporalio/sdk-java/issues/1804))
 - **API:** @SignalMethod threading configuration ([#214](https://github.com/temporalio/sdk-java/issues/214))
 - **API:** Meta-annotation support ([#1832](https://github.com/temporalio/sdk-java/issues/1832))
+- **Workflow:** TemporalChangeVersion support ([#587](https://github.com/temporalio/sdk-java/issues/587))
 
 ### Phase 4: Maintenance (Ongoing)
 
