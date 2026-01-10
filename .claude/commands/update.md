@@ -6,7 +6,7 @@ Update all tracked GitHub repositories and regenerate analysis documents.
 
 To avoid hitting context limits when running analysis agents:
 - **Prefer pre-computed data**: Use `stats-*.md` files and `issues-index.json` instead of raw issue JSONs
-- **Limit deep dives**: Use `get-issue.js` for at most 3-5 critical issues per repository
+- **Selective deep dives**: Use `get-issue.js` only when the issue index metadata is insufficient (see criteria below)
 - **Don't read issue directories**: The `issues/*.json` files are for scripts, not LLM analysis
 
 ## Steps
@@ -42,10 +42,24 @@ For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`)
 2. `repos/<sdk>/issues-index.json` - Aggregated index with titles, upvotes, comments, labels
 3. **Do NOT read individual `issues/*.json` files** - The index contains sufficient data
 
-**Deep Analysis (use sparingly to avoid context limits):**
-- Only use `get-issue.js` for **at most 3-5 critical issues** per repository
-- Reserve for: security vulnerabilities, production crashes, or issues needing comment context
-- The issue index already contains titles, upvotes, and comment counts - sufficient for most analysis
+**When to Use `get-issue.js` (selective deep dives):**
+
+The issue index contains title, upvotes, comments, labels, and state - sufficient for most analysis. Only fetch full issue content when you need more context. Use these signals to decide:
+
+**Fetch full content when:**
+- Security vulnerabilities or CVEs (always need full context for severity assessment)
+- Production crashes/data loss bugs (need reproduction steps and environment details)
+- High engagement (10+ upvotes OR 15+ comments) AND title is unclear or generic
+- Complex architectural issues where comments likely contain important discussion
+- Issues you're highlighting as "top priority" in your analysis
+
+**Skip full content when:**
+- Title is self-explanatory (e.g., "Add support for X", "Error Y when doing Z")
+- Simple feature requests with clear scope
+- Low engagement issues (few upvotes/comments)
+- Stale issues being listed for housekeeping
+- Issues where upvotes/comments alone indicate priority
+
 ```bash
 node scripts/get-issue.js <repo> <issue-number>
 # Example: node scripts/get-issue.js temporalio-temporal 680
@@ -96,10 +110,21 @@ Read `analysis/stats-recent.md` (the raw list of recent issues), then update `an
 
 **Template:** Follow the structure defined in `.claude/templates/recent-analysis.md`
 
-**Deep Analysis (use sparingly to avoid context limits):**
-- Only use `get-issue.js` for **at most 5-10 critical recent issues** total
-- Reserve for: security vulnerabilities, production crashes, or complex bugs needing context
-- `stats-recent.md` already contains issue titles and metadata - sufficient for categorization
+**When to Use `get-issue.js` for Recent Issues:**
+
+`stats-recent.md` contains titles, repos, and issue numbers - sufficient for categorization. Fetch full content selectively:
+
+**Fetch full content when:**
+- Security vulnerabilities or CVEs (need severity details)
+- Production crashes, data corruption, or blocking bugs
+- Issues with vague titles that need clarification for proper categorization
+- Potential regressions in recent releases (need version details)
+
+**Skip full content when:**
+- Title clearly describes the issue
+- Enhancement requests with obvious scope
+- Documentation or minor improvements
+
 ```bash
 node scripts/get-issue.js <repo> <issue-number>
 ```
