@@ -15,9 +15,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 216 |
+| Total Open Issues | 217 |
 | Total Closed Issues | 724 |
-| Total All Issues | 940 |
+| Total All Issues | 941 |
 | Bugs (open) | 33 |
 | Enhancements/Features (open) | 127 |
 | Security Issues (open) | 4 |
@@ -25,7 +25,7 @@
 | Total Comments on open | 203 |
 | Issues with Upvotes | 37 (17%) |
 | Issues with Comments | 86 (40%) |
-| Average Age (days) | 985 |
+| Average Age (days) | 981 |
 | Stale Issues (>12 months) | 156 (72%) |
 
 ---
@@ -36,7 +36,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 77% (724/940) |
+| Resolution Rate | 77% (724/941) |
 | Avg Time to Close (calendar) | 199 days |
 | Avg Time to Close (business) | 143 days |
 | Median Time to Close (calendar) | 27 days |
@@ -75,10 +75,10 @@
 | 2025-10 | 11 | 13 | -2 |
 | 2025-11 | 9 | 7 | +2 |
 | 2025-12 | 6 | 2 | +4 |
-| 2026-01 | 2 | 1 | +1 |
-| **Total** | **120** | **165** | **-45** |
+| 2026-01 | 3 | 1 | +2 |
+| **Total** | **121** | **165** | **-44** |
 
-📉 **Backlog Shrinking:** 45 more issues closed than opened in the last 12 months.
+📉 **Backlog Shrinking:** 44 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 65 |
+| Issues Opened | 66 |
 | Issues Closed | 54 |
-| Net Change | +11 |
+| Net Change | +12 |
 | Bugs Closed | 2 |
 | Enhancements Closed | 24 |
 
@@ -123,7 +123,7 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 5 | 2% |
+| Last 30 days | 6 | 3% |
 | 1-3 months | 8 | 4% |
 | 3-6 months | 12 | 6% |
 | 6-12 months | 16 | 7% |
@@ -200,6 +200,7 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-09 | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | 0 | Spring Metrics Configuration fails with Spring Boot 4 |
 | 2026-01-05 | [#2755](https://github.com/temporalio/sdk-java/issues/2755) | 0 | Support using Temporal failures in Nexus APIs |
 | 2026-01-04 | [#2754](https://github.com/temporalio/sdk-java/issues/2754) | 0 | Environment Configuration does not read the correct file pat... |
 | 2025-12-30 | [#2752](https://github.com/temporalio/sdk-java/issues/2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for upda... |

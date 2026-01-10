@@ -15,17 +15,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 533 |
-| Total Closed Issues | 951 |
+| Total Open Issues | 532 |
+| Total Closed Issues | 952 |
 | Total All Issues | 1484 |
-| Bugs (open) | 138 |
+| Bugs (open) | 137 |
 | Enhancements/Features (open) | 352 |
 | Security Issues (open) | 0 |
-| Total Upvotes (👍) on open | 900 |
-| Total Comments on open | 878 |
+| Total Upvotes (👍) on open | 902 |
+| Total Comments on open | 884 |
 | Issues with Upvotes | 144 (27%) |
-| Issues with Comments | 290 (54%) |
-| Average Age (days) | 961 |
+| Issues with Comments | 292 (55%) |
+| Average Age (days) | 963 |
 | Stale Issues (>12 months) | 374 (70%) |
 
 ---
@@ -36,7 +36,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 64% (951/1484) |
+| Resolution Rate | 64% (952/1484) |
 | Avg Time to Close (calendar) | 172 days |
 | Avg Time to Close (business) | 123 days |
 | Median Time to Close (calendar) | 41 days |
@@ -52,7 +52,7 @@
 |--------|-------|---|
 | Fixed (bugs) | 353 | 37% |
 | Completed (features) | 246 | 26% |
-| Self-resolved | 209 | 22% |
+| Self-resolved | 210 | 22% |
 | Duplicate | 5 | 1% |
 | Won't Fix | 2 | 0% |
 | Stale/Inactive | 0 | 0% |
@@ -75,10 +75,10 @@
 | 2025-10 | 17 | 14 | +3 |
 | 2025-11 | 12 | 9 | +3 |
 | 2025-12 | 12 | 4 | +8 |
-| 2026-01 | 6 | 3 | +3 |
-| **Total** | **168** | **98** | **+70** |
+| 2026-01 | 6 | 4 | +2 |
+| **Total** | **168** | **99** | **+69** |
 
-📈 **Backlog Growing:** 70 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 69 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,16 +88,16 @@
 | Metric | Value |
 |--------|-------|
 | Issues Opened | 97 |
-| Issues Closed | 64 |
-| Net Change | +33 |
-| Bugs Closed | 45 |
+| Issues Closed | 65 |
+| Net Change | +32 |
+| Bugs Closed | 46 |
 | Enhancements Closed | 14 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 130 | 93 |
+| Average | 128 | 92 |
 | Median | 24 | 19 |
 | 90th Percentile | 276 | 198 |
 
@@ -105,7 +105,7 @@
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 61% |
+| Within 30 days | 62% |
 | Within 90 days | 78% |
 
 ### Popular Requests Resolved (3+ upvotes)
@@ -120,7 +120,7 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 11 | 2% |
+| Last 30 days | 10 | 2% |
 | 1-3 months | 19 | 4% |
 | 3-6 months | 22 | 4% |
 | 6-12 months | 45 | 8% |
@@ -136,7 +136,7 @@
 |------|-------|-----|-----|-------|
 | 1 | [#680](https://github.com/temporalio/temporal/issues/680) | 70 | 14 | Add ability for workflow to wait for completion of an extern... |
 | 2 | [#1507](https://github.com/temporalio/temporal/issues/1507) | 50 | 27 | Provide priority task queues |
-| 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a descriptive va... |
+| 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | 12 | Document POSTGRES_SEEDS (or better yet, use a descriptive va... |
 | 4 | [#2318](https://github.com/temporalio/temporal/issues/2318) | 46 | 7 | MongoDB as Persistent |
 | 5 | [#5680](https://github.com/temporalio/temporal/issues/5680) | 30 | 15 | Official support for Opensearch |
 | 6 | [#537](https://github.com/temporalio/temporal/issues/537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
@@ -160,7 +160,7 @@ Priority = Upvotes × 2 + Comments
 |------|-------|-------|-----|-----|-------|
 | 1 | [#680](https://github.com/temporalio/temporal/issues/680) | 154 | 70 | 14 | Add ability for workflow to wait for completion of... |
 | 2 | [#1507](https://github.com/temporalio/temporal/issues/1507) | 127 | 50 | 27 | Provide priority task queues |
-| 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 103 | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a desc... |
+| 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 104 | 46 | 12 | Document POSTGRES_SEEDS (or better yet, use a desc... |
 | 4 | [#2318](https://github.com/temporalio/temporal/issues/2318) | 99 | 46 | 7 | MongoDB as Persistent |
 | 5 | [#5680](https://github.com/temporalio/temporal/issues/5680) | 75 | 30 | 15 | Official support for Opensearch |
 | 6 | [#537](https://github.com/temporalio/temporal/issues/537) | 62 | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
@@ -197,7 +197,6 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-01-08 | [#8970](https://github.com/temporalio/temporal/issues/8970) | 0 | Client-set RPC deadline is ignored for long poll `GetWorkflo... |
 | 2026-01-08 | [#8968](https://github.com/temporalio/temporal/issues/8968) | 0 | Same fairness key but different fairness weight? |
 | 2026-01-08 | [#8967](https://github.com/temporalio/temporal/issues/8967) | 0 | 1.30.0 release version |
 | 2026-01-07 | [#8955](https://github.com/temporalio/temporal/issues/8955) | 0 | MCP Server for Temporal Workflows |
@@ -222,7 +221,7 @@ Priority = Upvotes × 2 + Comments
 | difficulty: easy | 20 |
 | operations | 20 |
 | devexp | 14 |
-| bug | 12 |
+| bug | 11 |
 | refactoring | 11 |
 | difficulty: medium | 11 |
 | schedules | 9 |
@@ -248,7 +247,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (138 open issues)
+## Bugs (137 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -258,7 +257,7 @@ Priority = Upvotes × 2 + Comments
 | [#7037](https://github.com/temporalio/temporal/issues/7037) | 5 | 7 | [bug] Viewing schedule throws a 504 "context deadline exceed... |
 | [#5455](https://github.com/temporalio/temporal/issues/5455) | 5 | 0 | docker-compose multirole sometimes stuck on boot |
 | [#983](https://github.com/temporalio/temporal/issues/983) | 5 | 1 | loggging/exception stack trace not capturing underlying erro... |
-| [#8719](https://github.com/temporalio/temporal/issues/8719) | 3 | 1 | Stale internode gRPC connections after pod termination when ... |
+| [#8719](https://github.com/temporalio/temporal/issues/8719) | 3 | 2 | Stale internode gRPC connections after pod termination when ... |
 | [#6806](https://github.com/temporalio/temporal/issues/6806) | 3 | 3 | WorkflowTaskTimedOut if submiting a large number of activite... |
 | [#8490](https://github.com/temporalio/temporal/issues/8490) | 2 | 2 | Scheduled Actions doesn't clear ContinuedFailure on null suc... |
 | [#7894](https://github.com/temporalio/temporal/issues/7894) | 2 | 2 | Cannot load Archived Workflows on UI even archived are prese... |
@@ -279,11 +278,11 @@ Priority = Upvotes × 2 + Comments
 | [#1119](https://github.com/temporalio/temporal/issues/1119) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
 | [#787](https://github.com/temporalio/temporal/issues/787) | 1 | 1 | Frequent timeouts while archiving to S3 |
 | [#471](https://github.com/temporalio/temporal/issues/471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
-| [#8970](https://github.com/temporalio/temporal/issues/8970) | 0 | 0 | Client-set RPC deadline is ignored for long poll `GetWorkflo... |
 | [#8943](https://github.com/temporalio/temporal/issues/8943) | 0 | 0 | No admin-tools image for 1.29.2 |
 | [#8864](https://github.com/temporalio/temporal/issues/8864) | 0 | 1 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
+| [#8833](https://github.com/temporalio/temporal/issues/8833) | 0 | 3 | Scheduler does not list workflows runned when using "trigger... |
 
-*...and 108 more bugs*
+*...and 107 more bugs*
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Generated:** 2026-01-09
 **Period:** 2025-12-10 to 2026-01-09
-**New Issues:** 49
+**New Issues:** 50
 
 ## Related Documents
 
@@ -18,8 +18,8 @@
 |------------|------------|
 | temporal | 15 |
 | sdk-dotnet | 9 |
+| sdk-java | 7 |
 | sdk-python | 6 |
-| sdk-java | 6 |
 | sdk-typescript | 5 |
 | sdk-php | 3 |
 | sdk-go | 2 |
@@ -36,6 +36,7 @@
 | xepozz | 2 |
 | pvsone | 2 |
 | roshchha | 2 |
+| jrogers | 1 |
 | sashaneb | 1 |
 | stephanos | 1 |
 | marcoriopel | 1 |
@@ -49,7 +50,6 @@
 | jmcnevin | 1 |
 | NielsKSchjoedt | 1 |
 | Quinn-With-Two-Ns | 1 |
-| neeraj-mathur | 1 |
 
 ---
 
@@ -57,6 +57,7 @@
 
 | Date | Repository | # | Author | Title |
 |------|------------|---|--------|-------|
+| 2026-01-09 | sdk-java | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | jrogers | Spring Metrics Configuration fails with Spring Boot 4 |
 | 2026-01-09 | sdk-python | [#1268](https://github.com/temporalio/sdk-python/issues/1268) | sashaneb | [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings |
 | 2026-01-08 | temporal | [#8970](https://github.com/temporalio/temporal/issues/8970) | stephanos | Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory` |
 | 2026-01-08 | sdk-python | [#1267](https://github.com/temporalio/sdk-python/issues/1267) | marcoriopel | [Bug] Logs not emitted during workflow queries |
@@ -165,6 +166,23 @@
 - **[#576](https://github.com/temporalio/sdk-dotnet/issues/576)** [Feature Request] .NET Analyzer for Checking Workflows
   - *2025-12-12 by cretz* | Labels: enhancement
 
+### sdk-java (7 new)
+
+- **[#2758](https://github.com/temporalio/sdk-java/issues/2758)** Spring Metrics Configuration fails with Spring Boot 4
+  - *2026-01-09 by jrogers* | Labels: none
+- **[#2755](https://github.com/temporalio/sdk-java/issues/2755)** Support using Temporal failures in Nexus APIs
+  - *2026-01-05 by Quinn-With-Two-Ns* | Labels: enhancement
+- **[#2754](https://github.com/temporalio/sdk-java/issues/2754)** Environment Configuration does not read the correct file path on macOS
+  - *2026-01-04 by pvsone* | Labels: none
+- **[#2753](https://github.com/temporalio/sdk-java/issues/2753)** Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
+  - *2025-12-31 by 40lsgy1* | Labels: none
+- **[#2752](https://github.com/temporalio/sdk-java/issues/2752)** OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present
+  - *2025-12-30 by deepika-awasthi* | Labels: enhancement
+- **[#2750](https://github.com/temporalio/sdk-java/issues/2750)** Tests not passing: TestStatsReporter Flush not flushing
+  - *2025-12-28 by TbirdDuncan* | Labels: none
+- **[#2747](https://github.com/temporalio/sdk-java/issues/2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
+  - *2025-12-12 by karunagoyal* | Labels: none
+
 ### sdk-python (6 new)
 
 - **[#1268](https://github.com/temporalio/sdk-python/issues/1268)** [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings
@@ -179,21 +197,6 @@
   - *2025-12-17 by VegetarianOrc* | Labels: bug
 - **[#1252](https://github.com/temporalio/sdk-python/issues/1252)** [Feature Request] add client support for sync activities run by `ThreadPoolExecutor`
   - *2025-12-15 by ClemDoum* | Labels: enhancement
-
-### sdk-java (6 new)
-
-- **[#2755](https://github.com/temporalio/sdk-java/issues/2755)** Support using Temporal failures in Nexus APIs
-  - *2026-01-05 by Quinn-With-Two-Ns* | Labels: enhancement
-- **[#2754](https://github.com/temporalio/sdk-java/issues/2754)** Environment Configuration does not read the correct file path on macOS
-  - *2026-01-04 by pvsone* | Labels: none
-- **[#2753](https://github.com/temporalio/sdk-java/issues/2753)** Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check
-  - *2025-12-31 by 40lsgy1* | Labels: none
-- **[#2752](https://github.com/temporalio/sdk-java/issues/2752)** OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present
-  - *2025-12-30 by deepika-awasthi* | Labels: enhancement
-- **[#2750](https://github.com/temporalio/sdk-java/issues/2750)** Tests not passing: TestStatsReporter Flush not flushing
-  - *2025-12-28 by TbirdDuncan* | Labels: none
-- **[#2747](https://github.com/temporalio/sdk-java/issues/2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
-  - *2025-12-12 by karunagoyal* | Labels: none
 
 ### sdk-typescript (5 new)
 

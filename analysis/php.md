@@ -5,7 +5,7 @@
 **Total Closed Issues:** 211
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
-[Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md)
+<- [Summary](summary.md) - [Contributors](contributors.md) - [Recent](recent.md)
 
 **Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [Ruby](ruby.md)
 
@@ -13,17 +13,17 @@
 
 ## Executive Summary
 
-The PHP SDK has a mature codebase with a healthy 81% resolution rate (211/260 issues closed). The open issue backlog of 49 issues is primarily composed of enhancement requests (31 issues, 63%) with relatively few bugs (9 issues, 18%). The SDK is built on RoadRunner with a Go-based worker runtime, which introduces unique integration challenges. Key concerns center around documentation gaps (particularly for the marshaller), testing infrastructure limitations, and memory leak issues in high-throughput production environments.
+The PHP SDK maintains a healthy 81% resolution rate with 49 open issues and 211 closed. The issue landscape is dominated by enhancement requests (31 issues, 63%), with a relatively small number of bugs (9 issues). The SDK is built on RoadRunner with a Go-based worker runtime, which introduces unique integration challenges. Key concerns center around documentation gaps (particularly for the marshaller), testing infrastructure limitations, and recent dependency conflicts blocking installations.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Documentation | 1 | High - Missing marshaller docs blocking users |
-| Bugs | 9 | Medium - Mix of testing, memory, and integration issues |
-| Testing Infrastructure | 8 | Medium - Test server and mocking limitations |
-| Enhancements | 31 | Medium - Large backlog of feature requests |
-| Stale Issues | 18 | Low - 37% of open issues need triage |
+| Enhancements/Features | 31 | Medium - Many are quality-of-life improvements |
+| Bugs | 9 | High - Includes installation blockers and memory leak |
+| Testing Issues | 8 | Medium - Test framework gaps blocking adoption |
+| Questions | 5 | Low - Support requests, some long-standing |
+| Documentation | 1 | High - Critical marshaller docs missing |
 
 ### User Engagement Summary
 
@@ -47,11 +47,11 @@ The PHP SDK has a mature codebase with a healthy 81% resolution rate (211/260 is
 
 ### Recommended Actions
 
-1. **Immediate:** Document the SDK marshaller system (attributes, types, serialization patterns) - this is blocking new user adoption
-2. **Short-term:** Fix testing infrastructure issues preventing UpdateMethod testing and activity mocking in loops
-3. **Medium-term:** Address memory leak issues in workflow workers under high restart/reload conditions
-4. **Long-term:** Implement Nexus support, improve IDE tooling, and add worker versioning API
-5. **Housekeeping:** Triage 18 stale issues (37% of backlog) - many appear to need verification on current versions
+1. **Immediate:** Fix recent dependency conflicts (#692, #689) blocking installations
+2. **Short-term:** Document the SDK marshaller (#592) - highest user demand
+3. **Medium-term:** Address memory leak in workflow worker (#635) and improve testing framework
+4. **Long-term:** Implement Nexus support (#580) and enhance IDE support (#554)
+5. **Housekeeping:** Triage 18 stale issues (37% of open issues), close resolved questions
 
 ---
 
@@ -59,17 +59,17 @@ The PHP SDK has a mature codebase with a healthy 81% resolution rate (211/260 is
 
 ### Velocity Trend (Last 12 Months)
 
-The backlog has grown slightly over the past year, with 7 more issues opened than closed.
+The PHP SDK backlog is experiencing slight growth, with 7 more issues opened than closed over the past year.
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
 | Last 12 months | 53 | 46 | +7 |
 
-The backlog growth is modest and largely driven by feature requests. The team has been responsive to bugs, with most bug closures happening within 90 days.
+The backlog growth is modest. Recent months (September-December 2025) showed positive trends with more closures than openings, indicating improved maintainer attention.
 
 ### Last 6 Months: Detailed Analysis
 
-The last 6 months show improved velocity with net negative change (more closed than opened).
+The last 6 months show a healthier trend with the backlog actually shrinking by 8 issues.
 
 | Metric | Value |
 |--------|-------|
@@ -80,7 +80,7 @@ The last 6 months show improved velocity with net negative change (more closed t
 
 ### Popular Requests Resolved (Last 6 Months)
 
-No issues with 3+ upvotes were closed in the last 6 months. The SDK's popular requests remain in the backlog, indicating user demand is accumulating for documentation and testing improvements.
+No issues with 3+ upvotes were closed in the last 6 months. The most popular open issue (#592 with 5 upvotes) remains unresolved, indicating user demand is accumulating for documentation improvements.
 
 ---
 
@@ -94,7 +94,7 @@ No issues with 3+ upvotes were closed in the last 6 months. The SDK's popular re
 | 4 | [#580](https://github.com/temporalio/sdk-php/issues/580) | 1 | 1 | Initial Nexus implementation - PHP |
 | 5 | [#573](https://github.com/temporalio/sdk-php/issues/573) | 1 | 3 | [Bug] WorkerFactoryInterface missing arguments |
 | 6 | [#554](https://github.com/temporalio/sdk-php/issues/554) | 1 | 0 | Ensure better SDK support in IDE |
-| 7 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | 2 | [Feature Request] Set expectCompletion result for each Activity call in loop |
+| 7 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | 2 | [Feature Request] Set expectCompletion result for each Activity |
 
 ### Priority Score (Upvotes x 2 + Comments)
 
@@ -109,7 +109,7 @@ No issues with 3+ upvotes were closed in the last 6 months. The SDK's popular re
 | 7 | [#623](https://github.com/temporalio/sdk-php/issues/623) | 4 | [Feature Request] In test env - can't unserialize object structure |
 | 8 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 4 | [Feature Request] Set expectCompletion for Activity calls in loop |
 | 9 | [#123](https://github.com/temporalio/sdk-php/issues/123) | 4 | [Bug] withEnableSessionWorker causes ActivityNotRegisteredError |
-| 10 | [#635](https://github.com/temporalio/sdk-php/issues/635) | 3 | [Bug] Memory leak workflow worker |
+| 10 | [#640](https://github.com/temporalio/sdk-php/issues/640) | 3 | Enable `Discussions` |
 
 ---
 
@@ -117,100 +117,111 @@ No issues with 3+ upvotes were closed in the last 6 months. The SDK's popular re
 
 ### Critical Documentation Gap (1 issue)
 
-The highest-priority issue in the PHP SDK is missing documentation for the marshaller system.
+The highest-priority issue by user demand is missing documentation for the marshaller system.
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#592](https://github.com/temporalio/sdk-php/issues/592) | 5 | Marshaller documentation is completely missing. Users have no way to learn how to serialize data objects, typed lists, or use attributes like `Marshal`, `MarshalArray`, and types. Multiple users in comments note confusion between `DataConverter` and marshalling. The thread also reveals non-obvious behavior: the marshaller creates objects past the constructor, breaking constructor property promotion. |
+| [#592](https://github.com/temporalio/sdk-php/issues/592) | 5 | **Document SDK marshaller** - Documentation is completely missing. Users cannot learn how to serialize data objects, typed lists, or use attributes like `Marshal`, `MarshalArray`. Comments reveal widespread confusion between DataConverters and marshalling, plus non-obvious behaviors like constructor promotion not working (marshaller creates objects past the constructor). |
 
-**Impact:** This documentation gap is actively blocking new users from understanding data serialization patterns, a fundamental aspect of using the SDK.
+**Impact:** This documentation gap is actively blocking new users from understanding data serialization patterns, a fundamental aspect of using the SDK. Users are forced to reverse-engineer behavior from samples or discover issues at runtime.
 
 ### Bugs (9 open issues)
 
-#### High Priority Bugs
+#### Critical - Installation Blockers (Recent)
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#635](https://github.com/temporalio/sdk-php/issues/635) | 0 | Memory leak in workflow worker when workflows are re-run via UI many times. Can create 1GB+ memory consumption. Related to historical issues with "undefined request" errors. Maintainers requested verification on latest SDK version. |
-| [#577](https://github.com/temporalio/sdk-php/issues/577) | 0 | Cannot test UpdateMethod - tests fail with assertion error. Related to test server support for updates. The dev-server works but lacks timeskipping. |
-| [#428](https://github.com/temporalio/sdk-php/issues/428) | 0 | Unit tests hang when workflow under test has runtime/compile exception. No error details are surfaced, making debugging difficult. |
-| [#123](https://github.com/temporalio/sdk-php/issues/123) | 0 | Session worker option (`withEnableSessionWorker`) causes `ActivityNotRegisteredError`. Feature was exposed before implementation was complete. Issue is 4+ years old and needs verification. |
+| [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | **Composer dependency conflicts** - CI pipelines fail to install lowest dependency versions due to react/promise v2 conflicts with Composer 2.9+. Filed January 2026. |
+| [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | **Extension check breaks `--ignore-platform-reqs`** - SDK does runtime grpc check instead of declaring in composer.json, breaking Laravel package discovery when grpc not installed. |
 
-#### Medium Priority Bugs
+#### High Priority - Runtime Issues
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | Composer requirements conflict with react/promise v2 when using lowest dependencies |
-| [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | SDK performs its own grpc extension check, breaking `--ignore-platform-reqs` in Composer. Conflicts with Laravel's package discovery. |
-| [#636](https://github.com/temporalio/sdk-php/issues/636) | 0 | Suppressed exception in child workflow |
+| [#635](https://github.com/temporalio/sdk-php/issues/635) | 0 | **Memory leak in workflow worker** - Re-running workflows via UI causes memory accumulation (up to 1GB reported), potentially creating zombie processes. Video proof provided. Maintainers requested verification on latest SDK. |
+| [#577](https://github.com/temporalio/sdk-php/issues/577) | 0 | **Can't test UpdateMethod** - Tests fail with assertion error. Related to test server support for updates. Multiple users affected. Dev-server workaround available but lacks timeskipping. |
+
+#### Medium Priority - Testing & Sessions
+
+| Issue | Upvotes | Description |
+|-------|-----|-------------|
+| [#428](https://github.com/temporalio/sdk-php/issues/428) | 0 | **Unit test hangs on exceptions** - When workflow under test throws exception, test hangs indefinitely instead of failing. Masks actual errors, makes debugging difficult. |
+| [#123](https://github.com/temporalio/sdk-php/issues/123) | 0 | **Session worker breaks activity registration** - Using `withEnableSessionWorker(true)` causes ActivityNotRegisteredError. Configuration option exposed before full implementation. 4+ years old, needs verification. |
+
+#### Lower Priority - Edge Cases
+
+| Issue | Upvotes | Description |
+|-------|-----|-------------|
+| [#636](https://github.com/temporalio/sdk-php/issues/636) | 0 | Suppressed exception in workflow child |
 | [#624](https://github.com/temporalio/sdk-php/issues/624) | 0 | Facade methods throw wrong exception type |
 | [#595](https://github.com/temporalio/sdk-php/issues/595) | 0 | Incorrect generic extends of RuleFactoryInterface |
 
-### Testing Infrastructure Issues (8 issues)
+### Testing Framework Issues (8 issues labeled "tests")
 
-The SDK has significant gaps in testing capabilities compared to other SDKs.
-
-| Issue | Upvotes | Description |
-|-------|-----|-------------|
-| [#577](https://github.com/temporalio/sdk-php/issues/577) | 0 | UpdateMethod tests fail - test server may not fully support updates |
-| [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | Missing `registerDelayedCallback` for tests (available in other SDKs) |
-| [#623](https://github.com/temporalio/sdk-php/issues/623) | 0 | ActivityMocker doesn't properly serialize/unserialize DTOs in test environment |
-| [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | Cannot set different `expectCompletion` results for activities called in a loop |
-| [#524](https://github.com/temporalio/sdk-php/issues/524) | 0 | Cannot mock child workflows like activities |
-| [#428](https://github.com/temporalio/sdk-php/issues/428) | 0 | Unit tests hang on runtime exceptions instead of failing properly |
-| [#502](https://github.com/temporalio/sdk-php/issues/502) | 0 | Fix test case (maintenance) |
-| [#441](https://github.com/temporalio/sdk-php/issues/441) | 0 | Can't run tests according to documentation |
-
-### Observability & Error Handling (3 issues)
+Testing is a significant pain point for PHP SDK users, with multiple issues around mocking, time skipping, and test server compatibility.
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#103](https://github.com/temporalio/sdk-php/issues/103) | 0 | Sentry integration for error logging - no global error handler for workflow/activity errors. Interceptor approach was suggested but functionality was later removed from temporal-bridge. Issue is 4+ years old. |
-| [#226](https://github.com/temporalio/sdk-php/issues/226) | 0 | OTEL tracing support needed |
-| [#533](https://github.com/temporalio/sdk-php/issues/533) | 0 | Workflow logger feature request |
+| [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | **registerDelayedCallback for tests** - Request parity with Go SDK's testing capabilities for timer-based workflows. |
+| [#623](https://github.com/temporalio/sdk-php/issues/623) | 0 | **Can't unserialize objects in test env** - ActivityMocker missing custom converter support. PR #681 may have fixed this - awaiting verification. |
+| [#577](https://github.com/temporalio/sdk-php/issues/577) | 0 | **UpdateMethod testing broken** - Test server may not fully support updates. |
+| [#428](https://github.com/temporalio/sdk-php/issues/428) | 0 | **Tests hang on exceptions** - Runtime errors cause indefinite hangs instead of test failures. |
+| [#524](https://github.com/temporalio/sdk-php/issues/524) | 0 | Allow mocking child workflows like activities. |
+| [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | Set different `expectCompletion` results for activities called in a loop. |
+
+### Long-Standing Questions (5 issues)
+
+| Issue | Comments | Description |
+|-------|----------|-------------|
+| [#103](https://github.com/temporalio/sdk-php/issues/103) | 11 | **Sentry Integration** - 4+ years old. Users want global error handler for APM integration. Workarounds exist via interceptors but are "really-really hacky". Functionality was added then removed from temporal-bridge. |
+| [#532](https://github.com/temporalio/sdk-php/issues/532) | 0 | Asynchronous child workflow execution patterns. |
+| [#399](https://github.com/temporalio/sdk-php/issues/399) | 3 | await doesn't interrupt on activity with error (marked "Not a Bug"). |
 
 ---
 
 ## Enhancement Requests (31 issues)
 
-### API & SDK Improvements
+### SDK Architecture & Stability
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#580](https://github.com/temporalio/sdk-php/issues/580) | 1 | Nexus implementation for PHP (cross-namespace workflow communication) |
-| [#586](https://github.com/temporalio/sdk-php/issues/586) | 0 | Support New Worker Versioning API |
-| [#554](https://github.com/temporalio/sdk-php/issues/554) | 1 | Better IDE support (autocomplete for signals, queries, updates) |
-| [#573](https://github.com/temporalio/sdk-php/issues/573) | 1 | WorkerFactoryInterface missing method arguments (scheduled for 3.0.0) |
-| [#495](https://github.com/temporalio/sdk-php/issues/495) | 0 | Define backwards compatibility promise |
-| [#476](https://github.com/temporalio/sdk-php/issues/476) | 0 | Cloud Operations API Client |
-| [#400](https://github.com/temporalio/sdk-php/issues/400) | 0 | Expose OperatorServiceClient |
+| [#495](https://github.com/temporalio/sdk-php/issues/495) | 0 | **Backwards compatibility promise** - Define BC policy, add Roave/BackwardCompatibilityCheck CI. Detailed proposal from community member offering to implement. Discussion highlights BC breaks between minor versions (2.9.0, 2.10.0). |
+| [#573](https://github.com/temporalio/sdk-php/issues/573) | 1 | **WorkerFactoryInterface missing arguments** - Interface doesn't match implementation, blocking typed usage of ExceptionInterceptor and PipelineProvider. Milestone: 3.0.0. |
+| [#507](https://github.com/temporalio/sdk-php/issues/507) | 0 | Eliminate DestructMemorizedInstanceException. |
 
-### Framework Integration
+### New Temporal Features
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#670](https://github.com/temporalio/sdk-php/issues/670) | 0 | Symfony 8.0 support |
-| [#640](https://github.com/temporalio/sdk-php/issues/640) | 1 | Enable GitHub Discussions (maintainer responded with Slack/Forum alternatives) |
+| [#580](https://github.com/temporalio/sdk-php/issues/580) | 1 | **Nexus implementation** - Cross-namespace workflow orchestration support. High strategic importance. Community interest expressed. |
+| [#642](https://github.com/temporalio/sdk-php/issues/642) | 0 | Add first execution run ID to workflow handles. |
+| [#670](https://github.com/temporalio/sdk-php/issues/670) | 0 | Symfony 8.0 support. |
 
-### Workflow Features
-
-| Issue | Upvotes | Request |
-|-------|-----|---------|
-| [#557](https://github.com/temporalio/sdk-php/issues/557) | 0 | Add memo update feature |
-| [#545](https://github.com/temporalio/sdk-php/issues/545) | 0 | Provide "workflow local" storage |
-| [#517](https://github.com/temporalio/sdk-php/issues/517) | 0 | Support user metadata |
-| [#516](https://github.com/temporalio/sdk-php/issues/516) | 0 | Typed Search Attributes |
-| [#497](https://github.com/temporalio/sdk-php/issues/497) | 0 | Dynamic Update handler |
-| [#508](https://github.com/temporalio/sdk-php/issues/508) | 0 | Fallback Update/Signal/Query listeners |
-| [#503](https://github.com/temporalio/sdk-php/issues/503) | 0 | UpdateWithStart SDK API |
-
-### Serialization & Data Handling
+### Developer Experience
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#587](https://github.com/temporalio/sdk-php/issues/587) | 0 | Serialization context for codecs and converters |
-| [#574](https://github.com/temporalio/sdk-php/issues/574) | 0 | Support "RawValue" non-converted values |
-| [#454](https://github.com/temporalio/sdk-php/issues/454) | 0 | Encode Failures using EncodedAttributes |
+| [#554](https://github.com/temporalio/sdk-php/issues/554) | 1 | **Better IDE support** - Autocomplete for activities, signals, queries, updates. Partially completed checklist in issue. Some items already done. |
+| [#640](https://github.com/temporalio/sdk-php/issues/640) | 1 | **Enable Discussions** - Community requests GitHub Discussions for support questions. |
+| [#476](https://github.com/temporalio/sdk-php/issues/476) | 0 | Cloud Operations API Client. |
+| [#400](https://github.com/temporalio/sdk-php/issues/400) | 0 | Expose OperatorServiceClient. |
+| [#419](https://github.com/temporalio/sdk-php/issues/419) | 0 | Divide Workflow stub objects and proxies. |
+
+### Testing Improvements
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | **registerDelayedCallback** - Parity with Go SDK testing capabilities. |
+| [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | Set expectCompletion result for each Activity invocation. |
+| [#524](https://github.com/temporalio/sdk-php/issues/524) | 0 | Allow mocking child workflows like activities. |
+
+### Error Handling & Observability
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#269](https://github.com/temporalio/sdk-php/issues/269) | 0 | Use `mapWorkflowFailureToException` pattern. |
+| [#244](https://github.com/temporalio/sdk-php/issues/244) | 0 | FailureConverter allow more control. |
+| [#454](https://github.com/temporalio/sdk-php/issues/454) | 0 | Encode Failures using EncodedAttributes. |
 
 ---
 
@@ -218,31 +229,31 @@ The SDK has significant gaps in testing capabilities compared to other SDKs.
 
 ### Stale Issues (>1 year, no activity)
 
-18 issues (37% of open issues) have had no activity for over 12 months. These need triage:
+18 issues (37% of open issues) have had no activity in over 12 months.
 
 **Close candidates (likely resolved or no longer relevant):**
-- [#123](https://github.com/temporalio/sdk-php/issues/123) - Session worker bug from 2021, SDK architecture has changed significantly. Needs verification on current version.
-- [#103](https://github.com/temporalio/sdk-php/issues/103) - Sentry integration question from 2021. Workarounds exist via interceptors and bridges.
-- [#244](https://github.com/temporalio/sdk-php/issues/244) - FailureConverter enhancement from 2022, may have been addressed
-- [#285](https://github.com/temporalio/sdk-php/issues/285) - temporal.download server usage (infrastructure change)
-- [#318](https://github.com/temporalio/sdk-php/issues/318) - Improve proto-generated PHP files
+- [#103](https://github.com/temporalio/sdk-php/issues/103) - Sentry integration question from 2021. Workarounds documented, no official support planned. Consider closing with summary of available patterns.
+- [#123](https://github.com/temporalio/sdk-php/issues/123) - Session worker bug from 2021. Feature was "ahead of implementation". Maintainer recently asked for re-verification.
+- [#244](https://github.com/temporalio/sdk-php/issues/244) - 2022 feature request with no traction.
+- [#285](https://github.com/temporalio/sdk-php/issues/285) - temporal.download server usage (infrastructure).
+- [#318](https://github.com/temporalio/sdk-php/issues/318) - Improve proto-generated PHP files.
 
 **Needs triage (maintainer decision required):**
-- [#495](https://github.com/temporalio/sdk-php/issues/495) - BC promise discussion - valuable but stalled
-- [#507](https://github.com/temporalio/sdk-php/issues/507) - Eliminate DestructMemorizedInstanceException
-- [#476](https://github.com/temporalio/sdk-php/issues/476) - Cloud Operations API Client
-- [#419](https://github.com/temporalio/sdk-php/issues/419) - Divide Workflow stub and proxy objects
-- [#400](https://github.com/temporalio/sdk-php/issues/400) - Expose OperatorServiceClient
-- [#399](https://github.com/temporalio/sdk-php/issues/399) - await behavior with activity errors (marked "Not a Bug")
+- [#495](https://github.com/temporalio/sdk-php/issues/495) - BC promise discussion. Valuable proposal, but stalled. Decide on direction.
+- [#507](https://github.com/temporalio/sdk-php/issues/507) - Eliminate DestructMemorizedInstanceException.
+- [#476](https://github.com/temporalio/sdk-php/issues/476) - Cloud Operations API Client.
+- [#400](https://github.com/temporalio/sdk-php/issues/400) - Expose OperatorServiceClient.
+- [#399](https://github.com/temporalio/sdk-php/issues/399) - await behavior with activity errors (marked "Not a Bug").
 
-**Keep open (valid feature requests):**
-- [#529](https://github.com/temporalio/sdk-php/issues/529) - registerDelayedCallback for tests (2 upvotes)
-- [#302](https://github.com/temporalio/sdk-php/issues/302) - expectCompletion for loops (assigned to maintainers)
-- [#269](https://github.com/temporalio/sdk-php/issues/269) - mapWorkflowFailureToException usage
+**Keep open (valid feature requests with user interest):**
+- [#529](https://github.com/temporalio/sdk-php/issues/529) - registerDelayedCallback for tests (2 upvotes).
+- [#302](https://github.com/temporalio/sdk-php/issues/302) - expectCompletion for loops (1 upvote).
+- [#554](https://github.com/temporalio/sdk-php/issues/554) - IDE support, partially complete checklist.
 
 ### Duplicate Candidates
 
-No obvious duplicates identified. Issues are generally well-scoped and distinct.
+- [#577](https://github.com/temporalio/sdk-php/issues/577) and [#428](https://github.com/temporalio/sdk-php/issues/428) both relate to testing issues with workflow exceptions/updates - may have shared root causes in test infrastructure.
+- [#692](https://github.com/temporalio/sdk-php/issues/692) and [#689](https://github.com/temporalio/sdk-php/issues/689) are both recent dependency/installation issues - should coordinate fixes.
 
 ---
 
@@ -252,28 +263,45 @@ Based on user demand and issue analysis:
 
 ### Phase 1: Stability (Immediate)
 
-- **Document the marshaller system** ([#592](https://github.com/temporalio/sdk-php/issues/592)) - Highest user demand, blocking adoption
-- **Fix Composer dependency conflicts** ([#692](https://github.com/temporalio/sdk-php/issues/692), [#689](https://github.com/temporalio/sdk-php/issues/689)) - Blocking installation flows
-- **Add ext-grpc to composer.json requirements** to fix `--ignore-platform-reqs` behavior
+- **Fix installation blockers:**
+  - [#692](https://github.com/temporalio/sdk-php/issues/692) - Composer dependency conflicts with react/promise v2
+  - [#689](https://github.com/temporalio/sdk-php/issues/689) - Add ext-grpc to composer.json, fix Laravel discovery
+- **Investigate memory leak:**
+  - [#635](https://github.com/temporalio/sdk-php/issues/635) - Workflow worker memory leak on re-runs
 
 ### Phase 2: Developer Experience (Short-term)
 
-- **Fix UpdateMethod testing** ([#577](https://github.com/temporalio/sdk-php/issues/577)) - Use dev-server or wait for test-server update support
-- **Improve activity mocking for loops** ([#302](https://github.com/temporalio/sdk-php/issues/302)) - Already assigned to maintainers
-- **Add registerDelayedCallback** ([#529](https://github.com/temporalio/sdk-php/issues/529)) - Parity with other SDKs
-- **Fix ActivityMocker serialization** ([#623](https://github.com/temporalio/sdk-php/issues/623)) - PR in progress
+- **Documentation:**
+  - [#592](https://github.com/temporalio/sdk-php/issues/592) - Document SDK marshaller (highest user demand)
+- **Testing improvements:**
+  - [#577](https://github.com/temporalio/sdk-php/issues/577) - Fix UpdateMethod testing
+  - [#623](https://github.com/temporalio/sdk-php/issues/623) - Verify fix for object serialization in tests (PR #681)
+- **Community:**
+  - [#640](https://github.com/temporalio/sdk-php/issues/640) - Consider enabling GitHub Discussions
 
 ### Phase 3: Feature Expansion (Medium-term)
 
-- **Nexus implementation** ([#580](https://github.com/temporalio/sdk-php/issues/580)) - Cross-namespace workflows
-- **Worker versioning API** ([#586](https://github.com/temporalio/sdk-php/issues/586)) - Production deployment improvements
-- **Symfony 8.0 support** ([#670](https://github.com/temporalio/sdk-php/issues/670)) - Framework compatibility
-- **IDE improvements** ([#554](https://github.com/temporalio/sdk-php/issues/554)) - Autocomplete for signals/queries/updates
-- **Backwards compatibility promise** ([#495](https://github.com/temporalio/sdk-php/issues/495)) - SDK stability guarantees
+- **IDE Support:**
+  - [#554](https://github.com/temporalio/sdk-php/issues/554) - Complete autocomplete features for signals/queries/updates
+- **Testing enhancements:**
+  - [#529](https://github.com/temporalio/sdk-php/issues/529) - registerDelayedCallback
+  - [#302](https://github.com/temporalio/sdk-php/issues/302) - Per-activity expectCompletion
+- **SDK architecture:**
+  - [#495](https://github.com/temporalio/sdk-php/issues/495) - Define BC promise
+  - [#573](https://github.com/temporalio/sdk-php/issues/573) - Fix WorkerFactoryInterface (milestone: 3.0.0)
 
-### Phase 4: Maintenance (Ongoing)
+### Phase 4: Strategic Features (Long-term)
 
-- **Memory leak investigation** ([#635](https://github.com/temporalio/sdk-php/issues/635)) - Verify on latest SDK, add supervisor configuration guidance
-- **Session worker verification** ([#123](https://github.com/temporalio/sdk-php/issues/123)) - Test on current version, close or fix
-- **Stale issue triage** - Review 18 stale issues, close resolved ones
-- **Error handling improvements** ([#103](https://github.com/temporalio/sdk-php/issues/103)) - Document interceptor patterns for Sentry/APM integration
+- **Nexus support:**
+  - [#580](https://github.com/temporalio/sdk-php/issues/580) - Initial Nexus implementation
+- **Framework support:**
+  - [#670](https://github.com/temporalio/sdk-php/issues/670) - Symfony 8.0 support
+- **Cloud integration:**
+  - [#476](https://github.com/temporalio/sdk-php/issues/476) - Cloud Operations API Client
+
+### Phase 5: Maintenance (Ongoing)
+
+- Triage and close 18 stale issues
+- Address long-standing questions (#103 Sentry, #123 sessions) - verify on current version or document workarounds
+- Regular dependency updates
+- Continue test server compatibility improvements

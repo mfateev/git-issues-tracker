@@ -3,8 +3,8 @@
 **Generated:** 2026-01-09
 **Total Repositories:** 10
 **Total Open Issues:** 1547
-**Total Closed Issues:** 4223
-**Total All Issues:** 5770
+**Total Closed Issues:** 4224
+**Total All Issues:** 5771
 
 ## Related Documents
 
@@ -19,13 +19,13 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 1547 |
-| Total Closed Issues | 4223 |
-| Total All Issues | 5770 |
+| Total Closed Issues | 4224 |
+| Total All Issues | 5771 |
 | Overall Resolution Rate | 73% |
-| Total Bugs (open) | 362 |
+| Total Bugs (open) | 361 |
 | Total Enhancements (open) | 1024 |
-| Total Upvotes (👍) on open | 1439 |
-| Total Comments on open | 2377 |
+| Total Upvotes (👍) on open | 1441 |
+| Total Comments on open | 2386 |
 | Total Stale Issues (>12 months) | 946 (61%) |
 
 ---
@@ -57,8 +57,8 @@ Repositories ranked by resolution metrics:
 | 4 | [PHP SDK](stats-php.md) | 81% | 49 | 211 |
 | 5 | [Python SDK](stats-python.md) | 81% | 114 | 475 |
 | 6 | [Go SDK](stats-go.md) | 80% | 163 | 661 |
-| 7 | [Java SDK](stats-java.md) | 77% | 216 | 724 |
-| 8 | [Server](stats-server.md) | 64% | 533 | 951 |
+| 7 | [Java SDK](stats-java.md) | 77% | 217 | 724 |
+| 8 | [Server](stats-server.md) | 64% | 532 | 952 |
 | 9 | [temporalio-api](stats-temporalio-api.md) | 48% | 13 | 12 |
 | 10 | [Features](stats-features.md) | 36% | 244 | 138 |
 
@@ -94,8 +94,8 @@ Repositories ranked by resolution metrics:
 | 2025-10 | 87 | 90 | -3 |
 | 2025-11 | 56 | 43 | +13 |
 | 2025-12 | 59 | 43 | +16 |
-| 2026-01 | 20 | 23 | -3 |
-| **Total** | **969** | **876** | **+93** |
+| 2026-01 | 21 | 24 | -3 |
+| **Total** | **970** | **877** | **+93** |
 
 📈 **Backlog Growing:** 93 more issues opened than closed across all repos in the last 12 months.
 
@@ -105,17 +105,17 @@ Repositories ranked by resolution metrics:
 
 | Repository | Open | Closed | Rate | Bugs | Enh. | 👍 | 💬 | Stale | Median TTC |
 |------------|------|--------|------|------|------|-----|-----|-------|------------|
-| [Server](stats-server.md) | 533 | 951 | 64% | 138 | 352 | 900 | 878 | 374 | 41d |
+| [Server](stats-server.md) | 532 | 952 | 64% | 137 | 352 | 902 | 884 | 374 | 41d |
 | [Features](stats-features.md) | 244 | 138 | 36% | 6 | 224 | 106 | 397 | 145 | 151d |
-| [Java SDK](stats-java.md) | 216 | 724 | 77% | 33 | 127 | 104 | 203 | 156 | 27d |
+| [Java SDK](stats-java.md) | 217 | 724 | 77% | 33 | 127 | 104 | 203 | 156 | 27d |
 | [Go SDK](stats-go.md) | 163 | 661 | 80% | 61 | 87 | 91 | 215 | 101 | 16d |
-| [TypeScript SDK](stats-typescript.md) | 144 | 653 | 82% | 49 | 84 | 171 | 342 | 58 | 26d |
-| [Python SDK](stats-python.md) | 114 | 475 | 81% | 47 | 63 | 33 | 203 | 53 | 16d |
+| [TypeScript SDK](stats-typescript.md) | 144 | 653 | 82% | 49 | 84 | 171 | 344 | 58 | 26d |
+| [Python SDK](stats-python.md) | 114 | 475 | 81% | 47 | 63 | 33 | 204 | 53 | 16d |
 | [.NET SDK](stats-dotnet.md) | 49 | 240 | 83% | 12 | 30 | 13 | 46 | 24 | 21d |
 | [PHP SDK](stats-php.md) | 49 | 211 | 81% | 9 | 31 | 12 | 69 | 18 | 27d |
 | [Ruby SDK](stats-ruby.md) | 22 | 158 | 88% | 4 | 17 | 3 | 15 | 4 | 49d |
 | [temporalio-api](stats-temporalio-api.md) | 13 | 12 | 48% | 3 | 9 | 6 | 9 | 13 | 7d |
-| **Total** | **1547** | **4223** | **73%** | **362** | **1024** | **1439** | **2377** | **946** | **25d** |
+| **Total** | **1547** | **4224** | **73%** | **361** | **1024** | **1441** | **2386** | **946** | **25d** |
 
 ---
 
@@ -148,7 +148,7 @@ Repositories ranked by resolution metrics:
 | 1 | Server | [#680](https://github.com/temporalio/temporal/issues/680) | 70 | 14 | Add ability for workflow to wait for completion of... |
 | 2 | Server | [#1507](https://github.com/temporalio/temporal/issues/1507) | 50 | 27 | Provide priority task queues |
 | 3 | TypeScript SDK | [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) | 46 | 46 | [Feature Request] Run temporal worker in bun |
-| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a desc... |
+| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | 12 | Document POSTGRES_SEEDS (or better yet, use a desc... |
 | 5 | Server | [#2318](https://github.com/temporalio/temporal/issues/2318) | 46 | 7 | MongoDB as Persistent |
 | 6 | Server | [#5680](https://github.com/temporalio/temporal/issues/5680) | 30 | 15 | Official support for Opensearch |
 | 7 | Server | [#537](https://github.com/temporalio/temporal/issues/537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
@@ -182,7 +182,7 @@ Priority = Upvotes × 2 + Comments
 | 1 | Server | [#680](https://github.com/temporalio/temporal/issues/680) | 154 | 70 | 14 | Add ability for workflow to wait for completi... |
 | 2 | TypeScript SDK | [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) | 138 | 46 | 46 | [Feature Request] Run temporal worker in bun |
 | 3 | Server | [#1507](https://github.com/temporalio/temporal/issues/1507) | 127 | 50 | 27 | Provide priority task queues |
-| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | 103 | 46 | 11 | Document POSTGRES_SEEDS (or better yet, use a... |
+| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | 104 | 46 | 12 | Document POSTGRES_SEEDS (or better yet, use a... |
 | 5 | Server | [#2318](https://github.com/temporalio/temporal/issues/2318) | 99 | 46 | 7 | MongoDB as Persistent |
 | 6 | Server | [#5680](https://github.com/temporalio/temporal/issues/5680) | 75 | 30 | 15 | Official support for Opensearch |
 | 7 | Server | [#537](https://github.com/temporalio/temporal/issues/537) | 62 | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
@@ -225,7 +225,7 @@ Priority = Upvotes × 2 + Comments
 | 12 | Features | [#503](https://github.com/temporalio/features/issues/503) | 3 | 1 | Cancel and Signal should still propagate to child ... |
 | 13 | Python SDK | [#238](https://github.com/temporalio/sdk-python/issues/238) | 3 | 5 | [Bug] Can't debugging workflow using vscode |
 | 14 | TypeScript SDK | [#1615](https://github.com/temporalio/sdk-typescript/issues/1615) | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because w... |
-| 15 | Server | [#8719](https://github.com/temporalio/temporal/issues/8719) | 3 | 1 | Stale internode gRPC connections after pod termina... |
+| 15 | Server | [#8719](https://github.com/temporalio/temporal/issues/8719) | 3 | 2 | Stale internode gRPC connections after pod termina... |
 | 16 | Server | [#6806](https://github.com/temporalio/temporal/issues/6806) | 3 | 3 | WorkflowTaskTimedOut if submiting a large number o... |
 | 17 | Go SDK | [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp fu... |
 | 18 | Go SDK | [#1208](https://github.com/temporalio/sdk-go/issues/1208) | 2 | 2 | Canceling a context with multiple child contexts c... |
@@ -238,8 +238,8 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Repo | Issue | 👍 | Title |
 |------|------|-------|-----|-------|
+| 2026-01-09 | Java SDK | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | 0 | Spring Metrics Configuration fails with Spring Boo... |
 | 2026-01-09 | Python SDK | [#1268](https://github.com/temporalio/sdk-python/issues/1268) | 0 | [Bug] Activity/workflow pollers drop to 0 ignoring... |
-| 2026-01-08 | Server | [#8970](https://github.com/temporalio/temporal/issues/8970) | 0 | Client-set RPC deadline is ignored for long poll `... |
 | 2026-01-08 | Python SDK | [#1267](https://github.com/temporalio/sdk-python/issues/1267) | 2 | [Bug] Logs not emitted during workflow queries |
 | 2026-01-08 | Server | [#8968](https://github.com/temporalio/temporal/issues/8968) | 0 | Same fairness key but different fairness weight? |
 | 2026-01-08 | PHP SDK | [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | [Bug] Minimal Composer requirements conflicts with... |
@@ -282,7 +282,7 @@ Priority = Upvotes × 2 + Comments
 | Label | Count | % of Open Issues |
 |-------|-------|------------------|
 | enhancement | 1008 | 65% |
-| bug | 192 | 12% |
+| bug | 191 | 12% |
 | potential-bug | 171 | 11% |
 | test server | 37 | 2% |
 | up-for-grabs | 30 | 2% |
@@ -313,12 +313,12 @@ Priority = Upvotes × 2 + Comments
 
 | Repository | Upvotes | Comments | Engagement Score | Stale % |
 |------------|---------|----------|------------------|---------|
-| Server | 900 | 878 | 2678 | 70% |
-| TypeScript SDK | 171 | 342 | 684 | 40% |
+| Server | 902 | 884 | 2688 | 70% |
+| TypeScript SDK | 171 | 344 | 686 | 40% |
 | Features | 106 | 397 | 609 | 59% |
 | Java SDK | 104 | 203 | 411 | 72% |
 | Go SDK | 91 | 215 | 397 | 62% |
-| Python SDK | 33 | 203 | 269 | 46% |
+| Python SDK | 33 | 204 | 270 | 46% |
 | PHP SDK | 12 | 69 | 93 | 37% |
 | .NET SDK | 13 | 46 | 72 | 49% |
 | Ruby SDK | 3 | 15 | 21 | 18% |
@@ -333,10 +333,10 @@ Priority = Upvotes × 2 + Comments
 | temporalio-api | 1076 | 7 | 6 | 0 |
 | Features | 804 | 87 | 97 | 60 |
 | .NET SDK | 389 | 0 | 26 | 23 |
-| Go SDK | 975 | 70 | 59 | 34 |
-| Java SDK | 985 | 104 | 71 | 41 |
+| Go SDK | 976 | 70 | 59 | 34 |
+| Java SDK | 981 | 104 | 71 | 42 |
 | PHP SDK | 458 | 4 | 18 | 27 |
 | Python SDK | 477 | 6 | 61 | 47 |
 | Ruby SDK | 250 | 0 | 4 | 18 |
 | TypeScript SDK | 657 | 39 | 48 | 57 |
-| Server | 961 | 218 | 218 | 97 |
+| Server | 963 | 218 | 218 | 96 |

@@ -22,9 +22,9 @@
 | Enhancements/Features (open) | 84 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 171 |
-| Total Comments on open | 342 |
+| Total Comments on open | 344 |
 | Issues with Upvotes | 37 (26%) |
-| Issues with Comments | 73 (51%) |
+| Issues with Comments | 74 (51%) |
 | Average Age (days) | 657 |
 | Stale Issues (>12 months) | 58 (40%) |
 
@@ -236,8 +236,8 @@ Priority = Upvotes × 2 + Comments
 | [#1578](https://github.com/temporalio/sdk-typescript/issues/1578) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-uncaug... |
 | [#1292](https://github.com/temporalio/sdk-typescript/issues/1292) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
 | [#939](https://github.com/temporalio/sdk-typescript/issues/939) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corru... |
-| [#1860](https://github.com/temporalio/sdk-typescript/issues/1860) | 0 | 0 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
-| [#1859](https://github.com/temporalio/sdk-typescript/issues/1859) | 0 | 2 | [Bug] High CPU usage with OTel instrumentation when updating... |
+| [#1860](https://github.com/temporalio/sdk-typescript/issues/1860) | 0 | 1 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
+| [#1859](https://github.com/temporalio/sdk-typescript/issues/1859) | 0 | 3 | [Bug] High CPU usage with OTel instrumentation when updating... |
 | [#1858](https://github.com/temporalio/sdk-typescript/issues/1858) | 0 | 0 | [Bug] unable to import reflect-metadata within workflow bund... |
 | [#1838](https://github.com/temporalio/sdk-typescript/issues/1838) | 0 | 0 | [Bug] `WorkflowExecutionAlreadyStartedError` should contain ... |
 | [#1790](https://github.com/temporalio/sdk-typescript/issues/1790) | 0 | 9 | [Bug] Replay workflow history fails with nondeterminism erro... |

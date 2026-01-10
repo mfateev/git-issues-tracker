@@ -1,8 +1,8 @@
 # Contributor Statistics
 
 **Generated:** 2026-01-09
-**Total Issues:** 5770
-**Total Comments:** 9861
+**Total Issues:** 5771
+**Total Comments:** 9871
 **Unique Issue Authors:** 1452
 **Unique Commenters:** 1621
 
@@ -91,8 +91,8 @@
 | 16 | wolfy-j | 91 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php |
 | 17 | vitarb | 89 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 18 | samarabbas | 87 | temporalio/sdk-go, temporalio/sdk-java, temporalio/temporal |
-| 19 | tconley1428 | 77 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-python |
-| 20 | yycptt | 67 | temporalio/sdk-go, temporalio/temporal |
+| 19 | tconley1428 | 78 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-python |
+| 20 | yycptt | 73 | temporalio/sdk-go, temporalio/temporal |
 | 21 | rodrigozhou | 55 | temporalio/temporal |
 | 22 | josh-berry | 54 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 23 | dandavison | 51 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
@@ -117,10 +117,10 @@
 | 42 | shaunco | 22 | temporalio/sdk-go, temporalio/temporal |
 | 43 | robzienert | 20 | temporalio/sdk-java, temporalio/temporal |
 | 44 | yux0 | 20 | temporalio/temporal |
-| 45 | tdeebswihart | 18 | temporalio/sdk-go, temporalio/temporal |
-| 46 | gajus | 18 | temporalio/sdk-typescript, temporalio/temporal |
-| 47 | MichaelSnowden | 18 | temporalio/temporal |
-| 48 | stephanos | 17 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php... |
+| 45 | stephanos | 18 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php... |
+| 46 | tdeebswihart | 18 | temporalio/sdk-go, temporalio/temporal |
+| 47 | gajus | 18 | temporalio/sdk-typescript, temporalio/temporal |
+| 48 | MichaelSnowden | 18 | temporalio/temporal |
 | 49 | Hades32 | 17 | temporalio/sdk-go, temporalio/temporal |
 | 50 | antlai-temporal | 16 | temporalio/features, temporalio/sdk-go, temporalio/sdk-typescript |
 
@@ -145,12 +145,12 @@
 | 15 | roxblnfk | 52 | 109 | 161 |
 | 16 | samarabbas | 53 | 87 | 140 |
 | 17 | drewhoskins-temporal | 103 | 24 | 127 |
-| 18 | dnr | 7 | 111 | 118 |
-| 19 | yycptt | 47 | 67 | 114 |
+| 18 | yycptt | 47 | 73 | 120 |
+| 19 | dnr | 7 | 111 | 118 |
 | 20 | dandavison | 54 | 51 | 105 |
 | 21 | vitarb | 16 | 89 | 105 |
-| 22 | wolfy-j | 8 | 91 | 99 |
-| 23 | tconley1428 | 21 | 77 | 98 |
+| 22 | tconley1428 | 21 | 78 | 99 |
+| 23 | wolfy-j | 8 | 91 | 99 |
 | 24 | rustatian | 3 | 92 | 95 |
 | 25 | josh-berry | 24 | 54 | 78 |
 | 26 | longquanzheng | 37 | 39 | 76 |
@@ -175,8 +175,8 @@
 | 45 | shaunco | 11 | 22 | 33 |
 | 46 | joebowbeer | 8 | 25 | 33 |
 | 47 | THardy98 | 23 | 8 | 31 |
-| 48 | nathanielobrown | 4 | 24 | 28 |
-| 49 | stephanos | 10 | 17 | 27 |
+| 48 | stephanos | 10 | 18 | 28 |
+| 49 | nathanielobrown | 4 | 24 | 28 |
 | 50 | SerafimArts | 4 | 23 | 27 |
 
 ---
@@ -5128,6 +5128,14 @@
 | temporal | [#3703](https://github.com/temporalio/temporal/issues/3703) | Currently temporal provides no way to reset the workflow from a serialized history json |
 | temporal | [#372](https://github.com/temporalio/temporal/issues/372) | docker-compose-es.yml docker-compose fails with error 137 |
 
+### jrogers (3 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-java | [#1479](https://github.com/temporalio/sdk-java/issues/1479) | Spring Boot Starter dependency problem when using Maven |
+| sdk-java | [#1619](https://github.com/temporalio/sdk-java/issues/1619) | Support for Spring Boot 3.0 in integration |
+| sdk-java | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | Spring Metrics Configuration fails with Spring Boot 4 |
+
 ### sherifr212 (3 issues)
 
 | Repo | Issue | Title |
@@ -5941,13 +5949,6 @@
 |------|-------|-------|
 | sdk-java | [#1422](https://github.com/temporalio/sdk-java/issues/1422) | MicrometerClientStatsReporter does not report histograms |
 | temporal | [#3454](https://github.com/temporalio/temporal/issues/3454) | Range queries do not work with sqlite driver (temporalite) |
-
-### jrogers (2 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-java | [#1479](https://github.com/temporalio/sdk-java/issues/1479) | Spring Boot Starter dependency problem when using Maven |
-| sdk-java | [#1619](https://github.com/temporalio/sdk-java/issues/1619) | Support for Spring Boot 3.0 in integration |
 
 ### karneyli (2 issues)
 

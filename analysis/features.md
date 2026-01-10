@@ -49,7 +49,7 @@ The Features repository contains cross-SDK conformance tests and feature impleme
 | Resolved within 30 days | 30% |
 | Resolved within 90 days | 43% |
 
-The resolution rate reflects the nature of the Features repository: most issues are cross-SDK feature requests that require coordinated implementation across all SDKs, making them long-term tracking items rather than quick fixes.
+The resolution rate reflects the nature of the Features repository: most issues are cross-SDK feature requests that require coordinated implementation across all SDKs, making them long-term tracking items rather than quick fixes. The 90th percentile resolution time of 818 days highlights how some cross-SDK features can take years to fully implement across all languages.
 
 ---
 
@@ -61,21 +61,35 @@ The resolution rate reflects the nature of the Features repository: most issues 
 
 **Backlog Growing:** The repository continues to accumulate feature requests faster than they can be resolved. This is expected given that cross-SDK features require coordination across 7+ SDK implementations and often depend on server-side changes.
 
+### 6-Month Detailed Analysis
+
+| Metric | Value |
+|--------|-------|
+| Issues Opened | 36 |
+| Issues Closed | 20 |
+| Net Change | +16 |
+| Enhancements Closed | 18 |
+| Resolution Speed (within 30 days) | 30% |
+
 ---
 
 ## Top Issues by Engagement
 
+### Priority Score Rankings
+
+Priority = Upvotes x 2 + Comments
+
 | Rank | Issue | Score | Title | Analysis |
 |------|-------|-------|-------|----------|
-| 1 | [#399](https://github.com/temporalio/features/issues/399) | 42 | Custom Markers for Workflow History/Timeline | Users want to record custom events in workflow history for observability. Team decided against marker approach due to history growth concerns; alternative approaches being considered. |
-| 2 | [#118](https://github.com/temporalio/features/issues/118) | 38 | Declarative schedules: upsert, sync, terraform | Strong demand for GitOps/Terraform-style schedule management. Detailed design proposals from community including Terraform provider contributions. |
-| 3 | [#649](https://github.com/temporalio/features/issues/649) | 32 | Add support for unit testing workflow versioning | 5-year-old issue with renewed interest. Critical for validating version upgrade scenarios in unit tests rather than relying on integration testing. |
-| 4 | [#558](https://github.com/temporalio/features/issues/558) | 27 | WorkflowIdConflictPolicy in child workflow options | Complex discussion about child workflow semantics and re-parenting. Nexus recommended as workaround; deeper architectural considerations for DAG workflows. |
-| 5 | [#562](https://github.com/temporalio/features/issues/562) | 20 | Session support | Go SDK has native sessions; other SDKs use worker-specific task queue pattern. Detailed architectural feedback from community on load balancing approaches. |
-| 6 | [#443](https://github.com/temporalio/features/issues/443) | 17 | Implement activity task poll limit | Request for limiting activity polling after successful task. Being addressed in SDK refactoring with Custom Slot Providers. |
-| 7 | [#434](https://github.com/temporalio/features/issues/434) | 13 | Serialization context for codecs and converters | Allow converters to access workflow/activity context (e.g., workflow ID) for payload signing/security purposes. Java done, others in progress. |
+| 1 | [#399](https://github.com/temporalio/features/issues/399) | 42 | Custom Markers for Workflow History/Timeline | Users want to record custom events in workflow history for observability. Team decided against marker approach due to history growth concerns; alternative approaches being considered including metadata on commands. |
+| 2 | [#118](https://github.com/temporalio/features/issues/118) | 38 | Declarative schedules: upsert, sync, terraform | Strong demand for GitOps/Terraform-style schedule management. Community offered to contribute Terraform provider. Discussion ongoing about best approach (worker startup vs CI script). |
+| 3 | [#649](https://github.com/temporalio/features/issues/649) | 32 | Add support for unit testing workflow versioning | 5-year-old issue with renewed interest. Critical for validating version upgrade scenarios without full integration tests. No SDK provides this capability yet. |
+| 4 | [#558](https://github.com/temporalio/features/issues/558) | 27 | WorkflowIdConflictPolicy in child workflow options | Complex discussion about child workflow semantics and re-parenting. Nexus operations recommended as workaround for DAG workflows needing USE_EXISTING semantics. |
+| 5 | [#562](https://github.com/temporalio/features/issues/562) | 20 | Session support | Go SDK has native sessions; other SDKs use worker-specific task queue pattern. Extensive community feedback on load balancing and database-backed implementations. |
+| 6 | [#443](https://github.com/temporalio/features/issues/443) | 17 | Implement activity task poll limit | Request for limiting activity polling after successful task. Being addressed in SDK refactoring with Custom Slot Providers and Poller Behaviors. |
+| 7 | [#434](https://github.com/temporalio/features/issues/434) | 13 | Serialization context for codecs and converters | Allow converters to access workflow/activity context (e.g., workflow ID) for payload signing/security. Java and Python done, others in progress. |
 | 8 | [#51](https://github.com/temporalio/features/issues/51) | 13 | Standardize method for listing workflow queries/signals | Replacing the "query not found" parsing hack with proper WorkflowMetadata API. Mostly implemented across SDKs. |
-| 9 | [#563](https://github.com/temporalio/features/issues/563) | 12 | Tag workflow_failed counter metric with exception type | Improve failure observability by including exception type in metrics. |
+| 9 | [#563](https://github.com/temporalio/features/issues/563) | 12 | Tag workflow_failed counter metric with exception type | Improve failure observability by including exception type in workflow_failed metrics. |
 | 10 | [#456](https://github.com/temporalio/features/issues/456) | 12 | Provide worker status | Programmatic access to worker health: slot usage, cache size, polling status, error backoff states. |
 
 ---
@@ -101,10 +115,10 @@ High-priority features requested for all SDKs:
 
 | Issue | Feature | Description | Status |
 |-------|---------|-------------|--------|
-| [#399](https://github.com/temporalio/features/issues/399) | Custom Markers | Record custom MarkerRecorded events for workflow timeline visualization | Under discussion - history growth concerns |
-| [#649](https://github.com/temporalio/features/issues/649) | Version Testing | Unit test support for workflow versioning/patching scenarios | No implementation yet |
-| [#118](https://github.com/temporalio/features/issues/118) | Declarative Schedules | Terraform/GitOps-friendly schedule management via upsert/sync | Design phase, Terraform contribution offered |
-| [#229](https://github.com/temporalio/features/issues/229) | Auto Heartbeating | SDK-provided automatic activity heartbeat helper | Designed, awaiting implementation |
+| [#399](https://github.com/temporalio/features/issues/399) | Custom Markers | Record custom events for workflow timeline visualization | Under discussion - history growth concerns; exploring alternatives like metadata on commands |
+| [#649](https://github.com/temporalio/features/issues/649) | Version Testing | Unit test support for workflow versioning/patching scenarios | No implementation yet; critical for enterprise adoption |
+| [#118](https://github.com/temporalio/features/issues/118) | Declarative Schedules | Terraform/GitOps-friendly schedule management via upsert/sync | Design phase; community contribution offered |
+| [#229](https://github.com/temporalio/features/issues/229) | Auto Heartbeating | SDK-provided automatic activity heartbeat helper | Stale (2+ years) |
 | [#456](https://github.com/temporalio/features/issues/456) | Worker Status | Programmatic access to worker health and slot information | Per-SDK tickets needed |
 | [#69](https://github.com/temporalio/features/issues/69) | Reset Points | Specify reset points in workflow code for rollback scenarios | Needs design |
 
@@ -112,11 +126,11 @@ High-priority features requested for all SDKs:
 
 Several issues focus on improving child workflow capabilities:
 
-| Issue | Feature | Description |
-|-------|---------|-------------|
-| [#558](https://github.com/temporalio/features/issues/558) | WorkflowIdConflictPolicy | USE_EXISTING for children - complex re-parenting semantics |
-| [#515](https://github.com/temporalio/features/issues/515) | Start Delay | Expose start delay option in child workflow options |
-| [#503](https://github.com/temporalio/features/issues/503) | Cancel/Signal Propagation | Propagate to children after continue-as-new |
+| Issue | Feature | Description | Status |
+|-------|---------|-------------|--------|
+| [#558](https://github.com/temporalio/features/issues/558) | WorkflowIdConflictPolicy | USE_EXISTING for children - complex re-parenting semantics | Active discussion; Nexus recommended as workaround |
+| [#515](https://github.com/temporalio/features/issues/515) | Start Delay | Expose start delay option in child workflow options | Open |
+| [#503](https://github.com/temporalio/features/issues/503) | Cancel/Signal Propagation | Propagate to children after continue-as-new | Bug - needs server-side changes |
 
 ### Metrics and Observability Requests
 
@@ -155,7 +169,7 @@ Several issues focus on improving child workflow capabilities:
 | [#222](https://github.com/temporalio/features/issues/222) | All | workflow_completed counter logged before server confirmation | Low - timing issue |
 | [#182](https://github.com/temporalio/features/issues/182) | Docs | Document eventual consistency of list workflow/schedule calls | Low - documentation |
 
-The most impactful bug is [#503](https://github.com/temporalio/features/issues/503) (3 upvotes) - cancel and signal propagation to child workflows after continue-as-new. This affects all SDKs and has implications for workflow cancellation semantics in complex workflow graphs.
+The most impactful bug is [#503](https://github.com/temporalio/features/issues/503) (3 upvotes) - cancel and signal propagation to child workflows after continue-as-new. This affects all SDKs and has implications for workflow cancellation semantics in complex workflow graphs. The issue has a community member offering to help investigate.
 
 ---
 
@@ -187,6 +201,8 @@ Several issues relate to the new Nexus cross-namespace communication feature:
 | [#678](https://github.com/temporalio/features/issues/678) | Serialization | Nexus serialization context support |
 | [#658](https://github.com/temporalio/features/issues/658) | Testing | Nexus operation testing environment |
 
+Nexus is emerging as the recommended solution for several complex use cases, including DAG workflows that need WorkflowIdConflictPolicy semantics ([#558](https://github.com/temporalio/features/issues/558)).
+
 ---
 
 ## Recent Activity (Last 30 Days)
@@ -195,6 +211,8 @@ Several issues relate to the new Nexus cross-namespace communication feature:
 |------|-------|-------|
 | 2025-12-22 | [#715](https://github.com/temporalio/features/issues/715) | Custom Metadata Support for Workers in Temporal UI and CLI |
 | 2025-12-18 | [#712](https://github.com/temporalio/features/issues/712) | [Bug] Use pnpm when building TS worker from source |
+
+Only 2 new issues in the last 30 days indicates a slowdown in new feature requests, though activity continues on existing high-engagement issues.
 
 ---
 
@@ -233,10 +251,11 @@ The high stale rate is characteristic of cross-SDK feature tracking - issues rem
 ### 1. Feature Parity Priority
 
 Focus on high-demand cross-SDK features:
-- **Custom markers** ([#399](https://github.com/temporalio/features/issues/399)) - 15 upvotes. Consider metadata-on-command approach instead of markers.
-- **Version testing** ([#649](https://github.com/temporalio/features/issues/649)) - 14 upvotes, 5 years old. Critical for enterprise adoption.
-- **Declarative schedules** ([#118](https://github.com/temporalio/features/issues/118)) - 8 upvotes, 22 comments. Accept community Terraform contribution.
-- **Session support** ([#562](https://github.com/temporalio/features/issues/562)) - 7 upvotes. Evaluate promoting worker-specific task queue pattern as standard.
+
+- **Version testing** ([#649](https://github.com/temporalio/features/issues/649)) - 14 upvotes, 5 years old with renewed interest. Critical for enterprise adoption; users are asking for roadmap visibility.
+- **Custom markers** ([#399](https://github.com/temporalio/features/issues/399)) - 15 upvotes. Consider finalizing the metadata-on-command approach as an alternative to markers.
+- **Declarative schedules** ([#118](https://github.com/temporalio/features/issues/118)) - 8 upvotes, 22 comments. Accept community Terraform provider contribution; users at Nordstrom offering to contribute.
+- **Session support** ([#562](https://github.com/temporalio/features/issues/562)) - 7 upvotes. Document worker-specific task queue pattern as standard approach; community has detailed implementation examples.
 
 ### 2. Test Coverage Improvements
 
@@ -247,17 +266,20 @@ Focus on high-demand cross-SDK features:
 
 ### 3. Bug Fixes
 
-- Address child workflow cancel/signal propagation ([#503](https://github.com/temporalio/features/issues/503)) - affects all SDKs
+- Address child workflow cancel/signal propagation ([#503](https://github.com/temporalio/features/issues/503)) - affects all SDKs; community member offering to help
 - Clean up stale CI workflows and namespaces ([#315](https://github.com/temporalio/features/issues/315))
 - Fix tracing span reporting for scheduled workflows ([#422](https://github.com/temporalio/features/issues/422))
 
 ### 4. Backlog Management
 
-- Consider closing or consolidating very old feature requests (3+ years) that may no longer be relevant
+- Consider closing or consolidating very old feature requests (3+ years) that may no longer be relevant - 87 issues are 3+ years old
 - Link individual SDK implementations back to tracking issues to show progress
 - Update security dependencies to resolve automated vulnerability alerts
-- Add completion tracking to per-SDK tickets in issue descriptions
+- Add completion tracking to per-SDK tickets in issue descriptions (see [#434](https://github.com/temporalio/features/issues/434) as good example)
 
 ### 5. Nexus Integration
 
-Complete the Nexus SDK implementation across all languages and add comprehensive testing support ([#658](https://github.com/temporalio/features/issues/658)).
+- Complete the Nexus SDK implementation across all languages
+- Add comprehensive testing support ([#658](https://github.com/temporalio/features/issues/658))
+- Continue recommending Nexus as the solution for complex DAG workflows ([#558](https://github.com/temporalio/features/issues/558))
+- Address Workflow Callback limits for large-scale Nexus caller scenarios

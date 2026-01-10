@@ -22,9 +22,9 @@
 | Enhancements/Features (open) | 63 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 33 |
-| Total Comments on open | 203 |
+| Total Comments on open | 204 |
 | Issues with Upvotes | 18 (16%) |
-| Issues with Comments | 53 (46%) |
+| Issues with Comments | 54 (47%) |
 | Average Age (days) | 477 |
 | Stale Issues (>12 months) | 53 (46%) |
 
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 99 |
+| Issues Opened | 98 |
 | Issues Closed | 103 |
-| Net Change | -4 |
+| Net Change | -5 |
 | Bugs Closed | 45 |
 | Enhancements Closed | 48 |
 
@@ -138,7 +138,7 @@
 | 1 | [#487](https://github.com/temporalio/sdk-python/issues/487) | 6 | 3 | [Feature Request] Allow workflow logger to opt-out of sandbo... |
 | 2 | [#603](https://github.com/temporalio/sdk-python/issues/603) | 3 | 1 | [Feature Request] Investigate/document how to use PyCharm de... |
 | 3 | [#238](https://github.com/temporalio/sdk-python/issues/238) | 3 | 5 | [Bug] Can't debugging workflow using vscode |
-| 4 | [#1267](https://github.com/temporalio/sdk-python/issues/1267) | 2 | 0 | [Bug] Logs not emitted during workflow queries |
+| 4 | [#1267](https://github.com/temporalio/sdk-python/issues/1267) | 2 | 1 | [Bug] Logs not emitted during workflow queries |
 | 5 | [#1154](https://github.com/temporalio/sdk-python/issues/1154) | 2 | 2 | [Feature Request] Support InterpreterPoolExecutor from py3.1... |
 | 6 | [#928](https://github.com/temporalio/sdk-python/issues/928) | 2 | 0 | [Feature Request] Research and make SDK free-threading capab... |
 | 7 | [#807](https://github.com/temporalio/sdk-python/issues/807) | 2 | 3 | [Feature Request] Loss of stack trace information |
@@ -219,7 +219,7 @@ Priority = Upvotes × 2 + Comments
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
 | [#238](https://github.com/temporalio/sdk-python/issues/238) | 3 | 5 | [Bug] Can't debugging workflow using vscode |
-| [#1267](https://github.com/temporalio/sdk-python/issues/1267) | 2 | 0 | [Bug] Logs not emitted during workflow queries |
+| [#1267](https://github.com/temporalio/sdk-python/issues/1267) | 2 | 1 | [Bug] Logs not emitted during workflow queries |
 | [#782](https://github.com/temporalio/sdk-python/issues/782) | 1 | 1 | [Bug] cancelled timer callback causes asyncio.exceptions.Inv... |
 | [#641](https://github.com/temporalio/sdk-python/issues/641) | 1 | 3 | [Bug] Sending a query that is not registered in the workflow... |
 | [#639](https://github.com/temporalio/sdk-python/issues/639) | 1 | 7 | [Bug] Operation was canceled when start_workflow |

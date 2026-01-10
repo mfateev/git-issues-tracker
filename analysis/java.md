@@ -1,7 +1,7 @@
 # Temporal Java SDK - Issues Analysis & Remediation Proposal
 
 **Generated:** 2026-01-09
-**Total Open Issues:** 216
+**Total Open Issues:** 217
 **Total Closed Issues:** 724
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
@@ -13,7 +13,7 @@
 
 ## Executive Summary
 
-The Java SDK has a mature codebase with 940 total issues (77% resolution rate), reflecting its position as one of the most established Temporal SDKs. The backlog is actively shrinking (45 more issues closed than opened in the last 12 months), indicating healthy maintenance. However, 72% of open issues are stale (>12 months old), with 48% being over 3 years old, suggesting a need for aggressive triage. Key user demands center around test server improvements, Spring Boot ecosystem integration, and modern JVM feature support (virtual threads, Kotlin coroutines).
+The Java SDK has a mature codebase with 941 total issues (77% resolution rate), reflecting its position as one of the most established Temporal SDKs. The backlog is actively shrinking (44 more issues closed than opened in the last 12 months), indicating healthy maintenance. However, 72% of open issues are stale (>12 months old), with 48% being over 3 years old, suggesting a need for aggressive triage. Key user demands center around test server improvements, Spring Boot 4 ecosystem integration, and modern JVM feature support (virtual threads, Kotlin coroutines).
 
 ### Key Findings
 
@@ -22,7 +22,7 @@ The Java SDK has a mature codebase with 940 total issues (77% resolution rate), 
 | Test Server Issues | 37 | High - Blocks testing capabilities for users |
 | Bugs | 33 | High - Active defects affecting production usage |
 | Enhancements | 127 | Medium - Many are feature requests awaiting prioritization |
-| Security Vulnerabilities | 4 | Critical - Dependency vulnerabilities require immediate attention |
+| Security Vulnerabilities | 4 | Medium - Build/dev dependency vulnerabilities, most in alpha modules |
 | Stale Issues | 156 | Medium - 72% of backlog needs triage decision |
 
 ### User Engagement Summary
@@ -40,14 +40,14 @@ The Java SDK has a mature codebase with 940 total issues (77% resolution rate), 
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 77% (724/940) |
+| Resolution Rate | 77% (724/941) |
 | Median Time to Close | 27 days (calendar) / 20 days (business) |
 | Resolved within 30 days | 51% |
 | Resolved within 90 days | 66% |
 
 ### Recommended Actions
 
-1. **Immediate:** Address 4 open security vulnerabilities related to dependency versions (guava, grpc-netty-shaded, json-path, error_prone)
+1. **Immediate:** Triage 4 open security vulnerabilities - most are in build tools (ktlint) or alpha Spring Boot modules using older dependencies
 2. **Short-term:** Implement `listWorkflowExecutions` in test server ([#1693](https://github.com/temporalio/sdk-java/issues/1693) - 16 upvotes) - blocks testing for many users
 3. **Medium-term:** Spring Boot 4 support ([#2738](https://github.com/temporalio/sdk-java/issues/2738)) and Jackson 3 support ([#2746](https://github.com/temporalio/sdk-java/issues/2746)) as ecosystem modernizes
 4. **Long-term:** Kotlin coroutine support ([#1845](https://github.com/temporalio/sdk-java/issues/1845) - 15 upvotes) for better Kotlin developer experience
@@ -63,9 +63,9 @@ The Java SDK shows a healthy trend with more issues being closed than opened, in
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
-| Last 12 months | 120 | 165 | -45 |
+| Last 12 months | 121 | 165 | -44 |
 
-Backlog Shrinking: The team has closed 45 more issues than were opened, demonstrating active maintenance. Notable spikes in closures occurred in May 2025 (-44 net) and June 2025 (-19 net).
+Backlog Shrinking: The team has closed 44 more issues than were opened, demonstrating active maintenance. Notable spikes in closures occurred in May 2025 (-44 net) and June 2025 (-19 net).
 
 ### Last 6 Months: Detailed Analysis
 
@@ -73,7 +73,7 @@ The last 6 months show continued progress, though the pace of closures has slowe
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 65 |
+| Issues Opened | 66 |
 | Issues Closed | 54 |
 | Bugs Closed | 2 |
 | Enhancements Completed | 24 |
@@ -132,16 +132,18 @@ The last 6 months show continued progress, though the pace of closures has slowe
 
 ### Security Vulnerabilities (4 open issues)
 
-These dependency vulnerabilities should be addressed promptly, though the maintainers note that some (like grpc-netty-shaded CVE-2025-55163) do not apply to how the SDK uses Netty (client-only). Users can override gRPC versions as a workaround.
+These dependency vulnerabilities are primarily in build tools or alpha Spring Boot modules. The maintainers note that some (like grpc-netty-shaded CVE-2025-55163) do not apply to how the SDK uses Netty (client-only). Users can override gRPC versions as a workaround.
 
 | Issue | Severity | Description |
 |-------|-----|-------------|
-| [#2676](https://github.com/temporalio/sdk-java/issues/2676) | High | grpc-netty-shaded vulnerability (CVE-2025-55163) - users can override with gRPC BOM |
-| [#1803](https://github.com/temporalio/sdk-java/issues/1803) | High (7.1) | guava-31.1-jre vulnerability |
-| [#1960](https://github.com/temporalio/sdk-java/issues/1960) | Medium (5.3) | json-path-2.8.0 vulnerability |
-| [#1611](https://github.com/temporalio/sdk-java/issues/1611) | High (7.5) | error_prone_core-2.18.0 vulnerabilities |
+| [#1890](https://github.com/temporalio/sdk-java/issues/1890) | Critical (9.8) | spring-boot-starter-2.7.12 - snakeyaml RCE vulnerability (alpha module) |
+| [#1952](https://github.com/temporalio/sdk-java/issues/1952) | High (7.5) | ktlint-0.47.1 - logback serialization DoS (build tool) |
+| [#1951](https://github.com/temporalio/sdk-java/issues/1951) | High (7.5) | spring-boot-dependencies-2.7.12 - logback vulnerability (alpha module) |
+| [#1888](https://github.com/temporalio/sdk-java/issues/1888) | Medium (5.3) | kotlin-klib-commonizer-1.5.32 - Kotlin stdlib vulnerability (build tool) |
 
-**Recommendation:** Document the gRPC override pattern prominently in the README and upgrade dependencies in the next minor release.
+**Note:** Issue [#2676](https://github.com/temporalio/sdk-java/issues/2676) regarding grpc-netty-shaded CVE-2025-55163 remains open but the maintainers have clarified this does not apply to the SDK's client-only usage of Netty. Users can override gRPC versions by importing the gRPC BOM in their dependency management.
+
+**Recommendation:** The critical Spring Boot vulnerabilities are in alpha modules using Spring Boot 2.7.x. Consider upgrading these modules to Spring Boot 3.x or clearly documenting the alpha status and recommending users override vulnerable transitive dependencies.
 
 ### Test Server Issues (37 open issues)
 
@@ -151,10 +153,10 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
-| [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | listWorkflowExecutions not supported - blocks workflow listing in tests |
-| [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | Cannot run Temporal CLI server from tests - blocks testing features not in test server |
+| [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | listWorkflowExecutions not supported - blocks workflow listing in tests. Maintainers confirm this requires adding search attribute support, which is substantial work. |
+| [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | Cannot run Temporal CLI server from tests - other SDKs (TypeScript) support this via `TestWorkflowEnvironment.createLocal()` |
 | [#2642](https://github.com/temporalio/sdk-java/issues/2642) | 2 | TestWorkflowEnvironment sleep incorrect behavior |
-| [#1426](https://github.com/temporalio/sdk-java/issues/1426) | 0 | Test server timeouts improperly set to 10 years when not user set |
+| [#1426](https://github.com/temporalio/sdk-java/issues/1426) | 0 | Test server timeouts improperly set to 10 years - caused production issues for users who relied on test validation |
 | [#1540](https://github.com/temporalio/sdk-java/issues/1540) | 0 | Time skipping broken in child workflows |
 
 **Missing Functionality:**
@@ -173,10 +175,10 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 
 | Issue | Upvotes | Description |
 |-------|-----|-------------|
+| [#2046](https://github.com/temporalio/sdk-java/issues/2046) | 2 | Failed promise before calling allOf is not failing the wrapped promise - confirmed bug with workaround provided |
 | [#2391](https://github.com/temporalio/sdk-java/issues/2391) | 1 | Cancelling an activity results in FailedPrecondition: ACTIVITY_UNKNOWN error |
 | [#1241](https://github.com/temporalio/sdk-java/issues/1241) | 1 | DynamicWorkflow not taking in account WorkflowImplementationOptions |
-| [#952](https://github.com/temporalio/sdk-java/issues/952) | 0 | OpenTracing duplicates user created spans during replay (10 comments) |
-| [#2046](https://github.com/temporalio/sdk-java/issues/2046) | 2 | Failed promise before calling allOf is not failing the wrapped promise |
+| [#952](https://github.com/temporalio/sdk-java/issues/952) | 0 | OpenTracing duplicates user created spans during replay (10 comments, complex fix required) |
 | [#1698](https://github.com/temporalio/sdk-java/issues/1698) | 0 | WorkflowImplementationOptions.FailWorkflowExceptionTypes ignored for service failures (7 comments) |
 
 **State Machine & Determinism Issues:**
@@ -201,17 +203,17 @@ The test server is a significant pain point for Java SDK users. Many test scenar
 
 ### Spring Boot Integration
 
-Spring Boot is the most popular framework for Java enterprise applications, and Temporal's integration is a key adoption driver.
+Spring Boot is the most popular framework for Java enterprise applications, and Temporal's integration is a key adoption driver. With Spring Boot 4 released in November 2025, users are already requesting support.
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 7 | Spring Boot 4 Support - newly released, requires investigation |
+| [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 7 | Spring Boot 4 Support - requires investigation due to modularization changes. Jackson 3 support also needed for full compatibility. |
+| [#2758](https://github.com/temporalio/sdk-java/issues/2758) | 0 | Spring Metrics Configuration fails with Spring Boot 4 (reported 2026-01-09) |
+| [#2747](https://github.com/temporalio/sdk-java/issues/2747) | 0 | @WorkflowImpl should support Spring property placeholders |
 | [#1837](https://github.com/temporalio/sdk-java/issues/1837) | 3 | Use Spring Boot ApplicationReadyEvent to start workers |
 | [#1823](https://github.com/temporalio/sdk-java/issues/1823) | 1 | Config flag to disable temporal entirely with spring-boot-auto-configure |
 | [#1799](https://github.com/temporalio/sdk-java/issues/1799) | 1 | Add support for multiple namespaces |
 | [#1647](https://github.com/temporalio/sdk-java/issues/1647) | 1 | Allow WorkflowImplementationOptions via config |
-| [#2747](https://github.com/temporalio/sdk-java/issues/2747) | 0 | @WorkflowImpl should support Spring property placeholders |
-| [#2534](https://github.com/temporalio/sdk-java/issues/2534) | 0 | Add option to fail worker autodiscovery on TypeAlreadyRegisteredException |
 
 ### Kotlin Support
 
@@ -219,27 +221,28 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | Kotlin coroutine support in workflows and activities - currently no active plans |
-| [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 2 | Scala module - community has created zio-temporal |
+| [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | Kotlin coroutine support in workflows and activities - maintainers confirm no active plans but SDK now supports Java Virtual Threads (JDK 21+) |
+| [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 2 | Scala module - community has created [zio-temporal](https://github.com/vitaliihonta/zio-temporal) |
 | [#1489](https://github.com/temporalio/sdk-java/issues/1489) | 2 | Support Scala references to workflow methods |
 | [#2595](https://github.com/temporalio/sdk-java/issues/2595) | 0 | Support for Kotlin 2.0 and newer gRPC/Netty versions |
 
-**Note:** The SDK now supports Java Virtual Threads (JDK 21+), which provides some benefits similar to coroutines. However, Kotlin coroutine support for first-class `suspend fun` calls remains highly requested but not currently planned.
+**Note:** The SDK now supports Java Virtual Threads (JDK 21+), which provides some benefits similar to coroutines. However, Kotlin coroutine support for first-class `suspend fun` calls remains highly requested. Users note that bridging workflow/activity context thread locals into coroutine contexts requires extra work.
 
 ### Observability & Tracing
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
 | [#2394](https://github.com/temporalio/sdk-java/issues/2394) | 2 | Pure OpenTelemetry-based tracing instead of tracer shim |
-| [#952](https://github.com/temporalio/sdk-java/issues/952) | 0 | Fix OpenTracing span duplication during replay |
+| [#952](https://github.com/temporalio/sdk-java/issues/952) | 0 | Fix OpenTracing span duplication during replay - complex issue requiring careful handling of span lifecycle during replays |
 | [#1163](https://github.com/temporalio/sdk-java/issues/1163) | 3 | Allow custom metric tags per workflow execution |
 | [#2117](https://github.com/temporalio/sdk-java/issues/2117) | 0 | Allow customization of OTel span tags |
+| [#2752](https://github.com/temporalio/sdk-java/issues/2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for updates |
 
 ### API Improvements
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | @SignalMethod threading configuration - control signal dispatch |
+| [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | @SignalMethod threading configuration - control signal dispatch (single-threaded vs multi-threaded) |
 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 4 | Support Temporal annotations as meta-annotations |
 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | Provide a recommended way to pass configuration into workflow |
 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | Keep heartbeating during worker shutdown |
@@ -249,9 +252,15 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
-| [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 3 | Jackson 3 support - required for full Spring Boot 4 compatibility |
+| [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 3 | Jackson 3 support - required for full Spring Boot 4 compatibility. Jackson 3 has entirely different packages/artifacts. |
 | [#2498](https://github.com/temporalio/sdk-java/issues/2498) | 0 | Make Jackson serialization optional/separate module |
 | [#139](https://github.com/temporalio/sdk-java/issues/139) | 2 | Need ability to modify ObjectMapper in JacksonJsonPayloadConverter |
+
+### Dependency Management
+
+| Issue | Upvotes | Request |
+|-------|-----|---------|
+| [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 1 | Update grpc-netty-shaded for CVE-2025-55163 - users can override with gRPC BOM but some report compatibility issues with temporal-testing module |
 
 ---
 
@@ -263,15 +272,15 @@ Kotlin users represent a significant portion of the Java SDK user base, especial
 
 **Close Candidates (likely resolved or obsolete):**
 
-- Issues related to old Spring Boot 2.x vulnerabilities (autoclosed by bots but still open)
+- Old Spring Boot 2.x related issues in alpha modules
 - GraalVM native image issues that may have been addressed in recent versions
-- Very old API suggestions that were likely superseded by other work
+- Very old API suggestions (some from 2020) that were likely superseded by other work
 
 **Needs Triage:**
 
 | Issue | Upvotes | Last Updated | Notes |
 |-------|-----|--------------|-------|
-| [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | 2023-06-30 | CLI server support - valid request |
+| [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | 2023-06-30 | CLI server support - valid request, other SDKs have this |
 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | 2020-09-18 | Signal threading - valid but 5+ years old |
 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | 2021-10-19 | Config passing - still relevant |
 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | 2024-11-22 | Heartbeat during shutdown - valid |
@@ -296,9 +305,9 @@ Based on user demand and issue analysis:
 
 ### Phase 1: Stability (Immediate - Q1 2026)
 
-- **Security:** Update documentation on gRPC version override for CVE-2025-55163
-- **Security:** Upgrade guava, json-path, and error_prone dependencies
-- **Bugs:** Fix OpenTracing replay duplication ([#952](https://github.com/temporalio/sdk-java/issues/952))
+- **Dependencies:** Upgrade Spring Boot alpha modules from 2.7.x to 3.x to resolve critical CVEs
+- **Dependencies:** Document gRPC version override pattern in README for users with vulnerability scanners
+- **Bugs:** Fix Promise.allOf not failing on pre-failed promises ([#2046](https://github.com/temporalio/sdk-java/issues/2046))
 - **Bugs:** Address DynamicWorkflow options issue ([#1241](https://github.com/temporalio/sdk-java/issues/1241))
 
 ### Phase 2: Developer Experience (Short-term - Q2 2026)

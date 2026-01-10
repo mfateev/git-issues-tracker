@@ -5,9 +5,9 @@
 **Total Closed Issues:** 12
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
-<- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md)
+<- [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
 
-**Related:** [Server](server.md) | [Features](features.md) | [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md)
+**Related:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md)
 
 ---
 
@@ -51,56 +51,70 @@ The API repository contains Temporal's Protobuf definitions used by all SDKs and
 
 ---
 
-## Top Issues by Priority
-
-Priority score = upvotes x 2 + comments
-
-| Issue | Title | Score | Details |
-|-------|-------|-------|---------|
-| [#328](https://github.com/temporalio/api/issues/328) | Publish and maintain buf schema registry | 12 | 6 upvotes, internal request |
-| [#169](https://github.com/temporalio/api/issues/169) | Allow languages to customize package/namespace structure | 7 | 7 comments, .NET-driven proposal |
-| [#427](https://github.com/temporalio/api/issues/427) | Add configurable subpath for HTTP API | 1 | UI integration concern |
-| [#131](https://github.com/temporalio/api/issues/131) | Clean up "Should be removed" fields | 1 | Tech debt cleanup |
-
----
-
 ## Issues by Category
 
 ### API Enhancements
 
 Feature requests for new API capabilities, fields, methods, or protocols.
 
-| Issue | Title | Age | Notes |
-|-------|-------|-----|-------|
-| [#328](https://github.com/temporalio/api/issues/328) | Publish and maintain buf schema registry | 2y | Most upvoted, simplifies client generation |
-| [#427](https://github.com/temporalio/api/issues/427) | Add configurable subpath for HTTP API | 18m | Needed for UI Server integration |
-| [#400](https://github.com/temporalio/api/issues/400) | Move/remove third party protos to separate location | 20m | Better protoc compatibility |
-| [#307](https://github.com/temporalio/api/issues/307) | Deprecate list workflow methods | 2y | Reduce user confusion |
-| [#232](https://github.com/temporalio/api/issues/232) | Remove RETRY_STATE_IN_PROGRESS from public API | 3y | Internal-only enum exposed publicly |
-| [#198](https://github.com/temporalio/api/issues/198) | Publish Postman collection | 3y | Developer experience improvement |
-| [#172](https://github.com/temporalio/api/issues/172) | Use Payloads for ApplicationFailure message/stack trace | 3y | Security: enables encryption of error details |
-| [#154](https://github.com/temporalio/api/issues/154) | Document SearchAttributes parsing | 3y | Missing documentation for payload format |
-| [#136](https://github.com/temporalio/api/issues/136) | ScheduledEventId to construct Idempotence Key | 4y | Activity deduplication support |
+| Issue | 👍 | Proposal |
+|-------|-----|----------|
+| [#328](https://github.com/temporalio/api/issues/328) | 6 | Publish and maintain buf schema registry for easier client generation |
+| [#427](https://github.com/temporalio/api/issues/427) | 0 | Add configurable subpath for HTTP API (UI Server integration) |
+| [#400](https://github.com/temporalio/api/issues/400) | 0 | Move/remove third party protos to separate location for better protoc compatibility |
+| [#307](https://github.com/temporalio/api/issues/307) | 0 | Deprecate ListOpen/ListClosed workflow methods to reduce user confusion |
+| [#232](https://github.com/temporalio/api/issues/232) | 0 | Remove RETRY_STATE_IN_PROGRESS from public API (internal-only enum) |
+| [#198](https://github.com/temporalio/api/issues/198) | 0 | Publish Postman collection for gRPC APIs |
+| [#172](https://github.com/temporalio/api/issues/172) | 0 | Use Payloads for ApplicationFailure message/stack trace (enables encryption) |
+| [#154](https://github.com/temporalio/api/issues/154) | 0 | Document SearchAttributes parsing format |
+| [#136](https://github.com/temporalio/api/issues/136) | 0 | ScheduledEventId to construct Idempotence Key for activity deduplication |
 
 ### Bugs/Fixes
 
 Issues with existing API definitions that need correction.
 
-| Issue | Title | Age | Notes |
-|-------|-------|-----|-------|
-| [#421](https://github.com/temporalio/api/issues/421) | api-go update fails if commit message contains backtick | 18m | CI/CD workflow issue |
-| [#299](https://github.com/temporalio/api/issues/299) | Misleading comment for PollWorkflowTaskQueueResponse | 2y | "Complete" history clarification needed |
-| [#131](https://github.com/temporalio/api/issues/131) | Clean up "Should be removed" fields | 4y | Leftover from PR #121 |
+| Issue | Description |
+|-------|-------------|
+| [#421](https://github.com/temporalio/api/issues/421) | api-go update workflow fails if commit message contains backtick character |
+| [#299](https://github.com/temporalio/api/issues/299) | Misleading inline comment for PollWorkflowTaskQueueResponse - "complete" history can still be paginated |
+| [#131](https://github.com/temporalio/api/issues/131) | Clean up "Should be removed" fields from PR #121 |
 
-### Proposals
+### Documentation
 
-Design proposals requiring discussion and cross-team coordination.
+API documentation and comment improvements.
 
-| Issue | Title | Comments | Age |
-|-------|-------|----------|-----|
-| [#169](https://github.com/temporalio/api/issues/169) | Allow languages to customize package/namespace structure | 7 | 3y |
+| Issue | Description |
+|-------|-------------|
+| [#299](https://github.com/temporalio/api/issues/299) | Clarify that "complete" history may require pagination for long event histories |
+| [#154](https://github.com/temporalio/api/issues/154) | Document SearchAttributes parsing format |
 
-**Context:** This proposal from the .NET SDK development sought to simplify namespace imports by consolidating multiple `Temporal.Api.Xyz` namespaces into fewer top-level namespaces. Discussion concluded that each SDK should handle post-processing of generated protos rather than changing the API repo structure, though `csharp_namespace` options could be adjusted if needed.
+---
+
+## Top Issues by Priority
+
+Priority score = upvotes x 2 + comments
+
+| Issue | Title | Score | 👍 | 💬 |
+|-------|-------|-------|-----|-----|
+| [#328](https://github.com/temporalio/api/issues/328) | Publish and maintain buf schema registry | 12 | 6 | 0 |
+| [#169](https://github.com/temporalio/api/issues/169) | Allow languages to customize package/namespace structure | 7 | 0 | 7 |
+| [#427](https://github.com/temporalio/api/issues/427) | Add configurable subpath for HTTP API | 1 | 0 | 1 |
+| [#131](https://github.com/temporalio/api/issues/131) | Clean up "Should be removed" fields | 1 | 0 | 1 |
+
+### Issue Detail: Buf Schema Registry (#328)
+
+The most upvoted open issue requests publishing Temporal's proto definitions to the Buf schema registry. This would enable:
+- Simplified client generation for any language
+- Easier integration for external tools and custom implementations
+- Reduced friction for users building custom tooling around Temporal APIs
+
+The main technical challenge is handling the inlined Google proto dependencies, which must be excluded from the published registry to avoid conflicts with users' own Google proto versions.
+
+### Issue Detail: Package/Namespace Customization (#169)
+
+This highly-discussed proposal from .NET SDK development sought to simplify namespace imports by consolidating multiple `Temporal.Api.Xyz` namespaces into fewer top-level namespaces (e.g., `Temporal.ServiceApi.V1.DataModel`).
+
+After 7 comments of discussion, the conclusion was that each SDK should handle post-processing of generated protos rather than changing the API repo structure. However, language-specific namespace options (like `csharp_namespace`) could be adjusted if needed for specific languages.
 
 ---
 
@@ -108,80 +122,82 @@ Design proposals requiring discussion and cross-team coordination.
 
 These issues would require coordinated changes across the server and multiple SDKs.
 
-| Issue | Impact | Components Affected |
-|-------|--------|---------------------|
-| [#328](https://github.com/temporalio/api/issues/328) | Buf schema registry enables easier client generation for any language | All SDKs, external consumers |
-| [#172](https://github.com/temporalio/api/issues/172) | Payload encoding for failures enables encryption of sensitive error data | Server + All SDKs |
-| [#232](https://github.com/temporalio/api/issues/232) | Removing internal retry state enum value requires deprecation cycle | Server + All SDKs |
-| [#307](https://github.com/temporalio/api/issues/307) | Deprecating list methods affects all SDK client implementations | All SDKs |
-
----
-
-## Issue Velocity (12 Months)
-
-| Period | Opened | Closed | Net |
-|--------|--------|--------|-----|
-| Last 12 months | 2 | 2 | 0 |
-| Last 6 months | 1 | 1 | 0 |
-
-The API repository maintains a stable backlog with minimal new issue activity. This reflects the foundational nature of the proto definitions - changes are carefully considered and typically driven internally rather than through GitHub issues.
+| Issue | Impact | SDKs Affected |
+|-------|--------|---------------|
+| [#328](https://github.com/temporalio/api/issues/328) | Buf schema registry enables easier client generation | All SDKs, external consumers |
+| [#172](https://github.com/temporalio/api/issues/172) | Payload encoding for failures enables encryption | Server + All SDKs |
+| [#232](https://github.com/temporalio/api/issues/232) | Removing internal retry state enum requires deprecation cycle | Server + All SDKs |
+| [#307](https://github.com/temporalio/api/issues/307) | Deprecating list methods affects all client implementations | All SDKs |
 
 ---
 
 ## Age Distribution
 
-| Age Range | Count | % |
-|-----------|-------|---|
+| Age | Count | % |
+|-----|-------|---|
 | 3+ years | 7 | 54% |
 | 2-3 years | 3 | 23% |
 | 1-2 years | 3 | 23% |
 | < 1 year | 0 | 0% |
 
-All 13 open issues are stale (older than 12 months). This suggests the API repository is relatively stable, with most active development happening through internal planning rather than public issue tracking.
+All 13 open issues are stale (older than 12 months with no recent activity). This reflects the foundational nature of the proto definitions - changes are carefully considered and typically driven internally rather than through public issue tracking.
 
 ---
 
-## Recently Closed Issues
+## Issue Velocity (12 Months)
 
-Notable issues resolved in the past year:
+| Period | Opened | Closed | Net Change |
+|--------|--------|--------|------------|
+| Last 12 months | 2 | 2 | 0 |
+| Last 6 months | 1 | 1 | 0 |
 
-| Issue | Title | Resolution |
-|-------|-------|------------|
-| [#631](https://github.com/temporalio/api/issues/631) | Add startDelay to WorkflowExecutionInfo | Clarified that ExecutionTime already serves this purpose; UI update planned |
-| [#583](https://github.com/temporalio/api/issues/583) | Remove license headers from files | Completed following server changes |
-| [#435](https://github.com/temporalio/api/issues/435) | Typo in release tag (v.1.36.0) | Fixed |
-| [#428](https://github.com/temporalio/api/issues/428) | /cluster-info should be /cluster | Completed |
-| [#409](https://github.com/temporalio/api/issues/409) | Remove /api/v1/ prefix from HTTP paths | Completed before HTTP API release |
+The API repository maintains a stable backlog with minimal new issue activity. Recent closures include:
+- HTTP API path standardization (#409, #428)
+- License header removal (#583)
+- Minor fixes and clarifications
 
 ---
 
 ## Recommendations
 
-### High Impact
+### 1. High Impact: Buf Schema Registry
 
-1. **Buf Schema Registry ([#328](https://github.com/temporalio/api/issues/328)):** With 6 upvotes, this is the most requested feature. Publishing to the Buf schema registry would:
-   - Simplify client generation for all languages
-   - Enable external tools to integrate with Temporal APIs
-   - Reduce friction for users building custom tooling
+**Issue:** [#328](https://github.com/temporalio/api/issues/328) (6 upvotes)
 
-   The challenge is handling the inlined Google proto dependencies.
+Publishing to the Buf schema registry is the most requested feature. Implementation would:
+- Enable standard tooling for client generation across all languages
+- Reduce barriers for external integrations
+- Improve developer experience for custom implementations
 
-### Quick Wins
+**Challenge:** Handle inlined Google proto dependencies to avoid conflicts with users' existing protobuf setup.
 
-2. **CI/CD Fix ([#421](https://github.com/temporalio/api/issues/421)):** The backtick escaping issue in api-go update workflow is a straightforward shell scripting fix.
+### 2. Quick Wins
 
-3. **Documentation Clarification ([#299](https://github.com/temporalio/api/issues/299)):** Update the inline comment for PollWorkflowTaskQueueResponse to clarify that "complete" history may still be paginated for long histories.
+**CI/CD Fix ([#421](https://github.com/temporalio/api/issues/421)):** The backtick escaping issue in the api-go update workflow is a straightforward shell scripting fix that improves contributor experience.
 
-### Technical Debt
+**Documentation ([#299](https://github.com/temporalio/api/issues/299)):** Update the inline comment for PollWorkflowTaskQueueResponse to clarify that "complete" history may still require pagination via `next_page_token` for workflows with long event histories.
 
-4. **Clean Up Deprecated Fields ([#131](https://github.com/temporalio/api/issues/131)):** At 4+ years old, this represents long-standing tech debt. Schedule for a major version release to mark fields as reserved.
+### 3. Coordination Needed: Deprecate Legacy List Methods
 
-5. **Third-Party Proto Organization ([#400](https://github.com/temporalio/api/issues/400)):** Moving Google dependencies to a `thirdparty/` directory would improve compatibility for users running protoc from the repo root.
+**Issue:** [#307](https://github.com/temporalio/api/issues/307)
 
-### Security Enhancement
+ListOpenWorkflowExecutions and ListClosedWorkflowExecutions cause user confusion due to their limitations (e.g., cannot combine status and type filters). Deprecating them in favor of the more flexible ListWorkflowExecutions requires:
+- Coordination with all SDK teams
+- Documentation updates
+- Migration guidance for existing users
 
-6. **Encrypted Error Details ([#172](https://github.com/temporalio/api/issues/172)):** Using Payloads for ApplicationFailure message and stack trace would enable encryption via custom data converters, preventing sensitive information leakage in error messages.
+### 4. Security Enhancement: Encrypted Error Details
 
-### Coordination Required
+**Issue:** [#172](https://github.com/temporalio/api/issues/172)
 
-7. **Deprecate List Methods ([#307](https://github.com/temporalio/api/issues/307)):** ListOpenWorkflowExecutions and ListClosedWorkflowExecutions cause user confusion due to limitations. Deprecating them in favor of ListWorkflowExecutions requires coordination with documentation and all SDK teams.
+Using Payloads for ApplicationFailure message and stack trace would enable encryption via custom data converters, preventing sensitive information leakage in error messages. This is particularly important for organizations with strict data handling requirements.
+
+### 5. Technical Debt Cleanup
+
+**Issue:** [#131](https://github.com/temporalio/api/issues/131)
+
+At 4+ years old, the "Should be removed" fields represent long-standing tech debt. These should be scheduled for removal in a future major version release, with proper deprecation warnings in advance.
+
+**Issue:** [#400](https://github.com/temporalio/api/issues/400)
+
+Reorganizing third-party proto dependencies into a `thirdparty/` directory would improve compatibility for users who run protoc from the repository root, avoiding conflicts with their own Google proto versions.
