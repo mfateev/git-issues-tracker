@@ -2,6 +2,13 @@
 
 Update all tracked GitHub repositories and regenerate analysis documents.
 
+## Context Management (Important)
+
+To avoid hitting context limits when running analysis agents:
+- **Prefer pre-computed data**: Use `stats-*.md` files and `issues-index.json` instead of raw issue JSONs
+- **Limit deep dives**: Use `get-issue.js` for at most 3-5 critical issues per repository
+- **Don't read issue directories**: The `issues/*.json` files are for scripts, not LLM analysis
+
 ## Steps
 
 ### 1. Sync Issues from GitHub
@@ -22,7 +29,7 @@ Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.m
 
 ### 3. Generate SDK Analysis Documents (LLM)
 
-For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and issue JSON files in `repos/<sdk>/issues/`, then update or create `analysis/<sdk>.md`.
+For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issue index (`repos/<sdk>/issues-index.json`), then update or create `analysis/<sdk>.md`.
 
 **Templates:** Follow the structure defined in these template files:
 - **SDK analysis:** `.claude/templates/sdk-analysis.md` (Java, Go, TypeScript, Python, .NET, PHP, Ruby)
@@ -30,12 +37,19 @@ For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`)
 - **Features analysis:** `.claude/templates/features-analysis.md`
 - **API analysis:** `.claude/templates/api-analysis.md`
 
-**Deep Analysis:** For top issues (high upvotes, high engagement, or critical bugs), use the `get-issue.js` script to read full issue content including all comments:
+**Data Sources (in order of preference):**
+1. `analysis/stats-<sdk>.md` - Pre-computed statistics with all metrics needed
+2. `repos/<sdk>/issues-index.json` - Aggregated index with titles, upvotes, comments, labels
+3. **Do NOT read individual `issues/*.json` files** - The index contains sufficient data
+
+**Deep Analysis (use sparingly to avoid context limits):**
+- Only use `get-issue.js` for **at most 3-5 critical issues** per repository
+- Reserve for: security vulnerabilities, production crashes, or issues needing comment context
+- The issue index already contains titles, upvotes, and comment counts - sufficient for most analysis
 ```bash
 node scripts/get-issue.js <repo> <issue-number>
 # Example: node scripts/get-issue.js temporalio-temporal 680
 ```
-This provides full context for understanding the issue's importance and community discussion.
 
 **Important:**
 - Always follow the template structure - templates are the source of truth
@@ -82,11 +96,13 @@ Read `analysis/stats-recent.md` (the raw list of recent issues), then update `an
 
 **Template:** Follow the structure defined in `.claude/templates/recent-analysis.md`
 
-**Deep Analysis:** For urgent or high-impact issues, use `get-issue.js` to read full issue content:
+**Deep Analysis (use sparingly to avoid context limits):**
+- Only use `get-issue.js` for **at most 5-10 critical recent issues** total
+- Reserve for: security vulnerabilities, production crashes, or complex bugs needing context
+- `stats-recent.md` already contains issue titles and metadata - sufficient for categorization
 ```bash
 node scripts/get-issue.js <repo> <issue-number>
 ```
-This helps understand the full scope of bugs, security issues, and user-reported problems.
 
 **Important:**
 - Always follow the template structure - templates are the source of truth
