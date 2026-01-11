@@ -10,6 +10,8 @@ Use this template when generating the recent issues analysis (analysis/recent.md
 **Period:** Last 30 days ({N} new issues)
 **Data Source:** [stats-recent.md](stats-recent.md)
 
+**Quick Search:** Use `grep` on `analysis/cards-summary.txt` to find issues by keyword, API, component, or severity. New issues will have cards generated if the semantic pipeline has been run.
+
 ---
 
 ## Urgent Issues Requiring Attention

@@ -11,9 +11,11 @@ Use this template when generating analysis documents for SDK repositories (Java,
 **Total Closed Issues:** {CLOSED_COUNT}
 **Repository:** [temporalio/{REPO_NAME}](https://github.com/temporalio/{REPO_NAME})
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Themes](themes/index.md)
 
 **Other SDKs:** [list other SDK analysis docs, excluding current one]
+
+**Semantic Data:** If available, use `repos/<repo>/issues-index-enhanced.json` for pre-categorized issues with semantic fields (subcategory, apis, components, concepts, severity).
 
 ---
 
@@ -116,7 +118,9 @@ Use this template when generating analysis documents for SDK repositories (Java,
 
 ## Issue Analysis by Category
 
-{Create sections for each significant category found in the data. Include only categories that have issues. Order by priority (security first if present, then bugs, then enhancements). Use descriptive headings based on actual content.}
+{Create sections for each significant category found in the data. Include only categories that have issues. Order by priority (security first if present, then bugs, then enhancements). Use descriptive headings based on actual content.
+
+**If semantic data is available:** Use `subcategory` field from `issues-index-enhanced.json` for natural groupings (e.g., "activity-heartbeat", "workflow-replay", "test-framework"). Use `issues-by-area.json` to see issue counts per subcategory.}
 
 ### {Category Name} ({N} issues)
 
@@ -132,6 +136,17 @@ Use this template when generating analysis documents for SDK repositories (Java,
 {For test server issues, distinguish blocking vs nice-to-have}
 
 {Continue with additional category sections as needed}
+
+---
+
+## API & Component Hotspots
+
+{If semantic data is available, identify which APIs and components have the most issues using the `apis` and `components` fields from `issues-index-enhanced.json`. This helps prioritize which areas need the most attention.}
+
+| API/Component | Issue Count | Severity Distribution |
+|---------------|-------------|----------------------|
+| {name} | {N} | {high: X, medium: Y, low: Z} |
+...
 
 ---
 

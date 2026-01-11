@@ -17,11 +17,14 @@ Use this template when generating the cross-repository summary document (analysi
 |----------|-------------|
 | [contributors.md](contributors.md) | Issues and comments by author |
 | [recent.md](recent.md) | Recent issues analysis (last 30 days) |
+| [themes/index.md](themes/index.md) | Cross-cutting theme analysis (testing, performance, etc.) |
 
 **Per-Repository Analysis:**
 {List links to all tracked repository analysis documents}
 
-**Full Issue Data:** Individual issue JSON files in `repos/<repo>/issues/` or view on GitHub.
+**Semantic Data (for deeper analysis):**
+- `analysis/cards-summary.txt` - Grep-friendly one-line summaries for all issues
+- `repos/<repo>/issues-index-enhanced.json` - Enhanced index with semantic fields (category, subcategory, APIs, components, concepts, severity)
 
 ---
 
@@ -107,11 +110,13 @@ Use this template when generating the cross-repository summary document (analysi
 
 ## Common Themes
 
-{Identify 4-6 themes that appear across multiple repositories}
+{Identify 4-6 themes that appear across multiple repositories. Reference the pre-generated theme analysis documents in `analysis/themes/` where available.}
+
+**Available Theme Reports:** See [themes/index.md](themes/index.md) for detailed cross-cutting analysis.
 
 ### 1. {Theme Name}
 
-{Description of the theme and why it matters}
+{Description of the theme and why it matters. Link to theme doc if available: [Full Analysis](themes/{theme}.md)}
 
 | Category | Top Requests |
 |----------|--------------|
