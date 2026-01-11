@@ -1,0 +1,32 @@
+{
+  "summary": "Request to provide a way to access DataDog spans from within a workflow context to enable custom tagging and span manipulation. The solution involves adding a `SpanFromWorkflowContext` function to the datadog contrib package, similar to the `tracer.SpanFromContext` API.",
+  "category": "feature",
+  "subcategory": "datadog-tracing",
+  "apis": [
+    "workflow.Context"
+  ],
+  "components": [
+    "datadog-tracing",
+    "contrib-datadog",
+    "workflow-context"
+  ],
+  "concepts": [
+    "tracing",
+    "spans",
+    "custom-tags",
+    "observability",
+    "instrumentation"
+  ],
+  "severity": "low",
+  "userImpact": "Enables users to access and modify DataDog spans from within workflow functions for custom tagging and observability enhancements.",
+  "rootCause": null,
+  "proposedFix": "Add a function `SpanFromWorkflowContext(ctx workflow.Context) (Span, bool)` to the contrib/datadog package to extract the DataDog span from a workflow context, similar to the existing `tracer.SpanFromContext` API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was accepted and contributor was invited to implement the `SpanFromWorkflowContext` function.",
+  "related": [],
+  "keyQuote": "add a function like `func SpanFromWorkflowContext(ctx workflow.Context) (Span, bool)` to allow you to get the datadog `Span` from a workflow function",
+  "number": 1701,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:53.320Z"
+}

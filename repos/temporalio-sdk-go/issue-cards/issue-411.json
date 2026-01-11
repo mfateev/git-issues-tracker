@@ -1,0 +1,34 @@
+{
+  "summary": "ChildWorkflowExecution Future's GetChildWorkflowExecution().Get() call doesn't return an error when child workflow start fails with WORKFLOW_ALREADY_EXISTS error. The parent workflow blocks indefinitely instead of receiving the error.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "GetChildWorkflowExecution",
+    "Get"
+  ],
+  "components": [
+    "child-workflow",
+    "future",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-propagation",
+    "workflow-already-exists",
+    "async-execution",
+    "error-handling",
+    "child-workflow-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Parent workflows cannot properly handle child workflow creation failures when the child workflow ID already exists, causing the parent to block indefinitely.",
+  "rootCause": "ChildWorkflowExecution Future does not propagate CHILD_WORKFLOW_EXECUTION_FAILED_CAUSE_WORKFLOW_ALREADY_EXISTS error to the Get() call.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error propagation was implemented for WORKFLOW_ALREADY_EXISTS and related child workflow execution failures.",
+  "related": [],
+  "keyQuote": "The following code has to return an error if a child start failed due to CHILD_WORKFLOW_EXECUTION_FAILED_CAUSE_WORKFLOW_ALREADY_EXISTS. Nothing is returned.",
+  "number": 411,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:57.209Z"
+}

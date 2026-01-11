@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to configure activity error logging level from ERROR to WARN, since many activity errors are retryable and not critical. A comment notes that ApplicationErrorCategoryBenign can already downgrade to DEBUG level.",
+  "category": "feature",
+  "subcategory": "activity-error-handling",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "logger",
+    "error-handler"
+  ],
+  "concepts": [
+    "error-logging",
+    "log-level",
+    "error-severity",
+    "retry",
+    "configuration",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users who monitor errors as critical incidents are unable to differentiate between retryable activity errors and genuinely critical errors, causing alert fatigue.",
+  "rootCause": "Activity errors are logged at ERROR level unconditionally, preventing users from treating retryable errors as lower severity.",
+  "proposedFix": "Make activity error logging level configurable in the SDK, or continue documenting the ApplicationErrorCategoryBenign approach for downgrading severity.",
+  "workaround": "Use ApplicationError with Category set to ApplicationErrorCategoryBenign to downgrade log severity to DEBUG.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "many errors in activity are retryable that are not too critical for us. If you want to keep it error, can we make it configuable on SDK that we can change to other level like \"Warn\"?",
+  "number": 1759,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:22.520Z"
+}

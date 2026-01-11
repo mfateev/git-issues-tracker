@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for scheduling activities and child workflows across namespace boundaries in the Go SDK. Currently works on single clusters but breaks when cross-datacenter features are enabled.",
+  "category": "feature",
+  "subcategory": "cross-namespace-scheduling",
+  "apis": [
+    "ExecuteActivity",
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "activity-scheduler",
+    "child-workflow-handler"
+  ],
+  "concepts": [
+    "cross-namespace",
+    "multi-datacenter",
+    "cross-cluster",
+    "activity-routing",
+    "workflow-scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot schedule activities or child workflows across namespaces when using cross-datacenter deployments.",
+  "rootCause": "Current implementation assumes single cluster/namespace context and lacks routing logic for cross-namespace targets.",
+  "proposedFix": "Implement via Nexus integration as mentioned in resolution comment.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed through Nexus, which provides cross-namespace and cross-cluster service invocation capabilities.",
+  "related": [],
+  "keyQuote": "This will be solved with Nexus",
+  "number": 36,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:30.117Z"
+}

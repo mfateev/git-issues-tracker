@@ -1,0 +1,31 @@
+{
+  "summary": "Sessions need support for non-retryable errors such as heartbeat failures and worker panics that shouldn't be retried since the worker state is lost. Cadence already supports this via retry policy settings for sessions, but the Temporal Go SDK does not.",
+  "category": "feature",
+  "subcategory": "sessions",
+  "apis": [],
+  "components": [
+    "sessions",
+    "retry-policy",
+    "worker"
+  ],
+  "concepts": [
+    "heartbeat",
+    "panic",
+    "retry",
+    "non-retryable-errors",
+    "worker-state",
+    "session-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot prevent retries of session tasks that fail due to heartbeat issues or worker panics, leading to wasted retries and incorrect behavior.",
+  "rootCause": "The Temporal Go SDK does not implement non-retryable error handling in sessions, unlike Cadence which supports this through retry policy settings.",
+  "proposedFix": "Add support for marking errors as non-retryable in session retry policies, similar to Cadence's implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some errors need to be non-retryable in sessions, for example heartbeat failures and panics that bring down the worker shouldn't be retried because the worker's state will have been lost.",
+  "number": 505,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:01.408Z"
+}

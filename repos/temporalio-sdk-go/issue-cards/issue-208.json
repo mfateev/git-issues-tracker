@@ -1,0 +1,29 @@
+{
+  "summary": "syscall.Kill is undefined on Windows, breaking compilation of the Go SDK on Windows platforms. The code uses Unix-specific syscall APIs without platform-specific guards.",
+  "category": "bug",
+  "subcategory": "platform-compatibility",
+  "apis": [],
+  "components": [
+    "internal_worker_base",
+    "syscall",
+    "windows-compatibility"
+  ],
+  "concepts": [
+    "platform-specific-code",
+    "windows-support",
+    "build-failure",
+    "cross-platform"
+  ],
+  "severity": "high",
+  "userImpact": "Windows developers cannot build or use the SDK v0.27.0 due to compilation errors from undefined Unix-only syscall functions.",
+  "rootCause": "syscall.Kill is a Unix-specific function that is not available on Windows; the code lacks platform-specific build constraints or conditional compilation.",
+  "proposedFix": "Use platform-specific build tags or conditional compilation to handle Windows and Unix differently, similar to the approach in bugsnag-go.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Likely resolved by adding platform-specific guards or using cross-platform alternatives to syscall.Kill in internal_worker_base.go.",
+  "related": [],
+  "keyQuote": "undefined: syscall.Kill on Windows 10 after moving to v0.27.0",
+  "number": 208,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:20.054Z"
+}

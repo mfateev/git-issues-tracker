@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request for a shutdownGraceTime option in the Go SDK to allow a grace period before worker shutdown, preventing activity aborts during deployments. The user referenced the TypeScript SDK implementation and was directed to the existing WorkerStopTimeout configuration.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "WorkerStopTimeout"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "shutdown"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "deployment",
+    "activity-abort",
+    "retry",
+    "latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying new service versions experience increased errors and latency due to activities being aborted instead of allowed to complete gracefully.",
+  "rootCause": null,
+  "proposedFix": "Implement shutdownGraceTime option similar to TypeScript SDK to allow activities time to complete before worker shutdown.",
+  "workaround": "Use existing WorkerStopTimeout configuration to achieve similar behavior.",
+  "resolution": "fixed",
+  "resolutionDetails": "User was directed to existing WorkerStopTimeout API which provides the requested functionality.",
+  "related": [],
+  "keyQuote": "set up `shutdownGraceTime` just like in the Typescript SDK to something like 10 seconds",
+  "number": 2003,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:23.861Z"
+}

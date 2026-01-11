@@ -1,0 +1,32 @@
+{
+  "summary": "Activity returning a slice of protobuf messages loses nested message data during serialization/deserialization. Root-level messages are received but nested fields are nil.",
+  "category": "bug",
+  "subcategory": "protobuf-serialization",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "serialization",
+    "proto-converter"
+  ],
+  "concepts": [
+    "protobuf-messages",
+    "serialization",
+    "nested-data",
+    "type-conversion",
+    "data-loss"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably return slices of protobuf messages from activities due to nested message fields being lost during transmission.",
+  "rootCause": "Lists are converted via a different converter than proto messages. Pointer to proto message interface may not be JSON serializable.",
+  "proposedFix": "Use full proto message type or JSON serializable types in list instead of pointers to proto message interfaces.",
+  "workaround": "Use full proto message or JSON serializable types in list if needed.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed as the behavior is by design - lists use a different converter than proto messages, and pointers to proto interfaces are not JSON serializable. Users should use full proto messages or JSON serializable types.",
+  "related": [],
+  "keyQuote": "A pointer to a proto message interface may not be JSON serializable. Use full proto message or JSON serializable types in list if needed.",
+  "number": 456,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:53.909Z"
+}

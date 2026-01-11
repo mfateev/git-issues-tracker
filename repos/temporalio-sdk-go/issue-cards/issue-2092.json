@@ -1,0 +1,28 @@
+{
+  "summary": "Documentation for the envconfig package incorrectly references `[os.UserConfigDir]/temporal/temporal.toml` when it should be `[os.UserConfigDir]/temporalio/temporal.toml`. This path discrepancy in multiple places could mislead users on where to place configuration files.",
+  "category": "docs",
+  "subcategory": "documentation-accuracy",
+  "apis": [],
+  "components": [
+    "envconfig",
+    "documentation"
+  ],
+  "concepts": [
+    "configuration",
+    "file-path",
+    "documentation-accuracy",
+    "user-guidance"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the documentation may place configuration files in the wrong directory, causing the SDK to fail to locate the configuration.",
+  "rootCause": "Documentation copy-paste error using 'temporal' instead of 'temporalio' in the directory path",
+  "proposedFix": "Update all occurrences in envconfig package documentation to use `[os.UserConfigDir]/temporalio/temporal.toml`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was corrected to use the proper directory path",
+  "related": [],
+  "keyQuote": "In multiple places in `envconfig` package, `[os.UserConfigDir]/temporal/temporal.toml` is mentioned, but it should be `[os.UserConfigDir]/temporalio/temporal.toml`.",
+  "number": 2092,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:36.520Z"
+}

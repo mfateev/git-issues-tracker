@@ -1,0 +1,31 @@
+{
+  "summary": "Workflowcheck should validate that serialized structs don't have unexported fields unless they have a json-ignore tag, as this is a common mistake when implementing workflows. Should also handle custom MarshalJSON implementations that may serialize unexported fields.",
+  "category": "feature",
+  "subcategory": "workflow-validation",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "serialization",
+    "struct-validation"
+  ],
+  "concepts": [
+    "serialization",
+    "struct-fields",
+    "json-tags",
+    "unexported-fields",
+    "validation",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers frequently make mistakes by including unexported fields in serializable workflow structs, which causes runtime failures.",
+  "rootCause": "Workflowcheck does not validate that serialized structs only contain exported fields or properly json-tagged unexported fields.",
+  "proposedFix": "Enhance workflowcheck to detect unexported fields on serialized structs and error unless they have json-ignore tags. Similar to Go's vet structtag check but for Temporal workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "People make this mistake plenty. There's rarely value for an unexported field on a serialized struct.",
+  "number": 1035,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:09.750Z"
+}

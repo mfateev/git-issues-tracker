@@ -1,0 +1,35 @@
+{
+  "summary": "Users need a graceful shutdown mechanism for Go workers that waits for all in-flight activities to complete before returning, rather than applying a hard timeout that may interrupt long-running activities.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "Stop",
+    "WorkerStopTimeout"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "activity-completion",
+    "timeout-handling",
+    "resource-cleanup",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably ensure all long-running activities complete before their workers shut down, risking incomplete work and potential data inconsistency.",
+  "rootCause": "Current WorkerStopTimeout applies a hard deadline that interrupts activities rather than waiting for them to naturally complete.",
+  "proposedFix": "Add a worker option to allow waiting for all activities to finish before Stop() returns, providing true graceful shutdown.",
+  "workaround": "Set WorkerStopTimeout to a value longer than expected activity duration, but this still doesn't guarantee activity completion.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    261
+  ],
+  "keyQuote": "Users want to wait till all their activities are complete before killing their workers.",
+  "number": 1086,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:13.612Z"
+}

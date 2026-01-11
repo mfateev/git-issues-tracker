@@ -1,0 +1,28 @@
+{
+  "summary": "Deprecate SDK flags SDKFlagProtocolMessageCommand and SDKPriorityUpdateHandling that were introduced for history compatibility with the Update feature, which is not yet GA and doesn't require this compatibility maintenance.",
+  "category": "feature",
+  "subcategory": "sdk-flags",
+  "apis": [],
+  "components": [
+    "sdk-flags",
+    "update-feature"
+  ],
+  "concepts": [
+    "deprecation",
+    "backwards-compatibility",
+    "feature-maturity",
+    "sdk-versioning"
+  ],
+  "severity": "low",
+  "userImpact": "Users will need to update their code to remove these deprecated flags in a future SDK release.",
+  "rootCause": null,
+  "proposedFix": "Remove SDKFlagProtocolMessageCommand and SDKPriorityUpdateHandling flags in a future SDK version.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we don't need to maintain histroy compatibility",
+  "number": 1315,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:21.367Z"
+}

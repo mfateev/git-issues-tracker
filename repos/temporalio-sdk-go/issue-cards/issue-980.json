@@ -1,0 +1,29 @@
+{
+  "summary": "workflowcheck tool incorrectly flags fmt.Errorf, fmt.Sprintf and similar functions as non-deterministic, even though they are deterministic enough for workflow use. This causes errors in recent Go versions (1.19+) and blocks Go version updates on CI pipelines.",
+  "category": "bug",
+  "subcategory": "workflowcheck",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "determinism-checker"
+  ],
+  "concepts": [
+    "determinism-analysis",
+    "reflection",
+    "fmt-package",
+    "static-analysis",
+    "go-version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot update to newer Go versions (1.19+) when their workflows use common functions like fmt.Errorf due to false positive determinism violations.",
+  "rootCause": "workflowcheck incorrectly marks fmt and reflect functions as non-deterministic due to deep call chains into runtime functions; the tool needs explicit whitelist or different analysis approach for stdlib formatting functions.",
+  "proposedFix": "Explicitly mark fmt.Errorf, fmt.Sprintf and similar functions as deterministic, and consider reducing call-chain depth analysis to avoid reporting deep runtime implementation details.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This appears to happen more in recent version of golang 1.19 and 1.20 and is blocking updating the golang version on some pipelines.",
+  "number": 980,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:57.283Z"
+}

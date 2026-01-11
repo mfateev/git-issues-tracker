@@ -1,0 +1,34 @@
+{
+  "summary": "Test_WorkflowLocalActivityWithMockAndListeners test is flaky, occasionally failing with assertion errors about expected vs actual counts and listener state. The test passes reliably after a few restarts.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "local-activity",
+    "mock",
+    "listeners"
+  ],
+  "concepts": [
+    "flaky-test",
+    "race-condition",
+    "test-isolation",
+    "mock-behavior",
+    "listener-state",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers working with the Go SDK test suite experience unreliable test results that pass inconsistently, hindering development velocity.",
+  "rootCause": "Likely race condition or timing issue in test setup/teardown affecting mock and listener state initialization",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by issue #182",
+  "related": [
+    182
+  ],
+  "keyQuote": "After few restarts test usually pass.",
+  "number": 75,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:09.618Z"
+}

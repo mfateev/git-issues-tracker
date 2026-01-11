@@ -1,0 +1,32 @@
+{
+  "summary": "Request to publish and maintain a Buf schema registry for the Temporal API. The main challenge is ensuring the inlined Google dependency is not accidentally published while keeping raw protoc support functional.",
+  "category": "feature",
+  "subcategory": "protobuf-distribution",
+  "apis": [],
+  "components": [
+    "protobuf-schemas",
+    "buf-registry",
+    "google-dependency"
+  ],
+  "concepts": [
+    "schema-registry",
+    "protobuf-publishing",
+    "dependency-management",
+    "code-generation",
+    "protocol-buffers",
+    "buf-tooling",
+    "api-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need easier access to Temporal API schemas through a maintained Buf schema registry for better integration and code generation workflows.",
+  "rootCause": null,
+  "proposedFix": "Publish and maintain a Buf schema registry while carefully managing the inlined Google dependency to prevent accidental inclusion.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we want to publish and maintain a buf schema registry... we need to make sure we don't publish the inlined google dependency",
+  "number": 328,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:19.860Z"
+}

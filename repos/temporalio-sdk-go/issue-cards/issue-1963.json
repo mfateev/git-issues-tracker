@@ -1,0 +1,34 @@
+{
+  "summary": "GetWorkerStopChannel() is not properly indicating worker shutdown for local activities after a recent change. The worker stop channel should be preserved in the Local Activity poller to correctly signal worker shutdown, while ensuring the LA-specific stop channel is closed at the right time.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "GetWorkerStopChannel"
+  ],
+  "components": [
+    "worker",
+    "local-activity-poller",
+    "shutdown"
+  ],
+  "concepts": [
+    "shutdown-signal",
+    "stop-channel",
+    "worker-lifecycle",
+    "activity-polling",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on GetWorkerStopChannel() to detect worker shutdown for local activities will not receive proper shutdown signals.",
+  "rootCause": "PR #1875 changed local activity polling to use LA-specific stop channel instead of worker stop channel, breaking the shutdown detection semantics.",
+  "proposedFix": "Keep the worker stop channel in the Local Activity poller and return it from GetWorkerStopChannel() while ensuring LA-specific stop channel is closed at the appropriate time during shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker stop channel was preserved in the Local Activity poller to properly indicate worker shutdown while maintaining LA-specific shutdown behavior.",
+  "related": [
+    1875
+  ],
+  "keyQuote": "GetWorkerStopChannel() for local activities now indicates when the local activity specific stop channel has closed. This is due to https://github.com/temporalio/sdk-go/pull/1875.",
+  "number": 1963,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:05.020Z"
+}

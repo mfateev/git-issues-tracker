@@ -1,0 +1,28 @@
+{
+  "summary": "The codahale/hdrhistogram Go module dependency has been transferred to the HdrHistogram organization. The dependency URL needs to be updated to point to the new repository at github.com/HdrHistogram/hdrhistogram-go, which includes performance improvements in recent versions.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "go-modules"
+  ],
+  "concepts": [
+    "dependency-update",
+    "repository-migration",
+    "performance-improvement",
+    "module-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to update their dependency references to maintain access to bug fixes and performance improvements in the hdrhistogram library.",
+  "rootCause": "The original codahale/hdrhistogram repository was archived and transferred to the HdrHistogram organization for better maintenance and community contribution.",
+  "proposedFix": "Update the dependency URL to github.com/HdrHistogram/hdrhistogram-go@v0.9.0 or later using `go mod edit -replace` command.",
+  "workaround": "For Go modules, use the @v0.9.0 tag which reflects the exact code at the point of transfer: `go mod edit -replace github.com/codahale/hdrhistogram=github.com/HdrHistogram/hdrhistogram-go@v0.9.0`",
+  "resolution": "fixed",
+  "resolutionDetails": "No longer needed - the issue was resolved by updating the dependency reference.",
+  "related": [],
+  "keyQuote": "The dependency URL should be modified to point to the new repository URL at github.com/HdrHistogram/hdrhistogram-go.",
+  "number": 517,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:33.031Z"
+}

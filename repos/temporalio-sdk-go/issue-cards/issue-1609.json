@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add ContextAware interface support for failure converters so they can access workflow/activity context information like headers. This would enable better logging and error handling in custom failure converters.",
+  "category": "feature",
+  "subcategory": "failure-converter",
+  "apis": [
+    "ContextAware"
+  ],
+  "components": [
+    "failure-converter",
+    "context",
+    "error-handling"
+  ],
+  "concepts": [
+    "context-aware",
+    "failure-conversion",
+    "error-marshalling",
+    "logging",
+    "custom-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access context information like headers in custom failure converters, limiting their ability to implement advanced error handling and logging.",
+  "rootCause": null,
+  "proposedFix": "Implement ContextAware interface support for failure converters to provide access to workflow/activity context.",
+  "workaround": "Manage custom error marshalling without context access, as mentioned in the use case with cockroachdb/errors.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "lacking context stands in a way of, for example, logging the problems with marshalling/unmarshalling using the right logger",
+  "number": 1609,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:30.900Z"
+}

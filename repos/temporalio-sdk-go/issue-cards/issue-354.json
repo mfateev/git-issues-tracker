@@ -1,0 +1,33 @@
+{
+  "summary": "Request to allow string activity names in `workflow.ExecuteLocalActivity` to support DSL use-cases without requiring reflection-based implementations or multiple file changes.",
+  "category": "feature",
+  "subcategory": "local-activity-execution",
+  "apis": [
+    "ExecuteLocalActivity",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow",
+    "activity-executor",
+    "DSL-support"
+  ],
+  "concepts": [
+    "activity-naming",
+    "reflection",
+    "DSL",
+    "string-parameters",
+    "local-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with DSL use-cases must either implement custom reflection-based solutions or manage multiple file changes when adding activities.",
+  "rootCause": null,
+  "proposedFix": "Allow string `activity` parameter values for `workflow.ExecuteLocalActivity` similar to existing `workflow.ExecuteActivity` functionality.",
+  "workaround": "Implement the reflection-based call solution in a switch statement.",
+  "resolution": "fixed",
+  "resolutionDetails": "ExecuteLocalActivity was updated to support string activity names matching ExecuteActivity behavior.",
+  "related": [],
+  "keyQuote": "Allow string `activity` parameter values for `workflow.ExecuteLocalActivity` the same way `workflow.ExecuteActivity` allows it currently.",
+  "number": 354,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:24.402Z"
+}

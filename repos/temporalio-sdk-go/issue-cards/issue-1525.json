@@ -1,0 +1,33 @@
+{
+  "summary": "Go SDK 1.26.0+ cannot deserialize proto messages that were originally serialized with gogoproto, breaking deserialization when API protos are upgraded from gogoproto.message to proto.Message types.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "ListWorkflowExecutionsResponse"
+  ],
+  "components": [
+    "proto-serialization",
+    "deserializer",
+    "gogoproto-compatibility"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "proto-message",
+    "backwards-compatibility",
+    "schema-evolution",
+    "type-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to Go SDK 1.26.0+ will experience deserialization failures when using API protos that were previously serialized with gogoproto.",
+  "rootCause": "Changing proto message serializer from gogoproto to proto.Message without a compatible deserializer causes the SDK to use the wrong deserialization method for previously serialized data.",
+  "proposedFix": "Alter the converter to use an accept-both-forms proto marshaler that can handle both old-form (gogoproto) and new-form (proto.Message) JSON serialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Converter was updated to support both gogoproto and proto.Message serialization formats through a dual-form proto marshaler.",
+  "related": [],
+  "keyQuote": "if ListWorkflowExecutionsResponse was serialized with gogoproto as it was a gogoproto.message, by updating go.temporal.io ListWorkflowExecutionsResponse would now be a normal proto.Message so it would not use the gogoproto deserializer and fail.",
+  "number": 1525,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:03:50.702Z"
+}

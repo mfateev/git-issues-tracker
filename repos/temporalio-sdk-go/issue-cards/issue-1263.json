@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add UpdateWorkflowByID method to TestWorkflowEnvironment for testing purposes. This would allow sending updates to child workflows during tests, matching the existing SignalWorkflowByID functionality.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateWorkflowByID",
+    "SignalWorkflowByID"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-testing",
+    "update-handler"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-updates",
+    "child-workflows",
+    "test-utilities",
+    "update-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Test authors cannot easily send updates to child workflows in test environments, requiring workarounds that complicate tests.",
+  "rootCause": null,
+  "proposedFix": "Add UpdateWorkflowByID method to TestWorkflowEnvironment to mirror SignalWorkflowByID functionality.",
+  "workaround": "Write a workflow in the test environment that sends the updates, though this complicates tests.",
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateWorkflowByID was added to TestWorkflowEnvironment to provide parity with SignalWorkflowByID.",
+  "related": [],
+  "keyQuote": "For testing we need UpdateWorkflowByID as the update equivalent of SignalWorkflowByID. This is needed to, for example, send an update to a child workflow of the workflow under test.",
+  "number": 1263,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:38.917Z"
+}

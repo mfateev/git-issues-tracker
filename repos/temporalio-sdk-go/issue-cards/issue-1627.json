@@ -1,0 +1,31 @@
+{
+  "summary": "workflowcheck analyzer built with Go 1.23 fails to detect non-deterministic code issues that were properly detected in Go 1.22.7. The tool stops working after updating the go.mod file to Go 1.23.0, no longer finding issues like time.Now() calls in workflows.",
+  "category": "bug",
+  "subcategory": "workflowcheck-analyzer",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "analyzer",
+    "go-modules"
+  ],
+  "concepts": [
+    "non-deterministic-detection",
+    "go-version-compatibility",
+    "static-analysis",
+    "tool-maintenance"
+  ],
+  "severity": "high",
+  "userImpact": "Users updating their Go version to 1.23 lose the ability to detect non-deterministic workflow code, potentially allowing bugs to slip through code review.",
+  "rootCause": "Go 1.23 introduced breaking changes that impact how the workflowcheck analyzer performs static analysis, causing it to not properly detect violations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved via PR #1642, which addresses the Go 1.23 compatibility issue.",
+  "related": [
+    1642
+  ],
+  "keyQuote": "Seems like quite a breaking change from Go! Link to the PR: https://github.com/temporalio/sdk-go/pull/1642",
+  "number": 1627,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:13.683Z"
+}

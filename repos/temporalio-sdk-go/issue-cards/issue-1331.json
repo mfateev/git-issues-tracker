@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal Go SDK v1.25.1 with grpc-gateway v1.16.0 is incompatible with bazel_gazelle 0.32+, causing build failures due to unresolved @go_googleapis repository references. The issue was resolved by upgrading to grpc-gateway v2.",
+  "category": "bug",
+  "subcategory": "bazel-build",
+  "apis": [],
+  "components": [
+    "bazel-build",
+    "grpc-gateway",
+    "dependency-management"
+  ],
+  "concepts": [
+    "bazel",
+    "gazelle",
+    "build-system",
+    "dependency-resolution",
+    "proto-imports",
+    "grpc"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build Temporal Go SDK with modern versions of Bazel build tools (bazel_gazelle 0.32+), forcing them to use outdated versions or workarounds.",
+  "rootCause": "grpc-gateway v1.16.0 dependency uses proto imports that bazel_gazelle 0.32+ no longer automatically resolves to @go_googleapis, breaking the build dependency chain.",
+  "proposedFix": "Upgrade to grpc-gateway v2, which is compatible with newer bazel_gazelle versions.",
+  "workaround": "Add `build_naming_convention = \"go_default_library\"` to the `com_github_grpc_ecosystem_grpc_gateway` dependency and use older bazel_gazelle versions (0.31.1 or earlier).",
+  "resolution": "fixed",
+  "resolutionDetails": "Go SDK now uses grpc-gateway v2, which is compatible with bazel_gazelle 0.32+ and newer versions.",
+  "related": [
+    1365
+  ],
+  "keyQuote": "grpc-gateway stopped resolving go and proto imports to @go_googleapis since 0.32 as per https://github.com/bazelbuild/bazel-gazelle/releases",
+  "number": 1331,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:53.747Z"
+}

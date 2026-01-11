@@ -1,0 +1,30 @@
+{
+  "summary": "Default Prometheus sanitization options are altering metric label values by converting characters like dots to underscores, which breaks semantic meaning of workflow and activity names. The request is to stop modifying label values or make sanitization more permissive.",
+  "category": "other",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "tally",
+    "prometheus",
+    "metrics"
+  ],
+  "concepts": [
+    "metrics",
+    "label-sanitization",
+    "prometheus",
+    "tally",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with dots or slashes in workflow/activity names lose semantic information when metrics are emitted because label values are altered.",
+  "rootCause": "The current Prometheus sanitization options in contrib/tally/prometheus.go are configured to replace special characters in label values, converting dots to underscores and removing valid characters.",
+  "proposedFix": "Change the Characters option to tally.UnderscoreDashDotCharacters to be more permissive, or potentially add support for forward slashes in sanitization options.",
+  "workaround": "Locally change the Characters option to tally.UnderscoreDashDotCharacters to allow dots and dashes in metric label values.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we're naming workflows and activities according to fully qualified Protobuf names, so we have things like company.domain.Workflow, which was turned into company_domain_Workflow",
+  "number": 912,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:30.294Z"
+}

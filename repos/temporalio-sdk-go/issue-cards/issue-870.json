@@ -1,0 +1,31 @@
+{
+  "summary": "Documentation for error handling in the workflow package references a non-existent `error.CustomError()` function and lacks clarity on the mutual exclusivity of result and error in workflow run's Get method.",
+  "category": "docs",
+  "subcategory": "error-handling",
+  "apis": [
+    "workflow.Get"
+  ],
+  "components": [
+    "documentation",
+    "error-handling",
+    "workflow"
+  ],
+  "concepts": [
+    "error-handling",
+    "documentation",
+    "api-clarity",
+    "result-error-exclusivity"
+  ],
+  "severity": "low",
+  "userImpact": "Developers following the documentation may reference non-existent error handling APIs and have unclear expectations about result and error return values.",
+  "rootCause": "Stale documentation referencing removed or non-existent error APIs; missing clarity on Get method contract",
+  "proposedFix": "Update error references to remove stale API mentions; clarify in workflow run's Get documentation that result and error are mutually exclusive",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to remove stale error references and clarify the mutual exclusivity of result and error in workflow Get methods",
+  "related": [],
+  "keyQuote": "Make sure none of the error references are stale. Also update workflow run's `Get` to clarify that result and error are mutually exclusive",
+  "number": 870,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:43.111Z"
+}

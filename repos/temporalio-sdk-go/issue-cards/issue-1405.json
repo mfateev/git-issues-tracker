@@ -1,0 +1,33 @@
+{
+  "summary": "PR #1404 caused workflowcheck tool to panic with a nil pointer dereference. The issue was traced to PR #1382 and resolved by pulling the latest master version.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "type-checker"
+  ],
+  "concepts": [
+    "panic",
+    "nil-pointer",
+    "segmentation-violation",
+    "tool-breakage",
+    "regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users running workflowcheck tool experience crashes, preventing workflow validation.",
+  "rootCause": "PR #1382 introduced a nil pointer dereference in the go/types.Checker that workflowcheck relies on.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by pulling the latest master version which fixed the underlying problem in PR #1382.",
+  "related": [
+    1403,
+    1382,
+    1404
+  ],
+  "keyQuote": "Pulling the latest workflow check... and running in samples gave no error so I suspect it is #1382",
+  "number": 1405,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:04.614Z"
+}

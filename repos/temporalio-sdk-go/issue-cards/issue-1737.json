@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowTestSuite.UpdateWorkflow should auto-generate an update ID when none is provided, matching the behavior of WorkflowClient. Currently it treats missing update IDs as empty strings, creating a discrepancy.",
+  "category": "other",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "WorkflowTestSuite",
+    "test-utilities",
+    "workflow-update"
+  ],
+  "concepts": [
+    "update-id",
+    "test-parity",
+    "client-consistency",
+    "auto-generation",
+    "workflow-updates"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using WorkflowTestSuite.UpdateWorkflow experience inconsistent behavior compared to production WorkflowClient, leading to confusion and potential test gaps.",
+  "rootCause": "WorkflowTestSuite.UpdateWorkflow does not implement the same auto-generation logic for update IDs that WorkflowClient provides.",
+  "proposedFix": "Implement update ID auto-generation in WorkflowTestSuite.UpdateWorkflow to match WorkflowClient behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowTestSuite.UpdateWorkflow was updated to auto-generate update IDs when none is provided, ensuring parity with WorkflowClient.",
+  "related": [],
+  "keyQuote": "WorkflowTestSuite.UpdateWorkflow should generate an update ID if none is set like the WorkflowClient",
+  "number": 1737,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:54.879Z"
+}

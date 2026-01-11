@@ -1,0 +1,29 @@
+{
+  "summary": "The golang.com/tools-v0.1.8 dependency contains 3 jQuery-related vulnerabilities (CVE-2020-11022, CVE-2015-9251, CVE-2012-6708) with CVSS scores of 6.1. This was an automated security alert that was auto-closed after the vulnerable library was removed from the WhiteSource inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-update",
+    "cross-site-scripting",
+    "jquery",
+    "transitive-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using sdk-go with the vulnerable golang/tools dependency could be exposed to XSS attacks through jQuery vulnerabilities, though the practical impact depends on how the library is used.",
+  "rootCause": "Transitive dependency on outdated jQuery versions bundled in golang/tools-v0.1.8 containing known XSS vulnerabilities",
+  "proposedFix": "Upgrade golang/tools to a version that removes or updates the vulnerable jQuery dependency",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Auto-closed by WhiteSource because the vulnerable library was removed from the project or marked as ignored in the inventory",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by WhiteSource because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the WhiteSource inventory.",
+  "number": 775,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:18.464Z"
+}

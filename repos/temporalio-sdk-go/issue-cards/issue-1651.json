@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add support for running activities in separate processes in Go SDK, similar to Python's ProcessPoolExecutor. The issue asks for an equivalent pattern to achieve process isolation for activities and environment variable isolation.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "process-management"
+  ],
+  "concepts": [
+    "process-isolation",
+    "multiprocessing",
+    "activity-execution",
+    "environment-variables",
+    "cross-language-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users seeking process-isolated activity execution in Go must implement custom solutions, unlike Python SDK users who have built-in ProcessPoolExecutor support.",
+  "rootCause": "Go's native concurrency model uses goroutines rather than OS processes, and the SDK prioritizes language-native patterns without adding external dependencies.",
+  "proposedFix": "User provided a Go implementation using exec.Command for subprocess execution with environment variable and JSON serialization support, demonstrating feasibility.",
+  "workaround": "Users can manually implement subprocess-based activities using Go's os/exec package with JSON serialization for data passing.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer indicated Go SDK intentionally avoids non-native multiprocessing to stay aligned with Go's idiomatic patterns, though users have flexibility to implement custom solutions.",
+  "related": [],
+  "keyQuote": "There is no native Go multiprocessing for functions and we do try to be native to the language without adding dependencies.",
+  "number": 1651,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:08:00.641Z"
+}

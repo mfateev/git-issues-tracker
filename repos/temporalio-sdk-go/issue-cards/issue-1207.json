@@ -1,0 +1,32 @@
+{
+  "summary": "workflowcheck static analyzer cannot detect issues in workflow implementations accessed through interfaces. When registering workflows via interface methods rather than concrete type methods, the checker fails to analyze the workflow code for forbidden operations like time.Now().",
+  "category": "feature",
+  "subcategory": "static-analysis",
+  "apis": [
+    "RegisterWorkflow"
+  ],
+  "components": [
+    "workflowcheck",
+    "worker",
+    "workflow-registry"
+  ],
+  "concepts": [
+    "static-analysis",
+    "interface-implementation",
+    "type-resolution",
+    "linting",
+    "workflow-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use interface-based workflow patterns without losing static analysis coverage for detecting non-deterministic operations in workflows.",
+  "rootCause": "Static analyzer cannot follow interface implementations to discover actual workflow implementations, as Go lacks compile-time interface implementation markers.",
+  "proposedFix": "Either: 1) Use var _ SomeInterface = (*SomeType)(nil) pattern to find implementations, 2) Assume any function taking ctx workflow.Context as first parameter is a workflow and analyze all of them, or 3) Provide user annotation mechanism for marking workflow entry points.",
+  "workaround": "Register functions/methods on concrete types instead of using interfaces, or implement Register(worker.WorkflowRegistry) method on interface.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing support for analyzing functions that take workflow.Context as first parameter, eliminating the need for explicit workflow registration discovery.",
+  "related": [],
+  "keyQuote": "A static analyzer is not going to be able to follow implementations of interfaces because Go does not have a way to define which types are meant to implement an interface at compile time.",
+  "number": 1207,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:42.521Z"
+}

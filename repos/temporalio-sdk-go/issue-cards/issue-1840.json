@@ -1,0 +1,31 @@
+{
+  "summary": "Activities with identical names from different struct methods are treated as the same activity, causing the wrong activity to be executed. The issue occurs when registering multiple activities with the same method name (e.g., PerformActivity from different packages), and the system executes the first registered activity instead of the correct one.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "RegisterActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-registry"
+  ],
+  "concepts": [
+    "activity-naming",
+    "name-collision",
+    "registration-conflict",
+    "activity-dispatch",
+    "struct-methods"
+  ],
+  "severity": "medium",
+  "userImpact": "Users registering activities with identical method names from different structs will experience unexpected behavior where the wrong activity executes, causing silent failures that are difficult to debug.",
+  "rootCause": "The activity registry uses method name as the default activity name without enforcing uniqueness, causing name collisions when multiple structs have methods with the same name.",
+  "proposedFix": "Validate if the activity name has already been registered and raise a panic to alert users at startup, similar to the check for empty string names. Alternatively, add a DisableAlreadyRegisteredCheck option to RegisterActivityOptions.",
+  "workaround": "Users can either set the activity name manually via RegisterActivityOptions or rename methods to avoid collisions.",
+  "resolution": "wontfix",
+  "resolutionDetails": "This is intentional behavior by design. The default activity name is the method name, and duplicate registration is ignored by default. Users can set RegisterActivityOptions.DisableAlreadyRegisteredCheck to customize this behavior.",
+  "related": [],
+  "keyQuote": "the default name of the activity will be the name of the method and the default behaviour is to ignore duplication",
+  "number": 1840,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:21.965Z"
+}

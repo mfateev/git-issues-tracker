@@ -1,0 +1,33 @@
+{
+  "summary": "Improve UX for testing Workflow Updates by providing SDK helpers for common test scenarios, reducing the need for users to manually implement UpdateCallbacks in the Workflow Test Environment.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateCallbacks"
+  ],
+  "components": [
+    "workflow-test-environment",
+    "update-testing",
+    "test-helpers"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-updates",
+    "test-utilities",
+    "user-experience",
+    "assertions",
+    "callbacks"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing Workflow Updates must currently implement boilerplate UpdateCallbacks code, which this feature would simplify with built-in helpers.",
+  "rootCause": null,
+  "proposedFix": "Provide helpers in the SDK for common update testing scenarios",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with helper functions for testing Workflow Updates",
+  "related": [],
+  "keyQuote": "Provide helpers in the SDK for common update testing scenarios",
+  "number": 1639,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:28.531Z"
+}

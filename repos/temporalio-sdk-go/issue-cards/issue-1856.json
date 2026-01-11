@@ -1,0 +1,31 @@
+{
+  "summary": "The ExecuteWorkflow API documentation is missing information about the WorkflowExecutionErrorWhenAlreadyStarted error that can be returned when the corresponding option is set.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-execution",
+    "api-docs"
+  ],
+  "concepts": [
+    "error-handling",
+    "api-documentation",
+    "workflow-options",
+    "duplicate-workflow"
+  ],
+  "severity": "low",
+  "userImpact": "Developers are not aware of all possible errors that ExecuteWorkflow can return, making error handling incomplete and potentially causing unexpected failures.",
+  "rootCause": "API documentation for ExecuteWorkflow does not include WorkflowExecutionErrorWhenAlreadyStarted in the list of possible return errors.",
+  "proposedFix": "Update the ExecuteWorkflow API documentation to include WorkflowExecutionErrorWhenAlreadyStarted in the documented error list.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "API documentation was updated to include the missing error in the return errors list.",
+  "related": [],
+  "keyQuote": "WorkflowExecutionErrorWhenAlreadyStarted error does not mentioned in the API document.",
+  "number": 1856,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:51.460Z"
+}

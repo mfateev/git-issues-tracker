@@ -1,0 +1,34 @@
+{
+  "summary": "Test framework doesn't fail when mock invocations are missing or incorrect, causing tests to pass despite uncaught PanicErrors in activity execution. Developers need a way to detect missing mocks to catch configuration errors early.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-environment",
+    "mock-framework",
+    "workflow-test-env"
+  ],
+  "concepts": [
+    "mock-validation",
+    "activity-invocation",
+    "test-assertions",
+    "error-detection",
+    "test-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Tests incorrectly pass when activity mocks are forgotten, allowing invalid test configurations to ship undetected.",
+  "rootCause": "The test framework detects mock invocation discrepancies but does not propagate these as test failures, treating missing mocks the same as intentional error handling.",
+  "proposedFix": "Mark tests as FAILED when mock invocation assertions fail, or expose the env.mock field to allow manual verification of mock calls.",
+  "workaround": "Manually check workflow errors using env.GetWorkflowError() and assert no errors occurred, though this doesn't catch missing mocks.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    642
+  ],
+  "keyQuote": "There is a difference between an activity failing in prod for a legitimate reason and activity failing due to a forgotten mock invocation.",
+  "number": 975,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:38.554Z"
+}

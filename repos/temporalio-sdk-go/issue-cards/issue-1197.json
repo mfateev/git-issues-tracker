@@ -1,0 +1,32 @@
+{
+  "summary": "Worker shutdown should drain already-polled tasks instead of dropping them. Currently, when a worker shuts down, it abandons any tasks it has already polled but hasn't started processing. The request is to allow these tasks to be processed within the worker's stop timeout before closing.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-poller",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "task-draining",
+    "resource-cleanup",
+    "backpressure",
+    "shutdown-timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience dropped tasks during worker shutdown, leading to potential task loss and inconsistent workflow execution.",
+  "rootCause": "Worker shutdown logic immediately closes without processing already-polled tasks, treating them as discardable.",
+  "proposedFix": "Modify worker shutdown to stop accepting new tasks but allow already-polled tasks to be processed within the stop timeout window.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1195
+  ],
+  "keyQuote": "When a worker is shutting down, it should stop accepting new tasks, but let any it already has polled try to be processed in the worker stop timeout",
+  "number": 1197,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:27.480Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The SDK should not return an update handle if the update has not reached the desired state, addressing a gap in update semantics and API consistency.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [],
+  "components": [
+    "update-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "update-state",
+    "handle-lifecycle",
+    "workflow-updates",
+    "api-consistency",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive update handles for updates that haven't reached the desired state, leading to potential confusion and incorrect update management.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing logic to not return an update handle if the update has not reached the desired state.",
+  "related": [
+    432
+  ],
+  "keyQuote": "SDK should not return an update handle if the update has not reached the desired state",
+  "number": 1414,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:30.792Z"
+}

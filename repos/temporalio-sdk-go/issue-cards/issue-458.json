@@ -1,0 +1,32 @@
+{
+  "summary": "RegisterDelayedCallback should panic if called after ExecuteWorkflow to help users catch mistakes earlier. Currently users make this error and spend significant time debugging without clear feedback.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "RegisterDelayedCallback",
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-testing"
+  ],
+  "concepts": [
+    "test-debugging",
+    "error-detection",
+    "user-error-prevention",
+    "API-misuse",
+    "callback-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who accidentally call RegisterDelayedCallback after ExecuteWorkflow waste time debugging instead of getting immediate failure feedback.",
+  "rootCause": "No validation to detect when RegisterDelayedCallback is called after ExecuteWorkflow has already executed.",
+  "proposedFix": "Add panic in RegisterDelayedCallback when called after ExecuteWorkflow has been invoked.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "just ran into the same issue and spent 1h troubleshooting. Definitely user issue, but was hard to debug and `panic` would be neat.",
+  "number": 458,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:07.480Z"
+}

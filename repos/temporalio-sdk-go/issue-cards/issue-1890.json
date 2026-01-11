@@ -1,0 +1,32 @@
+{
+  "summary": "Context is mutated between interceptors and activity by stripping headers using context.WithValue(), preventing users from passing custom context types through interceptors to activities.",
+  "category": "question",
+  "subcategory": "interceptors-context",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "interceptors",
+    "activity-executor",
+    "context-handling"
+  ],
+  "concepts": [
+    "context-mutation",
+    "interceptor-chain",
+    "custom-context",
+    "context-passing",
+    "header-stripping"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot reliably pass custom context types through activity interceptors to activities due to context mutations in the SDK.",
+  "rootCause": "Header removal using context.WithValue() in internal/workflow.go#L793 mutates the context between interceptor and activity execution.",
+  "proposedFix": "Strip headers before the interceptor rather than after it to avoid context mutation.",
+  "workaround": "Use context.WithValue() with a custom key to smuggle the context through, though this exposes stripped headers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK does not make guarantee that context is not mutated between interceptors and activity. Users should implement custom contexts following Go's standard context patterns.",
+  "related": [],
+  "keyQuote": "The SDK does not make any guarantee that the context is not mutated between interceptors and activity.",
+  "number": 1890,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:04.740Z"
+}

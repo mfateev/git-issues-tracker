@@ -1,0 +1,32 @@
+{
+  "summary": "Tracking flaky tests in the Go SDK test suite. Multiple tests are failing intermittently, including TestSideEffectDefer, TestIntegrationSuite variants, and TestMockCallWrapperNotBefore, with some failures appearing as of Go 1.24.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "integration-tests",
+    "side-effect",
+    "otel-tracing",
+    "worker-pollers"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "intermittent-failures",
+    "test-reliability",
+    "ci-instability",
+    "race-conditions"
+  ],
+  "severity": "high",
+  "userImpact": "Flaky tests reduce confidence in SDK stability and make it difficult to distinguish legitimate failures from environmental issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Hoping to start a list of flaky tests for the Go SDK",
+  "number": 1650,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:55.073Z"
+}

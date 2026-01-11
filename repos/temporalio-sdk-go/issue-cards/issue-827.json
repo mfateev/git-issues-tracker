@@ -1,0 +1,31 @@
+{
+  "summary": "Dependency security vulnerability in go-yaml (transitive dependency via testify v1.7.0) with CVE-2022-28948 causing potential DoS through YAML deserialization crashes. Issue was automatically closed after the vulnerable library was removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "yaml-parser",
+    "testing-framework"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "yaml-deserialization",
+    "dependency-chain",
+    "cvss",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users could experience DoS attacks through malicious YAML deserialization if the vulnerable go-yaml dependency is used in their applications.",
+  "rootCause": "An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.",
+  "proposedFix": "Upgrade go-yaml to version 3.0.0 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or no longer part of the Mend inventory, indicating the vulnerability was resolved.",
+  "related": [],
+  "keyQuote": "An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.",
+  "number": 827,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:37.234Z"
+}

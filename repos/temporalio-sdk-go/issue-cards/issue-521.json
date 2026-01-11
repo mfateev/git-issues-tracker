@@ -1,0 +1,33 @@
+{
+  "summary": "Heartbeat data fails to be recorded when an activity reports failure because the activity context is closed before the GRPC heartbeat request is sent. This causes heartbeat details to be lost on retry attempts.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "GetHeartbeatDetails"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-batching",
+    "grpc-client"
+  ],
+  "concepts": [
+    "heartbeat",
+    "retry",
+    "activity-failure",
+    "context-lifecycle",
+    "batching",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Activities lose heartbeat progress data on failure, preventing proper recovery and retry state restoration.",
+  "rootCause": "Activity context is closed before the heartbeat batching code can send the final heartbeat GRPC request on the activity failure code path.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by ensuring the activity context remains open long enough for pending heartbeat requests to complete before failure handling closes the context.",
+  "related": [],
+  "keyQuote": "activity context is closed on the code path for activity failure handling, so the GRPC request is never made",
+  "number": 521,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:34.774Z"
+}

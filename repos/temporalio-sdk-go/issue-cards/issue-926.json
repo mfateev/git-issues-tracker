@@ -1,0 +1,38 @@
+{
+  "summary": "After a worker process restarts, session is recreated with the same ID instead of returning ErrSessionFailed, preventing proper error handling for session failures. Additionally, in some cases activities hang indefinitely in Scheduled state when the session worker dies.",
+  "category": "bug",
+  "subcategory": "session-management",
+  "apis": [
+    "CreateSession",
+    "ExecuteActivity",
+    "GetSessionInfo"
+  ],
+  "components": [
+    "session-manager",
+    "worker-restart",
+    "activity-scheduler",
+    "task-queue"
+  ],
+  "concepts": [
+    "session-failure",
+    "worker-restart",
+    "activity-timeout",
+    "heartbeat",
+    "session-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly handle session failures when workers restart, making it difficult to implement recovery logic and potentially leaving activities in hanging states.",
+  "rootCause": "Session is recreated with the same ID after worker restart rather than being marked as failed; activity reschedule logic does not account for the original session worker being unavailable.",
+  "proposedFix": null,
+  "workaround": "Set up workflow retry policy to retry the entire workflow when session fails, or react to session failure explicitly in workflow code.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed due to lack of reproduction. Behavior was partially explained as intended (session cancellation on failure), but some aspects (activity hanging in Scheduled state) were acknowledged as potential bugs. Issue #937 references a planned feature for smoother session handling on worker restart.",
+  "related": [
+    746,
+    937
+  ],
+  "keyQuote": "If I kill the worker with the session and start it back up after its HeartbeatTimeout and before its CreationTimeout, the session gets recreated with the same ID without any session failures reported",
+  "number": 926,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:04.609Z"
+}

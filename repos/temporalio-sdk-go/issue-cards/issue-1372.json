@@ -1,0 +1,30 @@
+{
+  "summary": "Request to document that Client.GetSearchAttributes is not supported in Temporal Cloud and only works in self-hosted deployments. After discussion, it was determined this documentation belongs in the main Temporal docs rather than SDK docs since cloud support can change independently of SDK versions.",
+  "category": "docs",
+  "subcategory": "client-api-documentation",
+  "apis": [
+    "GetSearchAttributes"
+  ],
+  "components": [
+    "client",
+    "search-attributes"
+  ],
+  "concepts": [
+    "cloud-compatibility",
+    "self-hosted-only",
+    "api-limitations",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users may attempt to use GetSearchAttributes in Cloud environments without knowing it's not supported, leading to confusion and failed operations.",
+  "rootCause": "Client.GetSearchAttributes is only implemented for self-hosted Temporal deployments, not for Temporal Cloud.",
+  "proposedFix": "Document the Cloud/self-hosted compatibility limitations in the official Temporal documentation at docs.temporal.io rather than in SDK docs.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was resolved by deciding that Cloud compatibility documentation should live in the main Temporal docs (docs.temporal.io) rather than SDK docs, since Cloud features and SDK features evolve independently.",
+  "related": [],
+  "keyQuote": "this is the only high level workflow client call in any of our SDKs that doesn't work in cloud and self-hosted",
+  "number": 1372,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:04.507Z"
+}

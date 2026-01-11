@@ -1,0 +1,32 @@
+{
+  "summary": "NewNonRetryableApplicationError is not being respected and activities are still retried despite the flag. The issue occurs when an error (cause) is passed to the constructor, but works correctly when nil is passed.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "NewNonRetryableApplicationError"
+  ],
+  "components": [
+    "error-handler",
+    "activity-executor",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry-policy",
+    "non-retryable-errors",
+    "activity-execution",
+    "error-propagation",
+    "retry-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Activities that should never retry are being retried unexpectedly, causing incorrect application behavior and unexpected delays.",
+  "rootCause": "The presence of an error (cause) parameter in NewNonRetryableApplicationError prevents the non-retryable flag from being respected by the retry mechanism.",
+  "proposedFix": null,
+  "workaround": "Pass nil as the error parameter when creating NewNonRetryableApplicationError: NewNonRetryableApplicationError(\"msg\", nil, \"details\")",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After much investigation it seems adding an `error` (cause) to `NewNonRetryableApplicationError` - is what is causing the issue",
+  "number": 175,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:19.861Z"
+}

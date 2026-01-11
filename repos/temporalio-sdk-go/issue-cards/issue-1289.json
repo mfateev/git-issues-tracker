@@ -1,0 +1,31 @@
+{
+  "summary": "Request to tag the workflow_task_execution_failed metric with error type information to enable better monitoring and debugging of workflow task execution failures in the Go SDK.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-executor"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "error-handling",
+    "monitoring",
+    "tagging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily distinguish between different types of workflow task execution failures when monitoring metrics.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing error type tagging for the workflow_task_execution_failed metric.",
+  "related": [
+    231
+  ],
+  "keyQuote": null,
+  "number": 1289,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:39.655Z"
+}

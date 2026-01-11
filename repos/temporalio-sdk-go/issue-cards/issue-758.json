@@ -1,0 +1,29 @@
+{
+  "summary": "Users request exposure of the raw message string from ApplicationError without the additional formatting that Error() method appends. The feature request is for a method like RawMessage() to access just the core error message.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "ApplicationError"
+  ],
+  "concepts": [
+    "error-message",
+    "message-formatting",
+    "error-details",
+    "API-exposure",
+    "user-facing-errors"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily access the raw error message from ApplicationError without parsing or unwrapping the formatted output.",
+  "rootCause": null,
+  "proposedFix": "Expose a RawMessage() method on ApplicationError to return the unformatted message string.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose the raw message from ApplicationError.",
+  "related": [],
+  "keyQuote": "Some users want the string message without the things appended that Error() has",
+  "number": 758,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:48.053Z"
+}

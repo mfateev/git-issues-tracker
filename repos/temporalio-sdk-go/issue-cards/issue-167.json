@@ -1,0 +1,32 @@
+{
+  "summary": "Activities timeout incorrectly in test environments when called from child workflows, returning StartToClose timeout errors even though sufficient timeout is configured. The issue occurs when ScheduleToCloseTimeout is uninitialized while ScheduleToStartTimeout and StartToCloseTimeout are set.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetWorkflowError"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "activity-executor",
+    "child-workflow"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-scheduling",
+    "test-environment",
+    "workflow-nesting",
+    "deadline-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test workflows that call activities from child workflows in test environments without encountering spurious timeout errors.",
+  "rootCause": "Uninitialized ScheduleToCloseTimeout combined with parent-child workflow execution in test environment causes incorrect deadline propagation to activities.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "GetWorkflowError() returns an error: TimeoutType: StartToClose, Cause: context deadline exceeded",
+  "number": 167,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:21.147Z"
+}

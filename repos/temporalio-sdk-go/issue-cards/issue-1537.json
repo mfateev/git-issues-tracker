@@ -1,0 +1,34 @@
+{
+  "summary": "After upgrading to SDK v1.27.0, users encounter connection failures with 'context deadline exceeded' error. The issue was caused by a breaking change in gRPC client initialization that requires the `passthrough:///` prefix in the HostPort configuration.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "Dial",
+    "CheckHealth"
+  ],
+  "components": [
+    "client",
+    "grpc",
+    "connection-manager"
+  ],
+  "concepts": [
+    "connection-timeout",
+    "grpc-client",
+    "host-resolution",
+    "breaking-change",
+    "configuration",
+    "tls"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to v1.27.0 experience connection failures to Temporal clusters and must update their connection configuration to include the passthrough:/// prefix.",
+  "rootCause": "SDK v1.27.0 switched from grpc.Dial to grpc.NewClient, which changed how host addresses are resolved and now requires the passthrough:/// scheme prefix for direct host connections.",
+  "proposedFix": "Include the passthrough:/// prefix in the HostPort configuration: HostPort: fmt.Sprintf(\"passthrough:///%s\", addr)",
+  "workaround": "Add the passthrough:/// prefix to the HostPort configuration when creating a new client connection.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documented in SDK v1.27.0 release notes under 'Internally call grpc.NewClient instead of grpc.Dial' with reference to gRPC custom name resolution guide.",
+  "related": [],
+  "keyQuote": "Looks like I need to add the `passthrough:///` only to the `HostPort` config key. When I do that it works.",
+  "number": 1537,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:19.286Z"
+}

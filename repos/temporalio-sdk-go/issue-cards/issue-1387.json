@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add configurable panic policy at the workflow level in the Go SDK. This feature is being evaluated in the features repository and may be determined unnecessary and closed.",
+  "category": "feature",
+  "subcategory": "panic-handling",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "panic-handler"
+  ],
+  "concepts": [
+    "panic-policy",
+    "error-handling",
+    "workflow-configuration",
+    "resilience"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to configure how workflows handle panic situations at the workflow level rather than globally.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    322
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/322. May be determined we don't need this and closed.",
+  "number": 1387,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:49.599Z"
+}

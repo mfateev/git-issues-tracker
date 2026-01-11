@@ -1,0 +1,36 @@
+{
+  "summary": "ScheduleOptions.ID documentation claims it's optional with UUID default, but the runtime requires it and throws an error when missing. Additionally, the schedule workflow ID may have a timestamp appended for uniqueness, which wasn't documented.",
+  "category": "docs",
+  "subcategory": "schedule-options",
+  "apis": [
+    "ScheduleOptions"
+  ],
+  "components": [
+    "schedule-client",
+    "schedule-options",
+    "documentation"
+  ],
+  "concepts": [
+    "schedule-id",
+    "workflow-id",
+    "optional-fields",
+    "uuid-generation",
+    "timestamp-appending",
+    "id-uniqueness",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers are misled by documentation claiming ID is optional, leading to runtime errors and confusion about how schedule IDs relate to workflow IDs.",
+  "rootCause": "Documentation was incorrect - the schedule ID is actually required, not optional. Additionally, the behavior of appending timestamps to workflow IDs was undocumented.",
+  "proposedFix": "Update documentation to clarify that ID is required and add comment explaining that the schedule workflow ID may have a timestamp appended for uniqueness.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed via PR #959, which updated the documentation and comments to clarify ID is required and that timestamps may be appended.",
+  "related": [
+    158
+  ],
+  "keyQuote": "The workflow id of the started workflow may not match this exactly, it may have a timestamp appended for uniqueness.",
+  "number": 957,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:47.407Z"
+}

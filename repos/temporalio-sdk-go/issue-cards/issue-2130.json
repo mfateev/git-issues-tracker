@@ -1,0 +1,29 @@
+{
+  "summary": "User requests an environment variable `TEMPORAL_LOG_LEVEL` to control SDK log level without modifying code. SDK maintainer clarified that the SDK cannot control user-provided loggers and users should implement their own environment variable handling.",
+  "category": "feature",
+  "subcategory": "logging-configuration",
+  "apis": [],
+  "components": [
+    "logger",
+    "worker-configuration"
+  ],
+  "concepts": [
+    "logging",
+    "environment-variables",
+    "log-level",
+    "configuration",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually code log level configuration instead of using a simple environment variable.",
+  "rootCause": "The SDK design delegates logger management to users and cannot control log levels of external logger implementations.",
+  "proposedFix": "Add support for a TEMPORAL_LOG_LEVEL environment variable to configure SDK logging.",
+  "workaround": "Users can implement their own environment variable to control their logger's log level as shown in the SDK README example.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK maintainers determined this is not a change they will make, as logger configuration is the user's responsibility.",
+  "related": [],
+  "keyQuote": "The SDK is not able to set the log level of the logger that users provide.",
+  "number": 2130,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:52.367Z"
+}

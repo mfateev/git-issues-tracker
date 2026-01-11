@@ -1,0 +1,28 @@
+{
+  "summary": "TestAsyncActivityCompletion test was flaky in CI, sometimes producing only one asyncComplete result instead of the expected two. The test no longer appears to be flaky according to maintainer comments.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "integration-tests",
+    "async-activity-completion"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "async-operations",
+    "activity-completion",
+    "test-reliability"
+  ],
+  "severity": "low",
+  "userImpact": "Flaky tests reduce confidence in test suite reliability and can mask actual issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test no longer appears flaky in CI according to maintainer assessment",
+  "related": [],
+  "keyQuote": "This test does not appear flaky anymore in CI",
+  "number": 553,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:56.481Z"
+}

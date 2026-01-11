@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment currently only supports testing multiple workflows in parent-child relationships. The feature request is to extend it to support testing independent workflows that are not parent-child related.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-environment",
+    "testing-utilities"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-isolation",
+    "test-scenarios",
+    "independent-workflows",
+    "environment-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily test multiple independent workflows together using TestWorkflowEnvironment, limiting test coverage for complex scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    616
+  ],
+  "keyQuote": "It would be good to be able to use TestWorkflowEnvironment to test 2 workflows that are not parent-child.",
+  "number": 50,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:42.463Z"
+}

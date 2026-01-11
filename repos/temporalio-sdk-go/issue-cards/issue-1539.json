@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for query filtering when listing schedules in the Go SDK, matching the existing functionality available for listing workflows.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedule-client",
+    "list-api",
+    "query-filtering"
+  ],
+  "concepts": [
+    "query",
+    "filtering",
+    "schedules",
+    "list-operations",
+    "workflow-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot filter schedules by query when listing them, limiting their ability to efficiently search and manage large numbers of schedules.",
+  "rootCause": null,
+  "proposedFix": "Implement query option for ListSchedules similar to the existing ListWorkflows implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query filtering capability was added to the ListSchedules API to match ListWorkflows functionality.",
+  "related": [],
+  "keyQuote": "Need to support the query option when listing schedules same as we do when listing workflows.",
+  "number": 1539,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:18.487Z"
+}

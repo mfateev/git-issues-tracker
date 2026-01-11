@@ -1,0 +1,30 @@
+{
+  "summary": "DataConverter.fromData should receive function results as pointers instead of by value for consistency with how arguments are deserialized.",
+  "category": "bug",
+  "subcategory": "data-serialization",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "consistency",
+    "pointer-semantics",
+    "deserialization",
+    "data-conversion"
+  ],
+  "severity": "low",
+  "userImpact": "Inconsistent API usage for DataConverter could confuse users and lead to subtle bugs in custom data converters.",
+  "rootCause": "DataConverter.fromData receives function results by value while arguments are passed as pointers, creating inconsistent API behavior.",
+  "proposedFix": "Pass function results as pointers to DataConverter.fromData to maintain consistency with argument deserialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through refactoring or external code merges.",
+  "related": [],
+  "keyQuote": "Currently when deserializing arguments they are passed as pointer. But when deserializing a function result it is passed by value into DataConverter.fromData.",
+  "number": 2,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:15.454Z"
+}

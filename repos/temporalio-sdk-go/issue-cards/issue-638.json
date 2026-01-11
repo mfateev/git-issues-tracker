@@ -1,0 +1,34 @@
+{
+  "summary": "Activity cancellation and heartbeats don't work properly without HeartbeatTimeout set. Documentation needs clarification on the 10-minute batching default and its impact on cancellation timing.",
+  "category": "docs",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "ExecuteActivity",
+    "RecordHeartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "cancellation-mechanism"
+  ],
+  "concepts": [
+    "cancellation",
+    "heartbeat",
+    "timeout",
+    "context",
+    "batching",
+    "server-sync"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience delayed activity cancellation (up to 10 minutes) or silent failures when using heartbeats without configuring HeartbeatTimeout.",
+  "rootCause": "Internal 10-minute batching default is applied when HeartbeatTimeout is not set, causing significant delays in actual server-side heartbeat transmission and cancellation detection.",
+  "proposedFix": "Document the requirement for HeartbeatTimeout and add warnings when heartbeating is attempted without it. Clarify the 10-minute batching behavior and its impact on cancellation timing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation updated and warnings added to alert users when heartbeating without HeartbeatTimeout configured.",
+  "related": [],
+  "keyQuote": "After the first heartbeat, it can take 10m to actually send another heartbeat which is what tells it the activity has been cancelled.",
+  "number": 638,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:24.718Z"
+}

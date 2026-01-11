@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment does not surface mock assertion errors from testify, causing tests to pass when they should fail due to unexpected activity invocations. The test environment silently swallows testify's failure signal instead of propagating it.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow",
+    "OnActivity"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "mock-integration",
+    "test-utilities"
+  ],
+  "concepts": [
+    "mock-assertions",
+    "test-failure-propagation",
+    "invocation-counting",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Tests fail silently when activities are called more times than expected, allowing bugs to slip through test coverage.",
+  "rootCause": "TestWorkflowEnvironment does not surface or respect failure signals from testify's mock framework. Testify expects early failure on unexpected invocations, but when the test continues, the invocation counter is not incremented, causing AssertNumberOfCalls to report incorrect counts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'd expect TestWorkflowEnvironment to surface and respect the error and failure surfaced by testify, and mark the test case as failed.",
+  "number": 1100,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:41.577Z"
+}

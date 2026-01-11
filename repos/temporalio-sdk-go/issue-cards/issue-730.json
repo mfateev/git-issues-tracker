@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowStartTime returns zero value in test workflows, making it difficult to test workflows that use this parameter for timing logic. Users expect test workflows to set WorkflowStartTime similar to how workflow.Now() works.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetInfo",
+    "WorkflowStartTime"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-context",
+    "time-handling"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-initialization",
+    "time-values",
+    "test-data",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test workflows that depend on WorkflowStartTime for timing logic, as the parameter returns a zero value in tests.",
+  "rootCause": "Test workflows do not set WorkflowStartTime when initializing workflow context, unlike real workflows.",
+  "proposedFix": "Allow setting WorkflowStartTime parameter in test workflows, ideally defaulting to the same value as workflow.Now() at workflow start.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "During test workflow.GetInfo(ctx).WorkflowStartTime returns an zero value which makes it hard to test the workflow.",
+  "number": 730,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:48.262Z"
+}

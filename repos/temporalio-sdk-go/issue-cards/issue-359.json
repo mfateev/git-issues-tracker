@@ -1,0 +1,29 @@
+{
+  "summary": "Go's built-in map range iteration is non-deterministic, requiring users to implement workarounds. This request asks for a helper function to support deterministic iteration over maps.",
+  "category": "feature",
+  "subcategory": "map-iteration",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "determinism"
+  ],
+  "concepts": [
+    "determinism",
+    "map-iteration",
+    "replay",
+    "generics",
+    "workaround"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to implement custom deterministic map iteration logic for workflows, adding complexity and potential for bugs.",
+  "rootCause": "Go's built-in range over map uses random iteration order for security reasons, which conflicts with workflow replay requirements.",
+  "proposedFix": "Add a helper function that supports deterministic iteration over maps, with considerations for map key comparability requirements.",
+  "workaround": "Users must implement their own deterministic iteration logic manually.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented through SDK support for deterministic map iteration, addressing the need when range-over-func became available.",
+  "related": [],
+  "keyQuote": "Some helper to support deterministic iteration over map.",
+  "number": 359,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:38.662Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "TestActivityRetryOnHBTimeout integration test is flaky, failing intermittently with 'invalid activityID or activity already timed out' errors during activity retry attempts.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-worker",
+    "activity-retry",
+    "integration-tests",
+    "heartbeat"
+  ],
+  "concepts": [
+    "flakiness",
+    "timeout",
+    "retry",
+    "heartbeat",
+    "activity-execution",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky integration tests reduce confidence in the SDK's activity retry and heartbeat mechanisms.",
+  "rootCause": "Race condition or timing issue in activity retry handling with heartbeat timeout scenarios",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed or improved by PR #545; confirmed no longer flaky in CI",
+  "related": [
+    545
+  ],
+  "keyQuote": "invalid activityID or activity already timed out or invoking workflow is completed",
+  "number": 546,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:18.788Z"
+}

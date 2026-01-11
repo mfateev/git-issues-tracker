@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to propagate context cancellations to workflow futures via a new `WorkflowCancelingGet` method that cancels the underlying workflow instead of just unblocking the Get call. This would allow conventional context-aware cancellation patterns common in Go web applications.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "WorkflowRun.Get",
+    "WorkflowClient.CancelWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-run",
+    "context-handling"
+  ],
+  "concepts": [
+    "context-cancellation",
+    "workflow-lifecycle",
+    "goroutine-coordination",
+    "cancellation-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Go's standard context cancellation patterns to cancel workflows and their downstream activities when blocking on WorkflowRun.Get(), limiting integration with context-aware Go frameworks.",
+  "rootCause": null,
+  "proposedFix": "Add a new `WorkflowCancelingGet(ctx, valuePtr)` method that cancels the workflow when the context is cancelled, in addition to the existing `Get` behavior.",
+  "workaround": "Use `WorkflowClient.CancelWorkflow()` directly to cancel workflows instead of relying on context propagation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers indicated no plans to change how WorkflowRun.Get(ctx, valuePtr) works and suggested using WorkflowClient.CancelWorkflow() as the standard approach.",
+  "related": [],
+  "keyQuote": "An additional or different `WorkflowCancelingGet(ctx, valuePtr)` which cancels the workflow allows for the more conventional context cancellation behavior",
+  "number": 469,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:43.719Z"
+}

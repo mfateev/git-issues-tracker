@@ -1,0 +1,35 @@
+{
+  "summary": "Function name aliasing during workflow/activity registration creates ambiguity and confusion. When registering with an explicit name, the function name is automatically aliased, causing unintended function references to match and test suites to execute unexpected workflows.",
+  "category": "feature",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "RegisterWorkflowWithOptions",
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "workflow-registry",
+    "registration",
+    "test-framework"
+  ],
+  "concepts": [
+    "function-aliasing",
+    "registration-ambiguity",
+    "name-uniqueness",
+    "function-reference",
+    "implicit-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users registering workflows with explicit names can have their code silently execute the wrong workflow when called by function reference, leading to confusing test failures and runtime behavior.",
+  "rootCause": "The registration system automatically creates an alias for the function name in addition to the explicit name, and doesn't enforce uniqueness checking on the alias like it does for explicit names.",
+  "proposedFix": "Add `workflow.RegisterOptions.DisableFunctionNameAlias` option to allow disabling the automatic function name aliasing during registration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by qualifying the alias to prevent ambiguity, as mentioned in comment 2.",
+  "related": [
+    425
+  ],
+  "keyQuote": "Even though ExecuteWorkflow attempts implicit register, it silently ignores as expected if already registered. The ExecuteWorkflow actually tries to execute the registered one due to the alias which is very confusing.",
+  "number": 672,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:57.376Z"
+}

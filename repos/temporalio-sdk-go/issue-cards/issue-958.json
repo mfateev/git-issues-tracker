@@ -1,0 +1,33 @@
+{
+  "summary": "ScheduleAction interface type matching is confusing because both ScheduleWorkflowAction and *ScheduleWorkflowAction can be assigned, but only the pointer version works at runtime. The receiver should be changed to require pointers exclusively.",
+  "category": "bug",
+  "subcategory": "api-design",
+  "apis": [
+    "ScheduleAction",
+    "ScheduleWorkflowAction"
+  ],
+  "components": [
+    "schedule-client",
+    "type-system"
+  ],
+  "concepts": [
+    "interface-matching",
+    "receiver-semantics",
+    "type-safety",
+    "pointer-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can assign non-pointer ScheduleWorkflowAction to ScheduleAction, which compiles but fails at runtime, causing confusing errors.",
+  "rootCause": "Go receivers that are non-pointers match both pointer and non-pointer types, but the interface is designed to only work with pointers. The receiver definition allows both but only pointer receivers should be valid.",
+  "proposedFix": "Change the receiver to `func (*ScheduleWorkflowAction) isScheduleAction()` to require pointers and prevent non-pointer assignments.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed via PR #959 which changed the receiver to pointer-only.",
+  "related": [
+    959
+  ],
+  "keyQuote": "ScheduleAction can be set to ScheduleWorkflowAction _or_ *ScheduleWorkflowAction, but the latter fails at runtime.",
+  "number": 958,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:46.579Z"
+}

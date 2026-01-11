@@ -1,0 +1,34 @@
+{
+  "summary": "WithChildOptions API misleadingly applies to general workflow options instead of just child workflows, affecting continue-as-new behavior and potentially surprising users. Documentation is needed to clarify this design and discourage context reuse.",
+  "category": "docs",
+  "subcategory": "continue-as-new",
+  "apis": [
+    "WithChildOptions",
+    "WithWorkflowRunTimeout",
+    "NewContinueAsNewError"
+  ],
+  "components": [
+    "workflow-options",
+    "child-workflows",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "api-naming",
+    "context-reuse",
+    "workflow-configuration",
+    "options-inheritance",
+    "documentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be confused by WithChildOptions affecting general workflow options and may experience unexpected behavior when using continue-as-new.",
+  "rootCause": "API naming is misleading - WithChildOptions actually modifies general workflow options that are reused in NewContinueAsNewError",
+  "proposedFix": "Document the issue and discourage context reuse in general",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WithChildOptions would only apply to children, but it actually changes the general workflow options",
+  "number": 676,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:14.996Z"
+}

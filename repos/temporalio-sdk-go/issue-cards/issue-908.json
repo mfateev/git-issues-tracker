@@ -1,0 +1,34 @@
+{
+  "summary": "The test framework's activity heartbeat mechanism is not concurrency-safe, causing race detector errors when multiple goroutines in an activity attempt to heartbeat simultaneously. The unsafe code is in getActivityHandle which was previously identified but never fixed.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordActivityHeartbeat"
+  ],
+  "components": [
+    "test-framework",
+    "activity-executor",
+    "internal_workflow_testsuite"
+  ],
+  "concepts": [
+    "concurrency-safety",
+    "race-condition",
+    "heartbeat",
+    "goroutine",
+    "test-environment"
+  ],
+  "severity": "high",
+  "userImpact": "Users testing activities with concurrent goroutines using the test framework will encounter race detector errors and undefined behavior.",
+  "rootCause": "The getActivityHandle function in internal_workflow_testsuite.go is not protected against concurrent access from multiple goroutines.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The concurrency-unsafe code in getActivityHandle was fixed to properly handle concurrent heartbeat calls from multiple goroutines.",
+  "related": [
+    780
+  ],
+  "keyQuote": "Race detector says this is clashing. Specifically at ... getActivityHandle, that is not concurrency safe.",
+  "number": 908,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:14.859Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Users need a public method to check if the WorkflowClient's underlying connection to the Temporal server is healthy. Currently, a private checkHealth method exists but is not exposed for user-facing observability and auto-recovery use cases.",
+  "category": "feature",
+  "subcategory": "health-check",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "grpc-channel"
+  ],
+  "concepts": [
+    "health-check",
+    "connection-status",
+    "observability",
+    "auto-recovery",
+    "gRPC-health",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot programmatically verify if their WorkflowClient connection is healthy, limiting observability and preventing automated recovery strategies.",
+  "rootCause": "The checkHealth method exists but is private and not exposed in the public API.",
+  "proposedFix": "Expose a public healthCheck or isHealthy method on WorkflowServiceStubs (or WorkflowClient if stubs wrapper unavailable), implementing gRPC health check protocol.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The health check functionality was exposed as a public method on the WorkflowClient.",
+  "related": [
+    828,
+    312
+  ],
+  "keyQuote": "Temporal SDK should expose a method like WorkflowServiceStubs#healthCheck that allows users to check if the WorkflowClient underlying connection to Temporal server is healthy.",
+  "number": 595,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:28.347Z"
+}

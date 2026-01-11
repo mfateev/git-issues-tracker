@@ -1,0 +1,30 @@
+{
+  "summary": "Set a sensible default limit of 3 for MaxConcurrentEagerActivityExecutionSize instead of unlimited, reducing resource consumption and improving default behavior alignment with other SDKs.",
+  "category": "feature",
+  "subcategory": "eager-activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "configuration"
+  ],
+  "concepts": [
+    "concurrency-limit",
+    "resource-management",
+    "eager-execution",
+    "default-settings",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will experience better resource efficiency and more predictable behavior without needing to manually configure activity execution limits.",
+  "rootCause": null,
+  "proposedFix": "Default MaxConcurrentEagerActivityExecutionSize to 3 instead of unlimited; allow users to set very high values if they need effectively unlimited concurrency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Default value was changed to 3 for MaxConcurrentEagerActivityExecutionSize to match behavior in sdk-core and sdk-java.",
+  "related": [],
+  "keyQuote": "Make `0` be the same as `3`, and ask users to just give a really high number if they want effectively unlimited.",
+  "number": 919,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:47.067Z"
+}

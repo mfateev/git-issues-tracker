@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to deprecate ListOpenWorkflowExecutions and ListClosedWorkflowExecutions methods due to their limitations and user confusion. Proposes keeping ListWorkflowExecutions, ListArchivedWorkflowExecutions, and ScanWorkflowExecutions as alternatives.",
+  "category": "feature",
+  "subcategory": "workflow-list-api",
+  "apis": [
+    "ListOpenWorkflowExecutions",
+    "ListClosedWorkflowExecutions",
+    "ListWorkflowExecutions",
+    "ListArchivedWorkflowExecutions",
+    "ScanWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-service",
+    "api-service",
+    "list-methods"
+  ],
+  "concepts": [
+    "deprecation",
+    "api-design",
+    "workflow-filtering",
+    "backwards-compatibility",
+    "user-expectations"
+  ],
+  "severity": "low",
+  "userImpact": "Users are surprised and confused by the limitations of ListOpen/ListClosed methods when trying to apply combined filters.",
+  "rootCause": null,
+  "proposedFix": "Deprecate ListOpenWorkflowExecutions and ListClosedWorkflowExecutions, while keeping ListWorkflowExecutions, ListArchivedWorkflowExecutions, and ScanWorkflowExecutions as recommended alternatives.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users get surprised by the limitations of ListOpen/ListClosed",
+  "number": 307,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:10.031Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "When deserializing typed search attributes, the SDK panics on invalid values instead of ignoring them. This particularly affects workflows created with untyped attributes (like single-item arrays) when accessing typed search attributes or when using CLI commands like schedule describe.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "typed-search-attributes",
+    "deserialization",
+    "schedule",
+    "workflow"
+  ],
+  "concepts": [
+    "type-conversion",
+    "error-handling",
+    "data-validation",
+    "compatibility",
+    "cross-sdk-interoperability"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot work with workflows or schedules created by TypeScript SDK or with untyped search attributes without encountering panics when the SDK tries to deserialize them as typed attributes.",
+  "rootCause": "The SDK panics when attempting to deserialize invalid typed search attribute values instead of gracefully ignoring them during deserialization.",
+  "proposedFix": "Ignore all invalid values during typed search attribute deserialization, matching the behavior already implemented in the Python SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a user creates a workflow or a schedule using untyped attributes and passes in a single-item array, the typed search attributes should simply not include that value.",
+  "number": 1668,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:14:52.615Z"
+}

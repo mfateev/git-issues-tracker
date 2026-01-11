@@ -1,0 +1,30 @@
+{
+  "summary": "TestWorkflowEnvironment's SetWorkflowRunTimeout causes deferred statements to run, but in the real Temporal server, workflows that timeout do not execute defer statements. This is a behavioral inconsistency between the test environment and production.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-execution",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "defer-execution",
+    "timeout",
+    "test-environment",
+    "goroutine-cleanup",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately test workflow timeout behavior because the test framework differs from production in how it handles deferred cleanup statements.",
+  "rootCause": "TestWorkflowEnvironment may handle timeouts differently than the server, possibly related to cache eviction and goroutine management. In Go, panic and runtime.Goexit both call defer, but discarding everything instead of running mocks is complex.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflows that timeout from TestWorkflowEnvironment.SetWorkflowRunTimeout run deferred statements, but workflows that timeout from the real server do not run defer statements",
+  "number": 1099,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:44.984Z"
+}

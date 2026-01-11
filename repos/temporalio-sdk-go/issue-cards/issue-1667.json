@@ -1,0 +1,35 @@
+{
+  "summary": "Add a high-level DescribeWorkflow call on the Go SDK client that returns workflow execution information in a structured WorkflowExecutionDescription, deprecating the existing DescribeWorkflowExecution method. The implementation should be interceptable and follow the design patterns established in TypeScript, Python, and .NET SDKs.",
+  "category": "feature",
+  "subcategory": "client-api",
+  "apis": [
+    "DescribeWorkflow",
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "client",
+    "workflow-execution",
+    "interceptor"
+  ],
+  "concepts": [
+    "api-design",
+    "workflow-inspection",
+    "execution-status",
+    "deprecation",
+    "abstraction"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides users with a modern, high-level API to inspect workflow execution details with consistent design across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement DescribeWorkflow method on client returning WorkflowExecutionDescription with structured data, support interceptors, and deprecate DescribeWorkflowExecution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented as a enhancement to provide better API ergonomics for workflow inspection.",
+  "related": [
+    2265
+  ],
+  "keyQuote": "Add a DescribeWorkflow call on client... Return a WorkflowExecutionDescription that contains some obvious things and access to the raw describe response",
+  "number": 1667,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:14:54.808Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activity function alias lookup is incorrectly performed regardless of task queue, when it should only look up aliases in the local registry when executing on the same task queue.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "task-queue-router",
+    "function-registry"
+  ],
+  "concepts": [
+    "task-queue",
+    "function-alias",
+    "activity-lookup",
+    "local-registry",
+    "cross-queue-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected behavior when using activity function aliases across different task queues, as aliases are resolved incorrectly.",
+  "rootCause": "Activity alias lookup logic does not check or validate the task queue context before performing registry lookups.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The alias lookup logic was fixed to only perform lookups in the local registry when executing on the same task queue.",
+  "related": [],
+  "keyQuote": "ExecuteActivity should only look up function alias in local registry when executing on the same task queue.",
+  "number": 845,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:27.117Z"
+}

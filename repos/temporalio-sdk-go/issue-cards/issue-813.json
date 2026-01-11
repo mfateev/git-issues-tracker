@@ -1,0 +1,32 @@
+{
+  "summary": "A workflow task failure occurs after a schedule-to-start timeout, causing an 'activity ID not found' panic that retries 13,000+ times before mysteriously succeeding. The issue is difficult to reproduce and occurs across multiple workers despite identical binary checksums.",
+  "category": "bug",
+  "subcategory": "workflow-task-processing",
+  "apis": [],
+  "components": [
+    "workflow-task-processor",
+    "activity-executor",
+    "retry-logic",
+    "worker"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "activity-resolution",
+    "workflow-task-failure",
+    "race-condition",
+    "distributed-timing"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unpredictable workflow task failures with excessive retry attempts (13K+) that eventually succeed, causing delays and operational uncertainty.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After about 13K retry attempts, it magically succeed eventually. The binary checksum is the same before and after the failure.",
+  "number": 813,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:47.730Z"
+}

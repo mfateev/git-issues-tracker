@@ -1,0 +1,35 @@
+{
+  "summary": "Add an Await branch to Selector to allow waiting on conditions alongside Futures and Channels. This prevents users from accidentally mixing Await with Selector, which can lead to subtle bugs where timing expectations are violated.",
+  "category": "feature",
+  "subcategory": "workflow-coordination",
+  "apis": [
+    "Selector",
+    "Await",
+    "AwaitWithTimeout"
+  ],
+  "components": [
+    "selector",
+    "workflow-context",
+    "condition-waiting"
+  ],
+  "concepts": [
+    "selector-pattern",
+    "await",
+    "condition-checking",
+    "concurrency-control",
+    "workflow-logic",
+    "timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now safely wait on arbitrary conditions within Selectors without mixing incompatible APIs, reducing the risk of subtle timing bugs.",
+  "rootCause": "Selector API only supports Futures and Channels, forcing users to use separate Await calls which can cause timing issues when used together.",
+  "proposedFix": "Add AddAwait(condition func() bool, f func()) method to Selector that calls f when condition returns true during Select execution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This leads to situations when unexperienced users mix Await with Selector in the same function which leads to subtle bugs.",
+  "number": 728,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:29.493Z"
+}

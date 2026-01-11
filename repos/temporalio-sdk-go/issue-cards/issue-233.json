@@ -1,0 +1,32 @@
+{
+  "summary": "Remove legacy code related to the disable sticky execution flag. The sticky execution feature is now standard and the backwards compatibility code for disabling it is no longer needed.",
+  "category": "feature",
+  "subcategory": "sticky-execution",
+  "apis": [],
+  "components": [
+    "sticky-execution",
+    "worker",
+    "code-cleanup"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "feature-removal",
+    "deprecation",
+    "sticky-execution",
+    "technical-debt"
+  ],
+  "severity": "low",
+  "userImpact": "Removes legacy code paths, simplifying the SDK and reducing maintenance burden without affecting user-facing functionality.",
+  "rootCause": "Sticky execution feature was released with backwards compatibility flag; the flag is no longer needed as sticky execution is now standard.",
+  "proposedFix": "Remove all code related to disabling sticky execution and associated backwards compatibility logic.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #318 which removed the disable sticky execution flag and associated legacy code.",
+  "related": [
+    318
+  ],
+  "keyQuote": "We have a bunch of code in GoSDK which was created to be able to release sticky execution feature in backwards compatible manner. This is no longer needed and should be removed",
+  "number": 233,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:35.152Z"
+}

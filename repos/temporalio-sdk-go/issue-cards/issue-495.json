@@ -1,0 +1,35 @@
+{
+  "summary": "Calling `GetChildWorkflowExecution()` on a mocked child workflow in tests causes the child workflow to complete immediately instead of respecting the mocked delay. The parent workflow sees `IsReady() == true` immediately after calling `GetChildWorkflowExecution()` and sleeping, rather than waiting for the configured mock delay.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "GetChildWorkflowExecution",
+    "IsReady"
+  ],
+  "components": [
+    "test-suite",
+    "workflow-mock",
+    "child-workflow-execution"
+  ],
+  "concepts": [
+    "mocking",
+    "child-workflow",
+    "test-execution",
+    "execution-state",
+    "timing",
+    "future-ready"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot reliably test parent workflows that call `GetChildWorkflowExecution()` on mocked children, as the mock's configured delays are ignored.",
+  "rootCause": "The test framework's `OnWorkflow` mock appears to complete the child workflow prematurely when `GetChildWorkflowExecution()` is called, bypassing the `.After()` delay configuration.",
+  "proposedFix": null,
+  "workaround": "Register a custom mock workflow using `RegisterWorkflowWithOptions` with the desired behavior instead of using `OnWorkflow`.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The parent sees `IsReady() == true` immediately after calling `GetChildWorkflowExecution` and sleeping",
+  "number": 495,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:30.430Z"
+}

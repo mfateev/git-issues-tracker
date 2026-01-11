@@ -1,0 +1,34 @@
+{
+  "summary": "Users cannot unit test workflows with a populated ContinuedExecutionRunID field, which prevents testing all workflow paths. A request to expose or set this value during test execution.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetInfo",
+    "ContinuedExecutionRunID"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "workflow-context",
+    "workflow-info"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-continuation",
+    "unit-testing",
+    "context-setup",
+    "test-coverage",
+    "mocking"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot fully test workflows that use ContinuedExecutionRunID, resulting in incomplete test coverage.",
+  "rootCause": "TestWorkflowEnvironment does not expose a way to set or populate the ContinuedExecutionRunID field in workflow context.",
+  "proposedFix": "Expose the mutable WorkflowInfo pointer via TestWorkflowEnvironment.WorkflowInfo() method to allow setting context values during test execution.",
+  "workaround": "Use elaborate workarounds like dependency injection or variables to fake the ContinuedExecutionRunID value in tests.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently, one cannot do that so not all workflow paths may be unit tested.",
+  "number": 935,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:38.890Z"
+}

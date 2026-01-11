@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment.XByID methods don't work correctly after SetStartWorkflowOptions updates the workflow ID. The runningWorkflows map uses the default ID and isn't updated when the primary ID changes, causing workflows to appear not found.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "SetStartWorkflowOptions",
+    "SignalWorkflowByID"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-registry",
+    "runningWorkflows-map"
+  ],
+  "concepts": [
+    "workflow-id",
+    "test-isolation",
+    "state-synchronization",
+    "delayed-callbacks",
+    "id-mapping"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers testing workflows in TestWorkflowEnvironment cannot reliably signal workflows after changing their primary ID.",
+  "rootCause": "The runningWorkflows map is initialized with the default ID and not updated when SetStartWorkflowOptions is called with a different ID.",
+  "proposedFix": "Update the runningWorkflows map whenever SetStartWorkflowOptions is called with a new ID to keep the mapping in sync.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The runningWorkflows map is now properly updated when SetStartWorkflowOptions changes the workflow ID.",
+  "related": [],
+  "keyQuote": "We set the runningWorkflows map to the default ID and don't update the map on SetStartWorkflowOptions like we should.",
+  "number": 1160,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:42.362Z"
+}

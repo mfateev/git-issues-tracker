@@ -1,0 +1,33 @@
+{
+  "summary": "Change how application errors are converted to Nexus HandlerError to use non-retryable internal errors instead of the current approach. This is a breaking change required before the Go SDK reaches GA and depends on server version 1.27.0.",
+  "category": "feature",
+  "subcategory": "nexus-error-handling",
+  "apis": [],
+  "components": [
+    "nexus",
+    "error-handling",
+    "application-error-conversion"
+  ],
+  "concepts": [
+    "error-conversion",
+    "retryability",
+    "nexus-integration",
+    "handler-error",
+    "internal-errors",
+    "ga-requirements"
+  ],
+  "severity": "high",
+  "userImpact": "Changes how application errors are handled in Nexus handlers, affecting error propagation and retry behavior for Nexus-integrated workflows.",
+  "rootCause": "Current error conversion approach does not properly map application errors to non-retryable internal errors in Nexus context.",
+  "proposedFix": "Modify the application error to Nexus HandlerError conversion logic to use non-retryable internal errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The conversion logic was updated to use non-retryable internal errors for Nexus HandlerError, completed in relation to server 1.27.0 release and Go SDK GA timeline.",
+  "related": [
+    1802
+  ],
+  "keyQuote": "Needs to be done before the Go SDK goes GA and after the server 1.27.0 release.",
+  "number": 1810,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:19.306Z"
+}

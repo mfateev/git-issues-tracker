@@ -1,0 +1,32 @@
+{
+  "summary": "RecordHeartbeat fails when called with a canceled context from an errgroup that has already finished. Users experience activity timeouts when using goroutine patterns that create derived contexts that are canceled before subsequent heartbeat calls.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordHeartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "context-management"
+  ],
+  "concepts": [
+    "context-cancellation",
+    "goroutine-coordination",
+    "timeout",
+    "batching",
+    "context-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected activity timeouts when using errgroup or similar patterns that create derived contexts, requiring workarounds to avoid passing canceled contexts to RecordHeartbeat.",
+  "rootCause": "RecordHeartbeat's goroutine continues to reference the caller's context even after the caller's errgroup.Wait() cancels that context, causing subsequent heartbeat calls to fail with context canceled errors.",
+  "proposedFix": "Use context.Background() instead of the caller's context for the heartbeat goroutine, or implement fallback logic to use the last non-canceled context when multiple contexts are provided.",
+  "workaround": "Replace activity.RecordHeartbeat(gctx) with activity.RecordHeartbeat(ctx) to use the parent context instead of the derived context.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Due to the batch heartbeat logic, gctx was used after g.Wait() had finished in my code and caused a context canceled error when making the call to the server",
+  "number": 1574,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:32.029Z"
+}

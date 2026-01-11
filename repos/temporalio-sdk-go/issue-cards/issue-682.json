@@ -1,0 +1,36 @@
+{
+  "summary": "User unable to test an activity that calls activity.GetLogger() because the activity context lacks the required activityInterceptorContextKey. The issue was resolved by using the testsuite package's TestActivityEnvironment instead of calling the activity directly with context.TODO().",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetLogger",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-interceptor",
+    "test-suite",
+    "activity-context"
+  ],
+  "concepts": [
+    "testing",
+    "activity-execution",
+    "context-management",
+    "logger",
+    "interceptor",
+    "test-environment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot directly test activities that use activity.GetLogger() without using the proper TestActivityEnvironment from the testsuite package.",
+  "rootCause": "Direct activity calls with context.TODO() lack the activityInterceptorContextKey required by activity.GetLogger() to retrieve the logger.",
+  "proposedFix": "Use testsuite.WorkflowTestSuite to create a TestActivityEnvironment, register the activity, and call it via env.ExecuteActivity() instead of calling the activity directly.",
+  "workaround": "Use TestActivityEnvironment from go.temporal.io/sdk/testsuite package to properly initialize activity context with required interceptor.",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed the workaround works by using TestActivityEnvironment.ExecuteActivity() instead of direct activity invocation.",
+  "related": [
+    163
+  ],
+  "keyQuote": "If you want to use an activity context with all the activity bells and whistles, you need to use the testsuite package and create a suite and an activity environment.",
+  "number": 682,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:28.696Z"
+}

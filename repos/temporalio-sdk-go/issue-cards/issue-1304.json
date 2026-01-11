@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a GetName() method to the Signal Channel interface to retrieve the human-readable channel name, which would allow callback functions to identify which signal channel triggered them when dynamically creating multiple signal channels.",
+  "category": "feature",
+  "subcategory": "signal-channels",
+  "apis": [
+    "SignalChannel"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-context"
+  ],
+  "concepts": [
+    "signal-identification",
+    "channel-metadata",
+    "dynamic-creation",
+    "callback-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users working with dynamically created signal channels cannot programmatically identify which channel triggered a callback function.",
+  "rootCause": null,
+  "proposedFix": "Add a GetName() string method to the Signal Channel interface that returns the channel's name.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined this functionality is not necessary as normal Go channels don't support names, and users can provide channel names when creating callbacks instead.",
+  "related": [
+    5874
+  ],
+  "keyQuote": "Why can't you add the name when creating the callback? Normal Go channels don't support a name so I am not sure Temporal channels would need such a functionality",
+  "number": 1304,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:08.452Z"
+}

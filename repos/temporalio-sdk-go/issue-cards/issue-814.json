@@ -1,0 +1,31 @@
+{
+  "summary": "workflowcheck tool fails to detect deadlocks and non-deterministic code violations when workflows contain sleep calls or other blocking operations. The tool should catch these violations but currently passes without errors, potentially masking runtime issues.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "workflow-engine",
+    "history-matching"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "non-determinism",
+    "goroutine",
+    "blocking-operations",
+    "workflow-validation",
+    "deterministic-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot rely on workflowcheck to catch non-deterministic or blocking code in workflows, leading to runtime failures that pass static checks.",
+  "rootCause": "workflowcheck does not properly detect blocking operations like time.Sleep that are outside Temporal-controlled runtime, and the history matching logic ignores non-event operations.",
+  "proposedFix": null,
+  "workaround": "Use RegisterWorkflow as the entry point for workflowcheck analysis to catch issues, though this does not fully solve the detection problem.",
+  "resolution": "fixed",
+  "resolutionDetails": "Discussion clarified that sleep/print operations outside Temporal-controlled runtime are the issue. The tool limitations were acknowledged and the expected behavior of workflow validation was explained.",
+  "related": [],
+  "keyQuote": "Workflow code is expected to run until all coroutines are yielded in a couple of milliseconds. This is important to worker scaling and replaying.",
+  "number": 814,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:52.308Z"
+}

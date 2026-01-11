@@ -1,0 +1,31 @@
+{
+  "summary": "TestActivityNotRegisteredRetry test was flaky, exhibiting non-deterministic behavior in the unregistered activity invocation counter metric. The test expected a counter value of 2 but intermittently received 1, indicating timing or race condition issues.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "metrics",
+    "test-integration"
+  ],
+  "concepts": [
+    "flakiness",
+    "test-reliability",
+    "metrics",
+    "activity-registration",
+    "race-condition",
+    "counter"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the SDK and make CI/CD pipelines unreliable, potentially masking real issues.",
+  "rootCause": "Race condition or timing issue in test causing inconsistent unregistered activity invocation counter values",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test no longer exhibits flakiness in CI, indicating the underlying issue was resolved",
+  "related": [],
+  "keyQuote": "Expected value doesn't match actual value for counter temporal_unregistered_activity_invocation",
+  "number": 548,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:37.246Z"
+}

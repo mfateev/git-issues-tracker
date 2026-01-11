@@ -1,0 +1,30 @@
+{
+  "summary": "Documentation needed for workflow initialization method that guarantees execution before signals and updates are processed. The issue requests a method to initialize workflow state before handlers receive signals/updates.",
+  "category": "docs",
+  "subcategory": "workflow-initialization",
+  "apis": [],
+  "components": [
+    "workflow",
+    "signal-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "initialization",
+    "signal-processing",
+    "update-handling",
+    "workflow-state",
+    "handler-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot reliably initialize workflow state before signal and update handlers execute, making it unclear how to set up initialized values for handlers to use.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed as documentation-only issue. Team decided docs improvement was sufficient rather than SDK code changes.",
+  "related": [],
+  "keyQuote": "We should have a method that's guaranteed to initialize before signals and updates come in so handlers can use initialized values.",
+  "number": 1576,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:32.911Z"
+}

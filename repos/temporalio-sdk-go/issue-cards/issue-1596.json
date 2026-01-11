@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to treat 100% ramp in versioning assignment rules as unramped to reduce customer confusion. This depends on server-side changes and has been closed due to deprecation of assignment rules.",
+  "category": "feature",
+  "subcategory": "versioning-assignment-rules",
+  "apis": [],
+  "components": [
+    "versioning",
+    "assignment-rules"
+  ],
+  "concepts": [
+    "versioning",
+    "ramp",
+    "assignment-rules",
+    "backwards-compatibility",
+    "deprecation"
+  ],
+  "severity": "low",
+  "userImpact": "Customers were confused by inability to set 100% ramp in assignment versioning rules, but this is no longer relevant as assignment rules are being removed.",
+  "rootCause": null,
+  "proposedFix": "Treat a 100% ramp in an assignment versioning rule as un-ramped",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Assignment rules have been deprecated and are soon to be removed, making this feature request obsolete",
+  "related": [],
+  "keyQuote": "Assignment rules have been deprecated, and soon to be removed, closing",
+  "number": 1596,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:12.574Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Request for a built-in API to help manage ContinueAsNew requirements for infinitely running workflows. Users currently need to implement custom wrappers to track action counts and history size to determine when to call ContinueAsNew.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteActivity",
+    "SignalWorkflow",
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-engine",
+    "client-api",
+    "workflow-history"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "history-management",
+    "action-tracking",
+    "event-counting",
+    "workflow-lifecycle",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing multiple infinitely running workflows must implement custom interceptors to track when to call ContinueAsNew, adding complexity and maintenance burden.",
+  "rootCause": null,
+  "proposedFix": "Provide built-in API to check if ContinueAsNew is required, with configurable limits per workflow type. Expose event count and history size from WorkflowInfo.",
+  "workaround": "Wrap the Workflow API in a custom struct that maintains an action counter, incrementing it on stateful API calls, and regularly check if the counter exceeds a safe threshold.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    357
+  ],
+  "keyQuote": "The history size is now available in WorkflowInfo protobuf so this should be easy to add.",
+  "number": 628,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:09.866Z"
+}

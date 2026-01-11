@@ -1,0 +1,28 @@
+{
+  "summary": "SDK v1.30.1 fails to compile due to missing Failure field on HandlerError and UnsuccessfulOperationError types from the nexus-rpc/sdk-go dependency. The issue was caused by breaking changes in the nexus dependency that weren't properly handled in the SDK.",
+  "category": "bug",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "nexus-task-handler",
+    "error-handling"
+  ],
+  "concepts": [
+    "compilation-error",
+    "dependency-breaking-change",
+    "nexus-rpc",
+    "error-types"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot compile projects using SDK v1.30.1 due to undefined field errors in the nexus task handler.",
+  "rootCause": "Breaking changes in the nexus-rpc/sdk-go dependency (specifically the Failure field removal from HandlerError and UnsuccessfulOperationError types) were not accounted for in the SDK code.",
+  "proposedFix": "Upgrade to Go SDK v1.31.0 which fixes the compilation issue.",
+  "workaround": "Downgrade nexus-rpc/sdk-go to v0.0.12 using 'go get github.com/nexus-rpc/sdk-go@v0.0.12'",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in Go SDK v1.31.0 release",
+  "related": [],
+  "keyQuote": "Go SDK 1.31.0 was just released which fixes this complication issue.",
+  "number": 1752,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:09.691Z"
+}

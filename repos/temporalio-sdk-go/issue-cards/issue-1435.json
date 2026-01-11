@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows that call continue-as-new fail in unit tests with ChildWorkflowExecutionError wrapping ContinueAsNewError, preventing testing of child workflows using continue-as-new pattern.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "test-suite",
+    "child-workflow",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "unit-testing",
+    "child-workflows",
+    "continue-as-new",
+    "workflow-execution",
+    "error-handling",
+    "test-environment"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot unit test child workflows that use continue-as-new, blocking a common workflow pattern from being testable.",
+  "rootCause": "The test framework does not properly handle continue-as-new in child workflows, treating it as an error instead of as a valid workflow continuation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The test framework was updated to properly handle continue-as-new semantics in child workflows.",
+  "related": [],
+  "keyQuote": "A child workflow continues as new, and the parent waits for the child to complete.",
+  "number": 1435,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:52.738Z"
+}

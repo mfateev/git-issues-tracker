@@ -1,0 +1,33 @@
+{
+  "summary": "Worker fails to connect to Temporal server with unclear namespace error messages. The feature request asks for better error handling that checks the connection before starting the worker and provides a clear, user-friendly error message like 'Unable to connect to Temporal server at localhost:7233'.",
+  "category": "feature",
+  "subcategory": "connection-error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "client-connection",
+    "error-handling"
+  ],
+  "concepts": [
+    "connection",
+    "error-messaging",
+    "server-connectivity",
+    "worker-startup",
+    "debugging",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing namespace errors when unable to connect to the server, making it difficult to diagnose connection problems.",
+  "rootCause": "Worker attempts to connect and reports namespace-related errors instead of detecting and reporting the actual connection failure.",
+  "proposedFix": "Check connection before starting worker and log a clear error message indicating the connection failure and server address.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by pull request #214 which implemented improved connection error handling.",
+  "related": [
+    214
+  ],
+  "keyQuote": "Check connection before starting worker and log clear error message such as \"Unable connect to Temporal server at localhost:7233\"",
+  "number": 183,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:37.492Z"
+}

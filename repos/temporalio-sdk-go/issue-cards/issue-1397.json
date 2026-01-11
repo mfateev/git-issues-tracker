@@ -1,0 +1,38 @@
+{
+  "summary": "Request to add support for `ReplayWorkflowHistoryOptions` to `ReplayWorkflowHistoryFromJSONFile` and `ReplayPartialWorkflowHistoryFromJSONFile` functions, allowing users to specify workflow ID and run ID without requiring manual JSON-to-proto conversion.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistoryFromJSONFile",
+    "ReplayPartialWorkflowHistoryFromJSONFile",
+    "ReplayWorkflowHistoryWithOptions",
+    "ReplayWorkflowHistoryOptions"
+  ],
+  "components": [
+    "worker",
+    "workflow-replayer",
+    "history-loader",
+    "internal-worker"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "history-loading",
+    "json-deserialization",
+    "test-utilities",
+    "workflow-execution",
+    "proto-conversion",
+    "logger-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually convert JSON history to proto format and cannot specify workflow execution details when using file-based replay functions, creating friction in testing workflows.",
+  "rootCause": null,
+  "proposedFix": "Create a separate `LoadWorkflowHistoryFromJSONFile` function that returns a proto History object, which can then be used with `ReplayWorkflowHistoryWithOptions`. Also expose internal utility functions and SDK logger for test usage.",
+  "workaround": "Users can implement their own JSON-to-proto conversion function and use `ReplayWorkflowHistoryWithOptions` directly with converted history, or implement custom logger interface.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be nice if the sdk exposed a logger that can be used in the unit test setting.",
+  "number": 1397,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:50.347Z"
+}

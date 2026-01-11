@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that sdk-go v1.32.1 is incompatible with api-go v1.44.0 due to removed symbols. The issue was clarified to be related to using Temporal Server as a library rather than an SDK compatibility problem, with the actual conflict occurring in server's OIDC codec-server implementation.",
+  "category": "question",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "server-api",
+    "codec-server",
+    "oidc-authentication"
+  ],
+  "concepts": [
+    "dependency-versioning",
+    "api-breaking-changes",
+    "library-usage",
+    "authentication",
+    "oidc"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use Temporal Server as a library alongside their SDK code encounter compilation errors when api-go versions diverge from server's pinned versions.",
+  "rootCause": "The user was attempting to use go.temporal.io/server programmatically as a library alongside SDK code, but server requires exact API versions matching its go.mod. The actual incompatibility was in server's OIDC codec-server implementation, not the SDK itself.",
+  "proposedFix": "Implement OIDC logic without using Temporal Server as a library, or use a separate OSS solution for OIDC functionality instead of bundling server code.",
+  "workaround": "Keep api-go pinned to the version matching the server's go.mod requirements (v1.43.2 in this case), or avoid using server as a library in projects also using the SDK.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was a misunderstanding - the problem was not with sdk-go itself but with attempting to use server as a library with incompatible API versions. Users should not mix server library usage with SDK in the same project.",
+  "related": [],
+  "keyQuote": "If you are using the server programmatically as a library, you must have the exact versions of SDK and API that are in the server's go.mod.",
+  "number": 1805,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:03.348Z"
+}

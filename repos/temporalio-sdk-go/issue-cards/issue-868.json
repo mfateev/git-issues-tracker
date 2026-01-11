@@ -1,0 +1,35 @@
+{
+  "summary": "Panic occurs when `Stop` is called before `Run` has fully started due to a race condition. The assertion in `AggregatedWorker.Run` fails if Stop executes before Start completes, causing a panic instead of returning an error.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Run",
+    "Stop",
+    "Start",
+    "AggregatedWorker"
+  ],
+  "components": [
+    "worker",
+    "internal_worker",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "race-condition",
+    "goroutine-synchronization",
+    "shutdown",
+    "panic-handling",
+    "startup-timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who call Stop before Run fully starts experience an unhandled panic, making graceful shutdown unpredictable during application startup.",
+  "rootCause": "The assertion in AggregatedWorker.Run does not account for the legitimate race condition where Stop may be called before the worker has fully started.",
+  "proposedFix": "Return an error like ErrClosed instead of panicking when Stop is called before Run completes.",
+  "workaround": "Only call Stop from within an activity that has executed at least once, or use Start instead of Run to have more control over shutdown timing.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed in favor of using Start instead of Run. Users concerned about this race should use Start and Stop for more explicit control. Documentation for Run was updated to note the potential panic.",
+  "related": [],
+  "keyQuote": "Users concerned about this race should use Start and Stop. Users should not use `Run` if they're concerned they may shutdown before running.",
+  "number": 868,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:29.179Z"
+}

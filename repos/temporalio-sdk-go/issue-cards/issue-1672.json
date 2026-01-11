@@ -1,0 +1,35 @@
+{
+  "summary": "AssertNumberOfCalls incorrectly succeeds when checking if an activity was called a specific number of times, even when the activity was not actually called that many times. The method checks if either workflows OR activities were called N times, rather than checking the specific callable being tested.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-suite",
+    "mock-assertions",
+    "activity-tracking"
+  ],
+  "concepts": [
+    "test-verification",
+    "assertion-logic",
+    "activity-calls",
+    "workflow-calls",
+    "mock-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may have failing tests incorrectly pass, leading to false confidence in code that doesn't call activities as intended.",
+  "rootCause": "PR #1371 modified AssertNumberOfCalls to check if either the number of workflows OR activities equals N, rather than verifying the specific callable being tested.",
+  "proposedFix": "Revert PR #1371 and create separate methods: AssertActivityNumberOfCalls and AssertWorkflowNumberOfCalls for explicit differentiation.",
+  "workaround": "Use the new methods AssertActivityNumberOfCalls and AssertWorkflowNumberOfCalls instead of the ambiguous AssertNumberOfCalls.",
+  "resolution": "fixed",
+  "resolutionDetails": "New specific methods AssertActivityNumberOfCalls and AssertWorkflowNumberOfCalls were added in commit e2bec163bb792071556cedae4d0590a14fc8ee9d to replace the ambiguous AssertNumberOfCalls.",
+  "related": [
+    887,
+    1371
+  ],
+  "keyQuote": "AssertNumberOfCalls is inherently ambiguous since it doesn't differentiate between workflow, activity or nexus calls.",
+  "number": 1672,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:07.736Z"
+}

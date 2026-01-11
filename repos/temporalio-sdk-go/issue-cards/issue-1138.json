@@ -1,0 +1,33 @@
+{
+  "summary": "Request to automatically instrument Activities based on configuration rather than requiring manual instrumentation for each activity. The author seeks built-in success/failure counts and latency metrics grouped by activity name.",
+  "category": "feature",
+  "subcategory": "metrics-instrumentation",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "metrics"
+  ],
+  "concepts": [
+    "instrumentation",
+    "metrics",
+    "monitoring",
+    "activity-execution",
+    "observability",
+    "performance-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with many activities must manually instrument each one or miss activity-specific metrics; automatic instrumentation would reduce boilerplate and enable better observability by default.",
+  "rootCause": null,
+  "proposedFix": "Wrap instrumentation before and after ExecuteActivity execution, controlled by configuration/options, following existing Go metrics instrumentation patterns.",
+  "workaround": "Manually instrument each activity or enable cluster-level metrics (which don't contain activity-specific labels).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Have Activities automatically instrumented, if enabled via configuration/options. Propose to wrap instrumentation before and after ExecuteActivity",
+  "number": 1138,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:00.634Z"
+}

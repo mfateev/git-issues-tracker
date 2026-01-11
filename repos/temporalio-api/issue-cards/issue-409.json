@@ -1,0 +1,29 @@
+{
+  "summary": "Remove the /api/v1/ prefix from HTTP API paths to simplify the API surface. This is an incompatible change but is acceptable since the HTTP API has not been fully released.",
+  "category": "feature",
+  "subcategory": "http-api",
+  "apis": [],
+  "components": [
+    "http-api",
+    "api-gateway"
+  ],
+  "concepts": [
+    "api-design",
+    "backwards-compatibility",
+    "http-paths",
+    "api-versioning",
+    "path-simplification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to update their HTTP API calls to use paths without the /api/v1/ prefix.",
+  "rootCause": null,
+  "proposedFix": "Remove /api/v1/ prefix from all HTTP API paths",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented and the HTTP API paths were updated to remove the /api/v1/ prefix.",
+  "related": [],
+  "keyQuote": "we have decided to remove this unnecessary prefix from API paths",
+  "number": 409,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:42.421Z"
+}

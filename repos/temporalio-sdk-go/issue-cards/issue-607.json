@@ -1,0 +1,29 @@
+{
+  "summary": "Request to make EncodingDataConverter and payload encoders context-aware to access contextual information during encoding. The feature was ultimately abandoned due to architectural constraints (avoiding circular package dependencies between converter and workflow packages).",
+  "category": "feature",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "converter",
+    "payload-encoder",
+    "data-converter"
+  ],
+  "concepts": [
+    "context-awareness",
+    "data-encoding",
+    "package-dependencies",
+    "circular-imports"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access contextual information when using custom encoding data converters and payload encoders.",
+  "rootCause": "Circular package dependency between converter and workflow packages prevents implementation of context-aware encoding converters.",
+  "proposedFix": "Make EncodingDataConverter and PayloadEncoder context-aware by calling underlying context-aware implementations.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature was abandoned due to architectural constraints - maintaining package separation between converter and workflow packages to avoid circular dependencies was deemed more important than context-awareness for encoding converters.",
+  "related": [],
+  "keyQuote": "After some thought, we have decided to abandon context-awareness for encoding data converters at the moment.",
+  "number": 607,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:09.678Z"
+}

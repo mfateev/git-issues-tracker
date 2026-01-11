@@ -1,0 +1,31 @@
+{
+  "summary": "User requests making the Go SDK's deadlock detector configurable to emit warnings instead of failing workflows when long-running operations don't yield for over 1 second. They want to add callback hooks for warnings and make the timeout thresholds adjustable.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "deadlock-converter",
+    "workflow-runtime",
+    "data-converter"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "workflow-timeout",
+    "configurability",
+    "metrics",
+    "observability",
+    "long-running-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with long-running JSON processing in workflows face destructive failures and customer-facing outages due to strict deadlock detection with no visibility or configuration options.",
+  "rootCause": "Large JSON payloads processed in workflow code trigger deadlock detection timeout (>1 second without yield), but this is not always an actual deadlock and lacks configurability for different use cases.",
+  "proposedFix": "Make the deadlock converter configurable by: 1) adding a callback for warnings to emit metrics, 2) making warning and error thresholds adjustable",
+  "workaround": "Use DataConverterWithoutDeadlockDetection to disable the deadlock detector, or move long-running operations to activities/local activities",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that long-running operations cannot be done in workflow code due to strict workflow task timeouts, and recommended using activities or DataConverterWithoutDeadlockDetection as existing solutions",
+  "related": [],
+  "keyQuote": "Long running actions cannot be done in workflow code, workflow tasks have a strict timeout so long running actions need to be done in either and activity or local activity",
+  "number": 2046,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:59.160Z"
+}

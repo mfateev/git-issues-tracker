@@ -1,0 +1,33 @@
+{
+  "summary": "ListClosedWorkflow only supports a single filter, requiring inefficient workarounds to query with multiple conditions like type and status. The request is to support multiple filters in List*Workflow methods for more efficient queries.",
+  "category": "feature",
+  "subcategory": "list-workflows-query",
+  "apis": [
+    "ListClosedWorkflow",
+    "ListWorkflow"
+  ],
+  "components": [
+    "list-workflows",
+    "query-engine",
+    "filter-support"
+  ],
+  "concepts": [
+    "filtering",
+    "query-efficiency",
+    "multiple-conditions",
+    "result-filtering",
+    "workflow-search"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must inefficiently fetch large result sets and filter in-application code instead of pushing filter logic to the server.",
+  "rootCause": null,
+  "proposedFix": "Extend List*Workflow methods to accept multiple filters instead of just one.",
+  "workaround": "Fetch all workflows matching one filter criterion, then iterate through results to find those matching additional criteria.",
+  "resolution": "fixed",
+  "resolutionDetails": "ListWorkflow was introduced as a replacement for ListClosedWorkflow, supporting a query parameter that can filter on multiple conditions.",
+  "related": [],
+  "keyQuote": "ListClosedWorkflow has bee superseded by ListWorkflow that takes a query parameter that can filter on multiple conditions.",
+  "number": 410,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:59.588Z"
+}

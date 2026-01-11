@@ -1,0 +1,32 @@
+{
+  "summary": "Users accidentally pass workflow.Context instead of context.Context to activities, resulting in a confusing \"too few input arguments\" error. The SDK should warn when ExecuteActivity is called with a function that takes workflow.Context, helping users catch this common mistake and preventing accidental workflow invocations outside of workflow context.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "type-checking",
+    "error-messages"
+  ],
+  "concepts": [
+    "context-types",
+    "parameter-validation",
+    "developer-experience",
+    "type-safety",
+    "error-clarity"
+  ],
+  "severity": "medium",
+  "userImpact": "New users encounter confusing error messages when accidentally passing workflow.Context to activities, making debugging difficult and potentially indicating a logic error in their code.",
+  "rootCause": "The SDK does not validate at call time whether an activity function's parameter types match expectations, specifically checking for workflow.Context which should never be used in activities.",
+  "proposedFix": "Add runtime validation in ExecuteActivity to detect when a function takes workflow.Context as a parameter and provide a clear, helpful error message.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was likely addressed through improved type checking or validation in activity execution.",
+  "related": [],
+  "keyQuote": "A issue new users run into is they define an activity that takes a `workflow.Context` as a parameter, often just mistyping `context.Context`.",
+  "number": 1061,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:34.009Z"
+}

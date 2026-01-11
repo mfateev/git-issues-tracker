@@ -1,0 +1,37 @@
+{
+  "summary": "Non-determinism occurs when replaying mutable side-effects behind workflow versioning because GetVersion doesn't generate a command during replay, causing incorrect lookup in mutableSideEffectsRecorded map and missing marker command generation.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "GetVersion",
+    "MutableSideEffect",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "event-handlers",
+    "command-state-machine",
+    "workflow-versioning"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-replay",
+    "side-effects",
+    "version-markers",
+    "command-generation",
+    "event-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using mutable side-effects inside versioned code paths crash with panic during replay due to missing marker commands.",
+  "rootCause": "GetVersion does not generate a command during workflow replay, causing mutableSideEffectsRecorded map lookup to use incorrect commandsHelper.nextCommandEventID values, resulting in missing side-effect marker commands.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    809
+  ],
+  "keyQuote": "GetVersion doesn't generate a command explicitly while replaying, leading to wrong lookup in mutableSideEffectsRecorded due to wrong nextCommandEventID value.",
+  "number": 1144,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:58.946Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "User reported that panics from goroutines created within activities crash the entire worker instead of being caught by the SDK's panic recovery mechanism.",
+  "category": "question",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "panic-handling"
+  ],
+  "concepts": [
+    "panic-recovery",
+    "goroutine-management",
+    "error-handling",
+    "worker-stability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who create goroutines in their activities may experience unexpected worker crashes from panics they expected the SDK to handle.",
+  "rootCause": "Go SDK cannot intercept panics in goroutines created by user code - Go language limitation prevents libraries from wrapping arbitrary goroutine calls with recover().",
+  "proposedFix": null,
+  "workaround": "Users must implement their own panic recovery (try-catch) in any goroutines they create within activities.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK maintainer clarified this is a Go language limitation and user responsibility to handle panics in their own goroutines.",
+  "related": [],
+  "keyQuote": "Temporal cannot catch panics in every goroutine you create. You are responsible for handling your own panics in your goroutines.",
+  "number": 1111,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:59.380Z"
+}

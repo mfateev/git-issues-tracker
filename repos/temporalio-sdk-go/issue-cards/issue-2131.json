@@ -1,0 +1,38 @@
+{
+  "summary": "Activity worker uses MaxHeartbeatThrottleInterval to control both heartbeat throttling and RPC timeout, but these concerns should be independent. Users need configurable minRPCTimeout and the ability to manually retry heartbeats on network errors without triggering activity cancellation.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordHeartbeat"
+  ],
+  "components": [
+    "activity-worker",
+    "heartbeat-handler",
+    "task-handlers",
+    "rpc-timeout"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "retry",
+    "network-error",
+    "activity-cancellation",
+    "context-deadline"
+  ],
+  "severity": "medium",
+  "userImpact": "Activity workers cannot properly handle slow networks or long RPC timeouts for heartbeats without either disabling throttling globally or having activities incorrectly canceled on transient failures.",
+  "rootCause": "MaxHeartbeatThrottleInterval is conflated with RPC timeout; context deadline exceeded from RPC timeouts immediately marks activity as canceled without retry opportunity.",
+  "proposedFix": "Add configurable minRPCTimeout parameter for activity worker separate from throttling controls; allow manual retry of heartbeats on network errors without triggering activity cancellation.",
+  "workaround": "Set MaxHeartbeatThrottleInterval to a longer duration than expected network latency, though this reduces intended throttling benefits.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    660,
+    859,
+    863
+  ],
+  "keyQuote": "Configurable minRPCTimeout for activity worker. Allow retry heartbeat on network error.",
+  "number": 2131,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:54.858Z"
+}

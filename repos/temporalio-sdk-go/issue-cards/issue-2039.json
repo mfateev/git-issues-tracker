@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment doesn't properly propagate errors wrapped with errors.Join or fmt.Errorf, causing tests to pass when they should fail with unregistered activity errors.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "error-handling",
+    "activity-executor"
+  ],
+  "concepts": [
+    "error-wrapping",
+    "error-propagation",
+    "test-failure-detection",
+    "error-joining",
+    "activity-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing tests may have falsely passing tests when workflows with unregistered activities return wrapped errors, masking bugs in production.",
+  "rootCause": "TestWorkflowEnvironment does not properly unwrap or detect errors when they are wrapped using errors.Join or fmt.Errorf, preventing test failures from being caught.",
+  "proposedFix": null,
+  "workaround": "Use temporal.NewApplicationErrorWithCause instead of errors.Join or fmt.Errorf for proper error handling and errors.As/errors.Is matching.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The correct way to return a joined error is `temporal.NewApplicationErrorWithCause`. Otherwise it breaks `errors.As` / `errors.Is` matching.",
+  "number": 2039,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:39.562Z"
+}

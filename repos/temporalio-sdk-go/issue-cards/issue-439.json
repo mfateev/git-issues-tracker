@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a method to access and assert on the workflow signal channel state in the testing environment. Users currently cannot verify whether all received signals were consumed by the workflow without modifying workflow code.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-environment",
+    "signal-channel",
+    "workflow-testing"
+  ],
+  "concepts": [
+    "signal-handling",
+    "testing",
+    "assertions",
+    "workflow-state",
+    "channel-observation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot verify signal consumption in tests without modifying workflow code, limiting their ability to validate signal handling behavior.",
+  "rootCause": null,
+  "proposedFix": "Add env.GetWorkflowSignalChannel() or similar method to the testing environment to expose signal channel state.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There's no way to observe the state of the workflow signal channel and perform assertions on it.",
+  "number": 439,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:28.242Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Activity worker poller fails to stop when the first poll operation encounters a fatal error (e.g., namespace not found). The issue may be resolved by reordering initialization steps in the worker base code.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-poller",
+    "worker-base"
+  ],
+  "concepts": [
+    "fatal-error",
+    "worker-shutdown",
+    "initialization-order",
+    "error-handling",
+    "polling"
+  ],
+  "severity": "high",
+  "userImpact": "Workers may not properly shut down when encountering fatal errors on startup, leaving dangling activity pollers that continue polling.",
+  "rootCause": "Initialization order in internal_worker_base.go lines 438-441 may not ensure activity poller stops before poll failure propagates.",
+  "proposedFix": "Switch the order of worker initialization steps in internal_worker_base.go to ensure activity poller stop takes precedence.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Seems if the first poll fails w/ fatal error, there may be a case where the activity worker stop is not taking hold.",
+  "number": 909,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:18.227Z"
+}

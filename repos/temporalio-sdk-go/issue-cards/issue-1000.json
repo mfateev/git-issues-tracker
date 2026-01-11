@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow commands (e.g., Sleep) produced inside side-effect or query handler functions cause replay issues because these functions aren't called during replay, preventing command generation. Need a panic with clear error message to catch this mistake early.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "SideEffect",
+    "Sleep"
+  ],
+  "components": [
+    "workflow-engine",
+    "replay-system",
+    "side-effect-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "replay",
+    "command-generation",
+    "side-effects",
+    "queries",
+    "determinism",
+    "error-detection"
+  ],
+  "severity": "high",
+  "userImpact": "Users can write code that appears valid but silently fails during workflow replay, leading to incorrect behavior and hard-to-debug issues.",
+  "rootCause": "Side-effect and query handler functions are not re-executed during replay, so any workflow commands produced within them are not regenerated, breaking the deterministic replay contract.",
+  "proposedFix": "Add panic with clear error message when workflow commands are detected being produced within side-effect or query handler functions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added panic detection for commands produced in side-effect and query handler contexts.",
+  "related": [],
+  "keyQuote": "The snippet below looks like valid code but will cause replay issues since the side effect function is not called on replay",
+  "number": 1000,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:07.928Z"
+}

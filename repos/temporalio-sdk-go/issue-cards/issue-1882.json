@@ -1,0 +1,32 @@
+{
+  "summary": "When a custom logger implementing both `log.Logger` and `log.WithSkipCallers` interfaces is provided to the SDK client, the caller skip count is incorrectly calculated, resulting in the wrong file and line number being reported in logs.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [
+    "GetLogger"
+  ],
+  "components": [
+    "logger",
+    "log",
+    "client"
+  ],
+  "concepts": [
+    "caller-skip",
+    "stack-trace",
+    "custom-logger",
+    "log-formatting",
+    "caller-identification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom loggers implementing WithSkipCallers interface get inaccurate caller information in logs, making debugging more difficult.",
+  "rootCause": "The WithSkipCallers interface is not independent and requires the logger to also implement WithLogger interface; when only WithSkipCallers is implemented, the skip depth calculation is incorrect.",
+  "proposedFix": "Implement both WithSkipCallers and WithLogger interfaces on the custom logger.",
+  "workaround": "Implement the WithLogger interface in addition to WithSkipCallers.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by the reporter implementing both WithLogger and WithSkipCallers interfaces, confirming that WithSkipCallers is not independent.",
+  "related": [],
+  "keyQuote": "Looks like `WithSkipCallers` interface is not independent.",
+  "number": 1882,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:37.547Z"
+}

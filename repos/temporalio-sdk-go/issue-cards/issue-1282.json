@@ -1,0 +1,36 @@
+{
+  "summary": "Heartbeat timeout is not enforced in the test workflow environment. When testing activities with heartbeat timeouts, the test environment ignores the HeartbeatTimeout setting and hardcodes other timeouts to 10 minutes, making it impossible to test heartbeat timeout behavior without using a real Temporal server.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "ExecuteActivityOptions"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "activity-executor",
+    "heartbeat-timeout"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "testing",
+    "activity-lifecycle",
+    "test-environment",
+    "time-skipping"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot test heartbeat timeout behavior in their workflows using the test environment, forcing them to use real servers for this validation.",
+  "rootCause": "HeartbeatTimeout is hardcoded to zero value in testWorkflowEnvironmentImpl.executeActivity, while other timeouts (ScheduleToCloseTimeout, StartToCloseTimeout) are hardcoded to 600 seconds. The test environment uses time-skipping rather than real-time for timeout enforcement.",
+  "proposedFix": "Modify the test workflow environment to respect HeartbeatTimeout settings similar to how it handles other timeouts, or implement real-time heartbeat timeout enforcement in the test environment.",
+  "workaround": "Use testsuite.StartDevServer() with a real Temporal server for testing heartbeat timeout behavior, or mock activity failures to simulate heartbeat timeout in workflow tests.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1167
+  ],
+  "keyQuote": "heartbeatTimeouts are straight up ignored",
+  "number": 1282,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:26.225Z"
+}

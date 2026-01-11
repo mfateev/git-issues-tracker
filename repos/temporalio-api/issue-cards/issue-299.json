@@ -1,0 +1,33 @@
+{
+  "summary": "An inline comment in PollWorkflowTaskQueueResponse documentation is misleading because it describes history as 'complete' when long event histories are actually paginated and only return the first page, requiring next_page_token for subsequent fetches.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "PollWorkflowTaskQueueResponse"
+  ],
+  "components": [
+    "api-proto",
+    "workflow-service",
+    "documentation"
+  ],
+  "concepts": [
+    "history-pagination",
+    "workflow-task-queue",
+    "event-history",
+    "api-documentation",
+    "clarity",
+    "worker-communication"
+  ],
+  "severity": "low",
+  "userImpact": "Developers reading the API documentation may misunderstand how workflow history pagination works, potentially leading to incorrect implementation assumptions.",
+  "rootCause": "The inline comment fails to clarify that 'complete' history refers to the completeness of individual pages, not the entire workflow history, which can be split across multiple pages.",
+  "proposedFix": "Update the inline comment to explicitly clarify that for long event histories, only the first page is returned and developers must use next_page_token to fetch subsequent pages.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the term \"complete\" can be misleading as for long event history, this will only return the first page and rely on `next_page_token` for subsequent fetches",
+  "number": 299,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:08.699Z"
+}

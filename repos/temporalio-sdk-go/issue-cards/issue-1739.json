@@ -1,0 +1,29 @@
+{
+  "summary": "Worker Versioning-3 requires workflows to specify versioning behavior (either via default or per-workflow option), but the SDK doesn't validate this at registration time. This proposal adds registration-time validation to fail early when versioning behavior is missing, and removes the programmatic API for setting versioning behavior.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-registration",
+    "versioning"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "build-id-migration",
+    "registration-validation",
+    "behavior-specification"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows without specified versioning behavior will fail at registration time rather than failing later at runtime, providing clearer error messages during development.",
+  "rootCause": "The SDK lacks validation at workflow registration time to enforce that versioning behavior is specified either via worker default or per-workflow option.",
+  "proposedFix": "Add a check at workflow type registration that fails when there is no default versioning behavior and no value provided for that workflow. Remove the programmatic API for setting versioning behavior to simplify the implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented registration-time validation to require versioning behavior specification and removed the programmatic API for setting versioning behavior.",
+  "related": [],
+  "keyQuote": "Add a check at workflow type registration to fail registration when there is no default, and no value provided.",
+  "number": 1739,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:53.493Z"
+}

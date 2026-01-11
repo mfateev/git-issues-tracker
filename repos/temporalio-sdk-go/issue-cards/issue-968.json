@@ -1,0 +1,28 @@
+{
+  "summary": "Remove two deprecated metrics `local_activity_canceled` and `local_activity_failed` that have been replaced by newer versions. The maintainer expressed concerns about the silent nature of this removal and indicated it's unlikely to be prioritized.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "local-activity"
+  ],
+  "concepts": [
+    "deprecation",
+    "backward-compatibility",
+    "metrics-removal",
+    "silent-breaking-change"
+  ],
+  "severity": "low",
+  "userImpact": "Users relying on the deprecated metrics would experience silent metric output removal without compiler errors.",
+  "rootCause": null,
+  "proposedFix": "Remove the deprecated metrics and update any code referencing them to use the new metric names.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The cost of duplicate metrics is much much lower than the cost of removing them. This would be a silent removal, i.e. that there would be no compiler error to fix.",
+  "number": 968,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:17.139Z"
+}

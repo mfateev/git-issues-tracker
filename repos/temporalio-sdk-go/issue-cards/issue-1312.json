@@ -1,0 +1,30 @@
+{
+  "summary": "The Go SDK should fail a task when encountering an unknown HistoryEvent that the worker is required to handle (when worker_may_ignore is false), rather than silently ignoring it.",
+  "category": "feature",
+  "subcategory": "history-processing",
+  "apis": [],
+  "components": [
+    "worker",
+    "history-processor",
+    "event-handler"
+  ],
+  "concepts": [
+    "unknown-events",
+    "event-handling",
+    "error-resilience",
+    "task-failure",
+    "history-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers will fail tasks when encountering unknown required events instead of silently continuing, preventing potential data loss or undefined behavior.",
+  "rootCause": null,
+  "proposedFix": "Implement logic to check the worker_may_ignore flag on HistoryEvent and fail the task when it is false and the event type is unknown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Task failure logic was implemented to handle unknown required events based on the worker_may_ignore flag.",
+  "related": [],
+  "keyQuote": "Fail the task when an event is seen that the worker must handle but is not familiar with",
+  "number": 1312,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:05.625Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Add a separate Cloud Operations API client for the Go SDK using cloud-specific protobuf definitions. The client should be marked as experimental.",
+  "category": "feature",
+  "subcategory": "cloud-client",
+  "apis": [],
+  "components": [
+    "cloud-client",
+    "protos"
+  ],
+  "concepts": [
+    "cloud-operations",
+    "api-client",
+    "experimental",
+    "protobuf"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with Temporal Cloud will have a dedicated client for cloud operations instead of using the standard SDK client.",
+  "rootCause": null,
+  "proposedFix": "Implement a separate cloud client using the cloud protos as referenced in the linked feature request and pull request.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud Operations API client was implemented as requested.",
+  "related": [
+    440,
+    1426
+  ],
+  "keyQuote": "We need a separate cloud client using the cloud protos (they are separate today). The client should be marked experimental.",
+  "number": 1459,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:49.041Z"
+}

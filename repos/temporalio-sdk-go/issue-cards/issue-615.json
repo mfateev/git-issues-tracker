@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for header propagation in signal and query interceptors, matching the existing implementation for workflows and activities. This feature requires server-side changes and depends on related issues for completion.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "signals",
+    "queries"
+  ],
+  "concepts": [
+    "header-propagation",
+    "interceptors",
+    "signals",
+    "queries",
+    "cross-cutting-concerns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot propagate headers through signal and query interceptors, limiting integration with distributed tracing and context propagation systems.",
+  "rootCause": null,
+  "proposedFix": "Support header propagation for signals and queries using the same mechanism as workflows and activities",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR implementation completed, waiting for server release to update CI and merge",
+  "related": [
+    610
+  ],
+  "keyQuote": "Support header propagation for signals and queries the same way as we do for workflows and activities.",
+  "number": 615,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:23.970Z"
+}

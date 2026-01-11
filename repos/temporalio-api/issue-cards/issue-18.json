@@ -1,0 +1,34 @@
+{
+  "summary": "Reorganize the proto packages by decomposing the monolithic common and enums packages into specific purpose-driven packages. This improves code organization, eliminates enum naming conflicts and prefixes, and allows for better separation of concerns between shared API definitions and server-specific messages.",
+  "category": "feature",
+  "subcategory": "proto-organization",
+  "apis": [],
+  "components": [
+    "proto-packages",
+    "common-package",
+    "enums-package",
+    "server-protos"
+  ],
+  "concepts": [
+    "package-organization",
+    "proto-structure",
+    "namespace-separation",
+    "naming-conventions",
+    "code-generation",
+    "protobuf-compiler"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will benefit from cleaner API namespaces, removal of enum prefixes in CLI and Web interfaces, and better alignment with protobuf v2 standards.",
+  "rootCause": "Monolithic common and enums packages were designed to match Thrift layout for migration simplicity, but this creates poor naming practices, enum collisions, and locks the project to gogo compiler.",
+  "proposedFix": "Decompose common and enums into specific packages (decision, event, execution, filter, namespace, query, replication, tasklist, version). Move server-specific messages to temporal server repo. Use pb suffix for package aliases in Go imports.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #16 which completed the proto package reorganization as proposed.",
+  "related": [
+    16
+  ],
+  "keyQuote": "Split common and enums packages into many specific packages having messages and enums in them. Allow to avoid enum collisions and remove prefixes.",
+  "number": 18,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:09.053Z"
+}

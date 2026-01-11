@@ -1,0 +1,35 @@
+{
+  "summary": "When a workflow query fails due to deserialization errors in the workflow input payload, there are no log messages or error indicators to help diagnose the problem. Users see missing query results in the UI without understanding why.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "dispatcher",
+    "history-replay",
+    "deserialization"
+  ],
+  "concepts": [
+    "error-logging",
+    "workflow-state",
+    "input-deserialization",
+    "diagnostics",
+    "replay",
+    "query-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot diagnose why workflow queries fail or why stacktraces are unavailable, making it difficult to troubleshoot deserialization issues.",
+  "rootCause": "From the dispatcher perspective, deserialization failures are indistinguishable from normal workflow termination with errors, making it unclear when to log the failure.",
+  "proposedFix": "Log errors when workflow enters error state after replaying just the StartWorkflow event, as that indicates deserialization failure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    932
+  ],
+  "keyQuote": "The problem is from the dispatcher startup perspective, these errors are indistinguishable from normal termination with workflow error.",
+  "number": 933,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:23.146Z"
+}

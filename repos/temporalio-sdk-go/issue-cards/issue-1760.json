@@ -1,0 +1,30 @@
+{
+  "summary": "Users need a type-safe, workflow-scoped local variable mechanism to store values that persist only within a specific workflow execution. The proposal suggests a `workflow.LocalVar[T]` API with Get/Set methods that provide sugar over context values.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow-context",
+    "context-values"
+  ],
+  "concepts": [
+    "workflow-scoped-storage",
+    "type-safety",
+    "context-values",
+    "workflow-local-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides developers with a cleaner, type-safe way to store and access workflow-local data without manual context value management.",
+  "rootCause": null,
+  "proposedFix": "Implement a `workflow.LocalVar[T]` generic type with `Get(ctx)` and `Set(ctx, value)` methods as type-safe wrappers around context values.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    571
+  ],
+  "keyQuote": "A user can have `var myValue workflow.LocalVar[string]` with `Get(ctx)` and `Set(ctx, value)` methods for workflow-specific values",
+  "number": 1760,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:24.048Z"
+}

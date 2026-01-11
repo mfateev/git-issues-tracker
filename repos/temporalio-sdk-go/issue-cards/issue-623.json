@@ -1,0 +1,32 @@
+{
+  "summary": "Activity cancellation fails during event handling when unwinding, a regression introduced in v1.10.0. The issue occurs in specific scenarios when activities need to be cancelled and events must be properly handled during the unwinding process.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "event-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "cancellation",
+    "event-handling",
+    "unwinding",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience failures when cancelling activities in certain scenarios, breaking activity execution reliability.",
+  "rootCause": "Regression introduced in v1.10.0 (PR #504) in the event handling logic during activity cancellation unwinding",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    504,
+    481
+  ],
+  "keyQuote": "Activity cancellation has an event problem when unwinding. This was introduced in v1.10.0 in #504.",
+  "number": 623,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:57.427Z"
+}

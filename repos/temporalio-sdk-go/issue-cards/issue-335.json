@@ -1,0 +1,30 @@
+{
+  "summary": "The ConvertFailureToError function incorrectly overwrites the original failure source with 'GoSDK', losing important diagnostic information about where the failure actually originated.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "ConvertFailureToError"
+  ],
+  "components": [
+    "error-converter",
+    "failure-handling"
+  ],
+  "concepts": [
+    "failure-source",
+    "error-origin",
+    "diagnostic-information",
+    "root-cause-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose critical debugging information about failure origins, making it harder to diagnose and troubleshoot issues in workflows.",
+  "rootCause": "ConvertFailureToError function explicitly sets the failure source to 'GoSDK' instead of preserving the original source value",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Sets GoSDK",
+  "number": 335,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:51.785Z"
+}

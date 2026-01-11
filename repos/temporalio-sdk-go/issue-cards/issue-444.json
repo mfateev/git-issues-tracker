@@ -1,0 +1,36 @@
+{
+  "summary": "gRPC RPC timeout values (10 seconds default, 70 seconds for long polls) are too long and cause excessive latency spikes when connections are abruptly severed during cluster maintenance or upgrades. The issue requests making the maxRPCTimeout configurable so users can adjust it based on their specific scenarios.",
+  "category": "feature",
+  "subcategory": "rpc-timeout-configuration",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "rpc-client",
+    "context-management",
+    "connection-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "rpc",
+    "latency",
+    "connection-resilience",
+    "configuration",
+    "graceful-shutdown",
+    "network-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience latency spikes lasting up to 10-70 seconds when the Temporal cluster undergoes upgrades or node recycling due to long gRPC timeouts.",
+  "rootCause": "Fixed maxRPCTimeout values (10 seconds default, 70 seconds for long polls) don't account for abrupt connection severing during maintenance, causing requests to hang for the full timeout duration before retry.",
+  "proposedFix": "Make maxRPCTimeout configurable (without changing current default) to allow users to set values appropriate for their use cases, including values greater than 10 seconds for operations like StartWorkflowExecution with large payloads.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1104
+  ],
+  "keyQuote": "letting maxRPCTimeout be configurable (w/o changing current default) might be an okay option for now?",
+  "number": 444,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:40.084Z"
+}

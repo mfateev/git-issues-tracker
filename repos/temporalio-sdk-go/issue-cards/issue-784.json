@@ -1,0 +1,28 @@
+{
+  "summary": "The task queue label is not being recorded on the temporal_worker_task_slots_available metric, preventing users from distinguishing metrics across different task queues.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics"
+  ],
+  "concepts": [
+    "metrics",
+    "task-queue",
+    "monitoring",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use task queue as a dimension in the temporal_worker_task_slots_available metric, limiting their ability to monitor worker capacity per queue.",
+  "rootCause": "Task queue label is not being set when the metric is recorded.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Task queue label was added to the temporal_worker_task_slots_available metric.",
+  "related": [],
+  "keyQuote": "Expect worker task queue to be on `temporal_worker_task_slots_available` but it is not",
+  "number": 784,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:32.356Z"
+}

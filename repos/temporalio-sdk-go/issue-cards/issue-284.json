@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to register local activities only without enabling regular task queue activity consumption. Users want to isolate workflow workers from business logic while still using local activities.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-poller",
+    "local-activities"
+  ],
+  "concepts": [
+    "worker-isolation",
+    "activity-registration",
+    "task-queue",
+    "local-activity-execution",
+    "worker-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now isolate workflow workers from business logic by registering only local activities without consuming from task queues.",
+  "rootCause": null,
+  "proposedFix": "Add a `LocalActivityWorkerOnly` worker option that disables regular activity polling when set to true.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in both Go and Java SDKs with new `LocalActivityWorkerOnly` worker option that disables regular activity polling.",
+  "related": [],
+  "keyQuote": "It will be useful to be able to register local activities only without enabling task queue activity consumption.",
+  "number": 284,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:54.000Z"
+}

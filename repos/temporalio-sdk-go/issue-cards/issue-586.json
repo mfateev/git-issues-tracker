@@ -1,0 +1,32 @@
+{
+  "summary": "Activity mocking in the test framework fails when attempting to match exact struct argument values. The mock library performs equality checks on pointers by memory address rather than value, causing mismatches for pointer fields in activity input structs.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnActivity"
+  ],
+  "components": [
+    "test-framework",
+    "activity-mocking",
+    "mock-matching"
+  ],
+  "concepts": [
+    "argument-matching",
+    "pointer-equality",
+    "test-mocking",
+    "struct-comparison",
+    "memory-address"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably mock activities with pointer fields in input structs during testing, requiring workarounds like custom matchers.",
+  "rootCause": "The underlying testify/mock library performs pointer equality checks based on memory address rather than value, and the SDK's OnActivity wrapper doesn't provide special handling for this case.",
+  "proposedFix": "Use mock.MatchedBy() with custom comparison logic to match pointer field values instead of memory addresses.",
+  "workaround": "Use mock.MatchedBy(func(in *DeleteRoleActivityInput) bool { return *in.Role == \"testRole\" }) to perform custom equality checks on pointer fields.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue is a limitation of the underlying testify/mock library's equality semantics. SDK maintainers clarified that workarounds exist via mock.MatchedBy() and that pointer parameters in activity inputs are generally discouraged.",
+  "related": [],
+  "keyQuote": "The mocking library is https://pkg.go.dev/github.com/stretchr/testify/mock so the parameter matching is done via Mock.On... it just does equality check. In Go, equality check on pointers means they must point to the same thing.",
+  "number": 586,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:11.169Z"
+}

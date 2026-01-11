@@ -1,0 +1,28 @@
+{
+  "summary": "Git release tag has a typo with an extra dot after 'v' (v.1.36.0 instead of v1.36.0). This was reported and subsequently fixed.",
+  "category": "bug",
+  "subcategory": "release",
+  "apis": [],
+  "components": [
+    "release-process",
+    "git-tags"
+  ],
+  "concepts": [
+    "release",
+    "versioning",
+    "git-tag",
+    "naming-convention"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter confusion or incorrect tag references when trying to use or reference the specific release version.",
+  "rootCause": "Typo in the git release tag creation process with an extra dot after the 'v' prefix.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by @bergundy with the correct tag being created.",
+  "related": [],
+  "keyQuote": "https://github.com/temporalio/api/releases/tag/v.1.36.0 should be `v1.36.0`, extra dot after `v` in the git tag.",
+  "number": 435,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:32:02.383Z"
+}

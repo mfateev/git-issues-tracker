@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for the Deployment API, a low-level CRUD interface for managing worker deployments and enabling Worker versioning-3. This API allows direct control over deployment targets and workflow routing across worker pools.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "deployment-manager",
+    "versioning-system"
+  ],
+  "concepts": [
+    "deployment",
+    "versioning",
+    "worker-pool",
+    "workflow-routing",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to implement advanced worker versioning strategies and manage deployment routing for workflows across multiple worker pools.",
+  "rootCause": null,
+  "proposedFix": "Implement the Deployment API as defined in https://github.com/temporalio/api/pull/479 to provide CRUD operations for deployments and deployment target control.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Deployment API support was implemented in the Go SDK as part of the worker versioning-3 effort.",
+  "related": [],
+  "keyQuote": "The Deployment API is a low-level API that enables Worker versioning-3 by providing a CRUD interface to manage deployments.",
+  "number": 1713,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:07.041Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User encounters errors for previously registered activities that are no longer used by any workflows and cannot de-register them from workers. The error occurs on staging where old test workflows leave orphaned activity registrations.",
+  "category": "question",
+  "subcategory": "worker-registration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-registry",
+    "task-queue"
+  ],
+  "concepts": [
+    "activity-registration",
+    "worker-lifecycle",
+    "activity-cleanup",
+    "versioning",
+    "backward-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily clean up unused activity registrations from workers, resulting in confusing error messages when those activities are no longer needed.",
+  "rootCause": "User expected explicit de-registration API for activities, but the SDK design relies on simply not registering activities in subsequent worker deployments.",
+  "proposedFix": "Use versioning to branch code and keep old activities registered only as long as workflows using them exist, then remove once migrated to new workflows.",
+  "workaround": "Identify and terminate/reset all workflows using old activities before removing their registrations from the worker.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that de-registration is implicit by not registering during worker startup. Recommended using versioning for gradual migration instead.",
+  "related": [
+    598
+  ],
+  "keyQuote": "You don't need to \"de-register\" activities explicitly, you do that by deploying a worker that doesn't register an activity during startup.",
+  "number": 443,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:41.302Z"
+}

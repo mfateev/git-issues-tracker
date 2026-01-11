@@ -1,0 +1,32 @@
+{
+  "summary": "Implementation to prevent users from combining sessions and worker versioning together, as the version API cannot currently handle the constraints imposed by sessions. The system will fail when both features are used together.",
+  "category": "feature",
+  "subcategory": "sessions",
+  "apis": [],
+  "components": [
+    "worker",
+    "session-manager",
+    "version-api"
+  ],
+  "concepts": [
+    "sessions",
+    "worker-versioning",
+    "api-constraints",
+    "feature-compatibility",
+    "versioning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use sessions with worker versioning will receive a clear failure instead of encountering undefined behavior or runtime errors.",
+  "rootCause": "The version API's constraints are incompatible with session requirements, making simultaneous use unsupported.",
+  "proposedFix": "Add validation to fail when users attempt to create both a session worker and a versioned worker together.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added to prevent combining sessions and worker versioning by failing early with a clear error.",
+  "related": [
+    1227
+  ],
+  "keyQuote": "users cannot combine sessions and worker versioning . Until the version API can handle the constraints of sessions we agreeded to fail when trying to combine sessions and worker version",
+  "number": 1234,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:31.371Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Non-deterministic workflow errors in the Go SDK should be clearly labeled as such. Currently, only one of three related errors mentions non-determinism, making it unclear to users that certain errors indicate non-deterministic behavior in workflows.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "non-determinism",
+    "error-clarity",
+    "workflow-execution",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encountering non-deterministic workflow errors may not immediately recognize the root cause without clear error messaging.",
+  "rootCause": "Error messages lack consistent non-determinism labeling across multiple error types",
+  "proposedFix": "Prepend \"nondeterministic workflow: \" to the other two non-determinism-related errors",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed in favor of PR #1281 which implements the error message improvements",
+  "related": [
+    1281
+  ],
+  "keyQuote": "Prepend \"nondeterministic workflow: \" to the other two.",
+  "number": 864,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:10.511Z"
+}

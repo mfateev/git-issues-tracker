@@ -1,0 +1,32 @@
+{
+  "summary": "Activity start-to-close timeout is currently calculated from server-provided start time, making it subject to system clock skew. The request is to base it on local system time (time.Now()) instead to be more resilient to time differences.",
+  "category": "bug",
+  "subcategory": "activity-timeout",
+  "apis": [],
+  "components": [
+    "activity",
+    "activity-executor",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "start-to-close",
+    "system-time",
+    "clock-skew",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities may timeout incorrectly when there is clock skew between the worker and server, causing unexpected execution failures.",
+  "rootCause": "Start-to-close timeout is calculated from server-provided start time rather than local system time, making it vulnerable to clock skew between worker and server.",
+  "proposedFix": "Calculate start-to-close timeout based on time.Now() instead of server-provided start time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation changed to use local system time (time.Now()) for start-to-close calculation instead of server time.",
+  "related": [
+    1912
+  ],
+  "keyQuote": "Have it based on `time.Now()` instead. Note, nothing can be done about schedule-to-start equivalent because there is no local-time equivalent for \"scheduled\".",
+  "number": 1930,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:00.183Z"
+}

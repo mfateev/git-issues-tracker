@@ -1,0 +1,32 @@
+{
+  "summary": "Request to enable TCP Keep Alive by default in the Go SDK to improve connection reliability and detect broken connections more quickly.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "network"
+  ],
+  "concepts": [
+    "tcp-keepalive",
+    "connection-reliability",
+    "connection-stability",
+    "network-health",
+    "dead-connection-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will benefit from more reliable connections and faster detection of broken network connections without manual configuration.",
+  "rootCause": null,
+  "proposedFix": "Enable TCP Keep Alive as a default setting in the Go SDK client configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TCP Keep Alive was enabled by default in the Go SDK implementation.",
+  "related": [
+    123
+  ],
+  "keyQuote": "Enable TCP Keep alive by default",
+  "number": 1248,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:07.674Z"
+}

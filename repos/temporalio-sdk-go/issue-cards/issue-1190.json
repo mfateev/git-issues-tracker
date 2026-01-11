@@ -1,0 +1,37 @@
+{
+  "summary": "Concurrent map writes in the SDK's command state machine cause fatal crashes when parent workflows trigger large numbers of child workflows. The issue manifests as race conditions in the commandsHelper that make the SDK and all workflows on the runner unresponsive.",
+  "category": "bug",
+  "subcategory": "concurrency-synchronization",
+  "apis": [
+    "ExecuteActivity",
+    "RequestCancelActivity",
+    "StartWorkflow",
+    "NewFuture"
+  ],
+  "components": [
+    "command-state-machine",
+    "commandsHelper",
+    "workflow-environment",
+    "activity-executor"
+  ],
+  "concepts": [
+    "concurrent-map-access",
+    "race-condition",
+    "synchronization",
+    "child-workflows",
+    "activity-cancellation",
+    "goroutine-safety"
+  ],
+  "severity": "critical",
+  "userImpact": "SDK crashes with fatal concurrent map write error during high-volume child workflow execution, causing complete workflow execution failure and blocking all workflows on the affected runner.",
+  "rootCause": "Missing synchronization protection for map writes in commandsHelper.addCommand() method when multiple goroutines attempt concurrent access during activity cancellation in high-concurrency scenarios.",
+  "proposedFix": "Add synchronization (mutex) protection to the concurrent map access in the command state machine's addCommand method.",
+  "workaround": "Avoid using defers in workflows as a temporary mitigation until the fix is released.",
+  "resolution": "fixed",
+  "resolutionDetails": "The concurrent map write issue was identified and fixed in the command state machine, with the fix merged and released in a subsequent SDK version.",
+  "related": [],
+  "keyQuote": "fatal error: concurrent map writes... when a parent workflow triggers a large number of child workflows... the impact is catastrophic as it impacts all the workflows executing on the runner.",
+  "number": 1190,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:12.865Z"
+}

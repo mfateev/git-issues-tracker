@@ -1,0 +1,32 @@
+{
+  "summary": "ActivityError lacks public accessor methods for its fields like retryState, activityID, and event IDs. Users currently must parse the error string to extract these values. The request is to add getter functions for ActivityError fields and potentially for other error types as well.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "ActivityError"
+  ],
+  "components": [
+    "error-handling",
+    "activity-executor",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "error-accessors",
+    "retry-state",
+    "activity-metadata",
+    "error-parsing",
+    "api-ergonomics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now directly access ActivityError fields without parsing string representations, making error handling in workflows more convenient and robust.",
+  "rootCause": null,
+  "proposedFix": "Add public getter methods for ActivityError fields: RetryState(), ActivityID(), ScheduledEventID(), StartedEventID(), ActivityType(), and Identity(). Consider implementing similar accessors for other error types.",
+  "workaround": "Parse the ActivityError.Error() string output to extract field values, or use Unwrap() to access the underlying cause error.",
+  "resolution": "fixed",
+  "resolutionDetails": "Public accessor methods were added to ActivityError and other error types to expose previously private fields.",
+  "related": [],
+  "keyQuote": "I think for convenience reasons we should also provide values for the above variables so that users are not forced to parse the string if they need these details",
+  "number": 496,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:47.769Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "ExecuteActivity context parameters are being ignored when SideEffect is called multiple times with different contexts. The activity receives an ID generated from the wrong context instead of the explicitly passed one.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity",
+    "SideEffect",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "workflow-context",
+    "activity-executor",
+    "side-effect"
+  ],
+  "concepts": [
+    "context-handling",
+    "activity-options",
+    "idempotency",
+    "context-isolation",
+    "parameter-passing"
+  ],
+  "severity": "high",
+  "userImpact": "Activities receive incorrect identifiers when multiple WithActivityOptions contexts are created with SideEffect calls, causing activities to be executed with wrong IDs.",
+  "rootCause": "Context created by WithActivityOptions is not properly isolated when SideEffect is called multiple times, causing subsequent SideEffect calls to use the latest context rather than the one passed to ExecuteActivity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug in context isolation and parameter passing for ExecuteActivity was identified and resolved.",
+  "related": [
+    372
+  ],
+  "keyQuote": "RunPartProcessor activity ends up with an id that contains the word completeentity. So not sure if the problem is that I've called SideEffect twice in a row with different parameters.",
+  "number": 49,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:45.190Z"
+}

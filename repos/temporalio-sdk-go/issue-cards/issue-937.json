@@ -1,0 +1,35 @@
+{
+  "summary": "Session fails when a worker restarts, but for many use cases with cached shared state, the session should survive worker restarts and only fail if the worker is down long-term indicating host failure. Request is for support of durable worker IDs and automatic session re-establishment timeouts.",
+  "category": "feature",
+  "subcategory": "session-management",
+  "apis": [
+    "CreateSession",
+    "CompleteSession"
+  ],
+  "components": [
+    "worker",
+    "session-manager",
+    "task-queue"
+  ],
+  "concepts": [
+    "session-persistence",
+    "worker-restart",
+    "durability",
+    "state-caching",
+    "fault-tolerance",
+    "timeout",
+    "retry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with cached shared state on disk cannot maintain sessions across worker restarts without manual workarounds, limiting fault tolerance and operational flexibility.",
+  "rootCause": "Current session implementation terminates sessions immediately when the owning worker restarts, without distinguishing between temporary restarts (e.g., version updates) and permanent failures.",
+  "proposedFix": "Support special durable worker IDs that persist across restarts and introduce a timeout mechanism for automatic session re-establishment after worker restarts.",
+  "workaround": "Create per-worker task queues and assign consistent task queue across restarts, or use a combination of sessions with per-worker task queues that allow workflow retry logic to select healthy workers.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For many use cases, a restart of a worker is not a problem as the shared state is cached on the host disk, and the session should continue as if nothing happened.",
+  "number": 937,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:38.819Z"
+}

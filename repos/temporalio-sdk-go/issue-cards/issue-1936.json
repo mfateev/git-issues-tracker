@@ -1,0 +1,30 @@
+{
+  "summary": "The `workflowcheck` tool incorrectly flags `reflect.New` as non-deterministic due to sync.Map operations, even though it should be deterministic like `reflect.Value.Interface`.",
+  "category": "bug",
+  "subcategory": "workflow-validation",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "determinism-checker",
+    "reflect-operations"
+  ],
+  "concepts": [
+    "determinism",
+    "reflection",
+    "sync.Map",
+    "workflow-constraints",
+    "static-analysis"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use `reflect.New` in workflows when using workflowcheck validation, limiting legitimate use of reflection in workflows.",
+  "rootCause": "sync.Map operation inside reflect.New is causing the determinism checker to incorrectly mark it as non-deterministic",
+  "proposedFix": "Exempt `reflect.New` from non-determinism checks in the same way `reflect.Value.Interface` is exempted in ident_refs.go",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Could not be reproduced; reopening requested if issue occurs again",
+  "related": [],
+  "keyQuote": "It seems there is a `sync.Map` operation in Go that is causing this to appear non-deterministic. We should exempt `reflect.New` the same way we do `reflect.Value.Interface`",
+  "number": 1936,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:15.772Z"
+}

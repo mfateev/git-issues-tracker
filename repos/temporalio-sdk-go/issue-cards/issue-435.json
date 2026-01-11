@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow panics due to deadlock detection when many goroutines run concurrently. Users need to lower MaxConcurrentWorkflowTaskExecutionSize and MaxConcurrentActivityExecutionSize defaults, and request making the 1-second deadlock timeout configurable.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-executor",
+    "activity-executor"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "concurrency",
+    "goroutine-scheduling",
+    "timeout",
+    "performance",
+    "load-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot scale workflow execution with higher concurrency limits without triggering deadlock detection panics, limiting throughput and requiring manual tuning of worker configuration.",
+  "rootCause": "Deadlock detector uses a fixed 1-second timeout to detect when goroutines cannot be scheduled; under high load with many concurrent tasks, legitimate goroutines may exceed this threshold, triggering false-positive panics.",
+  "proposedFix": "Make the deadlock detection timeout value configurable via a worker option instead of relying only on the TEMPORAL_DEBUG environment variable.",
+  "workaround": "Set the TEMPORAL_DEBUG environment variable to disable deadlock detection entirely, or reduce MaxConcurrentWorkflowTaskExecutionSize and MaxConcurrentActivityExecutionSize values.",
+  "resolution": "fixed",
+  "resolutionDetails": "The team acknowledged the request and decided to make the 1-second timeout configurable as a future enhancement.",
+  "related": [],
+  "keyQuote": "Deadlock detector fires when a goroutine cannot get scheduled for execution for one second. It means that that your process is significantly overloaded.",
+  "number": 435,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:13.642Z"
+}

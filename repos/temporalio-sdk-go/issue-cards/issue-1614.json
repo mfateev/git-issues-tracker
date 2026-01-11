@@ -1,0 +1,33 @@
+{
+  "summary": "The VisitPayloadsOptions.Visitor context parent field is not properly reset after visit calls, causing it to leak to subsequent calls. Documentation should be clarified to explicitly state the context is mutated between calls and should not be referenced beyond the current call.",
+  "category": "bug",
+  "subcategory": "api-design",
+  "apis": [
+    "VisitPayloadsOptions",
+    "Visitor",
+    "VisitPayloadsContext"
+  ],
+  "components": [
+    "payload-visitor",
+    "context-handling",
+    "api-go"
+  ],
+  "concepts": [
+    "context-mutation",
+    "state-leakage",
+    "parent-field",
+    "documentation-clarity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected behavior if the context parent leaks between payload visit calls, and unclear documentation may lead to misuse of the mutable context.",
+  "rootCause": "The parent field is set on the context before visiting but not reset afterward, causing state to leak between calls.",
+  "proposedFix": "Pass the parent as a parameter to visitPayloads and set the parent before the type switch, rather than mutating and not resetting the context field.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The parent field reset logic was implemented and documentation was clarified to indicate the context is mutated between calls.",
+  "related": [],
+  "keyQuote": "Context is the same for every call of a visit and is mutated between calls, callers should not store it or reference it beyond the call.",
+  "number": 1614,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:00.946Z"
+}

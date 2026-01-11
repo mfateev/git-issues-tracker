@@ -1,0 +1,29 @@
+{
+  "summary": "Two high-severity vulnerabilities (CVE-2019-0210 and CVE-2019-0205) detected in github.com/uber-go/tally/v4-v4.1.1 dependency. Both are Apache Thrift vulnerabilities affecting Go JSON protocol implementations, causing potential panics and endless loops on invalid input. Upgrade to version 0.13.0 or later is recommended.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "tally-metrics",
+    "thrift-protocol"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "network-attack"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using the vulnerable tally dependency could crash or hang when processing malicious or malformed network input, causing service unavailability.",
+  "rootCause": "Apache Thrift versions 0.9.3-0.12.0 have panic and infinite loop vulnerabilities in TJSONProtocol and TSimpleJSONProtocol implementations when processing invalid input.",
+  "proposedFix": "Upgrade github.com/uber-go/tally/v4 to version 0.13.0 or later, which includes the fixed Apache Thrift dependency.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In Apache Thrift 0.9.3 to 0.12.0, a server implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic when feed with invalid input data.",
+  "number": 899,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:49.167Z"
+}

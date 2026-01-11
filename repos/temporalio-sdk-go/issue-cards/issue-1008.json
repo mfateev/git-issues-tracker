@@ -1,0 +1,31 @@
+{
+  "summary": "User unable to execute an activity defined in a Node.js service from a Go workflow. The activity name matched what was expected, but the execution failed until the user passed the activity name as a string.",
+  "category": "question",
+  "subcategory": "cross-service-activity",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow",
+    "activity-executor",
+    "cross-service-communication"
+  ],
+  "concepts": [
+    "activity-invocation",
+    "service-integration",
+    "activity-naming",
+    "inter-service-calls"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to call activities across different services may encounter execution failures if they don't use string-based activity names.",
+  "rootCause": "Activity invocation across services requires passing the activity name as a string rather than a function reference or different naming convention.",
+  "proposedFix": "Use string-based activity name when calling ExecuteActivity: workflow.ExecuteActivity(ctx, \"nodeActivity\").Get(ctx, nil)",
+  "workaround": "Pass the activity name as a string literal to ExecuteActivity instead of other invocation methods.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved the issue by passing the activity name as a string to ExecuteActivity.",
+  "related": [],
+  "keyQuote": "This issue got resolved by just passing the activity name. err := workflow.ExecuteActivity(ctx, \"nodeActivity\").Get(ctx, nil)",
+  "number": 1008,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:22.530Z"
+}

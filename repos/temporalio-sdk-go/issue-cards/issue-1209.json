@@ -1,0 +1,37 @@
+{
+  "summary": "A race condition occurs when evicting a workflow from cache in the Go SDK, particularly during child workflow cancellation operations. The issue manifests as concurrent map access violations when multiple goroutines attempt to interact with command state machines during workflow cleanup.",
+  "category": "bug",
+  "subcategory": "workflow-caching",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "WithCancel"
+  ],
+  "components": [
+    "workflow-cache",
+    "command-state-machine",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "cache-eviction",
+    "child-workflow-cancellation",
+    "goroutine-safety",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unpredictable runtime errors and crashes when running workflows with concurrent child workflow operations, particularly during cancellation, making workflows unreliable in production.",
+  "rootCause": "Unsynchronized access to the commands map in commandsHelper during cache eviction when multiple workflow goroutines attempt concurrent read/write operations to the command state machine.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The race condition was fixed by synchronizing access to the command state machine during cache eviction operations.",
+  "related": [
+    743,
+    1190
+  ],
+  "keyQuote": "Evicting a workflow from cache does causes a race condition in the SDK",
+  "number": 1209,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:59.340Z"
+}

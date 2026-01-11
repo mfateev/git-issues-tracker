@@ -1,0 +1,35 @@
+{
+  "summary": "Calling workflow.CreateSession while using a versioned worker fails because the internal session creation activity cannot locate a compatible worker, resulting in a ScheduleToStart timeout. Worker versioning and workflow sessions are fundamentally incompatible due to the session creation activity using a different task queue without version linkage.",
+  "category": "bug",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "CreateSession",
+    "UpdateWorkerBuildIdCompatibility",
+    "CompleteSession"
+  ],
+  "components": [
+    "worker",
+    "session-management",
+    "task-queue",
+    "internal-activities"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "session-creation",
+    "task-queue-routing",
+    "activity-scheduling",
+    "build-id-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use workflow sessions with versioned workers, blocking the use of both features together in production deployments.",
+  "rootCause": "The internalSessionCreationActivity uses a task queue without version info, and the server has no mechanism to link version info across multiple task queues, causing the activity to fail scheduling.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker versioning and sessions are not compatible at this time because the task queue used for internalSessionCreationActivity does not have the same version info",
+  "number": 1227,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:13.853Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The ChildWorkflowExecutionFailedCause enum has only one value that's semantically confusing. It should be renamed from 'WorkflowAlreadyRunning' to 'WorkflowAlreadyStarted' to accurately reflect that child workflow creation fails when a child is already closed and workflowIdReusePolicy is not AllowDuplicate, consistent with StartWorkflowExecution API behavior.",
+  "category": "bug",
+  "subcategory": "proto-enums",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "proto-enums",
+    "child-workflow"
+  ],
+  "concepts": [
+    "workflow-reuse-policy",
+    "naming-consistency",
+    "enum-semantics",
+    "child-workflow-creation",
+    "failure-causes"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers are confused by the misleading enum name when handling child workflow creation failures related to workflow ID reuse policies.",
+  "rootCause": "Enum name 'WorkflowAlreadyRunning' is semantically inaccurate since child workflow creation can also fail when a child is already closed with restrictive reuse policies.",
+  "proposedFix": "Rename ChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning to ChildWorkflowExecutionFailedCauseWorkflowAlreadyStarted to align with StartWorkflowExecution API semantics.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enum was renamed to reflect the actual failure condition and maintain consistency with StartWorkflowExecution API.",
+  "related": [],
+  "keyQuote": "Let's rename ChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning to ChildWorkflowExecutionFailedCauseWorkflowAlreadyStarted to be not confusing and consistent",
+  "number": 6,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:29:55.415Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Race condition in Register*WithOptions functions due to unprotected map reads. The issue parallels a similar bug in the parent Cadence project where concurrent access to a map without synchronization causes data races.",
+  "category": "bug",
+  "subcategory": "worker-registration",
+  "apis": [],
+  "components": [
+    "worker",
+    "registration",
+    "map-synchronization"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "data-race",
+    "map-access",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Concurrent calls to Register*WithOptions functions could cause crashes or undefined behavior due to unsynchronized map access.",
+  "rootCause": "Map read operations were not protected by synchronization primitives (mutex or similar), allowing concurrent access",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Map access is now properly protected by a map synchronization mechanism",
+  "related": [
+    979
+  ],
+  "keyQuote": "Issue is stale - map access is properly protected by a map now.",
+  "number": 149,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:03.811Z"
+}

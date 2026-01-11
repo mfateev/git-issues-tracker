@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add GetUnhandledUpdateNames to allow catch-all handlers for updates in workflows, similar to GetUnhandledSignalNames for signals. Discussion concluded that a more generic dynamic handler approach would be better suited for updates due to their different API and timing requirements compared to signals.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "GetUnhandledSignalNames"
+  ],
+  "components": [
+    "workflow",
+    "update-handler",
+    "signal-handler"
+  ],
+  "concepts": [
+    "catch-all-handler",
+    "dynamic-handler",
+    "unhandled-updates",
+    "workflow-api",
+    "handler-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently implement a catch-all handler for workflow updates, limiting flexibility in handling unexpected update types compared to signal handling.",
+  "rootCause": "Updates API lacks the equivalent catch-all mechanism that exists for signals (GetUnhandledSignalNames), and directly mimicking signals is not appropriate due to different API behavior and execution timing.",
+  "proposedFix": "Implement a dynamic handler registration mechanism for updates that allows a catch-all handler to run before the main workflow function, better suited to updates' API and behavior than mimicking the signals approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Merged into issue #997 which implements a more appropriate dynamic handler solution per features#201 requirements.",
+  "related": [
+    997,
+    201
+  ],
+  "keyQuote": "I don't think we should mimic the signal approach since updates and signal have very different APIs and behavior in the Go SDK.",
+  "number": 1316,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:25.092Z"
+}

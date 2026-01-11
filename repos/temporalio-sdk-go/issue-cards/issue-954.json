@@ -1,0 +1,28 @@
+{
+  "summary": "Remove unnecessary error return from OpenTelemetry tracing interceptor function that always returns nil. The maintainer requests keeping the error return for future API compatibility to avoid breaking changes if error handling is needed later.",
+  "category": "other",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "tracing-interceptor"
+  ],
+  "concepts": [
+    "api-design",
+    "backwards-compatibility",
+    "future-proofing",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "No user impact; this is an internal API design discussion about whether to remove an unused error return value.",
+  "rootCause": null,
+  "proposedFix": "Remove the error return from the function signature since it always returns nil",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided to keep the error return for future proofing and API stability, declining to remove it.",
+  "related": [],
+  "keyQuote": "This is for future proofing. We may return an error from it one day, so we need it to be present now so we don't break people later.",
+  "number": 954,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:30.265Z"
+}

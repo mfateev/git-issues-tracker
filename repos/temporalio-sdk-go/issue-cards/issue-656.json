@@ -1,0 +1,34 @@
+{
+  "summary": "The Go SDK's activity heartbeat throttling interval is hardcoded to 10 minutes, which is longer than other SDKs. This issue requests making the interval configurable and reducing the default to be more consistent across all Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "ActivityOptions",
+    "HeartbeatDetails"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-throttler",
+    "worker-config"
+  ],
+  "concepts": [
+    "heartbeat",
+    "throttling",
+    "configuration",
+    "activity-timeout",
+    "consistency",
+    "sdk-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users have less control over heartbeat behavior and experience inconsistent activity timeout handling compared to other SDKs due to the long default throttling interval.",
+  "rootCause": "The heartbeat throttling interval is hardcoded to 10 minutes in the Go SDK implementation, differing from behavior specified in the cross-SDK specification.",
+  "proposedFix": "Make the heartbeat throttling interval configurable through ActivityOptions and reduce the default interval below 10 minutes to match other SDK implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The interval was made configurable and the default was reduced to align with other SDKs.",
+  "related": [],
+  "keyQuote": "Go SDK to implement this behavior: https://temporalio.notion.site/Activity-heartbeats-inconsistent-behavior-between-SDKs-32d81da0748044a8932481d2c9864791",
+  "number": 656,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:11.294Z"
+}

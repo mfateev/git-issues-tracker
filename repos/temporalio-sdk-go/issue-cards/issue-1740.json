@@ -1,0 +1,28 @@
+{
+  "summary": "User requests an official release of the workflowcheck tool, which hasn't been tagged for 9 months. A recent commit fixes handling of Go 1.22 alias types that should be included in the next release.",
+  "category": "feature",
+  "subcategory": "workflowcheck-release",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "go-tooling"
+  ],
+  "concepts": [
+    "release-management",
+    "go-compatibility",
+    "tooling",
+    "version-tagging"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access the latest workflowcheck tool with bug fixes and Go 1.22 compatibility improvements without building from source.",
+  "rootCause": null,
+  "proposedFix": "Release a new version of workflowcheck including the Go 1.22 alias type handling fix.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "New workflowcheck release v0.3.0 was tagged by the team shortly after the request.",
+  "related": [],
+  "keyQuote": "Workflowcheck hasn't had a tagged release for ~ 9 months. Is there one planned soon?",
+  "number": 1740,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:51.857Z"
+}

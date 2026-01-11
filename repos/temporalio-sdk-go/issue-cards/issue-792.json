@@ -1,0 +1,35 @@
+{
+  "summary": "Worker fatal errors currently kill the process without proper error handling or user notification. The request is to expose these errors through the Run call or add a WorkerFailureHandler option so users can handle errors without process termination.",
+  "category": "feature",
+  "subcategory": "worker-error-handling",
+  "apis": [
+    "Start",
+    "Stop",
+    "Run"
+  ],
+  "components": [
+    "worker",
+    "error-handling",
+    "lifecycle"
+  ],
+  "concepts": [
+    "error-propagation",
+    "graceful-shutdown",
+    "worker-failure",
+    "process-lifecycle",
+    "error-notification",
+    "signal-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly handle fatal worker errors and are forced to deal with process termination, making it difficult to implement robust error handling in production systems.",
+  "rootCause": "Non-retryable worker errors signal process termination instead of returning errors to the caller or providing a handler for them.",
+  "proposedFix": "Expose fatal worker errors via the Run call, or add a WorkerFailureHandler option to allow users to handle errors without defaulting to process death.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to just stop the entire worker and relay the error. Right now, someone can Start and won't see an error until Stop is called.",
+  "number": 792,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:44.254Z"
+}

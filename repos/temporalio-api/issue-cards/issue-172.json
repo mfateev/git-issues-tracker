@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to support Payloads for ApplicationFailure message and stack trace fields instead of plain text, enabling encryption of sensitive application information through custom data converters.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "application-failure",
+    "payload",
+    "data-converter"
+  ],
+  "concepts": [
+    "encryption",
+    "sensitive-data",
+    "security",
+    "error-messages",
+    "stack-trace",
+    "payloads"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently encrypt sensitive error messages and stack traces in ApplicationFailure, risking exposure of sensitive application information.",
+  "rootCause": null,
+  "proposedFix": "Add the ability to use Payloads for ApplicationFailure message and stack trace fields so they could be encrypted with a custom data converter",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add the ability to use Payloads for these so they could be encrypted with a custom data converter",
+  "number": 172,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:42.013Z"
+}

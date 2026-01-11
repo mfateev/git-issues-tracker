@@ -20,6 +20,7 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 | [Recent Issues Analysis](analysis/recent.md) | Themes and urgent issues from last 30 days |
 | [Recent Issues List](analysis/stats-recent.md) | Raw list of issues from last 30 days |
 | [Statistics](analysis/stats-all.md) | Aggregate statistics across all repos |
+| **[🎯 Theme Analysis Index](analysis/themes/index.md)** | Cross-cutting theme analysis (API design, testing, performance, etc.) |
 
 ## Tracked Repositories
 
@@ -53,15 +54,25 @@ analysis/
 ├── <sdk>.md                # Per-SDK analysis (LLM-generated)
 ├── contributors.md         # Contributor statistics
 ├── stats-recent.md         # Recent issues list (script-generated)
-└── recent.md               # Recent issues analysis (LLM-generated)
+├── recent.md               # Recent issues analysis (LLM-generated)
+├── cards-summary.txt       # Grep-friendly issue summaries (semantic)
+└── themes/                 # Cross-cutting theme analysis (semantic)
+    ├── index.md            # Theme index with issue counts
+    └── <theme>.md          # Theme-specific analysis
 
 repos/{owner}-{repo}/
 ├── issues/                 # Individual issue JSON files
 ├── issues-index.json       # Quick lookup index with engagement stats
-└── sync-metadata.json      # Tracks sync state
+├── issues-index-enhanced.json  # Enhanced index with semantic fields
+├── issues-by-area.json     # Issues grouped by subcategory
+├── sync-metadata.json      # Tracks sync state
+└── issue-cards/            # Semantic issue cards
+    ├── issue-<num>.json    # Individual semantic card per issue
+    ├── cards-index.json    # All cards combined
+    └── generation-log.json # Processing metadata
 ```
 
 ## Documentation
 
-- **[IMPLEMENTATION.md](IMPLEMENTATION.md)** - Scripts, data formats, and querying guide
-- **[CLAUDE.md](CLAUDE.md)** - AI assistant context
+- **[CLAUDE.md](CLAUDE.md)** - AI assistant context and command reference
+- **[Semantic Analysis Plan](docs/semantic-analysis-implementation-plan.md)** - Three-phase pipeline for intelligent issue analysis

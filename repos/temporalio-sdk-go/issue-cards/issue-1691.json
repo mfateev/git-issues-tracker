@@ -1,0 +1,34 @@
+{
+  "summary": "User requests automatic propagation of Go context.Context values to activities without requiring manual configuration. Currently, context propagation requires manually defining each key and ensuring values are serializable, but the user has dynamic keys based on requests that need to be propagated automatically.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [
+    "ExecuteWorkflow",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "context-propagation",
+    "workflow-context"
+  ],
+  "concepts": [
+    "context-values",
+    "automatic-propagation",
+    "serialization",
+    "dynamic-keys",
+    "tracing",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users with dynamic context keys based on requests must manually configure context propagation or abandon context usage, limiting observability and tracing capabilities.",
+  "rootCause": "Go's context.Context package does not expose a way to iterate through all values, and workflows use workflow.Context rather than context.Context, preventing automatic propagation.",
+  "proposedFix": "Automatically propagate all context.Context values from the client call to activities without requiring manual key definition.",
+  "workaround": "Manually define each context key and ensure values are serializable using the existing context propagation mechanism documented in samples.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK maintainers determined this is not feasible due to Go language limitations - context.Context values cannot be iterated, and key definition is a Go requirement that the SDK cannot override.",
+  "related": [],
+  "keyQuote": "Go's context package chose not to expose a way to iterate through all values. Defining each key is Go language requirement there is nothing the Temporal SDK can do about that.",
+  "number": 1691,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:24.297Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Selector incorrectly loops forever when a closed channel is received instead of matching it once like it does for Futures. The AddReceive handler should only fire once when a channel is closed, not continuously.",
+  "category": "bug",
+  "subcategory": "workflow-selector",
+  "apis": [
+    "AddReceive",
+    "Select"
+  ],
+  "components": [
+    "selector",
+    "workflow-execution",
+    "channel-handling"
+  ],
+  "concepts": [
+    "blocking",
+    "channel-closure",
+    "event-matching",
+    "control-flow"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using selectors with closed channels hang indefinitely instead of progressing, blocking workflow execution.",
+  "rootCause": "Selector does not properly match closed channels once like it does for Futures, causing infinite loop behavior when a Done() channel closes.",
+  "proposedFix": "Match closed channels only once in the selector, applying the same logic used for Future resolution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Selector behavior was corrected during stabilization phase to properly handle closed channels as single-match events.",
+  "related": [],
+  "keyQuote": "We should match it only once the same way it is done for a `Future`.",
+  "number": 116,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:18.999Z"
+}

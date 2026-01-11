@@ -1,0 +1,34 @@
+{
+  "summary": "The SetStartWorkflowOptions method in the test suite doesn't properly set the workflow ID when passed via the ID field. Users cannot rename workflows in tests because the ID option is ignored during ExecuteWorkflow.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "SetStartWorkflowOptions",
+    "ExecuteWorkflow",
+    "GetInfo"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-info",
+    "test-suite"
+  ],
+  "concepts": [
+    "workflow-id",
+    "test-configuration",
+    "options-handling",
+    "workflow-execution",
+    "test-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot set custom workflow IDs in test environments, limiting test flexibility and forcing them to work with default IDs.",
+  "rootCause": "The setStartWorkflowOptions function does not handle the ID field from StartWorkflowOptions, only checking and setting timeout and task queue properties.",
+  "proposedFix": "Add ID field handling to the setStartWorkflowOptions function to set wf.WorkflowExecution.ID when options.ID is provided.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The ID field handling was added to setStartWorkflowOptions to properly set the workflow ID from StartWorkflowOptions.",
+  "related": [],
+  "keyQuote": "If a new ID is passed in, it's not set on the workflowInfo.",
+  "number": 661,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:29.633Z"
+}

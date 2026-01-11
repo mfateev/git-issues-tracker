@@ -1,0 +1,39 @@
+{
+  "summary": "Concurrent map writes occur during deferred disconnected context cancellation in the Go SDK, causing fatal runtime errors under high load. The issue manifests as a race condition during activity cancellation when context cleanup happens concurrently with command state machine operations.",
+  "category": "bug",
+  "subcategory": "concurrency-race-condition",
+  "apis": [
+    "RequestCancelActivity"
+  ],
+  "components": [
+    "context",
+    "command-state-machine",
+    "activity-executor",
+    "workflow-dispatcher"
+  ],
+  "concepts": [
+    "concurrent-map-writes",
+    "race-condition",
+    "context-cancellation",
+    "goroutine-safety",
+    "deferred-cleanup"
+  ],
+  "severity": "critical",
+  "userImpact": "Production workflows fail with fatal errors under load due to concurrent map access during activity cancellation.",
+  "rootCause": "Workflow cache eviction logic caused race conditions between goroutines accessing the commands map during context cleanup, particularly in NewDisconnectedContext deferred cleanup during activity cancellation.",
+  "proposedFix": "Implement proper synchronization in the workflow cache eviction mechanism to prevent concurrent access to the commands map during cleanup operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Root cause identified as workflow cache eviction race condition (issue #1209). Fixed in Go SDK 1.25.1 with additional follow-up work in issues #1270 and #1235.",
+  "related": [
+    721,
+    1209,
+    1240,
+    1270,
+    1235
+  ],
+  "keyQuote": "The root cause was actually a race due to how the SDK evicts workflows from cache",
+  "number": 743,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:17.716Z"
+}

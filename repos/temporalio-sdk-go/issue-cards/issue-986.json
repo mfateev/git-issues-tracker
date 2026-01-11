@@ -1,0 +1,36 @@
+{
+  "summary": "AwaitWithTimeout does not cancel its timer when the condition is satisfied, causing unnecessary workflow tasks to be created and waking idle workflows. The issue requests a compatible way to cancel these timers, potentially using SDK version markers to enable future-only fixes.",
+  "category": "bug",
+  "subcategory": "timer-cancellation",
+  "apis": [
+    "AwaitWithTimeout",
+    "ReceiveWithTimeout"
+  ],
+  "components": [
+    "workflow-engine",
+    "timer-manager",
+    "signal-handling"
+  ],
+  "concepts": [
+    "timer-cancellation",
+    "workflow-task-optimization",
+    "resource-efficiency",
+    "idle-workflows",
+    "LRU-cache",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Idle workflows are unnecessarily woken up to process erroneous timer tasks, impacting performance and resource utilization.",
+  "rootCause": "AwaitWithTimeout does not cancel timers after the condition is satisfied, allowing the timer to fire and create unnecessary workflow tasks.",
+  "proposedFix": "Implement SDK version markers on the first workflow task completion to enable backward-compatible fixes for timer cancellation in future SDK versions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1125
+  ],
+  "keyQuote": "An otherwise idle workflow is now woken up to run. It'll be put to the top of LRU cache, replay itself, etc.",
+  "number": 986,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:16.045Z"
+}

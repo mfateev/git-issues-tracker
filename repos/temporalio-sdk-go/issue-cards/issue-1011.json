@@ -1,0 +1,31 @@
+{
+  "summary": "WorkflowReplayer.ReplayWorkflowHistory silently fails when the workflow input cannot be deserialized, returning nil instead of an error. This prevents proper compatibility checking during replay since deserialization failures are not reported.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistory"
+  ],
+  "components": [
+    "replayer",
+    "deserialization",
+    "workflow-input"
+  ],
+  "concepts": [
+    "error-handling",
+    "deserialization",
+    "compatibility-checking",
+    "replay-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot detect deserialization failures when replaying workflows, making it impossible to validate workflow compatibility with different data formats.",
+  "rootCause": "The replayer does not properly handle deserialization errors for workflow input during replay, silently skipping the workflow instead of propagating the error.",
+  "proposedFix": "The replayer should return an error when workflow input deserialization fails, treating it as a task failure.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in a later version (confirmed working in v1.20.0)",
+  "related": [],
+  "keyQuote": "Because of this, if there is a de-serialization problem we can't really test compatibility, as the replayer always returns nil.",
+  "number": 1011,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:36.984Z"
+}

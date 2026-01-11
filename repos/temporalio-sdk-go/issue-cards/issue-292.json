@@ -1,0 +1,35 @@
+{
+  "summary": "Documentation contains outdated references to activity.Register that should be removed. The API has evolved and these examples are no longer accurate or recommended.",
+  "category": "docs",
+  "subcategory": "activity-registration",
+  "apis": [
+    "Register"
+  ],
+  "components": [
+    "activity",
+    "documentation",
+    "worker"
+  ],
+  "concepts": [
+    "activity-registration",
+    "documentation-accuracy",
+    "API-evolution",
+    "deprecation",
+    "code-examples"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the documentation may encounter outdated code examples that don't reflect the current recommended way to register activities.",
+  "rootCause": "Documentation was not updated when the activity.Register API was changed or deprecated.",
+  "proposedFix": "Remove all references to activity.Register from the documentation in three identified locations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #306 by removing outdated activity.Register references from documentation.",
+  "related": [
+    41,
+    306
+  ],
+  "keyQuote": "I found three places mention about activity.Register",
+  "number": 292,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:09.673Z"
+}

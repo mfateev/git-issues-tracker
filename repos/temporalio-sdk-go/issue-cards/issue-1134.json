@@ -1,0 +1,34 @@
+{
+  "summary": "OnSignalExternalWorkflow mock is not triggered when signaling a child workflow that was started with env.OnWorkflow. The test environment attempts to signal the actual workflow instead of calling the mock, making it impossible to assert that SignalExternalWorkflow was called on mocked child workflows.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "SignalExternalWorkflow",
+    "OnSignalExternalWorkflow",
+    "OnWorkflow"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-mocking",
+    "signal-handling"
+  ],
+  "concepts": [
+    "mocking",
+    "child-workflows",
+    "signal-routing",
+    "test-assertions",
+    "workflow-communication"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot properly test and assert signal calls to child workflows in the test environment, limiting test coverage for workflows that signal their children.",
+  "rootCause": "The test environment treats mocked child workflows as real workflows, attempting to signal them directly rather than routing signals through the OnSignalExternalWorkflow mock.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers clarified this is intended behavior - the test environment handles signals between known workflows but doesn't mock signals to external workflows. Mocking OnSignalExternalWorkflow for known child workflows could lead to inconsistent test code.",
+  "related": [],
+  "keyQuote": "If the test environment is aware of the workflow being signaled then the test environment knows what will happen on the signal request, so there is no need to mock it.",
+  "number": 1134,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:41.660Z"
+}

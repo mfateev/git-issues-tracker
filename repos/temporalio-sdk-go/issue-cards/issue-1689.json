@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment uses a non-UUID string \"default-test-run-id\" for RunID instead of a valid UUID format, which breaks applications that validate RunID as UUID. Discussion clarified that run ID format is not guaranteed by Temporal and applications shouldn't assume UUID format.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetInfo"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-info",
+    "test-suite"
+  ],
+  "concepts": [
+    "run-id",
+    "uuid-validation",
+    "test-environment",
+    "workflow-execution",
+    "type-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Users writing tests that validate workflow RunID format against UUID standards will encounter failures in TestWorkflowEnvironment that don't match production behavior.",
+  "rootCause": "TestWorkflowEnvironment hardcodes RunID to \"default-test-run-id\" string rather than generating a valid UUID, which doesn't match server behavior despite server currently using UUIDs.",
+  "proposedFix": "Either set the default RunID to a valid UUID like \"00000000-0000-0000-0000-000000000000\" or expose a SetExecutionRunID function similar to SetContinuedExecutionRunID to allow customization.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that run ID format is not guaranteed by Temporal and is an implementation detail. Applications should not assume UUID format. Issue was closed as users shouldn't depend on run ID format.",
+  "related": [],
+  "keyQuote": "Yes, we do not guarantee the format of a run ID",
+  "number": 1689,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:22.736Z"
+}

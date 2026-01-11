@@ -1,0 +1,34 @@
+{
+  "summary": "The payload visitor in the Go SDK cannot visit Payload objects that are directly marshaled into an Any type at the top level. This feature request asks for adding a missing case to handle this scenario for future API support.",
+  "category": "feature",
+  "subcategory": "payload-serialization",
+  "apis": [
+    "VisitPayloads"
+  ],
+  "components": [
+    "payload-visitor",
+    "any-type-handling",
+    "marshaling"
+  ],
+  "concepts": [
+    "payload-serialization",
+    "visitor-pattern",
+    "type-handling",
+    "protocol-messages",
+    "api-extensibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be able to visit and mutate Payload objects nested directly within Any types, enabling future API scenarios.",
+  "rootCause": "Missing case statement for *common.Payload in visitPayloads() function",
+  "proposedFix": "Implement the base case to handle *common.Payload in the visitPayloads() switch statement",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The missing case for visiting Payload objects directly in Any types was implemented",
+  "related": [
+    202
+  ],
+  "keyQuote": "When creating a `common.Payload` and marshaling it into an `Any` type, the visitor is not able to visit this scenario, due to a missing `case *common.Payload` in `visitPayloads()`.",
+  "number": 1862,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:09.170Z"
+}

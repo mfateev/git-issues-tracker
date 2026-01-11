@@ -1,0 +1,33 @@
+{
+  "summary": "Activity testing with OnActivity mock doesn't properly verify non-retryable error configurations. When testing error handling from activities, there's no way to confirm that activity options setting errors as non-retryable are actually applied, since mocked errors are always marked as retryable.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnActivity"
+  ],
+  "components": [
+    "test-framework",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "non-retryable-errors",
+    "activity-options",
+    "error-configuration",
+    "verification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably verify that their non-retryable error configurations in activity options are correctly applied during testing, making it difficult to ensure error handling behavior matches production.",
+  "rootCause": "OnActivity mock always marks returned errors as retryable, preventing verification of non-retryable error settings configured in activity options.",
+  "proposedFix": "OnActivity should fail tests when attempting to return an activity marked as retryable from a workflow with non-retryable error options, and properly mark non-retryable errors with appropriate metadata.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "there isn't a good alternative to know that i've set the error as non-retryable properly from temporal's perspective",
+  "number": 1173,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:58.506Z"
+}

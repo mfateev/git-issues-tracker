@@ -1,0 +1,30 @@
+{
+  "summary": "Implement a Plugin system for the Go SDK to enable users to self-serve creating integrations with Temporal Workflows, similar to the existing Python implementation.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [],
+  "components": [
+    "plugin-system",
+    "sdk-core",
+    "integration-framework"
+  ],
+  "concepts": [
+    "extensibility",
+    "integration",
+    "self-service",
+    "plugins",
+    "customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can create custom integrations with Temporal Workflows without waiting for official SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Copy implementation approach from Python SDK plugin system",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Plugin system was implemented for the Go SDK based on the Python implementation",
+  "related": [],
+  "keyQuote": "Implement Plugins so that users can self-serve creating integrations with Temporal Workflows.",
+  "number": 2086,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:19.756Z"
+}

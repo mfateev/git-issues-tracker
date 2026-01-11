@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support simulating race conditions during signal draining in Go SDK tests to improve test coverage. The challenge is that signal draining occurs in a narrow time window that's difficult to trigger reliably in tests.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "signal-draining",
+    "test-environment",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "race-condition",
+    "test-coverage",
+    "signal-handling",
+    "timing",
+    "workflow-completion"
+  ],
+  "severity": "low",
+  "userImpact": "Users struggle to achieve complete test coverage for signal draining logic in their workflows due to timing difficulties.",
+  "rootCause": "Signal draining occurs in a tight time window during workflow completion, making it difficult to reliably trigger in tests without explicit test framework support.",
+  "proposedFix": "One suggestion is for the SDK to warn users if they don't check any signal channel in the last workflow task, as this risks dropping signals that arrive during draining.",
+  "workaround": "Skipping testing this race condition for now.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it's a tight time window that the signal drain needs to run, and hard at least for me to get signals in to trigger the draining in a test",
+  "number": 1895,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:06.559Z"
+}

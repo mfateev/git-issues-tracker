@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to allow users to specify attempt count in TestWorkflowEnvironment for testing workflow and activity logic that varies based on retry attempts.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowEnvironment",
+    "test-framework"
+  ],
+  "concepts": [
+    "testing",
+    "attempt-count",
+    "retry-logic",
+    "workflow-testing",
+    "activity-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently test conditional logic that depends on attempt counts without running workflows multiple times.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users may have different logic based on the attempt count of a workflow or activity, we should allow them to test those condition",
+  "number": 1469,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:02.348Z"
+}

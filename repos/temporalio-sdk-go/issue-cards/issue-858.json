@@ -1,0 +1,33 @@
+{
+  "summary": "User requests that RPC failures in the Go SDK include reason codes or error type information to distinguish between business logic errors (like 404 NotFound) and actual service failures (like 500s). This would help them monitor Temporal Cloud connectivity and distinguish operational issues from expected application behavior.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "grpc-client",
+    "metrics",
+    "error-handling"
+  ],
+  "concepts": [
+    "rpc-failures",
+    "error-codes",
+    "metrics-cardinality",
+    "monitoring",
+    "error-classification",
+    "interceptors"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily distinguish between expected errors (NotFound) and actual service failures when monitoring RPC metrics, making it difficult to set up accurate alerting.",
+  "rootCause": "RPC failures are recorded as a generic metric without distinguishing error types, making it unclear whether the failure is a business logic error or connectivity/service issue.",
+  "proposedFix": "Use gRPC interceptors to record custom metrics with error code tags, allowing users to filter metrics by error type rather than relying on a single generic failure metric.",
+  "workaround": "Users can implement custom gRPC interceptors using grpc.WithUnaryInterceptor and set them on client.Options.ConnectionOptions.DialOptions to extract and record error codes as custom metrics.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The SDK maintainers decided not to add reason codes to the default RPC failure metric, as it would unexpectedly increase metric cardinality for all users. Instead, they recommended users implement custom gRPC interceptors to record metrics according to their specific needs.",
+  "related": [],
+  "keyQuote": "I don't think we really want to add a tag on the existing metric that others are using and thereby increase their metric cardinality unexpectedly.",
+  "number": 858,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:58.006Z"
+}

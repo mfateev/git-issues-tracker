@@ -1,0 +1,33 @@
+{
+  "summary": "Worker cache discards workflows after query processing, requiring expensive replays on subsequent queries. Request to add a config option to keep queried workflows in the sticky cache for better performance.",
+  "category": "feature",
+  "subcategory": "workflow-cache",
+  "apis": [],
+  "components": [
+    "worker",
+    "cache",
+    "query-handler",
+    "task-handler"
+  ],
+  "concepts": [
+    "caching",
+    "sticky-assignment",
+    "query-processing",
+    "workflow-replay",
+    "performance-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with encryption/offloading codecs experience expensive replay overhead on each workflow query, degrading query performance.",
+  "rootCause": "Query tasks cannot set sticky cache attribute on the server side, preventing workers from keeping queried workflows in cache",
+  "proposedFix": "Add a config property to allow workflows that are queried to be inserted into the worker sticky cache",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4463
+  ],
+  "keyQuote": "Because replays can get a bit expensive, especially if encryption/offloading codecs are used (which we do), it would be nice if querying a workflow would add it to the worker sticky cache.",
+  "number": 1716,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:24.625Z"
+}

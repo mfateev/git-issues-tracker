@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose OriginalRunId and FirstRunId fields in the Go SDK's WorkflowInfo, matching functionality already available in Java SDK and Cadence Go SDK.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow",
+    "workflow-info"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "run-id",
+    "workflow-history",
+    "api-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need access to original and first run IDs for workflow execution tracking and correlation, which is already available in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add OriginalRunId and FirstRunId fields to WorkflowInfo struct, matching the implementation in Java SDK and Cadence Go SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fields were exposed in WorkflowInfo to provide parity with Java SDK and Cadence SDK implementations.",
+  "related": [],
+  "keyQuote": "They are already provided in Java SDK",
+  "number": 1087,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:26.991Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow replay tests fail with a scheduledEventID to activityID lookup error when replaying recent workflow histories from Temporal Cloud, while older histories from earlier 2024 work correctly.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistoryFromJSONFile",
+    "NewWorkflowReplayer",
+    "RegisterWorkflow"
+  ],
+  "components": [
+    "workflow-replayer",
+    "command-state-machine",
+    "event-handler"
+  ],
+  "concepts": [
+    "replay",
+    "history-processing",
+    "activity-scheduling",
+    "determinism",
+    "event-correlation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot validate workflow code changes against recent production workflow histories, blocking replay-based testing.",
+  "rootCause": "Internal command state machine fails to resolve scheduledEventID to activityID mapping during event processing in recent histories.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue redirected to Temporal Cloud support via Zendesk ticket; not resolved as a public bug.",
+  "related": [],
+  "keyQuote": "[TMPRL1100] lookup failed for scheduledEventID to activityID: scheduleEventID: 7, activityID: 7",
+  "number": 1594,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:16.583Z"
+}

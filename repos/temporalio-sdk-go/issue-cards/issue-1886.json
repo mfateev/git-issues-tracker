@@ -1,0 +1,36 @@
+{
+  "summary": "Failure converter payloads may bypass the payload visitor interceptor if the failure converter is positioned before the payload visitor in the interceptor chain. Documentation should clarify the required ordering of failure converter and payload codec interceptors.",
+  "category": "bug",
+  "subcategory": "interceptor-ordering",
+  "apis": [
+    "NewFailureVisitorInterceptor",
+    "NewPayloadVisitorInterceptor",
+    "NewFailureGRPCClientInterceptor",
+    "NewPayloadCodecGRPCClientInterceptor"
+  ],
+  "components": [
+    "failure-converter",
+    "payload-codec",
+    "interceptor-chain",
+    "go.temporal.io/sdk/converter"
+  ],
+  "concepts": [
+    "interceptor-ordering",
+    "payload-encoding",
+    "failure-handling",
+    "codec-chain",
+    "visitor-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with encoded failures and payload visitor interceptors may miss intercepting payloads created by the failure converter due to incorrect interceptor ordering.",
+  "rootCause": "Failure converter payloads are not visited by the payload visitor interceptor when the failure converter is positioned after the payload visitor in the chain.",
+  "proposedFix": "Document that failure converter should come before payload codec converter in the interceptor chain for both NewFailureVisitorInterceptor/NewPayloadVisitorInterceptor and NewFailureGRPCClientInterceptor/NewPayloadCodecGRPCClientInterceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "failure converter should come before payload codec converter",
+  "number": 1886,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:51.796Z"
+}

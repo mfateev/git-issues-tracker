@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support returning WorkflowExecutionAlreadyStartedError in tests. The issue references a Cadence client PR and was resolved by a specific commit that addressed this test functionality.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-utilities",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "testing",
+    "error-simulation",
+    "workflow-execution",
+    "duplicate-detection",
+    "test-support"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can now test error handling for duplicate workflow execution attempts in their test suites.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by commit e204e07feb1328c2828fa4bbebd0cf92ebe2c8f1 which implemented support for returning WorkflowExecutionAlreadyStartedError in tests.",
+  "related": [],
+  "keyQuote": "closing since looks like this was resolved https://github.com/temporalio/sdk-go/commit/e204e07feb1328c2828fa4bbebd0cf92ebe2c8f1",
+  "number": 139,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:05.792Z"
+}

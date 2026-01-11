@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to customize histogram buckets on a per-metric basis in the Go SDK. Currently, bucket configuration only applies globally through Tally's Reporter.RegisterTimer, making it impossible to customize buckets for specific metrics like temporal_activity_execution_latency_bucket without affecting all metrics.",
+  "category": "feature",
+  "subcategory": "metrics-configuration",
+  "apis": [],
+  "components": [
+    "metrics",
+    "tally-reporter",
+    "histogram-buckets"
+  ],
+  "concepts": [
+    "metrics",
+    "histogram",
+    "buckets",
+    "tally",
+    "configuration",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot customize histogram bucket sizes for individual metrics, forcing them to choose between accepting defaults or changing buckets globally for all metrics.",
+  "rootCause": "Tally integration only supports global histogram bucket configuration through Reporter.RegisterTimer, with no per-metric granularity.",
+  "proposedFix": "Implement per-metric bucket customization support separate from global Tally configuration.",
+  "workaround": "Use Tally's Reporter.RegisterTimer to configure buckets globally for all metrics.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closing as this configuration is part of Tally's scope of responsibility and not within SDK scope.",
+  "related": [],
+  "keyQuote": "The only way supported right now is with Tally, which will customize the buckets for all the metrics.",
+  "number": 1549,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:32.035Z"
+}

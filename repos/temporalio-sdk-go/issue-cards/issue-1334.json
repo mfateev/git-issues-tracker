@@ -1,0 +1,32 @@
+{
+  "summary": "Allow users to opt out of automatic tracer span creation when scheduling workflows. Currently the tracing interceptor always creates a span and attaches it to workflow actions on schedule create, but users should have the option to disable this behavior via tracing interceptor options.",
+  "category": "feature",
+  "subcategory": "tracing-interceptor",
+  "apis": [],
+  "components": [
+    "tracing-interceptor",
+    "workflow-actions",
+    "scheduler"
+  ],
+  "concepts": [
+    "tracing",
+    "span-creation",
+    "interceptor-options",
+    "observability",
+    "opt-out"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently disable automatic span creation for scheduled workflows, limiting control over tracing behavior and potentially generating unnecessary spans.",
+  "rootCause": null,
+  "proposedFix": "Add configuration option to the tracing interceptor to allow opting out of span creation on schedule create",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    394
+  ],
+  "keyQuote": "Allow user to opt out of this in tracing interceptor options.",
+  "number": 1334,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:08.652Z"
+}

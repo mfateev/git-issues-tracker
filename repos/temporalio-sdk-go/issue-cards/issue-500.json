@@ -1,0 +1,30 @@
+{
+  "summary": "Activity execution fails with misleading error message \"Call with too few input arguments\" when the wrong context type is passed to an activity. The error message doesn't clearly indicate that the context parameter is incorrect.",
+  "category": "bug",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "context",
+    "parameter-validation",
+    "error-messaging",
+    "activity-invocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive confusing error messages when accidentally passing the wrong context to activities, making debugging difficult.",
+  "rootCause": "Error validation logic doesn't distinguish between incorrect context type and actual missing arguments, resulting in the same generic error message.",
+  "proposedFix": "Improve error message to specifically indicate when the wrong context type is passed to an activity, distinguishing it from missing arguments.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #1093 by improving error validation and messages for context parameter validation in activity invocation.",
+  "related": [
+    1093
+  ],
+  "keyQuote": "The error does not provide good information.",
+  "number": 500,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:45.666Z"
+}

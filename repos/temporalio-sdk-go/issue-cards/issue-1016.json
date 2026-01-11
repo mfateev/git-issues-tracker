@@ -1,0 +1,36 @@
+{
+  "summary": "Request for a non-memoized version of GetVersion API that can be safely used within long-running loops to enable deterministic workflow code versioning without growing search attributes unboundedly.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "GetVersion"
+  ],
+  "components": [
+    "workflow-engine",
+    "versioning",
+    "determinism"
+  ],
+  "concepts": [
+    "versioning",
+    "long-running-workflows",
+    "determinism",
+    "replay",
+    "code-updates",
+    "memoization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely update workflow code in long-running loops without complex workarounds that risk search attribute overflow.",
+  "rootCause": "The memoized GetVersion API grows unboundedly when called multiple times in a loop with different version keys, making it unsuitable for iterative versioning in long-running workflows.",
+  "proposedFix": "Provide a non-memoized version of GetVersion API similar to TypeScript SDK's patching API that can be used safely within loops.",
+  "workaround": "Create wrapper function that reuses a single version key until max version is reached, then version per iteration; however this approach is unintuitive and can still fail with large search attributes.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of temporalio/features#518, tracked as temporalio/features#591",
+  "related": [
+    518,
+    591
+  ],
+  "keyQuote": "Provide a non memorized version of the `GetVersion` API that can be used in a loop like the typescript patched API",
+  "number": 1016,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:56.643Z"
+}

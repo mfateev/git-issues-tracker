@@ -1,0 +1,41 @@
+{
+  "summary": "SDK updates sent to a workflow while the worker is stopped are not being properly processed when the worker restarts. Two scenarios are demonstrated: updates waiting on activities fail with context deadline errors, and updates sent during worker downtime are not acknowledged in the workflow history.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "ExecuteWorkflow",
+    "UpdateWorkflow",
+    "SetUpdateHandler",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "update-handler",
+    "history-replay"
+  ],
+  "concepts": [
+    "update-handling",
+    "worker-restart",
+    "history-replay",
+    "sticky-queue",
+    "speculative-tasks",
+    "context-deadline"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows cannot reliably receive and process updates when workers are restarted or unavailable, causing update requests to fail or be lost.",
+  "rootCause": "Two separate issues: (1) History replay after worker crash doesn't use the replayer's inferMessages logic to recover pending updates, (2) Speculative update tasks queued to sticky queue are not retried when a new worker incarnation starts with a different sticky queue",
+  "proposedFix": "Use the same inferMessages call from the replayer during history replay in the code path that catches up workflow context after a crash; implement retry logic for speculative tasks on sticky queue mismatch",
+  "workaround": "Disabling sticky queues works around the second issue (though this triggers a different bug that must also be fixed)",
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #1055, with related fixes in #1057 and temporalio/temporal#4018",
+  "related": [
+    1055,
+    1057,
+    4018
+  ],
+  "keyQuote": "we don't actually use the replayer...The same inferMessages call that is used by the replayer can be used in this additional code path",
+  "number": 1044,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:47.299Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Compilation error due to missing GetNamespace field in ScheduleActivityTaskCommandAttributes when using api v1.8.0 with sdk v1.14.0. The field was removed in a recent api commit, causing a version mismatch between sdk and api dependencies.",
+  "category": "bug",
+  "subcategory": "dependency-mismatch",
+  "apis": [],
+  "components": [
+    "command",
+    "ScheduleActivityTaskCommandAttributes",
+    "dependency-management"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "api-compatibility",
+    "compilation-error",
+    "dependency-versioning"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot compile their code when they update the api dependency to v1.8.0 without updating the sdk to v1.15.0 or later.",
+  "rootCause": "The Namespace field (field number 3) was removed from ScheduleActivityTaskCommandAttributes in api v1.8.0, but sdk v1.14.0 and earlier still referenced it, creating an incompatibility.",
+  "proposedFix": "Upgrade sdk to v1.15.0 which is compatible with api v1.8.0.",
+  "workaround": "Keep api at v1.7.1 until upgrading sdk, or use older sdk versions.",
+  "resolution": "fixed",
+  "resolutionDetails": "SDK v1.15.0 was released with support for api v1.8.0, resolving the compilation error.",
+  "related": [],
+  "keyQuote": "I am releasing a new Go SDK version today or tomorrow that works properly with 1.8.0 of that library.",
+  "number": 825,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:20.992Z"
+}

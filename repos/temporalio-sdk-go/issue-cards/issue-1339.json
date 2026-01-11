@@ -1,0 +1,31 @@
+{
+  "summary": "User reported that workflow.CreateSession was creating more sessions than MaxConcurrentSessionExecutionSize allowed, but investigation revealed this was a misunderstanding of how sessions work—sessions control activity execution placement, not workflow task scheduling.",
+  "category": "question",
+  "subcategory": "session-worker",
+  "apis": [
+    "CreateSession",
+    "CompleteSession"
+  ],
+  "components": [
+    "worker",
+    "session-manager"
+  ],
+  "concepts": [
+    "session-concurrency",
+    "workflow-task-scheduling",
+    "activity-execution",
+    "worker-isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Users may misunderstand how MaxConcurrentSessionExecutionSize constrains activities versus workflow tasks.",
+  "rootCause": "User misunderstanding of session semantics—sessions control what workers activities run on, not what workers workflow tasks run on. Multiple workflows can be waiting at the same worker without violating the session concurrency limit.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Determined not to be a bug after discussion clarified how sessions and MaxConcurrentSessionExecutionSize work. Sessions control activity worker affinity, not workflow task distribution.",
+  "related": [],
+  "keyQuote": "Sessions do not control what workers workflow tasks run on, only what worker activities run on.",
+  "number": 1339,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:06.497Z"
+}

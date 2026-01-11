@@ -1,0 +1,36 @@
+{
+  "summary": "SideEffect markers in workflow timelines are difficult to navigate when there are many in sequence, as users can only identify them by examining payloads. The request is to add naming capabilities to SideEffects for better timeline visibility, though the maintainer proposed using marker summaries instead.",
+  "category": "feature",
+  "subcategory": "workflow-timeline-visualization",
+  "apis": [
+    "SideEffect",
+    "MutableSideEffect"
+  ],
+  "components": [
+    "markers",
+    "timeline-ui",
+    "side-effect-executor"
+  ],
+  "concepts": [
+    "workflow-debugging",
+    "timeline-navigation",
+    "marker-identification",
+    "observability",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with many sequential SideEffects struggle to identify which side effect performed which operation when reviewing workflow timelines.",
+  "rootCause": "SideEffect markers lack identifying information (names or summaries) in the timeline, forcing users to decode functionality from serialized payloads.",
+  "proposedFix": "Add SideEffectOptions with Name parameter to allow custom marker names, or alternatively add Summaries to markers for UI display similar to Activities/LocalActivities.",
+  "workaround": "Manually inspect SideEffect payloads to determine which method was called; alternative approach using MutableSideEffect IDs but IDs are not shown in timeline.",
+  "resolution": "fixed",
+  "resolutionDetails": "Closed in favor of #2084, which proposes adding marker summaries rather than renaming capability.",
+  "related": [
+    2074,
+    2084
+  ],
+  "keyQuote": "Add SideEffectOptions with Name parameter... overriding marker names in SDK is the cleanest solution.",
+  "number": 2076,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:50.970Z"
+}

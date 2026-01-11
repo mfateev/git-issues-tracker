@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow queries hang indefinitely when the workflow execution is unavailable (e.g., due to panic) instead of timing out. The Go SDK lacks a default query timeout like tctl's 5-second default, causing client hangs.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "QueryWorkflow"
+  ],
+  "components": [
+    "client",
+    "query-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "query",
+    "panic",
+    "availability",
+    "hanging",
+    "deadlock"
+  ],
+  "severity": "high",
+  "userImpact": "Applications calling workflow queries may hang indefinitely when the workflow is unavailable, blocking client operations and requiring manual intervention to restart.",
+  "rootCause": "The Go SDK does not implement a default timeout for workflow queries, unlike tctl which has a 5-second default timeout.",
+  "proposedFix": "Implement a configurable default timeout for workflow queries in the Go SDK client, with a reasonable default value (e.g., 5 seconds matching tctl behavior).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The client hangs while running a query for a workflow execution that is not available (ex: panicking)",
+  "number": 482,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:14.013Z"
+}

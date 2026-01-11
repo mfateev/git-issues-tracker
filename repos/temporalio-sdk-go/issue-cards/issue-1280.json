@@ -1,0 +1,30 @@
+{
+  "summary": "User requested a public API function to extract workflow IDs from gRPC request/response protos for use in client-side tracing. Currently they use a brittle switch statement that's hard to maintain and prone to breaking with API changes.",
+  "category": "feature",
+  "subcategory": "grpc-client-interceptor",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "workflow-service",
+    "interceptor"
+  ],
+  "concepts": [
+    "workflow-identification",
+    "grpc-metadata",
+    "tracing-attributes",
+    "api-brittleness",
+    "request-inspection"
+  ],
+  "severity": "low",
+  "userImpact": "Users implementing gRPC client interceptors must maintain fragile type-switching code to extract workflow IDs for distributed tracing.",
+  "rootCause": null,
+  "proposedFix": "Expose a public function in the SDK to extract workflow IDs from request/response protos",
+  "workaround": "Maintain a switch statement over all request types that contain workflow IDs, with unit tests to catch new API additions",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided the user's current approach is appropriate and that exposing an extract-workflow-id function in public API doesn't have enough general-purpose value to justify inclusion",
+  "related": [],
+  "keyQuote": "I do think it is best as opposed to us exposing an extract-workflow-id-from-grpc-request in our public library API",
+  "number": 1280,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:22.247Z"
+}

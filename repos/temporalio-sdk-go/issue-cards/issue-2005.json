@@ -1,0 +1,32 @@
+{
+  "summary": "The OnWorkflow test mocker in the Go SDK doesn't propagate context headers that are passed from parent workflows to child workflows. While the actual child workflow can access these headers, the test mocking framework cannot see them.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnWorkflow"
+  ],
+  "components": [
+    "test-mocker",
+    "workflow-context",
+    "child-workflow"
+  ],
+  "concepts": [
+    "context-propagation",
+    "headers",
+    "mocking",
+    "testing",
+    "child-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test and verify context header propagation from parent to child workflows using the OnWorkflow mocker.",
+  "rootCause": "OnWorkflow mocker implementation does not capture or propagate context headers from the parent workflow context to the mocked child workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "OnWorkflow mocker was not able to see the headers passed through the workflow context from the parent workflow",
+  "number": 2005,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:19.743Z"
+}

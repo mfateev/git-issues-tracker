@@ -1,0 +1,33 @@
+{
+  "summary": "Race condition in local activity execution during worker shutdown causes inconsistent error messages. The activity context may complete before worker shutdown is processed, resulting in 'context canceled' instead of 'ErrWorkerShutdown'.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "worker",
+    "local-activity-executor",
+    "task-pollers"
+  ],
+  "concepts": [
+    "race-condition",
+    "context-cancellation",
+    "graceful-shutdown",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive inconsistent error messages when shutting down workers that have local activities listening to context cancellation.",
+  "rootCause": "The local activity execution goroutine completes before worker shutdown inspection, causing the context cancellation to be processed instead of the worker shutdown signal.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1910 which resolved the race condition in local activity context handling.",
+  "related": [
+    1910
+  ],
+  "keyQuote": "If a local activity has logic to complete on `ctx.Done()`, sometimes the local activity completes first, other times the worker shuts down first.",
+  "number": 1928,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:45.626Z"
+}

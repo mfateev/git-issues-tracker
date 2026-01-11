@@ -1,0 +1,32 @@
+{
+  "summary": "Support retrieving the current build ID from the WFTStarted event instead of WFTCompleted event in new versioning. The stamp in WorkflowTaskCompletedEventAttributes is deprecated and will be removed after old versioning cleanup.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "WorkflowInfo.GetCurrentBuildID()"
+  ],
+  "components": [
+    "workflow-task",
+    "versioning",
+    "event-handling"
+  ],
+  "concepts": [
+    "build-id",
+    "versioning",
+    "workflow-task-started",
+    "backwards-compatibility",
+    "deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on GetCurrentBuildID() need support for new versioning that retrieves the build ID from the correct event source.",
+  "rootCause": "The stamp in WorkflowTaskCompletedEventAttributes is deprecated in new versioning; build ID should come from WFTStarted event instead.",
+  "proposedFix": "Retrieve current build ID from WFTStarted event, with fallback to WFTCompleted event for old versioning compatibility when started event lacks a build ID.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In new versioning, current build ID for tasks being replayed should be retrieved from the WFTStarted event rather than WFTCompleted event.",
+  "number": 1471,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:15.706Z"
+}

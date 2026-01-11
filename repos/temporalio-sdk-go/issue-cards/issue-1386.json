@@ -1,0 +1,33 @@
+{
+  "summary": "Activity spans in OpenTelemetry tracing were appearing as root spans instead of being nested under their parent workflow. Investigation revealed this was not a bug but rather that the RunWorkflow span is only emitted upon completion, causing activities to appear orphaned until the workflow finishes.",
+  "category": "question",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "tracing",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "concepts": [
+    "span-hierarchy",
+    "distributed-tracing",
+    "workflow-lifecycle",
+    "asynchronous-execution",
+    "span-emission-timing"
+  ],
+  "severity": "low",
+  "userImpact": "Users implementing OpenTelemetry tracing may incorrectly perceive activity spans as orphaned during workflow execution, leading to confusion about trace hierarchy.",
+  "rootCause": "The RunWorkflow span is only emitted upon workflow completion, causing activity spans to appear as root spans until the workflow finishes execution.",
+  "proposedFix": null,
+  "workaround": "Wait for workflow completion to see the proper span hierarchy in the trace visualization.",
+  "resolution": "invalid",
+  "resolutionDetails": "Determined to be expected behavior, not a bug. The span hierarchy is correct once the workflow completes and the RunWorkflow span is emitted.",
+  "related": [],
+  "keyQuote": "it turns out this is not a bug, but rather that the \"RunWorkflow:FulfillmentWorkflow\" span is only emitted upon completion",
+  "number": 1386,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:35.475Z"
+}

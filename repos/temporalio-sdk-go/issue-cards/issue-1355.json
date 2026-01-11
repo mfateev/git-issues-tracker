@@ -1,0 +1,33 @@
+{
+  "summary": "Generic functions cannot be registered as activities because the SDK's function name parsing fails on generic type parameters, resulting in invalid activity names. The issue was closed as wontfix with a recommendation to use concrete wrapper functions instead.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [
+    "RegisterActivity",
+    "RegisterActivityWithOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-registration",
+    "reflection"
+  ],
+  "concepts": [
+    "generics",
+    "function-naming",
+    "reflection",
+    "type-parameters",
+    "registration"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using generic functions as activities must manually specify activity names instead of relying on automatic function name detection.",
+  "rootCause": "The `get_function_name` function in `internal/internal_worker.go` uses `runtime.FuncForPC()` which returns generic type parameters as `...`, causing incorrect parsing that results in invalid activity names like `]`.",
+  "proposedFix": "Improve the parsing of function names in `get_function_name` to properly handle Go generic type parameters.",
+  "workaround": "Use concrete non-generic wrapper functions or manually specify activity names via `RegisterActivityWithOptions` with the `Name` option.",
+  "resolution": "wontfix",
+  "resolutionDetails": "No SDK supports generics in reflectively-called functions. Workarounds are available with reasonable overhead. Documentation note recommended instead.",
+  "related": [],
+  "keyQuote": "Improve the parsing of function names to support generics, so generic functions can be registered directly.",
+  "number": 1355,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:35.320Z"
+}

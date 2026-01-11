@@ -1,0 +1,32 @@
+{
+  "summary": "PollWorkflowUpdate does not use a context-aware data converter, preventing proper serialization/deserialization of workflow update data with custom converters.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "PollWorkflowUpdate"
+  ],
+  "components": [
+    "workflow-client",
+    "data-converter",
+    "workflow-update-handler"
+  ],
+  "concepts": [
+    "data-converter",
+    "context-awareness",
+    "serialization",
+    "workflow-updates",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom data converters cannot properly serialize and deserialize workflow update payloads, breaking custom encoding support.",
+  "rootCause": "PollWorkflowUpdate implementation does not pass context to the data converter when processing workflow update data.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The PollWorkflowUpdate method was updated to use a context-aware data converter for proper serialization.",
+  "related": [],
+  "keyQuote": "PollWorkflowUpdate does not use a context aware data converter.",
+  "number": 1359,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:49.776Z"
+}

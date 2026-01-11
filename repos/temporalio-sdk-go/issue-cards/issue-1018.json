@@ -1,0 +1,31 @@
+{
+  "summary": "Importing the Go SDK causes a 7MB memory spike due to Protobuf type registration in init() clauses. The user inquires if this is expected behavior and whether a lighter SDK variant exists.",
+  "category": "bug",
+  "subcategory": "memory-footprint",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "sdk-initialization",
+    "type-registry"
+  ],
+  "concepts": [
+    "memory-usage",
+    "import-overhead",
+    "protobuf-registration",
+    "initialization",
+    "performance",
+    "startup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot adopt the SDK in memory-constrained environments without significant overhead on application startup.",
+  "rootCause": "Protobuf creates a global map of all registered types in init() clauses, consuming approximately 7MB of memory upon import.",
+  "proposedFix": null,
+  "workaround": "Use the Temporal CLI as a subprocess (though it also uses more than 7MB) or defer SDK inclusion to future releases.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The user decided to remove Temporal support for their 1.10 release and revisit in 1.11 if improvements are made. The team acknowledged the memory cost is acceptable given the type safety benefits Protobuf provides.",
+  "related": [],
+  "keyQuote": "The whole reason we lean on Protobuf is to have that type safety at an acceptable cost of a few megs.",
+  "number": 1018,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:52.446Z"
+}

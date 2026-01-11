@@ -1,0 +1,32 @@
+{
+  "summary": "Request to implement user metadata and workflow metadata query functionality in the Go SDK. This feature is dependent on server capabilities and references a cross-repository feature request.",
+  "category": "feature",
+  "subcategory": "metadata-query",
+  "apis": [],
+  "components": [
+    "metadata",
+    "query-api",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "metadata",
+    "workflow-state",
+    "query-interface",
+    "server-capability",
+    "data-retrieval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to query user and workflow metadata, enabling better visibility into workflow execution state.",
+  "rootCause": null,
+  "proposedFix": "Implement metadata query functionality following the cross-repository feature specification in temporalio/features#486",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support user and workflow metadata queries in the Go SDK",
+  "related": [
+    486
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/486. This can only be worked on in Go at this time because CI is testing against unstable server currently.",
+  "number": 1565,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:01.661Z"
+}

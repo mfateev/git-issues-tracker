@@ -1,0 +1,30 @@
+{
+  "summary": "QueryRejectCondition parameter is not being passed through in QueryWorkflowWithOptions, causing the query reject condition to be ignored when querying workflows.",
+  "category": "bug",
+  "subcategory": "query-workflow",
+  "apis": [
+    "QueryWorkflowWithOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "query-handler"
+  ],
+  "concepts": [
+    "query-reject-condition",
+    "parameter-passing",
+    "workflow-query",
+    "option-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot specify query reject conditions when querying workflows, limiting control over query behavior.",
+  "rootCause": "QueryRejectCondition parameter is not being forwarded from QueryWorkflowWithOptions to the underlying implementation at the specified code location.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Parameter passing was corrected in the QueryWorkflowWithOptions implementation.",
+  "related": [],
+  "keyQuote": "query reject condition not being passed",
+  "number": 1460,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:47.630Z"
+}

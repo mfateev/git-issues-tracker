@@ -1,0 +1,32 @@
+{
+  "summary": "workflowcheck static analyzer cannot detect workflow function types when registered via a map with `any` value type, requiring manual workarounds. Feature request to allow users to opt-out of this registration-time analysis for dynamic registration patterns.",
+  "category": "feature",
+  "subcategory": "static-analysis",
+  "apis": [
+    "RegisterWorkflowWithOptions"
+  ],
+  "components": [
+    "workflowcheck",
+    "static-analyzer",
+    "workflow-registration"
+  ],
+  "concepts": [
+    "static-analysis",
+    "type-inference",
+    "dynamic-registration",
+    "compiler-errors",
+    "workflow-validation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using dynamic workflow registration with `any` type maps cannot use workflowcheck static analysis without refactoring their registration code.",
+  "rootCause": "Go static analyzer cannot determine runtime types of map values typed as `any`, limiting what workflowcheck can validate at compile time.",
+  "proposedFix": "Provide a mechanism to allow users to ignore workflowcheck errors for dynamic registration patterns, or use type markers to enable static analysis of `any`-typed values.",
+  "workaround": "Avoid converting functions to `any` type in the map; instead keep compile-time type information by registering workflows in a separate statement after retrieving them from the map.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should let people ignore the workflowcheck registration-time analysis if the registration code is too dynamic for static analysis to discover.",
+  "number": 962,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:03.123Z"
+}

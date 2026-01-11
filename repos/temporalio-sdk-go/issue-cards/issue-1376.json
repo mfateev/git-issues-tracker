@@ -1,0 +1,32 @@
+{
+  "summary": "Expose the next retry delay field from ApplicationFailureInfo across all Temporal SDKs. This field was recently added to the API to allow activities to specify retry behavior on failure, and needs to be exposed in SDK implementations.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailureInfo"
+  ],
+  "components": [
+    "activity",
+    "failure-handling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "delay",
+    "failure",
+    "activity",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the next retry delay information on activity failures until all SDKs expose this newly added API field.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by exposing the next retry delay field on ApplicationFailureInfo across SDKs. Go SDK implementation was already completed.",
+  "related": [],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on ApplicationFailureInfo.",
+  "number": 1376,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:22.070Z"
+}

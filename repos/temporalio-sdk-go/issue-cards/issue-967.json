@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment does not complete workflows synchronously when nested workflows are started by activities on new environment instances. The workflow continues executing in a separate goroutine after ExecuteWorkflow returns, requiring manual polling to detect completion.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow",
+    "IsWorkflowCompleted"
+  ],
+  "components": [
+    "testsuite",
+    "test-workflow-environment",
+    "activity-executor"
+  ],
+  "concepts": [
+    "synchronous-execution",
+    "nested-workflows",
+    "goroutines",
+    "workflow-completion",
+    "test-harness",
+    "timing-issue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with nested workflow executions in activities encounter synchronization issues where child workflows complete asynchronously, breaking expected test behavior.",
+  "rootCause": "When activities instantiate new TestWorkflowEnvironment instances and execute workflows on them, the workflow completion logic operates asynchronously instead of synchronously as documented.",
+  "proposedFix": null,
+  "workaround": "Manually poll IsWorkflowCompleted() in a loop to wait for the workflow to complete before continuing.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "One of the nested test workflows that is started by an activity on a new testsuite.TestWorkflowEnvironment exits its ExecuteWorkflow call before testEnvironment.WorkflowIsCompleted() returns true.",
+  "number": 967,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:05.059Z"
+}

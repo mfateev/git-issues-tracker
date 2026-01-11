@@ -1,0 +1,32 @@
+{
+  "summary": "User wants to add SetOnActivityHeartbeatListener method to TestActivityEnvironment, similar to the functionality available in workflow environment for testing purposes.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "TestActivityEnvironment"
+  ],
+  "components": [
+    "test-framework",
+    "activity-executor",
+    "testing-utilities"
+  ],
+  "concepts": [
+    "heartbeat",
+    "testing",
+    "listener",
+    "activity-environment",
+    "test-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing activities cannot simulate and verify heartbeat listener behavior, limiting test coverage.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SetOnActivityHeartbeatListener was added to TestActivityEnvironment API",
+  "related": [],
+  "keyQuote": "Should be able to have heartbeat listener in activity environment same as in workflow environment",
+  "number": 768,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:01.323Z"
+}

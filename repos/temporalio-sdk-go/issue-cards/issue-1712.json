@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for the UpdateWorkflowExecutionOptions API in SDK-go to enable external tools to override versioning attributes for existing workflows. This is a prerequisite for CLI support.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "UpdateWorkflowExecutionOptions"
+  ],
+  "components": [
+    "workflow",
+    "versioning",
+    "sdk-api"
+  ],
+  "concepts": [
+    "versioning",
+    "workflow-execution",
+    "external-override",
+    "attributes",
+    "extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables external tools and CLI to modify workflow versioning attributes after execution has started.",
+  "rootCause": null,
+  "proposedFix": "Implement UpdateWorkflowExecutionOptions API support in SDK-go following the API definition from https://github.com/temporalio/api/pull/466",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented and merged in versioning-3 branch",
+  "related": [
+    466
+  ],
+  "keyQuote": "A new API has been added that enables external tools to override versioning attributes for an existing workflow.",
+  "number": 1712,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:05.780Z"
+}

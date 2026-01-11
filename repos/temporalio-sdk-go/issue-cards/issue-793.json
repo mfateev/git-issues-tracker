@@ -1,0 +1,40 @@
+{
+  "summary": "Redesign client initialization to support lazy connectivity. Deprecate NewClient in favor of explicit Dial (eager) and NewLazyClient (lazy) constructors, with server capabilities fetched on-demand and a new CheckHealth method for health verification.",
+  "category": "feature",
+  "subcategory": "client-initialization",
+  "apis": [
+    "NewClient",
+    "Dial",
+    "NewLazyClient",
+    "CheckHealth"
+  ],
+  "components": [
+    "client",
+    "connection-management",
+    "server-capabilities"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "eager-connection",
+    "server-capabilities",
+    "health-check",
+    "deprecation",
+    "connectivity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain more control over client connection timing and can choose between eager and lazy initialization patterns to suit their application needs.",
+  "rootCause": "NewClient unexpectedly performs server connectivity validation during construction, limiting flexibility for users who prefer lazy connection establishment.",
+  "proposedFix": "Add DisableEagerConnection option to ConnectionOptions, introduce Dial and NewLazyClient constructors, implement lazy ensureServerCapabilitiesFetched, and add CheckHealth using gRPC health API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed with client initialization refactored to support both eager and lazy connection patterns with on-demand capability fetching.",
+  "related": [
+    753,
+    595,
+    706
+  ],
+  "keyQuote": "Today we have NewClient which, possibly unexpectedly to users, does more than create a client, it also connects to the server to confirm all connectivity.",
+  "number": 793,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:03.952Z"
+}

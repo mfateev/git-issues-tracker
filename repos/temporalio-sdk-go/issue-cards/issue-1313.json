@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for OpenTelemetry Metrics to the Go SDK by implementing a NewMetricsHandler in the opentelemetry contrib package, now that the OpenTelemetry Go metrics SDK is stable.",
+  "category": "feature",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "opentelemetry-contrib",
+    "metrics-handler"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "telemetry",
+    "instrumentation",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now instrument their Temporal Go SDK applications with OpenTelemetry metrics for better observability and monitoring.",
+  "rootCause": null,
+  "proposedFix": "Add NewMetricsHandler to go.temporal.io/sdk/contrib/opentelemetry",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "NewMetricsHandler was implemented and added to the opentelemetry contrib package",
+  "related": [
+    113
+  ],
+  "keyQuote": "Now that it is stable, we should add `NewMetricsHandler` to `go.temporal.io/sdk/contrib/opentelemetry`",
+  "number": 1313,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:20.174Z"
+}

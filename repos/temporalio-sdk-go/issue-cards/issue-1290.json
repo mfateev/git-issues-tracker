@@ -1,0 +1,33 @@
+{
+  "summary": "Context propagators are not applied when running local activities through TestActivityEnvironment.ExecuteLocalActivity(), preventing context values from being injected into the activity execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "test-activity-environment",
+    "context-propagators",
+    "local-activities"
+  ],
+  "concepts": [
+    "context-propagation",
+    "testing",
+    "local-activities",
+    "dependency-injection",
+    "test-environment",
+    "context-values"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test local activities that depend on context propagators, making it impossible to verify context-dependent behavior in unit tests.",
+  "rootCause": "ExecuteLocalActivity method in TestActivityEnvironment does not invoke the configured context propagators before executing the activity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The ExecuteLocalActivity method was updated to apply configured context propagators during execution.",
+  "related": [],
+  "keyQuote": "When using the ExecuteLocalActivity method in TestActivityEnvironment struct, any context propagators configured for the test environment should be used.",
+  "number": 1290,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:50.474Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add an option to override retry policy when using NewContinueAsNewError for long-running workflows that restart periodically. Currently retry policy is automatically propagated to the new workflow, requiring full workflow resubmission via StartWorkflowOptions if policy adjustment is needed.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "NewContinueAsNewError",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-engine",
+    "retry-policy",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "retry-policy",
+    "workflow-continuation",
+    "long-running-workflows",
+    "policy-override",
+    "workflow-restart",
+    "temporal-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing long-running workflows with periodic restarts cannot adjust retry policies without resubmitting the entire workflow, requiring workarounds or complete workflow recreation.",
+  "rootCause": null,
+  "proposedFix": "Add a retry policy override option similar to WithWorkflowRunTimeout and ContinueAsNewOptions in sdk-java to allow policy adjustment during workflow continuation.",
+  "workaround": "Re-submit the workflow using StartWorkflowOptions with updated retry policy instead of using NewContinueAsNewError.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to allow retry policy override in continue-as-new workflows, bringing Go SDK to parity with existing Java SDK implementation.",
+  "related": [],
+  "keyQuote": "Similar to WithWorkflowRunTimeout, provide an option to override the retry policy.",
+  "number": 1384,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:33.588Z"
+}

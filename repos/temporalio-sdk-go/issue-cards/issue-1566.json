@@ -1,0 +1,31 @@
+{
+  "summary": "The VisitPayloads function in go.temporal.io/api/proxy doesn't support the export package, which is an orphan package not referenced by the workflow service. The request is to extend the generated code to handle this package.",
+  "category": "other",
+  "subcategory": "api-generation",
+  "apis": [
+    "VisitPayloads"
+  ],
+  "components": [
+    "proxy",
+    "export-package",
+    "code-generation"
+  ],
+  "concepts": [
+    "payload-visiting",
+    "package-coverage",
+    "api-generation",
+    "code-generation"
+  ],
+  "severity": "low",
+  "userImpact": "Users working with the export package cannot use VisitPayloads for payload processing, limiting functionality for this package.",
+  "rootCause": "The export package is not referenced by the workflow service, so the code generation for VisitPayloads doesn't include it as an edge case.",
+  "proposedFix": "Extend the generated code that backs VisitPayloads to include support for the export package.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The VisitPayloads function was updated to support the export package in the code generation.",
+  "related": [],
+  "keyQuote": "Have the generated code that backs the `go.temporal.io/api/proxy.VisitPayloads` work for `export` package too.",
+  "number": 1566,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:16.280Z"
+}

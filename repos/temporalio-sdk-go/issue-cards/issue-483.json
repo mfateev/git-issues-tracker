@@ -1,0 +1,36 @@
+{
+  "summary": "Child workflows fail to cancel when parent is cancelled, causing a state machine panic with invalid history builder state error. The issue appears related to activity task cancellation handling during child workflow termination.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "CancelChildWorkflow"
+  ],
+  "components": [
+    "state-machine",
+    "history-builder",
+    "child-workflow-executor",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "state-machine",
+    "child-workflows",
+    "history-validation",
+    "error-propagation",
+    "workflow-termination"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably cancel parent workflows when they have child workflows, causing runtime panics and failed cancellation operations.",
+  "rootCause": "Invalid state machine transitions when propagating cancellations to child workflows, particularly with activity task cancel events in the history builder.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    481
+  ],
+  "keyQuote": "BadRequestCancelActivityAttributes: invalid history builder state for action: add-activitytask-cancel-requested-event",
+  "number": 483,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:13.071Z"
+}

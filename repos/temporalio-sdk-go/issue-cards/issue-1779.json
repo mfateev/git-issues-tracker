@@ -1,0 +1,30 @@
+{
+  "summary": "Implement special behavior for Temporal built-in prefixes in the Go SDK to align with features defined in the cross-repository specification.",
+  "category": "feature",
+  "subcategory": "built-in-prefixes",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "naming-conventions"
+  ],
+  "concepts": [
+    "prefix-handling",
+    "built-in-behavior",
+    "naming-standards",
+    "feature-parity"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have consistent and predictable behavior when working with Temporal's built-in prefixed names across the Go SDK.",
+  "rootCause": null,
+  "proposedFix": "Align Go SDK implementation with feature specifications defined in temporalio/features#576",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Most built-in prefix behaviors were already implemented in the Go SDK; this issue tracked alignment with cross-repository feature specifications.",
+  "related": [
+    576
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/576 (note most already solved in Go)",
+  "number": 1779,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:50.539Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Use the NON_DETERMINISTIC_ERROR cause when responding to workflow task failures due to non-deterministic workflow logic, aligning with Temporal server's error categorization.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "RespondWorkflowTaskFailed"
+  ],
+  "components": [
+    "workflow-executor",
+    "error-handling",
+    "task-processing"
+  ],
+  "concepts": [
+    "non-deterministic-error",
+    "workflow-task-failure",
+    "error-categorization",
+    "cause-reporting",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides developers with more accurate error categorization when workflows fail due to non-deterministic logic, improving debugging and error handling.",
+  "rootCause": "SDK does not properly categorize non-deterministic errors using the appropriate WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR cause code.",
+  "proposedFix": "Organize and categorize error handling throughout the SDK to detect non-deterministic errors and use WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR as the cause for RespondWorkflowTaskFailed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented proper error categorization to use WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR for non-deterministic workflow logic failures.",
+  "related": [
+    1726
+  ],
+  "keyQuote": "use WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR as cause for RespondWorkflowTaskFailed if user workflow logic is non-deterministic",
+  "number": 513,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:19.443Z"
+}

@@ -1,0 +1,39 @@
+{
+  "summary": "Request to add a ResetReapplyType option to WorkflowPanicPolicy's ResetWorkflow mode, allowing workflows to restart on panic with custom reapply behavior similar to ResetWorkflowExecutionRequest.",
+  "category": "feature",
+  "subcategory": "workflow-panic-handling",
+  "apis": [
+    "WorkflowPanicPolicy",
+    "ResetWorkflow",
+    "RetryPolicy",
+    "ResetWorkflowExecutionRequest"
+  ],
+  "components": [
+    "workflow-execution",
+    "panic-handling",
+    "workflow-reset",
+    "retry-policy"
+  ],
+  "concepts": [
+    "panic-handling",
+    "workflow-reset",
+    "signal-replay",
+    "workflow-restart",
+    "determinism",
+    "retry-policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with frequently deployed, non-versionable workflows need panic recovery that replays signals and doesn't require wrapping errors.",
+  "rootCause": null,
+  "proposedFix": "Add ResetReapplyType option to WorkflowPanicPolicy when set to ResetWorkflow, mirroring the behavior in ResetWorkflowExecutionRequest.",
+  "workaround": "Use FailWorkflow with RetryPolicy and wrap non-retryable errors with temporal.NewNonRetryableError, but this doesn't replay signals.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of SDK feature issue #417 in temporalio/features repository.",
+  "related": [
+    417
+  ],
+  "keyQuote": "When WorkflowPanicPolicy is set to ResetWorkflow, the workflow will restart when a panic occurs. An additional option called ResetReapplyType...",
+  "number": 1399,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:03.543Z"
+}

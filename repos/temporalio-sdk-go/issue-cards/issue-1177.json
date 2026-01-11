@@ -1,0 +1,30 @@
+{
+  "summary": "The Go SDK uses an archived Facebook clock library that requires verbose mocking syntax. The request is to switch to a more actively maintained and user-friendly clock library like clockwork for improved testability and to consolidate dependencies.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "mock-clock",
+    "workflow-testing"
+  ],
+  "concepts": [
+    "time-mocking",
+    "testing",
+    "dependency-management",
+    "maintainability",
+    "usability"
+  ],
+  "severity": "low",
+  "userImpact": "Users must use a verbose workaround to mock time in tests and depend on an archived library, making unit testing less intuitive.",
+  "rootCause": "The current clock library is archived and its mocking API is unintuitive compared to alternatives like clockwork.",
+  "proposedFix": "Migrate from github.com/facebookarchive/clock to github.com/jonboulle/clockwork or remove the dependency entirely and implement custom mocking code in the SDK.",
+  "workaround": "Users can implement their own clock mocking using alternatives like clockwork in their own test suites.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "With github.com/jonboulle/clockwork, it feels a bit more intuitive and readable: env.mockClock = clockwork.NewFakeClockAt(startTime)",
+  "number": 1177,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:13.514Z"
+}

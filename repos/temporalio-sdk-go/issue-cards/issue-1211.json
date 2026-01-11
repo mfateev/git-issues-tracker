@@ -1,0 +1,30 @@
+{
+  "summary": "Request to implement the full client.Client interface in TestWorkflowEnvironment, specifically the CancelWorkflow method. The test environment struct is missing several client methods, making it unsuitable as a drop-in replacement for the actual client.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "CancelWorkflow"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "client.Client"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "interface-implementation",
+    "workflow-cancellation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use TestWorkflowEnvironment as a complete mock client in test suites when testing workflow cancellation functionality.",
+  "rootCause": "TestWorkflowEnvironment is intentionally designed as a testing utility rather than a full client implementation, leading to interface incompleteness.",
+  "proposedFix": "Either add missing method implementations to TestWorkflowEnvironment or provide a separate client implementation for testing.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers decided that TestWorkflowEnvironment should not fully implement the client.Client interface as doing so would be confusing for users who expect full client behavior. The test environment serves a different purpose than a production client.",
+  "related": [],
+  "keyQuote": "The test environment is not meant to implement the client. That would be confusing for people that expect client behavior.",
+  "number": 1211,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:03.084Z"
+}

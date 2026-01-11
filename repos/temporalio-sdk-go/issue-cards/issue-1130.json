@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose the `taskLimiter` field of workers to allow dynamic rate limit adjustments at runtime. The proposal includes a reflection-based workaround demonstrating the use case, though maintainers clarified that the limiter has different behavior than expected and the proper solution requires tracking with issue #569.",
+  "category": "feature",
+  "subcategory": "worker-rate-limiting",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "worker-configuration",
+    "dynamic-adjustment",
+    "workload-management",
+    "thread-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with fluctuating workloads cannot dynamically adjust worker task rates without restarting workers, limiting operational flexibility.",
+  "rootCause": "The `taskLimiter` field is unexposed (private) in the worker implementation, preventing runtime rate adjustments.",
+  "proposedFix": "Expose the `taskLimiter` field as public API to allow direct rate limit modifications at runtime, leveraging `rate.Limiter`'s mutex-based thread safety.",
+  "workaround": "Maintain rate limits using external methods or restart workers, though these approaches lack flexibility.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers clarified that the limiter doesn't dynamically limit available slots as proposed—it only affects time processing after slots are used. The proper solution requires implementing issue #569, which addresses true dynamic slot management.",
+  "related": [
+    569
+  ],
+  "keyQuote": "This limiter doesn't do what you may think. This doesn't dynamically limit available slots, it just affects time processing after slots are used.",
+  "number": 1130,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:29.308Z"
+}

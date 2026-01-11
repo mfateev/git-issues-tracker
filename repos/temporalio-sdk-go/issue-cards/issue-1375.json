@@ -1,0 +1,35 @@
+{
+  "summary": "Data race detected in sticky workflow cache size management due to missing synchronization between SetStickyWorkflowCacheSize() write operations and NewWorkerCache() read operations. The setter acquires a lock but the getter does not, causing race conditions when these functions are called concurrently from different goroutines.",
+  "category": "bug",
+  "subcategory": "worker-cache",
+  "apis": [
+    "SetStickyWorkflowCacheSize",
+    "NewWorkerCache",
+    "NewWorker"
+  ],
+  "components": [
+    "worker-cache",
+    "internal-worker",
+    "synchronization"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "mutex",
+    "cache-management",
+    "lock-synchronization",
+    "goroutine-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience flaky test failures and potential runtime issues when SetStickyWorkflowCacheSize is called concurrently with worker creation due to unsynchronized access to the sticky cache size variable.",
+  "rootCause": "The sticky cache size variable is protected by a lock in SetStickyWorkflowCacheSize() but accessed without acquiring the lock in NewWorkerCache(), creating a classic data race condition between write and read operations.",
+  "proposedFix": "Add lock/unlock operations when reading the sticky cache size in NewWorkerCache() to match the synchronization pattern used in SetStickyWorkflowCacheSize().",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Lock synchronization was added to the read operation in NewWorkerCache() to match the lock protection in SetStickyWorkflowCacheSize().",
+  "related": [],
+  "keyQuote": "The sticky cache size is set with lock here, but it is read without lock here.",
+  "number": 1375,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:07.480Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Activity registration in the Go SDK fails silently when struct methods don't conform to the expected activity signature, processing methods up until the non-conforming one without any error or warning.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "RegisterActivityWithOptions"
+  ],
+  "components": [
+    "activity-registry",
+    "worker",
+    "registration"
+  ],
+  "concepts": [
+    "activity-binding",
+    "method-signature",
+    "error-handling",
+    "validation",
+    "silent-failure",
+    "registration-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot easily identify which activity methods failed to register, leading to missing activities and hard-to-debug runtime errors.",
+  "rootCause": "The activity registration code does not validate method signatures and fails silently instead of reporting which methods don't match the expected signature.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity registration now validates signatures and provides clear error messages for non-conforming methods.",
+  "related": [],
+  "keyQuote": "When registering an activity struct that has methods that don't conform to the expected signature, activity registration should either fail with an error (maybe panic/fail in tests) or skip over the function.",
+  "number": 356,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:37.105Z"
+}

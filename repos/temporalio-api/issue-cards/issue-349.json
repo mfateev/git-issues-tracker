@@ -1,0 +1,30 @@
+{
+  "summary": "The JSON shorthand payload marshaling in api-go fails to properly handle nested empty objects, producing invalid JSON like {\"greeting\":} instead of {\"greeting\":{}}.",
+  "category": "bug",
+  "subcategory": "payload-marshaling",
+  "apis": [],
+  "components": [
+    "api-go",
+    "payload-json",
+    "json-marshaling"
+  ],
+  "concepts": [
+    "json-serialization",
+    "empty-objects",
+    "payload-handling",
+    "marshaling",
+    "shorthand-format"
+  ],
+  "severity": "medium",
+  "userImpact": "Users passing payloads with nested empty objects to Temporal workflows will experience marshaling errors, resulting in invalid JSON that breaks payload processing.",
+  "rootCause": "The shorthand JSON marshaling logic in api-go does not correctly handle nested empty objects, omitting the empty braces in the output.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the payload is something like {\"greeting\":{}}, it marshals to {\"greeting\":}",
+  "number": 349,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:20.644Z"
+}

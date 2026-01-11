@@ -1,0 +1,32 @@
+{
+  "summary": "Starting a DevServer with UI enabled can fail when the calculated UI port exceeds the valid port range (1-65535). The SDK adds 1000 to the server port for the UI port, which causes an error when the server port is above 64535.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartDevServer"
+  ],
+  "components": [
+    "dev-server",
+    "test-suite",
+    "port-allocation"
+  ],
+  "concepts": [
+    "port-allocation",
+    "ui-configuration",
+    "range-validation",
+    "port-conflict",
+    "test-server"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests using DevServer with UI enabled randomly fail on Windows and other platforms when the dynamically allocated server port results in an invalid UI port number.",
+  "rootCause": "The SDK calculates UI port by adding 1000 to the server port without validating that the result stays within the valid port range (1-65535).",
+  "proposedFix": "Add a UIPort option with intelligent defaults: random if server port is random, server port + 1000 if server port is present and valid, or allow explicit configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in the temporal CLI with commit 469e8cf4a2a5743e829a19b209f1fa499665d2cf",
+  "related": [],
+  "keyQuote": "can't use default UI port 66146 (65146 + 1000): listen tcp: address 66146: invalid port",
+  "number": 1526,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:04.035Z"
+}

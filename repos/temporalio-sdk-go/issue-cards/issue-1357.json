@@ -1,0 +1,30 @@
+{
+  "summary": "The Go SDK may fail to evict workflow executions from cache when unable to respond to a workflow task, potentially causing stale cached state to persist and affect subsequent workflow execution.",
+  "category": "bug",
+  "subcategory": "workflow-caching",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-cache",
+    "task-handler"
+  ],
+  "concepts": [
+    "caching",
+    "eviction",
+    "workflow-state",
+    "task-failure",
+    "memory-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users may encounter stale or incorrect workflow execution state if the SDK fails to properly clean up cached workflows after task response failures.",
+  "rootCause": "The workflow execution cache eviction logic does not trigger when the SDK fails to respond to a workflow task.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing proper cache eviction on workflow task response failures.",
+  "related": [],
+  "keyQuote": "SDK should evict workflow execution from cache on failure to respond to a workflow task",
+  "number": 1357,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:48.666Z"
+}

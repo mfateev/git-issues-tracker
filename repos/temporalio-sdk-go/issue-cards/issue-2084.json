@@ -1,0 +1,33 @@
+{
+  "summary": "Side Effect markers in the UI lack identifiable information when multiple appear in quick succession. Users need static summary support for side effects and mutable side effects, similar to activities and local activities, to distinguish them without clicking.",
+  "category": "feature",
+  "subcategory": "ui-display",
+  "apis": [],
+  "components": [
+    "side-effects",
+    "ui",
+    "workflow-history"
+  ],
+  "concepts": [
+    "ui-display",
+    "summary",
+    "identifiability",
+    "workflow-visualization",
+    "side-effects"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily identify and distinguish between multiple side effects in the UI, requiring additional clicks to differentiate them.",
+  "rootCause": null,
+  "proposedFix": "Add support for static summary for side effect markers so the UI can display their summaries similar to activities and local activities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #2129",
+  "related": [
+    2076,
+    2129
+  ],
+  "keyQuote": "Support static summary for these items, then UI can be changed to display their summaries, similar to activities and local activities.",
+  "number": 2084,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:06.831Z"
+}

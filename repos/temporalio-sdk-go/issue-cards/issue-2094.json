@@ -1,0 +1,30 @@
+{
+  "summary": "Implement worker heartbeating functionality in the Go SDK by creating a background nexus worker to send periodic heartbeats, following the design patterns established in sdk-core.",
+  "category": "feature",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "nexus",
+    "background-worker"
+  ],
+  "concepts": [
+    "heartbeat",
+    "worker-lifecycle",
+    "background-task",
+    "nexus",
+    "health-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to implement proper worker heartbeating to maintain activity connections and improve reliability of long-running workflows.",
+  "rootCause": null,
+  "proposedFix": "Design and implement a Go version of the sdk-core worker heartbeating implementation (PR #953 and #1038), likely involving a background nexus worker for sending periodic heartbeats.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Implement worker heartbeating, which is sent via a new background nexus worker.",
+  "number": 2094,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:35.257Z"
+}

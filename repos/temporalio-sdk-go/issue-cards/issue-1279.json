@@ -1,0 +1,31 @@
+{
+  "summary": "User requests a way to expose OpenTelemetry trace parent information from worker request/response protobuf messages to link gRPC client spans with underlying temporal workflow spans.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-client-interceptor",
+    "opentelemetry-integration"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "tracing",
+    "span-linking",
+    "trace-context",
+    "distributed-tracing",
+    "header-extraction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently correlate gRPC client spans with workflow execution spans, limiting observability and debugging capabilities.",
+  "rootCause": "No public API exists to extract trace parent data (_tracer-data header) from workflow proto request/response payloads.",
+  "proposedFix": "Provide a function to extract traceparent data from request/response objects, or expose trace context through existing interceptor mechanisms.",
+  "workaround": "Use a ClientInterceptor after the OpenTelemetry interceptor to manually extract span context and add workflow trace IDs as attributes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer indicated the architecture doesn't support this pattern as spans are deserialized and used by other worker processes. Workaround provided using standard OpenTelemetry interceptor patterns.",
+  "related": [],
+  "keyQuote": "The spans in the interceptors are deserialized and used by other worker processes to re-parent their spans.",
+  "number": 1279,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:10.454Z"
+}

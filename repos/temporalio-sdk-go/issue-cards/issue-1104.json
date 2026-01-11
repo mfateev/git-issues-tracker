@@ -1,0 +1,34 @@
+{
+  "summary": "ExecuteWorkflow's context timeout is being halved internally, causing workflows to timeout after half the user-specified duration. The issue stems from logic that halves the RPC timeout for retry purposes, but incorrectly applies this to the user-provided context deadline as well.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "client",
+    "context-handling",
+    "retry-policy",
+    "timeout-management"
+  ],
+  "concepts": [
+    "timeout",
+    "context-deadline",
+    "retry-logic",
+    "gRPC-deadline",
+    "deadline-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail prematurely with context deadline exceeded errors at half the expected timeout duration, breaking user-defined timeout contracts.",
+  "rootCause": "The RPC timeout is correctly halved to allow retries within the user's context deadline, but the user-provided context timeout itself is being halved instead of only halving the RPC-level timeout.",
+  "proposedFix": "Separate the RPC timeout (which should be halved for retry logic) from the user-provided context timeout (which should remain unchanged), ensuring only the RPC deadline is adjusted internally.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Making RPC timeout half the context timeout is fine, we just need to make sure to only halve the RPC timeout not the context timeout.",
+  "number": 1104,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:58.302Z"
+}

@@ -1,0 +1,37 @@
+{
+  "number": 1554,
+  "summary": "NonDeterministicError occurs intermittently in a workflow with a 48-hour timer and workflow updates, even though replay succeeds without errors. The issue appears related to the activity scheduling state machine in the SDK.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "SetUpdateHandler",
+    "NewTimer",
+    "NewChannel",
+    "Select"
+  ],
+  "components": [
+    "command-state-machine",
+    "event-handlers",
+    "workflow-execution-context",
+    "activity-scheduling"
+  ],
+  "concepts": [
+    "non-determinism",
+    "state-machine",
+    "workflow-replay",
+    "concurrency",
+    "event-ordering",
+    "activity-scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows intermittently fail with NonDeterministicError despite successful replays, causing production reliability issues that are difficult to reproduce and debug.",
+  "rootCause": "Likely a race condition or state machine issue in activity scheduling when combined with workflow updates and timers, potentially triggered by timing interactions between concurrent operations.",
+  "proposedFix": null,
+  "workaround": "User found a workaround at the code level due to difficulty upgrading SDK/Server versions in production.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed as user identified it was related to using an older SDK version (1.22.1) with experimental Workflow Update feature. Recommendation was to upgrade to latest stable releases (SDK v1.28.1+), which included multiple bug fixes that could resolve this behavior.",
+  "related": [],
+  "keyQuote": "sometimes a non-determinism error crashes, and the replays go normal on the same workflow on which the non-determinism error occurs",
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:48.924Z"
+}

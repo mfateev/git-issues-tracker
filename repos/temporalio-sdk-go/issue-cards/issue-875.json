@@ -1,0 +1,35 @@
+{
+  "summary": "Query handlers can perform unsafe operations like starting activities, which violates read-only semantics. The solution involves accepting context as a parameter in query handlers while restricting its capabilities and adding static analyzer checks.",
+  "category": "feature",
+  "subcategory": "query-handlers",
+  "apis": [
+    "ExecuteActivity",
+    "QueryHandler"
+  ],
+  "components": [
+    "query-handler",
+    "context",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "read-only",
+    "safety",
+    "validation",
+    "mutation-prevention",
+    "static-analysis"
+  ],
+  "severity": "medium",
+  "userImpact": "Query handlers can currently perform unsafe mutating operations, breaking the semantic contract that queries should be read-only and not affecting workflow state.",
+  "rootCause": "Query handler context lacks restrictions to prevent execution of activities and other mutating operations that should only occur in workflow code.",
+  "proposedFix": "Allow query handlers to accept context as first parameter with backwards compatibility, disallow execute activity on that context, and add workflowcheck static analyzer check to enforce restrictions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    177
+  ],
+  "keyQuote": "Queries can start activities and such and they shouldn't",
+  "number": 875,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:59.312Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Mock activities set to Never() don't always panic as expected when called in workflows. Tests that should fail are passing because the panic from the mock framework isn't being properly propagated through the internal task handler's recover mechanism.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-suite",
+    "mock-activity",
+    "internal-task-handlers"
+  ],
+  "concepts": [
+    "mock-enforcement",
+    "test-failure",
+    "panic-handling",
+    "activity-validation",
+    "error-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test that activities are not called, as the Never() assertion may be silently ignored when activity errors aren't checked in workflows.",
+  "rootCause": "The recover() mechanism in internal/internal_task_handlers suppresses panics from mock framework assertion failures, preventing proper test failure.",
+  "proposedFix": null,
+  "workaround": "Explicitly fail the test if the activity is called, since testify mock failures don't automatically fail the test.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    608
+  ],
+  "keyQuote": "We believe it's happening due to the recover in internal/internal_task_handlers which handles the execution of both regular and mock activities",
+  "number": 2010,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:38.488Z"
+}

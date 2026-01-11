@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for workflow updates in the tracing interceptor by implementing `ClientOutboundInterceptor.UpdateWorkflow` to populate headers and `WorkflowInboundInterceptor.ExecuteUpdate` to put span on context.",
+  "category": "feature",
+  "subcategory": "tracing-interceptor",
+  "apis": [
+    "ClientOutboundInterceptor.UpdateWorkflow",
+    "WorkflowInboundInterceptor.ExecuteUpdate"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "client-interceptor",
+    "workflow-interceptor"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "observability",
+    "span-propagation",
+    "workflow-updates",
+    "context-management",
+    "header-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot trace workflow update operations end-to-end, limiting observability for this important workflow feature.",
+  "rootCause": null,
+  "proposedFix": "Implement UpdateWorkflow support in ClientOutboundInterceptor to populate headers and ExecuteUpdate support in WorkflowInboundInterceptor to attach span to context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow updates support was added to the tracing interceptor.",
+  "related": [],
+  "keyQuote": "Need to support `ClientOutboundInterceptor.UpdateWorkflow` in the tracing interceptor to populate header and `WorkflowInboundInterceptor.ExecuteUpdate`",
+  "number": 1588,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:01.334Z"
+}

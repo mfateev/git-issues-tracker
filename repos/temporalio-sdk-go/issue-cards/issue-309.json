@@ -1,0 +1,33 @@
+{
+  "summary": "PostgreSQL database initialization fails on fresh setup with 'relation schema_version does not exist' error. The AUTO_SETUP feature is unable to properly create required database schema during startup with CockroachDB as the backing store.",
+  "category": "bug",
+  "subcategory": "database-initialization",
+  "apis": [],
+  "components": [
+    "database-setup",
+    "schema-initialization",
+    "postgresql-persistence"
+  ],
+  "concepts": [
+    "database-migration",
+    "schema-versioning",
+    "auto-setup",
+    "initialization",
+    "postgresql",
+    "cockroachdb"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start a Temporal server instance with PostgreSQL/CockroachDB on a fresh database when AUTO_SETUP is enabled.",
+  "rootCause": "Database schema initialization process fails to create the schema_version table before attempting to read it, likely due to missing schema setup scripts or improper execution order.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was moved/duplicated to temporalio/temporal#1088 for tracking in the main server repository.",
+  "related": [
+    1088
+  ],
+  "keyQuote": "Unable to start server: sql schema version compatibility check failed: unable to read DB schema version keyspace/database: temporal error: pq: relation \"schema_version\" does not exist.",
+  "number": 309,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:21.462Z"
+}

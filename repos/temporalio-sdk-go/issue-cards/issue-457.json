@@ -1,0 +1,30 @@
+{
+  "summary": "The temporal_activity_execution_failure metric doesn't record activity execution failures. Activity errors return nil from the task handler, preventing the metric counter from being incremented when retryable errors occur.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "task-handler",
+    "metrics",
+    "activity-executor"
+  ],
+  "concepts": [
+    "metrics",
+    "activity-execution",
+    "error-handling",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately monitor activity execution failures via metrics, making it harder to diagnose and track error patterns in production.",
+  "rootCause": "The task handler returns nil for errors in activity execution, preventing the metric counter from being incremented. The code at internal_task_handlers.go#L1838 handles the error but doesn't propagate it correctly to trigger the metric.",
+  "proposedFix": "Ensure that activity execution errors properly increment the ActivityExecutionFailedCounter metric instead of returning nil.",
+  "workaround": "Use the RPC metric (temporal_request with operation=RespondActivityTaskFailed) as an alternative, though it lacks activity/workflow type information and doesn't account for internal errors.",
+  "resolution": "fixed",
+  "resolutionDetails": "A PR was submitted to address the problem of properly logging activity execution failures to the metric.",
+  "related": [],
+  "keyQuote": "Activity errors don't result in any change for this metric. This is caused by returning nil for the error, but that means the code never logs it.",
+  "number": 457,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:56.589Z"
+}

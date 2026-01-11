@@ -1,0 +1,30 @@
+{
+  "summary": "Activity context is not canceled when the service is unreachable for the heartbeat timeout duration. Instead, the error is logged and a new heartbeat is issued, preventing activities from being notified about connectivity issues.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "service-connection"
+  ],
+  "concepts": [
+    "timeout",
+    "heartbeat",
+    "context-cancellation",
+    "connection-failure",
+    "service-reachability"
+  ],
+  "severity": "high",
+  "userImpact": "Activities cannot reliably detect and respond to service connectivity failures, potentially causing them to continue processing when they should be canceled.",
+  "rootCause": "Heartbeat failure does not trigger activity context cancellation; instead it just logs an error and reschedules the next heartbeat.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activity context is canceled (Done channel is closed) if it cannot reach the service for the duration of the heartbeat timeout.",
+  "number": 437,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:13.745Z"
+}

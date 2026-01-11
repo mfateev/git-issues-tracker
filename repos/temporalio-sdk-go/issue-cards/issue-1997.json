@@ -1,0 +1,30 @@
+{
+  "summary": "The workflowRunOperationToken should skip encoding the version field when its value is 0, reducing unnecessary data in the token.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow",
+    "token-encoding",
+    "operation-token"
+  ],
+  "concepts": [
+    "encoding",
+    "versioning",
+    "token-optimization",
+    "serialization",
+    "data-reduction"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces the size of workflow operation tokens when version is 0, improving efficiency.",
+  "rootCause": "The version field is being encoded even when its value is 0, which is unnecessary and wasteful.",
+  "proposedFix": "Conditionally skip encoding the version field when it equals 0.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the fix was implemented.",
+  "related": [],
+  "keyQuote": "workflowRunOperationToken should not encode version if 0",
+  "number": 1997,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:05.338Z"
+}

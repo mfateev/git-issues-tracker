@@ -1,0 +1,33 @@
+{
+  "summary": "Users want to retrieve workflow results without automatically following to the next run when `new_execution_run_id` is set. This is particularly important for cron workflows where users may want to get results from an older run rather than the latest one.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowRun.Get",
+    "WorkflowExecutionCompletedEventAttributes"
+  ],
+  "components": [
+    "client",
+    "workflow-run",
+    "execution-history"
+  ],
+  "concepts": [
+    "workflow-result",
+    "run-following",
+    "cron-jobs",
+    "backwards-compatibility",
+    "opt-out"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably retrieve results from older workflow runs in cron scenarios because the SDK automatically follows to newer runs.",
+  "rootCause": null,
+  "proposedFix": "Add an option to opt-out of automatic run-following behavior, similar to implementation in other language SDKs. The exact mechanism needs to be determined while maintaining backwards compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement was implemented to allow users to opt-out of following runs when retrieving workflow results.",
+  "related": [],
+  "keyQuote": "Allow users to opt-out of \"follow runs\" like we do in other languages.",
+  "number": 789,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:44.942Z"
+}

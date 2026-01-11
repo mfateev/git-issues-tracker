@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a linter for the Go SDK to check for common mistakes that violate SDK-imposed restrictions in workflow and activity implementations. Resolved by implementing the workflowchecker tool in contrib/tools.",
+  "category": "feature",
+  "subcategory": "linting",
+  "apis": [],
+  "components": [
+    "workflow",
+    "activity",
+    "linter"
+  ],
+  "concepts": [
+    "code-quality",
+    "validation",
+    "best-practices",
+    "static-analysis",
+    "restrictions"
+  ],
+  "severity": "medium",
+  "userImpact": "Helps developers catch SDK implementation mistakes early through automated linting rather than discovering them at runtime.",
+  "rootCause": null,
+  "proposedFix": "Implement a linter based on the contributed cadencelint tool to validate workflow and activity code",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing workflowchecker tool in contrib/tools/workflowcheck",
+  "related": [],
+  "keyQuote": "Closing since this is solved with the workflowchecker",
+  "number": 72,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:13.749Z"
+}

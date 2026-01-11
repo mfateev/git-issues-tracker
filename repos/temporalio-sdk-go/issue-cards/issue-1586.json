@@ -1,0 +1,33 @@
+{
+  "summary": "The Go SDK currently carries over the current workflow's search attributes when continuing as new, but should allow explicit specification like other SDKs do. This is a feature parity request.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-engine",
+    "search-attributes",
+    "options"
+  ],
+  "concepts": [
+    "search-attributes",
+    "workflow-continuation",
+    "parity",
+    "sdk-feature",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot explicitly set search attributes when continuing a workflow as new, limiting workflow customization options.",
+  "rootCause": null,
+  "proposedFix": "Add support for explicit search attribute specification in ContinueAsNew or WorkflowOptions, matching behavior in other SDKs.",
+  "workaround": "Use WorkflowOptions to specify search attributes (as mentioned in the closing comment).",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be resolvable through existing WorkflowOptions functionality; explicit implementation deemed unnecessary.",
+  "related": [],
+  "keyQuote": "You can do this thru the WorkflowOptions; closing.",
+  "number": 1586,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:45.909Z"
+}

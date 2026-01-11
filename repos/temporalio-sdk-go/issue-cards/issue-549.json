@@ -1,0 +1,34 @@
+{
+  "summary": "TestActivityRetryOnStartToCloseTimeout test was experiencing flakiness in CI, failing with unexpected ScheduleToClose timeouts during activity retry scenarios. The issue was later resolved and no longer appears in the test suite.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-logic",
+    "test-suite",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "flakiness",
+    "activity-lifecycle",
+    "schedule-to-close",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests in the SDK reduce confidence in release quality and can block CI/CD pipelines.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test no longer appears flaky in CI, indicating the underlying timeout or retry logic issue was resolved.",
+  "related": [],
+  "keyQuote": "activity failed due to unexpected timeout ScheduleToClose",
+  "number": 549,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:35.299Z"
+}

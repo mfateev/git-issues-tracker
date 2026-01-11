@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for firstExecutionRunId parameter to cancel and terminate methods in the Go SDK, allowing users to target specific workflow execution chains.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [
+    "CancelWorkflow",
+    "TerminateWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-service",
+    "cancel-terminate"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "execution-chain",
+    "idempotency",
+    "workflow-targeting",
+    "lifecycle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now precisely target specific executions within a workflow chain when canceling or terminating, improving control over workflow execution lifecycle management.",
+  "rootCause": null,
+  "proposedFix": "Add cancelWithOptions and terminateWithOptions methods that accept an options struct containing firstExecutionRunId parameter.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "add methods like `cancelWithOptions` and `terminateWithOptions` that take an options struct to pass `firstExecutionRunId`",
+  "number": 2085,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:02.740Z"
+}

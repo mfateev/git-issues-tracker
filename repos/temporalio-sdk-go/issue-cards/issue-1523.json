@@ -1,0 +1,29 @@
+{
+  "summary": "Allow users to set search attributes when starting the dev server through SDK options, which will translate to --search-attribute CLI calls.",
+  "category": "feature",
+  "subcategory": "dev-server",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "configuration"
+  ],
+  "concepts": [
+    "search-attributes",
+    "server-initialization",
+    "configuration-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now configure search attributes directly in dev server startup options instead of requiring separate CLI arguments.",
+  "rootCause": null,
+  "proposedFix": "Accept search attributes in dev server startup options that translate to --search-attribute calls",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented feature allowing search attributes to be set via dev server options",
+  "related": [
+    494
+  ],
+  "keyQuote": "users should be allowed to set search attributes in dev server option that translate to `--search-attribute` calls",
+  "number": 1523,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:03:45.865Z"
+}

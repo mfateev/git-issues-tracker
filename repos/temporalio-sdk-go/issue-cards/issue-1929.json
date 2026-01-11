@@ -1,0 +1,33 @@
+{
+  "summary": "OTel metrics in the Go SDK use UpDownCounter but the documentation and other SDK implementations describe metrics as monotonically increasing. The current implementation allows negative values which doesn't match expected counter behavior across other Temporal SDKs and OTel standards.",
+  "category": "bug",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "opentelemetry-handler",
+    "metrics-handler",
+    "otel-contrib"
+  ],
+  "concepts": [
+    "monitoring",
+    "metrics",
+    "counter",
+    "observability",
+    "otel",
+    "monotonic-increase"
+  ],
+  "severity": "low",
+  "userImpact": "Users integrating OTel metrics see unexpected behavior with UpDownCounter supporting negative values, creating inconsistency with documentation and other SDK implementations.",
+  "rootCause": "OTel handler was implemented to support general usage with UpDownCounter type, allowing negative values, while documentation describes metrics as monotonically increasing like standard Prometheus counters.",
+  "proposedFix": "Either update documentation to clarify UpDownCounter behavior, or change OTel implementation to use Counter type instead to match Prometheus patterns and other SDK implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1336
+  ],
+  "keyQuote": "The UpDownCounter type doesn't make contextual sense for the metrics emitted by the Temporal SDK.",
+  "number": 1929,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:03.149Z"
+}

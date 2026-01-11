@@ -1,0 +1,32 @@
+{
+  "summary": "Request to dynamically adjust MaxConcurrentActivityExecutionSize without restarting the worker. Currently, this value can only be set at worker startup, requiring a full restart to change it.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue"
+  ],
+  "concepts": [
+    "concurrency-limits",
+    "dynamic-configuration",
+    "resource-management",
+    "worker-tuning",
+    "slot-allocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must restart workers to adjust concurrent activity execution limits, causing service disruption and overhead.",
+  "rootCause": "Pool-transfer internals made dynamic adjustment difficult; required redesign of slot management system.",
+  "proposedFix": "Expose SlotLimiter interface with AcquireSlot(), ReleaseSlot(), and AvailableSlots() methods; add ActivityTaskSlotLimiter and WorkflowTaskSlotLimiter options to worker configuration.",
+  "workaround": "Restart the worker to reset MaxConcurrentActivityExecutionSize, though this is resource-intensive.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via new WorkerTuner and SlotSupplier interfaces in PR #1546, allowing dynamic slot management without restart.",
+  "related": [
+    1546
+  ],
+  "keyQuote": "Without restarting a worker, I would like to be able to adjust the value of MaxConcurrentActivityExecutionSize.",
+  "number": 569,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:40.664Z"
+}

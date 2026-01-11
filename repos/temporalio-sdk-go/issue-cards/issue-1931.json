@@ -1,0 +1,30 @@
+{
+  "summary": "Request for SDK support for activity reset functionality in the Go SDK, mirroring feature work tracked in the features repository.",
+  "category": "feature",
+  "subcategory": "activity-reset",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "activity-reset",
+    "workflow-execution",
+    "state-management",
+    "recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reset activities in workflows, limiting recovery and state management capabilities in the Go SDK.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity reset support has been implemented in the Go SDK",
+  "related": [
+    620
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/620",
+  "number": 1931,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:02.786Z"
+}

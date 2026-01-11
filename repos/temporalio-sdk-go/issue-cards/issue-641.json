@@ -1,0 +1,32 @@
+{
+  "summary": "Expose the gRPC client and connection settings to users to provide greater flexibility in customizing gRPC behavior. Currently these are hidden from users, limiting their ability to configure advanced options.",
+  "category": "feature",
+  "subcategory": "grpc-client",
+  "apis": [
+    "WorkflowService"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "grpc-client"
+  ],
+  "concepts": [
+    "grpc",
+    "dial-options",
+    "context",
+    "client-customization",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain the ability to customize gRPC client behavior and dial options, enabling advanced configuration scenarios previously impossible.",
+  "rootCause": null,
+  "proposedFix": "Add WorkflowService() method to Client and expose GRPCDialOptions in ConnectionOptions, applying custom options after SDK defaults.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The gRPC client and dial options were exposed to users as requested through API additions.",
+  "related": [],
+  "keyQuote": "the benefit of hiding gRPC no longer outweighs the cost of decreased user flexibility",
+  "number": 641,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:27.585Z"
+}

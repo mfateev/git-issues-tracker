@@ -1,0 +1,33 @@
+{
+  "summary": "Add interceptor support for Signal and Query operations in the Go SDK. Currently, interceptors are not available for these operations, preventing fine-grained authorization and observability features like open tracing.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "Signal",
+    "Query"
+  ],
+  "components": [
+    "interceptors",
+    "signal-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "authorization",
+    "observability",
+    "open-tracing",
+    "headers",
+    "interceptor-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement fine-grained authorization or open tracing instrumentation for Signal and Query operations.",
+  "rootCause": null,
+  "proposedFix": "Implement Signal/Query interceptors following the same pattern as workflow and activity interceptors, ensuring headers are passed through the server.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Signal and Query interceptors were implemented in the Go SDK.",
+  "related": [],
+  "keyQuote": "We don't have Query/Signal interceptors... We should be able to support open tracing for all calls, headers should be available on API calls too.",
+  "number": 515,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:17.241Z"
+}

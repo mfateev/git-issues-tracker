@@ -1,0 +1,39 @@
+{
+  "summary": "Messages are being lost from workflow.NewChannel(ctx) when using selectors with the unblockSelectorSignal flag enabled. This regression was introduced in version 1.35.0 and affects the channel worker pattern.",
+  "category": "bug",
+  "subcategory": "channels-selectors",
+  "apis": [
+    "NewChannel",
+    "NewSelector",
+    "Send",
+    "Receive",
+    "Select"
+  ],
+  "components": [
+    "channels",
+    "selector",
+    "workflow-runtime",
+    "test-framework"
+  ],
+  "concepts": [
+    "message-loss",
+    "concurrency",
+    "worker-pattern",
+    "signal-handling",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on workflow channels with selectors may experience lost messages, breaking concurrent processing patterns in their workflows.",
+  "rootCause": "Bug introduced in PR #1762 in version 1.35.0 related to unblockSelectorSignal flag implementation",
+  "proposedFix": null,
+  "workaround": "Set unblockSelectorSignal to false to avoid the issue",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1762
+  ],
+  "keyQuote": "Messages are getting lost. This bug was introduced in 1.35.0, from #1762",
+  "number": 2066,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:47.188Z"
+}

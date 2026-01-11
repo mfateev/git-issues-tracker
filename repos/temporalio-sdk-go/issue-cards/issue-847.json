@@ -1,0 +1,31 @@
+{
+  "summary": "SDK v1.15.0 is incompatible with api v1.9.0 due to missing GetWorkerBuildIdOrdering method implementation in the workflow service proxy server.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "client",
+    "service-proxy",
+    "workflow-service"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "interface-implementation",
+    "dependency-management",
+    "build-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build their applications when upgrading to SDK v1.15.0 with api v1.9.0 due to missing method implementation.",
+  "rootCause": "The workflowServiceProxyServer type does not implement the updated workflowservice.WorkflowServiceServer interface which requires the GetWorkerBuildIdOrdering method.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "This issue was identified as a duplicate of issue #832, which addresses the same compatibility problem.",
+  "related": [
+    832
+  ],
+  "keyQuote": "cannot use &workflowServiceProxyServer{…} as type workflowservice.WorkflowServiceServer (missing GetWorkerBuildIdOrdering method)",
+  "number": 847,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:43.490Z"
+}

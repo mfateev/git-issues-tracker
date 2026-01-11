@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request for graceful worker shutdown that waits for all open sessions to close before shutting down. Currently, workers don't wait for sessions to complete during deployment, causing heartbeat timeouts and workflow failures.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "worker",
+    "session-manager",
+    "shutdown"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "session-lifecycle",
+    "heartbeat-timeout",
+    "deployment",
+    "worker-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Deployments fail with heartbeat timeouts when sessions are still active, requiring manual session closure or custom counting logic.",
+  "rootCause": "Worker shutdown doesn't wait for active sessions to complete, unlike how it waits for activities.",
+  "proposedFix": "Add configuration option to worker for waiting until all open sessions are closed before shutting down.",
+  "workaround": "Manually track open sessions and delay shutdown until count reaches zero, though this requires blocking new session scheduling.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The option to configure for a worker to wait until all open sessions are closed before shutting down.",
+  "number": 2021,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:56.708Z"
+}

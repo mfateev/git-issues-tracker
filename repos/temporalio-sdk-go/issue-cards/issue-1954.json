@@ -1,0 +1,33 @@
+{
+  "summary": "User requests the ability to retrieve the original logger instance from activity.GetLogger(ctx) or workflow.GetLogger(ctx) instead of receiving a wrapped ReplayLogger. The issue is that injected context fields from custom loggers and trace interceptors are lost when the logger is wrapped.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "GetLogger"
+  ],
+  "components": [
+    "logger",
+    "activity-context",
+    "workflow-context",
+    "replay-logger"
+  ],
+  "concepts": [
+    "logger-wrapping",
+    "context-fields",
+    "trace-integration",
+    "logger-adapter",
+    "decorator-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom logger implementations cannot reliably access their original logger instance with all injected context fields from interceptors and configurations.",
+  "rootCause": "The SDK wraps the original logger in a ReplayLogger for activity/workflow execution, and the wrapped instance is not accessible to retrieve the original logger with its accumulated context fields.",
+  "proposedFix": "Either provide a method to retrieve the original configured logger while preserving injected fields, or avoid wrapping the original logger and maintain the same logger type throughout execution.",
+  "workaround": "Fall back to using a global logger, though this may result in loss of important context fields injected by interceptors.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I want to have opportunity to get the original logger structure without losing all the fields injected previously.",
+  "number": 1954,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:03.157Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User requested exposing UpdateID in update handlers to enable unique primary keys for samples. The issue was closed as the UpdateID is already exposed through the UpdateInfo API.",
+  "category": "question",
+  "subcategory": "update-handler",
+  "apis": [
+    "UpdateInfo"
+  ],
+  "components": [
+    "update-handler",
+    "update-info"
+  ],
+  "concepts": [
+    "unique-identifier",
+    "primary-key",
+    "update-metadata",
+    "handler-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users can already access UpdateID through the UpdateInfo API to use as unique identifiers in their update handlers.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update ID is already exposed through the UpdateInfo API at go.temporal.io/sdk@v1.26.1/internal#UpdateInfo",
+  "related": [],
+  "keyQuote": "Update ID is already exposed",
+  "number": 1501,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:03:21.575Z"
+}

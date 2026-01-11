@@ -1,0 +1,31 @@
+{
+  "summary": "When stopping a worker, a 'worker stopping' error is logged at WARN level during task polling, which is misleading since it's not a real polling failure. The request is to either move this to debug level or suppress it entirely.",
+  "category": "other",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-poller",
+    "logging"
+  ],
+  "concepts": [
+    "shutdown",
+    "logging-level",
+    "error-suppression",
+    "worker-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users see misleading WARN-level logs when stopping workers, cluttering log output with non-critical messages.",
+  "rootCause": "Task polling errors are logged at WARN level even when they occur during graceful worker shutdown, which is expected behavior.",
+  "proposedFix": "Move the 'worker stopping' polling error to debug level or suppress it entirely since it occurs during normal shutdown.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    882
+  ],
+  "keyQuote": "It's not really a poll \"failure\" if the worker is stopping.",
+  "number": 955,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:26.484Z"
+}

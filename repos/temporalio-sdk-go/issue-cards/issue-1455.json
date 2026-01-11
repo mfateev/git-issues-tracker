@@ -1,0 +1,34 @@
+{
+  "summary": "SetUpdateHandler accepts handlers that don't require workflow.Context as first parameter, but at runtime it fails with a cryptic error when the handler tries to use the wrong context. The handler should be required to take workflow.Context as its first parameter.",
+  "category": "bug",
+  "subcategory": "update-handler",
+  "apis": [
+    "SetUpdateHandler",
+    "SetUpdateHandlerWithOptions",
+    "workflow.Context"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-context",
+    "coroutine-scheduler"
+  ],
+  "concepts": [
+    "context-handling",
+    "handler-signature",
+    "determinism",
+    "coroutine-blocking",
+    "type-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users can write type-correct but semantically incorrect update handlers that fail at runtime with confusing error messages about coroutine scheduling.",
+  "rootCause": "SetUpdateHandler does not enforce that handler functions must have workflow.Context as the first parameter, allowing handlers to capture and use the wrong context instance, causing coroutine scheduling conflicts.",
+  "proposedFix": "Make workflow.Context a required first parameter for update handler functions and fail at SetUpdateHandler call time with a clear error message if the signature is incorrect.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update handler signature validation was implemented to require workflow.Context as first parameter and provide clear error messages at handler registration time.",
+  "related": [],
+  "keyQuote": "SetUpdateHandler should be documented as taking a handler function that must take a workflow.Context as its first parameter.",
+  "number": 1455,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:36.816Z"
+}

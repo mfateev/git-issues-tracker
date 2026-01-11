@@ -1,0 +1,34 @@
+{
+  "summary": "Support for receiver-less method references in OnActivity mocks for Go. The incorrect syntax `OnActivity((*myStruct).MyFunc)` makes the receiver the first argument, while `OnActivity(new(myStruct).MyFunc)` works correctly with a receiver instance.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnActivity",
+    "RegisterActivity"
+  ],
+  "components": [
+    "mock",
+    "activity-registration",
+    "test-framework"
+  ],
+  "concepts": [
+    "method-reference",
+    "receiver-handling",
+    "reflection",
+    "function-pointer"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use receiver-less method references in OnActivity mocks and must use instance method references instead.",
+  "rootCause": "Go's reflection system cannot reliably determine at runtime whether a function pointer represents a receiver-less method reference versus a regular function, making it impossible to automatically adjust parameter handling.",
+  "proposedFix": "Clarify in documentation the correct syntax for registering activities and mocking them with method references.",
+  "workaround": "Use instance method references like `OnActivity(new(myStruct).MyFunc)` instead of receiver-less references like `OnActivity((*myStruct).MyFunc)`.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Investigation confirmed the limitation cannot be resolved at runtime, so documentation was updated to clarify the behavior.",
+  "related": [
+    586
+  ],
+  "keyQuote": "After investigation, I have confirmed we cannot really do anything here at runtime because we also don't support registration of activities this way",
+  "number": 688,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:45.044Z"
+}

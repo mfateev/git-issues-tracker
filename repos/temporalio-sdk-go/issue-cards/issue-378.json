@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow panics with an illegal state error when cancel occurs during workflow sleep, followed by a cleanup activity execution. The panic indicates a failure to lookup the scheduled event ID to activity ID mapping, leaving the workflow stuck in Running state instead of transitioning to Canceled.",
+  "category": "bug",
+  "subcategory": "cancellation-handling",
+  "apis": [
+    "ExecuteActivity",
+    "Sleep",
+    "NewDisconnectedContext"
+  ],
+  "components": [
+    "workflow-execution-engine",
+    "event-handler",
+    "decision-state-machine",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "cancellation",
+    "state-machine",
+    "event-processing",
+    "cleanup-activities",
+    "workflow-lifecycle",
+    "panic-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows become stuck in Running state when canceled during sleep with cleanup activities, requiring manual intervention and preventing proper workflow termination.",
+  "rootCause": "The decision state machine fails to locate the scheduled event ID to activity ID mapping when processing activity task scheduled events after a cancellation during workflow sleep, causing an illegal state panic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow panic... lookup failed for scheduledEventID to activityID: scheduleEventID: 11, activityID: 10",
+  "number": 378,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:06.566Z"
+}

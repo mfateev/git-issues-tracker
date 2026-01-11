@@ -1,0 +1,34 @@
+{
+  "summary": "ApplicationError does not expose the raw error message; calling .Error() adds formatting details (error type and non-retryable status). User needs access to the raw message to pass to the UI.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "ApplicationError"
+  ],
+  "components": [
+    "error-types",
+    "application-error",
+    "worker"
+  ],
+  "concepts": [
+    "error-message",
+    "error-wrapping",
+    "error-formatting",
+    "unwrap",
+    "raw-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve the clean raw error message from ApplicationError without additional formatting, making it difficult to display errors in user-facing UIs.",
+  "rootCause": "ApplicationError's Error() method adds formatting with type and non-retryable information; private message() method prevents direct access.",
+  "proposedFix": "Expose the raw error message through a public method or ensure proper Unwrap() convention support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in #766, merged to master before the next release.",
+  "related": [
+    766
+  ],
+  "keyQuote": "I need the raw error message from the Application Error to pass it on to the UI.",
+  "number": 797,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:00.381Z"
+}

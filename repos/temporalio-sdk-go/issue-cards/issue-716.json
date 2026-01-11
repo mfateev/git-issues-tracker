@@ -1,0 +1,34 @@
+{
+  "summary": "Terminating a workflow while processing can leak goroutines that get stuck forever, particularly in complex DSL workflows with many parallel activities. The leaked coroutines remain blocked on channel operations and cannot be cleaned up.",
+  "category": "bug",
+  "subcategory": "workflow-termination",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "coroutine-dispatcher",
+    "channel-implementation",
+    "workflow-environment"
+  ],
+  "concepts": [
+    "goroutine-leak",
+    "resource-cleanup",
+    "workflow-termination",
+    "parallel-activities",
+    "channel-closure",
+    "memory-leak"
+  ],
+  "severity": "high",
+  "userImpact": "Users running complex parallel workflows can accumulate leaked goroutines when workflows are terminated, causing memory leaks and degraded worker performance over time.",
+  "rootCause": "Workflow termination does not properly close channels or signal waiting coroutines, leaving them blocked indefinitely on channel receive operations.",
+  "proposedFix": "Ensure all channels are closed and coroutines are properly signaled when a workflow is terminated.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    779
+  ],
+  "keyQuote": "If a dsl workflow is terminated before all activities are processed, any pending coroutines handling them will be stuck forever.",
+  "number": 716,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:54.187Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Unhandled panics from workflow code running in coroutines created by workflow.Go() cause crashes. The panic originates from a slice bounds check error in the stack trace generation code.",
+  "category": "bug",
+  "subcategory": "panic-handling",
+  "apis": [
+    "workflow.Go"
+  ],
+  "components": [
+    "dispatcher",
+    "stack-trace-generation",
+    "coroutine-execution"
+  ],
+  "concepts": [
+    "panic-recovery",
+    "error-handling",
+    "stack-trace",
+    "goroutine",
+    "bounds-checking"
+  ],
+  "severity": "high",
+  "userImpact": "Unhandled panics in workflow coroutines crash the workflow execution instead of being caught and reported properly.",
+  "rootCause": "Slice bounds out of range error in getStackTraceRaw() at internal_workflow.go:863 when processing stack traces from panicking goroutines.",
+  "proposedFix": "Add bounds checks to the stack trace line filter to prevent index out of range panics.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bounds checks were added to the stack trace line filter despite inability to replicate the exact conditions.",
+  "related": [],
+  "keyQuote": "Despite being unable to replicate, I am adding bounds checks to the stack trace line filter.",
+  "number": 624,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:55.197Z"
+}

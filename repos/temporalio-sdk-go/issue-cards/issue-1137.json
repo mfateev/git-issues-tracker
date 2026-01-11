@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to support OpenTelemetry metrics as an alternative to Tally. OpenTelemetry was previously considered unstable but is now stable, and the SDK should provide native support to avoid requiring users to integrate multiple metrics libraries.",
+  "category": "feature",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "opentelemetry-contrib",
+    "sdk-configuration"
+  ],
+  "concepts": [
+    "observability",
+    "metrics-instrumentation",
+    "opentelemetry",
+    "tally-metrics",
+    "library-integration",
+    "deployment-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users adopting OpenTelemetry are forced to integrate both OpenTelemetry and Tally metrics libraries, complicating their deployment configuration.",
+  "rootCause": "SDK only supports Tally metrics; OpenTelemetry API was previously unstable but is now stable and widely adopted.",
+  "proposedFix": "Implement OpenTelemetry metrics handler in the SDK to provide native support alongside or instead of Tally.",
+  "workaround": "Implement the metrics.Handler interface to wrap OpenTelemetry (acknowledged as not ideal due to internal package exposure).",
+  "resolution": "fixed",
+  "resolutionDetails": "OpenTelemetry metrics implemented and released in separate contrib package (opentelemetry/v0.4.0), though subsequent versions revealed dependency incompatibilities with protobuf library versions.",
+  "related": [],
+  "keyQuote": "For Temporal to support OpenTelemetry for its metrics instrumentation.",
+  "number": 1137,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:45.337Z"
+}

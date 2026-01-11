@@ -1,0 +1,32 @@
+{
+  "summary": "Dev server cannot be stopped on Windows because the implementation relies on Unix signals. The fix requires platform-specific code using Windows console control APIs to properly interrupt the process.",
+  "category": "bug",
+  "subcategory": "dev-server",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "process-management",
+    "windows-support"
+  ],
+  "concepts": [
+    "signal-handling",
+    "process-termination",
+    "platform-specific",
+    "console-control",
+    "windows-api"
+  ],
+  "severity": "high",
+  "userImpact": "Windows users cannot properly stop the development server, forcing them to use external process termination methods.",
+  "rootCause": "The dev server implementation uses Unix signals (SIGINT) which are not supported on Windows.",
+  "proposedFix": "Create platform-specific files (util_windows.go and util_nonwindows.go) with separate sendInterrupt() implementations using Windows console control APIs for Windows and Unix signals for other platforms.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #1129 implementing platform-specific process interruption.",
+  "related": [
+    1129
+  ],
+  "keyQuote": "Dev server should stop on Windows, but we foolishly used signals.",
+  "number": 1097,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:30.729Z"
+}

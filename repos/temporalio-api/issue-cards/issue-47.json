@@ -1,0 +1,31 @@
+{
+  "summary": "Add explicit Failure field to Marker decision and event attributes to properly represent failures in marker events used for features like local activities and side effects, eliminating the need for manual serialization workarounds.",
+  "category": "feature",
+  "subcategory": "marker-events",
+  "apis": [],
+  "components": [
+    "marker-events",
+    "decision-attributes",
+    "event-attributes"
+  ],
+  "concepts": [
+    "failure-handling",
+    "marker-metadata",
+    "event-attributes",
+    "local-activities",
+    "side-effects",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now properly attach and retrieve failures in marker events without requiring custom serialization hacks or CLI workarounds.",
+  "rootCause": "Recent changes to failure representation made it impractical to attach failures to markers without explicitly serializing to payload, requiring UI and CLI hacks for proper display.",
+  "proposedFix": "Add explicit map<string, failure.Failure> failures field to MarkerRecordedEventAttributes and RecordMarkerDecisionAttributes, and change details to map<string, common.Payloads> for consistency.",
+  "workaround": "Manually serialize failures to payload in marker events (requires explicit UI and CLI handling).",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as proposed - added failures map field to marker event and decision attributes.",
+  "related": [],
+  "keyQuote": "After the recent change of how failures are represented it is not practically possible to attach a failure to the marker without explicitly serializing it to a payload.",
+  "number": 47,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:21.722Z"
+}

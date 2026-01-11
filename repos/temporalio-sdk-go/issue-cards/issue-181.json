@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add support for clean worker shutdown that waits for activity sessions to complete, not just individual activities. Currently worker.Close() waits for running activities, but users need to wait for entire sessions that execute multiple activities.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Close"
+  ],
+  "components": [
+    "worker",
+    "session-management",
+    "activity-executor"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "session-completion",
+    "worker-lifecycle",
+    "activity-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot gracefully shut down workers while ensuring all activities within a session complete, forcing them to implement custom shutdown logic.",
+  "rootCause": null,
+  "proposedFix": "Add capability to wait for activity session completion when calling worker.Close()",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The clean worker shutdown waits for all currently running activities to complete. But in some cases, there is a need to wait for the whole session, which executes multiple activities to completion.",
+  "number": 181,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:35.678Z"
+}

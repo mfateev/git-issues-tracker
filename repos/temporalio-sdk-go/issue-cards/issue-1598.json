@@ -1,0 +1,35 @@
+{
+  "summary": "Setting a typed nil value for the optional Ramp field in VersioningAssignmentRule causes a panic with bad memory reference, while untyped nil works correctly.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [
+    "UpdateWorkerVersioningRulesOptions",
+    "VersioningAssignmentRule",
+    "VersioningRampByPercentage"
+  ],
+  "components": [
+    "versioning",
+    "worker-versioning",
+    "rule-validation"
+  ],
+  "concepts": [
+    "nil-handling",
+    "type-safety",
+    "panic",
+    "memory-safety",
+    "optional-fields",
+    "proto-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot set optional Ramp fields to typed nil values without causing a runtime panic.",
+  "rootCause": "Proto conversion logic does not properly handle typed nil values for interface fields.",
+  "proposedFix": null,
+  "workaround": "Use untyped nil instead of typed nil for the Ramp field.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Assignment rules have been deprecated and scheduled for removal, so the bug was closed without fixing.",
+  "related": [],
+  "keyQuote": "Assignment rules have been deprecated and soon to be removed. Closing...",
+  "number": 1598,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:29.054Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "workflowcheck tool fails with an error when provided files from different directories (main.go in root, workflow file in subdirectory), showing 'named files must all be in one directory' error message.",
+  "category": "bug",
+  "subcategory": "workflowcheck-tool",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "tool",
+    "loader"
+  ],
+  "concepts": [
+    "file-organization",
+    "multi-directory",
+    "determinism-checking",
+    "tooling-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run workflowcheck on projects with workflows organized in subdirectories, preventing them from using the determinism validation tool on common project structures.",
+  "rootCause": "workflowcheck loader requires all provided Go files to be in the same directory, but typical projects have main.go in root and workflows in a subdirectory",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved (closed), likely through a fix to workflowcheck to support multi-directory file loading",
+  "related": [],
+  "keyQuote": "named files must all be in one directory; have . and workflows",
+  "number": 1483,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:32.617Z"
+}

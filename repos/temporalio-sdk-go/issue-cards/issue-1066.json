@@ -1,0 +1,34 @@
+{
+  "summary": "Local activity timeout handling is inconsistent between documentation and implementation. The code incorrectly requires only one timeout parameter and overrides one with the other, and it doesn't distinguish between StartToCloseTimeout and ScheduleToCloseTimeout for retry logic. Additionally, the SDK is missing ScheduleToStartTimeout that exists in the Java SDK.",
+  "category": "bug",
+  "subcategory": "local-activity-timeouts",
+  "apis": [
+    "LocalActivityOptions",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "activity-options",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "deadline",
+    "local-activity",
+    "schedule-to-close",
+    "start-to-close"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably control individual timeout behavior for local activities and retries, making it difficult to implement proper timeout semantics.",
+  "rootCause": "Implementation incorrectly overrides one timeout with another and treats all deadline exceeded errors as schedule-to-close timeouts rather than distinguishing between timeout types.",
+  "proposedFix": "Fix the timeout logic to respect both ScheduleToCloseTimeout and StartToCloseTimeout independently, differentiate timeout types in error handling, and add ScheduleToStartTimeout support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the timeout inconsistencies were addressed in the implementation.",
+  "related": [],
+  "keyQuote": "If we fix this bug we have another problem that StartToCloseTimeout is not retried because it always treats ErrDeadlineExceeded as a TIMEOUT_TYPE_SCHEDULE_TO_CLOSE",
+  "number": 1066,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:48.410Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Worker.Start should fail (panic) after worker.Stop has been called, rather than allowing restart attempts that don't behave as users expect. Currently, users can call Stop then Start, but this doesn't properly restart the worker.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Start",
+    "Stop"
+  ],
+  "components": [
+    "worker",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "restart",
+    "state-management",
+    "worker-initialization",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to restart a worker by calling Stop then Start encounter unexpected behavior, requiring clearer error handling to guide proper usage patterns.",
+  "rootCause": "Worker.Start does not validate that the worker has not been previously stopped, allowing invalid restart attempts.",
+  "proposedFix": "Panic on worker.Start if the worker has been stopped, forcing users to create a new worker instance for restarting.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker.Start now panics after worker.Stop is called, preventing invalid restart attempts.",
+  "related": [],
+  "keyQuote": "Panic on worker.Start after the worker.Stop was called.",
+  "number": 447,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:42.627Z"
+}

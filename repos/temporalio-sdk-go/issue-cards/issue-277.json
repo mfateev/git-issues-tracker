@@ -1,0 +1,28 @@
+{
+  "summary": "Feature request to expose access to the underlying gRPC ServiceClient in the Go SDK to enable creation of default clients and access to low-level gRPC functionality, particularly needed for SDK code generation like in the PHP SDK.",
+  "category": "feature",
+  "subcategory": "grpc-client-exposure",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "client-initialization"
+  ],
+  "concepts": [
+    "grpc-service-client",
+    "client-access",
+    "sdk-integration",
+    "code-generation"
+  ],
+  "severity": "low",
+  "userImpact": "SDK developers need direct access to underlying gRPC clients to implement proper client code generation and extend SDK functionality.",
+  "rootCause": null,
+  "proposedFix": "Expose the grpc.ServiceClient to allow access to the underlying gRPC client during client creation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expose access to grpc.ServiceClient so we can create default golang client and get access to underlying GRPC client",
+  "number": 277,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:36.987Z"
+}

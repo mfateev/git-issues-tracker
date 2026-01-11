@@ -1,0 +1,34 @@
+{
+  "summary": "Activity slots created with ResourceBasedSlotSupplier are not being released after task completion, causing activities to remain stuck in PENDING_ACTIVITY_STATE_SCHEDULED state. The ReleaseSlot method is not implemented in the SlotSupplier interface.",
+  "category": "bug",
+  "subcategory": "activity-slot-management",
+  "apis": [
+    "NewResourceBasedSlotSupplier",
+    "NewCompositeTuner"
+  ],
+  "components": [
+    "resourcetuner",
+    "slot-supplier",
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "resource-management",
+    "slot-allocation",
+    "activity-scheduling",
+    "concurrency-control",
+    "tuner"
+  ],
+  "severity": "high",
+  "userImpact": "Activities hang indefinitely in pending state when using ResourceBasedSlotSupplier, preventing workflows from completing and causing applications to stall.",
+  "rootCause": "The ReleaseSlot method in the SlotSupplier interface is not implemented in ResourceBasedSlotSupplier, preventing activity slots from being released after completion.",
+  "proposedFix": "Implement the ReleaseSlot method in ResourceBasedSlotSupplier to properly release activity slots when tasks complete.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The ReleaseSlot method was implemented in the ResourceBasedSlotSupplier to properly manage slot lifecycle.",
+  "related": [],
+  "keyQuote": "Activity slots are not released after task is completed. This causes scheduled activities to forever hand in PENDING_ACTIVITY_STATE_SCHEDULED state.",
+  "number": 1868,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:23.129Z"
+}

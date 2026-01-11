@@ -1,0 +1,32 @@
+{
+  "summary": "User reported that CancelWorkflow() returns *serviceerror.NotFound with a generic 'sql: no rows in result set' message instead of EntityNotExistsError when a workflow doesn't exist. Discussion clarified this was a misunderstanding about Go error handling patterns rather than an actual bug.",
+  "category": "question",
+  "subcategory": "error-handling",
+  "apis": [
+    "CancelWorkflow",
+    "GetWorkflow"
+  ],
+  "components": [
+    "client",
+    "error-handling",
+    "service-error"
+  ],
+  "concepts": [
+    "error-types",
+    "type-assertion",
+    "not-found-error",
+    "standard-library-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users unfamiliar with Go's type assertion pattern may struggle with proper error handling for non-existent workflows.",
+  "rootCause": "User misunderstanding about Go error handling patterns (using errors.Is for type checking vs type assertions)",
+  "proposedFix": null,
+  "workaround": "Use type assertion pattern: _, isNotFound := err.(*serviceerror.NotFound)",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as invalid. The issue was based on incorrect assumptions about Go error handling. Type assertions are the standard way to verify error types, not errors.Is.",
+  "related": [],
+  "keyQuote": "This is not true. It _is_ the standard way to verify error types. errors.Is is the standard way to verify _equality_. But this is a server error and you don't want to verify equality, you want to verify that it is not found for any reason.",
+  "number": 395,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:25.496Z"
+}

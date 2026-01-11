@@ -1,0 +1,31 @@
+{
+  "summary": "Request to clarify and simplify the documentation comment for ActivityOptions.ActivityID field. The field already works as intended, so the comment warning against use should be updated to be clearer about when and why it should be used.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity",
+    "workflow-options"
+  ],
+  "concepts": [
+    "activity-id",
+    "documentation",
+    "api-clarity",
+    "configuration",
+    "optional-parameters"
+  ],
+  "severity": "low",
+  "userImpact": "Developers are confused by outdated documentation that discourages use of a feature that already works properly.",
+  "rootCause": "The ActivityID field documentation contains misleading comments suggesting it should not be used and referencing future work, when the feature is already functional.",
+  "proposedFix": "Update the comment to simply read: '// ActivityID - Business level activity ID\\n// Optional: default empty string'",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was clarified to remove the confusing warnings about the ActivityID field.",
+  "related": [],
+  "keyQuote": "ActivityID - Business level activity ID, this is not needed for most of the cases if you have to specify this then talk to temporal team.",
+  "number": 528,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:48.888Z"
+}

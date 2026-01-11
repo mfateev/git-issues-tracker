@@ -1,0 +1,33 @@
+{
+  "summary": "AssertActivityCalled does not verify that mocked activities were called with specific arguments unless the activity is explicitly mocked. The method captures activity execution but the assertion fails to match it, despite the activity actually being called with correct arguments.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "AssertActivityCalled"
+  ],
+  "components": [
+    "test-suite",
+    "activity-mock",
+    "assertion-framework"
+  ],
+  "concepts": [
+    "mocking",
+    "test-assertion",
+    "activity-execution",
+    "argument-verification",
+    "mock-expectations"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot reliably test that activities are called with specific arguments without manually mocking them, reducing test clarity and making the assertion feature unreliable.",
+  "rootCause": "AssertActivityCalled is designed only for asserting mocked activities (via OnActivity), but the documentation and behavior don't make this clear, leading users to expect it works with registered activities.",
+  "proposedFix": null,
+  "workaround": "Explicitly mock the activity using s.env.OnActivity(Act, mock.Anything).Return(...) to enable assertion tracking.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers clarified that AssertActivityCalled is intended only for asserting activity mocks, not registered activities. This is expected behavior.",
+  "related": [],
+  "keyQuote": "This is expected `AssertActivityCalled` is for asserting activity mocks are called",
+  "number": 2044,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:59.990Z"
+}

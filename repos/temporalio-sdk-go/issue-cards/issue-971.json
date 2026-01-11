@@ -1,0 +1,33 @@
+{
+  "summary": "Move proxy and interceptor code generation from sdk-go to api-go as a standalone tool package. This reduces API dependencies in the SDK and enables future-proofing for new API packages.",
+  "category": "feature",
+  "subcategory": "code-generation",
+  "apis": [],
+  "components": [
+    "code-generation",
+    "proxy",
+    "interceptor",
+    "api-go"
+  ],
+  "concepts": [
+    "code-generation",
+    "proxy-pattern",
+    "interceptor-pattern",
+    "payload-handling",
+    "grpc",
+    "modularity",
+    "api-dependencies"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces SDK dependencies on api-go and provides a reusable code generation tool for proxy and interceptor patterns.",
+  "rootCause": "SDK currently relies on every API message through proxy and interceptor code generation, creating unnecessary coupling.",
+  "proposedFix": "Create cmd/generateproxy binary in api-go that generates proxy and interceptor code, with separate go.mod to avoid forcing dependencies. Tool should generate go.temporal.io/api/proxy package with WorkflowServiceProxyServer and PayloadVisitorInterceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented - proxy and interceptor code generation was moved to api-go as a standalone tool.",
+  "related": [],
+  "keyQuote": "We need to move the code gen for proxy and interceptor to https://github.com/temporalio/api-go.",
+  "number": 971,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:41.514Z"
+}

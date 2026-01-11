@@ -1,0 +1,36 @@
+{
+  "summary": "Child workflows with SDK-generated IDs fail to reset because the auto-generated ID is based on the original runID, which changes after reset. During replay, the workflow can't find the corresponding child workflow command, causing a non-deterministic error.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "workflow-state-machine",
+    "child-workflow-handler",
+    "replay-engine"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "determinism",
+    "child-workflow-id-generation",
+    "runID",
+    "history-replay",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely reset workflows that use child workflows without explicitly specifying a child workflow ID, as the reset will cause non-deterministic errors during replay.",
+  "rootCause": "Child workflow IDs are auto-generated based on the workflow's runID. When a workflow is reset, the runID changes, but the historical child workflow ID references remain based on the original runID, creating a mismatch during replay.",
+  "proposedFix": "Generate child workflow IDs based on the workflow's OriginalRunId instead of the current runID, as the original runID remains constant across resets.",
+  "workaround": "Explicitly specify child workflow IDs in the child workflow options to avoid SDK auto-generation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1803 which addresses the child workflow ID generation to handle resets correctly.",
+  "related": [
+    1385,
+    1803
+  ],
+  "keyQuote": "After reset, the workflow's runID changes but in workflow history the child workflow ID is still based on the original runID. Hence the not found and non-deterministic error.",
+  "number": 723,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:34.343Z"
+}

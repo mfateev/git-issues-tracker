@@ -1,0 +1,34 @@
+{
+  "summary": "Activity mocking in tests currently requires registering a dummy activity implementation beforehand, which is unintuitive and cumbersome. The user requests removal of this requirement for a better testing experience.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "RegisterWithOptions",
+    "OnActivity"
+  ],
+  "components": [
+    "activity-registration",
+    "test-mocking",
+    "activity-executor"
+  ],
+  "concepts": [
+    "mocking",
+    "testing",
+    "activity-registration",
+    "test-setup",
+    "test-framework",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must write boilerplate dummy activity registrations when mocking activities in tests, reducing code clarity and increasing test complexity.",
+  "rootCause": "Current design requires activities to be registered before mocking, likely due to internal activity lookup and registration mechanisms.",
+  "proposedFix": null,
+  "workaround": "Register a dummy activity with an empty implementation in SetupSuite before mocking with OnActivity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I find it quite odd/hard to use in cadence that I have to register an activity before mocking it with On Activity.",
+  "number": 125,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:33.741Z"
+}

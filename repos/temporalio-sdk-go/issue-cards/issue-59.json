@@ -1,0 +1,32 @@
+{
+  "summary": "Add a workflow deadlock detector to the Go SDK, similar to the existing implementation in the Java SDK. This feature would help developers identify and prevent workflows from getting stuck due to deadlock conditions.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "deadlock-detection",
+    "worker"
+  ],
+  "concepts": [
+    "deadlock",
+    "workflow-blocking",
+    "detection",
+    "monitoring",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the Go SDK would be able to detect and debug workflow deadlock conditions, improving reliability and development experience.",
+  "rootCause": null,
+  "proposedFix": "Implement a deadlock detector similar to the Java SDK implementation (referenced in issue #28)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Deadlock detection was implemented in the Go SDK workflow engine",
+  "related": [
+    28
+  ],
+  "keyQuote": "Similar Java SDK issue: https://github.com/temporalio/temporal-java-client/issues/28",
+  "number": 59,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:57.692Z"
+}

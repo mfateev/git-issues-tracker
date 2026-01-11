@@ -1,0 +1,35 @@
+{
+  "summary": "ContinueAsNew creates overly large traces by attaching new workflows to existing spans, potentially overwhelming tracing backends. The request is to create new disconnected root spans for ContinueAsNew and child workflows, linked to the original trace.",
+  "category": "feature",
+  "subcategory": "tracing-opentelemetry",
+  "apis": [
+    "ContinueAsNew",
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "tracing",
+    "opentelemetry-interceptor",
+    "workflow-context",
+    "span-management"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "span-lifecycle",
+    "context-propagation",
+    "trace-overhead",
+    "observability",
+    "workflow-continuation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with long-running workflows using ContinueAsNew experience trace backend overwhelm due to unbounded span growth.",
+  "rootCause": "ContinueAsNew workflows are attached to the parent trace context, causing all spans from the new workflow invocation to be added to the same trace, creating exponentially large traces on repeated continuations.",
+  "proposedFix": "Expose the ability to get the OpenTelemetry span from workflow context, allowing users to create custom interceptors that disconnect spans for ContinueAsNew and child workflows using trace.WithNewRoot() and trace.WithLinks().",
+  "workaround": "Implement custom SpanStarter in tracing interceptor that checks for RunWorkflow spans and applies trace.WithNewRoot() with trace.WithLinks() to create disconnected but linked traces.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For the most flexibility...expose the ability to get the otel span from the workflow context, then users can interact with the span like they do outside of workflow code.",
+  "number": 1976,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:21.718Z"
+}

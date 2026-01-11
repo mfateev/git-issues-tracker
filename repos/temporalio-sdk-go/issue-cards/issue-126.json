@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add automatic heartbeating for long-running activities to detect worker liveness without requiring manual heartbeat implementation. Feature was previously available in Cadence and would simplify activity implementation.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "Activity.RecordHeartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "heartbeat",
+    "liveness-detection",
+    "worker-health",
+    "long-running-activities",
+    "timeout",
+    "activity-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing long-running activities must manually implement heartbeating logic just to signal worker liveness, increasing code complexity.",
+  "rootCause": null,
+  "proposedFix": "Add built-in autoheartbeating mechanism similar to Cadence's implementation (referenced PRs #1053 and #1088)",
+  "workaround": "Implement manual heartbeating in activities or use a simple utility function as described in community forum discussion",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it would be very nice to not have to implement heartbeating in long-running activities where the ~only reason to implement heartbeating is to know whether a worker is alive or not",
+  "number": 126,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:48.460Z"
+}

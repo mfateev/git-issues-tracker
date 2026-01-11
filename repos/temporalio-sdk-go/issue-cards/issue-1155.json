@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for intercepting workflow.Await calls on WorkflowOutboundInterceptor. Currently, many workflow package calls are available for interception, but workflow.Await is not yet included.",
+  "category": "feature",
+  "subcategory": "interceptor",
+  "apis": [
+    "workflow.Await",
+    "WorkflowOutboundInterceptor"
+  ],
+  "components": [
+    "workflow",
+    "interceptor",
+    "outbound-interceptor"
+  ],
+  "concepts": [
+    "intercepting",
+    "workflow-execution",
+    "extension-points",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot intercept or extend workflow.Await behavior through the WorkflowOutboundInterceptor, limiting customization and observability capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add workflow.Await interception support to WorkflowOutboundInterceptor interface.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and integrated into WorkflowOutboundInterceptor.",
+  "related": [],
+  "keyQuote": "Many `workflow` package calls are on `WorkflowOutboundInterceptor`, but not this one yet. We should add it.",
+  "number": 1155,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:12.863Z"
+}

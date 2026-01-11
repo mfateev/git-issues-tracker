@@ -1,0 +1,31 @@
+{
+  "summary": "Documentation issue: A code comment references a fully qualified function name (go.temporal.io/sdk/contrib/tally.NewMetricsHandler) that the issue author believes should be a direct URL to the Go package documentation. The maintainer clarified that function references are intentional, not meant to be URLs.",
+  "category": "docs",
+  "subcategory": "code-documentation",
+  "apis": [
+    "NewMetricsHandler"
+  ],
+  "components": [
+    "metrics",
+    "documentation",
+    "contrib-tally"
+  ],
+  "concepts": [
+    "documentation",
+    "api-reference",
+    "metrics-handler",
+    "code-comments"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the code may be confused about whether function references in comments should be clickable URLs or fully qualified names.",
+  "rootCause": "Misunderstanding about the intended format of function references in code comments",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that function references are intentionally formatted as fully qualified names, not URLs, and decided not to change this convention",
+  "related": [],
+  "keyQuote": "That's not meant to be a URL, that's a fully qualified function reference. I am not sure we want to change function references to URLs.",
+  "number": 846,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:25.880Z"
+}

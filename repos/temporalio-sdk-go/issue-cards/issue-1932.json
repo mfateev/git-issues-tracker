@@ -1,0 +1,32 @@
+{
+  "summary": "Request for type-safe generic wrappers around workflow.ExecuteActivity to eliminate boilerplate and provide compile-time type checking for activity arguments and results.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-context",
+    "type-system"
+  ],
+  "concepts": [
+    "type-safety",
+    "generics",
+    "boilerplate-reduction",
+    "compile-time-checking",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must write boilerplate code and cannot catch type mismatches between activities and workflow execution until runtime.",
+  "rootCause": null,
+  "proposedFix": "Implement generic type-safe wrappers around ExecuteActivity that accept a function and arguments, returning a typed Future or result directly.",
+  "workaround": "Users can implement their own generic wrapper functions as demonstrated in the issue.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of an existing issue for generic/type-safe API support across workflows, activities, signals, updates, and queries.",
+  "related": [],
+  "keyQuote": "There is still a lot of design and thought that needs to go into how we create a fully type safe API, including things like type safe workflows, activities, signals, updates and queries.",
+  "number": 1932,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:17.503Z"
+}

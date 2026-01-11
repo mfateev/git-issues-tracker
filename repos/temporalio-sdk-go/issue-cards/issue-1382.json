@@ -1,0 +1,33 @@
+{
+  "summary": "workflowcheck v0.1.0 fails with Go 1.22 toolchain due to incompatibility with the go/types API changes in Go 1.22. The tool requires golang.org/x/tools v0.13.0 or newer, but v0.1.0 depends on v0.10.0.",
+  "category": "bug",
+  "subcategory": "tool-compatibility",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "golang.org/x/tools",
+    "go/types"
+  ],
+  "concepts": [
+    "Go toolchain compatibility",
+    "dependency versioning",
+    "analyzer API changes",
+    "segmentation fault",
+    "nil pointer dereference"
+  ],
+  "severity": "high",
+  "userImpact": "Users trying to use workflowcheck with Go 1.22 experience runtime panics and cannot run the tool without manual workarounds.",
+  "rootCause": "Go 1.22 introduced changes to the go/types API that require a newer version of golang.org/x/tools (v0.13.0+). workflowcheck v0.1.0 depended on v0.10.0 which is incompatible with these changes.",
+  "proposedFix": "Upgrade golang.org/x/tools dependency to v0.13.0 or newer and release a new version of workflowcheck.",
+  "workaround": "Users can add workflowcheck to their go.mod/tools.go with x/tools v0.13.0+ and run without the @latest suffix to use the newer x/tools version from their own go.mod.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fix was merged to HEAD, and workflowcheck v0.2.0 was released with the upgraded x/tools dependency after Go SDK v1.26.0 release.",
+  "related": [
+    62167,
+    3864
+  ],
+  "keyQuote": "Go analyzers when built with the 1.22 toolchain also require a version of x/tools at least as new as v0.13.0",
+  "number": 1382,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:20.692Z"
+}

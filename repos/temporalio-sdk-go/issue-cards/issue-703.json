@@ -1,0 +1,36 @@
+{
+  "summary": "Async activities with heartbeat timeouts fail unexpectedly because external completion mechanisms cannot provide periodic heartbeats while waiting for manual input. User expects either automatic heartbeat generation for async activities or special handling to prevent timeout.",
+  "category": "question",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "CompleteActivity",
+    "CompleteActivityByID",
+    "RecordActivityHeartbeat",
+    "RecordActivityHeartbeatByID"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "async-completion"
+  ],
+  "concepts": [
+    "heartbeat-timeout",
+    "async-activity",
+    "external-completion",
+    "activity-state-pending",
+    "worker-deadlock",
+    "long-running-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users using async activities for manual input waiting experience unexpected heartbeat timeout failures, limiting the usefulness of async completion for long-running operations.",
+  "rootCause": "Async activities are treated as running from the server perspective and require continuous heartbeats, but external completion mechanisms (especially those waiting for user input from other services) cannot reliably send periodic heartbeats.",
+  "proposedFix": "Server could implement special handling for activities in ErrResultPending state to skip heartbeat timeout validation, or provide automatic heartbeat generation for async activities.",
+  "workaround": "Send RecordActivityHeartbeat or RecordActivityHeartbeatByID periodically from the external service handling the async completion, or disable heartbeat timeout entirely on the activity.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers confirmed this is intended behavior. Heartbeat requirement is by design to detect worker deadlock and ensure activity execution hasn't gone away. Recommended alternatives are using signals or child workflows which don't require heartbeats.",
+  "related": [],
+  "keyQuote": "It is by intention that starting an activity with a heartbeat timeout must have heartbeats within that timeout occur until it is completed/failed.",
+  "number": 703,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:28.866Z"
+}

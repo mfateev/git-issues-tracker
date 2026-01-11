@@ -1,0 +1,30 @@
+{
+  "summary": "The api-go update workflow fails when commit messages contain backtick (`) characters, causing shell command parsing errors during the 'Prepare inputs' step.",
+  "category": "bug",
+  "subcategory": "workflow-automation",
+  "apis": [],
+  "components": [
+    "api-go",
+    "workflow",
+    "shell-script"
+  ],
+  "concepts": [
+    "shell-escaping",
+    "commit-message",
+    "workflow-automation",
+    "special-characters",
+    "ci-cd"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot merge pull requests or commit to the repository if their commit messages contain backtick characters, blocking normal workflow operations.",
+  "rootCause": "Backtick characters in commit messages are not properly escaped when passed to shell scripts, causing unintended command substitution interpretation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "/home/runner/work/_temp/[omitted].sh: line 7: string: command not found",
+  "number": 421,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:42.855Z"
+}

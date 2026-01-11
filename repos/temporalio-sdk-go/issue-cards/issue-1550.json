@@ -1,0 +1,36 @@
+{
+  "summary": "After upgrading to SDK v1.27.0, users encounter context deadline exceeded errors when connecting to Temporal Server. The issue is resolved by downgrading to v1.26.1, suggesting a regression in the newer version.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "client.Dial",
+    "client.ExecuteWorkflow",
+    "workflow.ExecuteActivity"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "network",
+    "grpc"
+  ],
+  "concepts": [
+    "context deadline",
+    "connection timeout",
+    "client initialization",
+    "network resolution",
+    "localhost resolution",
+    "version regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to v1.27.0 are unable to connect to Temporal Server and cannot run workflows.",
+  "rootCause": "Likely a networking issue specific to the user's environment or a regression in v1.27.0 affecting localhost resolution or connection timeout handling.",
+  "proposedFix": "Use passthrough:///localhost:7233 format or try using the IP address of the server instead of hostname.",
+  "workaround": "Downgrade to v1.26.1 or use IP address instead of localhost for HostPort configuration.",
+  "resolution": "invalid",
+  "resolutionDetails": "Determined to be a client-side networking issue in the user's environment (resolved when tested from different location), not a product bug.",
+  "related": [],
+  "keyQuote": "It must have been a networking issue at the client. Closing for now.",
+  "number": 1550,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:49.288Z"
+}

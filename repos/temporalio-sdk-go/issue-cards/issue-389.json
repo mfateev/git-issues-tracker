@@ -1,0 +1,32 @@
+{
+  "summary": "Client creation does not validate the input address (host:port) format, causing cryptic connection errors later when the invalid address is used. Validation should occur during client initialization rather than at connection time.",
+  "category": "bug",
+  "subcategory": "client-initialization",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "address-validation"
+  ],
+  "concepts": [
+    "validation",
+    "connection-error",
+    "initialization",
+    "address-format",
+    "error-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing connection errors at runtime instead of clear validation errors during client setup.",
+  "rootCause": "Missing input validation for address parameter in client creation, deferred to connection time",
+  "proposedFix": "Add validation of host:port format during client creation before connection attempts",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as resolution is configurable; validation approach may vary based on configuration",
+  "related": [],
+  "keyQuote": "host port should be validated during client creation",
+  "number": 389,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:26.212Z"
+}

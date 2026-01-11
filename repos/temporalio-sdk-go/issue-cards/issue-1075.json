@@ -1,0 +1,30 @@
+{
+  "summary": "Verify that workflow execution completes at the same point during replay as in the original execution. The issue was resolved through a specific commit that ensures UpdateExecutionComplete behaves consistently across replay scenarios.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "replay-engine",
+    "update-handler"
+  ],
+  "concepts": [
+    "replay",
+    "workflow-execution",
+    "update-execution",
+    "determinism",
+    "state-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures that workflow updates complete at consistent points during replay, preventing non-deterministic behavior that could cause workflow execution failures.",
+  "rootCause": "UpdateExecutionComplete was not completing at the same point on replay as during original execution, causing inconsistent workflow behavior.",
+  "proposedFix": "Fixed through commit 720dab006426a69d3e2ef0efdb1cc7cb817e3049",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved with commit 720dab006426a69d3e2ef0efdb1cc7cb817e3049",
+  "related": [],
+  "keyQuote": "Check update workflow execution completes at the same point on replay",
+  "number": 1075,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:01.025Z"
+}

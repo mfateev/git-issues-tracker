@@ -1,0 +1,31 @@
+{
+  "summary": "Go SDK experiences event ordering issues when an activity task starts and completes between workflow task scheduling and starting. A lookup error occurs trying to map scheduled event IDs to activity IDs in unexpected event sequences.",
+  "category": "bug",
+  "subcategory": "event-ordering",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "activity-task-handler",
+    "event-dispatcher"
+  ],
+  "concepts": [
+    "event-ordering",
+    "history-replay",
+    "event-scheduling",
+    "activity-lifecycle",
+    "workflow-execution",
+    "event-mapping"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter lookup failures when their workflow history contains events in certain unexpected orders, causing workflow execution to fail.",
+  "rootCause": "The SDK's event ordering logic does not properly handle activity task start and completion events that occur before the corresponding workflow task start event.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Added test coverage in sdk-features to replicate the event sequence, though the original bug could not be reproduced.",
+  "related": [],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 109, activityID: 108",
+  "number": 670,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:42.614Z"
+}

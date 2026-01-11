@@ -1,0 +1,30 @@
+{
+  "summary": "Activity latency metrics (activity_schedule_to_start_latency, activity_endtoend_latency) are missing the task queue name tag in the Go SDK, unlike the Java SDK implementation.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-worker",
+    "prometheus"
+  ],
+  "concepts": [
+    "latency",
+    "monitoring",
+    "metrics-tagging",
+    "task-queue",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily correlate activity latency metrics with specific task queues when monitoring Prometheus metrics.",
+  "rootCause": "Task queue name is not being added as a tag to activity latency metrics during collection",
+  "proposedFix": "Add task queue name tag to activity latency metrics to match Java SDK behavior",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activity latency metrics like `activity_schedule_to_start_latency` and `activity_endtoend_latency` should be tagged with the task queue name like the Java SDK does.",
+  "number": 449,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:56.425Z"
+}

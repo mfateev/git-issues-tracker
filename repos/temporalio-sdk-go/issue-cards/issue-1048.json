@@ -1,0 +1,37 @@
+{
+  "summary": "Channel.Receive can consume a message before the blocked goroutine is woken up, causing ReceiveAsync to miss messages. This contradicts the guarantee that draining all signal messages through ReceiveAsync prevents signal loss.",
+  "category": "bug",
+  "subcategory": "channel-receive",
+  "apis": [
+    "Channel.Receive",
+    "Channel.ReceiveAsync",
+    "Selector"
+  ],
+  "components": [
+    "channel",
+    "goroutine-scheduler",
+    "signal-handling"
+  ],
+  "concepts": [
+    "message-ordering",
+    "goroutine-synchronization",
+    "signal-delivery",
+    "race-condition",
+    "workflow-completion",
+    "command-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users may lose signal messages when relying on ReceiveAsync to drain pending signals before workflow completion.",
+  "rootCause": "The goroutine blocked on Channel.Receive doesn't get woken up before ReceiveAsync consumes the message, causing a race condition in message delivery order.",
+  "proposedFix": "Either ensure AsyncReceive always takes precedence, or give the main workflow goroutine the lowest precedence (approach taken by other SDKs).",
+  "workaround": "Ensure clean goroutine exit by requiring non-primary coroutines with Receive to coordinate completion with the primary coroutine in user code.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue author agreed that requiring clean goroutine exit is the correct approach rather than changing message ordering semantics.",
+  "related": [
+    259
+  ],
+  "keyQuote": "requiring the clean goroutine exit is the way to go",
+  "number": 1048,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:00.393Z"
+}

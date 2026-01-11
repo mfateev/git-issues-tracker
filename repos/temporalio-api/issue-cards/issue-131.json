@@ -1,0 +1,31 @@
+{
+  "summary": "Remove deprecated fields marked with 'Should be removed' comments and convert them to reserved fields in the API. Also address any remaining TODO comments found during cleanup.",
+  "category": "bug",
+  "subcategory": "api-cleanup",
+  "apis": [],
+  "components": [
+    "api",
+    "proto-definitions"
+  ],
+  "concepts": [
+    "deprecation",
+    "cleanup",
+    "reserved-fields",
+    "api-maintenance",
+    "proto-backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Removes cleanup work and ensures deprecated API fields are properly marked as reserved to prevent accidental reuse.",
+  "rootCause": "Fields marked for removal in PR #121 were left with comments instead of being properly converted to reserved to avoid mixing comment and structural changes.",
+  "proposedFix": "Remove the 'Should be removed' comments and mark the fields as reserved; address any TODO comments found during the process.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    121
+  ],
+  "keyQuote": "Remove them and mark them as reserved. Was not done in that PR to avoid doing any non-comments changes.",
+  "number": 131,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:18.641Z"
+}

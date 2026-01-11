@@ -1,0 +1,34 @@
+{
+  "summary": "Replace health check with server capabilities lookup via getServerInfo to enable better error handling decisions. Remove health check options and use internal_error_differentiation capability to stop gRPC retrying internal errors.",
+  "category": "feature",
+  "subcategory": "client-initialization",
+  "apis": [
+    "getServerInfo"
+  ],
+  "components": [
+    "client",
+    "server-capabilities",
+    "health-check",
+    "error-handling"
+  ],
+  "concepts": [
+    "server-capabilities",
+    "health-check",
+    "error-differentiation",
+    "client-creation",
+    "retry-logic",
+    "graceful-degradation"
+  ],
+  "severity": "high",
+  "userImpact": "Users must adapt their client initialization code as health check options are removed and replaced with capabilities-based approach.",
+  "rootCause": "Health check system is limiting for error handling decisions; server capabilities provide better information for retry logic.",
+  "proposedFix": "Call getServerInfo during client creation instead of health check, handle 404s gracefully, fail fast on other errors, and leverage internal_error_differentiation capability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented server capabilities lookup and internal error differentiation instead of health check mechanism.",
+  "related": [],
+  "keyQuote": "Leverage the `internal_error_differentiation` capability to, if true, stop gRPC retrying internal errors",
+  "number": 701,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:11.482Z"
+}

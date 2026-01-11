@@ -1,0 +1,32 @@
+{
+  "summary": "The doc tool build command fails when function variable declarations have doc comments without 'Exposed as:' annotations. It should ignore variable declarations inside functions instead of requiring the annotation.",
+  "category": "bug",
+  "subcategory": "build-tooling",
+  "apis": [],
+  "components": [
+    "build-tool",
+    "doc-checker",
+    "code-generator"
+  ],
+  "concepts": [
+    "documentation",
+    "code-generation",
+    "validation",
+    "annotations",
+    "linting"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot run the doc tool build command when function-scoped variables have documentation comments, blocking the build process.",
+  "rootCause": "The doc tool validator requires 'Exposed as:' annotations on all variables with doc comments, but it should only apply this rule to package-level variables, not function-local declarations.",
+  "proposedFix": "Modify the doc tool validation logic to skip variable declarations that are inside function bodies.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The validation was updated to ignore variable declarations within function scopes.",
+  "related": [
+    1792
+  ],
+  "keyQuote": "It should ignore variable declarations in functions.",
+  "number": 1812,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:35.385Z"
+}

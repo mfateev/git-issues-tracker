@@ -1,0 +1,32 @@
+{
+  "summary": "Remove the error return value from WorkflowClient.CloseConnection and rename it to Close, as the error is not useful in practice.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "WorkflowClient.CloseConnection"
+  ],
+  "components": [
+    "workflow-client",
+    "connection-management"
+  ],
+  "concepts": [
+    "api-design",
+    "error-handling",
+    "connection-lifecycle",
+    "usability"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have a simpler, more idiomatic API for closing workflow client connections without unnecessary error handling.",
+  "rootCause": null,
+  "proposedFix": "Rename WorkflowClient.CloseConnection to Close and remove error return value",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by #131",
+  "related": [
+    131
+  ],
+  "keyQuote": "Rename WorkflowClient.CloseConnection to Close and remote error as it is not very useful anyway.",
+  "number": 97,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:01.094Z"
+}

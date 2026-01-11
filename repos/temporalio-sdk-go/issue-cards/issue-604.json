@@ -1,0 +1,32 @@
+{
+  "summary": "User requests a non-blocking variant of WorkflowRun.Get() that returns immediately instead of long-polling when the workflow is still running, to avoid blocking behavior and timeout issues on slower networks.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowRun.Get",
+    "Client.DescribeWorkflowExecution"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "blocking-call",
+    "long-poll",
+    "non-blocking",
+    "workflow-status",
+    "timeout"
+  ],
+  "severity": "low",
+  "userImpact": "Users must choose between blocking indefinitely or using a low timeout that may fail on slow networks when waiting for workflow completion.",
+  "rootCause": null,
+  "proposedFix": "Add a flag to WorkflowRun.Get() or create a new method (e.g., TryGet, GetAsync) that returns immediately without long-polling.",
+  "workaround": "Call Client.DescribeWorkflowExecution in a loop until workflow status is no longer running, then call Get().",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided the workaround is sufficient and adding this method to the interface is not worth the maintenance burden since it would be equivalent to the existing workaround.",
+  "related": [],
+  "keyQuote": "It will be useful to add a flag in this method (or define a new method) that does not do long poll and instead returns immediately if the workflow is still running.",
+  "number": 604,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:54.777Z"
+}

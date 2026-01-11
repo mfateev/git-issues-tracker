@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose a defaultConnection() method that automatically switches between localhost and Temporal Cloud based on an environment variable, enabling samples to work across both environments.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "samples"
+  ],
+  "concepts": [
+    "connection-switching",
+    "environment-configuration",
+    "localhost",
+    "cloud-deployment",
+    "sample-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users could more easily run samples against either localhost or Temporal Cloud without code changes.",
+  "rootCause": null,
+  "proposedFix": "Expose a defaultConnection() method that reads an environment variable to determine whether to connect to localhost or cloud.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide a utility method for environment-based connection configuration.",
+  "related": [
+    454
+  ],
+  "keyQuote": "Expose a defaultConnection() method or similar that switches between localhost (default) and cloud based on some environment variable",
+  "number": 1442,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:03.235Z"
+}

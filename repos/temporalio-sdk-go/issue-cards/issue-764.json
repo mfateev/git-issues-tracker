@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add built-in helpers for workflow.NewUUID() and workflow.NewRandom() to make it more convenient for workflow developers. Declined because the SDKs use deterministic seeded pseudorandom instead of side effects, and adding these helpers would codify API differences across SDKs without consensus.",
+  "category": "feature",
+  "subcategory": "workflow-utilities",
+  "apis": [],
+  "components": [
+    "workflow",
+    "uuid-generation",
+    "randomness"
+  ],
+  "concepts": [
+    "determinism",
+    "side-effects",
+    "uuid",
+    "randomness",
+    "sdk-consistency",
+    "convenience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers currently need to use side effects or implement their own logic for UUID and random number generation in workflows.",
+  "rootCause": "API design inconsistency: Go SDK uses side effects while other SDKs use deterministic seeded pseudorandom generation",
+  "proposedFix": "Add built-in workflow.NewUUID() and workflow.NewRandom() helper functions",
+  "workaround": "Use side effects or manually implement deterministic random generation with math/rand.NewSource()",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as the proposed one-line helpers don't add significant value. Other SDKs use deterministic pseudorandom without side effects, and adding Go-specific helpers would codify API differences without SDK consensus.",
+  "related": [
+    765
+  ],
+  "keyQuote": "we fear codifying the difference in API... we encourage use of side effects... but this isn't what we're doing in other SDKs",
+  "number": 764,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:46.430Z"
+}

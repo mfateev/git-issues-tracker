@@ -1,0 +1,32 @@
+{
+  "summary": "User requests CLI support for redriving workflows stuck in task queue and batch rerunning them using saved payloads, as the reset button is unavailable for workflows not yet dispatched to workers.",
+  "category": "feature",
+  "subcategory": "cli-workflow-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "cli",
+    "workflow-execution",
+    "task-queue"
+  ],
+  "concepts": [
+    "batch-operations",
+    "workflow-restart",
+    "payload-reuse",
+    "task-queue",
+    "reset"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently batch redrive or restart workflows that are stuck in task queues without manual intervention for each workflow.",
+  "rootCause": "CLI lacks support for batch workflow redriving and payload retrieval from workflow history for reuse in new executions.",
+  "proposedFix": "Extend CLI with commands to batch start workflows by reusing input payloads, with support for query parameters and payload retrieval from workflow show output.",
+  "workaround": "Use the UI's 'Start a workflow like this one' feature for individual workflows, or manually list workflows with --query and describe each one individually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers indicated this is a feature request for the Temporal CLI project (not SDK-Go) and recommended using existing UI/CLI features. No plans to implement batch workflow redriving in SDK-Go.",
+  "related": [],
+  "keyQuote": "have a solution (like CLI) to redrive workflows in task queue and rerun them",
+  "number": 1942,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:36.547Z"
+}

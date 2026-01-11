@@ -1,0 +1,32 @@
+{
+  "summary": "Review and finalize the Go SDK's high-level API for schedules before releasing to users. The server and tctl already use the Go SDK client's schedule functionality, but the API needs to be vetted for public use.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "schedules",
+    "client-api",
+    "go-sdk"
+  ],
+  "concepts": [
+    "api-design",
+    "schedules",
+    "public-api",
+    "client-interface",
+    "workflow-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a stable, well-designed Go SDK API for scheduling workflows before the feature can be considered production-ready.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The schedule API was reviewed and made available in the Go SDK for public use.",
+  "related": [],
+  "keyQuote": "we should review this API before handing it off to users",
+  "number": 871,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:44.390Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Signals sent to mocked child workflows in the test environment only deliver the first signal; subsequent signals block indefinitely instead of triggering their registered handlers.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "SignalExternalWorkflow",
+    "GetSignalChannel"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "signal-handling",
+    "selector"
+  ],
+  "concepts": [
+    "signal-delivery",
+    "child-workflows",
+    "test-mocking",
+    "signal-channels",
+    "async-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot reliably test signal exchanges between parent and child workflows in test environments, limiting test coverage for signal-based workflows.",
+  "rootCause": "The test environment's signal delivery mechanism does not properly handle multiple signal deliveries to child workflows; only the first signal is processed before subsequent selects block.",
+  "proposedFix": null,
+  "workaround": "Use ParentClosePolicy.ABANDON to prevent child workflow termination when parent completes, but this is a workaround rather than a fix for the underlying signal delivery issue.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed as invalid. The reporter was informed that the expected behavior is that child workflows are terminated when the parent workflow finishes by default, and they should use ParentClosePolicy.ABANDON if they want different behavior.",
+  "related": [],
+  "keyQuote": "This is expected behaviour, if you parent workflow finished by default your child workflow is terminated and will no longer receive signals.",
+  "number": 2040,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:44.272Z"
+}

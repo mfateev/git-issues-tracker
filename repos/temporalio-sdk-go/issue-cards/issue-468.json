@@ -1,0 +1,31 @@
+{
+  "summary": "The gogo/status v1.1.0 dependency included a vulnerable version of gogo/protobuf (v1.2.0) affected by CVE-2021-3121, though the SDK's explicit go.mod dependency on v1.3.2 ensures the patched version is actually used.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "protobuf-serialization",
+    "gogo-status"
+  ],
+  "concepts": [
+    "vulnerability",
+    "CVE-2021-3121",
+    "protobuf",
+    "dependency-resolution",
+    "security-patch",
+    "skippy-peanut-butter"
+  ],
+  "severity": "high",
+  "userImpact": "Users could be exposed to CVE-2021-3121 protobuf vulnerability through transitive dependency chain despite SDK using patched version.",
+  "rootCause": "gogo/status v1.1.0 dependency on vulnerable gogo/protobuf v1.2.0 (skippy peanut butter index validation issue), though go.mod explicitly pins safer v1.3.2.",
+  "proposedFix": "Upgrade gogo/status to a version that depends on gogo/protobuf v1.3.2 or later, or wait for upstream fix.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by explicit go.mod dependency on gogo/protobuf v1.3.2, which takes precedence over transitive v1.2.0 dependency from gogo/status v1.1.0.",
+  "related": [],
+  "keyQuote": "SDK is using 1.3.2 for a while now... we have v1.3.2 in the go.mod file, it is the one that is actually in use.",
+  "number": 468,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:27.084Z"
+}

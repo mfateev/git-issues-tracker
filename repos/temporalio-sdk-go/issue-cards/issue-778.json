@@ -1,0 +1,36 @@
+{
+  "summary": "Activities invoked with a cancelled context in the test environment were not respecting cancellation properly. Mocked activities could fail to return values on cancellation, and activities called for cleanup would execute despite the context being cancelled.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "ExecuteActivity",
+    "RecordHeartbeat"
+  ],
+  "components": [
+    "test-framework",
+    "activity-executor",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "context",
+    "heartbeat",
+    "cleanup",
+    "test-environment",
+    "activity-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with activity cancellation and cleanup logic may encounter unexpected behavior where cancelled activities don't return values or execute despite cancellation.",
+  "rootCause": "Activities invoked with a cancelled context were being started even though the context was already cancelled, causing improper cancellation handling in the test environment.",
+  "proposedFix": "Activities invoked with a cancelled context should not be started at all. PR #780 was merged to fix this behavior.",
+  "workaround": "Activities must properly respect cancellation by heartbeating and checking context.Done(), and should use HeartbeatTimeout to avoid waiting for the default 15-second timeout.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #780 which ensures activities invoked with a cancelled context are not started.",
+  "related": [
+    780
+  ],
+  "keyQuote": "Activities invoked with a cancelled context should not be started. PR #780 addresses this issue.",
+  "number": 778,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:31.655Z"
+}

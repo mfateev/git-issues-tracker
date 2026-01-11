@@ -1,0 +1,31 @@
+{
+  "summary": "Remove license headers from all files in the API repository, following changes made in the temporal server repository. This includes removing any tooling that generates or requires license headers.",
+  "category": "feature",
+  "subcategory": "repository-maintenance",
+  "apis": [],
+  "components": [
+    "build-tooling",
+    "api-files"
+  ],
+  "concepts": [
+    "license-headers",
+    "code-generation",
+    "repository-cleanup",
+    "maintenance",
+    "compliance"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies API repository structure and build processes by removing unnecessary license header requirements.",
+  "rootCause": null,
+  "proposedFix": "Remove license headers from all files and eliminate any tooling that generates or enforces them",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "License headers were removed from API files following the pattern established in the temporal server repository",
+  "related": [
+    7689
+  ],
+  "keyQuote": "license headers are no longer required on files. Remove from all files in the API and remove any tooling that generates them or requires them.",
+  "number": 583,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:32:04.238Z"
+}

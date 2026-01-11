@@ -1,0 +1,33 @@
+{
+  "summary": "TestActivityNotRegisteredRetry test in the Go SDK is flaky, failing with inconsistent metric counts (expected 2 invocations but got 3). The test appears to have been resolved in CI according to later investigation.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-suite",
+    "activity-executor",
+    "worker",
+    "metrics"
+  ],
+  "concepts": [
+    "flaky-test",
+    "metric-tracking",
+    "unregistered-activity",
+    "retry-logic",
+    "test-stability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the SDK's reliability and make it harder to verify correct behavior of activity retry mechanisms.",
+  "rootCause": "Race condition or timing issue in the test causing variable unregistered activity invocation counts, likely related to retry timing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test no longer appears flaky in CI according to investigation by cretz.",
+  "related": [],
+  "keyQuote": "This test does not appear flaky anymore in CI",
+  "number": 555,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:07.764Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowReplayer interface broke compatibility with WorkflowRegistry interface after dynamic workflows were added. A compiler check is needed to ensure WorkflowReplayer implements WorkflowRegistry, requiring the addition of RegisterDynamicWorkflow method.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "RegisterDynamicWorkflow",
+    "WorkflowRegistry",
+    "WorkflowReplayer"
+  ],
+  "components": [
+    "workflow-replayer",
+    "workflow-registry",
+    "dynamic-workflows"
+  ],
+  "concepts": [
+    "interface-compatibility",
+    "compiler-check",
+    "method-registration",
+    "dynamic-workflows",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use WorkflowReplayer as a drop-in replacement for WorkflowRegistry, breaking code that depends on interface compatibility.",
+  "rootCause": "Adding dynamic workflows feature changed WorkflowReplayer to no longer implement WorkflowRegistry interface, specifically missing RegisterDynamicWorkflow method.",
+  "proposedFix": "Add RegisterDynamicWorkflow to WorkflowReplayer to implement the full WorkflowRegistry interface, or embed WorkflowRegistry interface and implement RegisterDynamicWorkflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowReplayer was updated to implement the complete WorkflowRegistry interface including RegisterDynamicWorkflow.",
+  "related": [],
+  "keyQuote": "Add a compiler check to ensure the WorkflowReplayer interface implements the WorkflowRegistry interface.",
+  "number": 2006,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:21.091Z"
+}

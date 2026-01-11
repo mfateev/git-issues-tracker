@@ -1,0 +1,31 @@
+{
+  "summary": "The workflowcheck command's -V flag for displaying version information doesn't work as documented, throwing an error instead. The issue is caused by a Go bug in the flag parsing that requires using -V=full instead, but users also report path resolution problems when attempting the workaround.",
+  "category": "bug",
+  "subcategory": "cli-tools",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "cli-flag-parsing"
+  ],
+  "concepts": [
+    "version-display",
+    "flag-parsing",
+    "command-line-tools",
+    "user-experience",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily check the installed version of workflowcheck due to the documented flag not working as described.",
+  "rootCause": "Go bug in flag parsing (golang.org/x/tools) that doesn't properly handle -V flag; also requires updating golang.org/x/tools dependency",
+  "proposedFix": "Update golang.org/x/tools to a version that fixes the Go flag parsing bug",
+  "workaround": "Use -V=full instead of -V, though this may require upgrading Go version",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a Go tooling bug requiring a dependency update to golang.org/x/tools",
+  "related": [
+    57716
+  ],
+  "keyQuote": "This is a Go bug: https://github.com/golang/go/issues/57716. They didn't have proper docs, you need to use `-V=full`. We just need to update `golang.org/x/tools` in our go.mod.",
+  "number": 1065,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:48.962Z"
+}

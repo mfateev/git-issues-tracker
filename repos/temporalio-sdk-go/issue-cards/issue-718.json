@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a metric tracking time elapsed from activity scheduling to the last retry attempt, enabling users to set alerts for activities that keep failing. Current metrics only cover successful executions or single task execution, leaving a gap for monitoring failing activity chains.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "retry-handler"
+  ],
+  "concepts": [
+    "activity-scheduling",
+    "retry-logic",
+    "end-to-end-latency",
+    "alerting",
+    "monitoring",
+    "time-tracking",
+    "failure-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently lack a built-in metric to detect and alert on activities that repeatedly fail and retry, requiring them to implement custom monitoring solutions.",
+  "rootCause": null,
+  "proposedFix": "Add an SDK-side metric reporting elapsed time from activity schedule to last activity attempt, tagged with activity type.",
+  "workaround": "Users can implement custom metrics to track this metric themselves.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1035
+  ],
+  "keyQuote": "We should add a metric reporting how much time passed from an activity schedule to the last activity attempt. This metric should have an activity type as a tag and be SDK side.",
+  "number": 718,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:02.244Z"
+}

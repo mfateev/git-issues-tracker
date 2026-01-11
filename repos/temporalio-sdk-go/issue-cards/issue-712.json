@@ -1,0 +1,31 @@
+{
+  "summary": "OpenTracing-enabled workers fail when OpenTracing span context is missing from headers, requiring workflows to be started with OpenTracing-enabled clients. This differs from OpenTelemetry's behavior which gracefully handles missing spans.",
+  "category": "bug",
+  "subcategory": "interceptors-opentracing",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "opentracing",
+    "worker",
+    "propagation"
+  ],
+  "concepts": [
+    "span-extraction",
+    "headers",
+    "distributed-tracing",
+    "error-handling",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "OpenTracing-enabled workers cannot accept requests from non-OpenTracing clients, limiting interoperability and requiring all clients to support OpenTracing.",
+  "rootCause": "OpenTracing's Tracer.Extract() raises ErrSpanContextNotFound when span context is absent in headers, whereas OpenTelemetry's TextMapPropagator.Extract() gracefully handles missing spans.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "with this error we are requiring opentracing-enabled workers to have their workflows started with opentracing-enabled clients which is not cool",
+  "number": 712,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:56.197Z"
+}

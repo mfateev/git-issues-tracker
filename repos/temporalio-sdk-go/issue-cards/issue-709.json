@@ -1,0 +1,30 @@
+{
+  "summary": "Workflowcheck's hierarchical tree for non-determinism detection only shows direct import reasons, not transitive ones. Nested children don't display the final leaf reason, limiting visibility into the root cause of non-determinism issues.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "non-determinism-detector",
+    "import-resolver"
+  ],
+  "concepts": [
+    "non-determinism",
+    "transitive-dependencies",
+    "hierarchical-tree",
+    "leaf-reasons",
+    "determinism-checking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging non-determinism issues cannot see the complete chain of causes, making it harder to identify the root problem.",
+  "rootCause": "Only direct import reasons are carried over during hierarchy traversal, not transitive ones from nested children.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Author determined that including transitive reasons causes excessive memory overhead, so chose not to implement full transitive reasoning at this time.",
+  "related": [],
+  "keyQuote": "I only carry over reasoning from the direct imports, not transitive ones.",
+  "number": 709,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:41.443Z"
+}

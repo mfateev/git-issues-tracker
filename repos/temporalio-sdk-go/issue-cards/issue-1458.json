@@ -1,0 +1,33 @@
+{
+  "summary": "Add automatic Temporal-Namespace header to namespace-specific gRPC requests using an interceptor that asserts the GetNamespace() interface, eliminating the need for explicit namespace configuration in client code.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "interceptor",
+    "grpc",
+    "namespace-handling"
+  ],
+  "concepts": [
+    "namespace-header",
+    "grpc-interceptor",
+    "client-configuration",
+    "type-assertion",
+    "header-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users no longer need to manually configure namespace settings in DialOptions when working with namespace-specific gRPC requests.",
+  "rootCause": null,
+  "proposedFix": "Implement an interceptor that type asserts to `interface { GetNamespace() string }` to automatically set the Temporal-Namespace header on every namespace-specific gRPC request.",
+  "workaround": "Explicitly set namespace in DialOptions (required in versions prior to fix).",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented interceptor to automatically set Temporal-Namespace header on namespace-specific gRPC requests, eliminating need for explicit DialOptions configuration.",
+  "related": [
+    475
+  ],
+  "keyQuote": "This can be done with an interceptor that type asserts to `interface { GetNamespace() string }`",
+  "number": 1458,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:50.987Z"
+}

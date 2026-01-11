@@ -1,0 +1,30 @@
+{
+  "summary": "TestActivityRetryOnError test is flaky, sometimes receiving only 2 retries instead of the expected 3, indicating intermittent issues with activity retry logic under test conditions.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-logic",
+    "test-integration"
+  ],
+  "concepts": [
+    "retry",
+    "flakiness",
+    "timing",
+    "activity-execution",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the SDK's activity retry mechanism and can block CI/CD pipelines unpredictably.",
+  "rootCause": "Likely race condition or timing issue in activity retry mechanism causing it to sometimes skip the final retry attempt under test conditions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through fixing the underlying activity retry mechanism to ensure consistent behavior.",
+  "related": [],
+  "keyQuote": "Not equal: expected: [\"fail\", \"fail\", \"fail\"], actual: [\"fail\", \"fail\"]",
+  "number": 547,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:19.810Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "The Go SDK fails to respect the EncodedFailureAttributes server capability, always encoding failures regardless of whether the server supports this feature.",
+  "category": "bug",
+  "subcategory": "failure-encoding",
+  "apis": [],
+  "components": [
+    "failure-handling",
+    "server-capability-detection",
+    "encoding"
+  ],
+  "concepts": [
+    "capability-negotiation",
+    "server-compatibility",
+    "failure-serialization",
+    "protocol-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with servers that don't support EncodedFailureAttributes may experience incompatibility or unexpected behavior when failures are encoded.",
+  "rootCause": "Go SDK ignores the EncodedFailureAttributes capability flag from the server and unconditionally encodes failures.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Go SDK ignores `EncodedFailureAttributes`.",
+  "number": 1054,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:15.152Z"
+}

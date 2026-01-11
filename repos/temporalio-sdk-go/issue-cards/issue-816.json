@@ -1,0 +1,36 @@
+{
+  "summary": "Investigation into unit testing child workflows that signal their parent workflow. The issue questioned whether parent execution info was properly accessible in unit tests and requested either support for parent workflow signaling or a way to configure parent execution info for testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowInfo.ParentExecution",
+    "SignalExternalWorkflow",
+    "ExecuteChildWorkflow",
+    "GetSignalChannel"
+  ],
+  "components": [
+    "test-suite",
+    "workflow-execution",
+    "signal-handling",
+    "child-workflow"
+  ],
+  "concepts": [
+    "parent-child-workflows",
+    "signal-routing",
+    "unit-testing",
+    "workflow-context",
+    "external-signals"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing child workflows that signal their parents may struggle to set up proper test scenarios without a clear mechanism to configure parent execution info.",
+  "rootCause": null,
+  "proposedFix": "Investigate and implement support for parent workflow signaling in unit tests, or provide a way to set parent execution info in the test environment.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Author confirmed that a provided test case demonstrates the functionality works as intended. The original issue was determined to be unrelated to a framework limitation and was caused by user code.",
+  "related": [],
+  "keyQuote": "Confirmed with user this is was an unrelated issue with their code",
+  "number": 816,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:07.835Z"
+}

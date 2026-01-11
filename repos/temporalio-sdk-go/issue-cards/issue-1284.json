@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to allow GetCurrentHistoryLength() to return non-zero values during workflow tests, enabling testing of workflows that use history length checks to trigger continue-as-new logic. The author discovered that the functionality already exists in the test suite.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetCurrentHistoryLength",
+    "GetInfo",
+    "NewContinueAsNewError",
+    "Sleep"
+  ],
+  "components": [
+    "workflow-testsuite",
+    "test-framework",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "history-length",
+    "continue-as-new",
+    "workflow-testing",
+    "infinite-loops",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively test workflows that rely on history length checks to prevent unbounded execution, limiting test coverage for important workflow patterns.",
+  "rootCause": "GetCurrentHistoryLength() always returns 0 during test execution, preventing conditional logic that depends on history length from being tested.",
+  "proposedFix": "Expose a mechanism in the test suite to configure the current history length returned by workflow.GetInfo(ctx).GetCurrentHistoryLength().",
+  "workaround": "The author discovered that the functionality already exists in workflow_testsuite.go at line 309.",
+  "resolution": "fixed",
+  "resolutionDetails": "The feature already existed in the test suite as evidenced by the author's discovery of the implementation in workflow_testsuite.go.",
+  "related": [],
+  "keyQuote": "Will never stop running since the history length is always 0 during tests.",
+  "number": 1284,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:37.410Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Tracer is not exporting workflow traces, only child activity traces are captured. Workflow-level traces should be available with activities as child traces.",
+  "category": "bug",
+  "subcategory": "tracing",
+  "apis": [],
+  "components": [
+    "tracer",
+    "workflow-executor",
+    "activity-executor"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "observability",
+    "span-hierarchy",
+    "jaeger-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see workflow-level traces in their distributed tracing system, limiting visibility into workflow execution.",
+  "rootCause": "Workflow tracer is not properly exporting trace spans for workflow execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow trace export was implemented to properly capture workflow spans with activities as child spans.",
+  "related": [],
+  "keyQuote": "Using tracer, we should be able to have trace for the workflow with child trace for activities",
+  "number": 362,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:49.350Z"
+}

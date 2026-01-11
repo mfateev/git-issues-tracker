@@ -1,0 +1,35 @@
+{
+  "summary": "Activities can return CanceledError without server-side cancellation being received, causing incorrect RespondActivityTaskCanceledRequest to be sent. The enhancement proposes ensuring canceled errors are only sent when the server actually initiated a cancellation, wrapping other cases as retryable ApplicationFailure, and ensuring cross-SDK consistency with appropriate tests.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "CanceledError",
+    "RespondActivityTaskCanceledRequest"
+  ],
+  "components": [
+    "activity-executor",
+    "task-pollers",
+    "error-handling"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-handling",
+    "server-communication",
+    "activity-lifecycle",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Activities can report cancellation to the server without actually being cancelled by the server, potentially causing incorrect workflow behavior and state inconsistency.",
+  "rootCause": "The activity pollers unconditionally send RespondActivityTaskCanceledRequest when receiving CanceledError or context.Canceled, regardless of whether a server-side cancellation was actually in flight.",
+  "proposedFix": "Only send RespondActivityTaskCanceledRequest if the server actually sent a cancellation; wrap CanceledError/context.Canceled as retryable ApplicationFailure in other cases; ensure SDK consistency; add tests for cancel behavior with and without server cancellation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation ensured that canceled errors are only reported to server when cancellation was requested, and other cases are wrapped as ApplicationFailure with cross-SDK consistency and comprehensive test coverage.",
+  "related": [
+    2344
+  ],
+  "keyQuote": "Make sure to only handle those cancelled errors as actually sending a cancel to the server if the server sent us a cancel",
+  "number": 686,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:43.833Z"
+}

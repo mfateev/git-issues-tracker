@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add a method on the WorkflowRun interface to retrieve the input that started a workflow execution. Currently, WorkflowRun only supports getting the result, not the input parameters.",
+  "category": "feature",
+  "subcategory": "workflow-api",
+  "apis": [
+    "WorkflowRun",
+    "Describe"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-run-interface"
+  ],
+  "concepts": [
+    "workflow-input",
+    "workflow-execution",
+    "history",
+    "metadata-retrieval"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily retrieve workflow input through the WorkflowRun interface and must manually parse history events as a workaround.",
+  "rootCause": "The WorkflowRun interface lacks a method to access input parameters; this information is available in the history but not exposed through the public API.",
+  "proposedFix": "Add a method to WorkflowRun interface to get input, with server-side support tracked in temporalio/temporal#8608 and planned for the Describe RPC.",
+  "workaround": "Fetch the workflow history and examine the first event to extract the input parameters.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by adding input retrieval capability through the Describe RPC on the server side (temporalio/temporal#8608), making it available on the WorkflowRun interface.",
+  "related": [
+    8608
+  ],
+  "keyQuote": "When the server issue is resolved it will be available on `Describe`. For now the only solution is to look at history.",
+  "number": 2102,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:53.917Z"
+}

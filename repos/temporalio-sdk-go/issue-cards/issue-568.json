@@ -1,0 +1,32 @@
+{
+  "summary": "Custom data converter is not being applied to local activity results. When using a custom data converter in the SDK, local activity results are not converted through it, appearing as plain text instead of being properly serialized.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity",
+    "data-converter",
+    "worker"
+  ],
+  "concepts": [
+    "serialization",
+    "data-conversion",
+    "local-activities",
+    "encryption",
+    "payload-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom data converters (e.g., for encryption) cannot properly serialize local activity results, breaking their data handling pipeline.",
+  "rootCause": "Incorrect wiring of custom data converter in local activity execution path within the Go SDK",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Investigation revealed the issue was actually in the samples-go repository (PR #140), not in the SDK itself. The wiring in the Go SDK is correct.",
+  "related": [],
+  "keyQuote": "This was actually due to https://github.com/temporalio/samples-go/pull/140, the wiring in the go SDK is correct.",
+  "number": 568,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:38.520Z"
+}

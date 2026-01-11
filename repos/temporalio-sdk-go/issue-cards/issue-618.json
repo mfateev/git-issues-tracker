@@ -1,0 +1,31 @@
+{
+  "summary": "Documentation for worker.New incorrectly references a non-existent namespace parameter. Additionally, the docs lack clarity about why creating a worker requires a client.Client instance.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "worker.New",
+    "client.Client"
+  ],
+  "components": [
+    "worker",
+    "documentation"
+  ],
+  "concepts": [
+    "api-docs",
+    "parameter-documentation",
+    "client-dependency",
+    "worker-initialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading worker.New documentation are confused by references to non-existent parameters and unclear explanations of the client requirement.",
+  "rootCause": "Documentation comments reference a namespace parameter that doesn't exist in the worker.New function signature.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Author committed to clarifying the worker.New docs to explain the client requirement.",
+  "related": [],
+  "keyQuote": "worker.New has docs that refer to a non-existent namespace param (also check other docs for the same bad params).",
+  "number": 618,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:41.460Z"
+}

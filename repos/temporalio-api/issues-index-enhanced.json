@@ -1,0 +1,1082 @@
+{
+  "generatedAt": "2026-01-10T19:36:45.299Z",
+  "repo": "temporalio-api",
+  "totalCount": 25,
+  "cardsCount": 25,
+  "issues": [
+    {
+      "number": 631,
+      "title": "[Feature Request] Add startDelay to WorkflowExecutionInfo",
+      "state": "CLOSED",
+      "author": "Alex-Tideman",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-08-22T13:39:43Z",
+      "updatedAt": "2025-09-08T18:35:21Z",
+      "closedAt": "2025-09-08T18:35:21Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/631",
+      "bodyLength": 496,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Users need visibility into workflow start delays when listing or describing workflows. Currently, WorkflowExecutionInfo doesn't expose when a workflow will actually begin execution if scheduled with a delay, making it unclear whether a workflow is truly running or waiting to start.",
+      "category": "feature",
+      "subcategory": "workflow-execution",
+      "apis": [
+        "DescribeWorkflowExecution",
+        "ListWorkflowExecutions"
+      ],
+      "components": [
+        "workflow-execution-info",
+        "api-proto",
+        "cli",
+        "ui"
+      ],
+      "concepts": [
+        "workflow-scheduling",
+        "start-delay",
+        "execution-time",
+        "visibility",
+        "user-experience",
+        "delayed-execution"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 583,
+      "title": "[Feature Request] Remove license headers from files",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2025-05-02T16:08:24Z",
+      "updatedAt": "2025-05-05T18:01:37Z",
+      "closedAt": "2025-05-05T18:01:37Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/583",
+      "bodyLength": 251,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Remove license headers from all files in the API repository, following changes made in the temporal server repository. This includes removing any tooling that generates or requires license headers.",
+      "category": "feature",
+      "subcategory": "repository-maintenance",
+      "apis": [],
+      "components": [
+        "build-tooling",
+        "api-files"
+      ],
+      "concepts": [
+        "license-headers",
+        "code-generation",
+        "repository-cleanup",
+        "maintenance",
+        "compliance"
+      ],
+      "severity": "low",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 435,
+      "title": "[Bug] Typo in the release tag",
+      "state": "CLOSED",
+      "author": "rustatian",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-07-13T13:26:06Z",
+      "updatedAt": "2024-07-15T13:09:47Z",
+      "closedAt": "2024-07-15T12:52:05Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/435",
+      "bodyLength": 233,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.36.0",
+        "v1.36.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Git release tag has a typo with an extra dot after 'v' (v.1.36.0 instead of v1.36.0). This was reported and subsequently fixed.",
+      "category": "bug",
+      "subcategory": "release",
+      "apis": [],
+      "components": [
+        "release-process",
+        "git-tags"
+      ],
+      "concepts": [
+        "release",
+        "versioning",
+        "git-tag",
+        "naming-convention"
+      ],
+      "severity": "low",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 428,
+      "title": "[Feature Request] `/cluster-info` should just be `/cluster`",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-07-01T19:51:55Z",
+      "updatedAt": "2024-07-03T13:14:10Z",
+      "closedAt": "2024-07-03T13:14:10Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/428",
+      "bodyLength": 252,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The feature request proposes renaming the `/cluster-info` API endpoint to `/cluster` for consistency with API design patterns. This aligns the self-hosted only endpoint with the naming convention used for other root endpoints like `/namespaces` and `/system-info`.",
+      "category": "feature",
+      "subcategory": "api-design",
+      "apis": [
+        "GetClusterInfo"
+      ],
+      "components": [
+        "cluster-api",
+        "endpoint-routing"
+      ],
+      "concepts": [
+        "api-naming",
+        "endpoint-design",
+        "self-hosted",
+        "cloud-capability",
+        "api-consistency"
+      ],
+      "severity": "low",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 427,
+      "title": "Add configurable subpath for HTTP API",
+      "state": "OPEN",
+      "author": "stevekinney",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-07-01T15:43:40Z",
+      "updatedAt": "2024-07-01T19:53:06Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/427",
+      "bodyLength": 914,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        410
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "The HTTP API routes need to be configurable at a non-root subpath (e.g., /api) to avoid conflicts with UI client-side routes and to support use cases where UI Server is hosted at a subpath. Currently, API routes are set at the root level, which creates integration challenges.",
+      "category": "feature",
+      "subcategory": "http-api-routing",
+      "apis": [],
+      "components": [
+        "http-api",
+        "routing",
+        "ui-integration"
+      ],
+      "concepts": [
+        "api-routing",
+        "subpath-configuration",
+        "route-conflict",
+        "ui-integration",
+        "path-prefix"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 421,
+      "title": "[Bug] api-go update fails if the commit message contains \"`\"",
+      "state": "OPEN",
+      "author": "twin-drill",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-06-11T20:00:04Z",
+      "updatedAt": "2024-06-11T20:02:17Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/421",
+      "bodyLength": 379,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "The api-go update workflow fails when commit messages contain backtick (`) characters, causing shell command parsing errors during the 'Prepare inputs' step.",
+      "category": "bug",
+      "subcategory": "workflow-automation",
+      "apis": [],
+      "components": [
+        "api-go",
+        "workflow",
+        "shell-script"
+      ],
+      "concepts": [
+        "shell-escaping",
+        "commit-message",
+        "workflow-automation",
+        "special-characters",
+        "ci-cd"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 409,
+      "title": "[Feature Request] Remove /api/v1/ prefix from HTTP paths",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-05-23T19:21:47Z",
+      "updatedAt": "2024-05-24T16:56:54Z",
+      "closedAt": "2024-05-24T16:56:54Z",
+      "commentCount": 0,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/api/issues/409",
+      "bodyLength": 225,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Remove the /api/v1/ prefix from HTTP API paths to simplify the API surface. This is an incompatible change but is acceptable since the HTTP API has not been fully released.",
+      "category": "feature",
+      "subcategory": "http-api",
+      "apis": [],
+      "components": [
+        "http-api",
+        "api-gateway"
+      ],
+      "concepts": [
+        "api-design",
+        "backwards-compatibility",
+        "http-paths",
+        "api-versioning",
+        "path-simplification"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 400,
+      "title": "[Feature Request] Move/remove third party protos to a separate place instead of root",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2024-04-23T17:35:34Z",
+      "updatedAt": "2024-04-23T17:53:22Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/400",
+      "bodyLength": 927,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Third-party protobuf dependencies (Google API and Protobuf proto files) are currently stored at the root of the repository alongside Temporal's own protos. This causes conflicts when users run protoc from the repo root with their own versions of these dependencies. The request proposes moving these third-party protos to a dedicated subdirectory with appropriate include path configuration.",
+      "category": "feature",
+      "subcategory": "proto-organization",
+      "apis": [],
+      "components": [
+        "protoc",
+        "proto-dependencies",
+        "google-api",
+        "google-protobuf"
+      ],
+      "concepts": [
+        "proto-organization",
+        "dependency-management",
+        "protoc-includes",
+        "third-party-dependencies",
+        "build-configuration"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 355,
+      "title": "[Bug] Unable to upgrade go.temporal.io/api 1.26->1.27",
+      "state": "CLOSED",
+      "author": "nickzelei",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-02-10T01:18:32Z",
+      "updatedAt": "2024-02-12T16:28:00Z",
+      "closedAt": "2024-02-12T13:31:14Z",
+      "commentCount": 2,
+      "upvotes": 3,
+      "url": "https://github.com/temporalio/api/issues/355",
+      "bodyLength": 1099,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.25.1",
+        "v1.25.1"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 1,
+      "summary": "User unable to upgrade go.temporal.io/api from 1.26 to 1.27 due to type incompatibilities with go.temporal.io/sdk 1.25.1. The API library was updated to use newer proto libraries, but SDK version hasn't been released yet to match.",
+      "category": "question",
+      "subcategory": "go-sdk-compatibility",
+      "apis": [],
+      "components": [
+        "go.temporal.io/api",
+        "go.temporal.io/sdk",
+        "proto-libraries"
+      ],
+      "concepts": [
+        "dependency-upgrade",
+        "version-compatibility",
+        "proto-buffers",
+        "type-mismatch",
+        "release-coordination"
+      ],
+      "severity": "medium",
+      "resolution": "invalid",
+      "hasCard": true
+    },
+    {
+      "number": 349,
+      "title": "[Bug] api-go failing to properly handle nested empty objects for shorthand payloads",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2024-01-23T15:05:58Z",
+      "updatedAt": "2024-01-23T19:43:01Z",
+      "closedAt": "2024-01-23T19:43:01Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/349",
+      "bodyLength": 976,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "The JSON shorthand payload marshaling in api-go fails to properly handle nested empty objects, producing invalid JSON like {\"greeting\":} instead of {\"greeting\":{}}.",
+      "category": "bug",
+      "subcategory": "payload-marshaling",
+      "apis": [],
+      "components": [
+        "api-go",
+        "payload-json",
+        "json-marshaling"
+      ],
+      "concepts": [
+        "json-serialization",
+        "empty-objects",
+        "payload-handling",
+        "marshaling",
+        "shorthand-format"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 328,
+      "title": "[Feature Request] Publish and maintain buf schema registry",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2023-11-15T13:28:24Z",
+      "updatedAt": "2023-11-15T13:28:24Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 6,
+      "url": "https://github.com/temporalio/api/issues/328",
+      "bodyLength": 392,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Request to publish and maintain a Buf schema registry for the Temporal API. The main challenge is ensuring the inlined Google dependency is not accidentally published while keeping raw protoc support functional.",
+      "category": "feature",
+      "subcategory": "protobuf-distribution",
+      "apis": [],
+      "components": [
+        "protobuf-schemas",
+        "buf-registry",
+        "google-dependency"
+      ],
+      "concepts": [
+        "schema-registry",
+        "protobuf-publishing",
+        "dependency-management",
+        "code-generation",
+        "protocol-buffers",
+        "buf-tooling",
+        "api-distribution"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 307,
+      "title": "[Feature Request] Deprecate list workflow methods?",
+      "state": "OPEN",
+      "author": "lorensr",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2023-08-21T02:15:43Z",
+      "updatedAt": "2023-08-21T02:15:43Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/307",
+      "bodyLength": 1050,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": true,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to deprecate ListOpenWorkflowExecutions and ListClosedWorkflowExecutions methods due to their limitations and user confusion. Proposes keeping ListWorkflowExecutions, ListArchivedWorkflowExecutions, and ScanWorkflowExecutions as alternatives.",
+      "category": "feature",
+      "subcategory": "workflow-list-api",
+      "apis": [
+        "ListOpenWorkflowExecutions",
+        "ListClosedWorkflowExecutions",
+        "ListWorkflowExecutions",
+        "ListArchivedWorkflowExecutions",
+        "ScanWorkflowExecutions"
+      ],
+      "components": [
+        "workflow-service",
+        "api-service",
+        "list-methods"
+      ],
+      "concepts": [
+        "deprecation",
+        "api-design",
+        "workflow-filtering",
+        "backwards-compatibility",
+        "user-expectations"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 299,
+      "title": "[Document] Potentially misleading inline comment for PollWorkflowTaskQueueResponse",
+      "state": "OPEN",
+      "author": "taonic",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2023-06-16T08:24:39Z",
+      "updatedAt": "2023-06-16T08:24:39Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/299",
+      "bodyLength": 744,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "An inline comment in PollWorkflowTaskQueueResponse documentation is misleading because it describes history as 'complete' when long event histories are actually paginated and only return the first page, requiring next_page_token for subsequent fetches.",
+      "category": "docs",
+      "subcategory": "api-documentation",
+      "apis": [
+        "PollWorkflowTaskQueueResponse"
+      ],
+      "components": [
+        "api-proto",
+        "workflow-service",
+        "documentation"
+      ],
+      "concepts": [
+        "history-pagination",
+        "workflow-task-queue",
+        "event-history",
+        "api-documentation",
+        "clarity",
+        "worker-communication"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 232,
+      "title": "[Feature Request] Remove RetryState.RETRY_STATE_IN_PROGRESS from public api",
+      "state": "OPEN",
+      "author": "tsurdilo",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2022-09-01T05:50:39Z",
+      "updatedAt": "2022-09-01T05:50:39Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/232",
+      "bodyLength": 398,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "RetryState.RETRY_STATE_IN_PROGRESS is exposed in the public API but used only internally, causing confusion for users. Request to remove it from public exposure and keep it internal only.",
+      "category": "feature",
+      "subcategory": "api-design",
+      "apis": [],
+      "components": [
+        "api-enums",
+        "workflow-proto"
+      ],
+      "concepts": [
+        "retry-state",
+        "public-api",
+        "internal-api",
+        "api-design",
+        "backwards-compatibility",
+        "user-confusion"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 198,
+      "title": "[Feature Request] Publish Postman collection",
+      "state": "OPEN",
+      "author": "lorensr",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2022-07-11T18:02:14Z",
+      "updatedAt": "2022-07-11T18:02:14Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/198",
+      "bodyLength": 185,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "User request to publish a Postman collection with gRPC APIs documented for easier API exploration and testing. Postman recently added support for gRPC requests, making this feature now feasible.",
+      "category": "feature",
+      "subcategory": "api-documentation",
+      "apis": [],
+      "components": [
+        "api",
+        "documentation",
+        "grpc"
+      ],
+      "concepts": [
+        "grpc",
+        "postman",
+        "api-collection",
+        "api-documentation",
+        "developer-experience",
+        "testing"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 172,
+      "title": "[Feature Request] Use Payloads for ApplicationFailure message and stack trace",
+      "state": "OPEN",
+      "author": "bergundy",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2022-04-18T22:51:56Z",
+      "updatedAt": "2022-04-18T22:51:56Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/172",
+      "bodyLength": 301,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to support Payloads for ApplicationFailure message and stack trace fields instead of plain text, enabling encryption of sensitive application information through custom data converters.",
+      "category": "feature",
+      "subcategory": "error-handling",
+      "apis": [],
+      "components": [
+        "application-failure",
+        "payload",
+        "data-converter"
+      ],
+      "concepts": [
+        "encryption",
+        "sensitive-data",
+        "security",
+        "error-messages",
+        "stack-trace",
+        "payloads"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 169,
+      "title": "[Proposal] Allow languages to customize package/namespace structure of generated proto APIs",
+      "state": "OPEN",
+      "author": "macrogreg",
+      "labels": [],
+      "createdAt": "2022-04-01T01:14:12Z",
+      "updatedAt": "2022-04-13T20:18:48Z",
+      "closedAt": null,
+      "commentCount": 7,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/169",
+      "bodyLength": 8090,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 3,
+      "summary": "Proposal to allow languages to customize package/namespace structure of generated proto APIs, specifically for .NET which currently requires importing many redundant `Temporal.Api.Xyz` namespaces. The author proposes consolidating into four main namespaces while keeping other languages unchanged.",
+      "category": "feature",
+      "subcategory": "proto-generation",
+      "apis": [],
+      "components": [
+        "proto-compiler",
+        "code-generation",
+        "api-definitions"
+      ],
+      "concepts": [
+        "namespace-structure",
+        "package-organization",
+        "code-generation",
+        "language-specific-customization",
+        "developer-experience",
+        "backward-compatibility"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 154,
+      "title": "Document SearchAttributes parsing",
+      "state": "OPEN",
+      "author": "lorensr",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2022-03-03T20:34:29Z",
+      "updatedAt": "2022-03-03T20:34:29Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/154",
+      "bodyLength": 1195,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Users cannot understand how to specify search attribute types when using StartWorkflowExecution. The proto definition lacks documentation on how to parse SearchAttributes Payloads and map them to IndexedValueType enums.",
+      "category": "docs",
+      "subcategory": "search-attributes",
+      "apis": [
+        "StartWorkflowExecution"
+      ],
+      "components": [
+        "api",
+        "search-attributes",
+        "payload"
+      ],
+      "concepts": [
+        "search-attributes",
+        "indexing",
+        "payload-parsing",
+        "type-mapping",
+        "proto-documentation",
+        "workflow-metadata"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 136,
+      "title": "ScheduledEventId to construct Idempotence Key",
+      "state": "OPEN",
+      "author": "dtornow",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2021-12-22T21:44:47Z",
+      "updatedAt": "2021-12-22T21:45:52Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/136",
+      "bodyLength": 373,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Add ScheduledEventId to PollActivityTaskQueueResponse to enable construction of idempotence keys for deduplicating side effects during activity task executions. The tuple of (RunId, ScheduledEventId) would be unique per activity execution.",
+      "category": "feature",
+      "subcategory": "activity-execution",
+      "apis": [
+        "PollActivityTaskQueueResponse"
+      ],
+      "components": [
+        "activity-executor",
+        "task-queue",
+        "idempotence"
+      ],
+      "concepts": [
+        "idempotence",
+        "deduplication",
+        "activity-execution",
+        "side-effects",
+        "unique-identifier",
+        "run-id"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 131,
+      "title": "Clean up \"Should be removed\" fields",
+      "state": "OPEN",
+      "author": "Sushisource",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2021-12-03T00:46:59Z",
+      "updatedAt": "2021-12-03T00:49:12Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/131",
+      "bodyLength": 208,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Remove deprecated fields marked with 'Should be removed' comments and convert them to reserved fields in the API. Also address any remaining TODO comments found during cleanup.",
+      "category": "bug",
+      "subcategory": "api-cleanup",
+      "apis": [],
+      "components": [
+        "api",
+        "proto-definitions"
+      ],
+      "concepts": [
+        "deprecation",
+        "cleanup",
+        "reserved-fields",
+        "api-maintenance",
+        "proto-backwards-compatibility"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 47,
+      "title": "Add Failure to Marker decision and event",
+      "state": "CLOSED",
+      "author": "mfateev",
+      "labels": [],
+      "createdAt": "2020-05-31T21:03:45Z",
+      "updatedAt": "2020-06-11T20:03:45Z",
+      "closedAt": "2020-06-11T20:03:44Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/47",
+      "bodyLength": 844,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Add explicit Failure field to Marker decision and event attributes to properly represent failures in marker events used for features like local activities and side effects, eliminating the need for manual serialization workarounds.",
+      "category": "feature",
+      "subcategory": "marker-events",
+      "apis": [],
+      "components": [
+        "marker-events",
+        "decision-attributes",
+        "event-attributes"
+      ],
+      "concepts": [
+        "failure-handling",
+        "marker-metadata",
+        "event-attributes",
+        "local-activities",
+        "side-effects",
+        "serialization"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 24,
+      "title": "Consider using buf for linting and clang-format for formatting",
+      "state": "CLOSED",
+      "author": "buyology",
+      "labels": [],
+      "createdAt": "2020-04-10T16:12:15Z",
+      "updatedAt": "2020-06-12T20:32:51Z",
+      "closedAt": "2020-06-11T20:04:43Z",
+      "commentCount": 2,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/api/issues/24",
+      "bodyLength": 907,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "Request to adopt buf for Protocol Buffer linting against Google's style guide and clang-format for autoformatting proto files to improve code quality and consistency.",
+      "category": "feature",
+      "subcategory": "protobuf-tooling",
+      "apis": [],
+      "components": [
+        "protobuf",
+        "build-tools",
+        "linting"
+      ],
+      "concepts": [
+        "code-style",
+        "linting",
+        "formatting",
+        "protobuf",
+        "proto3",
+        "enum-naming",
+        "snake-case"
+      ],
+      "severity": "low",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 18,
+      "title": "Decompose common and enums packages",
+      "state": "CLOSED",
+      "author": "alexshtin",
+      "labels": [],
+      "createdAt": "2020-04-03T22:29:51Z",
+      "updatedAt": "2020-04-14T19:16:06Z",
+      "closedAt": "2020-04-14T19:16:06Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/18",
+      "bodyLength": 2416,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        16
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 5,
+      "summary": "Reorganize the proto packages by decomposing the monolithic common and enums packages into specific purpose-driven packages. This improves code organization, eliminates enum naming conflicts and prefixes, and allows for better separation of concerns between shared API definitions and server-specific messages.",
+      "category": "feature",
+      "subcategory": "proto-organization",
+      "apis": [],
+      "components": [
+        "proto-packages",
+        "common-package",
+        "enums-package",
+        "server-protos"
+      ],
+      "concepts": [
+        "package-organization",
+        "proto-structure",
+        "namespace-separation",
+        "naming-conventions",
+        "code-generation",
+        "protobuf-compiler"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 6,
+      "title": "Fix ChildWorkflowExecutionFailedCause",
+      "state": "CLOSED",
+      "author": "mfateev",
+      "labels": [],
+      "createdAt": "2020-02-22T06:33:44Z",
+      "updatedAt": "2020-06-05T18:42:49Z",
+      "closedAt": "2020-06-05T18:42:49Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/6",
+      "bodyLength": 587,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The ChildWorkflowExecutionFailedCause enum has only one value that's semantically confusing. It should be renamed from 'WorkflowAlreadyRunning' to 'WorkflowAlreadyStarted' to accurately reflect that child workflow creation fails when a child is already closed and workflowIdReusePolicy is not AllowDuplicate, consistent with StartWorkflowExecution API behavior.",
+      "category": "bug",
+      "subcategory": "proto-enums",
+      "apis": [
+        "StartWorkflowExecution"
+      ],
+      "components": [
+        "proto-enums",
+        "child-workflow"
+      ],
+      "concepts": [
+        "workflow-reuse-policy",
+        "naming-consistency",
+        "enum-semantics",
+        "child-workflow-creation",
+        "failure-causes"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1,
+      "title": "Address all TODO when code migration is complete",
+      "state": "CLOSED",
+      "author": "alexshtin",
+      "labels": [],
+      "createdAt": "2019-11-26T23:18:47Z",
+      "updatedAt": "2020-04-03T22:51:25Z",
+      "closedAt": "2020-04-03T22:51:25Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/1",
+      "bodyLength": 145,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Complete unfinished TODO items in the codebase that were deferred during the code migration process to simplify the migration itself. These must be addressed before the code can be released publicly.",
+      "category": "other",
+      "subcategory": "code-cleanup",
+      "apis": [],
+      "components": [
+        "migration",
+        "codebase"
+      ],
+      "concepts": [
+        "technical-debt",
+        "code-cleanup",
+        "migration",
+        "release-readiness"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    }
+  ]
+}

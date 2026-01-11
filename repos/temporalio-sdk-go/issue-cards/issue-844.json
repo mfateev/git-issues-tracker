@@ -1,0 +1,34 @@
+{
+  "summary": "Documentation should clarify that reusing output variables across multiple ch.Receive/ReceiveAsync or future.Get calls can cause unexpected behavior, especially with json.Unmarshal. Developers should declare fresh variables for each invocation.",
+  "category": "docs",
+  "subcategory": "channels-futures",
+  "apis": [
+    "Receive",
+    "ReceiveAsync",
+    "Get"
+  ],
+  "components": [
+    "channels",
+    "futures",
+    "unmarshaling"
+  ],
+  "concepts": [
+    "variable-reuse",
+    "json-unmarshaling",
+    "state-management",
+    "anti-patterns",
+    "documentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers may experience unexpected behavior when reusing output variables across multiple channel or future operations due to json.Unmarshal semantics.",
+  "rootCause": "json.Unmarshal behavior with reused variables, particularly when dealing with maps in the target type structure",
+  "proposedFix": "Update code comments and documentation to explicitly recommend declaring fresh variables for each ch.Receive/ReceiveAsync or future.Get invocation",
+  "workaround": "Declare a new variable in each iteration instead of reusing the same variable across multiple calls",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify that output variables should not be reused across multiple invocations",
+  "related": [],
+  "keyQuote": "sharing an output variable across multiple invocations is almost always an anti-pattern",
+  "number": 844,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:28.573Z"
+}

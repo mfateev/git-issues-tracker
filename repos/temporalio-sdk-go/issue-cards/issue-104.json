@@ -1,0 +1,32 @@
+{
+  "summary": "A panic occurs in serviceerror.FromStatus when converting a gRPC status with a NotFound detail that the service doesn't properly include. The interface conversion fails because it tries to cast a nil value to *failure.NotFound.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "serviceerror",
+    "grpc-dialer",
+    "error-interceptor"
+  ],
+  "concepts": [
+    "error-conversion",
+    "interface-conversion",
+    "panic",
+    "null-safety",
+    "protobuf-details"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience immediate application crashes when the SDK encounters certain gRPC responses from the server.",
+  "rootCause": "The serviceerror.FromStatus function attempts to convert a nil NotFound detail to *failure.NotFound without null checking, causing a panic during interface conversion.",
+  "proposedFix": null,
+  "workaround": "Roll back temporal-proto dependency to version 0.20.21",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed upstream in temporal-proto-go by commit fd32111876d6ed73c2771107460783b09fb36a6f",
+  "related": [],
+  "keyQuote": "panic: interface conversion: interface {} is nil, not *failure.NotFound",
+  "number": 104,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:16.330Z"
+}

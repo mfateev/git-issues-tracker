@@ -1,0 +1,33 @@
+{
+  "summary": "User asks about implementing an interceptor to capture panics and errors from workflows and activities for Sentry integration, specifically questioning how to handle signal interception. The maintainer clarifies that signals processed through channels don't panic and error handling is not necessary for signal handlers.",
+  "category": "question",
+  "subcategory": "interceptors",
+  "apis": [
+    "HandleSignal"
+  ],
+  "components": [
+    "interceptor",
+    "signal-handler",
+    "workflow-inbound"
+  ],
+  "concepts": [
+    "panic-handling",
+    "error-capture",
+    "signal-processing",
+    "interceptor-chain",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users implementing error monitoring interceptors can understand that signal handlers don't require panic/error capture since they operate via channels.",
+  "rootCause": "User misunderstanding about how signal handlers work internally - signals are processed through channels and don't directly panic",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved as not applicable after clarification that signal handlers operate via channels and don't panic, so panic capture is unnecessary",
+  "related": [],
+  "keyQuote": "Since signals are handled via channels in Go, user code can't really panic/error the interceptor signal handler unless it was a user-defined interceptor signal handler panicking downstream.",
+  "number": 833,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:55.098Z"
+}

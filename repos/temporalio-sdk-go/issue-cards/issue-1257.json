@@ -1,0 +1,34 @@
+{
+  "summary": "User requests the ability to provide a custom predicate function to RetryPolicy to evaluate whether to retry based on custom logic. Maintainer explains this is not feasible because RetryPolicy is handled server-side and requires serialization.",
+  "category": "feature",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "retry-policy",
+    "worker",
+    "service-communication"
+  ],
+  "concepts": [
+    "retry",
+    "custom-logic",
+    "predicate",
+    "serialization",
+    "server-side-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot implement custom retry logic based on predicates within RetryPolicy and must handle retries manually.",
+  "rootCause": "RetryPolicy is executed server-side by the Temporal service and requires serialization, making arbitrary function predicates impossible to implement.",
+  "proposedFix": "Consider implementing a feature similar to the one described in sdk-java issue #806 as a more feasible alternative.",
+  "workaround": "Handle custom retries manually outside of RetryPolicy.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Rejected because RetryPolicy semantics require server-side execution and serialization, which is incompatible with custom predicates.",
+  "related": [
+    806
+  ],
+  "keyQuote": "RetryPolicy are retries that are handled by the Temporal service, and I wouldn't want to change that semantics... We can't serialize an arbitrary function.",
+  "number": 1257,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:25.524Z"
+}

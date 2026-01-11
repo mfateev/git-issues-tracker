@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support graceful cleanup logic execution within sessions during workflow cancellation, currently requiring ugly workarounds. Users need better control over session lifecycle to handle cleanup when workflows are cancelled.",
+  "category": "feature",
+  "subcategory": "session-management",
+  "apis": [
+    "NewDisconnectedContext"
+  ],
+  "components": [
+    "session-manager",
+    "workflow-cancellation",
+    "context"
+  ],
+  "concepts": [
+    "cleanup",
+    "cancellation",
+    "session-lifecycle",
+    "graceful-shutdown",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot execute cleanup logic cleanly when workflows are cancelled, forcing them to implement workarounds to properly close session resources.",
+  "rootCause": null,
+  "proposedFix": "Add an option like 'keep session info' when using NewDisconnectedContext, or export session queue to allow manual management.",
+  "workaround": "Implement ugly workarounds outside the session framework (specific workarounds not detailed in issue).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    193
+  ],
+  "keyQuote": "Cancellation of a workflow should allow executing some cleanup logic in a session without ugly workarounds.",
+  "number": 194,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:06.311Z"
+}

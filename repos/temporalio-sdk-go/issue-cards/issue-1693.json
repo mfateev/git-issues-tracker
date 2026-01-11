@@ -1,0 +1,34 @@
+{
+  "summary": "Non-Deterministic Error (NDE) messages lack actionable details about what changed in workflow code. Users need clearer error messages that explicitly state what workflow operation was expected versus what was actually encountered during replay.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [
+    "UpsertSearchAttribute",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "event-handler",
+    "command-state-machine",
+    "workflow-execution-context"
+  ],
+  "concepts": [
+    "non-deterministic-error",
+    "workflow-replay",
+    "history-events",
+    "error-messaging",
+    "code-mismatch",
+    "determinism-violation"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter cryptic NDE panic messages that don't explain what changed in their code, making it difficult to identify and fix determinism violations.",
+  "rootCause": "Error messages only show low-level symptom (e.g., 'lookup failed for scheduledEventID') without context about expected vs actual workflow operations based on history replay.",
+  "proposedFix": "Enhanced error messages should explicitly state: 'Workflow code tried to schedule an activity but based on the history events to replay, it should upsert a search attribute instead'",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow code tried to scheduled an activity but based on the history events to replay, it should upsert a search attribute instead",
+  "number": 1693,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:37.566Z"
+}

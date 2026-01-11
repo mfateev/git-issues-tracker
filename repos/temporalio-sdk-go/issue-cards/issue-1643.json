@@ -1,0 +1,34 @@
+{
+  "summary": "GetVersion internally calls UpsertSearchAttributes with non-deterministic changeID values, causing test mocks to fail when developers try to assert UpsertSearchAttributes behavior. The issue was resolved by clarifying documentation and suggesting developers use MatchedBy for flexible assertions.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetVersion",
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "test-mocking",
+    "versioning",
+    "search-attributes"
+  ],
+  "concepts": [
+    "test-mocking",
+    "non-determinism",
+    "search-attributes",
+    "versioning",
+    "changeID",
+    "map-iteration"
+  ],
+  "severity": "low",
+  "userImpact": "Developers writing tests that assert UpsertSearchAttributes behavior struggle with unexpected calls from GetVersion and non-deterministic ordering.",
+  "rootCause": "getChangeVersions iterates over a map (non-deterministic) and uses the result in UpsertSearchAttributes calls, making it hard to mock deterministically.",
+  "proposedFix": "Use testify's MatchedBy to create flexible assertions that match keys in the map without asserting exact changeID values.",
+  "workaround": "Use mock.MatchedBy to match search attributes by key without requiring exact value matching for changeID fields.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by documentation clarification and guidance on using MatchedBy for flexible test assertions.",
+  "related": [],
+  "keyQuote": "You shouldn't need to assert the exact value of `changeID` if you are not interested in it. You should be able to use something like MatchedBy",
+  "number": 1643,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:43.725Z"
+}

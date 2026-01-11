@@ -1,0 +1,32 @@
+{
+  "summary": "Local activities that return only an error type fail to deserialize in temporal-web due to nil values in gRPC MarkerRecordedEvent payloads. The issue occurs when activities have no return value besides an error parameter.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "grpc-serialization",
+    "marker-event"
+  ],
+  "concepts": [
+    "deserialization",
+    "nil-handling",
+    "gRPC",
+    "return-types",
+    "marker-recording"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view workflows containing local activities with error-only return types in temporal-web without gRPC parsing errors.",
+  "rootCause": "When a local activity returns only an error (nil value), the `result` key in MarkerRecordedEventAttributes.details is set to nil. Node gRPC libraries fail to parse nil values in map<string, Payloads> fields.",
+  "proposedFix": "Change the `result` key value from nil to an empty Payloads array in the MarkerRecordedEvent details when activity return type is error-only.",
+  "workaround": "Add at least an empty return value to activities so they return (interface{}, error) instead of just error.",
+  "resolution": "fixed",
+  "resolutionDetails": "SDK-Go addressed the issue by not setting nil values in MarkerRecordedEventAttributes.details, instead using empty Payloads.",
+  "related": [],
+  "keyQuote": "The easiest is to fix this in go SDK itself. The issue didn't repro with sdk-java as it doesn't set `null` value in details of type `map<string, Payloads>`",
+  "number": 365,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:54.586Z"
+}

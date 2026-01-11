@@ -1,0 +1,32 @@
+{
+  "summary": "User-provided data converters are not applied to memo fields when creating workflows and schedules in the Go SDK, unlike other SDKs. The issue requires finding a backwards-compatible fix approach since changing this behavior could break running workflows.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "CreateWorkflowExecution",
+    "CreateSchedule"
+  ],
+  "components": [
+    "workflow-client",
+    "schedule-client",
+    "data-converter"
+  ],
+  "concepts": [
+    "data-serialization",
+    "memo",
+    "backwards-compatibility",
+    "default-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use custom data converters for memo fields, limiting serialization flexibility and creating inconsistent behavior compared to other SDKs.",
+  "rootCause": "The Go SDK hardcodes the default data converter for memos instead of using the user-provided one, unlike other Temporal SDKs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Go uses the default data converter. Need to decide how we will fix this as changing is not backwards compatible and could break running workflows",
+  "number": 1045,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:01.702Z"
+}

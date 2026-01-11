@@ -1,0 +1,35 @@
+{
+  "summary": "RequestCancelExternalWorkflow().Get(ctx, nil) blocks forever when the canceled workflow returns ErrCanceled, but works correctly when it returns nil. When a variable is passed to Get() instead, it returns properly but the error value is nil.",
+  "category": "bug",
+  "subcategory": "external-workflow-cancellation",
+  "apis": [
+    "RequestCancelExternalWorkflow",
+    "ExecuteChildWorkflow",
+    "GetChildWorkflowExecution"
+  ],
+  "components": [
+    "workflow-client",
+    "future-handling",
+    "cancellation-logic",
+    "error-propagation"
+  ],
+  "concepts": [
+    "workflow-cancellation",
+    "external-workflow",
+    "blocking-behavior",
+    "error-handling",
+    "child-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably wait for external workflow cancellation to complete when the canceled workflow returns ErrCanceled, causing their code to hang indefinitely.",
+  "rootCause": "Potential issue in how Get() handles nil error results when waiting for canceled external workflows that return ErrCanceled.",
+  "proposedFix": null,
+  "workaround": "Pass a variable to Get() instead of nil: RequestCancelExternalWorkflow(...).Get(ctx, &wfErr) instead of Get(ctx, nil)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the workflow being canceled returns nil, Get() properly blocks until the canceled workflow has exited, but if the canceled workflow returns ErrCanceled then Get() never returns.",
+  "number": 346,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:10.372Z"
+}

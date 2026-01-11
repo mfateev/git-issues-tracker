@@ -1,0 +1,30 @@
+{
+  "summary": "The Go SDK needs a SkipLogger interface to allow custom loggers to adjust caller skip levels during workflow replay, similar to the interface available in the Temporal server.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "client",
+    "replay"
+  ],
+  "concepts": [
+    "caller-skip",
+    "logging",
+    "workflow-replay",
+    "custom-logger",
+    "log-wrapper"
+  ],
+  "severity": "low",
+  "userImpact": "Users with custom loggers cannot properly adjust caller skip levels during workflow replay, potentially causing incorrect log output.",
+  "rootCause": "The Go SDK lacks a SkipLogger interface that allows runtime adjustment of the caller skip parameter during replay scenarios.",
+  "proposedFix": "Implement a SkipLogger interface in the Go SDK that mirrors the server implementation, allowing skip value adjustment (e.g., setting skip to 1) during replay.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A SkipLogger interface was implemented in the Go SDK to allow custom loggers to adjust caller skip levels during replay.",
+  "related": [],
+  "keyQuote": "Like the server does, we should also have a skip interface that we can call w/ the value of `1` on when replaying.",
+  "number": 685,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:30.156Z"
+}

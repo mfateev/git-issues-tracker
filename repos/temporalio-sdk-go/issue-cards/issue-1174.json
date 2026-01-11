@@ -1,0 +1,31 @@
+{
+  "summary": "OpenTelemetry TracingInterceptor fails when encountering invalid SpanContext from OpenTracing parent spans during migration, causing workflows to fail. Request to add an option to ignore invalid SpanContext and continue silently.",
+  "category": "feature",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [],
+  "components": [
+    "TracingInterceptor",
+    "opentelemetry-contrib",
+    "interceptor"
+  ],
+  "concepts": [
+    "tracing",
+    "span-context",
+    "opentelemetry",
+    "opentracing-migration",
+    "error-handling",
+    "graceful-degradation"
+  ],
+  "severity": "high",
+  "userImpact": "Long-running workflows fail during OpenTracing to OpenTelemetry migration when encountering incompatible span contexts, disrupting critical services.",
+  "rootCause": "TracingInterceptor returns an error when unable to extract valid SpanContext from OpenTracing parent span, preventing workflow execution",
+  "proposedFix": "Add an optional configuration to TracingInterceptor to ignore invalid SpanContext errors and continue execution without establishing parent span connections",
+  "workaround": "DataDog interceptor handles this gracefully; OpenTelemetry itself does not return errors for SpanContext extraction",
+  "resolution": "fixed",
+  "resolutionDetails": "Solution accepted as reasonable by maintainers; addressed by adding option to ignore tracing errors",
+  "related": [],
+  "keyQuote": "It's acceptable for spans to not connect to their parents for a short time; it is not acceptable for a critical workflow to fail because of a failure to trace.",
+  "number": 1174,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:55.499Z"
+}

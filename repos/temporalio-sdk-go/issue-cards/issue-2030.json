@@ -1,0 +1,32 @@
+{
+  "summary": "Move the RESOURCE_EXHAUSTED_CAUSE_EXT_GRPC_MESSAGE_TOO_LARGE constant from the SDK extension to the upstream API definition. This constant was added for better handling of gRPC message too large errors and should be standardized in the official API to avoid compatibility issues.",
+  "category": "feature",
+  "subcategory": "api-compatibility",
+  "apis": [],
+  "components": [
+    "api-definition",
+    "resource-exhausted-cause",
+    "grpc-error-handling"
+  ],
+  "concepts": [
+    "api-standardization",
+    "enum-extension",
+    "grpc-messages",
+    "compatibility",
+    "upstream-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Moving this constant to the upstream API ensures consistent error handling across all Temporal SDKs without compatibility issues.",
+  "rootCause": "The constant was added as an SDK extension rather than being part of the official upstream API definition, creating potential compatibility concerns.",
+  "proposedFix": "Add RESOURCE_EXHAUSTED_CAUSE_GRPC_MESSAGE_TOO_LARGE (without EXT) to the upstream API enum with the next ordinal value, then update SDK code to remove the extension constant and use the upstream version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The constant was moved to the upstream API and the SDK was updated to use the official API definition instead of the extension.",
+  "related": [
+    2026
+  ],
+  "keyQuote": "To avoid compatibility issues, the upstream API definition of the enum should have this constant added",
+  "number": 2030,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:25.795Z"
+}

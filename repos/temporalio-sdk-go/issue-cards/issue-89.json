@@ -1,0 +1,32 @@
+{
+  "summary": "Current SDK uses type aliasing to separate internal and public APIs, which causes problems with Go tooling. The proposal is to create public copies of interfaces and structures with casting between internal and public versions.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "type-system",
+    "public-api",
+    "internal-api"
+  ],
+  "concepts": [
+    "type-aliasing",
+    "api-separation",
+    "code-generation",
+    "type-safety",
+    "tooling-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience issues with Go tooling and IDE support due to type aliasing in the SDK structure.",
+  "rootCause": "Type aliasing approach used to separate internal and public APIs doesn't work well with Go tooling ecosystem",
+  "proposedFix": "Create public copies of all interfaces and structures with explicit casting between internal and public versions",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    61
+  ],
+  "keyQuote": "The current generation of tools doesn't work well with type aliasing which is used to separate internal implementation and public APIs",
+  "number": 89,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:45.289Z"
+}

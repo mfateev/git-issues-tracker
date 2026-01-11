@@ -1,0 +1,42 @@
+{
+  "summary": "Request to implement a programmatic list API with history iterator support in the Go SDK to align with the Java SDK's API design. The discussion identifies a broader need to reconsider the Go client API architecture rather than continue adding features incrementally.",
+  "category": "feature",
+  "subcategory": "client-api",
+  "apis": [
+    "ListWorkflows",
+    "DescribeWorkflow",
+    "DescribeWorkflowExecution",
+    "ListWorkflowsOptions",
+    "WorkflowExecutionIterator",
+    "HistoryEventIterator",
+    "WorkflowHistory"
+  ],
+  "components": [
+    "client",
+    "list-workflows",
+    "history-iterator",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "api-design",
+    "iterator-pattern",
+    "workflow-listing",
+    "history-replay",
+    "backward-compatibility",
+    "api-deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a programmatic way to list workflows and iterate over execution histories for workflow replay, following Java SDK patterns.",
+  "rootCause": "Go SDK lacks the comprehensive workflow listing and history iteration APIs present in the Java SDK, and the broader client API interface needs architectural reconsideration.",
+  "proposedFix": "Implement ListWorkflows API accepting ListWorkflowsOptions with Query parameter, returning WorkflowExecutionIterator; add WorkflowExecution, WorkflowExecutionDescription, and WorkflowHistory wrappers; add HistoryEventIterator; support WorkflowHistory in worker.WorkflowReplayer; consider deprecating existing List*Workflow and DescribeWorkflowExecution APIs.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed pending broader discussion about the future direction of the Go client API and which components should be prioritized.",
+  "related": [
+    1552
+  ],
+  "keyQuote": "There are a lot of things wrong with the client interface, and just bolting more things on it may not be the solution.",
+  "number": 972,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:37.746Z"
+}

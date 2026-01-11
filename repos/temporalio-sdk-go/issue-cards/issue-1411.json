@@ -1,0 +1,30 @@
+{
+  "summary": "Replace the use of protobuf WaitPolicy struct with a lightweight enum defined in the Go SDK to simplify the API for setting wait policies in UpdateWorkflowWithOptionsRequest.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "UpdateWorkflowWithOptionsRequest"
+  ],
+  "components": [
+    "workflow-client",
+    "update-api"
+  ],
+  "concepts": [
+    "api-simplification",
+    "wait-policy",
+    "enum-definition",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users can set wait policies more conveniently without needing to declare protobuf structs and enums.",
+  "rootCause": null,
+  "proposedFix": "Define a Go SDK enum for wait policy instead of using updatepb.WaitPolicy",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented a Go SDK-defined enum to replace protobuf WaitPolicy usage",
+  "related": [],
+  "keyQuote": "We can replace this with an \"enum\" defined in the Go SDK.",
+  "number": 1411,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:16.359Z"
+}

@@ -5,8 +5,9 @@ Update all tracked GitHub repositories and regenerate analysis documents.
 ## Context Management (Important)
 
 To avoid hitting context limits when running analysis agents:
-- **Prefer pre-computed data**: Use `stats-*.md` files and `issues-index.json` instead of raw issue JSONs
-- **Selective deep dives**: Use `get-issue.js` only when the issue index metadata is insufficient (see criteria below)
+- **Prefer pre-computed data**: Use `stats-*.md` files, `issues-index.json`, and semantic analysis data instead of raw issue JSONs
+- **Use semantic data**: `analysis/cards-summary.txt` provides grep-friendly one-line summaries; `issues-index-enhanced.json` includes semantic fields (category, subcategory, APIs, components, concepts)
+- **Selective deep dives**: Use `get-issue.js` only when the index metadata is insufficient (see criteria below)
 - **Don't read issue directories**: The `issues/*.json` files are for scripts, not LLM analysis
 
 ## Steps
@@ -27,6 +28,16 @@ Run `node scripts/generate-aggregate-stats.js` to generate `analysis/stats-all.m
 
 **Note:** These scripts automatically generate navigation links to related documents (summary, analysis docs, other stats files).
 
+### 2b. Generate Semantic Issue Cards (LLM - Incremental)
+
+Run `node scripts/generate-cards.js` to generate semantic cards for any new issues that don't have cards yet.
+
+**Note:** This only processes issues without existing cards (incremental), so it's fast for regular updates. Skip this step if no repos have cards initialized yet.
+
+Then run `node scripts/build-enhanced-index.js` to rebuild the enhanced indexes and `analysis/cards-summary.txt`.
+
+**Optional:** Run `node scripts/generate-themes.js --all` to regenerate theme analysis documents. This is slower and only needed when you want updated cross-cutting analysis.
+
 ### 3. Generate SDK Analysis Documents (LLM)
 
 For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`) and the issue index (`repos/<sdk>/issues-index.json`), then update or create `analysis/<sdk>.md`.
@@ -40,7 +51,10 @@ For each SDK, read the corresponding statistics file (`analysis/stats-<sdk>.md`)
 **Data Sources (in order of preference):**
 1. `analysis/stats-<sdk>.md` - Pre-computed statistics with all metrics needed
 2. `repos/<sdk>/issues-index.json` - Aggregated index with titles, upvotes, comments, labels
-3. **Do NOT read individual `issues/*.json` files** - The index contains sufficient data
+3. `repos/<sdk>/issues-index-enhanced.json` - Enhanced index with semantic fields (if available)
+4. `analysis/cards-summary.txt` - Grep-friendly one-line summaries for quick searches
+5. `analysis/themes/*.md` - Pre-computed cross-cutting theme analysis (if available)
+6. **Do NOT read individual `issues/*.json` files** - The index contains sufficient data
 
 **When to Use `get-issue.js` (selective deep dives):**
 

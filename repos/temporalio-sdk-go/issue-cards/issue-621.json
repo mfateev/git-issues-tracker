@@ -1,0 +1,30 @@
+{
+  "summary": "Local activities do not catch panics, preventing proper retry behavior. Panics inside goroutines started by the local activity executor are not recovered, causing the worker to crash instead of handling the error gracefully.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "task-pollers",
+    "local-activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "panic-recovery",
+    "error-handling",
+    "retry-logic",
+    "goroutine-management",
+    "activity-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Local activities crash the worker when they panic, preventing proper error recovery and retry policies from being applied.",
+  "rootCause": "Panics inside goroutines started in internal_task_pollers.go line 537 are not recovered or caught.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Panic recovery was added to the local activity executor to catch panics and treat them as activity failures subject to retry logic.",
+  "related": [],
+  "keyQuote": "Local activities, to be subject to retry and such like regular activities, should recover from panics.",
+  "number": 621,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:40.300Z"
+}

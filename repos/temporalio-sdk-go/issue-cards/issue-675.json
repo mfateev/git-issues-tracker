@@ -1,0 +1,34 @@
+{
+  "summary": "Activity timeout configuration was confusing because the godoc comments didn't clearly explain that at least one of ScheduleToCloseTimeout or StartToCloseTimeout is required. The issue reporter thought both ScheduleToStart and StartToClose were required when ScheduleToClose was not provided.",
+  "category": "docs",
+  "subcategory": "activity-timeouts",
+  "apis": [
+    "ActivityOptions",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-options",
+    "documentation",
+    "godoc"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-configuration",
+    "scheduling",
+    "documentation-clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about activity timeout requirements, potentially leading to incorrect timeout configuration.",
+  "rootCause": null,
+  "proposedFix": "Improve the godoc comments on ActivityOptions to more clearly specify that at least one of ScheduleToCloseTimeout or StartToCloseTimeout is required, independent of ScheduleToStartTimeout.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Behavior is expected and working as designed. The issue was resolved by clarifying in comments that this is documented behavior, not a bug. The suggestion to improve godoc comments was acknowledged but the core behavior was confirmed as correct.",
+  "related": [
+    632
+  ],
+  "keyQuote": "Definitely expected behavior (and is expected across all SDKs, as it is enforced server side). Simply: At least one of ScheduleToCloseTimeout or StartToCloseTimeout is required.",
+  "number": 675,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:59.869Z"
+}

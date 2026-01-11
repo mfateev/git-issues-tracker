@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment doesn't enforce WorkflowExecutionTimeout on child workflows. Workflow execution timeouts are not being enforced during unit testing with testEnv.ExecuteWorkflow(), and error messages reference non-existent timeout types.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-execution",
+    "timeout-enforcement"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-execution-timeout",
+    "child-workflow",
+    "unit-testing",
+    "deadline"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test workflow timeout behavior in unit tests, preventing proper validation of timeout configurations before production.",
+  "rootCause": "TestWorkflowEnvironment does not enforce WorkflowExecutionTimeout; only WorkflowRunTimeout is enforced, and timeout enforcement logic is missing or incomplete.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Child workflow is allowed to run without timing out. A child workflow times out if WorkflowRunTimeout is specified and exceeded.",
+  "number": 866,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:28.301Z"
+}

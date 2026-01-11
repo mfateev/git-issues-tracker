@@ -1,0 +1,36 @@
+{
+  "summary": "Add documentation clarifying that external mock callbacks for activities, local activities, child workflows, and external workflow operations run on separate goroutines and are not thread-safe, which may confuse developers writing tests.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "StartChildWorkflow",
+    "SignalExternalWorkflow",
+    "CancelExternalWorkflow"
+  ],
+  "components": [
+    "test-suite",
+    "mock-callbacks",
+    "goroutine-execution"
+  ],
+  "concepts": [
+    "thread-safety",
+    "goroutines",
+    "testing",
+    "mocks",
+    "callbacks",
+    "concurrency"
+  ],
+  "severity": "low",
+  "userImpact": "Test developers may incorrectly assume mock callbacks are thread-safe and write unsafe test code, leading to race conditions and flaky tests.",
+  "rootCause": null,
+  "proposedFix": "Add documentation to the test suite explaining that callbacks for external mocks run on separate goroutines and are not thread-safe.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added to the test suite clarifying the non-thread-safe nature of external mock callbacks.",
+  "related": [],
+  "keyQuote": "callbacks for mocks on activities, local activities, child workflows, signal external workflow, and cancel external workflow are all done on separate goroutines and not thread safe",
+  "number": 843,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:09.884Z"
+}

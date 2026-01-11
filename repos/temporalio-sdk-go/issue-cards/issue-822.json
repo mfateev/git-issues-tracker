@@ -1,0 +1,35 @@
+{
+  "summary": "The OnFatalError callback in worker.Options was not being invoked for users calling worker.Start() directly, only for worker.Run(). This fix ensures the callback is properly triggered in both code paths.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "worker.Start",
+    "worker.Run",
+    "worker.Options.OnFatalError"
+  ],
+  "components": [
+    "worker",
+    "error-handling",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "callback-invocation",
+    "fatal-errors",
+    "error-propagation",
+    "worker-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who rely on OnFatalError callback for error handling will not receive notifications when using worker.Start() instead of worker.Run().",
+  "rootCause": "The OnFatalError callback implementation was incomplete, only being invoked in the worker.Run() code path but not in worker.Start().",
+  "proposedFix": "Ensure the OnFatalError callback is invoked consistently for both worker.Start() and worker.Run() code paths and add tests to verify the behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The callback invocation was properly implemented for both worker.Start() and worker.Run() paths with appropriate test coverage.",
+  "related": [
+    800
+  ],
+  "keyQuote": "Make sure that callback is invoked for those using worker.Start() too and test it.",
+  "number": 822,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:21.158Z"
+}

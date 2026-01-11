@@ -1,0 +1,31 @@
+{
+  "summary": "Update Godoc documentation for internal structs and functions to clarify which public package they are exposed under. Discussion evolved to suggest documenting all exported internal types with their public aliases, potentially via automated tooling with CI validation.",
+  "category": "docs",
+  "subcategory": "documentation-tooling",
+  "apis": [],
+  "components": [
+    "godoc",
+    "internal-exports",
+    "build-tooling"
+  ],
+  "concepts": [
+    "documentation",
+    "api-clarity",
+    "internal-types",
+    "aliases",
+    "automation",
+    "ci-validation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using the SDK will have clearer documentation about which internal types are publicly exposed and under which package names.",
+  "rootCause": null,
+  "proposedFix": "Automated command-line tool to parse the project for aliases pointing to internal types and verify their Godoc includes exposure information, with CI check to ensure updates are maintained.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the documentation updates were completed.",
+  "related": [],
+  "keyQuote": "We should probably just document where every exported `internal` structs/funcs is exposed.",
+  "number": 1681,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:10.052Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "ReplayWorkflowExecution fails when workflow history spans multiple pages because pagination parameters are not properly utilized, causing 'extra replay command' errors.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowExecution"
+  ],
+  "components": [
+    "worker",
+    "history-pagination",
+    "replay-engine"
+  ],
+  "concepts": [
+    "pagination",
+    "history-processing",
+    "workflow-replay",
+    "long-running-workflows",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably replay workflows with long execution histories, breaking testing and debugging workflows with multiple loop iterations.",
+  "rootCause": "Pagination parameters in the request struct are defined but not used when fetching workflow history, causing incomplete history retrieval.",
+  "proposedFix": "Implement proper pagination logic to handle multi-page workflow history retrieval in the ReplayWorkflowExecution code.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The bug was identified in internal_worker.go line 1121 and the workflowservice request struct, with pagination support added to properly handle long histories.",
+  "related": [],
+  "keyQuote": "We are not properly using pagination here and we should. I will fix this in short order.",
+  "number": 781,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:29.280Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "SearchAttribute values from DescribeWorkflowExecution are unmarshaled as float64 instead of integer type when using the default converter with interface{}. This is due to JSON's default behavior treating all numbers as float64, and the user must either provide the target type or use a custom converter.",
+  "category": "question",
+  "subcategory": "search-attributes",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "converter",
+    "data-converter",
+    "search-attributes"
+  ],
+  "concepts": [
+    "type-conversion",
+    "json-unmarshaling",
+    "interface{}",
+    "search-attributes",
+    "data-serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users working with integer search attributes must use custom converters or explicitly pass target types to handle type conversion correctly.",
+  "rootCause": "Go's default JSON unmarshaling behavior treats all numbers as float64 when unmarshaling to interface{}, and Temporal's default converter doesn't special-case search attributes differently from other payloads.",
+  "proposedFix": null,
+  "workaround": "Use a custom converter with encoding/json.Decoder.UseNumber or provide the target type explicitly during unmarshaling.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined this is intended behavior - search attributes follow the same conversion rules as other payloads, and users should handle type conversion explicitly.",
+  "related": [
+    228
+  ],
+  "keyQuote": "It could if we treated search attributes as different than any other integer in the system, but we do not.",
+  "number": 942,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:56.767Z"
+}

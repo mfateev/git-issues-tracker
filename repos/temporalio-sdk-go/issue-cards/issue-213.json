@@ -1,0 +1,32 @@
+{
+  "summary": "Child workflow cancellation causes an apparent deadlock in the Go SDK, preventing workflow execution from completing normally when cancelling child workflows in a pandemic test scenario.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "CancelWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "child-workflow-handler",
+    "cancellation-logic"
+  ],
+  "concepts": [
+    "deadlock",
+    "cancellation",
+    "child-workflows",
+    "synchronization",
+    "workflow-blocking"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow executions that appear to deadlock when attempting to cancel child workflows, preventing proper workflow completion.",
+  "rootCause": "Child workflow cancellation does not properly handle synchronization between parent and child workflow states, causing the parent workflow to block indefinitely.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in a subsequent version through proper cancellation signal handling in child workflow execution.",
+  "related": [],
+  "keyQuote": "Cancellation of Child Workflows leads to an apparent deadlock",
+  "number": 213,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:21.898Z"
+}

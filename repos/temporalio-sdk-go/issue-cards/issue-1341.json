@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowChecker should flag anonymous functions in local activities as non-deterministic. Anonymous functions used as local activities can create data races since they run in parallel with the workflow, posing a safety risk.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "workflow-checker",
+    "local-activity-executor",
+    "determinism-validator"
+  ],
+  "concepts": [
+    "determinism",
+    "data-races",
+    "anonymous-functions",
+    "parallel-execution",
+    "local-activities",
+    "safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can inadvertently write non-deterministic code using anonymous functions in local activities without receiving warnings, leading to potential data race conditions.",
+  "rootCause": "WorkflowChecker does not validate or flag anonymous functions used as local activities, which can execute in parallel with the workflow and cause data races.",
+  "proposedFix": "Extend WorkflowChecker to detect and flag anonymous functions in local activities as non-deterministic, with warnings about parallel execution risks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Anonymous functions as local activities are ripe for data races because they can run in parallel with the workflow function",
+  "number": 1341,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:07.117Z"
+}

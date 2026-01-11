@@ -1,0 +1,32 @@
+{
+  "summary": "Investigate discrepancies between client-side and server-side gRPC request latency measurements in the Go SDK. Proposed solutions include adding gRPC metadata with server-measured durations and exposing lower-level gRPC stats to identify whether differences stem from interceptor overhead or HTTP/2 message handling.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "interceptor",
+    "metrics",
+    "dial-options"
+  ],
+  "concepts": [
+    "latency",
+    "observability",
+    "gRPC-stats",
+    "performance-measurement",
+    "request-duration",
+    "metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately measure and compare end-to-end latency between client and server, making it difficult to diagnose performance issues.",
+  "rootCause": "Difference between client-measured latency (including serialization/interceptor operations) and server-measured latency; unclear which measurement point is authoritative.",
+  "proposedFix": "Expose gRPC stats via dial options and implement server-side gRPC interceptor to include end-to-end duration in metadata for comparison and warning thresholds.",
+  "workaround": "Use external profiling tools or metrics collectors to separately measure client and server latencies.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "See if there is a gRPC metric that is low-level enough to apply to HTTP2 messages specifically so that we can see if there is a difference between our interceptor-based ones",
+  "number": 616,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:28.300Z"
+}

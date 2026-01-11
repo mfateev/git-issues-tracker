@@ -1,0 +1,35 @@
+{
+  "summary": "Review and add tests for Nexus operation log and metrics labels. The issue requests auditing the labels currently set on metrics handler and logger from temporalnexus.GetMetricsHandler and temporalnexus.GetLogger (currently including Nexus service, Nexus operation, and task queue), identifying any missing useful labels, and updating tests accordingly.",
+  "category": "feature",
+  "subcategory": "nexus-metrics-observability",
+  "apis": [
+    "GetMetricsHandler",
+    "GetLogger"
+  ],
+  "components": [
+    "nexus",
+    "metrics-handler",
+    "logger",
+    "observability"
+  ],
+  "concepts": [
+    "metrics",
+    "labels",
+    "logging",
+    "observability",
+    "testing",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need comprehensive metrics and logging labels for Nexus operations to properly monitor and debug Nexus workflows and activities in production.",
+  "rootCause": null,
+  "proposedFix": "Review current label set (Nexus service, Nexus operation, task queue) and add any other useful labels; update tests to verify they are set appropriately.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after implementation of metrics and logging labels review and test updates for Nexus operations.",
+  "related": [],
+  "keyQuote": "Review the labels that are currently set on the metrics handler and logger returned from temporalnexus.GetMetricsHandler and temporalnexus.GetLogger.",
+  "number": 1545,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:30.147Z"
+}

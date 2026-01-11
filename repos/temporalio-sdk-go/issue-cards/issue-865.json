@@ -1,0 +1,29 @@
+{
+  "summary": "The replayer uses a different run ID source than the runtime after a workflow reset, affecting default child workflow ID generation. The replayer should be updated to use the runtime's run ID source for consistency.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "workflow-execution",
+    "child-workflow"
+  ],
+  "concepts": [
+    "run-id",
+    "workflow-reset",
+    "child-workflow-id",
+    "execution-state"
+  ],
+  "severity": "high",
+  "userImpact": "Replayed workflows generate different child workflow IDs than the runtime, causing behavioral mismatches during replay and reset scenarios.",
+  "rootCause": "Replayer uses `temporal.api.history.v1.WorkflowExecutionStartedEventAttributes.original_execution_run_id` while runtime uses `temporal.api.workflowservice.v1.workflow_execution.run_id`",
+  "proposedFix": "Update the replayer to use the runtime's run ID source (`temporal.api.workflowservice.v1.workflow_execution.run_id`) instead of the original execution run ID",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Replayer was updated to use the correct run ID source for consistency with runtime behavior",
+  "related": [],
+  "keyQuote": "replayer uses temporal.api.history.v1.WorkflowExecutionStartedEventAttributes.original_execution_run_id while runtime uses temporal.api.workflowservice.v1.workflow_execution.run_id",
+  "number": 865,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:25.588Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The test environment dispatcher automatically sets SDK flags to true by default, but they should be off by default. This causes test behavior to differ from production defaults.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "dispatcher",
+    "test-environment",
+    "sdk-flags"
+  ],
+  "concepts": [
+    "default-behavior",
+    "testing",
+    "configuration",
+    "environment-setup",
+    "dispatcher-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests may pass with SDK flags enabled when they should test the default disabled state, leading to false confidence in test results.",
+  "rootCause": "createNewDispatcher() automatically sets flags to true instead of respecting the off-by-default requirement",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Test environment assumes they are on by default.",
+  "number": 1700,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:39.479Z"
+}

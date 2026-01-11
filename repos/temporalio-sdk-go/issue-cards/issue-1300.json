@@ -1,0 +1,32 @@
+{
+  "summary": "When users pass incorrect options types to ExecuteActivity or ExecuteLocalActivity (e.g., ActivityOptions to ExecuteLocalActivity), they get confusing server errors about missing timeouts instead of a clear error message indicating the wrong options type was used.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [
+    "ExecuteActivity",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "context",
+    "options-validation"
+  ],
+  "concepts": [
+    "options-validation",
+    "error-messages",
+    "activity-configuration",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging activity execution failures receive confusing timeout-related errors when the actual problem is passing the wrong options type, leading to wasted debugging time.",
+  "rootCause": "SDK does not validate that the correct options type is set on the context before executing activities; validation only happens server-side resulting in generic timeout error messages.",
+  "proposedFix": "Add SDK-side validation to explicitly check that the correct ActivityOptions or LocalActivityOptions type is set on the context, failing early with a clear error message indicating which options type is required.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if we don't give a clear error message that (local) activity options are not set on the context, we should (and clearly state _which_ ones must be set)",
+  "number": 1300,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:52.563Z"
+}

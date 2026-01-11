@@ -1,0 +1,30 @@
+{
+  "summary": "Add test coverage for Nexus sync and async operations on Temporal Cloud. The challenge involves managing concurrent tests with Nexus endpoints that require advance definition and have registration delays.",
+  "category": "feature",
+  "subcategory": "nexus-testing",
+  "apis": [],
+  "components": [
+    "nexus",
+    "test-framework",
+    "cloud-integration"
+  ],
+  "concepts": [
+    "testing",
+    "concurrency",
+    "endpoint-registration",
+    "task-queue",
+    "cloud-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need confidence that Nexus operations work correctly on Cloud, but current testing infrastructure lacks adequate coverage due to concurrency and registration constraints.",
+  "rootCause": "The Nexus endpoint registry has inherent registration delay and endpoints must be defined in advance for specific task queues, making it difficult to run tests concurrently.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The tricky part to test this would be to allow tests to run concurrently since a Nexus endpoint has to be defined in advance and it points to a specific task queue.",
+  "number": 1564,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:59.982Z"
+}

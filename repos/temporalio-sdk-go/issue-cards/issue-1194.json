@@ -1,0 +1,31 @@
+{
+  "summary": "Update SDK name and version in task-level metadata when they change on the workflow, matching the values sent in client-name and client-version gRPC headers.",
+  "category": "feature",
+  "subcategory": "metadata",
+  "apis": [],
+  "components": [
+    "metadata",
+    "task-execution",
+    "workflow"
+  ],
+  "concepts": [
+    "sdk-version",
+    "client-metadata",
+    "task-metadata",
+    "workflow-state"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures task-level metadata accurately reflects the current SDK version, improving debugging and compatibility tracking.",
+  "rootCause": null,
+  "proposedFix": "When SDK name or version changes on the workflow, update the task-level metadata to match current client-name and client-version values.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation updated to track and propagate SDK name/version changes to task metadata.",
+  "related": [
+    321
+  ],
+  "keyQuote": "if either SDK name or SDK version changed on the workflow from what was last seen on some task, set it to the current values",
+  "number": 1194,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:25.198Z"
+}

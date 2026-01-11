@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add QueryWorkflowByID method to TestWorkflowEnvironment for querying child workflows in unit tests. This feature enables developers to verify child workflow behavior within test scenarios.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "QueryWorkflowByID",
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-testing",
+    "child-workflows"
+  ],
+  "concepts": [
+    "testing",
+    "query",
+    "child-workflows",
+    "unit-tests",
+    "workflow-verification"
+  ],
+  "severity": "low",
+  "userImpact": "Developers lack the ability to query and test child workflows in unit test scenarios, limiting test coverage for workflows that spawn child workflows.",
+  "rootCause": null,
+  "proposedFix": "Add QueryWorkflowByID(workflowID, queryType string, args ...interface{}) method to TestWorkflowEnvironment",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented and the issue was closed",
+  "related": [],
+  "keyQuote": "add func (e *TestWorkflowEnvironment) QueryWorkflowByID(workflowID, queryType string, args ...interface{}) (converter.EncodedValue, error)",
+  "number": 390,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:23.572Z"
+}

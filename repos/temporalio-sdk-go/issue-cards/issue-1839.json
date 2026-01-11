@@ -1,0 +1,31 @@
+{
+  "summary": "Remove support for the old Nexus workflow run operation token format and treat unparsable tokens as handler errors, aligning with the Java SDK implementation.",
+  "category": "feature",
+  "subcategory": "nexus",
+  "apis": [],
+  "components": [
+    "nexus",
+    "workflow-run-operation",
+    "token-handling"
+  ],
+  "concepts": [
+    "token-format",
+    "backward-compatibility",
+    "error-handling",
+    "nexus-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to ensure their Nexus workflow run operations use the current token format, as old format tokens will be treated as handler errors.",
+  "rootCause": null,
+  "proposedFix": "Remove old Nexus workflow run operation token format support and treat all unparsable tokens as handler errors, similar to the Java SDK approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented removal of old token format support and standardized error handling for unparsable tokens to match Java SDK behavior.",
+  "related": [
+    2423
+  ],
+  "keyQuote": "Remove old workflow run operation token format support, treat all un-parsable tokens as a handler error.",
+  "number": 1839,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:18.281Z"
+}

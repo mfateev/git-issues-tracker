@@ -1,0 +1,31 @@
+{
+  "summary": "Test suite has a hidden default of 10 maximum activity attempts that users cannot override. Users should be able to configure this default instead of being forced to accept it or modify their workflow code.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "activity-executor",
+    "workflow-runner"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-attempts",
+    "test-configuration",
+    "default-values",
+    "test-environment-parity",
+    "workflow-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must either accept the hidden test default of 10 attempts or modify their workflow code, creating a mismatch between test and production environments.",
+  "rootCause": "The test suite hardcodes a default maximum activity attempts value of 10 with no configuration option to override it.",
+  "proposedFix": "Add a configuration option to allow users to override the default maximum activity attempts value in the test suite.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A user shouldn't have to be forced to set maximum attempts in their workflow because the test suite has a hidden default.",
+  "number": 949,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:11.263Z"
+}

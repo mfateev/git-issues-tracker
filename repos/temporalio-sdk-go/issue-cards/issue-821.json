@@ -1,0 +1,38 @@
+{
+  "summary": "Workflow with cron scheduler fails with 'Attempt to generate a command before processing WorkflowTaskStarted event' error when executing activities. User gets panic on cron-scheduled execution but same workflow runs fine when started manually.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "ExecuteActivity",
+    "WithActivityOptions",
+    "NewFuture",
+    "Go"
+  ],
+  "components": [
+    "workflow-executor",
+    "command-state-machine",
+    "event-handler",
+    "cron-scheduler"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "activity-execution",
+    "event-replay",
+    "workflow-state",
+    "timing-issue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably execute activities within cron-scheduled workflows, limiting the ability to run periodic background tasks.",
+  "rootCause": "Attempt to generate workflow commands before the WorkflowTaskStarted event has been processed during cron execution. Possible timing or state initialization issue specific to cron-triggered runs versus manual starts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed due to lack of reproduction steps. User provided workflow code but not complete runnable example needed to debug.",
+  "related": [
+    678
+  ],
+  "keyQuote": "Attempt to generate a command before processing WorkflowTaskStarted event",
+  "number": 821,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:25.316Z"
+}

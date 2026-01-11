@@ -1,0 +1,31 @@
+{
+  "summary": "Worker's Stop() method is not reentrant, causing a panic when called after a fatal error has already triggered worker termination. Users expect the stop to be idempotent without panicking.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Stop"
+  ],
+  "components": [
+    "worker",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "reentrancy",
+    "idempotency",
+    "error-handling",
+    "worker-termination",
+    "panic-prevention"
+  ],
+  "severity": "high",
+  "userImpact": "Users calling worker.Stop() after a fatal error causes the application to panic instead of gracefully handling the redundant stop call.",
+  "rootCause": "Stop() method is not reentrant, meaning it cannot safely handle being called multiple times concurrently or sequentially",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Stop() method was made reentrant to handle multiple calls safely",
+  "related": [],
+  "keyQuote": "If a fatal error causes worker stop, a user calling worker stop should not panic",
+  "number": 903,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:02.174Z"
+}

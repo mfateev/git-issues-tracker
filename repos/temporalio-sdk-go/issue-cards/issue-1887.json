@@ -1,0 +1,31 @@
+{
+  "summary": "Go SDK v1.33.0 panics with MD5 crypto error when FIPS 140-only mode is enabled in Go 1.24.1. The panic occurs during worker initialization when computing binary checksums, and setting BuildID workaround fails with timeouts in strict FIPS mode.",
+  "category": "bug",
+  "subcategory": "fips-compatibility",
+  "apis": [],
+  "components": [
+    "worker",
+    "internal-worker",
+    "build-id"
+  ],
+  "concepts": [
+    "fips-140",
+    "cryptography",
+    "md5",
+    "compliance",
+    "initialization",
+    "goroutine"
+  ],
+  "severity": "high",
+  "userImpact": "Users requiring FIPS 140 compliance cannot use the Go SDK with Go 1.24.1 in strict FIPS-only mode, preventing deployment in regulated environments.",
+  "rootCause": "getBinaryChecksum() in internal_worker.go uses MD5 hashing which is not allowed in Go's FIPS 140-only mode (GODEBUG=fips140=only)",
+  "proposedFix": null,
+  "workaround": "Setting BuildID explicitly works with FIPS warnings (fips140=on) but fails with timeouts in strict mode (fips140=only)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "panic: crypto/md5: use of MD5 is not allowed in FIPS 140-only mode",
+  "number": 1887,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:51.113Z"
+}

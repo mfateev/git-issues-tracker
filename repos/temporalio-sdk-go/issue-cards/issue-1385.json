@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to extend the workflowcheck tool to detect reads from WorkflowExecution.RunId within workflow code and suggest using WorkflowInfo.OriginalRunId instead, as RunId values are non-deterministic during workflow reset scenarios.",
+  "category": "feature",
+  "subcategory": "workflow-tooling",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "WorkflowExecution",
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflowcheck",
+    "workflow-determinism",
+    "child-workflow"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-reset",
+    "run-id",
+    "non-deterministic-code",
+    "child-workflow-execution",
+    "workflow-id-generation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may unknowingly write non-deterministic workflow code by reading RunId, causing workflow failures during reset scenarios without clear guidance.",
+  "rootCause": "RunId property changes after workflow reset, making it non-deterministic. Child workflows without explicit IDs use SDK-generated IDs that include RunId, further compounding the issue.",
+  "proposedFix": "Extend workflowcheck tool to detect reads of WorkflowExecution.RunId and suggest using WorkflowInfo.OriginalRunId or FirstRunId instead. Consider also detecting child workflow execution without explicit IDs.",
+  "workaround": "Always explicitly set workflow IDs for child workflows and use OriginalRunId instead of RunId when determinism is required.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed by author after discovering related issue #723 and workaround. The tooling enhancement was not pursued as the underlying server work is not prioritized.",
+  "related": [
+    723
+  ],
+  "keyQuote": "using the value of RunId within workflow task code is non-deterministic under workflow reset scenarios",
+  "number": 1385,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:37.965Z"
+}

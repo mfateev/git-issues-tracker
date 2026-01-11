@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows with the same workflow ID could not be reused immediately after the previous child completed, even with WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE. The issue was caused by command state machine IDs depending only on the child's workflow ID, preventing reuse without unique IDs.",
+  "category": "bug",
+  "subcategory": "child-workflow-reuse",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "command-state-machine",
+    "workflow-executor",
+    "decision-handler"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "child-workflow",
+    "command-deduplication",
+    "state-machine",
+    "policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reuse child workflow IDs immediately after completion, forcing them to use unique IDs or add workarounds.",
+  "rootCause": "Internal command state machine uses child workflow ID as the command ID, so reusing the same ID before the command is removed from state causes duplicate command panic.",
+  "proposedFix": null,
+  "workaround": "Use unique child workflow IDs for each invocation, or use signals/select patterns to control workflows without polling.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was eventually resolved by ensuring proper cleanup of commands from the state machine when child workflows complete, allowing ID reuse as per policy.",
+  "related": [],
+  "keyQuote": "if the same workflow ever tries to create two children with the same ID (which is legal if it made sure that the first has completed before) it will still panic",
+  "number": 492,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:34.318Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Registering a workflow and activity with the same name causes the test suite to panic when mocking the activity. The test framework incorrectly handles naming collisions between activities and workflows.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow",
+    "OnActivity"
+  ],
+  "components": [
+    "testsuite",
+    "activity-mock",
+    "workflow-mock"
+  ],
+  "concepts": [
+    "naming-collision",
+    "test-mocking",
+    "activity-registration",
+    "workflow-registration",
+    "test-framework",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot register activities and workflows with the same name in tests without the test suite panicking when mocking.",
+  "rootCause": "The test framework's mocking mechanism does not properly differentiate between activities and workflows when they share the same name, causing unexpected call errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #887, which addresses the same naming collision problem in the test suite.",
+  "related": [
+    887
+  ],
+  "keyQuote": "Registering an activity and workflow with the same name and trying to mock the activity causes the test suite to error with unexpected calls.",
+  "number": 1273,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:52.967Z"
+}

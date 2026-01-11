@@ -1,0 +1,33 @@
+{
+  "summary": "User encounters a deadlock error when using `time.Sleep()` in a workflow with a cron schedule. The error 'deadlock detected: workflow goroutine \"root\" didn't yield for over a second' occurs because blocking operations are not allowed in Temporal workflows.",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow",
+    "RegisterWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "goroutine-scheduler"
+  ],
+  "concepts": [
+    "deadlock",
+    "blocking-operations",
+    "time-sleep",
+    "workflow-constraints",
+    "cron-schedule",
+    "goroutine-yield"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who attempt to use standard blocking operations like `time.Sleep()` in workflows encounter runtime deadlock errors that halt execution.",
+  "rootCause": "The user is using `time.Sleep()` which is a blocking operation that violates Temporal workflow constraints requiring non-blocking code.",
+  "proposedFix": null,
+  "workaround": "Use workflow-safe timing functions instead of `time.Sleep()`, such as `workflow.Sleep()` or other time-based operations provided by the Temporal SDK.",
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was user error - calling blocking `time.Sleep()` in a workflow context. The maintainer provided documentation links explaining workflow logic requirements.",
+  "related": [],
+  "keyQuote": "You cannot sleep in workflows using `time.Sleep`. Please see https://docs.temporal.io/docs/go/how-to-develop-a-workflow-definition-in-go#workflow-logic-requirements-in-go",
+  "number": 773,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:00.010Z"
+}

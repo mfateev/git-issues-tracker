@@ -1,0 +1,31 @@
+{
+  "summary": "Request to implement the num_pollers metric for the Go SDK to track the number of active activity and workflow pollers for cluster tuning and outage analysis.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "worker",
+    "pollers"
+  ],
+  "concepts": [
+    "monitoring",
+    "observability",
+    "performance-tuning",
+    "cluster-management",
+    "activity-pollers",
+    "workflow-pollers"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily monitor active poller counts during cluster tuning or post-mortem analysis without this metric.",
+  "rootCause": null,
+  "proposedFix": "Implement the num_pollers metric as documented in the Temporal SDK metrics reference.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The num_pollers metric was implemented for the Go SDK.",
+  "related": [],
+  "keyQuote": "There is no clear way to tell how many pollers were active at any given time when tuning a cluster or doing an outage post mortem.",
+  "number": 854,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:43.773Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "When a worker is stopped during workflow task execution, the ProcessWorkflowTask continues sending heartbeats and blocks further workflow execution instead of being stopped. This causes workflows with local activities to hang when the worker is restarted.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "ExecuteLocalActivity",
+    "Worker.Stop()"
+  ],
+  "components": [
+    "worker",
+    "workflow-task-processor",
+    "local-activity-worker"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "heartbeat",
+    "local-activity",
+    "task-lifecycle",
+    "worker-stop",
+    "blocking"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow execution hangs and blocked local activity processing when restarting workers, particularly affecting long-running workflows with multiple local activities.",
+  "rootCause": "ProcessWorkflowTask is not properly stopped when worker.Stop() is called, allowing it to continue sending heartbeats even after the worker is no longer processing tasks.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue #1875 addressed graceful shutdown and WorkerStopTimeout, with additional fixes for the heartbeating issue during worker stop.",
+  "related": [
+    1875
+  ],
+  "keyQuote": "ProcessWorkflowTask will remain active, though, and will keep sending heartbeats until either a network timeout occurs or the history size limit is reached.",
+  "number": 1706,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:10.092Z"
+}

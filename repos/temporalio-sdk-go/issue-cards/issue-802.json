@@ -1,0 +1,34 @@
+{
+  "summary": "Logs are not being propagated to OpenTracing spans when tracing is enabled in the Go SDK. The tracingWorkflowOutboundInterceptor ignores the TracerSpanRef parameter when calling GetLogger, causing logs to lose their tracing context.",
+  "category": "bug",
+  "subcategory": "tracing-opentracing",
+  "apis": [
+    "GetLogger"
+  ],
+  "components": [
+    "interceptor",
+    "tracing-interceptor",
+    "tracer"
+  ],
+  "concepts": [
+    "tracing",
+    "opentracing",
+    "spans",
+    "logging",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users enabling OpenTracing cannot see workflow logs in their traces, limiting observability and debugging capabilities.",
+  "rootCause": "The BaseTracer.GetLogger() method intentionally does not apply logs to traces by default, as the feature was designed to be opt-in via custom tracer implementations.",
+  "proposedFix": "Implement a custom tracer that overrides GetLogger to provide tracing-enabled logging, as mentioned in the default interceptor design.",
+  "workaround": "Users can implement their own interceptor.Tracer wrapping/delegating to existing ones and provide a custom GetLogger implementation that attaches logs to traces.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer clarified this is intentional design - the default implementation does not attach logs to traces by default. Users needing this feature should implement a custom tracer.",
+  "related": [
+    655
+  ],
+  "keyQuote": "The default implementation of GetLogger intentionally does not apply logs to the trace... if this is important for you, you can implement your own tracer",
+  "number": 802,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:18.663Z"
+}

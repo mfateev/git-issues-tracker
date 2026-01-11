@@ -1,0 +1,32 @@
+{
+  "summary": "ScheduleCalendarSpec should default unset ranges to zero range instead of requiring at least one Range for every field (except year), aligning with other SDK implementations like TypeScript.",
+  "category": "feature",
+  "subcategory": "schedule-calendar-spec",
+  "apis": [
+    "ScheduleCalendarSpec"
+  ],
+  "components": [
+    "schedule",
+    "calendar-spec",
+    "sdk-go"
+  ],
+  "concepts": [
+    "default-values",
+    "user-experience",
+    "sdk-alignment",
+    "schedule-configuration",
+    "field-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently have difficulty configuring schedules because unset ranges require explicit specification instead of sensible defaults available in other SDKs.",
+  "rootCause": "ScheduleCalendarSpec requires at least one Range to be present for all fields besides year, deviating from SDK implementations in TypeScript and others.",
+  "proposedFix": "Set unset ranges to the zero range when creating a schedule, matching the behavior of other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation aligned ScheduleCalendarSpec with other SDKs by setting unset ranges to zero range by default.",
+  "related": [],
+  "keyQuote": "This is difficult for users and is not what was implemented in other SDKs. The ask is to align with other SDKs like typescript and set unset ranges to the zero range when creating a schedule",
+  "number": 1040,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:29.431Z"
+}

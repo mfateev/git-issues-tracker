@@ -1,0 +1,39 @@
+{
+  "summary": "User requests the ability to configure extra log fields for SDK workflow and activity logs at runtime, since business-related values are only known during workflow/activity creation, not at worker initialization.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "StartWorkflowOptions",
+    "ActivityOptions",
+    "GetLogger"
+  ],
+  "components": [
+    "logger",
+    "interceptor",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "logging",
+    "context-propagation",
+    "interceptor",
+    "runtime-configuration",
+    "activity-creation",
+    "workflow-creation",
+    "business-fields"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily attach business-related log fields to SDK-generated logs for workflows and activities without duplicating error logs or querying external systems.",
+  "rootCause": "SDK internal logs are generated during task execution without access to runtime values provided during workflow/activity creation; interceptors can only be registered at worker initialization.",
+  "proposedFix": "Add support for configuring extra log fields via StartWorkflowOptions and ActivityOptions, or enhance interceptor capabilities to access runtime values during GetLogger calls.",
+  "workaround": "Users can implement custom log statements in their own interceptors, but this results in duplicate error logs and requires external system queries for activity contexts.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as duplicate of #829, which addresses the broader feature of customizing internal logger use on a per-workflow basis.",
+  "related": [
+    829
+  ],
+  "keyQuote": "For those two log situations, you should consider using your own log statements in your own interceptor instead of relying on debug logs from the internals of the SDK.",
+  "number": 1808,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:18.444Z"
+}

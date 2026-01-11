@@ -1,0 +1,33 @@
+{
+  "summary": "Worker's multiple pollers share a single connection to only one frontend server, causing uneven load distribution. Feature request to distribute pollers across multiple frontend servers for better load balancing.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "grpc-dialer",
+    "worker",
+    "frontend-connection"
+  ],
+  "concepts": [
+    "load-distribution",
+    "connection-pooling",
+    "round-robin",
+    "high-availability",
+    "scaling"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers cannot efficiently distribute load across multiple frontend servers, limiting scalability when worker count is small relative to frontend server count.",
+  "rootCause": "Pollers share a single connection and DNS round-robin only works with DNS-resolved addresses, not explicit address lists.",
+  "proposedFix": "Support multiple addresses for explicit round-robin distribution or provide DNS-based round-robin via dns:/// prefix, with potential future support for weighted or fallback connection strategies.",
+  "workaround": "Use dns:/// prefix for DNS-based round-robin or start more workers to distribute load evenly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Immediate use case solved by documenting dns:/// prefix solution. PR #582 and #585 provide explicit multiple address support and documentation respectively.",
+  "related": [
+    582,
+    585
+  ],
+  "keyQuote": "DNS-based round-robin is already supported today, and we can add a small resolver to work with multiple addresses.",
+  "number": 577,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:12.396Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Calling a value receiver method with a pointer type causes a panic in ExecuteActivity due to Go's automatic dereferencing behavior. The issue arises from reflection attempting to call methods on nil pointers in the activity invocation path.",
+  "category": "bug",
+  "subcategory": "activity-invocation",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "reflection-handler",
+    "method-invocation"
+  ],
+  "concepts": [
+    "method-receiver",
+    "pointer-dereferencing",
+    "reflection",
+    "type-safety",
+    "panic-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter runtime panics when passing pointer types to activities that have value receiver methods, limiting how they can structure activity definitions.",
+  "rootCause": "Go's method spec automatically dereferences pointers when accessing value receiver methods (pt.Mv ≡ (*pt).Mv), but the Temporal SDK's reflection-based activity invocation doesn't account for this, resulting in nil pointer dereference when the pointer is nil or uninitialized.",
+  "proposedFix": "Support uncurried method syntax (e.g., ActivityStruct.Activity instead of a.Activity) to avoid automatic dereferencing, or add validation checks in the workflow type checker to detect and warn about incompatible method-pointer combinations.",
+  "workaround": "Use pointer receiver methods with initialized pointers, or use top-level functions instead of methods for activities.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is an alternative in that we may be able to support `ActivityStruct.Activity` but that basically uncurries the first arg as the receiver which has other implications.",
+  "number": 1037,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:32.548Z"
+}

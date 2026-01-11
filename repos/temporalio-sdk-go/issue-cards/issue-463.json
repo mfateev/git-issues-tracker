@@ -1,0 +1,34 @@
+{
+  "summary": "Users need ability to control log levels for expected retry errors in activities. When polling external APIs with retries as part of normal operation, retry logs get spammed with messages for expected application errors that shouldn't be treated as error-level events.",
+  "category": "feature",
+  "subcategory": "activity-retries",
+  "apis": [
+    "ApplicationErrorOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "error-handling",
+    "logging",
+    "retry-policy"
+  ],
+  "concepts": [
+    "logging",
+    "retry-policy",
+    "application-error",
+    "polling",
+    "log-level",
+    "activity-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using activity retries for polling external APIs experience excessive error-level logging for expected failures, making logs difficult to use for actual error detection.",
+  "rootCause": "The SDK logs all activity errors at error level regardless of whether the error is expected as part of retry logic or an actual failure.",
+  "proposedFix": "Add a 'log-level' field to ApplicationErrorOptions that can be checked before logging the Activity Failed event, allowing developers to specify lower log levels for expected errors.",
+  "workaround": "Implement a custom logger and filter logs with 'Activity Error' message and specific error keyval, though this is fragile and relies on internal log formatting.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by adding the new ApplicationErrorCategory field which allows better categorization of application errors.",
+  "related": [],
+  "keyQuote": "Polling using activity retries works great, but logs get spammed by expected \"errors\".",
+  "number": 463,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:10.636Z"
+}

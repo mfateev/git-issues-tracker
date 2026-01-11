@@ -1,0 +1,31 @@
+{
+  "summary": "The Go SDK's meta tag resolution doesn't work for subpackages like `go.temporal.io/temporal/worker`, only for the root package. The `go get` command requires proper `<meta>` tags for package discovery, which need to be provided at every package level.",
+  "category": "bug",
+  "subcategory": "go-get-meta-tags",
+  "apis": [],
+  "components": [
+    "go-import",
+    "meta-tags",
+    "package-discovery"
+  ],
+  "concepts": [
+    "package-resolution",
+    "go-get",
+    "meta-tags",
+    "godoc",
+    "import-path",
+    "version-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use `go get` to import subpackages of the Go SDK, breaking standard Go dependency management.",
+  "rootCause": "GitHub Pages only supports custom 404 pages at the root level, making it impossible to serve meta tags from subdirectory URLs without creating individual index.html files for each package.",
+  "proposedFix": "Create directory structure for every package with index.html files that return the appropriate `<meta name=\"go-import\">` tags.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing proper package-level directory structure with index.html files to serve go-import meta tags.",
+  "related": [],
+  "keyQuote": "we need to return `<meta>` tag not only on go module level but also on every package level",
+  "number": 95,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:01.323Z"
+}

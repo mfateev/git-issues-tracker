@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency vulnerability in go-yaml/yaml v2.4.0 with CVE-2022-28948 causing denial of service through crash when deserializing invalid input. Fixed by upgrading to v3.0.0.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "yaml-parser",
+    "unmarshaling",
+    "dependency-management"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "deserialization",
+    "dependency-upgrade",
+    "cvss-7.5"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the SDK could crash when processing malformed YAML data, resulting in service unavailability.",
+  "rootCause": "An issue in the Unmarshal function in Go-Yaml v2.4.0 causes crashes when deserializing invalid input.",
+  "proposedFix": "Upgrade github.com/go-yaml/yaml from v2.4.0 to v3.0.0",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was either marked as ignored or removed from the dependency inventory, and the issue was automatically closed by Mend.",
+  "related": [],
+  "keyQuote": "An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.",
+  "number": 817,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:04.324Z"
+}

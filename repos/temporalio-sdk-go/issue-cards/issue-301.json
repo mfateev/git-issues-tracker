@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to add Selector.HasPending method that checks if there are pending items without blocking, simplifying workflow completion logic that needs to drain all signals before returning.",
+  "category": "feature",
+  "subcategory": "selector-workflow",
+  "apis": [
+    "Selector",
+    "ReceiveChannel",
+    "Select",
+    "ReceiveAsync",
+    "GetSignalChannel"
+  ],
+  "components": [
+    "selector",
+    "workflow-context",
+    "signal-handling",
+    "channel-management"
+  ],
+  "concepts": [
+    "signal-delivery",
+    "non-blocking-check",
+    "workflow-completion",
+    "channel-draining",
+    "pending-messages"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must manually drain all signal channels using ReceiveAsync before safely completing workflows, requiring verbose boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Add Selector.HasPending method that returns true if Selector.Select would not block, allowing simple loop condition like 'for keepGoing || s.HasPending { s.Select(ctx) }'",
+  "workaround": "Manually iterate through all channels calling ReceiveAsync in a loop until no more messages are received before completing the workflow.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged, providing the requested HasPending method on Selector.",
+  "related": [],
+  "keyQuote": "Add Selector.HasPending method that returns true if Selector.Select is not going to block if called.",
+  "number": 301,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:06.512Z"
+}

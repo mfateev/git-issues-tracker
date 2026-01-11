@@ -1,0 +1,32 @@
+{
+  "summary": "User requests an external type for internal.WorkflowClient to enable mocking of ExecuteWorkflow in unit tests, similar to how internal.WorkflowRun is exposed as client.WorkflowRun.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "client",
+    "testing",
+    "mocking"
+  ],
+  "concepts": [
+    "unit-testing",
+    "mocking",
+    "interface-abstraction",
+    "internal-types",
+    "test-helpers"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot easily mock ExecuteWorkflow method in unit tests without access to internal.WorkflowClient type.",
+  "rootCause": "internal.WorkflowClient is not exposed through a public interface like internal.WorkflowRun is exposed as client.WorkflowRun.",
+  "proposedFix": "Define a public external type for internal.WorkflowClient, similar to existing pattern with client.WorkflowRun.",
+  "workaround": "Mock the client.Client interface directly using composition and override ExecuteWorkflow method instead of mocking internal types.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers recommended using standard mocking patterns with the public client.Client interface rather than exposing internal types.",
+  "related": [],
+  "keyQuote": "You shouldn't need access to any particular implementation of client.Client. For example... type MyClient struct { client.Client ... }",
+  "number": 918,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:32.639Z"
+}

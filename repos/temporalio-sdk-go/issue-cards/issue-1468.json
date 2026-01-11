@@ -1,0 +1,32 @@
+{
+  "summary": "Interceptors are bypassed when mocking non-local activities with return values in workflow tests, unlike local activities or when using function-based mocks. This inconsistency prevents interceptor execution in test scenarios.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-testsuite",
+    "activity-executor",
+    "interceptor-chain",
+    "mocking"
+  ],
+  "concepts": [
+    "interceptors",
+    "mocking",
+    "activity-execution",
+    "test-consistency",
+    "local-vs-nonlocal",
+    "execution-paths"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test interceptor behavior with mocked non-local activities in workflow tests, requiring workarounds like function-based mocks for consistent behavior.",
+  "rootCause": "In internal_workflow_testsuite.go, non-local activity mocks with return values call getMockValue() directly instead of executing through the activity executor that handles interceptors, unlike local activities or function-based mocks.",
+  "proposedFix": "Wrap mocked return values in a function at SDK level to unify execution paths between local and non-local activity mocks, ensuring interceptors are always executed.",
+  "workaround": "Use function-based mocks instead of direct return values: OnActivity(...).Return(func(ctx context.Context) (...) { return result, nil })",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the mock is a function, we execute the activity executor that calls all interceptors internally. On other if we directly specify return values, we don't use the activity executor",
+  "number": 1468,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:05.182Z"
+}

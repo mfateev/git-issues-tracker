@@ -1,0 +1,33 @@
+{
+  "summary": "A panic occurs when cancelling a child workflow followed immediately by cancelling the parent workflow, with an invalid state transition error in the workflow state machine.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "CancelWorkflow",
+    "WithCancel"
+  ],
+  "components": [
+    "workflow-state-machine",
+    "child-workflow-executor",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "state-transition",
+    "panic",
+    "cancellation",
+    "parent-child-workflows",
+    "signal-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably cancel parent workflows after cancelling child workflows, causing workflows to hang and requiring manual termination.",
+  "rootCause": "Invalid state transition in the command state machine when handling completion events for child workflows that have been cancelled, resulting in an Unknown state attempting to process ChildWorkflow completion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "invalid state transition: attempt to handleCompletionEvent, CommandType: ChildWorkflow, state=Unknown",
+  "number": 343,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:50.786Z"
+}

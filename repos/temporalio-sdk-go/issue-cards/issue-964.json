@@ -1,0 +1,34 @@
+{
+  "summary": "User requested exporting the asyncFuture interface to enable wrapping workflow futures with custom validation logic. The SDK's internal type assertion prevented wrapped futures from being used with selectors, but the maintainer suggested using composition with a custom interface instead.",
+  "category": "feature",
+  "subcategory": "workflow-future",
+  "apis": [
+    "Future",
+    "Selector",
+    "NewFuture"
+  ],
+  "components": [
+    "workflow",
+    "future",
+    "selector"
+  ],
+  "concepts": [
+    "composition",
+    "interface-wrapping",
+    "validation",
+    "type-assertion",
+    "future-chaining"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily wrap workflow futures with custom validation logic due to SDK's internal type checking in selectors.",
+  "rootCause": "The SDK performs a type assertion check for the internal asyncFuture interface when futures are passed to selectors, preventing user-created wrapper implementations.",
+  "proposedFix": "Export the asyncFuture interface to allow users to implement it in their wrapper types.",
+  "workaround": "Create a custom wrapper interface and provide a helper method to unwrap the future when passing to selectors, allowing composition without matching the Temporal interface.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer rejected exporting asyncFuture, explaining that internal futures passed to helpers must be unwrapped. Users should use composition with custom types instead of implementing the Temporal interface.",
+  "related": [],
+  "keyQuote": "Futures passed back into helpers like selector are meant to be the unwrapped future that was created by Temporal. Since you're already wrapping, there's no reason to reuse the Temporal interface, use your own type.",
+  "number": 964,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:01.147Z"
+}

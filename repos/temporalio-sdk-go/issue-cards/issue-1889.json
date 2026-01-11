@@ -1,0 +1,29 @@
+{
+  "summary": "Proxy interceptors should be able to return both a valid response and an error simultaneously. Currently, when an error occurs, the system immediately returns the error without processing the payload/failure information.",
+  "category": "bug",
+  "subcategory": "interceptor",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "proxy",
+    "response-handler"
+  ],
+  "concepts": [
+    "error-handling",
+    "response-processing",
+    "payload",
+    "interceptor-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Interceptor implementations cannot properly handle scenarios where both a response and error need to be returned together.",
+  "rootCause": "The interceptor error handling path immediately returns the error without visiting the payload/failure processing logic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the bug was resolved to allow interceptors to return both valid response and error.",
+  "related": [],
+  "keyQuote": "An interceptor can return an error with valid response",
+  "number": 1889,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:02.663Z"
+}

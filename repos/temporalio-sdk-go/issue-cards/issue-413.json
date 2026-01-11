@@ -1,0 +1,34 @@
+{
+  "summary": "RetryPolicy's BackoffCoefficient field was throwing a validation error when not defined, despite documentation indicating it should default to 2.0. The issue was whether to fix the code to apply the default value or update documentation to indicate it's a required field.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "retry-policy",
+    "activity",
+    "workflow"
+  ],
+  "concepts": [
+    "backoff",
+    "retry",
+    "default-value",
+    "validation",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users creating activities or workflows without explicitly setting BackoffCoefficient receive a confusing validation error contradicting the documentation.",
+  "rootCause": "BackoffCoefficient was not properly defaulting to 2.0 when undefined in RetryPolicy struct, despite documentation claiming it should.",
+  "proposedFix": "Either fix code to backfill BackoffCoefficient with default value 2.0 when not defined, or update documentation to indicate it's a required field.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #462, which likely implemented proper default value handling for BackoffCoefficient.",
+  "related": [
+    462
+  ],
+  "keyQuote": "When not defined it throws a error saying `BackoffCoefficient cannot be less than 1 on retry policy` suggesting it is defaulting to something other than `2.0`",
+  "number": 413,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:12.367Z"
+}

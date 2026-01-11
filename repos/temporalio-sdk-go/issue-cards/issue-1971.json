@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add `WorkflowTaskFailedCause` field to `RespondQueryTaskCompletedRequest` API, mirroring the existing functionality available for workflow task failures.",
+  "category": "feature",
+  "subcategory": "query-task-completion",
+  "apis": [
+    "RespondQueryTaskCompletedRequest"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-task",
+    "api-request"
+  ],
+  "concepts": [
+    "query-completion",
+    "failure-cause",
+    "error-handling",
+    "workflow-task-failure",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently specify failure causes when completing query tasks, limiting error reporting consistency with workflow task failures.",
+  "rootCause": null,
+  "proposedFix": "Add `WorkflowTaskFailedCause` field to `RespondQueryTaskCompletedRequest` with parity to workflow task failure handling",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to add WorkflowTaskFailedCause support to RespondQueryTaskCompletedRequest",
+  "related": [],
+  "keyQuote": "Should work the same as for workflow task failures",
+  "number": 1971,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:18.389Z"
+}

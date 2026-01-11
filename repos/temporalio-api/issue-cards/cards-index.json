@@ -1,0 +1,797 @@
+{
+  "generatedAt": "2026-01-10T19:32:14.239Z",
+  "totalCards": 25,
+  "cards": [
+    {
+      "summary": "Users need visibility into workflow start delays when listing or describing workflows. Currently, WorkflowExecutionInfo doesn't expose when a workflow will actually begin execution if scheduled with a delay, making it unclear whether a workflow is truly running or waiting to start.",
+      "category": "feature",
+      "subcategory": "workflow-execution",
+      "apis": [
+        "DescribeWorkflowExecution",
+        "ListWorkflowExecutions"
+      ],
+      "components": [
+        "workflow-execution-info",
+        "api-proto",
+        "cli",
+        "ui"
+      ],
+      "concepts": [
+        "workflow-scheduling",
+        "start-delay",
+        "execution-time",
+        "visibility",
+        "user-experience",
+        "delayed-execution"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot determine if a workflow is delayed from startup or running normally, leading to confusion when workflows have scheduled start times.",
+      "rootCause": "WorkflowExecutionInfo does not expose ExecutionTime (StartTime + StartDelay), which is needed to show users the actual scheduled execution time.",
+      "proposedFix": "Add startDelay or ExecutionTime to WorkflowExecutionInfo, make it visible via DescribeWorkflowExecution and ListWorkflowExecutions (stored in memo for list), and surface it in CLI and UI displays.",
+      "workaround": "ExecutionTime is already available in ListWorkflowExecutionsResponse and DescribeWorkflowExecutionResponse and can be accessed via JSON output: `temporal workflow list -o jsonl | jq`",
+      "resolution": "fixed",
+      "resolutionDetails": "Resolved by surfacing ExecutionTime in the workflow page UI. ExecutionTime was already available in API responses but not exposed in the UI, causing confusion.",
+      "related": [],
+      "keyQuote": "Users want visibility into when the workflow will begin execution, not just when it was requested.",
+      "number": 631,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:32:14.237Z"
+    },
+    {
+      "summary": "Remove license headers from all files in the API repository, following changes made in the temporal server repository. This includes removing any tooling that generates or requires license headers.",
+      "category": "feature",
+      "subcategory": "repository-maintenance",
+      "apis": [],
+      "components": [
+        "build-tooling",
+        "api-files"
+      ],
+      "concepts": [
+        "license-headers",
+        "code-generation",
+        "repository-cleanup",
+        "maintenance",
+        "compliance"
+      ],
+      "severity": "low",
+      "userImpact": "Simplifies API repository structure and build processes by removing unnecessary license header requirements.",
+      "rootCause": null,
+      "proposedFix": "Remove license headers from all files and eliminate any tooling that generates or enforces them",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "License headers were removed from API files following the pattern established in the temporal server repository",
+      "related": [
+        7689
+      ],
+      "keyQuote": "license headers are no longer required on files. Remove from all files in the API and remove any tooling that generates them or requires them.",
+      "number": 583,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:32:04.238Z"
+    },
+    {
+      "summary": "Git release tag has a typo with an extra dot after 'v' (v.1.36.0 instead of v1.36.0). This was reported and subsequently fixed.",
+      "category": "bug",
+      "subcategory": "release",
+      "apis": [],
+      "components": [
+        "release-process",
+        "git-tags"
+      ],
+      "concepts": [
+        "release",
+        "versioning",
+        "git-tag",
+        "naming-convention"
+      ],
+      "severity": "low",
+      "userImpact": "Users may encounter confusion or incorrect tag references when trying to use or reference the specific release version.",
+      "rootCause": "Typo in the git release tag creation process with an extra dot after the 'v' prefix.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "The issue was resolved by @bergundy with the correct tag being created.",
+      "related": [],
+      "keyQuote": "https://github.com/temporalio/api/releases/tag/v.1.36.0 should be `v1.36.0`, extra dot after `v` in the git tag.",
+      "number": 435,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:32:02.383Z"
+    },
+    {
+      "summary": "The feature request proposes renaming the `/cluster-info` API endpoint to `/cluster` for consistency with API design patterns. This aligns the self-hosted only endpoint with the naming convention used for other root endpoints like `/namespaces` and `/system-info`.",
+      "category": "feature",
+      "subcategory": "api-design",
+      "apis": [
+        "GetClusterInfo"
+      ],
+      "components": [
+        "cluster-api",
+        "endpoint-routing"
+      ],
+      "concepts": [
+        "api-naming",
+        "endpoint-design",
+        "self-hosted",
+        "cloud-capability",
+        "api-consistency"
+      ],
+      "severity": "low",
+      "userImpact": "Users calling the cluster info endpoint will need to update their code to use the new `/cluster` path instead of `/cluster-info`.",
+      "rootCause": null,
+      "proposedFix": "Rename the GetClusterInfo endpoint from `/cluster-info` to `/cluster`",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "The endpoint was renamed from `/cluster-info` to `/cluster` as part of API consolidation",
+      "related": [],
+      "keyQuote": "Make `GetClusterInfo` just be `/cluster`, not `/cluster-info`.",
+      "number": 428,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:53.698Z"
+    },
+    {
+      "summary": "The HTTP API routes need to be configurable at a non-root subpath (e.g., /api) to avoid conflicts with UI client-side routes and to support use cases where UI Server is hosted at a subpath. Currently, API routes are set at the root level, which creates integration challenges.",
+      "category": "feature",
+      "subcategory": "http-api-routing",
+      "apis": [],
+      "components": [
+        "http-api",
+        "routing",
+        "ui-integration"
+      ],
+      "concepts": [
+        "api-routing",
+        "subpath-configuration",
+        "route-conflict",
+        "ui-integration",
+        "path-prefix"
+      ],
+      "severity": "medium",
+      "userImpact": "Users hosting UI Server at a subpath cannot properly integrate it with the API, and root-level API routes conflict with client-side UI routing.",
+      "rootCause": "API routes were simplified to root level in #410, but this creates routing conflicts when UI and API are served together.",
+      "proposedFix": "Make the API route path configurable and default to a non-root subpath like /api instead of root level.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        410,
+        428,
+        6212
+      ],
+      "keyQuote": "The path for the API routes should be configurable. They should default to something (e.g. /api) and not be set at the root by default",
+      "number": 427,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:53.269Z"
+    },
+    {
+      "summary": "The api-go update workflow fails when commit messages contain backtick (`) characters, causing shell command parsing errors during the 'Prepare inputs' step.",
+      "category": "bug",
+      "subcategory": "workflow-automation",
+      "apis": [],
+      "components": [
+        "api-go",
+        "workflow",
+        "shell-script"
+      ],
+      "concepts": [
+        "shell-escaping",
+        "commit-message",
+        "workflow-automation",
+        "special-characters",
+        "ci-cd"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers cannot merge pull requests or commit to the repository if their commit messages contain backtick characters, blocking normal workflow operations.",
+      "rootCause": "Backtick characters in commit messages are not properly escaped when passed to shell scripts, causing unintended command substitution interpretation.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "/home/runner/work/_temp/[omitted].sh: line 7: string: command not found",
+      "number": 421,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:42.855Z"
+    },
+    {
+      "summary": "Remove the /api/v1/ prefix from HTTP API paths to simplify the API surface. This is an incompatible change but is acceptable since the HTTP API has not been fully released.",
+      "category": "feature",
+      "subcategory": "http-api",
+      "apis": [],
+      "components": [
+        "http-api",
+        "api-gateway"
+      ],
+      "concepts": [
+        "api-design",
+        "backwards-compatibility",
+        "http-paths",
+        "api-versioning",
+        "path-simplification"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will need to update their HTTP API calls to use paths without the /api/v1/ prefix.",
+      "rootCause": null,
+      "proposedFix": "Remove /api/v1/ prefix from all HTTP API paths",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "The feature was implemented and the HTTP API paths were updated to remove the /api/v1/ prefix.",
+      "related": [],
+      "keyQuote": "we have decided to remove this unnecessary prefix from API paths",
+      "number": 409,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:42.421Z"
+    },
+    {
+      "summary": "Third-party protobuf dependencies (Google API and Protobuf proto files) are currently stored at the root of the repository alongside Temporal's own protos. This causes conflicts when users run protoc from the repo root with their own versions of these dependencies. The request proposes moving these third-party protos to a dedicated subdirectory with appropriate include path configuration.",
+      "category": "feature",
+      "subcategory": "proto-organization",
+      "apis": [],
+      "components": [
+        "protoc",
+        "proto-dependencies",
+        "google-api",
+        "google-protobuf"
+      ],
+      "concepts": [
+        "proto-organization",
+        "dependency-management",
+        "protoc-includes",
+        "third-party-dependencies",
+        "build-configuration"
+      ],
+      "severity": "medium",
+      "userImpact": "Users who run protoc from the repository root experience conflicts between Temporal's bundled Google proto dependencies and their own versions.",
+      "rootCause": "Third-party proto files (google/api and google/protobuf) were placed at the repository root alongside Temporal protos, causing namespace conflicts when users run protoc with their own dependency versions.",
+      "proposedFix": "Either move third-party references to individual SDK directories (e.g., api-go) and only embed them for testing, or reorganize by moving google/api to thirdparty/google-api/google/api and google/protobuf to thirdparty/google-protobuf/google/protobuf, then add corresponding -I include paths to protoc commands.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        108
+      ],
+      "keyQuote": "Put the third party references where the `protoc` is actually run (e.g. `api-go`) and only embed them here when testing",
+      "number": 400,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:32.421Z"
+    },
+    {
+      "summary": "User unable to upgrade go.temporal.io/api from 1.26 to 1.27 due to type incompatibilities with go.temporal.io/sdk 1.25.1. The API library was updated to use newer proto libraries, but SDK version hasn't been released yet to match.",
+      "category": "question",
+      "subcategory": "go-sdk-compatibility",
+      "apis": [],
+      "components": [
+        "go.temporal.io/api",
+        "go.temporal.io/sdk",
+        "proto-libraries"
+      ],
+      "concepts": [
+        "dependency-upgrade",
+        "version-compatibility",
+        "proto-buffers",
+        "type-mismatch",
+        "release-coordination"
+      ],
+      "severity": "medium",
+      "userImpact": "Users attempting to upgrade to the latest go.temporal.io/api version encounter compilation errors when using older SDK versions.",
+      "rootCause": "go.temporal.io/api 1.27 upgraded to new proto libraries (google.golang.org/protobuf), but go.temporal.io/sdk 1.25.1 still uses gogo/protobuf types, causing type incompatibilities.",
+      "proposedFix": "Use the newest RC of the Go SDK that matches the API version being used, ensuring API and SDK proto library versions align.",
+      "workaround": "Stay on go.temporal.io/api version compatible with the currently released SDK version (1.25.1 for SDK 1.25.1).",
+      "resolution": "invalid",
+      "resolutionDetails": "This is a usage question rather than a bug. Users must coordinate API and SDK versions - the newest API versions require the newest SDK versions.",
+      "related": [],
+      "keyQuote": "To use the newest Go API version, you have to be on the newest RC of the Go SDK.",
+      "number": 355,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:30.992Z"
+    },
+    {
+      "summary": "The JSON shorthand payload marshaling in api-go fails to properly handle nested empty objects, producing invalid JSON like {\"greeting\":} instead of {\"greeting\":{}}.",
+      "category": "bug",
+      "subcategory": "payload-marshaling",
+      "apis": [],
+      "components": [
+        "api-go",
+        "payload-json",
+        "json-marshaling"
+      ],
+      "concepts": [
+        "json-serialization",
+        "empty-objects",
+        "payload-handling",
+        "marshaling",
+        "shorthand-format"
+      ],
+      "severity": "medium",
+      "userImpact": "Users passing payloads with nested empty objects to Temporal workflows will experience marshaling errors, resulting in invalid JSON that breaks payload processing.",
+      "rootCause": "The shorthand JSON marshaling logic in api-go does not correctly handle nested empty objects, omitting the empty braces in the output.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "If the payload is something like {\"greeting\":{}}, it marshals to {\"greeting\":}",
+      "number": 349,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:20.644Z"
+    },
+    {
+      "summary": "Request to publish and maintain a Buf schema registry for the Temporal API. The main challenge is ensuring the inlined Google dependency is not accidentally published while keeping raw protoc support functional.",
+      "category": "feature",
+      "subcategory": "protobuf-distribution",
+      "apis": [],
+      "components": [
+        "protobuf-schemas",
+        "buf-registry",
+        "google-dependency"
+      ],
+      "concepts": [
+        "schema-registry",
+        "protobuf-publishing",
+        "dependency-management",
+        "code-generation",
+        "protocol-buffers",
+        "buf-tooling",
+        "api-distribution"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need easier access to Temporal API schemas through a maintained Buf schema registry for better integration and code generation workflows.",
+      "rootCause": null,
+      "proposedFix": "Publish and maintain a Buf schema registry while carefully managing the inlined Google dependency to prevent accidental inclusion.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "we want to publish and maintain a buf schema registry... we need to make sure we don't publish the inlined google dependency",
+      "number": 328,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:19.860Z"
+    },
+    {
+      "summary": "Feature request to deprecate ListOpenWorkflowExecutions and ListClosedWorkflowExecutions methods due to their limitations and user confusion. Proposes keeping ListWorkflowExecutions, ListArchivedWorkflowExecutions, and ScanWorkflowExecutions as alternatives.",
+      "category": "feature",
+      "subcategory": "workflow-list-api",
+      "apis": [
+        "ListOpenWorkflowExecutions",
+        "ListClosedWorkflowExecutions",
+        "ListWorkflowExecutions",
+        "ListArchivedWorkflowExecutions",
+        "ScanWorkflowExecutions"
+      ],
+      "components": [
+        "workflow-service",
+        "api-service",
+        "list-methods"
+      ],
+      "concepts": [
+        "deprecation",
+        "api-design",
+        "workflow-filtering",
+        "backwards-compatibility",
+        "user-expectations"
+      ],
+      "severity": "low",
+      "userImpact": "Users are surprised and confused by the limitations of ListOpen/ListClosed methods when trying to apply combined filters.",
+      "rootCause": null,
+      "proposedFix": "Deprecate ListOpenWorkflowExecutions and ListClosedWorkflowExecutions, while keeping ListWorkflowExecutions, ListArchivedWorkflowExecutions, and ScanWorkflowExecutions as recommended alternatives.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Users get surprised by the limitations of ListOpen/ListClosed",
+      "number": 307,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:10.031Z"
+    },
+    {
+      "summary": "An inline comment in PollWorkflowTaskQueueResponse documentation is misleading because it describes history as 'complete' when long event histories are actually paginated and only return the first page, requiring next_page_token for subsequent fetches.",
+      "category": "docs",
+      "subcategory": "api-documentation",
+      "apis": [
+        "PollWorkflowTaskQueueResponse"
+      ],
+      "components": [
+        "api-proto",
+        "workflow-service",
+        "documentation"
+      ],
+      "concepts": [
+        "history-pagination",
+        "workflow-task-queue",
+        "event-history",
+        "api-documentation",
+        "clarity",
+        "worker-communication"
+      ],
+      "severity": "low",
+      "userImpact": "Developers reading the API documentation may misunderstand how workflow history pagination works, potentially leading to incorrect implementation assumptions.",
+      "rootCause": "The inline comment fails to clarify that 'complete' history refers to the completeness of individual pages, not the entire workflow history, which can be split across multiple pages.",
+      "proposedFix": "Update the inline comment to explicitly clarify that for long event histories, only the first page is returned and developers must use next_page_token to fetch subsequent pages.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "the term \"complete\" can be misleading as for long event history, this will only return the first page and rely on `next_page_token` for subsequent fetches",
+      "number": 299,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:31:08.699Z"
+    },
+    {
+      "summary": "RetryState.RETRY_STATE_IN_PROGRESS is exposed in the public API but used only internally, causing confusion for users. Request to remove it from public exposure and keep it internal only.",
+      "category": "feature",
+      "subcategory": "api-design",
+      "apis": [],
+      "components": [
+        "api-enums",
+        "workflow-proto"
+      ],
+      "concepts": [
+        "retry-state",
+        "public-api",
+        "internal-api",
+        "api-design",
+        "backwards-compatibility",
+        "user-confusion"
+      ],
+      "severity": "low",
+      "userImpact": "Users are confused by the presence of an internal-only retry state in the public API surface.",
+      "rootCause": null,
+      "proposedFix": "Remove RetryState.RETRY_STATE_IN_PROGRESS from public API and keep it internal only",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "RetryState.RETRY_STATE_IN_PROGRESS is used internally only but is exposed via public api",
+      "number": 232,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:59.304Z"
+    },
+    {
+      "summary": "User request to publish a Postman collection with gRPC APIs documented for easier API exploration and testing. Postman recently added support for gRPC requests, making this feature now feasible.",
+      "category": "feature",
+      "subcategory": "api-documentation",
+      "apis": [],
+      "components": [
+        "api",
+        "documentation",
+        "grpc"
+      ],
+      "concepts": [
+        "grpc",
+        "postman",
+        "api-collection",
+        "api-documentation",
+        "developer-experience",
+        "testing"
+      ],
+      "severity": "low",
+      "userImpact": "Users would have easier access to gRPC API specifications and examples through Postman, improving developer experience for API exploration and testing.",
+      "rootCause": null,
+      "proposedFix": "Publish an official Postman collection containing all Temporal gRPC APIs with proper documentation.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Temporal should publish their collection with GRPC APIs documented. It will be epic.",
+      "number": 198,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:59.307Z"
+    },
+    {
+      "summary": "Feature request to support Payloads for ApplicationFailure message and stack trace fields instead of plain text, enabling encryption of sensitive application information through custom data converters.",
+      "category": "feature",
+      "subcategory": "error-handling",
+      "apis": [],
+      "components": [
+        "application-failure",
+        "payload",
+        "data-converter"
+      ],
+      "concepts": [
+        "encryption",
+        "sensitive-data",
+        "security",
+        "error-messages",
+        "stack-trace",
+        "payloads"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot currently encrypt sensitive error messages and stack traces in ApplicationFailure, risking exposure of sensitive application information.",
+      "rootCause": null,
+      "proposedFix": "Add the ability to use Payloads for ApplicationFailure message and stack trace fields so they could be encrypted with a custom data converter",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Add the ability to use Payloads for these so they could be encrypted with a custom data converter",
+      "number": 172,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:42.013Z"
+    },
+    {
+      "summary": "Proposal to allow languages to customize package/namespace structure of generated proto APIs, specifically for .NET which currently requires importing many redundant `Temporal.Api.Xyz` namespaces. The author proposes consolidating into four main namespaces while keeping other languages unchanged.",
+      "category": "feature",
+      "subcategory": "proto-generation",
+      "apis": [],
+      "components": [
+        "proto-compiler",
+        "code-generation",
+        "api-definitions"
+      ],
+      "concepts": [
+        "namespace-structure",
+        "package-organization",
+        "code-generation",
+        "language-specific-customization",
+        "developer-experience",
+        "backward-compatibility"
+      ],
+      "severity": "low",
+      "userImpact": ".NET developers would benefit from cleaner namespace imports and reduced verbosity in their codebase, though this is primarily a developer experience improvement.",
+      "rootCause": ".NET proto compiler generates code based on proto package names and file structure, creating many redundant namespace imports across files when using multiple Temporal API types.",
+      "proposedFix": "Allow language-specific customization of proto namespace via `option csharp_namespace`. Either PR #170 (rename message.proto files to unique names while keeping directory structure) or PR #171 (flatten files to single directory) while adjusting namespace options.",
+      "workaround": "Use IDE features to auto-import namespaces, though this is inconsistent across environments and requires manual work for each file.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        170,
+        171
+      ],
+      "keyQuote": "Most developers using some particular language come from not-yet-being Temporal-users to being Temporal-users in their preferred language of choice...language-specific improvements must be possible",
+      "number": 169,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:48.787Z"
+    },
+    {
+      "summary": "Users cannot understand how to specify search attribute types when using StartWorkflowExecution. The proto definition lacks documentation on how to parse SearchAttributes Payloads and map them to IndexedValueType enums.",
+      "category": "docs",
+      "subcategory": "search-attributes",
+      "apis": [
+        "StartWorkflowExecution"
+      ],
+      "components": [
+        "api",
+        "search-attributes",
+        "payload"
+      ],
+      "concepts": [
+        "search-attributes",
+        "indexing",
+        "payload-parsing",
+        "type-mapping",
+        "proto-documentation",
+        "workflow-metadata"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers cannot properly configure custom search attributes without trial-and-error or external documentation, hindering workflow metadata capability.",
+      "rootCause": null,
+      "proposedFix": "Add comments to the SearchAttributes proto explaining how Payloads are parsed, including metadata.type field mapping and data format requirements (e.g., INDEXED_VALUE_TYPE_DATETIME expects milliseconds since epoch).",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Each Payload has a `metadata.type: IndexedValueType`. If `payload.metadata.type` is `INDEXED_VALUE_TYPE_DATETIME`, `payload.data` should be an integer with milliseconds since epoch.",
+      "number": 154,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:33.053Z"
+    },
+    {
+      "summary": "Add ScheduledEventId to PollActivityTaskQueueResponse to enable construction of idempotence keys for deduplicating side effects during activity task executions. The tuple of (RunId, ScheduledEventId) would be unique per activity execution.",
+      "category": "feature",
+      "subcategory": "activity-execution",
+      "apis": [
+        "PollActivityTaskQueueResponse"
+      ],
+      "components": [
+        "activity-executor",
+        "task-queue",
+        "idempotence"
+      ],
+      "concepts": [
+        "idempotence",
+        "deduplication",
+        "activity-execution",
+        "side-effects",
+        "unique-identifier",
+        "run-id"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot currently construct reliable idempotence keys for activity task executions without access to ScheduledEventId, limiting their ability to safely deduplicate side effects.",
+      "rootCause": null,
+      "proposedFix": "Add ScheduledEventId field to PollActivityTaskQueueResponse message",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The tuple of (PollActivityTaskQueueResponse.WorkflowExecution.RunId, PollActivityTaskQueueResponse.ScheduledEventId) is unique per Activity Execution",
+      "number": 136,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:30.164Z"
+    },
+    {
+      "summary": "Remove deprecated fields marked with 'Should be removed' comments and convert them to reserved fields in the API. Also address any remaining TODO comments found during cleanup.",
+      "category": "bug",
+      "subcategory": "api-cleanup",
+      "apis": [],
+      "components": [
+        "api",
+        "proto-definitions"
+      ],
+      "concepts": [
+        "deprecation",
+        "cleanup",
+        "reserved-fields",
+        "api-maintenance",
+        "proto-backwards-compatibility"
+      ],
+      "severity": "low",
+      "userImpact": "Removes cleanup work and ensures deprecated API fields are properly marked as reserved to prevent accidental reuse.",
+      "rootCause": "Fields marked for removal in PR #121 were left with comments instead of being properly converted to reserved to avoid mixing comment and structural changes.",
+      "proposedFix": "Remove the 'Should be removed' comments and mark the fields as reserved; address any TODO comments found during the process.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        121
+      ],
+      "keyQuote": "Remove them and mark them as reserved. Was not done in that PR to avoid doing any non-comments changes.",
+      "number": 131,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:18.641Z"
+    },
+    {
+      "summary": "Add explicit Failure field to Marker decision and event attributes to properly represent failures in marker events used for features like local activities and side effects, eliminating the need for manual serialization workarounds.",
+      "category": "feature",
+      "subcategory": "marker-events",
+      "apis": [],
+      "components": [
+        "marker-events",
+        "decision-attributes",
+        "event-attributes"
+      ],
+      "concepts": [
+        "failure-handling",
+        "marker-metadata",
+        "event-attributes",
+        "local-activities",
+        "side-effects",
+        "serialization"
+      ],
+      "severity": "medium",
+      "userImpact": "Users can now properly attach and retrieve failures in marker events without requiring custom serialization hacks or CLI workarounds.",
+      "rootCause": "Recent changes to failure representation made it impractical to attach failures to markers without explicitly serializing to payload, requiring UI and CLI hacks for proper display.",
+      "proposedFix": "Add explicit map<string, failure.Failure> failures field to MarkerRecordedEventAttributes and RecordMarkerDecisionAttributes, and change details to map<string, common.Payloads> for consistency.",
+      "workaround": "Manually serialize failures to payload in marker events (requires explicit UI and CLI handling).",
+      "resolution": "fixed",
+      "resolutionDetails": "Implemented as proposed - added failures map field to marker event and decision attributes.",
+      "related": [],
+      "keyQuote": "After the recent change of how failures are represented it is not practically possible to attach a failure to the marker without explicitly serializing it to a payload.",
+      "number": 47,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:21.722Z"
+    },
+    {
+      "summary": "Request to adopt buf for Protocol Buffer linting against Google's style guide and clang-format for autoformatting proto files to improve code quality and consistency.",
+      "category": "feature",
+      "subcategory": "protobuf-tooling",
+      "apis": [],
+      "components": [
+        "protobuf",
+        "build-tools",
+        "linting"
+      ],
+      "concepts": [
+        "code-style",
+        "linting",
+        "formatting",
+        "protobuf",
+        "proto3",
+        "enum-naming",
+        "snake-case"
+      ],
+      "severity": "low",
+      "userImpact": "Better proto file consistency and adherence to protobuf standards makes generated SDKs more reliable and maintainable across all language implementations.",
+      "rootCause": null,
+      "proposedFix": "Use buf for linting against protobuf style guide and clang-format for autoformatting proto files",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Team made necessary changes to comply with protobuf style guide (adding UNSPECIFIED to enums, converting to SCREAMING_CASE, snake_case fields) and buf linting now passes with 0 violations",
+      "related": [],
+      "keyQuote": "buf check lint | wc -l: 0",
+      "number": 24,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:07.077Z"
+    },
+    {
+      "summary": "Reorganize the proto packages by decomposing the monolithic common and enums packages into specific purpose-driven packages. This improves code organization, eliminates enum naming conflicts and prefixes, and allows for better separation of concerns between shared API definitions and server-specific messages.",
+      "category": "feature",
+      "subcategory": "proto-organization",
+      "apis": [],
+      "components": [
+        "proto-packages",
+        "common-package",
+        "enums-package",
+        "server-protos"
+      ],
+      "concepts": [
+        "package-organization",
+        "proto-structure",
+        "namespace-separation",
+        "naming-conventions",
+        "code-generation",
+        "protobuf-compiler"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will benefit from cleaner API namespaces, removal of enum prefixes in CLI and Web interfaces, and better alignment with protobuf v2 standards.",
+      "rootCause": "Monolithic common and enums packages were designed to match Thrift layout for migration simplicity, but this creates poor naming practices, enum collisions, and locks the project to gogo compiler.",
+      "proposedFix": "Decompose common and enums into specific packages (decision, event, execution, filter, namespace, query, replication, tasklist, version). Move server-specific messages to temporal server repo. Use pb suffix for package aliases in Go imports.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Implemented via PR #16 which completed the proto package reorganization as proposed.",
+      "related": [
+        16
+      ],
+      "keyQuote": "Split common and enums packages into many specific packages having messages and enums in them. Allow to avoid enum collisions and remove prefixes.",
+      "number": 18,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:30:09.053Z"
+    },
+    {
+      "summary": "The ChildWorkflowExecutionFailedCause enum has only one value that's semantically confusing. It should be renamed from 'WorkflowAlreadyRunning' to 'WorkflowAlreadyStarted' to accurately reflect that child workflow creation fails when a child is already closed and workflowIdReusePolicy is not AllowDuplicate, consistent with StartWorkflowExecution API behavior.",
+      "category": "bug",
+      "subcategory": "proto-enums",
+      "apis": [
+        "StartWorkflowExecution"
+      ],
+      "components": [
+        "proto-enums",
+        "child-workflow"
+      ],
+      "concepts": [
+        "workflow-reuse-policy",
+        "naming-consistency",
+        "enum-semantics",
+        "child-workflow-creation",
+        "failure-causes"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers are confused by the misleading enum name when handling child workflow creation failures related to workflow ID reuse policies.",
+      "rootCause": "Enum name 'WorkflowAlreadyRunning' is semantically inaccurate since child workflow creation can also fail when a child is already closed with restrictive reuse policies.",
+      "proposedFix": "Rename ChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning to ChildWorkflowExecutionFailedCauseWorkflowAlreadyStarted to align with StartWorkflowExecution API semantics.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Enum was renamed to reflect the actual failure condition and maintain consistency with StartWorkflowExecution API.",
+      "related": [],
+      "keyQuote": "Let's rename ChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning to ChildWorkflowExecutionFailedCauseWorkflowAlreadyStarted to be not confusing and consistent",
+      "number": 6,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:29:55.415Z"
+    },
+    {
+      "summary": "Complete unfinished TODO items in the codebase that were deferred during the code migration process to simplify the migration itself. These must be addressed before the code can be released publicly.",
+      "category": "other",
+      "subcategory": "code-cleanup",
+      "apis": [],
+      "components": [
+        "migration",
+        "codebase"
+      ],
+      "concepts": [
+        "technical-debt",
+        "code-cleanup",
+        "migration",
+        "release-readiness"
+      ],
+      "severity": "medium",
+      "userImpact": "Incomplete TODOs left in the codebase could indicate unfinished work that may affect code quality or functionality in the public release.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "The issue was closed after the code migration was completed and all TODO items were addressed.",
+      "related": [],
+      "keyQuote": "There are few `TODO`s which I did not addressed to simplify migration process but they must be addressed after migration and before going public.",
+      "number": 1,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-01-10T19:29:56.171Z"
+    }
+  ]
+}

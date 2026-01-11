@@ -1,0 +1,34 @@
+{
+  "summary": "The testsuite requires headers to be injected directly into WorkflowTestSuite instead of using context propagators. A new setContext() method is needed to read headers from context using configured ContextPropagators, and context propagation to child workflows appears broken in the testsuite.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowTestSuite",
+    "TestWorkflowEnvironment",
+    "ContextPropagators"
+  ],
+  "components": [
+    "testsuite",
+    "context-propagation",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "context-propagation",
+    "headers",
+    "child-workflows",
+    "test-framework",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test context propagation in workflows using the testsuite, requiring manual header injection instead of standard context propagator mechanisms.",
+  "rootCause": "TestWorkflowEnvironment does not support reading headers from context using configured ContextPropagators, and child workflow context propagation is broken in the testsuite.",
+  "proposedFix": "Add TestWorkflowEnvironment.setContext(...) method which reads headers from context using configured ContextPropagators.",
+  "workaround": "Inject headers directly into WorkflowTestSuite through WorkflowTestSuite#SetHeader.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I propose to add `TestWorkflowEnvironment.setContext(...)` method which reads header from the context using configured `ContextPropagators`.",
+  "number": 29,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:14.785Z"
+}

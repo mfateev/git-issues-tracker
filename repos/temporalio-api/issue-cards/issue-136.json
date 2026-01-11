@@ -1,0 +1,33 @@
+{
+  "summary": "Add ScheduledEventId to PollActivityTaskQueueResponse to enable construction of idempotence keys for deduplicating side effects during activity task executions. The tuple of (RunId, ScheduledEventId) would be unique per activity execution.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "PollActivityTaskQueueResponse"
+  ],
+  "components": [
+    "activity-executor",
+    "task-queue",
+    "idempotence"
+  ],
+  "concepts": [
+    "idempotence",
+    "deduplication",
+    "activity-execution",
+    "side-effects",
+    "unique-identifier",
+    "run-id"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently construct reliable idempotence keys for activity task executions without access to ScheduledEventId, limiting their ability to safely deduplicate side effects.",
+  "rootCause": null,
+  "proposedFix": "Add ScheduledEventId field to PollActivityTaskQueueResponse message",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The tuple of (PollActivityTaskQueueResponse.WorkflowExecution.RunId, PollActivityTaskQueueResponse.ScheduledEventId) is unique per Activity Execution",
+  "number": 136,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:30.164Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Add VersioningOverride to StartWorkflowExecutionRequest to allow specifying target versioning information when creating a workflow, overriding the current default. This is needed for canary tests in the versioning-3 branch.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "StartWorkflowExecutionRequest"
+  ],
+  "components": [
+    "workflow-client",
+    "versioning-system",
+    "request-builder"
+  ],
+  "concepts": [
+    "versioning",
+    "workflow-execution",
+    "canary-testing",
+    "compatibility",
+    "override",
+    "request-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now specify versioning overrides when creating workflows, enabling better testing and control over versioning behavior.",
+  "rootCause": null,
+  "proposedFix": "Add VersioningOverride field to StartWorkflowExecutionRequest as detailed in temporalio/api pull request 477",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Merged in versioning-3 branch",
+  "related": [
+    477
+  ],
+  "keyQuote": "For canary tests in versioning-3 we need to specify target versioning information in the options when creating a workflow",
+  "number": 1715,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:21.869Z"
+}

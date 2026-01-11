@@ -1,0 +1,31 @@
+{
+  "summary": "Request for OpenTelemetry metric handler improvements in the Go SDK, including options for integer milliseconds instead of float seconds, metric name suffixing conventions, and preventing gauge values from being reported when never set.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "metric-handler",
+    "otel-integration"
+  ],
+  "concepts": [
+    "metrics",
+    "otel",
+    "observability",
+    "timers",
+    "histograms",
+    "counters",
+    "gauges"
+  ],
+  "severity": "low",
+  "userImpact": "Users gain flexibility in how metrics are formatted and reported, improving compatibility with metric collection systems and reducing noise from unreported gauge values.",
+  "rootCause": null,
+  "proposedFix": "Implement opt-in options for: (1) integer milliseconds for timers/histograms, (2) metric name suffixing (_total for counters, _milliseconds/_seconds for histograms), (3) skip reporting gauges with no values. Use OTel views for metric renaming where applicable.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Renaming should go through a view we should provide a sample showing how.",
+  "number": 1445,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:20.063Z"
+}

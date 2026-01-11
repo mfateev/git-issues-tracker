@@ -1,0 +1,33 @@
+{
+  "summary": "make test fails on macOS with a SIGABRT crash during test execution due to a known macOS-specific issue with the Go race detector. The issue was resolved by setting MallocNanoZone=0 environment variable before running tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-runner",
+    "makefile",
+    "race-detector"
+  ],
+  "concepts": [
+    "testing",
+    "macOS",
+    "race-detector",
+    "environment-variable",
+    "runtime-crash",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers on macOS cannot run the test suite without encountering a crash, blocking local development and CI/CD workflows.",
+  "rootCause": "macOS-specific issue with Go's race detector causing SIGABRT with unknown class error, related to memory allocation (MallocNanoZone).",
+  "proposedFix": "Add MallocNanoZone=0 environment variable to test commands in Makefile for integration tests.",
+  "workaround": "Set MallocNanoZone=0 before running go test, or upgrade to Go 1.18+ which fixes the issue.",
+  "resolution": "fixed",
+  "resolutionDetails": "Applied patch to Makefile adding MallocNanoZone=0 environment variable to integration test commands, based on workaround identified in golang/go#49138.",
+  "related": [
+    49138
+  ],
+  "keyQuote": "Your error seems to be a mac-specific known issue when using race detector on mac. You can mimic what https://github.com/Shopify/toxiproxy did (specifically add MallocNanoZone=0 before running go test).",
+  "number": 687,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:42.633Z"
+}

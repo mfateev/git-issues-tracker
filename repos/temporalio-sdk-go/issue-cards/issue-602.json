@@ -1,0 +1,32 @@
+{
+  "summary": "Replace deprecated OpenTracing API with OpenTelemetry API for distributed tracing support. The issue requests modernization to use OpenTelemetry instead of the superseded OpenTracing framework.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "tracing",
+    "instrumentation",
+    "observability"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "opentelemetry",
+    "context-propagation",
+    "observability",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use modern OpenTelemetry for distributed tracing and must rely on the deprecated OpenTracing API.",
+  "rootCause": "OpenTracing is superseded by OpenTelemetry; context propagation issues prevent using OpenTelemetry bridge with OpenTracing.",
+  "proposedFix": "Replace OpenTracing API with OpenTelemetry API for native support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of issue #529 and proposal https://github.com/temporalio/proposals/pull/45",
+  "related": [
+    529
+  ],
+  "keyQuote": "OpenTracing API needs to be replaced with OpenTelemetry API.",
+  "number": 602,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:53.305Z"
+}

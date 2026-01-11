@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow ContinueAsNew to automatically transfer unprocessed signals from the current workflow run to the new run, preventing signal loss when a developer fails to drain the signal channel before continuing.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew",
+    "ReceiveAsync",
+    "Select"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "workflow-continuation"
+  ],
+  "concepts": [
+    "signal-processing",
+    "workflow-continuation",
+    "state-transfer",
+    "signal-draining",
+    "error-prevention"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers risk losing signals when transitioning to a new workflow run if they don't manually drain all pending signals first.",
+  "rootCause": "ContinueAsNew does not automatically transfer unprocessed signals to the new run, requiring manual handling that can be error-prone.",
+  "proposedFix": "Implement automatic signal transfer capability in ContinueAsNew to carry over all unprocessed signals to the new workflow run.",
+  "workaround": "Developers must manually drain signals using either a selector loop with selector.HasPending() or ReceiveAsync until it returns false before calling ContinueAsNew.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a developer fails to drain signal channel before calling ContinueAsNew then it might result in loosing important signals without processing them.",
+  "number": 533,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:05.510Z"
+}

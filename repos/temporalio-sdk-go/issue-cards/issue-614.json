@@ -1,0 +1,41 @@
+{
+  "summary": "Cron child workflows with PARENT_CLOSE_POLICY_ABANDON run forever in test environments due to auto-fire timers, causing tests to hang indefinitely until timeout. The test suite needs a way to terminate child cron workflows regardless of their parent close policy.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "WithChildWorkflowOptions",
+    "GetWorkflowInfo",
+    "Sleep",
+    "NewTimer",
+    "NewSelector"
+  ],
+  "components": [
+    "workflow-testsuite",
+    "cron-workflow",
+    "child-workflow",
+    "parent-close-policy"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "child-workflows",
+    "parent-policy",
+    "test-timeout",
+    "workflow-termination",
+    "infinite-loop"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot test cron child workflows with abandon policy in the test suite without the test hanging and eventually panicking on timeout.",
+  "rootCause": "Cron workflows with auto-fire timers continue firing even with PARENT_CLOSE_POLICY_ABANDON in test environments, and the test suite lacks a mechanism to terminate child workflows regardless of their parent close policy.",
+  "proposedFix": "Implement a \"close\" or \"terminate all\" method on the test environment that stops all workflows for that test regardless of how they were started or their parent close policy.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by implementing test environment enhancements to handle cron workflow termination with abandon policies.",
+  "related": [
+    471
+  ],
+  "keyQuote": "within testsuite, if you run a child cron-job with PARENT_CLOSE_POLICY_ABANDON the test will run forever until it hits a time-out, in which case it panics",
+  "number": 614,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:10.053Z"
+}

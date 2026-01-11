@@ -1,0 +1,36 @@
+{
+  "summary": "Parent workflow hangs when spawning multiple child workflows with the same workflowId. The second attempt to get the child workflow execution blocks indefinitely because the ChildWorkflowExecutionAlreadyStartedError is not propagated to all futures.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "GetChildWorkflowExecution"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-future",
+    "error-propagation"
+  ],
+  "concepts": [
+    "child-workflow",
+    "workflow-id-collision",
+    "determinism",
+    "error-handling",
+    "async-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows hang when attempting to spawn child workflows with duplicate IDs, blocking legitimate use cases where the same child workflow ID is reused.",
+  "rootCause": "The ChildWorkflowExecutionAlreadyStartedError is only set on one of the two futures used by child workflow execution, causing the execution future to never unblock when the error occurs.",
+  "proposedFix": "Propagate the ChildWorkflowExecutionAlreadyStartedError to both child workflow futures, with potential versioning via SDKFlags to maintain determinism for existing workflows.",
+  "workaround": "Maintain a set of child workflow futures keyed by their ID and check before starting new children, or avoid using the same workflow ID for any child workflow.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was caused by PR #999 not propagating the error to both futures. A fix was proposed using SDKFlags for versioning to preserve determinism.",
+  "related": [
+    999,
+    1056
+  ],
+  "keyQuote": "The ChildWorkflowExecutionAlreadyStartedError is only set on one of the two futures child workflow use, so waiting on the execution future never unblocks.",
+  "number": 1041,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:28.257Z"
+}

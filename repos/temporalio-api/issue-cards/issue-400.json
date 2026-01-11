@@ -1,0 +1,33 @@
+{
+  "summary": "Third-party protobuf dependencies (Google API and Protobuf proto files) are currently stored at the root of the repository alongside Temporal's own protos. This causes conflicts when users run protoc from the repo root with their own versions of these dependencies. The request proposes moving these third-party protos to a dedicated subdirectory with appropriate include path configuration.",
+  "category": "feature",
+  "subcategory": "proto-organization",
+  "apis": [],
+  "components": [
+    "protoc",
+    "proto-dependencies",
+    "google-api",
+    "google-protobuf"
+  ],
+  "concepts": [
+    "proto-organization",
+    "dependency-management",
+    "protoc-includes",
+    "third-party-dependencies",
+    "build-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who run protoc from the repository root experience conflicts between Temporal's bundled Google proto dependencies and their own versions.",
+  "rootCause": "Third-party proto files (google/api and google/protobuf) were placed at the repository root alongside Temporal protos, causing namespace conflicts when users run protoc with their own dependency versions.",
+  "proposedFix": "Either move third-party references to individual SDK directories (e.g., api-go) and only embed them for testing, or reorganize by moving google/api to thirdparty/google-api/google/api and google/protobuf to thirdparty/google-protobuf/google/protobuf, then add corresponding -I include paths to protoc commands.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    108
+  ],
+  "keyQuote": "Put the third party references where the `protoc` is actually run (e.g. `api-go`) and only embed them here when testing",
+  "number": 400,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:32.421Z"
+}

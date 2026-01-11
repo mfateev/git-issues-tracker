@@ -1,0 +1,35 @@
+{
+  "summary": "TestWorkflowEnvironment does not block workflow execution when a cancellation request is received while an activity is executing, unlike the production runtime. The workflow immediately proceeds to deferred functions without waiting for the activity to complete, breaking test parity with production behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-cancellation",
+    "activity-executor"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-blocking",
+    "test-parity",
+    "deferred-execution",
+    "WaitForCancellation",
+    "runtime-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably test workflow cancellation behavior with activities, as the test environment does not match production runtime semantics.",
+  "rootCause": "TestWorkflowEnvironment does not respect activity cancellation blocking semantics that exist in the production runtime.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1
+  ],
+  "keyQuote": "In the test runtime, the workflow receives a cancelation request and immediately moves on to executing deferred without waiting for the currently executing activity to complete.",
+  "number": 1427,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:50.021Z"
+}

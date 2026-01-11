@@ -1,0 +1,33 @@
+{
+  "summary": "TestActivityEnvironment lacks a SetStartTime method that exists in TestWorkflowEnvironment, preventing proper testing of start time related features in activities. This is a feature parity request to enable consistent testing patterns across workflow and activity test environments.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestActivityEnvironment",
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-activity-environment",
+    "activity-testing",
+    "test-framework"
+  ],
+  "concepts": [
+    "start-time",
+    "activity-testing",
+    "test-environment",
+    "testing-utilities",
+    "time-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test start time related features in activities, limiting test coverage and forcing workarounds that may be imprecise.",
+  "rootCause": null,
+  "proposedFix": "Add SetStartTime method to TestActivityEnvironment similar to the existing implementation in TestWorkflowEnvironment",
+  "workaround": "Passing start time as an activity parameter, though this is discouraged due to potential imprecision from worker coordination",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "TestActivityEnvironment to support SetStartTime",
+  "number": 1646,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:41.670Z"
+}

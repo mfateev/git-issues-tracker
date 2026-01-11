@@ -1,0 +1,35 @@
+{
+  "summary": "GetWorkflowError() doesn't expose stack trace information for workflow panics, requiring users to manually unwrap nested error types using undocumented patterns. The issue was resolved by suggesting users leverage Go's errors.As() function for cleaner error type assertion.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "GetWorkflowError",
+    "WorkflowExecutionError"
+  ],
+  "components": [
+    "error-handling",
+    "test-framework",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "stack-trace",
+    "panic",
+    "error-unwrapping",
+    "error-assertion",
+    "testing",
+    "debugging",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers debugging workflow panics must use undocumented error unwrapping patterns instead of clean, standard Go error handling practices.",
+  "rootCause": "PanicError.StackTrace() is only available on activity errors, not exposed at the workflow error level, requiring manual error type unwrapping.",
+  "proposedFix": "Provide a documented way to access stack traces from workflow panics, potentially through a method on WorkflowExecutionError or clearer documentation of errors.As() usage pattern.",
+  "workaround": "Use errors.As() to extract the underlying PanicError: `var panicErr *temporal.PanicError; if errors.As(err, &panicErr) { panicErr.StackTrace() }`",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by maintainer providing the standard Go errors.As() pattern as the recommended solution, which is cleaner than manual type casting.",
+  "related": [],
+  "keyQuote": "Use `errors.As` instead, e.g.: `if errors.As(err, &panicErr) { fmt.Printf(\"Got panic error, trace: %v\", panicErr.StackTrace()) }`",
+  "number": 679,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:27.392Z"
+}

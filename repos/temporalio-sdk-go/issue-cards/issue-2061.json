@@ -1,0 +1,36 @@
+{
+  "summary": "SDK logs (e.g., activity failure logs) do not include trace-id and span-id tags when using the OpenTelemetry tracing interceptor, even when traces are sampled. User logs correctly include these tags, but SDK logs are missing them.",
+  "category": "feature",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [
+    "GetLogger"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "logging",
+    "tracing"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "observability",
+    "trace-correlation",
+    "span-context",
+    "log-tags",
+    "otel-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily correlate SDK failure logs with distributed traces, making debugging of temporal SDK issues more difficult.",
+  "rootCause": "The OpenTelemetry interceptor attaches trace and span IDs to user-created loggers but does not apply the same interceptor to SDK's internal logging.",
+  "proposedFix": "Use the intercepted logger for all SDK logs, similar to how it's done for user-created loggers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A separate issue (#829) was identified for using the intercepted logger for all SDK logs, indicating this was addressed as a broader initiative.",
+  "related": [
+    829,
+    1273
+  ],
+  "keyQuote": "if traces are sampled, user logs contain trace-id and span-id as log tags, but sdk logs do not contain either",
+  "number": 2061,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:27.944Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User experiences 'context deadline exceeded' errors when using the activity context for database operations. The context appears to have a deadline that expires during activity execution, causing database queries to fail.",
+  "category": "bug",
+  "subcategory": "context-timeout",
+  "apis": [
+    "GetLogger"
+  ],
+  "components": [
+    "activity-executor",
+    "context-management",
+    "deadline-handling"
+  ],
+  "concepts": [
+    "context deadline",
+    "timeout",
+    "activity execution",
+    "database operations",
+    "connection management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably perform database operations within activities because the activity context has a deadline that expires prematurely.",
+  "rootCause": "The activity context passed to activities may have a pre-existing deadline from workflow execution or scheduling that is not appropriate for activity duration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Discussion indicates the issue is likely caused by application-level connection problems or improper context usage rather than an SDK bug. The user was asked to provide a standalone reproduction case showing the SDK canceling the context outside documented cases.",
+  "related": [],
+  "keyQuote": "To help debug any further what I would need is a stand alone reproduction of the issue showing the SDK canceling the context outside of the documented cases",
+  "number": 1424,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:48.247Z"
+}

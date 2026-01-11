@@ -1,0 +1,30 @@
+{
+  "summary": "The activity_succeed_endtoend_latency metric is incorrectly recorded for all activity completions (success, failure, cancellation) instead of only for successful completions, as it does in the Java SDK.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "completion-handler"
+  ],
+  "concepts": [
+    "metrics",
+    "activity-completion",
+    "latency-measurement",
+    "success-tracking",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get incorrect metrics data for activity success latency, making performance monitoring and analysis misleading.",
+  "rootCause": "Pull request #575 did not properly check the activity completion type (success vs failure vs cancellation) before recording the success latency metric.",
+  "proposedFix": "Implement proper filtering to only record activity_succeed_endtoend_latency when the activity completes successfully, following the pattern established in the Java SDK PR #800.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Corrected the metric recording logic to check activity completion type and only record success latency on successful completions.",
+  "related": [],
+  "keyQuote": "activity_succeed_endtoend_latency in https://github.com/temporalio/sdk-go/pull/575 didn't properly take into account what form of activity completion the request was for",
+  "number": 1465,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:01.875Z"
+}

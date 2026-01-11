@@ -1,0 +1,33 @@
+{
+  "summary": "Users need a way to start a worker for activity-only execution without registering workflow handlers. Request for a WorkerOption flag to explicitly disable the workflow worker component.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "RegisterWorkflow"
+  ],
+  "components": [
+    "worker",
+    "workflow-worker",
+    "registry",
+    "activity-worker"
+  ],
+  "concepts": [
+    "worker initialization",
+    "lazy loading",
+    "optional components",
+    "activity-only execution",
+    "backward compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently run a worker that only handles activities, limiting deployment flexibility for activity-dedicated hosts.",
+  "rootCause": "Workflow worker is always initialized regardless of whether workflows will be registered, with no option to disable it.",
+  "proposedFix": "Add a WorkerOption flag to explicitly disable workflow worker initialization, with lazy startup of workflow worker deferred until first workflow registration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as a WorkerOption flag for backward compatibility, following discussion that concluded the options flag approach was the best compromise.",
+  "related": [],
+  "keyQuote": "After an offline discussion, it looks like the original proposal with the options flag is the best compromise which is backward compatible.",
+  "number": 636,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:10.889Z"
+}

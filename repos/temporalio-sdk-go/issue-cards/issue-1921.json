@@ -1,0 +1,32 @@
+{
+  "summary": "Remove the cloud submodule and cloud protos from api-go now that cloud-sdk-go repository exists as the dedicated home for cloud-related functionality.",
+  "category": "feature",
+  "subcategory": "api-organization",
+  "apis": [],
+  "components": [
+    "api-go",
+    "cloud-submodule",
+    "cloud-protos"
+  ],
+  "concepts": [
+    "modularization",
+    "repository-organization",
+    "cloud-sdk",
+    "code-consolidation",
+    "api-separation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to migrate from the cloud submodule in api-go to the dedicated cloud-sdk-go repository for cloud functionality.",
+  "rootCause": null,
+  "proposedFix": "Remove the cloud submodule and cloud protos from the api-go repository and direct users to cloud-sdk-go as the new home.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud submodule and protos were removed from api-go with users directed to cloud-sdk-go repository.",
+  "related": [
+    1831
+  ],
+  "keyQuote": "we should remove the cloud submodule and cloud protos from https://github.com/temporalio/api-go, mentioning in the PR that https://github.com/temporalio/cloud-sdk-go is the home for them now.",
+  "number": 1921,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:49.088Z"
+}

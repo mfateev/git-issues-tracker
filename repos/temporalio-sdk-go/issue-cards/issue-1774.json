@@ -1,0 +1,30 @@
+{
+  "summary": "The doclink tool is generating duplicate \"Exposed as\" docstrings when processing aliases. Running the tool with the -fix flag causes these duplicates to appear instead of a single docstring.",
+  "category": "bug",
+  "subcategory": "code-generation",
+  "apis": [],
+  "components": [
+    "doclink-tool",
+    "alias-processing"
+  ],
+  "concepts": [
+    "code-generation",
+    "documentation",
+    "duplication",
+    "build-tools"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the doclink tool with aliases get malformed documentation output that requires manual cleanup.",
+  "rootCause": "The doclink tool is not deduplicating \"Exposed as\" docstrings when processing aliases.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1770
+  ],
+  "keyQuote": "Duplicate docstrings are being generated.",
+  "number": 1774,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:34.463Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "NewTestActivityEnvironment no longer implements the worker.ActivityRegistry interface as of v1.35.0, breaking code that relied on this interface implementation. The root cause is adding a new method (RegisterDynamicActivity) to the public interface, which is a breaking change in Go.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "RegisterActivity",
+    "RegisterDynamicActivity"
+  ],
+  "components": [
+    "testsuite",
+    "worker",
+    "activity-registry"
+  ],
+  "concepts": [
+    "breaking-change",
+    "interface-compatibility",
+    "test-environment",
+    "activity-registration",
+    "versioning"
+  ],
+  "severity": "high",
+  "userImpact": "Users with abstractions depending on TestActivityEnvironment implementing ActivityRegistry experience compile errors when upgrading to v1.35.0+.",
+  "rootCause": "Adding RegisterDynamicActivity method to the public ActivityRegistry interface violates Go compatibility rules for interfaces, causing implementations to break.",
+  "proposedFix": "Consider switching to concrete types instead of returning interfaces, or use the gorelease tool in CI to detect incompatible changes before release.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2006,
+    1610
+  ],
+  "keyQuote": "it is considered a breaking change to add a method to a public interface",
+  "number": 2065,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:47.696Z"
+}

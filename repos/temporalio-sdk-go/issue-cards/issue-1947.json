@@ -1,0 +1,29 @@
+{
+  "summary": "Remove license headers from all files in the SDK following the server's decision to no longer require them. This includes removing any tooling that generates or enforces license headers.",
+  "category": "feature",
+  "subcategory": "build-process",
+  "apis": [],
+  "components": [
+    "build-tooling",
+    "file-generation",
+    "license-enforcement"
+  ],
+  "concepts": [
+    "code-cleanup",
+    "build-requirements",
+    "maintainability",
+    "process-simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies SDK development and build processes by removing unnecessary license header requirements and tooling.",
+  "rootCause": null,
+  "proposedFix": "Remove license headers from all files and delete tooling that generates or enforces them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "License headers were removed from the SDK and associated tooling was deleted or updated.",
+  "related": [],
+  "keyQuote": "Following server in https://github.com/temporalio/temporal/pull/7689, license headers are no longer required on files.",
+  "number": 1947,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:47.030Z"
+}

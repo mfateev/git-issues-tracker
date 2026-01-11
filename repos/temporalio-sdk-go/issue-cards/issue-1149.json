@@ -1,0 +1,38 @@
+{
+  "summary": "Users request the ability to customize trace attribute keys used by the Tracing Interceptor. Currently, keys like temporalWorkflowID, temporalRunID, and temporalActivityID are hardcoded with no configuration option, forcing users to create custom interceptors for simple key renaming.",
+  "category": "feature",
+  "subcategory": "tracing-interceptor",
+  "apis": [
+    "interceptor.Interceptor",
+    "interceptor.Tracer",
+    "interceptor.TracerOptions",
+    "interceptor.NewTracingInterceptor"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "interceptor",
+    "tracer-options",
+    "opentelemetry-tracer",
+    "opentracing-tracer"
+  ],
+  "concepts": [
+    "trace-attributes",
+    "custom-configuration",
+    "observability",
+    "span-tags",
+    "trace-customization",
+    "interceptor-extension"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize trace attribute keys without implementing a heavy custom interceptor solution, limiting flexibility for organizations with specific naming conventions.",
+  "rootCause": "Trace attribute keys are hardcoded in the tracing interceptor with no configuration mechanism to override them.",
+  "proposedFix": "Add key customization options to interceptor.TracerOptions and port them to opentelemetry.TracerOptions and opentracing.TracerOptions, allowing users to override default key names.",
+  "workaround": "Create a custom interceptor.Tracer that wraps the default tracer and overrides StartSpan to rename tags, though this doesn't allow access to context for additional attributes.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The only way to customise those keys is to create our own implementation of interceptor.Interceptor which is kind of heavy work to simply rename these keys.",
+  "number": 1149,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:13.392Z"
+}

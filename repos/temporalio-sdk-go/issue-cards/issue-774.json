@@ -1,0 +1,38 @@
+{
+  "summary": "Memory leak occurs when a workflow is queried before being cached, causing the workflow to be reallocated on each query and accumulating goroutines. The issue is caused by intentional design where query-only tasks are not cached, combined with a goroutine leak in the query handling logic.",
+  "category": "bug",
+  "subcategory": "workflow-caching",
+  "apis": [
+    "SetQueryHandler",
+    "GetSignalChannel"
+  ],
+  "components": [
+    "worker",
+    "task-handler",
+    "workflow-cache",
+    "goroutine-management"
+  ],
+  "concepts": [
+    "memory-leak",
+    "caching",
+    "query-handling",
+    "goroutine-leak",
+    "workflow-allocation",
+    "history-replay",
+    "garbage-collection"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows queried repeatedly without prior cache initialization consume excessive memory, growing unbounded and requiring worker restarts to reclaim resources.",
+  "rootCause": "Query-only tasks intentionally skip caching, requiring full history replay on each query. Additionally, a goroutine leak accumulates goroutines with each query execution.",
+  "proposedFix": "Fix the goroutine leak in query handling (addressed in PR #779). Consider making query cache behavior configurable to allow opt-in caching for query-only tasks.",
+  "workaround": "Either (1) disable workflow cache entirely with SetStickyWorkflowCacheSize(0), or (2) ensure first workflow interaction is a signal rather than a query to trigger caching.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #779 fixed the goroutine leak in query handling. Query-only task caching remains intentional design for side-effect-free queries.",
+  "related": [
+    779
+  ],
+  "keyQuote": "the memory is constantly rising with each query... I have opened a PR at #779 to fix the goroutine/mem leak that is occurring from queries over and over",
+  "number": 774,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:18.222Z"
+}

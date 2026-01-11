@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow and activity with the same name may be confused by the SDK, causing the wrong function signature to be used when executing the activity.",
+  "category": "bug",
+  "subcategory": "registration-resolution",
+  "apis": [
+    "ExecuteActivity",
+    "RegisterWorkflow",
+    "RegisterActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-registry",
+    "workflow-registry"
+  ],
+  "concepts": [
+    "name-collision",
+    "registration",
+    "function-resolution",
+    "activity-execution",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users defining workflow and activity with the same name may experience unexpected behavior where the SDK uses the wrong function signature.",
+  "rootCause": "The SDK's name resolution mechanism may not properly distinguish between workflow and activity registrations when they share the same name.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Unable to reproduce the issue. The reporter attempted registration with aliases and confirmed the SDK correctly distinguished between workflow and activity with the same name.",
+  "related": [],
+  "keyQuote": "I'm unable to repro this issue. Workflow and activity code... I have a workflow and activity named \"FooBar\" and I'm able to start a workflow that runs activity using a name alias.",
+  "number": 425,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:41.305Z"
+}

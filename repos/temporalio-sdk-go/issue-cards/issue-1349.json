@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowRun.Get and WorkflowRun.GetWithOptions do not use context-aware data converters, unlike other client and workflow calls in the SDK. This inconsistency may cause issues when workflows need custom data conversion behavior.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [
+    "WorkflowRun.Get",
+    "WorkflowRun.GetWithOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "data-converter",
+    "client-interface"
+  ],
+  "concepts": [
+    "data-conversion",
+    "context-awareness",
+    "api-consistency",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom data converters may experience unexpected behavior when retrieving workflow results via WorkflowRun.Get, as it doesn't respect the context-aware data converter configuration.",
+  "rootCause": "WorkflowRun.Get and WorkflowRun.GetWithOptions methods are not implemented to use context-aware data converters like other client and workflow API methods.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WorkflowRun.Get and WorkflowRun.GetWithOptions does not use a context aware data converter.",
+  "number": 1349,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:22.991Z"
+}

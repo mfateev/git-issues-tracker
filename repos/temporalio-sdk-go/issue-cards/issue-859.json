@@ -1,0 +1,31 @@
+{
+  "summary": "Context timeout with very short heartbeat throttle intervals causes immediate context expiration. Setting heartbeat throttle interval to very small values (like 1 nanosecond) causes the context to timeout immediately due to using `context.WithTimeout(ctx, i.heartbeatThrottleInterval)`.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "heartbeat",
+    "activity-executor",
+    "context-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "throttling",
+    "context-management",
+    "heartbeat-interval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure very short heartbeat throttle intervals without experiencing immediate context timeouts.",
+  "rootCause": "Using `context.WithTimeout(ctx, i.heartbeatThrottleInterval)` directly with the throttle interval value causes premature context expiration when the interval is very small.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a bug in heartbeat timeout handling where small interval values caused immediate context expiration.",
+  "related": [
+    660
+  ],
+  "keyQuote": "For whatever reason in #660, I put `context.WithTimeout(ctx, i.heartbeatThrottleInterval)` which means that context times out immediately",
+  "number": 859,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:57.563Z"
+}

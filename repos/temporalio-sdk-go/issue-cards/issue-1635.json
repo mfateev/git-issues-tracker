@@ -1,0 +1,32 @@
+{
+  "summary": "ExecuteMultiOperation (Update-with-Start) is not retrying when an Update fails to reach a durable stage, unlike the expected behavior where the entire call should be retried.",
+  "category": "bug",
+  "subcategory": "updates-retry-logic",
+  "apis": [
+    "ExecuteMultiOperation"
+  ],
+  "components": [
+    "update-executor",
+    "retry-handler",
+    "multi-operation"
+  ],
+  "concepts": [
+    "retry",
+    "durable-stage",
+    "update-admission",
+    "error-handling",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Update operations with StartWorkflow may fail to retry appropriately when updates are not admitted, potentially leaving workflows in an inconsistent state.",
+  "rootCause": "ExecuteMultiOperation lacks retry logic for non-durable Update stages, treating them as terminal failures instead of retriable conditions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper retry logic for non-admitted Updates in ExecuteMultiOperation.",
+  "related": [],
+  "keyQuote": "ExecuteMultiOperation does not retry when encountering a non-durable Update stage.",
+  "number": 1635,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:30.657Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "StartWorkflow and OnWorkflowTaskStarted are triggered twice on the same worker during QueryWorkflow, causing workflow state corruption when using extension APIs with external memory.",
+  "category": "bug",
+  "subcategory": "query-workflow",
+  "apis": [
+    "StartWorkflow",
+    "QueryWorkflow",
+    "OnWorkflowTaskStarted"
+  ],
+  "components": [
+    "worker",
+    "query-engine",
+    "workflow-instance-manager"
+  ],
+  "concepts": [
+    "state-corruption",
+    "duplicate-execution",
+    "workflow-environment",
+    "extension-api",
+    "memory-management"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow state gets corrupted when querying workflows that use external memory through extension APIs due to duplicate workflow initialization.",
+  "rootCause": "The SDK creates a second workflow version without destroying the previous state during query execution, causing conflicting state in external memory.",
+  "proposedFix": "Either reuse the existing workflow environment or properly destroy the previous version before querying.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through SDK fixes to prevent duplicate workflow initialization during query operations.",
+  "related": [],
+  "keyQuote": "Temporal Go SDK issues a second workflow version without destroying previous state which corrupts the workflow state if external memory used.",
+  "number": 279,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:39.112Z"
+}

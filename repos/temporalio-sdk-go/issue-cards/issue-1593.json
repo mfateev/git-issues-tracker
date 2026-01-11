@@ -1,0 +1,36 @@
+{
+  "summary": "Exploration of implementing range-over-func iterator APIs in the Go SDK to take advantage of Go 1.23's new language feature for workflows, clients, and history events.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "ExecuteWorkflow",
+    "ListWorkflows",
+    "ListSchedules"
+  ],
+  "components": [
+    "client",
+    "workflow",
+    "iterator"
+  ],
+  "concepts": [
+    "range-over-func",
+    "iterator",
+    "deterministic",
+    "async-iteration",
+    "history-events",
+    "workflow-listing",
+    "schedule-listing"
+  ],
+  "severity": "low",
+  "userImpact": "Users can leverage Go 1.23's range-over-func syntax for cleaner iteration patterns when working with workflows, schedules, and history events.",
+  "rootCause": null,
+  "proposedFix": "Add iterator APIs for workflow channels, deterministic map iteration, workflow listings, schedule listings, and history event iteration using Go 1.23 range-over-func patterns.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Consider what APIs we can add to the Go SDK to take advantage of range-over-func",
+  "number": 1593,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:13.847Z"
+}

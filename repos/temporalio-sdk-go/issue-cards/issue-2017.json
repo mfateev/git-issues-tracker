@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose the first execution run ID in workflow info. The feature was already implemented and is available in the SDK.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow",
+    "info"
+  ],
+  "concepts": [
+    "execution-tracking",
+    "run-id",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users can access the first execution run ID to track workflow execution history.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was already implemented and exposed in the SDK's workflow.go file.",
+  "related": [
+    29
+  ],
+  "keyQuote": "This is already exposed https://github.com/temporalio/sdk-go/blame/573d6de997240ce75c8fc9795c4b161d6e836005/internal/workflow.go#L1301",
+  "number": 2017,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:53.886Z"
+}

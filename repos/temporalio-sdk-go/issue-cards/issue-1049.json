@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow goroutines continue executing after the main workflow function returns, which violates expected behavior where goroutines should never run post-completion. This creates semantic inconsistency and potential memory leaks if goroutines are not properly cleaned up.",
+  "category": "bug",
+  "subcategory": "goroutine-lifecycle",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "goroutine-scheduler",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "goroutine-lifecycle",
+    "workflow-completion",
+    "concurrency-control",
+    "memory-management",
+    "process-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot rely on goroutine lifecycle semantics being consistent with workflow completion, leading to potential bugs and memory leaks when goroutines execute after workflow returns.",
+  "rootCause": "Workflow engine does not prevent goroutine execution after the main workflow function returns; current implementation uses runtime.Goexit which still allows defer statements to execute.",
+  "proposedFix": "Implement strict workflow goroutine lifecycle management where no goroutines run after workflow completion, similar to os.Exit() semantics rather than parent-child process model.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as the current behavior became desirable with the addition of workflow updates feature (temporalio/features#481), which requires goroutines to potentially execute after main workflow completion.",
+  "related": [
+    481
+  ],
+  "keyQuote": "I think workflow completion is like os.Exit(). But yes, if today we run coroutines after workflow complete we probably can't change without that SDK version marker thing.",
+  "number": 1049,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:04.312Z"
+}

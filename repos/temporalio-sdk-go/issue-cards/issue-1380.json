@@ -1,0 +1,32 @@
+{
+  "summary": "User reported that activity timeout was triggered approximately twice as early as the configured ScheduleToCloseTimeout value. Investigation revealed this is expected behavior: when an activity fails and retries with exponential backoff, if the next scheduled retry time exceeds the ScheduleToCloseTimeout, the activity fails immediately.",
+  "category": "question",
+  "subcategory": "activity-timeout",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-logic",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "backoff",
+    "schedule-to-close",
+    "activity-failure"
+  ],
+  "severity": "low",
+  "userImpact": "Users may misunderstand how ScheduleToCloseTimeout interacts with activity retries, leading to unexpected early timeouts when activities fail and trigger exponential backoff.",
+  "rootCause": "When an activity fails and retries with exponential backoff starting at 1 second and doubling each time, if the next scheduled retry time exceeds the ScheduleToCloseTimeout, the activity is failed without attempting the retry.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The behavior was clarified as expected and working as designed. The issue was caused by a misunderstanding of how ScheduleToCloseTimeout interacts with exponential backoff retry logic.",
+  "related": [],
+  "keyQuote": "Since your activity always fails the backoff time will grow exponentially from 1s doubling every retry until the next attempt time is after the activity timeout.",
+  "number": 1380,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:21.397Z"
+}

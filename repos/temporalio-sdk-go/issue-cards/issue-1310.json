@@ -1,0 +1,31 @@
+{
+  "summary": "Updating go.temporal.io/api to v1.26.1 causes compilation failures in SDK v1.25.1 due to incompatible protobuf type changes, specifically with *anypb.Any vs *types.Any and gRPC status type conflicts.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "protocol",
+    "metrics",
+    "grpc",
+    "protobuf"
+  ],
+  "concepts": [
+    "dependency-management",
+    "version-compatibility",
+    "protobuf-types",
+    "grpc-gateway",
+    "gogoproto"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot compile their code when updating go.temporal.io/api to v1.26.1 while using SDK v1.25.1, breaking their build process.",
+  "rootCause": "go.temporal.io/api v1.26.1 introduced breaking changes by deprecating gogoproto and switching to google.golang.org/protobuf types, which is incompatible with SDK v1.25.1 that still expects gogo types.",
+  "proposedFix": "Either release a compatible SDK version with the new API, or prevent incompatible versions from being installed together through versioning constraints.",
+  "workaround": "Avoid updating go.temporal.io/api independently; only update it through updating the Go SDK.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The incompatible API version (v1.26.1) was retracted. The maintainers confirmed SDK versions are only compatible with specific API versions specified in their go.mod, and users should not update API independently.",
+  "related": [],
+  "keyQuote": "go.temporal.io/api v1.26.1 has been retracted",
+  "number": 1310,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:08.775Z"
+}

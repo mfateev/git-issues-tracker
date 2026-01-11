@@ -1,0 +1,33 @@
+{
+  "summary": "DataConverter silently returns unencrypted payloads when the Encode method raises an error, instead of propagating the error to the caller. This creates a security issue where encryption failures are hidden and plaintext data is used without warning.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "PayloadCodec",
+    "Encode"
+  ],
+  "components": [
+    "converter",
+    "data-converter",
+    "codec"
+  ],
+  "concepts": [
+    "error-handling",
+    "encryption",
+    "payload-encoding",
+    "silent-failure",
+    "security"
+  ],
+  "severity": "high",
+  "userImpact": "Encryption errors in custom codecs are silently ignored, causing sensitive data to be stored unencrypted while users believe it's encrypted, creating a critical security vulnerability.",
+  "rootCause": "The DataConverter's encode method catches errors from the codec's Encode method and returns the original unencrypted payload instead of propagating the error.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This code silent the error an return the parent payload",
+  "number": 1999,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:04.026Z"
+}

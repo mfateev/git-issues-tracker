@@ -1,0 +1,34 @@
+{
+  "summary": "Make the rpcLongPollTimeout configuration option available in WorkflowServiceStubsOptions for the Go SDK, similar to the Java SDK implementation.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [
+    "WorkflowServiceStubsOptions"
+  ],
+  "components": [
+    "client",
+    "service-stubs",
+    "configuration"
+  ],
+  "concepts": [
+    "timeout",
+    "long-polling",
+    "rpc",
+    "configuration",
+    "client-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently configure the long poll timeout for workflow service stubs, limiting their ability to tune RPC behavior for their specific environments.",
+  "rootCause": null,
+  "proposedFix": "Add rpcLongPollTimeout as a configurable option in WorkflowServiceStubsOptions, following the pattern established in the Java SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    988
+  ],
+  "keyQuote": "The original issue in JavaSDK: https://github.com/temporalio/sdk-java/issues/988",
+  "number": 705,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:25.619Z"
+}

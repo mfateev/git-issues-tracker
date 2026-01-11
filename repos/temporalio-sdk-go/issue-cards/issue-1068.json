@@ -1,0 +1,33 @@
+{
+  "summary": "When a worker is restarted without restarting the process, cached workflows can no longer execute local activities because the local activity tunnel is not reset, causing the workflow to become stuck.",
+  "category": "bug",
+  "subcategory": "worker-restart",
+  "apis": [
+    "LocalActivity"
+  ],
+  "components": [
+    "worker",
+    "workflow-cache",
+    "activity-tunnel",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "worker-restart",
+    "cache-invalidation",
+    "local-activity",
+    "connection-reuse",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot restart workers without restarting the entire process if workflows are cached, as local activities will fail to execute.",
+  "rootCause": "The workflow context holds a stale local activity channel and the workflow task handler remains stale after worker restart, causing cached workflows to use outdated references.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cached workflows can no longer start local activities. The workflow execution was using the local activity tunnel for the worker before the restart",
+  "number": 1068,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:59.795Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow loggers use different stack depths than activity loggers due to an extra wrapping layer in the workflow logger, making it impossible to use a shared caller-skip configuration with logging frameworks like Zap or Zerolog.",
+  "category": "bug",
+  "subcategory": "logging-stack-depth",
+  "apis": [
+    "GetLogger",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-logger",
+    "activity-logger",
+    "logger-wrapper"
+  ],
+  "concepts": [
+    "stack-depth",
+    "caller-skip",
+    "logging-framework",
+    "replay-safety",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure a single caller-skip value that works consistently for both workflow and activity logging when using frameworks that auto-detect stack depth.",
+  "rootCause": "The workflow logger is wrapped in a replay-safe version that adds an extra stack frame, while activity loggers are not similarly wrapped, creating an asymmetry in call stack depth.",
+  "proposedFix": "Implement a `WithCallerSkip` interface that loggers can implement to allow the SDK to adjust caller skip depth dynamically, maintaining backwards compatibility.",
+  "workaround": "Adjust caller skip count differently for workflows vs activities in the logging framework configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "A WithCallerSkip interface was implemented allowing loggers to adjust caller skip depth dynamically without breaking backwards compatibility.",
+  "related": [],
+  "keyQuote": "The same log statements in workflow and activity should be at the same stack depth so that a shared caller-skip can work for both.",
+  "number": 960,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:48.340Z"
+}

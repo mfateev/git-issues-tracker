@@ -1,0 +1,29 @@
+{
+  "summary": "The API Go payload visitor does not visit `Any` fields that may contain payloads, causing some payloads to be missed during traversal. For example, payloads inside `Any` fields within `protobuf.Message` types are not visited.",
+  "category": "bug",
+  "subcategory": "payload-visitor",
+  "apis": [],
+  "components": [
+    "payload-visitor",
+    "api-generator",
+    "protobuf-message-handling"
+  ],
+  "concepts": [
+    "payload-traversal",
+    "Any-type",
+    "code-generation",
+    "protobuf-fields"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter issues with payload handling when payloads are nested inside `Any` fields, leading to incomplete payload processing.",
+  "rootCause": "The generator only visits objects with a direct path to `common.Payload`, not `Any` fields that might contain payloads.",
+  "proposedFix": "Support `Any` in the payload visitor in addition to direct payload references.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The payload visitor was updated to support visiting `Any` fields that may contain payloads.",
+  "related": [],
+  "keyQuote": "The generator only visits things with a clear path to `common.Payload` so it does not include `Any` that might have an object with a payload inside it.",
+  "number": 1622,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:59.060Z"
+}

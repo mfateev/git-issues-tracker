@@ -1,0 +1,31 @@
+{
+  "summary": "User reports that testsuite.StartDevServer fails with Cloudflare Error 1101 when attempting to download Temporal CLI v1.27.2, but the issue is resolved when they realize v1.27.2 refers to the server version, not the CLI version.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartDevServer"
+  ],
+  "components": [
+    "test-suite",
+    "dev-server",
+    "cli-download"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "dependency-resolution",
+    "testing-infrastructure",
+    "cli-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter confusion when specifying version numbers for dev server configuration, mistaking server versions for CLI versions.",
+  "rootCause": "User confusion between CLI versions and server versions - v1.27.2 refers to the Temporal server version, not a valid CLI version",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was user error - v1.27.2 is not a valid CLI version, it's a server version. The user was confusing CLI and server versioning schemes.",
+  "related": [],
+  "keyQuote": "v1.27.2 is not a valid CLI version per https://github.com/temporalio/cli. You may be confusing CLI versions with server versions.",
+  "number": 1985,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:39.023Z"
+}

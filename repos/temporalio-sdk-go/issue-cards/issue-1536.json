@@ -1,0 +1,33 @@
+{
+  "summary": "IdReusePolicy.TERMINATE_IF_RUNNING is not working correctly for duplicate child workflow starts. When a child workflow is started twice with this policy, the second start fails with ChildWorkflowExecutionAlreadyStartedError instead of terminating the first execution.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflowExecution",
+    "IdReusePolicy"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-execution",
+    "id-reuse-policy"
+  ],
+  "concepts": [
+    "idempotency",
+    "duplicate-handling",
+    "execution-termination",
+    "workflow-lifecycle",
+    "policy-enforcement"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably restart child workflows with TERMINATE_IF_RUNNING policy, breaking idempotent workflow patterns.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A child workflow with IdReusePolicy set to TERMINATE_IF_RUNNING is started twice from the same parent. Both starts are expected to succeed.",
+  "number": 1536,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:15.447Z"
+}

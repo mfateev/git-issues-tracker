@@ -1,0 +1,37 @@
+{
+  "summary": "Activity cancellation in workflows with retries causes a BadRequestCancelActivityAttributes history builder error. When a parent workflow cancels child activities that have retry policies, the SDK generates invalid history state, leading to internal state errors.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "ExecuteActivity",
+    "ExecuteChildWorkflow",
+    "WithCancel",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "history-builder",
+    "workflow-state-machine",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "activity-cancellation",
+    "retry-policy",
+    "history-validation",
+    "state-machine",
+    "workflow-context",
+    "concurrent-activities"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience internal state errors and workflow failures when canceling activities with retry policies, preventing reliable activity cancellation patterns.",
+  "rootCause": "History builder receives invalid action sequence when canceling activities with retry policies, resulting in 'add-activitytask-cancel-requested-event' state violation",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through fixes to activity cancellation handling in the Go SDK",
+  "related": [],
+  "keyQuote": "BadRequestCancelActivityAttributes: invalid history builder state for action: add-activitytask-cancel-requested-event",
+  "number": 724,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:34.137Z"
+}

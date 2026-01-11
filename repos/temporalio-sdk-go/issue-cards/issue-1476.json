@@ -1,0 +1,34 @@
+{
+  "summary": "The Nexus Go SDK's OperationReference type lacks generic type information, preventing the Go SDK from inferring input types when executing Nexus Operations from workflows. The solution requires changes in the Nexus Go SDK to expose type information.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "ExecuteNexusOperation"
+  ],
+  "components": [
+    "nexus-operation-executor",
+    "workflow-execution",
+    "nexus-go-sdk"
+  ],
+  "concepts": [
+    "type-inference",
+    "generics",
+    "nexus-rpc",
+    "operation-input",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot leverage type safety when executing Nexus Operations from workflows, requiring manual type handling and reducing developer experience.",
+  "rootCause": "The OperationReference type in the Nexus Go SDK does not expose generic type parameters needed for inference at runtime.",
+  "proposedFix": "Enhance the Nexus Go SDK's OperationReference type to expose or preserve generic type information that the Temporal SDK can access.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Likely resolved through upstream Nexus Go SDK changes to expose type information on OperationReference.",
+  "related": [
+    1473
+  ],
+  "keyQuote": "We don't have access to the generics on OperationReference, the solution may need to come from the Nexus Go SDK.",
+  "number": 1476,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:17.681Z"
+}

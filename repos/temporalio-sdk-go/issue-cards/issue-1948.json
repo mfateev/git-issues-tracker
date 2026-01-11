@@ -1,0 +1,32 @@
+{
+  "summary": "Remove license headers from all files in the api-go repository following the pattern established in the temporal server repository, including both source and generated files.",
+  "category": "other",
+  "subcategory": "tooling",
+  "apis": [],
+  "components": [
+    "api-go",
+    "code-generation",
+    "build-tools"
+  ],
+  "concepts": [
+    "license-headers",
+    "code-generation",
+    "maintenance",
+    "cleanup",
+    "build-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users benefit from reduced boilerplate and maintenance burden in the api-go codebase.",
+  "rootCause": null,
+  "proposedFix": "Remove license headers from all files in api-go repository and remove any tooling that generates or requires them",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by removing license headers and associated tooling from api-go repository",
+  "related": [
+    7689
+  ],
+  "keyQuote": "Following server in temporal/temporal#7689, license headers are no longer required on files. Remove from all files in the `api-go` repository",
+  "number": 1948,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:50.871Z"
+}

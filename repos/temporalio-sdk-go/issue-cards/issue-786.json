@@ -1,0 +1,33 @@
+{
+  "summary": "Documentation for workflow.GetLastError is inaccurate. It incorrectly describes the function as extracting the latest failure from any previous run, when it should only extract the latest failure if the last run failed. Clarification needed for GetLastCompletionResult and API proto documentation.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "GetLastError",
+    "GetLastCompletionResult"
+  ],
+  "components": [
+    "workflow-api",
+    "documentation",
+    "api-protos"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "error-handling",
+    "workflow-state",
+    "run-history",
+    "api-clarity"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using GetLastError may misunderstand its behavior and incorrectly assume it retrieves errors from any previous run rather than only the last run.",
+  "rootCause": "Documentation does not accurately reflect the actual behavior of GetLastError regarding which run's failure is returned.",
+  "proposedFix": "Update documentation to clarify that GetLastError only extracts the latest failure if the last run failed, and update API protos with this information.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was corrected to accurately describe GetLastError behavior and GetLastCompletionResult semantics.",
+  "related": [],
+  "keyQuote": "GetLastError extracts the latest failure only if the last run failed. If it did not fail or there is not a last run, nil is returned.",
+  "number": 786,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:47.823Z"
+}

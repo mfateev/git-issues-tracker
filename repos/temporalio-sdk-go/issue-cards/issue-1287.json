@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow panics with 'getState: illegal access from outside of workflow context' error after SDK update from 1.22.1 to 1.25.1 when using selectors with timers and signals in a polling pattern.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "NewSelector",
+    "NewTimer",
+    "AddFuture",
+    "AddReceive"
+  ],
+  "components": [
+    "workflow-context",
+    "selector",
+    "test-suite",
+    "timer-handling"
+  ],
+  "concepts": [
+    "workflow-cancellation",
+    "signal-handling",
+    "timer-lifecycle",
+    "context-safety",
+    "selector-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the test suite experience panics when workflows with selectors and timers are cancelled, preventing proper testing of cancellation scenarios.",
+  "rootCause": "The test suite calls the cancel callback after workflow execution is finished, which attempts to access workflow context when it's no longer valid.",
+  "proposedFix": null,
+  "workaround": "This issue only affects the test suite, not actual Temporal cluster or dev server execution.",
+  "resolution": "fixed",
+  "resolutionDetails": "Identified as test-suite-only issue where cancel callbacks were improperly invoked after workflow execution completion.",
+  "related": [],
+  "keyQuote": "getState: illegal access from outside of workflow context",
+  "number": 1287,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:38.970Z"
+}

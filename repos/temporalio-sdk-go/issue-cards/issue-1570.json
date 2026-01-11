@@ -1,0 +1,34 @@
+{
+  "summary": "User requested support for Temporal Cloud API Keys in the Go SDK client. The SDK was only documented as supporting mTLS connections, though API key support was already implemented via NewAPIKeyStaticCredentials but not well-documented. The issue was resolved by clarifying that API keys are still experimental for cloud and most namespaces require mTLS authentication.",
+  "category": "feature",
+  "subcategory": "cloud-authentication",
+  "apis": [
+    "NewAPIKeyStaticCredentials",
+    "ClientOptions",
+    "client.Dial"
+  ],
+  "components": [
+    "client",
+    "credentials",
+    "connection-options"
+  ],
+  "concepts": [
+    "api-keys",
+    "authentication",
+    "temporal-cloud",
+    "mtls",
+    "grpc-interceptor"
+  ],
+  "severity": "medium",
+  "userImpact": "Users connecting to Temporal Cloud need clear guidance on authentication options, including when and how to use API keys versus mTLS certificates.",
+  "rootCause": "API key support existed but was undocumented in the Go SDK, and most Temporal Cloud namespaces were still configured for mTLS-only authentication.",
+  "proposedFix": "NewAPIKeyStaticCredentials can be passed to Credentials in ClientOptions with a gRPC unary interceptor to append the temporal-namespace metadata header.",
+  "workaround": "Use the NewAPIKeyStaticCredentials approach with proper namespace metadata in gRPC interceptor, or request API key support enablement from Temporal Cloud support.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by documenting that API key support is available via NewAPIKeyStaticCredentials but remains experimental for cloud; most namespaces still require mTLS. Solution provided in comments with example code.",
+  "related": [],
+  "keyQuote": "API keys are still experimental for cloud and most cloud namespaces still use mTLS based authentication. If you want to enable API key support for your cloud account, please open a cloud ticket.",
+  "number": 1570,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:19.357Z"
+}

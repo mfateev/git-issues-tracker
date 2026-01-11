@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add ability to mock or intercept side effect calls in the Go SDK test suite. Users need `TestWorkflow.OnSideEffect` and `TestWorkflow.OnMutableSideEffect` methods to control side effect behavior during testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "SideEffect",
+    "MutableSideEffect"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-testing",
+    "side-effects"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "test-doubles",
+    "side-effects",
+    "interception",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test workflows that use side effects without being able to mock or control their behavior.",
+  "rootCause": null,
+  "proposedFix": "Add OnSideEffect and OnMutableSideEffect methods to TestWorkflow to allow mocking side effect calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented and merged into the test framework",
+  "related": [],
+  "keyQuote": "Add something like `TestWorkflow.OnSideEffect` and `TestWorkflow.OnMutableSideEffect`",
+  "number": 916,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:35.032Z"
+}

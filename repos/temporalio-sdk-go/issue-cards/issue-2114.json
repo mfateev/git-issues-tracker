@@ -1,0 +1,32 @@
+{
+  "summary": "Request to set GrpcMessageTooLarge as a failure_reason for workflow task failed metric in the Go SDK, referenced from a features issue.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "grpc",
+    "workflow-task"
+  ],
+  "concepts": [
+    "grpc",
+    "message-size",
+    "failure-reason",
+    "observability",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into when workflow tasks fail due to message size limits in their metrics and monitoring systems.",
+  "rootCause": null,
+  "proposedFix": "Add GrpcMessageTooLarge as a supported failure_reason for the workflow task failed metric",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed to support GrpcMessageTooLarge failure reason in metrics",
+  "related": [
+    695
+  ],
+  "keyQuote": "Set GrpcMessageTooLarge as failure_reason for workflow task failed metric",
+  "number": 2114,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:36.929Z"
+}

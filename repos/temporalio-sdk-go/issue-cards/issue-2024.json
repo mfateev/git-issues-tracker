@@ -1,0 +1,30 @@
+{
+  "summary": "Go SDK's OTel tracer interceptors should set span kinds (client for outbound, server for inbound) to match the behavior already implemented in Python, .NET, and Ruby SDKs.",
+  "category": "feature",
+  "subcategory": "otel-tracing",
+  "apis": [],
+  "components": [
+    "otel-tracer",
+    "interceptors",
+    "tracing"
+  ],
+  "concepts": [
+    "span-kinds",
+    "observability",
+    "opentelemetry",
+    "instrumentation",
+    "otel-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose observability context from properly categorized spans, making it harder to distinguish between client and server operations in distributed traces.",
+  "rootCause": null,
+  "proposedFix": "Set span kinds in OTel tracer interceptors: use 'client' for outbound spans and 'server' for inbound spans",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented span kind configuration in OTel tracer interceptors matching other SDK implementations",
+  "related": [],
+  "keyQuote": "Go should also set their span kinds. `client` as the outbound span kind, and `server` as the inbound span kind",
+  "number": 2024,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:08.407Z"
+}

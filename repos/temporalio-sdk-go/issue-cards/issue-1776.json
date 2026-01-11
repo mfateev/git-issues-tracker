@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add a flag in the update handler to indicate when handling is from a re-apply operation, addressing feature request from temporalio/features#564.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "UpdateHandler"
+  ],
+  "components": [
+    "worker",
+    "update-handler",
+    "replay"
+  ],
+  "concepts": [
+    "re-apply",
+    "update-handling",
+    "state-management",
+    "handler-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to distinguish between initial update handling and re-applied updates, enabling proper state management logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    564
+  ],
+  "keyQuote": "Provide flag to tell the update handler that the handling is from a re-apply",
+  "number": 1776,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:37.645Z"
+}

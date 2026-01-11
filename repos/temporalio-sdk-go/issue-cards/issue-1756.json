@@ -1,0 +1,34 @@
+{
+  "summary": "API documentation links are malformed in the Go SDK docs, preventing proper link rendering on pkg.go.dev. The documentation should follow Go's documentation link syntax guidelines to create valid references between API elements.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "UpdateWorkerVersioningRules",
+    "UpdateWithStartWorkflow",
+    "NewWithStartWorkflowOperation"
+  ],
+  "components": [
+    "api-docs",
+    "godoc",
+    "internal",
+    "client"
+  ],
+  "concepts": [
+    "documentation-links",
+    "api-reference",
+    "link-syntax",
+    "godoc-rendering"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the Go SDK API documentation on pkg.go.dev cannot navigate between related API elements due to broken documentation links.",
+  "rootCause": "Documentation strings use incorrect link syntax that is not compatible with Go's documentation link renderer, as outlined in the godoc-tricks guidelines.",
+  "proposedFix": "Replace malformed links with correct Go documentation link syntax following https://pkg.go.dev/github.com/fluhus/godoc-tricks#hdr-Documentation_Links-Links",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after documentation links were corrected to follow Go's proper documentation link syntax",
+  "related": [],
+  "keyQuote": "We should do a pass replacing malformed links with correct links.",
+  "number": 1756,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:06.313Z"
+}

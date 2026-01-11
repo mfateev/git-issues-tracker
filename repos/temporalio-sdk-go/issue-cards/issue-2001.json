@@ -1,0 +1,30 @@
+{
+  "summary": "Exploration of whether Go 1.24/1.25's new synctest feature could simplify temporal SDK testing by providing built-in time control instead of the current manual fake clock implementation.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "time-control",
+    "workflow-environment"
+  ],
+  "concepts": [
+    "time-skipping",
+    "fake-clock",
+    "test-synchronization",
+    "testing-integration",
+    "workflow-testing"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; this is an internal investigation into potential SDK testing simplification.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined that synctest is not suitable for Temporal SDK due to workflow environment complexity (random control, task scheduling, activities, child workflows) and incompatibility with SDK's custom timer implementation.",
+  "related": [],
+  "keyQuote": "A workflow environment is a lot more then just skipping time, it also requires control of other things like random, task scheduling activities, child workflows etc.",
+  "number": 2001,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:07.969Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "TestSuite workflow retry mechanism is not functioning correctly. When a workflow returns an ApplicationError in the test environment, it should retry according to the RetryPolicy, but instead it only executes once and fails.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflowOptions",
+    "RetryPolicy",
+    "NewApplicationError"
+  ],
+  "components": [
+    "test-suite",
+    "workflow-execution",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "error-handling",
+    "test-isolation",
+    "workflow-execution",
+    "retry-policy",
+    "application-error"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot properly test workflow retry behavior using the test suite, making it impossible to verify that workflows correctly retry on recoverable errors.",
+  "rootCause": "The test suite environment does not properly implement retry logic for workflows that return ApplicationError, treating the error as final instead of retriable.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "TestSuite should mimic actual behavior when workflow returns ApplicationError; which is to retry",
+  "number": 491,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:30.684Z"
+}

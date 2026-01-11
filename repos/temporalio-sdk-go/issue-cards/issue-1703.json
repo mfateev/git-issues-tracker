@@ -1,0 +1,33 @@
+{
+  "summary": "Concurrent map writes cause fatal error when multiple tests with t.Parallel() share a single TestActivityEnvironment. The activities map is not thread-safe and needs synchronization protection.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "testWorkflowEnvironmentImpl",
+    "TestActivityEnvironment",
+    "test-suite"
+  ],
+  "concepts": [
+    "concurrency",
+    "data-race",
+    "thread-safety",
+    "map-synchronization",
+    "parallel-testing",
+    "goroutines"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using t.Parallel() crash with fatal error when multiple test cases share the same activity test environment.",
+  "rootCause": "The activities map in testWorkflowEnvironmentImpl is accessed without synchronization, causing concurrent map writes when setActivityHandle is called from multiple goroutines.",
+  "proposedFix": "Protect map writes with env.locker.Lock()/Unlock() in setActivityHandle method, or use sync.Map instead of map[string]*testActivityHandle.",
+  "workaround": "Create separate test environments for each parallel test instead of sharing a single environment across multiple t.Parallel() tests.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by clarifying proper test patterns - each test should create its own test environment rather than sharing one across parallel tests.",
+  "related": [],
+  "keyQuote": "Each test should have its own environment",
+  "number": 1703,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:54.526Z"
+}

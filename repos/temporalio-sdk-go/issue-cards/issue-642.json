@@ -1,0 +1,38 @@
+{
+  "summary": "Mock assertion methods like `Once()` and `Twice()` in the Go SDK test framework show inconsistent behavior: panicking on over-invocation (which tests may pass) while failing on under-invocation, making the invocation count assertions unreliable for testing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnActivity",
+    "ExecuteWorkflow",
+    "AssertExpectations",
+    "GetWorkflowError"
+  ],
+  "components": [
+    "test-suite",
+    "mock-activity",
+    "assertion-framework"
+  ],
+  "concepts": [
+    "mocking",
+    "invocation-count",
+    "test-assertions",
+    "retry-logic",
+    "panic-handling",
+    "assertion-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing tests for activities with retries get misleading test results when using invocation count assertions, as over-invocations panic but don't fail tests while under-invocations properly fail.",
+  "rootCause": "The underlying testify mock library only fails assertions at the assertion site for fewer calls than expected, but panics at call-site for more calls, and panics in workflows don't automatically fail tests unless explicitly checked.",
+  "proposedFix": "Either document that invocation count assertions should not be used, or recover from panics and fail the test when assertion violations occur.",
+  "workaround": "Manually count invocations in the mock body and assert later, or check `env.GetWorkflowError()` for panic errors with prefix matching and fail the test explicitly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    608
+  ],
+  "keyQuote": "invocation count assertions should probably best be avoided...the ease of adding counts can tempt one to overly assert counts leading to unnecessary expectations about the internals",
+  "number": 642,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:39.954Z"
+}

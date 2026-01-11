@@ -1,0 +1,40 @@
+{
+  "summary": "Canceling a workflow can cause infinite replay attempts when a cancel event is processed before the corresponding activity completion event in the history, leaving the state machine in an invalid state and causing repeated BadRequestCancelActivityAttributes errors.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "CancelWorkflow",
+    "ExecuteActivity",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "state-machine",
+    "history-builder",
+    "workflow-executor",
+    "activity-processor"
+  ],
+  "concepts": [
+    "cancellation",
+    "replay",
+    "history-ordering",
+    "event-ordering",
+    "state-machine-integrity",
+    "concurrent-events"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to properly cancel and enter an infinite replay loop, requiring manual termination and blocking normal workflow completion.",
+  "rootCause": "The state machine attempts to cancel activities even when the cancel event appears before the activity completion event in history due to event ordering issues, creating an invalid history builder state that cannot be recovered without special handling for alternate branches.",
+  "proposedFix": "Allow the Go state machine to replay 'alternate branches' beyond cancel events to recover from invalid states, or ensure cancel events always appear first in event history ordering.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was mitigated in SDK v1.10.0 and fully resolved by v1.11.0 through improved event history ordering and state machine handling. Related fixes in PR #504 and #623.",
+  "related": [
+    469,
+    623,
+    504
+  ],
+  "keyQuote": "Cancelling a workflow concurrently with an activity completion creates an invalid state due to the ordering of events in the workflow history",
+  "number": 481,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:01.563Z"
+}

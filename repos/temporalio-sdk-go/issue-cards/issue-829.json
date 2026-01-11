@@ -1,0 +1,35 @@
+{
+  "summary": "SDK debug and error logs don't respect the logger from the interceptor chain, preventing users from adding custom fields (like trace IDs) to all workflow/activity execution logs. Users need a way to inject context-aware logging across all SDK-generated logs, not just user-initiated GetLogger calls.",
+  "category": "feature",
+  "subcategory": "logging-observability",
+  "apis": [
+    "GetLogger",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "logger",
+    "interceptor",
+    "worker",
+    "activity-executor"
+  ],
+  "concepts": [
+    "logging",
+    "observability",
+    "context-aware",
+    "tracing",
+    "interceptor-chain",
+    "log-fields"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot inject custom context (like trace IDs) into SDK-generated logs, limiting observability and incident response capabilities for distributed systems.",
+  "rootCause": "SDK only invokes GetLogger on explicit user calls, not internally before emitting debug/error logs, so the interceptor chain cannot customize those logs.",
+  "proposedFix": "Implement a ContextAwareLogger interface that SDK calls before each log statement, or invoke GetLogger internally at key logging points to apply interceptor customizations.",
+  "workaround": "Provide custom logger at client level, though this cannot access workflow/activity context for request-scoped fields.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A common failure mode...is that a small number of top level requests will generate a large number of Go SDK generated error logs...We're looking for a way to quickly identify how many root/top level parent workflows are impacted",
+  "number": 829,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:41.650Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "mocks.Client doesn't implement the client.Client interface, making it unsuitable for mocking the client in tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "mocks",
+    "client-interface"
+  ],
+  "concepts": [
+    "mocking",
+    "testing",
+    "interface-compliance",
+    "test-doubles"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use mocks.Client to mock client.Client in their tests, forcing them to work around the broken mock implementation.",
+  "rootCause": "mocks.Client implementation doesn't satisfy the client.Client interface contract",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The mocks.Client was updated to properly implement the client.Client interface",
+  "related": [],
+  "keyQuote": "mocks.Client doesn't implement client.Client interface.",
+  "number": 164,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:18.128Z"
+}

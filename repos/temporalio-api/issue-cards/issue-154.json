@@ -1,0 +1,33 @@
+{
+  "summary": "Users cannot understand how to specify search attribute types when using StartWorkflowExecution. The proto definition lacks documentation on how to parse SearchAttributes Payloads and map them to IndexedValueType enums.",
+  "category": "docs",
+  "subcategory": "search-attributes",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "api",
+    "search-attributes",
+    "payload"
+  ],
+  "concepts": [
+    "search-attributes",
+    "indexing",
+    "payload-parsing",
+    "type-mapping",
+    "proto-documentation",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot properly configure custom search attributes without trial-and-error or external documentation, hindering workflow metadata capability.",
+  "rootCause": null,
+  "proposedFix": "Add comments to the SearchAttributes proto explaining how Payloads are parsed, including metadata.type field mapping and data format requirements (e.g., INDEXED_VALUE_TYPE_DATETIME expects milliseconds since epoch).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Each Payload has a `metadata.type: IndexedValueType`. If `payload.metadata.type` is `INDEXED_VALUE_TYPE_DATETIME`, `payload.data` should be an integer with milliseconds since epoch.",
+  "number": 154,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:33.053Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Data race condition in dispatcherImpl.ExecuteUntilAllBlocked where the executing state is written without a lock in a defer statement while being concurrently read by goroutines spawned via NewCoroutine, causing random test flakes.",
+  "category": "bug",
+  "subcategory": "concurrency",
+  "apis": [
+    "ExecuteUntilAllBlocked",
+    "IsExecuting",
+    "NewCoroutine",
+    "Await"
+  ],
+  "components": [
+    "dispatcherImpl",
+    "workflow-executor",
+    "coroutine-scheduler",
+    "test-framework"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "goroutine",
+    "locking",
+    "deadlock-detection",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience random flakes in workflow tests due to race conditions between goroutines accessing shared state without proper synchronization.",
+  "rootCause": "The executing state is written without a lock in the defer statement of ExecuteUntilAllBlocked while concurrently read by IsExecuting calls from goroutines spawned by NewCoroutine, particularly during deadlock detection and coroutine completion simultaneously.",
+  "proposedFix": "Add locking around the write to the executing state in the defer statement of ExecuteUntilAllBlocked to synchronize access with concurrent reads by IsExecuting.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix applied by adding proper locking to the defer statement that writes to the executing state, preventing concurrent read/write races.",
+  "related": [],
+  "keyQuote": "goroutine 11 is updating executing without a lock in the defer statement while goroutine 21 is reading the executing state, probably via IsExecuting()",
+  "number": 488,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:17.281Z"
+}

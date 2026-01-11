@@ -1,0 +1,30 @@
+{
+  "summary": "SearchAttributes.Copy method is being incorrectly flagged by workflowcheck linter and needs to be marked as ignored to prevent false positives.",
+  "category": "other",
+  "subcategory": "workflow-linting",
+  "apis": [
+    "SearchAttributes.Copy"
+  ],
+  "components": [
+    "workflowcheck",
+    "search-attributes"
+  ],
+  "concepts": [
+    "linting",
+    "code-analysis",
+    "workflow-validation",
+    "api-usage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter false positive linting errors when using SearchAttributes.Copy in workflows, requiring unnecessary code modifications or suppression.",
+  "rootCause": "SearchAttributes.Copy is not registered in the workflowcheck linter's allowed function list.",
+  "proposedFix": "Mark SearchAttributes.Copy as ignored by workflowcheck configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SearchAttributes.Copy was added to the workflowcheck ignore list.",
+  "related": [],
+  "keyQuote": "Need to mark `SearchAttributes.Copy` as ignored by `workflowcheck`",
+  "number": 1943,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:30.944Z"
+}

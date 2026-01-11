@@ -1,0 +1,33 @@
+{
+  "summary": "User requests new APIs ReplayWorkflowHistoryFromReader and ReplayPartialWorkflowHistoryFromReader to support reading replay histories from io.Reader sources, enabling use cases like go:embed, remote storage, and gzipped files.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistoryFromReader",
+    "ReplayPartialWorkflowHistoryFromReader"
+  ],
+  "components": [
+    "WorkflowReplayer",
+    "replay-api",
+    "test-framework"
+  ],
+  "concepts": [
+    "replay",
+    "testing",
+    "history-streaming",
+    "embedded-files",
+    "flexible-storage"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing workflows with go:embed or alternative replay history sources must manually parse JSON or implement their own reader abstraction.",
+  "rootCause": null,
+  "proposedFix": "Add ReplayWorkflowHistoryFromReader(logger log.Logger, jsonFile io.Reader) error and ReplayPartialWorkflowHistoryFromReader methods to the WorkflowReplayer interface",
+  "workaround": "Users can use bytes.NewReader to wrap []byte or manually parse history from custom sources",
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainer agreed to implement reader-based APIs using io.Reader parameter, including both full and partial replay variants",
+  "related": [],
+  "keyQuote": "Add `ReplayWorkflowHistoryFromReader` to enable use cases like go:embed, remote server storage, or gzipped histories",
+  "number": 808,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:32.514Z"
+}

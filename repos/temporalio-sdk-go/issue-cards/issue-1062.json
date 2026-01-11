@@ -1,0 +1,33 @@
+{
+  "summary": "Documentation for client.ExecuteWorkflow API is confusing and discourages valid use cases where executing workflows across server instances is necessary. User requests clearer documentation and best practices for cross-server workflow execution.",
+  "category": "docs",
+  "subcategory": "client-api-documentation",
+  "apis": [
+    "ExecuteWorkflow",
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-execution",
+    "documentation"
+  ],
+  "concepts": [
+    "cross-server-execution",
+    "workflow-orchestration",
+    "api-clarity",
+    "best-practices",
+    "documentation-guidance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are confused about when to use client.ExecuteWorkflow versus workflow.ExecuteChildWorkflow, potentially leading to incorrect implementation choices for cross-server scenarios.",
+  "rootCause": "Documentation note discourages client.ExecuteWorkflow usage without clarifying valid use cases for executing workflows across different server instances.",
+  "proposedFix": "Add clear documentation explaining valid use cases for client.ExecuteWorkflow and best practices for cross-server workflow execution scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was clarified to explain valid use cases for client.ExecuteWorkflow when executing workflows across server instances.",
+  "related": [],
+  "keyQuote": "I'm looking to execute a Workflow from a Workflow on another Server instance... Have clear documentation explaining that my use case is valid",
+  "number": 1062,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:32.566Z"
+}

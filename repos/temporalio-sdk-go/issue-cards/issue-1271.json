@@ -1,0 +1,32 @@
+{
+  "summary": "Error messages returned when non-determinism is detected in workflows lack clarity about the root cause. Users need better error messaging that explicitly suggests non-deterministic code changes as the likely culprit.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "workflow-execution",
+    "determinism-detection"
+  ],
+  "concepts": [
+    "non-determinism",
+    "error-messaging",
+    "debugging",
+    "user-experience",
+    "code-clarity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging non-deterministic workflow code are confused by cryptic error messages that don't indicate the root cause, making troubleshooting significantly harder.",
+  "rootCause": "Error messages from non-determinism detection don't explicitly mention non-determinism as the likely cause.",
+  "proposedFix": "Add clear suggestions in error messages indicating non-deterministic code changes as the root cause of errors like 'lookup failed for scheduledEventID' and 'No cached result found for side effectID'.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error messages were improved to be more explicit about non-determinism being the likely cause.",
+  "related": [
+    864
+  ],
+  "keyQuote": "All these errors should suggested the error is likely caused by a non deterministic code change so users have a place to start debugging.",
+  "number": 1271,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:55.034Z"
+}

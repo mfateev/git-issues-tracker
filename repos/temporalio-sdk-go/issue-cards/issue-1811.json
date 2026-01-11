@@ -1,0 +1,32 @@
+{
+  "summary": "Code generator for payload visiting should walk all proto file descriptors instead of relying on workflow service reachability to ensure all proto messages are caught, including orphaned ones.",
+  "category": "feature",
+  "subcategory": "code-generation",
+  "apis": [],
+  "components": [
+    "code-generator",
+    "payload-visiting",
+    "proto-descriptors"
+  ],
+  "concepts": [
+    "code-generation",
+    "proto-messages",
+    "reachability-analysis",
+    "descriptors",
+    "orphaned-messages"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures all proto messages are included in generated code for payload visiting, preventing missed messages that aren't referenced through workflow service.",
+  "rootCause": "Current code generator uses recursive reachability from workflow service which misses orphaned proto messages not in that object graph.",
+  "proposedFix": "Change code generator to walk file descriptors of entire proto repository instead of relying on workflow service reachability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1809
+  ],
+  "keyQuote": "walk the file descriptors of the entire proto repo so we know we catch them all",
+  "number": 1811,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:33.269Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Worker Deployment API interfaces are being renamed and refactored to reflect the embedding of the Rollout API within a Deployment resource.",
+  "category": "feature",
+  "subcategory": "worker-deployment-api",
+  "apis": [
+    "WorkerDeployment"
+  ],
+  "components": [
+    "worker",
+    "deployment-api",
+    "rollout-api"
+  ],
+  "concepts": [
+    "api-design",
+    "interface-refactoring",
+    "deployment-management",
+    "rollout-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the Worker Deployment API will need to update their code to use the renamed interfaces.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some interfaces of the Worker Deployment API are changing to reflect the embedding of the Rollout API within a Deployment.",
+  "number": 1778,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:48.363Z"
+}

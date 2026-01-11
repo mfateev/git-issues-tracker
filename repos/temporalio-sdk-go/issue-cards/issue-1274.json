@@ -1,0 +1,34 @@
+{
+  "summary": "User misconfigured a schedule by combining calendar-based constraints (weekdays 9am-5pm) with an interval-based constraint (every 4 minutes), causing runs to execute immediately and outside business hours. The issue was resolved when the user corrected their configuration to use only the calendar spec with the desired frequency.",
+  "category": "question",
+  "subcategory": "scheduling",
+  "apis": [
+    "Create",
+    "ScheduleClient"
+  ],
+  "components": [
+    "schedule",
+    "calendar-spec",
+    "time-zone"
+  ],
+  "concepts": [
+    "scheduling",
+    "calendar-constraints",
+    "time-zone",
+    "weekday-filtering",
+    "business-hours",
+    "interval-composition"
+  ],
+  "severity": "low",
+  "userImpact": "Users may incorrectly configure schedules by misunderstanding how calendar and interval specs compose, resulting in unintended execution timing.",
+  "rootCause": "User combined two independent scheduling mechanisms (Calendars and Intervals) without understanding that they are unioned together, not intersected. The Intervals spec (every 4 minutes) executed independently of the Calendar constraints (weekdays 9am-5pm).",
+  "proposedFix": "Move the 4-minute frequency constraint from a separate Intervals spec into the Calendar spec's Minute field with a Step parameter, so all constraints apply together.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved by clarifying the API behavior in documentation and helping the user understand that calendar and interval specs are unioned, not intersected. User applied the corrected configuration.",
+  "related": [],
+  "keyQuote": "your current spec says it should run every hour on the weekday from 9am to 5pm and every 4 minutes",
+  "number": 1274,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:09.434Z"
+}

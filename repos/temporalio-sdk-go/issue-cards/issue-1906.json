@@ -1,0 +1,30 @@
+{
+  "summary": "The workflowcheck tool crashes with an 'index out of range' panic when analyzing packages without source files (like the 'unsafe' package). The crash occurs in the analysis framework when it tries to access Files[0] without checking if the Files slice is empty.",
+  "category": "bug",
+  "subcategory": "workflowcheck-determinism",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "determinism-checker",
+    "analysis-framework"
+  ],
+  "concepts": [
+    "panic-recovery",
+    "edge-cases",
+    "analysis-pass",
+    "empty-slice",
+    "package-analysis"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflowcheck through golangci-lint or standalone with certain codebases because the tool crashes on packages without source files.",
+  "rootCause": "The code assumes pass.Files slice is non-empty when it can be empty for certain packages (like 'unsafe'). The golang/tools analysis framework still has this assumption in its debug logging code at checker.go:591.",
+  "proposedFix": "Add a check to verify pass.Files is not empty before accessing Files[0], or handle the case where Files is empty.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Somehow the `act.pass.Files` is empty slice. In this case the key is `package unsafe (\"unsafe\")`.",
+  "number": 1906,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:19.959Z"
+}

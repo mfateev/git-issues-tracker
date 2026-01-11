@@ -1,0 +1,33 @@
+{
+  "summary": "Add a Summary field to LocalActivityOptions in the Go SDK to align with the features specification. This enhancement allows developers to provide a description of local activities, matching the functionality available in other SDKs.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity",
+    "options",
+    "activity-executor"
+  ],
+  "concepts": [
+    "local-activities",
+    "options",
+    "sdk-feature-parity",
+    "activity-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be able to add descriptive summaries to local activity options for better documentation and consistency with other Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to add Summary field to LocalActivityOptions",
+  "related": [
+    637
+  ],
+  "keyQuote": "See parent features issue for details",
+  "number": 1988,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:51.210Z"
+}

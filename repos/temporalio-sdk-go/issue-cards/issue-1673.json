@@ -1,0 +1,37 @@
+{
+  "summary": "Expose user metadata fields (summary, static summary, static details) on activities and child/scheduled workflows that were previously added internally but marked with TODO statements.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "ExecuteActivityOptions",
+    "ChildWorkflowOptions",
+    "ScheduleWorkflowOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-options",
+    "child-workflow",
+    "scheduled-workflow"
+  ],
+  "concepts": [
+    "metadata",
+    "user-metadata",
+    "activity-options",
+    "workflow-options",
+    "API-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access metadata fields on activities and scheduled workflows despite the infrastructure being partially implemented.",
+  "rootCause": "Metadata fields were added internally in PR #1597 but left unexposed with TODO statements pending full implementation.",
+  "proposedFix": "Expose the optional \"summary\" field on activities and \"static summary\" + \"static details\" fields on child workflow and scheduled workflow options, marked as experimental.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The metadata fields were exposed on activities and child/scheduled workflow options as requested.",
+  "related": [
+    1597
+  ],
+  "keyQuote": "the fields are there but not exposed and have TODO statements. This issue should expose them.",
+  "number": 1673,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:08.050Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User needs guidance on how to test activity functions that call `activity.GetLogger(ctx)` with a proper activity context. The issue is that calling such functions from regular tests fails because they require a valid activity context that isn't available in standard test setup.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetLogger"
+  ],
+  "components": [
+    "activity-context",
+    "test-suite",
+    "activity-interceptor"
+  ],
+  "concepts": [
+    "testing",
+    "activity-context",
+    "logging",
+    "interceptor",
+    "test-environment"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot easily unit test helper functions within activities that depend on the activity context for logging or other operations.",
+  "rootCause": "Activity context is not directly accessible outside of the activity execution environment; `activity.GetLogger()` requires a properly initialized activity context that regular context.Background() cannot provide.",
+  "proposedFix": "Use `testsuite.WorkflowTestSuite` with `ActivityTestEnvironment` to test activity functions, or create an activity-like wrapper function in tests that delegates to the function being tested.",
+  "workaround": "Create a simple activity-like function in your test case that delegates to the function you want to test, allowing it to be invoked through the `ActivityTestEnvironment`.",
+  "resolution": "stale",
+  "resolutionDetails": "Issue was closed due to inactivity. The suggested solution was to use the WorkflowTestSuite and ActivityTestEnvironment for proper activity context testing.",
+  "related": [],
+  "keyQuote": "To the environment, there is (mostly) no difference between a \"full blown activity\" and \"a function that's called inside the activity\". That test environment is for all functions that accept an activity context.",
+  "number": 1042,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:48.432Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Worker start/stop behavior should allow callers to handle signal listening separately. The issue requests a design more aligned with a worker actor pattern similar to appkit, where signal handling is decoupled from worker lifecycle management.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "signal-handling",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "signal-listening",
+    "worker-startup",
+    "worker-shutdown",
+    "actor-pattern",
+    "caller-responsibility",
+    "decoupling"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot independently manage signal listening and worker lifecycle, forcing them to accept the built-in signal handling behavior.",
+  "rootCause": null,
+  "proposedFix": "Decouple signal listening from worker start/stop, allowing callers to handle signals explicitly similar to an actor pattern (as shown in the referenced appkit PR).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing worker lifecycle changes that allow callers to manage signal handling separately from worker start/stop operations.",
+  "related": [
+    642
+  ],
+  "keyQuote": "Listening to signals should be left to the caller.",
+  "number": 94,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:44.113Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "client.Dial fails to resolve Docker container DNS names, requiring users to manually resolve the hostname to an IP address. The issue stems from gRPC's name resolution behavior in Docker environments where the standard DNS resolver doesn't handle Docker's service discovery properly.",
+  "category": "bug",
+  "subcategory": "dns-resolution",
+  "apis": [
+    "client.Dial"
+  ],
+  "components": [
+    "client",
+    "grpc-configuration",
+    "dns-resolver"
+  ],
+  "concepts": [
+    "dns-resolution",
+    "docker-networking",
+    "service-discovery",
+    "grpc-address-resolver",
+    "container-networking",
+    "hostname-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Go SDK clients in Docker containers cannot connect to Temporal servers using service names and must resort to manual DNS lookups or IP addresses.",
+  "rootCause": "gRPC-go's default DNS resolver doesn't properly handle Docker's internal service discovery; the `passthrough:///` resolver is required for Docker container DNS names.",
+  "proposedFix": "Use `passthrough:///temporal:7233` format for the HostPort option to bypass gRPC's DNS resolution logic.",
+  "workaround": "Manually resolve the hostname using `net.LookupHost()` before passing the IP to client.Dial(), or use the `passthrough:///` resolver prefix.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be a documentation/configuration issue rather than a bug. The gRPC-go library is working as designed; users need to understand gRPC's name resolution rules and Docker's networking model.",
+  "related": [],
+  "keyQuote": "Is there ANYWHERE in the docs or API docs that says 'resolved using grpc-go'?",
+  "number": 1935,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:20.419Z"
+}

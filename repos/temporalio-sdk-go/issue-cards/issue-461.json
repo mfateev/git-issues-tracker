@@ -1,0 +1,35 @@
+{
+  "summary": "The test framework does not apply the default retry policy to activities when no explicit policy is set, unlike the production server behavior. Activities should use a default retry policy in unit tests as they do in production.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Activity",
+    "RetryPolicy"
+  ],
+  "components": [
+    "test-framework",
+    "activity-executor",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "default-behavior",
+    "activity-testing",
+    "policy-configuration",
+    "test-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Unit tests may not accurately reflect production behavior for activities without explicit retry policies, potentially missing retry-related bugs.",
+  "rootCause": "Test framework does not implement default retry policy assignment for activities when none is explicitly configured.",
+  "proposedFix": null,
+  "workaround": "Explicitly set a retry policy in test activities to match expected production behavior.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #462",
+  "related": [
+    462
+  ],
+  "keyQuote": "Activity RetryPolicy is optional, and if not set a default retry policy will be used by server. We need this same behavior on local unit test.",
+  "number": 461,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:10.881Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Data races in coroutine context cancellation when using WithCancel in workflows. Multiple concurrent goroutines access and modify context state without proper synchronization, causing race conditions during cancellation propagation.",
+  "category": "bug",
+  "subcategory": "coroutine-cancellation",
+  "apis": [
+    "WithCancel",
+    "NewCoroutine"
+  ],
+  "components": [
+    "context-cancellation",
+    "coroutine-dispatcher",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "context-cancellation",
+    "goroutine-synchronization",
+    "race-condition",
+    "concurrent-access"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow coroutines using context cancellation may experience unpredictable behavior and potential crashes due to unsynchronized concurrent access to context state.",
+  "rootCause": "Unsynchronized read/write access to cancelCtx fields in internal/context.go during propagateCancel() and cancel() operations when multiple goroutines interact with context cancellation simultaneously.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Data races in context cancellation were fixed with proper synchronization mechanisms in the cancelCtx implementation.",
+  "related": [],
+  "keyQuote": "Here are some data races in master as of this writing: Write at 0x00c000236868 by goroutine 11 / Previous read at 0x00c000236868 by goroutine 10",
+  "number": 720,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:14.627Z"
+}

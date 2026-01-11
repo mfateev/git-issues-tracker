@@ -1,0 +1,30 @@
+{
+  "summary": "The //workflowcheck:ignore comment directive appears to interfere with Godoc documentation generation in the Go SDK. Need to verify the interaction between workflow check directives and documentation tooling.",
+  "category": "bug",
+  "subcategory": "workflow-check-directives",
+  "apis": [],
+  "components": [
+    "workflow-checker",
+    "godoc-integration",
+    "code-generation"
+  ],
+  "concepts": [
+    "workflow-validation",
+    "code-documentation",
+    "linting",
+    "comment-directives",
+    "go-tooling"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may encounter issues with documentation generation when using workflow check directives in their code.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Seems to interfere",
+  "number": 710,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:42.909Z"
+}

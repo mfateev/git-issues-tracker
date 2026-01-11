@@ -1,0 +1,37 @@
+{
+  "summary": "Request to regenerate mocks using the latest mockery version to support dynamic mock returns based on runtime argument values. This enables more flexible testing scenarios, particularly for arguments with non-deterministic values like timestamps.",
+  "category": "other",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowOptions",
+    "WorkflowRun"
+  ],
+  "components": [
+    "mocks",
+    "testing",
+    "mockery"
+  ],
+  "concepts": [
+    "mocking",
+    "test-doubles",
+    "argument-matching",
+    "dynamic-returns",
+    "timestamps"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can write more flexible and maintainable tests by using function-based mock returns instead of static argument matching.",
+  "rootCause": "The existing mockery version has limitations in matching arguments with non-deterministic values like timestamps.",
+  "proposedFix": "Regenerate mocks using the latest mockery version that supports function-based return values for dynamic argument matching.",
+  "workaround": "Use static argument values in mock setup or work around timestamp issues with other testing strategies.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by regenerating mocks using the latest mockery version, enabling the feature through pull requests #1353 and #1361.",
+  "related": [
+    1353,
+    1361
+  ],
+  "keyQuote": "With latest mocker, we could do... This is becoming very useful if one argument in `newCustomerMetadata` is `timestamp`",
+  "number": 1354,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:36.297Z"
+}

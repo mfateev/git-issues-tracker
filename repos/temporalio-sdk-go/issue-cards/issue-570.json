@@ -1,0 +1,35 @@
+{
+  "summary": "The Temporal Go client can only send signals to workflows in the same namespace. The feature request asks for the ability to send signals to workflows in different namespaces, similar to the WithWorkflowNamespace option available within workflows.",
+  "category": "feature",
+  "subcategory": "signal-namespace",
+  "apis": [
+    "SignalWorkflow",
+    "WithWorkflowNamespace"
+  ],
+  "components": [
+    "client",
+    "signal-service",
+    "namespace-routing"
+  ],
+  "concepts": [
+    "namespace-isolation",
+    "cross-namespace-communication",
+    "signal-delivery",
+    "client-options",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot send signals across namespaces from the client, limiting multi-tenant and cross-namespace workflow orchestration scenarios.",
+  "rootCause": "SignalWorkflow function uses only the client's default namespace and does not support namespace override options like WithWorkflowNamespace does in workflows.",
+  "proposedFix": "Add a WithWorkflowNamespace context option to the client's SignalWorkflow method to allow specifying the target namespace, similar to the workflow-level implementation.",
+  "workaround": "Create a custom workflow that receives the signal request and forwards the signal to the target namespace using the workflow's WithWorkflowNamespace capability.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by enabling users to use the gRPC service directly to send signals to any namespace, providing more flexible cross-namespace signaling capabilities.",
+  "related": [
+    641
+  ],
+  "keyQuote": "With #641, you will be able to use the gRPC service directly to send signals in any way to any namespace.",
+  "number": 570,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:43.471Z"
+}

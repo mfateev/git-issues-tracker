@@ -1,0 +1,35 @@
+{
+  "summary": "Documentation for WorkflowIdReusePolicy is misleading because it doesn't mention that WorkflowExecutionAlreadyStartedFailure is only returned when the WorkflowExecutionErrorWhenAlreadyStarted option is explicitly set, not by default.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "WorkflowIdReusePolicy",
+    "WorkflowExecutionAlreadyStartedFailure",
+    "WorkflowExecutionErrorWhenAlreadyStarted",
+    "WorkflowIdConflictPolicy"
+  ],
+  "components": [
+    "documentation",
+    "client",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-reuse",
+    "id-conflict",
+    "error-handling",
+    "policy-documentation",
+    "default-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users reading the WorkflowIdReusePolicy documentation may incorrectly assume WorkflowExecutionAlreadyStartedFailure is returned by default, leading to misunderstanding of actual behavior.",
+  "rootCause": "Documentation omits the condition that WorkflowExecutionErrorWhenAlreadyStarted option must be set for the failure to be returned.",
+  "proposedFix": "Update WorkflowIdReusePolicy documentation to explicitly mention that WorkflowExecutionAlreadyStartedFailure is only returned when the WorkflowExecutionErrorWhenAlreadyStarted option is set.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify that WorkflowExecutionAlreadyStartedFailure requires the WorkflowExecutionErrorWhenAlreadyStarted option to be set.",
+  "related": [],
+  "keyQuote": "The doc on `WorkflowIdReusePolicy` is misleading. It does not mention the default behavior is not return WorkflowExecutionAlreadyStartedFailure.",
+  "number": 1857,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:51.077Z"
+}

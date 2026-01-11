@@ -1,0 +1,30 @@
+{
+  "summary": "Build fails on freshly cloned repository due to errcheck tool finding an unclosed file handle in the copyright license generation tool.",
+  "category": "bug",
+  "subcategory": "build-tools",
+  "apis": [],
+  "components": [
+    "build-system",
+    "errcheck",
+    "copyright-tool"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "file-handle",
+    "build-failure",
+    "linting",
+    "error-checking"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build the SDK immediately after cloning the repository, blocking local development setup.",
+  "rootCause": "Missing f.Close() error check in internal/cmd/tools/copyright/licensegen.go line 141 - errcheck tool detects unclosed file handle.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The unclosed file handle in the copyright license generation tool was fixed by properly closing the file.",
+  "related": [],
+  "keyQuote": "f.Close() (line 141 in licensegen.go) - errcheck detected unclosed resource causing build failure",
+  "number": 91,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:41.414Z"
+}

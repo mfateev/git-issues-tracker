@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose Temporal Nexus operation information to Nexus operation authors, allowing them to access context about the operations they're implementing. This is tracked as a feature enhancement in the Go SDK.",
+  "category": "feature",
+  "subcategory": "nexus",
+  "apis": [],
+  "components": [
+    "nexus",
+    "operation-handler"
+  ],
+  "concepts": [
+    "context",
+    "operation-metadata",
+    "developer-experience",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Nexus operation authors lack visibility into operation context and metadata, limiting their ability to implement sophisticated operation logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose operation info to Nexus operation authors in the Go SDK.",
+  "related": [
+    674
+  ],
+  "keyQuote": "Expose Temporal Nexus operation info to Temporal Nexus operation authors",
+  "number": 2053,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:13.854Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Worker silently fails activity tasks when the activity type is not registered, instead of immediately reporting an error. The activity remains stuck in the started state if the start_to_close timeout is large.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue-poller"
+  ],
+  "concepts": [
+    "activity-type-registration",
+    "error-handling",
+    "timeout",
+    "task-failure",
+    "silent-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot detect when activities fail due to unregistered types, causing workflows to hang unexpectedly and making debugging difficult.",
+  "rootCause": "Worker does not properly validate and report activity type registration status when picking up tasks from the task queue.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker picks up the activity task and fails silently",
+  "number": 465,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:21.194Z"
+}

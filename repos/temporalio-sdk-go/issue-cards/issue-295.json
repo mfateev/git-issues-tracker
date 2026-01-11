@@ -1,0 +1,34 @@
+{
+  "summary": "Data race condition on cache eviction where a goroutine writes to coroutine state while another reads it during workflow cache cleanup. This causes concurrent access to the same memory location without synchronization.",
+  "category": "bug",
+  "subcategory": "concurrency",
+  "apis": [],
+  "components": [
+    "dispatcher",
+    "cache-eviction",
+    "coroutine-state",
+    "workflow-execution-context"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "synchronization",
+    "cache-eviction",
+    "goroutine",
+    "memory-access"
+  ],
+  "severity": "high",
+  "userImpact": "Users running long-duration workflows may encounter data race warnings and potential undefined behavior during workflow cache eviction.",
+  "rootCause": "Unsynchronized concurrent access to coroutineState during cache eviction - goroutine writing to state.close() while dispatcher.Close() reads it during onEviction().",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by synchronizing access to coroutine state during cache eviction, likely through mutual exclusion or atomic operations.",
+  "related": [
+    294
+  ],
+  "keyQuote": "WARNING: DATA RACE Write at 0x00c000120629 by goroutine 124: go.temporal.io/sdk/internal.(*coroutineState).close()",
+  "number": 295,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:08.846Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "TestActivityRetryOnTimeoutStableError test was failing intermittently in CI with a WorkflowExecutionError when it expected nil. The test later stabilized and no longer appears flaky.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "activity-retry",
+    "worker"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "test-flakiness",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Intermittent test failures create noise in CI/CD pipelines and reduce confidence in the test suite reliability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The test stabilized on its own and no longer appears flaky in CI, indicating the underlying issue was resolved.",
+  "related": [],
+  "keyQuote": "This test does not appear flaky anymore in CI",
+  "number": 551,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:39.371Z"
+}

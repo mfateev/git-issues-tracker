@@ -1,0 +1,34 @@
+{
+  "summary": "User requests a built-in query to inspect which signals are waiting to be processed by a workflow, distinguishing between pending signals and already-processed ones for debugging and monitoring purposes.",
+  "category": "feature",
+  "subcategory": "workflow-signals",
+  "apis": [
+    "GetSignalChannel"
+  ],
+  "components": [
+    "workflow-runtime",
+    "signal-dispatcher",
+    "query-handler"
+  ],
+  "concepts": [
+    "signal-inspection",
+    "workflow-state",
+    "debugging",
+    "monitoring",
+    "signal-queue"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily inspect which signals are queued and waiting to be processed, making it difficult to debug signal-related workflow issues.",
+  "rootCause": null,
+  "proposedFix": "Implement a built-in query that returns the list of signals currently waiting to be processed by the workflow.",
+  "workaround": "Users can create their own custom query and manually track signals using workflowOutboundInterceptor GetSignalChannel, though this captures all signals rather than just waiting ones.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as a duplicate of temporalio/sdk-features#51, indicating the feature is being tracked at a higher level.",
+  "related": [
+    51
+  ],
+  "keyQuote": "what I exactly need is \"waiting signals\" which means what can I send to the flow now",
+  "number": 927,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:05.004Z"
+}

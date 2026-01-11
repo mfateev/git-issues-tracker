@@ -1,0 +1,32 @@
+{
+  "summary": "Local activity execution by string name fails during workflow replay. The issue appears specific to local activities registered by name rather than by function reference, causing replay to break when the activity is not available in the current registration context.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-engine",
+    "activity-registry",
+    "local-activities"
+  ],
+  "concepts": [
+    "replay",
+    "local-activities",
+    "activity-registration",
+    "name-based-lookup",
+    "history-replay"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot successfully replay workflows that execute local activities registered by string name, breaking workflow history replay functionality.",
+  "rootCause": "Local activities registered by name are not properly resolved during workflow replay when the activity registration context differs from the original execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was confirmed to be specific to local activities registered by name, and a fix was provided by the maintainer.",
+  "related": [],
+  "keyQuote": "The issue seems to be specific to local activities registered by name. I will confirm replication and provide fix.",
+  "number": 740,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:02.484Z"
+}

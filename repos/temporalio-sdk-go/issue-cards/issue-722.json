@@ -1,0 +1,37 @@
+{
+  "summary": "CreateSession activity was retrying on errors it should not retry, including timeouts. The issue requires disabling all retries on session creation activity and leveraging server-side changes to handle the 'too many sessions' case through max concurrent activities.",
+  "category": "bug",
+  "subcategory": "session-management",
+  "apis": [
+    "CreateSession"
+  ],
+  "components": [
+    "worker",
+    "session-creation",
+    "activity-retry-policy"
+  ],
+  "concepts": [
+    "retry-logic",
+    "session-creation",
+    "error-handling",
+    "max-concurrent-activities",
+    "timeout",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Session creation may retry on errors like timeouts that should not be retried, causing unexpected behavior and potential duplicate sessions.",
+  "rootCause": "Intentional retry-prevention logic was inadvertently removed in a prior commit, allowing session creation activity to retry all errors except 'too many sessions'.",
+  "proposedFix": "Disable all retries on session creation activity and use max concurrent activities to handle the 'too many sessions' case, requiring a server-side change (temporal/temporal#2524) to disable timeout retries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by disabling all retries on session creation activity and leveraging server-side retry policy changes to handle timeout exclusions. Max concurrent activity size is also set on session creation worker.",
+  "related": [
+    739,
+    741,
+    2524
+  ],
+  "keyQuote": "Do not have session creation activity failure retry anything but 'too many sessions'.",
+  "number": 722,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:17.752Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Users cannot pass workflow Channels as parameters to child workflows and activities because Channel is not a value type. The proposal is to pass channel ID information to activities and use SignalWorkflow calls to communicate back to the workflow.",
+  "category": "feature",
+  "subcategory": "channel-parameters",
+  "apis": [
+    "ExecuteActivity",
+    "NewChannel",
+    "NewSelector",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-execution",
+    "channel-system",
+    "signaling"
+  ],
+  "concepts": [
+    "channel-passing",
+    "inter-process-communication",
+    "value-types",
+    "child-workflows",
+    "activity-parameters",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pass Channels as activity or child workflow parameters, limiting their ability to implement certain communication patterns in workflows.",
+  "rootCause": "Channel is not a value type and cannot be serialized as a parameter.",
+  "proposedFix": "Pass channel ID information to activities and use SignalWorkflow calls to send data back to the workflow, with the signal being pushed to the corresponding channel in the workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Channel is currently not possible as Channel is not a value type.",
+  "number": 101,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:59.304Z"
+}

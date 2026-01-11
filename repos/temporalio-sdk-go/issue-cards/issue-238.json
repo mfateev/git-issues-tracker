@@ -1,0 +1,31 @@
+{
+  "summary": "RecordActivityHeartbeat should return an error if the activity has been canceled, instead of being a no-op. Currently users must manually select on the context to check if it's done.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordActivityHeartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "context-handling"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-handling",
+    "heartbeat",
+    "activity-lifecycle",
+    "context-done"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must perform additional manual checks when an activity is canceled instead of receiving immediate error feedback from heartbeat recording.",
+  "rootCause": null,
+  "proposedFix": "Modify RecordActivityHeartbeat to check if the activity context is done and return an error if so.",
+  "workaround": "Manually select on the activity context to check if it has been canceled.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the Activity is canceled, the user has to still do a select on the context to see if it is Done.",
+  "number": 238,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:49.444Z"
+}

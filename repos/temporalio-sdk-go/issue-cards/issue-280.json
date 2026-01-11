@@ -1,0 +1,29 @@
+{
+  "summary": "Request to create a Registry interface in the worker package containing only registration methods for workflows and activities, allowing consumers to avoid depending on the full Worker interface with Start/Stop methods.",
+  "category": "feature",
+  "subcategory": "worker-registry",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-registry",
+    "activity-registry"
+  ],
+  "concepts": [
+    "interface-design",
+    "registration",
+    "separation-of-concerns",
+    "api-surface"
+  ],
+  "severity": "low",
+  "userImpact": "Consumers can depend on a more focused Registry interface instead of the full Worker interface, reducing unnecessary coupling.",
+  "rootCause": null,
+  "proposedFix": "Define a Registry or WorkerRegistry interface with registration methods and embed it in the Worker interface. Consider splitting into separate WorkflowRegistry and ActivityRegistry interfaces.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Registry interface was implemented to provide a focused API for workflow and activity registration without Start/Stop methods.",
+  "related": [],
+  "keyQuote": "Define a `Registry` or a `WorkerRegistry` interface in the worker package with the registration methods and embed it in the worker interface.",
+  "number": 280,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:52.970Z"
+}

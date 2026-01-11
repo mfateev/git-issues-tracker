@@ -1,0 +1,29 @@
+{
+  "summary": "TestActivityStartedAtSameTimeAsTimerCancel integration test was flaky, producing intermittent workflow timeout errors during execution. The test instability has been resolved and no longer appears in CI.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "integration-tests",
+    "activity-executor",
+    "timer-manager"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "timing-race-condition",
+    "workflow-timeout",
+    "activity-timer-interaction"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in SDK stability and can block CI/CD pipelines with false failures.",
+  "rootCause": "Race condition between activity start and timer cancellation causing intermittent StartToClose timeout errors",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test no longer appears flaky in CI, indicating the underlying race condition has been resolved through SDK fixes",
+  "related": [],
+  "keyQuote": "Workflow timeout (type: StartToClose)",
+  "number": 552,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:53.771Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "DevServer.Stop() occasionally hangs indefinitely instead of gracefully shutting down, causing test timeouts. The issue appears related to membership upsert failures and insufficient hosts during server shutdown.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "DevServer.Stop"
+  ],
+  "components": [
+    "testsuite",
+    "DevServer",
+    "membership",
+    "ringpop"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "context-cancellation",
+    "process-termination",
+    "test-isolation",
+    "synchronization",
+    "deadlock"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using DevServer fail with timeout errors when Stop() hangs, making the test suite unreliable and blocking development workflows.",
+  "rootCause": "Membership upsert loop or service handlers may not be properly canceling when context is canceled, preventing graceful shutdown completion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "DevServer.Stop() hangs and never returns causing test timeouts.",
+  "number": 1360,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:52.559Z"
+}

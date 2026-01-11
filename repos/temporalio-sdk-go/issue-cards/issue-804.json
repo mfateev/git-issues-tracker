@@ -1,0 +1,33 @@
+{
+  "summary": "User asks how to extract trace IDs from workflow context for logging purposes, similar to how it's done in activities. The issue discusses the limitation that span context storage uses non-exported struct keys in the SDK.",
+  "category": "question",
+  "subcategory": "tracing-instrumentation",
+  "apis": [
+    "GetInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "interceptor",
+    "tracing"
+  ],
+  "concepts": [
+    "tracing",
+    "span-context",
+    "logging",
+    "instrumentation",
+    "observability",
+    "context-propagation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily extract trace IDs from workflow context for structured logging, limiting observability in distributed tracing scenarios.",
+  "rootCause": "Span context is stored in a non-exported struct key in the workflow context, making it inaccessible to users without SDK modifications.",
+  "proposedFix": "Set a custom value via TracerOptions.SpanContextKey to access span information, or pass custom info through context and workflow.GetInfo().",
+  "workaround": "Use TracerOptions.SpanContextKey with a custom value to extract span context, or implement custom context propagation instead of relying on span info.",
+  "resolution": "answered",
+  "resolutionDetails": "SDK maintainer provided guidance on using TracerOptions.SpanContextKey for custom span extraction and recommended alternative approaches for propagating trace information.",
+  "related": [],
+  "keyQuote": "You may set `TracerOptions.SpanContextKey` to a custom value of your choice and then use that value to extract the span out of the context.",
+  "number": 804,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:15.967Z"
+}

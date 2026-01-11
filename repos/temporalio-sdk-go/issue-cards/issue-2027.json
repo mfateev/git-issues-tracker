@@ -1,0 +1,29 @@
+{
+  "summary": "workflowcheck tool fails to compile with Go 1.25.0 due to a breaking change in golang.org/x/tools dependency. The issue was resolved by updating the x/tools version in the master branch and releasing workflowcheck v0.4.0.",
+  "category": "bug",
+  "subcategory": "tooling-compilation",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "golang.org/x/tools"
+  ],
+  "concepts": [
+    "compilation",
+    "dependency-management",
+    "version-compatibility",
+    "go-modules",
+    "build-tools"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to install workflowcheck with Go 1.25.0 encounter a compilation failure due to an incompatible x/tools dependency.",
+  "rootCause": "golang.org/x/tools version 0.25.0 has a breaking change (golang/go#74462) that causes invalid array length calculation in tokeninternal.go, incompatible with Go 1.25.0.",
+  "proposedFix": "Bump golang.org/x/tools to a version that resolves the compatibility issue and release a new version of workflowcheck.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "workflowcheck v0.4.0 was released with an updated version of x/tools that resolves the Go 1.25.0 compatibility issue.",
+  "related": [],
+  "keyQuote": "Pushed a new version of `workflowcheck` that uses an updated version of `x/tools` https://github.com/temporalio/sdk-go/releases/tag/contrib%2Ftools%2Fworkflowcheck%2Fv0.4.0",
+  "number": 2027,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:12.251Z"
+}

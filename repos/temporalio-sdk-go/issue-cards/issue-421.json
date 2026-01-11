@@ -1,0 +1,35 @@
+{
+  "summary": "Local activities with only error return parameters that return nil cause a 'Failed to parse server response' error in the web UI, though the CLI displays the workflow history correctly.",
+  "category": "bug",
+  "subcategory": "local-activity-serialization",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity",
+    "serialization",
+    "web-ui-integration"
+  ],
+  "concepts": [
+    "error-handling",
+    "return-parameters",
+    "nil-serialization",
+    "web-ui",
+    "response-parsing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot view workflow history in the web UI when using local activities that return only error parameters with nil values.",
+  "rootCause": "Improper serialization or parsing of local activity results when only an error return parameter exists and it's nil.",
+  "proposedFix": "Fix in SDK to properly handle the case where a local activity has only an error return parameter and returns nil, as addressed in PR #367.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in sdk-go v1.5.0 through a change in how local activity results are serialized/parsed to handle error-only return parameters correctly.",
+  "related": [
+    365,
+    306
+  ],
+  "keyQuote": "When running a workflow with a local activity that has only an error return parameter, and the local activity returns nil, the web UI can't show the workflow and shows this error: 13 INTERNAL: Failed to parse server response",
+  "number": 421,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:26.599Z"
+}

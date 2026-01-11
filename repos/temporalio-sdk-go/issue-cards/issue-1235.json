@@ -1,0 +1,36 @@
+{
+  "summary": "Defers in workflow.Go are currently running in parallel during cache eviction, but should run deterministically and in sequence. While PR #1210 fixed the main consequence, edge cases remain where parallel execution could cause user issues, and we need to ensure cache eviction doesn't get blocked by this fix.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "workflow.Go"
+  ],
+  "components": [
+    "workflow-cache",
+    "defer-execution",
+    "cache-eviction"
+  ],
+  "concepts": [
+    "determinism",
+    "sequencing",
+    "concurrency",
+    "cache-management",
+    "cleanup",
+    "goroutine-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience undefined behavior when defers in workflows run in parallel, especially during cache eviction scenarios, potentially causing data races and logic errors.",
+  "rootCause": "Defers in workflow.Go are being executed concurrently instead of sequentially during cache eviction.",
+  "proposedFix": "Run defers deterministically and in sequence on cache eviction while ensuring the eviction process is not blocked.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed with related fix in PR #1210, though edge cases were addressed in follow-up work.",
+  "related": [
+    1209,
+    1210
+  ],
+  "keyQuote": "Defers in workflow.Go should be run deterministically and in sequence on cache eviction.",
+  "number": 1235,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:43.587Z"
+}

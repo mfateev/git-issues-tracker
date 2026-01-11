@@ -1,0 +1,35 @@
+{
+  "summary": "Mock activities cannot be registered with string names in test workflow environments without first registering them. The library requires activities to be registered before mocking, which is cumbersome for testing workflows with cross-language activities that lack Go function counterparts.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnActivity",
+    "RegisterActivity",
+    "RegisterActivityWithOptions"
+  ],
+  "components": [
+    "workflow_testsuite",
+    "test-framework",
+    "activity-mock",
+    "local-activities"
+  ],
+  "concepts": [
+    "mocking",
+    "testing",
+    "activity-registration",
+    "cross-language-workflows",
+    "test-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle to test workflows with cross-language activities and must create dummy functions to satisfy registration requirements before mocking.",
+  "rootCause": "Local activities validate argument types at registration time rather than at dispatch time, making the registration check unnecessarily restrictive for mocking scenarios.",
+  "proposedFix": "Drop the registration assertion for mock activities since OnActivity overrides the original function behavior entirely, making prior registration unnecessary.",
+  "workaround": "Register a dummy function with the proper argument types before calling OnActivity, or use RegisterActivity with RegisterOptions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Could this assertion be dropped? It feels quite unnecessary.",
+  "number": 982,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:57.513Z"
+}

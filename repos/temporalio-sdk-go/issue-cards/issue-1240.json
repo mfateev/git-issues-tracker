@@ -1,0 +1,33 @@
+{
+  "summary": "A data race condition occurs in the Go SDK after the deadlock detector fires during workflow execution. The race involves concurrent access to a map in the command state machine, with one goroutine reading while another writes, potentially triggered by a recent PR to the deadlock detection code.",
+  "category": "bug",
+  "subcategory": "concurrency-race-condition",
+  "apis": [
+    "GetVersion"
+  ],
+  "components": [
+    "command-state-machine",
+    "workflow-execution-handler",
+    "deadlock-detector"
+  ],
+  "concepts": [
+    "data-race",
+    "deadlock-detection",
+    "goroutine-safety",
+    "concurrent-access",
+    "workflow-execution",
+    "version-marker"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may panic and fail unpredictably when the deadlock detector is triggered, affecting workflow reliability in production environments.",
+  "rootCause": "Concurrent map access in commandsHelper.addCommand() and commandStateMachineBase.moveState() - one goroutine reads the map while another deletes from it, likely introduced by changes to deadlock detection in a recent PR.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "Data race observed in VersionLoopWorkflow, after the deadlock detector fired... Likely suspect is this PR",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 1240,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:56.794Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Go SDK incorrectly handles ContinueAsNew when two workflows in different packages have the same function name, causing the wrong workflow to be executed. The SDK should either crash on startup if duplicate function names are registered or properly differentiate between them.",
+  "category": "bug",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "ContinueAsNew",
+    "RegisterWorkflow"
+  ],
+  "components": [
+    "workflow-registry",
+    "worker",
+    "registration"
+  ],
+  "concepts": [
+    "workflow-naming",
+    "function-resolution",
+    "duplicate-detection",
+    "package-scoping",
+    "registration-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users with workflows having identical function names in different packages will have the wrong workflow invoked during ContinueAsNew operations, causing runtime confusion and incorrect workflow execution.",
+  "rootCause": "The SDK uses only the simple function name as the workflow identifier/alias without considering package context, allowing two different functions with the same name to overwrite each other's registration.",
+  "proposedFix": "The SDK should panic if a workflow name is reused during registration unless DisableAlreadyRegisteredCheck is explicitly set to true in the options.",
+  "workaround": "Reference the custom workflow name (registered via options) instead of the function pointer when calling ContinueAsNew.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by clarifying that function name is used as the default workflow name and can be overridden via options. Related issue #672 opened to allow disabling function name as an alias.",
+  "related": [
+    672
+  ],
+  "keyQuote": "This code should panic if a name is reused unless `DisableAlreadyRegisteredCheck` is explicitly set to true in the options.",
+  "number": 197,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:05.652Z"
+}

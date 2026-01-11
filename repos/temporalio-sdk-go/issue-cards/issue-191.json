@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support generic workflow and activity implementations that can handle multiple types dynamically. This would enable frameworks built on top of the Go SDK (like the proposed PHP SDK) to load and unload implementations at runtime without restarting the worker.",
+  "category": "feature",
+  "subcategory": "worker-registration",
+  "apis": [
+    "RegisterWorkflow",
+    "RegisterActivity"
+  ],
+  "components": [
+    "worker",
+    "registry",
+    "workflow-handler",
+    "activity-handler"
+  ],
+  "concepts": [
+    "dynamic-loading",
+    "generic-handler",
+    "runtime-registration",
+    "type-dispatch",
+    "framework-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Framework developers can dynamically load workflow and activity implementations at runtime without worker restarts, enabling remote artifact storage and hot-reloading scenarios.",
+  "rootCause": null,
+  "proposedFix": "Provide a generic workflow/activity implementation handler that receives the workflow or activity type as an argument, allowing dynamic dispatch to appropriate implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Generic workflow and activity registration support was implemented in the SDK, allowing handlers to receive type information for dynamic dispatch.",
+  "related": [],
+  "keyQuote": "A generic workflow implementation handler that receives the workflow type (or activity type) as an argument.",
+  "number": 191,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:50.037Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The versioning override API in UpdateWorkflowExecutionOptions incorrectly provides a pointer to an empty Deployment struct instead of a nil pointer to set AutoUpgrade behavior, causing the server to fail the request.",
+  "category": "bug",
+  "subcategory": "versioning-override",
+  "apis": [
+    "UpdateWorkflowExecutionOptions"
+  ],
+  "components": [
+    "versioning-override",
+    "deployment-proto",
+    "api-implementation"
+  ],
+  "concepts": [
+    "versioning",
+    "autoupgrade",
+    "deployment",
+    "proto-handling",
+    "nil-pointer"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully use the versioning override API to set AutoUpgrade behavior as requests fail at the server.",
+  "rootCause": "SDK provides a pointer to an empty Deployment struct instead of a nil pointer, which the server interprets differently.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed by the author after confirmation.",
+  "related": [],
+  "keyQuote": "the SDK provides a pointer to an empty Deployment struct. The result is that the server always fails the request.",
+  "number": 1764,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:36.850Z"
+}

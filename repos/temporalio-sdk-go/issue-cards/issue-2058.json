@@ -1,0 +1,34 @@
+{
+  "summary": "Request for a new panic policy option to reset workflows from the start when encountering panics or non-deterministic behavior, allowing automatic recovery without requiring workflow retry with its associated limitations.",
+  "category": "feature",
+  "subcategory": "panic-policy",
+  "apis": [
+    "WorkflowPanicPolicy"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "panic-handling"
+  ],
+  "concepts": [
+    "panic",
+    "non-determinism",
+    "workflow-reset",
+    "retry-policy",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encountering non-deterministic panics need a better way to automatically reset workflows without the limitations of retry policies or risk of infinite loops.",
+  "rootCause": "Non-deterministic exceptions in workflow execution lack a clean reset mechanism; existing alternatives (FailWorkflow + RetryPolicy or manual error wrapping) have significant limitations.",
+  "proposedFix": "Add a new `ResetWorkflow` panic policy option that automatically resets the workflow from the start on panic, with a maximum limit to prevent infinite loops.",
+  "workaround": "Use `WorkflowPanicPolicy` set to `FailWorkflow` combined with `RetryPolicy` when starting the workflow, though this doesn't replay signals and requires wrapping errors with `temporal.NewNonRetryableError`.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as a duplicate of temporalio/features#417, consolidating the discussion in the features repository.",
+  "related": [
+    417
+  ],
+  "keyQuote": "New panic policy to reset the workflow from the start in case of panic/non-determinism.",
+  "number": 2058,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:32.902Z"
+}

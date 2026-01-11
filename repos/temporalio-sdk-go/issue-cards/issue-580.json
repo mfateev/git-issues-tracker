@@ -1,0 +1,33 @@
+{
+  "summary": "IsWorkflowExecutionAlreadyStartedError does not correctly identify WorkflowExecutionAlreadyStarted errors that occur in child workflows. The error message indicates it's a workflow execution already started error, but the error type checking function returns false.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "IsWorkflowExecutionAlreadyStartedError"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "error-handling",
+    "error-detection"
+  ],
+  "concepts": [
+    "error-type-checking",
+    "child-workflows",
+    "error-unwrapping",
+    "execution-errors",
+    "error-classification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably detect and handle WorkflowExecutionAlreadyStarted errors from child workflows, forcing them to use string matching instead of type-safe error checking.",
+  "rootCause": "IsWorkflowExecutionAlreadyStartedError function does not properly recognize or unwrap WorkflowExecutionAlreadyStarted errors when they occur within ChildWorkflowExecutionError.",
+  "proposedFix": null,
+  "workaround": "Compare error message string with 'workflow execution already started' instead of using IsWorkflowExecutionAlreadyStartedError function.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "temporal.IsWorkflowExecutionAlreadyStartedError(err) never returns true, even when the err is cast to ChildWorkflowExecutionError and unwrapped",
+  "number": 580,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:13.535Z"
+}

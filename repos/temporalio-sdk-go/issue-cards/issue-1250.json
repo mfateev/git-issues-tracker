@@ -1,0 +1,33 @@
+{
+  "summary": "Eager workflow start ignores worker versioning, causing the server to return eager workflow tasks regardless of the local worker's version. This breaks the versioning guarantees when eager start is enabled on a versioned task queue.",
+  "category": "bug",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "worker",
+    "eager-start",
+    "versioning",
+    "task-queue"
+  ],
+  "concepts": [
+    "versioning",
+    "eager-execution",
+    "workflow-start",
+    "compatibility",
+    "task-routing"
+  ],
+  "severity": "high",
+  "userImpact": "Users enabling eager workflow start on versioned task queues may experience incompatible workflow executions when multiple versions of workers are running.",
+  "rootCause": "The server returns eager workflow tasks for start workflow requests without validating the local worker version against the versioning configuration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through a fix to the eager workflow start logic to respect worker versioning constraints.",
+  "related": [],
+  "keyQuote": "If a client is used to start a workflow on a task queue with versioning enabled and enables eager workflow start...the server will return an eager workflow task...regardless of what version that local version is.",
+  "number": 1250,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:11.509Z"
+}

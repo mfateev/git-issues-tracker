@@ -1,0 +1,35 @@
+{
+  "summary": "User reported that concurrent ExecuteWorkflow calls generated the same RunID, but this was actually expected behavior where workflow IDs need to be unique and the default ID reuse policy creates new run IDs for failed workflows.",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflow",
+    "GetID",
+    "GetRunID"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-execution",
+    "id-reuse-policy"
+  ],
+  "concepts": [
+    "workflow-id",
+    "run-id",
+    "concurrent-execution",
+    "id-reuse-policy",
+    "workflow-uniqueness"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about workflow ID and run ID semantics when executing concurrent workflows, expecting each execution to have a unique ID.",
+  "rootCause": "User misunderstanding of the difference between workflow ID and run ID, and the intended behavior of the default ID reuse policy.",
+  "proposedFix": null,
+  "workaround": "Use unique workflow IDs for each concurrent execution, or configure the StartWorkflowOptions with appropriate ID reuse policies.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved as invalid - the reported behavior was actually expected and correct. The user was confusing workflow ID with run ID, and the default reuse policy behavior is by design.",
+  "related": [],
+  "keyQuote": "Multiple workflow runs should use unique workflow IDs. Of course reusing an ID on a failed workflow by default creates a new run ID.",
+  "number": 630,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:12.716Z"
+}

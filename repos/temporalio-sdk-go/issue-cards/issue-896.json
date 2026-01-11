@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose the raw operator service getter to the Go SDK client interface, allowing direct access to operator service functionality.",
+  "category": "feature",
+  "subcategory": "client-interface",
+  "apis": [
+    "OperatorService"
+  ],
+  "components": [
+    "client",
+    "operator-service"
+  ],
+  "concepts": [
+    "service-exposure",
+    "client-interface",
+    "operator-api",
+    "raw-access"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need operator service functionality will have direct access through the client interface without workarounds.",
+  "rootCause": null,
+  "proposedFix": "Add raw operator service getter to client interface",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The operator service was exposed through the client interface",
+  "related": [],
+  "keyQuote": "Add raw operator service getter to client interface.",
+  "number": 896,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:28.655Z"
+}

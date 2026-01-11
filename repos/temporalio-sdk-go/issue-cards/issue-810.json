@@ -1,0 +1,32 @@
+{
+  "summary": "User requests changes to the OnUpsertSearchAttributes hook in TestWorkflowEnvironment to accept interface{} instead of map[string]interface{}, similar to OnActivity, to enable better mock argument matching and recording in workflow tests.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "test-hooks",
+    "mock-framework"
+  ],
+  "concepts": [
+    "search-attributes",
+    "testing",
+    "mock-matching",
+    "deterministic-replay",
+    "test-utilities"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use standard mock matching patterns like mock.Anything with OnUpsertSearchAttributes due to its specific map[string]interface{} signature.",
+  "rootCause": "OnUpsertSearchAttributes signature differs from OnActivity by accepting map[string]interface{} instead of interface{}, preventing flexible mock argument matching.",
+  "proposedFix": "Change OnUpsertSearchAttributes parameter type from map[string]interface{} to interface{} to match OnActivity's signature.",
+  "workaround": "Users can attempt to match with specific keys and mock.Anything values, though this was reported as not working effectively.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like a way to use OnUpsertSearchAttributes or some other similar hook more like OnActivity.",
+  "number": 810,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:31.221Z"
+}

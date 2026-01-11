@@ -1,0 +1,32 @@
+{
+  "summary": "The mocked version of ExecuteWorkflow in the test suite doesn't accept a custom Context parameter like the production version does, making it difficult to test workflows that rely on context information such as user IDs.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "testsuite",
+    "test-workflow-environment",
+    "context-propagation"
+  ],
+  "concepts": [
+    "testing",
+    "context-injection",
+    "context-propagation",
+    "workflow-execution",
+    "mocking"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot easily pass context information to workflows during testing, requiring workarounds like custom context propagators.",
+  "rootCause": "The testsuite.TestWorkflowEnvironment.ExecuteWorkflow method signature differs from the production Client.ExecuteWorkflow, lacking context.Context parameter support.",
+  "proposedFix": "Add a ctx parameter to the mock variant of ExecuteWorkflow and propagate it through the test environment.",
+  "workaround": "Use custom Context Propagators or Interceptors on worker options to inject context information in tests.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to lack of concrete use case. The issue reporter could not provide a concrete example of the use case without the test environment, and maintainers explained that context values cannot be injected into workflow context in the same way across distributed systems.",
+  "related": [],
+  "keyQuote": "The code in my workflows/activities may rely on context information (e.g. user ID). So, in tests, it needs to be passed from somewhere",
+  "number": 654,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:57.253Z"
+}

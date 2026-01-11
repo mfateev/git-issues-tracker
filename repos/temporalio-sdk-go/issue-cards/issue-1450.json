@@ -1,0 +1,33 @@
+{
+  "summary": "The `workflow_task_execution_failed` metric is registered with inconsistent label sets across different code locations, causing Prometheus descriptor conflicts and registration errors. The metric needs consistent labeling throughout the codebase.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "task-pollers",
+    "event-handlers",
+    "prometheus-integration"
+  ],
+  "concepts": [
+    "metric-labeling",
+    "prometheus-registration",
+    "metric-consistency",
+    "descriptor-validation",
+    "label-schema"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience Prometheus errors when the workflow_task_execution_failed metric is recorded with different label sets, preventing proper metrics collection and monitoring.",
+  "rootCause": "The metric is registered with different label sets in different code locations: internal_task_pollers.go includes additional labels while internal_event_handlers.go does not, violating Prometheus's requirement for consistent metric descriptors.",
+  "proposedFix": "Ensure the metric is recorded in only one place with a consistent set of labels, or synchronize all uses to include the same label set across all locations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed in the master branch and included in v1.30.0 release.",
+  "related": [
+    1295
+  ],
+  "keyQuote": "We should ideally only be recording this metric in one place and it should always contain the same tag/label set.",
+  "number": 1450,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:33.967Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User requested the ability to register workflows by struct (similar to activity registration) to avoid naming collisions when multiple packages contain workflows with the same function name. The SDK currently only uses function names without package context, causing panics on duplicate names.",
+  "category": "feature",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "RegisterWorkflow"
+  ],
+  "components": [
+    "worker",
+    "workflow-registry"
+  ],
+  "concepts": [
+    "naming-collision",
+    "workflow-registration",
+    "package-scoping",
+    "struct-registration"
+  ],
+  "severity": "low",
+  "userImpact": "Users with multiple workflows sharing the same function name across different packages are forced to use aliases or manual naming workarounds to avoid registration conflicts.",
+  "rootCause": "The workflow registration code only extracts the function name without including package information, unlike activity registration which supports struct-based registration.",
+  "proposedFix": "Allow registering workflows through struct pointers similar to the existing activity registration pattern, or ensure function names include package context.",
+  "workaround": "Use worker.RegisterWorkflowWithOptions with RegisterWorkflowOptions.Name to explicitly specify workflow names, or use aliases.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature was rejected as struct-based workflow registration could be confusing to new users since workflows are expected to be stateless. Users are directed to use RegisterWorkflowWithOptions instead.",
+  "related": [],
+  "keyQuote": "Registering workflows by struct is not something we plan to support as it can be very confusing to the new users. The reason is that workflows are expected to be stateless.",
+  "number": 328,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:40.013Z"
+}

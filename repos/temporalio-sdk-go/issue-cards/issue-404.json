@@ -1,0 +1,33 @@
+{
+  "summary": "Deadlock detection timeout is triggered when executing long-running operations like RSA key generation in workflows/side effects, causing unnecessary restarts. User requests API to extend or control the deadlock detection timeout for specific operations.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [
+    "SideEffect"
+  ],
+  "components": [
+    "deadlock-detection",
+    "workflow-executor",
+    "context"
+  ],
+  "concepts": [
+    "timeout",
+    "deadlock-detection",
+    "long-running-operations",
+    "workflow-execution",
+    "side-effects",
+    "synchronous-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely execute long-running synchronous operations in workflows without triggering deadlock detection, forcing them to use workarounds or disable deadlock detection entirely.",
+  "rootCause": "Deadlock detection has a fixed timeout threshold (~1 second) that is exceeded by legitimate long-running operations like RSA key generation.",
+  "proposedFix": "Add API functions like `ctx.SetDeadlockTimeout(seconds)` and `defer ctx.ResetDeadlockTimeout()` to allow users to temporarily extend the deadlock detection timeout around expensive operations. Also suggested: `ctx.Alive()` for loops.",
+  "workaround": "Use `TEMPORAL_DEBUG` flag to disable deadlock detection, though this is not recommended for production. Alternatively, use local activities instead of side effects, though even local activities can trigger deadlock detection for sufficiently expensive operations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be great to have a few functions to give hints to the deadlock detection so that I could do something like this before calling an API that takes a bit longer than a second",
+  "number": 404,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:39.832Z"
+}

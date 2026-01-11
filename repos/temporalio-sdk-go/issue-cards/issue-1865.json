@@ -1,0 +1,32 @@
+{
+  "summary": "The VisitPayloads function was not visiting repeated Payload fields nested within protobuf messages, causing visitor callbacks to be skipped for these payloads. This prevented proper traversal and mutation of payloads in structures like CountWorkflowExecutionsResponse_AggregationGroup.",
+  "category": "bug",
+  "subcategory": "payload-visitor",
+  "apis": [
+    "VisitPayloads"
+  ],
+  "components": [
+    "payload-visitor",
+    "proto-traversal",
+    "api-conversion"
+  ],
+  "concepts": [
+    "payload-traversal",
+    "visitor-pattern",
+    "proto-reflection",
+    "nested-messages",
+    "message-visitation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly visit and transform repeated Payload fields in workflow service responses, limiting payload transformation capabilities.",
+  "rootCause": "The VisitPayloads implementation was not recursively visiting Payload fields when they appeared as repeated fields in protobuf messages.",
+  "proposedFix": "Update the VisitPayloads visitor to handle repeated Payload fields in all protobuf message types.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in api-go pull request #216 which implemented proper visitor traversal for repeated Payload fields.",
+  "related": [],
+  "keyQuote": "Visitor should visit this `repeated temporal.api.common.v1.Payload`",
+  "number": 1865,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:20.380Z"
+}

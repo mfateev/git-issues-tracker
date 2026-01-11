@@ -1,0 +1,28 @@
+{
+  "summary": "Add a Go method to the workflow-safe Waitgroup to match Go 1.25's sync.WaitGroup.Go() for API consistency across the SDK.",
+  "category": "feature",
+  "subcategory": "workflow-utilities",
+  "apis": [],
+  "components": [
+    "waitgroup",
+    "workflow-api"
+  ],
+  "concepts": [
+    "synchronization",
+    "concurrency",
+    "api-consistency",
+    "stdlib-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using the SDK's workflow-safe Waitgroup will have a more consistent API matching Go's standard library.",
+  "rootCause": null,
+  "proposedFix": "Add a Go method to the SDK's workflow-safe Waitgroup implementation matching sync.WaitGroup.Go()",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to provide consistency with Go 1.25's WaitGroup.Go() method",
+  "related": [],
+  "keyQuote": "The SDK has a workflow safe version of `Waitgroup`, recently Go 1.25 added `Waitgroup.Go`. The SDK should also have a similar method for consistency.",
+  "number": 2031,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:23.756Z"
+}

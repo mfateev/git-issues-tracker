@@ -1,0 +1,39 @@
+{
+  "summary": "Data converters and codecs need access to serialization context (activity IDs, child workflow IDs) to implement context-aware behavior like encryption that depends on workflow identity. Currently unavailable in Go SDK unlike Java SDK.",
+  "category": "feature",
+  "subcategory": "data-converters",
+  "apis": [
+    "WithContext",
+    "WithWorkflowContext"
+  ],
+  "components": [
+    "data-converter",
+    "codec",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "serialization",
+    "context",
+    "encryption",
+    "replay-attack",
+    "activity-id",
+    "workflow-id",
+    "nexus"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement security-critical features like replay-attack mitigation that require access to workflow/activity IDs during serialization.",
+  "rootCause": "Go SDK does not pass activity/child workflow IDs to data converters during serialization, unlike Java SDK.",
+  "proposedFix": "Pass serialization context containing activity ID and child workflow ID to WithContext/WithWorkflowContext calls on data converter, requiring minor refactoring of when SDK generates these IDs.",
+  "workaround": "Create an interceptor to manually set activity ID/child workflow ID, potentially with SDK-provided deterministic UUID generator.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    434,
+    678
+  ],
+  "keyQuote": "Getting access to the workflow ID in the codec is critical to mitigating replay attacks",
+  "number": 1352,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:37.800Z"
+}

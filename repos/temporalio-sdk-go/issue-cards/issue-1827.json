@@ -1,0 +1,33 @@
+{
+  "summary": "TestNumPollersCounter metric test fails on stable macOS ARM CI, showing 1 poller instead of expected 2. Failure is specific to CI environment and cannot be reproduced locally.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-poller",
+    "ci-infrastructure"
+  ],
+  "concepts": [
+    "metric-validation",
+    "flaky-test",
+    "ci-environment",
+    "platform-specific",
+    "concurrency"
+  ],
+  "severity": "medium",
+  "userImpact": "CI test failures block PR merges and reduce confidence in metric accuracy on ARM-based systems.",
+  "rootCause": "Likely race condition or timing issue specific to macOS ARM architecture in CI environment affecting poller count metrics",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed between PR #1816 and PR #1826 based on issue timeline",
+  "related": [
+    1816,
+    1826
+  ],
+  "keyQuote": "metric is only showing up as 1",
+  "number": 1827,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:48.182Z"
+}

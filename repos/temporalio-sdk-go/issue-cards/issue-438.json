@@ -1,0 +1,33 @@
+{
+  "summary": "Client creation fails completely if health check intermittently fails with no built-in retry mechanism. Users must either disable health checks or implement retries in their application layer.",
+  "category": "feature",
+  "subcategory": "client-creation",
+  "apis": [],
+  "components": [
+    "client-creation",
+    "health-check",
+    "grpc-connection"
+  ],
+  "concepts": [
+    "retry",
+    "health-check",
+    "resilience",
+    "connection-establishment",
+    "failure-handling",
+    "timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably create clients when the health check service has intermittent failures, forcing them to disable health checks or implement custom retry logic.",
+  "rootCause": "The checkHealth function has no retry mechanism and is called synchronously during client creation, causing immediate failure on any health check error.",
+  "proposedFix": "Add more sophisticated retry logic to health check calls during client creation, or provide configuration options in ConnectionOptions to control retry behavior.",
+  "workaround": "Disable health check via DisableHealthCheck option or implement retries in application layer.",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in issue #453 with enhanced retry and reconnection logic.",
+  "related": [
+    453
+  ],
+  "keyQuote": "User's only option is to disable the health check or add retries on their application layer.",
+  "number": 438,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:26.327Z"
+}

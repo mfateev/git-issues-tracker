@@ -1,0 +1,35 @@
+{
+  "summary": "The update-with-start API required confusing double calls to ExecuteWorkflow with different options. A simplified single API function was requested and subsequently implemented in v1.31.0.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "ExecuteWorkflow",
+    "UpdateWithStartWorkflow",
+    "NewUpdateWithStartWorkflowOperation"
+  ],
+  "components": [
+    "client",
+    "workflow-execution",
+    "update-api"
+  ],
+  "concepts": [
+    "api-simplification",
+    "workflow-idempotency",
+    "conflict-policy",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can now use a single, intuitive UpdateWithStartWorkflow API instead of calling ExecuteWorkflow twice with specific options.",
+  "rootCause": "The original API design required understanding WorkflowIDConflictPolicy and multiple ExecuteWorkflow calls to accomplish a single logical operation.",
+  "proposedFix": "Provide a single dedicated function (client.UpdateWithStartWorkflow) that hides the implementation details of update-with-start operations.",
+  "workaround": "Call ExecuteWorkflow twice: once with USE_EXISTING conflict policy, then with WithStartOperation set to NewUpdateWithStartWorkflowOperation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Simplified update-with-start API was released in v1.31.0 with a dedicated UpdateWithStartWorkflow method.",
+  "related": [
+    1579
+  ],
+  "keyQuote": "Needing two consecutive calls to ExecuteWorkflow to exercise the update-with-start functionality is confusing and violates the principle of least surprise.",
+  "number": 1728,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:39.441Z"
+}

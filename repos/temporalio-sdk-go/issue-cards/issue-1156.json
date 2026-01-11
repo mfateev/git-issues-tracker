@@ -1,0 +1,34 @@
+{
+  "summary": "When a worker stops while an activity is running, the activity cancellation error is rejected by the server with 'unable to mark activity as canceled' instead of being recorded as failed. This causes delays as the server waits for timeout before retrying, unlike other SDKs which convert non-server-requested cancellations to application errors.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-completion"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-handling",
+    "worker-shutdown",
+    "retry",
+    "timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Activities take longer to retry after worker shutdown because server waits for timeout instead of immediately failing the task.",
+  "rootCause": "SDK sends activity cancelled status for context cancellations not initiated by server, which server rejects. Should send application error instead for non-server-requested cancellations.",
+  "proposedFix": "Only send activity cancelled status if server requested the cancellation; wrap other cancellation errors as application errors instead. Add test proving worker stop during non-heartbeating activity retries on next worker.",
+  "workaround": "Return a custom error with small NextRetryDelay from interceptor instead of relying on automatic retry after timeout.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1086
+  ],
+  "keyQuote": "unable to mark activity as canceled without activity being request canceled first",
+  "number": 1156,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:27.928Z"
+}

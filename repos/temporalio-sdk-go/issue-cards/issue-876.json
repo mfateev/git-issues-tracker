@@ -1,0 +1,30 @@
+{
+  "summary": "Completed workflows are not properly checking for command/event mismatches when activities are replayed in a different order, allowing non-deterministic issues to go undetected. A conditional protecting against premature workflow completion is preventing determinism checks from running on completed workflows.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "task-handler",
+    "replayer",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "determinism",
+    "non-determinism",
+    "command-event-mismatch",
+    "workflow-replay",
+    "history-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can have non-deterministic workflows go undetected when replaying completed workflows with different activity orderings, leading to silent failures in production.",
+  "rootCause": "The !w.isWorkflowCompleted conditional at internal_task_handlers.go:946 disables determinism checks for completed workflows to prevent premature completion issues, but this also prevents detection of command/event mismatches.",
+  "proposedFix": "Re-enable determinism checks on completed workflows while ensuring no issues arise with premature workflow completion due to panic errors and maintaining backward compatibility with existing code.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Determinism checks were re-enabled for completed workflows with proper safeguards for premature completion scenarios",
+  "related": [],
+  "keyQuote": "This is not occurring because of the !w.isWorkflowCompleted conditional at https://github.com/temporalio/sdk-go/blob/38b2b69f18bdc3bcaf1b4e48f940d1c60b5f9253/internal/internal_task_handlers.go#L946",
+  "number": 876,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:57.977Z"
+}

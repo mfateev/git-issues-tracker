@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add a LocalActivityOption to exclude local activity input arguments from history events. Local activities used for state logging generate large histories unnecessarily storing input data that's only for human consumption and not used by the SDK.",
+  "category": "feature",
+  "subcategory": "local-activity",
+  "apis": [
+    "LocalActivityOption"
+  ],
+  "components": [
+    "local-activity-marker",
+    "history-events",
+    "event-handler"
+  ],
+  "concepts": [
+    "history-size",
+    "local-activity",
+    "marker-event",
+    "arguments",
+    "optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large state logging workflows via local activities experience bloated history sizes that could be reduced by excluding unnecessary input arguments.",
+  "rootCause": "Local activity input arguments are currently always included in marker events regardless of necessity, contributing to history bloat in scenarios with large state objects.",
+  "proposedFix": "Add LocalActivityOption.DoNotIncludeArgumentsIntoHistory option to allow excluding input from the local activity marker event.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    441
+  ],
+  "keyQuote": "The local activity input is included in the marker event only for human consumption and is not used by the SDK.",
+  "number": 313,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:23.375Z"
+}

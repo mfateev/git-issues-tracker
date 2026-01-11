@@ -1,0 +1,32 @@
+{
+  "summary": "Improve testing capabilities for Nexus Operations by adding a TestNexusEnvironment for unit testing operations outside workflow context and integrating OnNexusOperation into the workflow test environment for mocking and time skipping.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "nexus-operations",
+    "test-environment",
+    "workflow-testing",
+    "sync-operations"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "nexus",
+    "operations",
+    "test-environment",
+    "time-skipping"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot effectively test Nexus operations outside of workflow context, limiting their ability to write unit tests for operation handlers.",
+  "rootCause": null,
+  "proposedFix": "Add TestNexusEnvironment for testing operations outside workflow context and add OnNexusOperation method to workflow test environment to integrate with mocking and time skipping.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after implementation of testing improvements for Nexus Operations.",
+  "related": [],
+  "keyQuote": "Add a TestNexusEnvironment for users to test their operations outside of workflow context",
+  "number": 1491,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:53.060Z"
+}

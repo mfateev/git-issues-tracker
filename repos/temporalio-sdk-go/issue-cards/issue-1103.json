@@ -1,0 +1,32 @@
+{
+  "summary": "UpsertSearchAttributes returns nil error but fails the workflow task when the server rejects invalid search attributes. User requested configuration to prevent workflow task failures on search attribute errors.",
+  "category": "question",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "workflow",
+    "search-attributes",
+    "command-generation"
+  ],
+  "concepts": [
+    "error-handling",
+    "workflow-execution",
+    "search-attributes",
+    "validation",
+    "server-rejection"
+  ],
+  "severity": "low",
+  "userImpact": "Workflows fail due to server-side search attribute validation errors with no SDK-level error handling option.",
+  "rootCause": "The Temporal server fails the workflow task when search attributes are invalid; the SDK generates the command but the server rejects it during execution.",
+  "proposedFix": "Configuration or environment variable to control whether workflow task failures should occur on search attribute errors.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Determined to be expected behavior - the SDK cannot prevent server-side task failures. Server is responsible for validating search attributes.",
+  "related": [],
+  "keyQuote": "I believe this is the Temporal server failing the workflow task because the search attribute is invalid. There is nothing the SDK can do if the server fails the workflow task.",
+  "number": 1103,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:56.460Z"
+}

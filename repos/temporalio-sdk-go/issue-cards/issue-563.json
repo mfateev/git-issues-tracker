@@ -1,0 +1,33 @@
+{
+  "summary": "LocalActivity is not retried when no retry policy is specified, relying instead on workflow task retries. The issue discusses whether this behavior should be changed and requests unit and integration tests to verify retry behavior for both local and remote activities.",
+  "category": "bug",
+  "subcategory": "local-activity-retry",
+  "apis": [
+    "LocalActivity",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "task-handlers",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "local-activity",
+    "error-handling",
+    "workflow-task",
+    "failure-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users expect local activities to be automatically retried when activity calls fail, but lack of explicit retry policy configuration prevents retries at the activity level.",
+  "rootCause": "When retry options are nil, the code in internal_task_handlers.go prevents local activity retries, instead relying on workflow task retries.",
+  "proposedFix": "Add default retry policy behavior for local activities similar to remote activities; add unit and integration tests to verify retry behavior.",
+  "workaround": "Currently local activity failures are caught by workflow task retries, which retry until workflow timeout.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "LocalActivity is not retried if no retry policy is specified. Or if retry policy is specified with only MaxAttempt=3 and all other fields left as unspecified.",
+  "number": 563,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:27.311Z"
+}

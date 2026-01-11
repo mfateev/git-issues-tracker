@@ -1,0 +1,30 @@
+{
+  "summary": "JSON input payloads in workflow history are invalid and improperly encoded, with special characters like accents being escaped as Unicode sequences instead of being preserved correctly. This affects debugging through the Temporal Web UI and history API calls.",
+  "category": "bug",
+  "subcategory": "json-encoding",
+  "apis": [],
+  "components": [
+    "workflow-history",
+    "json-serialization",
+    "web-ui"
+  ],
+  "concepts": [
+    "encoding",
+    "json-serialization",
+    "unicode",
+    "debugging",
+    "payload-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly inspect workflow input payloads in the Web UI or via the history API due to malformed JSON and incorrect character encoding.",
+  "rootCause": "JSON encoding does not properly handle non-ASCII characters like accented letters, converting them to escaped Unicode sequences.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal encoding doesn't support accents in the input too. `firstName:Pr\\u00e9nom test` for `firstName:Prénom test`",
+  "number": 358,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:35.318Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The error handling documentation in workflow/doc.go is outdated and still references CustomError and GenericError which are no longer part of the current implementation. Documentation needs review to match actual implementation.",
+  "category": "docs",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "documentation",
+    "error-handling",
+    "workflow"
+  ],
+  "concepts": [
+    "error-handling",
+    "api-documentation",
+    "implementation-mismatch",
+    "deprecation"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused by outdated error handling documentation that references non-existent APIs.",
+  "rootCause": "Documentation was not updated when error handling implementation changed.",
+  "proposedFix": "Review and update workflow/doc.go to match current error handling implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #879",
+  "related": [
+    879
+  ],
+  "keyQuote": "workflow/doc.go contains up-to-date information about failures. It is still referencing CustomError and GenericError.",
+  "number": 417,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:28.244Z"
+}

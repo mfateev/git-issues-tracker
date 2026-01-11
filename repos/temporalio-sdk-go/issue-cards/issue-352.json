@@ -1,0 +1,28 @@
+{
+  "summary": "ReplayLogger.With doesn't properly expand the variadic keyvals parameter when passing arguments to the underlying logger, causing all arguments to be passed as a single array instead of separate arguments.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "ReplayLogger",
+    "logging"
+  ],
+  "concepts": [
+    "variadic arguments",
+    "parameter expansion",
+    "function delegation",
+    "logging configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly configure logging with the ReplayLogger when using the With method with multiple key-value pairs.",
+  "rootCause": "Missing spread operator (...) on keyvals parameter when calling the underlying logger's With method, causing the slice to be passed as a single argument instead of being expanded.",
+  "proposedFix": "Append ... to keyvals on line 81: return NewReplayLogger(With(l.logger, keyvals...), l.isReplay, l.enableLoggingInReplay)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "keyvals on this line needs to have `...` appended like so: return NewReplayLogger(With(l.logger, keyvals...), l.isReplay, l.enableLoggingInReplay)",
+  "number": 352,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:22.454Z"
+}

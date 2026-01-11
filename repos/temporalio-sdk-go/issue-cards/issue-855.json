@@ -1,0 +1,31 @@
+{
+  "summary": "Calling worker.Stop() twice causes a panic when trying to close an already-closed channel. The issue questions whether Stop should be idempotent or if users should be responsible for tracking worker state.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Stop"
+  ],
+  "components": [
+    "worker",
+    "channel-management"
+  ],
+  "concepts": [
+    "panic",
+    "channel-closure",
+    "idempotency",
+    "lifecycle",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who accidentally call Stop() multiple times will experience a panic, potentially crashing their application.",
+  "rootCause": "The Stop() method closes a channel without checking if it's already closed, and there's no atomic way to prevent double-stops.",
+  "proposedFix": null,
+  "workaround": "Users should maintain their own state to track whether they've already called Stop().",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers decided not to make Stop() idempotent, arguing that just like file deletion, calling Stop() twice should not be allowed. They plan to document that Stop() cannot be called twice.",
+  "related": [],
+  "keyQuote": "I am not convinced we need to allow worker functions to be safe for multiple calls.",
+  "number": 855,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:56.470Z"
+}

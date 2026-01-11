@@ -1,0 +1,30 @@
+{
+  "summary": "Users implementing workflows as struct methods with pointer receivers can inadvertently create non-deterministic code. The team decided to add documentation warnings rather than expand the workflowcheck tool to detect this pattern.",
+  "category": "docs",
+  "subcategory": "workflow-patterns",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "workflow-registration",
+    "documentation"
+  ],
+  "concepts": [
+    "non-determinism",
+    "struct-methods",
+    "pointer-receiver",
+    "static-analysis",
+    "code-patterns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may unknowingly implement workflows with struct methods, leading to non-deterministic behavior that causes runtime errors.",
+  "rootCause": "Workflows implemented as struct methods with pointer receivers can violate determinism guarantees; this pattern is difficult to prevent at compile-time.",
+  "proposedFix": "Add documentation warnings against using struct methods for workflow definitions.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided against expanding workflowcheck scope. Instead, documentation will be updated to warn against this pattern, though test suite changes would require significant refactoring.",
+  "related": [],
+  "keyQuote": "Decided internally that since this spams our test logs...for now we'll add something in the documentation warning against this.",
+  "number": 1986,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:51.188Z"
+}

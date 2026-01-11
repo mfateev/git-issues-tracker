@@ -1,0 +1,32 @@
+{
+  "summary": "The DataConverterWithoutDeadlockDetection wrapper drops the workflow/activity context when wrapping a ContextAware DataConverter, preventing the underlying converter from accessing context-driven functionality like KeyID population in encryption scenarios.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "DataConverterWithoutDeadlockDetection"
+  ],
+  "components": [
+    "data-converter",
+    "context-handling",
+    "wrapper"
+  ],
+  "concepts": [
+    "context-propagation",
+    "deadlock-detection",
+    "data-conversion",
+    "encryption",
+    "wrapper-pattern"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use DataConverterWithoutDeadlockDetection with ContextAware converters because context information required for encryption and other context-driven logic is lost.",
+  "rootCause": "The DataConverterWithoutDeadlockDetection wrapper does not propagate the workflow/activity context to the wrapped DataConverter instance.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The wrapper was fixed to properly pass context through to the underlying ContextAware DataConverter.",
+  "related": [],
+  "keyQuote": "Context is dropped by DataConverterWithoutDeadlockDetection wrapper causing the underlying DataConverter not able to perform context driven logics.",
+  "number": 1347,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:21.857Z"
+}

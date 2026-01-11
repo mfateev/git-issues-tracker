@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to make context.Context an implicit/optional parameter in activity mocks so users don't have to explicitly pass mock.Anything for it, similar to how it's automatically propagated during execution.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "mock-framework",
+    "testing"
+  ],
+  "concepts": [
+    "mocking",
+    "activity-testing",
+    "context-propagation",
+    "test-ergonomics",
+    "signature-matching"
+  ],
+  "severity": "low",
+  "userImpact": "Users must explicitly include mock.Anything for context.Context parameters when mocking activities, creating friction in test setup.",
+  "rootCause": "Mock libraries require exact signature matching between mock expectations and actual function signatures, but context.Context is implicitly propagated during execution.",
+  "proposedFix": "Allow context.Context to be an implicit/optional parameter in activity mocks that doesn't require explicit mock.Anything specification.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer determined that allowing signature mismatch for context.Context specifically would be confusing and error-prone, as mock libraries generally require exact signature matching.",
+  "related": [],
+  "keyQuote": "In general mock libraries require mock signature to match what is being mocked, seems confusing and error prone to allow a mismatch just for context.Context",
+  "number": 336,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:55.027Z"
+}

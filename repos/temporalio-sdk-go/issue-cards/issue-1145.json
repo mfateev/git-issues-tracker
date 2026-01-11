@@ -1,0 +1,32 @@
+{
+  "summary": "Concurrent map read/write panic occurs in tchannel-go when repeatedly starting and stopping a Temporal test server in tests. The issue manifests as a race condition in the handler registration during server setup.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "tchannel-go",
+    "handler-registration"
+  ],
+  "concepts": [
+    "concurrency",
+    "race-condition",
+    "map-access",
+    "server-lifecycle",
+    "test-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running multiple test iterations with server start/stop cycles encounter crashes that prevent test execution.",
+  "rootCause": "Concurrent map read and write in tchannel-go's handler registration during repeated server initialization cycles.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Identified as duplicate of temporalio/temporal#4000, which is a server-side tchannel-go concurrency issue.",
+  "related": [
+    4000
+  ],
+  "keyQuote": "This looks like the same tchannel-go concurrent map write issue as temporalio/temporal#4000. This is a server-side issue.",
+  "number": 1145,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:57.281Z"
+}

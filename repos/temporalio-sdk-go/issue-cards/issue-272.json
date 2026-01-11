@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add a WorkflowClient method for retrieving the RunId of a workflow, eliminating the need to call the lower-level DescribeWorkflowExecution API for this common operation.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowClient",
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "workflow-client",
+    "client-api"
+  ],
+  "concepts": [
+    "run-id",
+    "workflow-identification",
+    "client-convenience",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently require lower-level API calls to retrieve a workflow's RunId, which is a common operation that should be directly accessible through the main WorkflowClient.",
+  "rootCause": null,
+  "proposedFix": "Add a method to WorkflowClient to get the run id directly (and potentially workflow status)",
+  "workaround": "Use DescribeWorkflowExecution call to obtain the RunId",
+  "resolution": "fixed",
+  "resolutionDetails": "RunId is now accessible through WorkflowClient methods",
+  "related": [],
+  "keyQuote": "Add a way to get the run id (and maybe workflow status) directly using the WorkflowClient.",
+  "number": 272,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:24.326Z"
+}

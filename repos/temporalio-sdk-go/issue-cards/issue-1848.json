@@ -1,0 +1,35 @@
+{
+  "summary": "Request to expose root workflow execution context in the Go SDK. References feature request #605 in the features repository, noting that only the workflow info part may need implementation due to how list and describe operations work in the SDK.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-execution",
+    "runtime"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "root-workflow",
+    "execution-context",
+    "workflow-info",
+    "parent-child-workflows",
+    "visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access root workflow execution context, limiting their ability to understand and work with parent-child workflow relationships in the Go SDK.",
+  "rootCause": null,
+  "proposedFix": "Expose workflow info related to root workflow execution, potentially following the pattern established in the features repository issue #605.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed to expose root workflow execution context in the SDK.",
+  "related": [
+    605
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/605. Due to how list and describe work in this SDK, only need to do the workflow info part probably.",
+  "number": 1848,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:37.309Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "ExecuteWorkflow does not raise WorkflowExecutionAlreadyStartedError when a workflow with the same ID is restarted using WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE_FAILED_ONLY. The error is silently consumed and an existing WorkflowRun is returned instead.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "error-handling",
+    "reuse-policy"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "duplicate-execution",
+    "error-propagation",
+    "workflow-execution-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users migrating from Cadence cannot properly handle duplicate workflow executions and cannot distinguish between new and existing workflow runs based on error types.",
+  "rootCause": "ExecuteWorkflow consumes WorkflowExecutionAlreadyStartedError internally and returns existing WorkflowRun instead of propagating the error to the caller.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by ensuring WorkflowExecutionAlreadyStartedError is properly raised to callers when appropriate reuse policies are set.",
+  "related": [],
+  "keyQuote": "Being able to receive `WorkflowExecutionAlreadyStartedError` on `ExecuteWorkflow` if `ReusePolicy` is `WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE_FAILED_ONLY`",
+  "number": 220,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:21.477Z"
+}

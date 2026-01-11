@@ -1,0 +1,31 @@
+{
+  "summary": "Request to temporarily expose the gRPC client connection from the Go SDK for use by the in-development cloud API. This was a temporary measure as the cloud API was not yet stable and the approach was later superseded by a more comprehensive solution.",
+  "category": "feature",
+  "subcategory": "grpc-client",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "internalbindings",
+    "cloud-api"
+  ],
+  "concepts": [
+    "grpc-connection",
+    "api-stability",
+    "temporary-exposure",
+    "cloud-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Allows cloud API to access the internal gRPC connection without requiring separate connection management.",
+  "rootCause": null,
+  "proposedFix": "Add GetGRPCConnection(internal.Client) *grpc.ClientConn to go.temporal.io/sdk/internalbindings with experimental warning",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Not pursued as the approach was changed. A more full-fledged cloud client solution was implemented instead (see #1426).",
+  "related": [
+    1426
+  ],
+  "keyQuote": "This is not the approach we're going to take, see #1426 for a more full-fledged cloud client.",
+  "number": 1172,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:44.177Z"
+}

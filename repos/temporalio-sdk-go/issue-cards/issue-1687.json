@@ -1,0 +1,30 @@
+{
+  "summary": "A compilation error occurred in Go SDK v1.29.1 due to undefined nexus.HandlerErrorTypeDownstreamTimeout, which was resolved in v1.30.0. The issue stemmed from a version mismatch between the Go SDK and Go API packages.",
+  "category": "bug",
+  "subcategory": "nexus-integration",
+  "apis": [],
+  "components": [
+    "nexus-task-handler",
+    "api-dependencies",
+    "version-compatibility"
+  ],
+  "concepts": [
+    "compilation-error",
+    "version-mismatch",
+    "dependency-management",
+    "api-compatibility",
+    "build-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users were unable to build their Go applications with SDK v1.29.1 due to missing nexus error type definitions.",
+  "rootCause": "The Go SDK v1.29.1 could not depend on the latest Go API version due to missing HandlerErrorTypeDownstreamTimeout definition, causing compilation failures.",
+  "proposedFix": null,
+  "workaround": "Downgrade to v1.29.0 or upgrade to v1.30.0.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in v1.30.0 with improved dependency management to prevent future API version mismatches.",
+  "related": [],
+  "keyQuote": "this was an unfortunate case where our latest Go SDK version could not depend on our latest Go API version",
+  "number": 1687,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:25.978Z"
+}

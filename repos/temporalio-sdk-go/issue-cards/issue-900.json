@@ -1,0 +1,34 @@
+{
+  "summary": "Signals are silently dropped when they fail to deserialize, and there's no warning logged to alert developers. The request is to add warning logs for failed signal deserialization and document behavior in selectors when the receive callback occurs.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "SignalWithID",
+    "GetSignal"
+  ],
+  "components": [
+    "signal-handler",
+    "deserializer",
+    "selector"
+  ],
+  "concepts": [
+    "serialization",
+    "signal-processing",
+    "error-logging",
+    "deserialization",
+    "callback",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers lack visibility into signal deserialization failures, making it difficult to debug why signals aren't being processed.",
+  "rootCause": "No warning is logged when signal deserialization fails, causing silent failures that are hard to detect.",
+  "proposedFix": "Add warning logs when signal deserialization fails and document selector behavior when receive callback occurs with deserialization errors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Signals are silently dropped when they can't deserialize",
+  "number": 900,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:01.639Z"
+}

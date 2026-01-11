@@ -1,0 +1,34 @@
+{
+  "summary": "Querying a workflow inside RegisterDelayedCallback() with 0 duration causes a nil pointer dereference crash in the test environment. The query handler isn't registered in time when the callback executes immediately with 0 delay.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "QueryWorkflow",
+    "RegisterDelayedCallback",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "query-handler",
+    "delayed-callback"
+  ],
+  "concepts": [
+    "test-environment",
+    "timing",
+    "query",
+    "callback",
+    "race-condition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query workflows in delayed callbacks with 0 duration during testing, limiting test coverage for certain workflow patterns.",
+  "rootCause": "When RegisterDelayedCallback() is called with 0 duration, the callback executes immediately before the query handler is properly registered in the test environment.",
+  "proposedFix": null,
+  "workaround": "Use a non-zero duration (e.g., 1 millisecond) for RegisterDelayedCallback() instead of 0 duration.",
+  "resolution": "wontfix",
+  "resolutionDetails": "After investigation, the team decided to update documentation rather than fix the test framework, as supporting this would require significant changes and the pattern isn't feasible in real-world scenarios.",
+  "related": [],
+  "keyQuote": "0 duration on RegisterDelayedCallback will always break if you try to query inside of it because of a bug where the query handler isn't registered yet.",
+  "number": 433,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:12.035Z"
+}

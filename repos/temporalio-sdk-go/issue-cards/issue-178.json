@@ -1,0 +1,32 @@
+{
+  "summary": "Request to accept a Logger interface instead of requiring *zap.Logger in ClientOptions, allowing users to provide custom logging implementations without forcing zap as a dependency.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "ClientOptions"
+  ],
+  "components": [
+    "client",
+    "logger-interface",
+    "structured-logging"
+  ],
+  "concepts": [
+    "logging-abstraction",
+    "dependency-injection",
+    "interface-design",
+    "structured-fields",
+    "logger-adapter"
+  ],
+  "severity": "low",
+  "userImpact": "Users are forced to use zap.Logger and cannot integrate their own logging libraries with the temporal-go-sdk client.",
+  "rootCause": "SDK currently accepts *zap.Logger directly in ClientOptions and uses zap-specific structured logging fields throughout the codebase.",
+  "proposedFix": "Define a Logger interface and accept it in ClientOptions instead of *zap.Logger, abstracting away the zap dependency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to accept a Logger interface instead of *zap.Logger, allowing users to provide custom logging implementations.",
+  "related": [],
+  "keyQuote": "I'd like to pass in a custom Logger instance when instantiating a temporal client. Expecting a `*zap.Logger` instance forces consumers to use zap.",
+  "number": 178,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:35.344Z"
+}

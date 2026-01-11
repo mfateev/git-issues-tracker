@@ -1,0 +1,32 @@
+{
+  "summary": "Add tracing interceptor support for Nexus Operations to propagate headers from workflows to Nexus Operation handlers. This requires implementing an NexusOperationInboundInterceptor.",
+  "category": "feature",
+  "subcategory": "nexus-tracing",
+  "apis": [
+    "StartOperation"
+  ],
+  "components": [
+    "nexus-interceptor",
+    "tracing-interceptor",
+    "workflow"
+  ],
+  "concepts": [
+    "header-propagation",
+    "tracing",
+    "interceptor",
+    "nexus-operations",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot propagate tracing headers from workflows to Nexus Operation handlers, limiting observability across Nexus calls.",
+  "rootCause": "NexusOperationInboundInterceptor is not implemented to support header propagation in StartOperation requests.",
+  "proposedFix": "Add support for the TracingInterceptor to handle Nexus Operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented NexusOperationInboundInterceptor to support tracing header propagation for Nexus Operations.",
+  "related": [],
+  "keyQuote": "We need to add support for propagating headers from a Workflow to a Nexus Operation handler to the StartOperation request.",
+  "number": 1474,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:18.995Z"
+}

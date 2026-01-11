@@ -1,0 +1,30 @@
+{
+  "summary": "Worker becomes unresponsive when MaxConcurrentWorkflowTaskPoller is set to 1 because it only polls from the sticky queue, preventing any workflow progress. The issue requires either smarter queue polling logic or enforcing a minimum concurrent poller requirement.",
+  "category": "bug",
+  "subcategory": "worker-polling",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-poller",
+    "sticky-queue"
+  ],
+  "concepts": [
+    "concurrency-limit",
+    "queue-polling",
+    "deadlock",
+    "resource-constraint",
+    "sticky-scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Workers silently fail to process workflows when misconfigured with a concurrent poller limit of 1, causing complete workflow execution stalls.",
+  "rootCause": "Worker's preference for sticky queue polling causes it to never poll from the normal queue when MaxConcurrentWorkflowTaskPoller is limited to 1, creating a deadlock scenario.",
+  "proposedFix": "Either implement smarter queue polling that periodically polls from the normal queue, or enforce a minimum of 2 workflow task pollers and fail worker startup with clear error message if constraint violated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing intelligent queue polling strategy that balances sticky queue preferences with normal queue polling.",
+  "related": [],
+  "keyQuote": "Current silently doing nothing is not acceptable.",
+  "number": 719,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:15.880Z"
+}

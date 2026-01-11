@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for exposing whether an activity is local in the Go SDK, bringing feature parity with Java SDK's activity.GetInfo API.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "activity.GetInfo"
+  ],
+  "components": [
+    "activity",
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "local-activity",
+    "activity-metadata",
+    "api-parity",
+    "SDK-feature",
+    "activity-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot determine if an activity is running locally, limiting visibility into activity execution context.",
+  "rootCause": null,
+  "proposedFix": "Expose the local boolean field on activity.Info structure",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose local activity status in activity.GetInfo",
+  "related": [],
+  "keyQuote": "Java exposes whether an activity is local, Go does not.",
+  "number": 648,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:54.961Z"
+}

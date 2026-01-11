@@ -1,0 +1,34 @@
+{
+  "summary": "Users need visibility into session state to determine whether a session has failed, particularly when an activity fails due to session failure. This feature request asks to expose the internal session state information to SDK users so they can reliably handle session failures and implement proper recovery logic.",
+  "category": "feature",
+  "subcategory": "session-management",
+  "apis": [
+    "ExecuteActivity",
+    "SessionInfo"
+  ],
+  "components": [
+    "session-executor",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "session-failure",
+    "activity-cancellation",
+    "session-state",
+    "heartbeat",
+    "error-propagation",
+    "session-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine if an activity failure was caused by session failure, making it difficult to implement proper session recovery logic.",
+  "rootCause": "Session state information was not exposed to users, forcing them to infer session failures from error types and cancellation states which is unreliable.",
+  "proposedFix": "Expose the already-existing session state on SessionInfo to users, ensuring it is properly marked as failed when an activity fails due to session failure.",
+  "workaround": "Use a dummy activity approach to reliably detect session failures by checking if ExecuteActivity returns ErrSessionFailed after activity cancellation.",
+  "resolution": "fixed",
+  "resolutionDetails": "SessionInfo.SessionState was exposed in Go SDK v1.21.0 to allow users to check the session state directly, with a note that session state may be stale up to SessionOptions.HeartbeatTimeout.",
+  "related": [],
+  "keyQuote": "SessionInfo.SessionState was exposed in the go sdk v1.21.0. Note: Sessions have an inherently stale view of the worker they are running on.",
+  "number": 1021,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:14.798Z"
+}

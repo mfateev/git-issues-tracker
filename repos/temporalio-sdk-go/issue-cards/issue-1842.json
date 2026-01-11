@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a simple payload wrapper to prevent converters from applying conversion to values, similar to existing functionality in another issue.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "converter",
+    "payload-handler"
+  ],
+  "concepts": [
+    "payload-wrapping",
+    "conversion-bypass",
+    "data-serialization",
+    "type-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users need a way to bypass payload conversion for specific values without modifying converter logic.",
+  "rootCause": null,
+  "proposedFix": "Implement a simple payload wrapper similar to the solution referenced in features issue #603.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #1231 which already contains the requested functionality.",
+  "related": [
+    1231,
+    603
+  ],
+  "keyQuote": "need a simple payload wrapper that tells converters not to apply conversion",
+  "number": 1842,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:17.105Z"
+}

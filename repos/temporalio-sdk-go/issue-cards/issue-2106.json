@@ -1,0 +1,35 @@
+{
+  "summary": "Poller autoscaling fails to increase the number of concurrent pollers beyond InitialNumberOfPollers even when computational resources, worker slots, and task queue backlog are available. This prevents workers from scaling up to handle increased load.",
+  "category": "bug",
+  "subcategory": "poller-autoscaling",
+  "apis": [
+    "NewPollerBehaviorAutoscaling",
+    "PollerBehaviorAutoscalingOptions"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "autoscaling",
+    "task-queue"
+  ],
+  "concepts": [
+    "autoscaling",
+    "concurrency",
+    "resource-utilization",
+    "backlog",
+    "throughput",
+    "worker-slots"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot automatically scale up their poller count to match high task volumes, resulting in poor latency and throughput despite available resources.",
+  "rootCause": "The autoscaling poller implementation has a bug preventing it from increasing the number of pollers beyond the initial count, despite having sufficient resources and backlog.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "An autoscaling poller is incapable of running more than InitialNumberOfPollers concurrent pollers.",
+  "number": 2106,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:06.754Z"
+}

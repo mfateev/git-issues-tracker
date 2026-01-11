@@ -1,0 +1,37 @@
+{
+  "summary": "Activity retry policy MaximumAttempts behaves differently in Go SDK workflow unit tests versus real Temporal server. When MaximumAttempts is set to n, unit tests execute the activity n+1 times instead of n times, causing a discrepancy in retry behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "RetryPolicy"
+  ],
+  "components": [
+    "test-suite",
+    "activity-executor",
+    "retry-handler",
+    "task-handlers"
+  ],
+  "concepts": [
+    "retry",
+    "unit-testing",
+    "activity-execution",
+    "attempt-counting",
+    "retry-policy",
+    "test-harness"
+  ],
+  "severity": "medium",
+  "userImpact": "Unit tests produce different retry behavior than production, potentially masking issues or causing incorrect test assertions about activity retry counts.",
+  "rootCause": "1-based vs 0-based attempt numbering discrepancy between SDK test framework and actual Temporal server, similar to temporal server PR #554",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed fixed in a later version; exact same replication code now passes the test suite",
+  "related": [
+    232
+  ],
+  "keyQuote": "Activity retry refactors: To disable Activity retries, configure Activities with RetryOptions that set maximumAttempts to 1.",
+  "number": 429,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:55.581Z"
+}

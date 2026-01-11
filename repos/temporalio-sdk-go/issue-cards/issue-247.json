@@ -1,0 +1,30 @@
+{
+  "summary": "String search attributes in the Go SDK are including unwanted quotation characters in retrieved values. This is a bug related to how search attribute values are formatted or escaped.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "string-handling"
+  ],
+  "concepts": [
+    "search-attributes",
+    "string-encoding",
+    "value-formatting",
+    "quotation-marks"
+  ],
+  "severity": "medium",
+  "userImpact": "Users retrieving string search attributes get incorrect values that include unwanted quotation characters, causing data corruption or parsing errors.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    524
+  ],
+  "keyQuote": "Retrieved String Search Attribute includes quotation characters",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 247,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:08.808Z"
+}

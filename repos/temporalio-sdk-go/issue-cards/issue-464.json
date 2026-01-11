@@ -1,0 +1,32 @@
+{
+  "summary": "User requests worker hooks to capture workflow and activity panics/errors for error tracking services like Sentry. Currently only activities can be wrapped for error reporting, but workflows lack this capability.",
+  "category": "feature",
+  "subcategory": "worker-hooks",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "panic-recovery",
+    "error-tracking",
+    "hooks",
+    "worker-lifecycle",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily capture and report workflow panics to error tracking services without modifying framework internals.",
+  "rootCause": null,
+  "proposedFix": "Implement hook registration feature in worker API that provides non-deterministic callback functions to execute after workflow/activity panics and before retry",
+  "workaround": "Use interceptors (as mentioned in the resolution comment)",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved through use of Interceptors, which provide the requested functionality for error/panic handling. Python example with Sentry provided as reference.",
+  "related": [],
+  "keyQuote": "It would be nice to have as part of the worker's API a hook registration feature which provides the ability to register non-deterministic functions",
+  "number": 464,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:25.252Z"
+}

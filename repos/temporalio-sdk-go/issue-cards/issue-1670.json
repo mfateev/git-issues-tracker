@@ -1,0 +1,30 @@
+{
+  "summary": "Replaying a downloaded workflow history that ends with a workflow task in 'started' state incorrectly fails with a nondeterministic workflow error. The issue occurs because history matching for non-determinism checks continues after the last task start without an end event.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "task-handlers",
+    "replayer",
+    "history-matching"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "history-matching",
+    "nondeterminism-detection",
+    "mid-workflow-capture",
+    "task-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot replay workflow histories captured mid-task (ending with started but not completed workflow tasks), blocking replay-based debugging and failure replication.",
+  "rootCause": "History matching for non-determinism checks is performed after the last task start event that lacks an end event, causing false positives for 'extra replay command' errors.",
+  "proposedFix": "Stop performing history matching for non-determinism checks after the last task start without a corresponding end event. Three approaches discussed: trim history in GetWorkflowHistory, trim before passing to Replayer, or trim in Replayer itself.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The team identified this as a bug and decided to prevent history matching for non-determinism checks after the last incomplete task start.",
+  "related": [],
+  "keyQuote": "If we are in fact failing a replay with history that should succeed, we need to fix. It is likely we should not be performing history matching for non-determinism checks after the last task start (that doesn't have an end).",
+  "number": 1670,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:14:51.282Z"
+}

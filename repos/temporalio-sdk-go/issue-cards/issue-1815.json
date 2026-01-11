@@ -1,0 +1,31 @@
+{
+  "summary": "Implement environment-based configuration for the Go SDK to support external client configuration, aligning with cross-SDK standards defined in proposals and features discussions.",
+  "category": "feature",
+  "subcategory": "external-client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "configuration",
+    "environment"
+  ],
+  "concepts": [
+    "environment-configuration",
+    "external-client",
+    "sdk-standardization",
+    "configuration-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need standardized environment-based configuration for initializing Temporal clients across SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Implement environment configuration following the external-client-configuration proposal and features issue 441.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support environment-based configuration for external clients.",
+  "related": [
+    441
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/441 and https://github.com/temporalio/proposals/blob/master/all-sdk/external-client-configuration.md",
+  "number": 1815,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:32.150Z"
+}

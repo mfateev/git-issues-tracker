@@ -1,0 +1,33 @@
+{
+  "summary": "Update handlers registered with SetUpdateHandlerWithOptions may not be invoked before the workflow function returns, preventing proper state handling when updates are pending. This can cause race conditions where workflows exit before processing queued updates.",
+  "category": "bug",
+  "subcategory": "update-handler",
+  "apis": [
+    "SetUpdateHandlerWithOptions",
+    "Await"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution",
+    "state-management"
+  ],
+  "concepts": [
+    "pending-updates",
+    "execution-order",
+    "handler-invocation",
+    "race-condition",
+    "workflow-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may return before update handlers execute, causing updates to be lost and state management logic to fail unexpectedly.",
+  "rootCause": "Update handlers are not invoked immediately upon registration when updates are already pending, allowing the workflow function to return before the handler is called.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by ensuring update handlers are invoked immediately when registered if there are pending updates waiting to be processed.",
+  "related": [],
+  "keyQuote": "Update handle needs to be invoked immediately when registered with pending updates. If we do not it is possible a workflow function may return before the update handle is called",
+  "number": 1297,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:54.135Z"
+}

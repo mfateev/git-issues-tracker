@@ -1,0 +1,31 @@
+{
+  "summary": "User requests an option for WorkflowRun.GetWithOptions() to populate the result value even when the workflow fails with an error, rather than having to choose between getting the error or the result.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowRun.Get",
+    "WorkflowRun.GetWithOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "result-retrieval",
+    "failed-workflows",
+    "error-details"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access workflow result values when a workflow fails, forcing them to choose between error details or result data.",
+  "rootCause": "Current API design returns either error or result, not both; the SDK design choice of 'Error always wins' prevents accessing result data on failure.",
+  "proposedFix": null,
+  "workaround": "Add details to Application failure errors, create a custom Result type that encapsulates all needed info, or return both from workflow function (though only error is recorded).",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer explained current design where 'Error always wins' and suggested workarounds using error details or custom result types instead.",
+  "related": [],
+  "keyQuote": "Even though you're technically able to return both from your Go Workflow function, we don't record both, Error always wins.",
+  "number": 2101,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:52.318Z"
+}

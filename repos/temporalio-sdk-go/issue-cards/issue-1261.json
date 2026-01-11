@@ -1,0 +1,31 @@
+{
+  "summary": "The Worker API's Run() method takes a `<-chan interface{}` instead of accepting `context.Context`, making it inconvenient to use with Go contexts. The request seeks to simplify the API by having Run() accept context.Context directly, potentially replacing Start()/Stop() methods.",
+  "category": "feature",
+  "subcategory": "worker-api",
+  "apis": [
+    "Worker.Run"
+  ],
+  "components": [
+    "worker",
+    "api"
+  ],
+  "concepts": [
+    "context",
+    "channel-types",
+    "api-simplification",
+    "stability",
+    "shutdown-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily use context.Context with Worker.Run() due to channel type incompatibility, requiring workarounds or awkward type conversions.",
+  "rootCause": "Original API design used `<-chan interface{}` instead of `context.Context`, creating friction with standard Go patterns.",
+  "proposedFix": "Change Worker.Run() to accept context.Context directly and remove Start()/Stop() methods as duplicates. Alternatively, at minimum update Run() to take context.Context. Users can use signal.NotifyContext() instead of InterruptCh().",
+  "workaround": "Use signal.NotifyContext() for signal handling instead of InterruptCh(). Convert context to channel if needed.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Stability requirements prevent changing the public API. The maintainers acknowledged the API design issue but cannot change it due to backward compatibility constraints.",
+  "related": [],
+  "keyQuote": "we have stability requirements that prevent changing any of our public API",
+  "number": 1261,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:23.928Z"
+}

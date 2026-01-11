@@ -1,0 +1,32 @@
+{
+  "summary": "The OpenTelemetry metrics handler only reports workflow task slots availability but omits activity and local activity slots, while the Tally handler correctly reports all three. This appears to be a regression in the OpenTelemetry Go SDK between versions 1.21.0 and 1.26.0.",
+  "category": "bug",
+  "subcategory": "metrics-opentelemetry",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "opentelemetry-integration",
+    "worker-slots"
+  ],
+  "concepts": [
+    "metrics-reporting",
+    "task-slots",
+    "telemetry",
+    "opentelemetry",
+    "worker-types",
+    "activity-worker",
+    "workflow-worker"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on OpenTelemetry metrics cannot monitor activity and local activity worker slot availability, limiting visibility into worker capacity.",
+  "rootCause": "Regression in OpenTelemetry Go SDK between versions 1.21.0 (working) and 1.26.0 (broken) affecting how metrics with different worker_type dimensions are reported.",
+  "proposedFix": null,
+  "workaround": "Quinn-With-Two-Ns reported having a workaround for their integration; consider reverting to OTEL Go SDK 1.21.0 or earlier.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Using the opentelemetry metrics handler the SDK only reports slots available for worker_type=\"WorkflowWorker\"",
+  "number": 1477,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:34.069Z"
+}

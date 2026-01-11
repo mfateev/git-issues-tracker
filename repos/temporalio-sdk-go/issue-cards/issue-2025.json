@@ -1,0 +1,32 @@
+{
+  "summary": "The DescribeTaskQueueEnhanced API call is using deprecated fields for retrieving task queue statistics. This needs to be updated to use the current non-deprecated APIs, with corresponding test uncommentations in TestTaskQueueStats.",
+  "category": "bug",
+  "subcategory": "task-queue-api",
+  "apis": [
+    "DescribeTaskQueueEnhanced"
+  ],
+  "components": [
+    "task-queue",
+    "api-client",
+    "stats"
+  ],
+  "concepts": [
+    "deprecation",
+    "api-migration",
+    "task-queue-stats",
+    "backwards-compatibility",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on DescribeTaskQueueEnhanced may encounter deprecated API warnings or future breakage when APIs are removed.",
+  "rootCause": "The DescribeTaskQueueEnhanced implementation continues to reference deprecated API fields instead of migrating to current equivalents.",
+  "proposedFix": "Replace deprecated API field references with their non-deprecated equivalents in DescribeTaskQueueEnhanced and uncomment related test lines in TestTaskQueueStats.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Fix it to use the non-deprecated fields.",
+  "number": 2025,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:10.055Z"
+}

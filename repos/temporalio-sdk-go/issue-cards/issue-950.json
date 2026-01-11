@@ -1,0 +1,33 @@
+{
+  "summary": "Eager activity execution should be limited to 3 per workflow task completion by default, not through a global MaxConcurrentActivityExecutionSize setting. The options MaxConcurrentActivityExecutionSize and DisableEagerActivities should be removed to align with other SDKs and simplify the API.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "eager-activities"
+  ],
+  "concepts": [
+    "concurrency-limiting",
+    "activity-throttling",
+    "workflow-task-completion",
+    "eager-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected worker overload or behavior inconsistency if eager activities are not properly throttled at the per-workflow-task level rather than globally.",
+  "rootCause": "MaxConcurrentActivityExecutionSize was set as a default when the actual requirement was to limit eager activities per workflow task completion to 3, not globally across the worker.",
+  "proposedFix": "Remove the global MaxConcurrentActivityExecutionSize and DisableEagerActivities options, and hardcode a new setting that limits eager activity requests to 3 per workflow task completion.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Removed global eager activity configuration options and implemented per-workflow-task limiting of 3 eager activities.",
+  "related": [
+    946
+  ],
+  "keyQuote": "Instead we should have set the max number of eager activities requested per workflow task completion to 3.",
+  "number": 950,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:29.599Z"
+}

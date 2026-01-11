@@ -1,0 +1,32 @@
+{
+  "summary": "Request to adopt buf for Protocol Buffer linting against Google's style guide and clang-format for autoformatting proto files to improve code quality and consistency.",
+  "category": "feature",
+  "subcategory": "protobuf-tooling",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "build-tools",
+    "linting"
+  ],
+  "concepts": [
+    "code-style",
+    "linting",
+    "formatting",
+    "protobuf",
+    "proto3",
+    "enum-naming",
+    "snake-case"
+  ],
+  "severity": "low",
+  "userImpact": "Better proto file consistency and adherence to protobuf standards makes generated SDKs more reliable and maintainable across all language implementations.",
+  "rootCause": null,
+  "proposedFix": "Use buf for linting against protobuf style guide and clang-format for autoformatting proto files",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Team made necessary changes to comply with protobuf style guide (adding UNSPECIFIED to enums, converting to SCREAMING_CASE, snake_case fields) and buf linting now passes with 0 violations",
+  "related": [],
+  "keyQuote": "buf check lint | wc -l: 0",
+  "number": 24,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:07.077Z"
+}

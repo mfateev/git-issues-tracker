@@ -1,0 +1,32 @@
+{
+  "summary": "TestCancelChildWorkflowUnusualTransitions test is flaky, causing intermittent test failures with assertion errors and panic(nil) runtime issues. The test was later confirmed to be stable in CI.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "test-suite",
+    "worker",
+    "child-workflow"
+  ],
+  "concepts": [
+    "flaky-test",
+    "test-stability",
+    "race-condition",
+    "cancellation",
+    "workflow-transition"
+  ],
+  "severity": "medium",
+  "userImpact": "Intermittent test failures disrupt development workflows and CI/CD reliability for contributors working with child workflow cancellation.",
+  "rootCause": "Test exhibited flakiness in execution, likely due to timing issues or race conditions in child workflow cancellation transitions, though root cause not explicitly identified.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test stabilized and no longer appears flaky in CI as confirmed by maintainer.",
+  "related": [],
+  "keyQuote": "This test does not appear flaky anymore in CI",
+  "number": 557,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:10.952Z"
+}

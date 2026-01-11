@@ -1,0 +1,31 @@
+{
+  "summary": "The temporal_workflow_task_execution_failed metric is not emitted when a closed workflow is replayed, preventing detection of non-deterministic workflow changes. This metric is critical for alerting on potential workflow replay issues.",
+  "category": "bug",
+  "subcategory": "metrics-replay",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-replay",
+    "worker"
+  ],
+  "concepts": [
+    "non-determinism",
+    "replay",
+    "metrics",
+    "monitoring",
+    "alerting",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably detect non-deterministic workflow changes during replay, potentially missing critical issues that could cause workflow failures.",
+  "rootCause": "The metric emission logic does not account for the replay scenario when querying completed workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved in a later version (post-1.26.0). The maintainer confirmed the metric now emits correctly on the tip of tree.",
+  "related": [],
+  "keyQuote": "We rely on temporal_workflow_task_execution_failed metric to alert us on potential workflow non-determinism errors. We expect this metric to be emitted when closed workflow is replayed",
+  "number": 1441,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:05.572Z"
+}

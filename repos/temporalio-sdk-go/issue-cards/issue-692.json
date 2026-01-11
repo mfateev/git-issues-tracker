@@ -1,0 +1,28 @@
+{
+  "summary": "Request to change heartbeat failure log level from debug to warn to increase visibility of heartbeat failures in Go SDK.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "logging"
+  ],
+  "concepts": [
+    "heartbeat",
+    "logging",
+    "observability",
+    "failure-detection"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have better visibility into heartbeat failures without needing to enable debug logging.",
+  "rootCause": null,
+  "proposedFix": "Change the log level of heartbeat failures from debug to warn",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Log level for heartbeat failures was changed from debug to warn level",
+  "related": [],
+  "keyQuote": "Right now heartbeat failures are debug level",
+  "number": 692,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:56.803Z"
+}

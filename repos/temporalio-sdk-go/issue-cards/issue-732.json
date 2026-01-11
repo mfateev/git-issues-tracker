@@ -1,0 +1,34 @@
+{
+  "summary": "Worker restart mid-session causes workflow to fail with a lookup error when trying to map scheduledEventID to activityID. The error occurs when a worker pod is killed during an active session, preventing the workflow from completing.",
+  "category": "bug",
+  "subcategory": "session-worker-recovery",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "decision-state-machine",
+    "event-handler"
+  ],
+  "concepts": [
+    "session",
+    "worker-restart",
+    "activity-scheduling",
+    "event-mapping",
+    "state-recovery",
+    "distributed-coordination"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows with sessions become permanently stuck when workers are killed during active sessions, unable to recover or complete.",
+  "rootCause": "Improper handling of activity event mapping when worker restarts mid-session; the SDK fails to correctly correlate scheduled activity events with activity IDs after recovery.",
+  "proposedFix": "Fix handling of session recovery and event mapping as addressed in PR #746.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #746 which was released in a subsequent version.",
+  "related": [
+    722,
+    746
+  ],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 35, activityID: 35",
+  "number": 732,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:48.075Z"
+}

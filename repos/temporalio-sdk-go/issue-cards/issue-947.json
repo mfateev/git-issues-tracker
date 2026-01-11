@@ -1,0 +1,34 @@
+{
+  "summary": "A panic occurs when attempting to start a child workflow with the same ID as one already running, instead of returning ChildWorkflowExecutionAlreadyStartedError. The issue manifests as 'Error adding duplicate command' in the command state machine.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "WithChildOptions"
+  ],
+  "components": [
+    "command-state-machine",
+    "workflow-environment",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "duplicate-detection",
+    "workflow-id-collision",
+    "command-deduplication",
+    "panic-recovery",
+    "error-handling",
+    "workflow-state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow executions crash with a panic instead of gracefully handling duplicate child workflow IDs, making it impossible to recover from this error condition.",
+  "rootCause": "The command state machine does not properly check for duplicate child workflow IDs before attempting to add a new command, resulting in an illegal state transition that causes a panic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in the SDK; the command state machine now properly validates duplicate child workflow IDs and returns ChildWorkflowExecutionAlreadyStartedError instead of panicking.",
+  "related": [],
+  "keyQuote": "An attempt to start a child workflow with the same ID as the one already running should result in ChildWorkflowExecutionAlreadyStartedError.",
+  "number": 947,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:14.956Z"
+}

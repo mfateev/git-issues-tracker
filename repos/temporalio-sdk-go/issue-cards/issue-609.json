@@ -1,0 +1,34 @@
+{
+  "summary": "User requests ability to mock activities with the same name on different task queues in test workflows. Currently, the testing framework cannot distinguish between identically-named activities running on different queues, forcing users to rename activities to disambiguate them in tests.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "RegisterActivity",
+    "OnActivity"
+  ],
+  "components": [
+    "test-suite",
+    "activity-mocking",
+    "task-queue-routing"
+  ],
+  "concepts": [
+    "activity-registration",
+    "task-queue-isolation",
+    "mock-filtering",
+    "test-mocking",
+    "activity-disambiguation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must rename activities to have different names when testing multiple activities with the same signature on different task queues, reducing code clarity and consistency.",
+  "rootCause": "TestWorkflowEnvironment.OnActivity and Worker.RegisterActivity do not support task-queue-specific registration, treating all activities with the same name as identical regardless of their target queue.",
+  "proposedFix": "Add task-queue filtering capability to OnActivity mock registration to allow specifying which queue an activity mock applies to, similar to how activities are dispatched at runtime.",
+  "workaround": "Use a callback function with activity.GetInfo(ctx).TaskQueue checks inside the mock to handle multiple activities with the same name, though this requires correct signature matching and is less robust.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined that task-queue-specific mocking would require significant changes to the registration system. Users were advised to rename activities with domain prefixes (e.g., GetCarById instead of GetById) for clarity.",
+  "related": [],
+  "keyQuote": "It would be a significant change I'm afraid to have task-queue specific registration and mocking inside the test suite.",
+  "number": 609,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:12.676Z"
+}

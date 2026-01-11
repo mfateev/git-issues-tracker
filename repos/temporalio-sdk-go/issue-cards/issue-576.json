@@ -1,0 +1,29 @@
+{
+  "summary": "Documentation comments contain outdated error references (EntityNotExistsError, BadRequestError, InternalServiceError) from old Thrift API that no longer exist and need to be replaced with currently used errors.",
+  "category": "docs",
+  "subcategory": "documentation-comments",
+  "apis": [],
+  "components": [
+    "documentation",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-types",
+    "documentation-accuracy",
+    "API-migration",
+    "code-comments",
+    "deprecation"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading documentation comments may encounter references to errors that no longer exist, causing confusion about which exceptions to handle.",
+  "rootCause": "Thrift API was replaced with new error types, but documentation comments were not updated to reflect the change.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are many leftovers from old Thrift errors in documentation comments: `EntityNotExistsError`, `BadRequestError`, `InternalServiceError` and others do not exist anymore",
+  "number": 576,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:54.505Z"
+}

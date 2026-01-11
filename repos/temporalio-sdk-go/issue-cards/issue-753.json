@@ -1,0 +1,32 @@
+{
+  "summary": "SDK removed lazy connection capability in v1.14.0 when getCapabilities call was added during client creation. User requests restoration of lazy connection option to prevent blocking service startup during deploy/scale events when Temporal server is unavailable.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [
+    "NewClient"
+  ],
+  "components": [
+    "client",
+    "connection-manager",
+    "capabilities-check"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "connection-initialization",
+    "fail-fast",
+    "startup-blocking",
+    "service-reliability"
+  ],
+  "severity": "high",
+  "userImpact": "Services cannot tolerate blocking on Temporal server connection during startup, causing service failures during deploy/scale events when multiple dependencies exist.",
+  "rootCause": "The mandatory getCapabilities call during client creation in v1.14.0 forces eager connection, removing the ability to defer connection until first use.",
+  "proposedFix": "Each call on the client should check connection status and use a mutex to create connection lazily before allowing operations to proceed.",
+  "workaround": "Duplicate the entire client interface in the application to wrap calls with lazy connection logic, or implement a separate factory pattern with explicit GetConnection() call.",
+  "resolution": "fixed",
+  "resolutionDetails": "Internal discussion concluded that moving to lazy connection model was the right approach across languages.",
+  "related": [],
+  "keyQuote": "Fail fast in a critical application with multiple concerns is a non-starter. It can block and bring an entire service down during a deploy, scale up, or other lifecycle event",
+  "number": 753,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:34.151Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User seeks clarification on understanding and interpreting the Worker slots gauge in DataDog metrics, specifically what the gauge value represents and how MaxConcurrentWorkflowTaskExecutionSize affects workflow throughput.",
+  "category": "question",
+  "subcategory": "worker-performance",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "worker-slots",
+    "concurrent-execution",
+    "throughput",
+    "performance-tuning",
+    "metrics-dashboard"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about interpreting worker metrics and optimizing workflow concurrency, leading to uncertainty about proper configuration.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed as support question; user directed to documentation and Slack support channel per project policy.",
+  "related": [],
+  "keyQuote": "Worker slots is the number of concurrently running workflow tasks at that point in time. The max value it can be is `MaxConcurrentWorkflowTaskExecutionSize`.",
+  "number": 2136,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:49.872Z"
+}

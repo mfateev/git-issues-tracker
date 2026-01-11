@@ -1,0 +1,32 @@
+{
+  "summary": "scheduleHandle.Describe() fails with a proto decoding error when using a remote data converter, because the schedule metadata contains a null payload that the codec cannot process.",
+  "category": "bug",
+  "subcategory": "schedule-api",
+  "apis": [
+    "scheduleHandle.Describe"
+  ],
+  "components": [
+    "codec",
+    "dataconverter",
+    "schedule-handler"
+  ],
+  "concepts": [
+    "data-serialization",
+    "proto-unmarshaling",
+    "null-payload",
+    "remote-dataconverter",
+    "schedule-metadata"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot describe schedules when using custom remote data converters for encryption, blocking automation workflows.",
+  "rootCause": "The codec HTTP endpoint calls protojson.Unmarshal on a null payload value without null-checking, causing a 'unexpected token null' proto syntax error.",
+  "proposedFix": "Avoid calling the data converter with null payloads. Additionally, gracefully handle null payloads during deserialization by using zero values.",
+  "workaround": "Downgrade to SDK version 1.30.0 before the user metadata summary feature was added.",
+  "resolution": "fixed",
+  "resolutionDetails": "The maintainers acknowledged the bug and committed to fixing both the null payload handling in the codec and graceful zero-value deserialization.",
+  "related": [],
+  "keyQuote": "we should not be calling the data converter with a null payload. We will fix.",
+  "number": 1940,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:33.952Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Context deadline and cancellation errors are wrapped in gRPC status errors by the Go SDK client, breaking standard context error checking patterns. Users must check gRPC error codes instead of using errors.Is() with context.DeadlineExceeded or context.Canceled.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "GetWorkflow",
+    "Get"
+  ],
+  "components": [
+    "client",
+    "context-handling",
+    "error-wrapping",
+    "grpc-integration"
+  ],
+  "concepts": [
+    "context-cancellation",
+    "timeout",
+    "deadline-exceeded",
+    "error-handling",
+    "grpc-errors",
+    "protocol-abstraction"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot reliably detect context timeouts and cancellations using standard Go patterns, requiring them to understand gRPC error details.",
+  "rootCause": "gRPC relays context deadlines server-side and returns gRPC status errors instead of native context errors, breaking the abstraction between protocol and SDK API.",
+  "proposedFix": null,
+  "workaround": "Use uber-go/multierr to combine the original gRPC error with a proper context.DeadlineExceeded error.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Returning gRPC errors is part of the SDK's API contract; changing this would break existing users who rely on gRPC error handling.",
+  "related": [],
+  "keyQuote": "returning gRPC errors is part of our API contract, and we have no plans to break existing error handling",
+  "number": 1007,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:20.972Z"
+}

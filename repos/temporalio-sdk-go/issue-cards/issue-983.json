@@ -1,0 +1,34 @@
+{
+  "summary": "Local activities in workflows don't properly trigger nondeterminism errors during replay when local activity calls are added or removed. The workflow execution commands are missing from replay history, causing a mismatch between real and replay event sequences.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "internal_task_handlers",
+    "workflow_replayer",
+    "history_processor"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "local-activities",
+    "history-mismatch",
+    "event-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot rely on nondeterminism detection when modifying local activity calls in workflows, which can lead to silent failures during replay validation.",
+  "rootCause": "Workflow execution commands are not added to replay history when the workflow returns, causing a mismatch between respondEvents and replayEvents. The break statements on workflow complete skip adding WorkflowExecution events to the history.",
+  "proposedFix": "Remove the break statements on workflow complete to ensure WorkflowExecution events are properly added to both respondEvents and replayEvents, allowing the replayer to catch nondeterminism errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by ensuring workflow execution commands are properly included in replay history for nondeterminism detection.",
+  "related": [
+    876
+  ],
+  "keyQuote": "the replay does not error when adding or removing local activity calls, causing false negatives in nondeterminism detection",
+  "number": 983,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:18.560Z"
+}

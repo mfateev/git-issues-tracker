@@ -1,0 +1,40 @@
+{
+  "summary": "Search attributes and memos are kept from previous workflow runs when the workflow context is reset due to cache staleness, causing non-determinism errors. The mutation state should be cleared when the context is reset, but currently persists.",
+  "category": "bug",
+  "subcategory": "workflow-context-reset",
+  "apis": [
+    "ExecuteWorkflow",
+    "SignalWorkflow",
+    "UpsertSearchAttributes",
+    "GetInfo",
+    "GetSignalChannel"
+  ],
+  "components": [
+    "workflow-context",
+    "search-attributes",
+    "memos",
+    "cache",
+    "worker"
+  ],
+  "concepts": [
+    "cache-staleness",
+    "non-determinism",
+    "state-reset",
+    "mutable-state",
+    "workflow-replay",
+    "search-attributes",
+    "memos"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail with non-determinism errors when cache resets occur and search attributes or memos have been mutated, breaking workflow execution reliability.",
+  "rootCause": "When workflow context is reset due to cache staleness, the mutable search attributes map and memo map are not being cleared, retaining state from previous workflow runs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by ensuring search attributes and memos are reset when workflow context is reset due to cache staleness.",
+  "related": [],
+  "keyQuote": "When a workflow's context is reset due to cache staleness, the mutated search attribute map remains (and I presume memo too)",
+  "number": 970,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:22.038Z"
+}

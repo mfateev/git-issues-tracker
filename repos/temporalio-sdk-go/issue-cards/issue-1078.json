@@ -1,0 +1,29 @@
+{
+  "summary": "The num_pollers metric was not being exposed in worker metrics output, even though the SDK had tests for it. The issue was resolved by updating to a newer SDK version (v1.21.1) where the metric started displaying correctly.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics"
+  ],
+  "concepts": [
+    "metrics",
+    "monitoring",
+    "observability",
+    "poller",
+    "worker-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users monitoring worker performance via metrics were unable to see the num_pollers metric even though it was supposed to be available.",
+  "rootCause": "Likely a version-specific issue where the metric was not being properly exported in certain SDK versions prior to v1.21.1.",
+  "proposedFix": null,
+  "workaround": "Update to SDK version v1.21.1 or later where the metric is properly exposed.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by updating to go.temporal.io/sdk v1.21.1 which properly exposes the num_pollers metric in worker metrics output.",
+  "related": [],
+  "keyQuote": "after setting it to v1.21.1 metric starts being displayed.",
+  "number": 1078,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:14.395Z"
+}

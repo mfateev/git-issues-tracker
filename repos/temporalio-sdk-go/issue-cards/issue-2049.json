@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support `fmt.Stringer` interface in `ExecuteActivity` for activity name resolution. Currently only raw strings and function pointers are supported, causing unclear error messages when custom types implementing `Stringer` are passed.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-scheduler",
+    "function-resolution"
+  ],
+  "concepts": [
+    "type-safety",
+    "string-interface",
+    "activity-naming",
+    "dynamic-invocation",
+    "error-clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot pass custom types implementing `fmt.Stringer` to `ExecuteActivity`, limiting type-safe ways to specify activity names dynamically.",
+  "rootCause": "`getFunctionName` function does not check for or support the `fmt.Stringer` interface when resolving activity names.",
+  "proposedFix": "Extend `getFunctionName` to detect and handle types implementing `fmt.Stringer` by calling their `String()` method.",
+  "workaround": "Use plain string constants or function pointers instead of custom `Stringer` types for activity names.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #2050 was created to add support for `fmt.Stringer` interface in activity name resolution.",
+  "related": [
+    2050
+  ],
+  "keyQuote": "If a caller passes a custom type that implements `fmt.Stringer` (e.g. a named type alias), it is treated as a function and causes error",
+  "number": 2049,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:16.387Z"
+}

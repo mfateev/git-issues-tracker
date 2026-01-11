@@ -1,0 +1,33 @@
+{
+  "summary": "Remove the WorkerOptions.Disable[Activity|Workflow]Worker option as it's no longer needed. Both activities and workflows are now registered directly with the worker, making this option redundant.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "worker-options",
+    "activity-registration",
+    "workflow-registration"
+  ],
+  "concepts": [
+    "worker-configuration",
+    "registration",
+    "options-management",
+    "api-cleanup",
+    "simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Users will need to remove usage of these deprecated options when upgrading, simplifying worker configuration.",
+  "rootCause": "Global registration was previously required, making the disable options necessary; this constraint no longer applies.",
+  "proposedFix": "Remove WorkerOptions.DisableActivityWorker and WorkerOptions.DisableWorkflowWorker options from the codebase.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Options were removed as part of API cleanup since activities and workflows registration made them unnecessary.",
+  "related": [],
+  "keyQuote": "It was needed due to global registration. Now as both activities and workflows are registered with the worker this option is excessive.",
+  "number": 77,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:27.916Z"
+}

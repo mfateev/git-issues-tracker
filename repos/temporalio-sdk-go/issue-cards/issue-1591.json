@@ -1,0 +1,30 @@
+{
+  "summary": "Documentation needs to be updated to clarify that signals do not interrupt workflow delays. This is a documentation fix to align with API behavior discussed in temporalio/api#441.",
+  "category": "docs",
+  "subcategory": "workflow-signals-delays",
+  "apis": [],
+  "components": [
+    "documentation",
+    "signal-handler",
+    "workflow-delay"
+  ],
+  "concepts": [
+    "signals",
+    "delays",
+    "workflow-execution",
+    "documentation",
+    "interrupt-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about signal behavior during workflow delays, leading to incorrect expectations about timing and signal handling.",
+  "rootCause": "Documentation does not accurately reflect that signals do not interrupt delays, as confirmed by API specification discussions.",
+  "proposedFix": "Update workflow start delay documentation to explicitly state that signals do not interrupt delays.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify signal behavior regarding delays.",
+  "related": [],
+  "keyQuote": "signal does not interrupt delay",
+  "number": 1591,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:59.763Z"
+}

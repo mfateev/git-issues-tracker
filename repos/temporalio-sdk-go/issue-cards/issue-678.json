@@ -1,0 +1,37 @@
+{
+  "summary": "Worker panics intermittently while executing activities in batched workflows with multiple concurrent activity executions. Issue appears related to race conditions during activity scheduling and processing on newly-scheduled workflows.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "workflow-environment",
+    "event-handlers"
+  ],
+  "concepts": [
+    "panic",
+    "concurrency",
+    "activity-scheduling",
+    "workflow-execution",
+    "race-condition",
+    "batching"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash unexpectedly during activity execution, disrupting workflow processing and requiring manual intervention or restart.",
+  "rootCause": "Likely a race condition when activity cancellations, heartbeats, or state changes are processed on newly-scheduled-but-not-yet-started workflows, possibly related to concurrent access during batch activity execution.",
+  "proposedFix": null,
+  "workaround": "Refactor activity scheduling to check futures only once instead of multiple times, as suggested in issue #475.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue did not reproduce after upgrading Temporal server from v1.12.3 to v1.14.2. Appears to have been fixed in server-side code between v1.13.1 and v1.14. Deferred to #475 for related investigation.",
+  "related": [
+    475,
+    2300
+  ],
+  "keyQuote": "Worker panics intermittently while executing an activity. Occurs on server v1.13.1, but not after upgrade to v1.14.2.",
+  "number": 678,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:13.913Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to manually pause a work queue to control whether workers accept new tasks based on resource usage monitoring, but learns that Temporal task queues don't have a pause concept and workers can only be stopped once.",
+  "category": "question",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "worker.Stop"
+  ],
+  "components": [
+    "worker",
+    "task-queue"
+  ],
+  "concepts": [
+    "worker-pause",
+    "resource-monitoring",
+    "task-acceptance",
+    "worker-lifecycle",
+    "backpressure"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot dynamically control task acceptance based on resource usage without stopping the entire worker.",
+  "rootCause": "Temporal architecture treats task queues as always-accepting buffers; workers don't have a pause mechanism separate from stop.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed due to no response; task queues and workers in Temporal have no pause concept by design.",
+  "related": [],
+  "keyQuote": "Temporal has not concept called a work queue, there are task queues, but task queues always accept new tasks and buffer them until a worker can pick them up.",
+  "number": 2047,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:12.426Z"
+}

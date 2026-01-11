@@ -1,0 +1,32 @@
+{
+  "summary": "User requests ability to access workflow history size information through workflow.GetInfo() to proactively detect when history size is approaching limits and decide whether to continue as new, avoiding history size exceeded errors.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [
+    "GetInfo"
+  ],
+  "components": [
+    "workflow",
+    "history",
+    "info"
+  ],
+  "concepts": [
+    "history-size",
+    "event-count",
+    "limits",
+    "continue-as-new",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom DSLs on Temporal cannot proactively manage history growth and avoid history size exceeded errors.",
+  "rootCause": null,
+  "proposedFix": "Expose history size and event count information through workflow.GetInfo(ctx) API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow info now includes history size and length, allowing users to access this information and make informed decisions about continuing as new.",
+  "related": [],
+  "keyQuote": "Is it possible to return history size information trough workflow.GetInfo(ctx)? In this way, I'm able to check wf-history-size and wf-event-count in workflow to decide continue as new or not.",
+  "number": 420,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:24.722Z"
+}

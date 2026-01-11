@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose StartToCloseTimeout in the Go SDK's ActivityInfo struct, similar to the Java SDK implementation. This would allow activities to access their timeout configuration at runtime.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity",
+    "activity-info",
+    "sdk"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-configuration",
+    "runtime-access",
+    "api-parity",
+    "java-sdk",
+    "sdk-alignment"
+  ],
+  "severity": "low",
+  "userImpact": "Activities in Go SDK will be able to access their StartToCloseTimeout configuration at runtime, matching Java SDK functionality and improving API completeness.",
+  "rootCause": null,
+  "proposedFix": "Add StartToCloseTimeout field to ActivityInfo struct in the Go SDK, similar to the Java implementation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and the issue closed",
+  "related": [],
+  "keyQuote": "Similarly to what Java sdk exposes in ActivityInfo",
+  "number": 1983,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:35.856Z"
+}

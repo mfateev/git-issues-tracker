@@ -1,0 +1,32 @@
+{
+  "summary": "Add a structured logging wrapper for Go's standard slog library. The SDK needs a NewStructuredLogger adapter to convert slog.Logger instances to the SDK's logger interface, enabling users to use the modern slog package with Temporal.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "logger-interface",
+    "log-adapter"
+  ],
+  "concepts": [
+    "structured-logging",
+    "slog",
+    "logger-wrapper",
+    "compatibility",
+    "interface-adaptation"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now use Go's modern slog structured logging library directly with the Temporal SDK instead of being limited to older logging approaches.",
+  "rootCause": null,
+  "proposedFix": "Implement a slogLogger struct that wraps slog.Logger and implements the SDK's log.Logger and log.WithLogger interfaces with appropriate method mappings.",
+  "workaround": "Users can manually implement the wrapper following the code example in the issue, or refer to the issue for a reference implementation.",
+  "resolution": "fixed",
+  "resolutionDetails": "The NewStructuredLogger wrapper was implemented in the SDK to bridge slog.Logger to the SDK's logger interfaces.",
+  "related": [
+    960
+  ],
+  "keyQuote": "Once it is we can add that. In the meantime, a sample can be added or people can just refer to this issue for that simple implementation.",
+  "number": 1158,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:29.247Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request for metrics to monitor task pool status and worker capacity in the Go SDK. Users need visibility into how many concurrent tasks are running versus the maximum allowed to determine if their worker fleet is appropriately sized.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-scheduler",
+    "metrics"
+  ],
+  "concepts": [
+    "concurrent-tasks",
+    "capacity-monitoring",
+    "resource-utilization",
+    "fleet-scaling",
+    "worker-pool"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot determine fleet adequacy or implement dynamic scaling without metrics for current task capacity usage.",
+  "rootCause": null,
+  "proposedFix": "Implement gauge metrics for running tasks and a fixed metric for max tasks, possibly with labels per task type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metrics were implemented to expose task pool status including running task counts and maximum capacity limits.",
+  "related": [
+    569
+  ],
+  "keyQuote": "a gauge for running tasks and a fixed metric for max tasks...let me determine if my fleet of workers is large enough",
+  "number": 594,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:26.566Z"
+}

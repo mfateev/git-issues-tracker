@@ -1,0 +1,33 @@
+{
+  "summary": "Users need methods to wait for all remaining handlers to complete when continuing as new or exiting a workflow, allowing them to specify whether to await or ignore these handlers.",
+  "category": "feature",
+  "subcategory": "workflow-handlers",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow",
+    "handler-management",
+    "execution-control"
+  ],
+  "concepts": [
+    "async-completion",
+    "cleanup",
+    "graceful-shutdown",
+    "handler-lifecycle",
+    "workflow-exit",
+    "continuation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily ensure handlers complete execution before workflow continuation or exit, leading to potential data loss or incomplete cleanup.",
+  "rootCause": null,
+  "proposedFix": "Provide explicit methods allowing users to specify whether to wait for handlers to finish when continuing as new or exiting the workflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Methods were implemented to allow waiting for handlers to finish during workflow continuation and exit.",
+  "related": [],
+  "keyQuote": "Users want to easily await (or ignore) all their remaining handlers when they continue as new or exit the workflow.",
+  "number": 1500,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:03:20.988Z"
+}

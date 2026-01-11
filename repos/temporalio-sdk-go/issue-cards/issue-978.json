@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow replay fails inconsistently across Go versions due to protojson serialization adding random whitespace, causing byte-level payload comparisons to fail even when semantic content is identical.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "payload-serialization",
+    "data-converter",
+    "protojson-encoding"
+  ],
+  "concepts": [
+    "determinism",
+    "serialization",
+    "replay-validation",
+    "version-compatibility",
+    "proto-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use workflow replay for regression testing and backwards compatibility validation across different Go versions.",
+  "rootCause": "protojson encoder randomly prepends whitespace before fields in multiline output, behavior dependent on Go version; replayer performs byte-level comparison of marshalled payloads instead of semantic comparison.",
+  "proposedFix": "Remove or make optional the strict payload comparison in replay validation, or allow custom result equality checking for workflow outcomes.",
+  "workaround": "Create custom data converter to ensure consistent payload encoding regardless of Go version.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved as part of PR #990 which removed strict payload comparison mode.",
+  "related": [
+    990
+  ],
+  "keyQuote": "Replays can fail once the Go version changes due to random whitespace in protojson serialization, though results are semantically identical.",
+  "number": 978,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:01.168Z"
+}

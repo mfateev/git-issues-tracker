@@ -1,0 +1,32 @@
+{
+  "summary": "Migrate service_wrapper_test to interceptor_test after service_wrapper was replaced with gRPC interceptor in #58. Tests need to be updated to reflect the architectural change.",
+  "category": "other",
+  "subcategory": "test-migration",
+  "apis": [],
+  "components": [
+    "service-wrapper",
+    "interceptor",
+    "test-framework"
+  ],
+  "concepts": [
+    "test-migration",
+    "refactoring",
+    "interceptor-pattern",
+    "grpc",
+    "architecture"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures test coverage is maintained after architectural changes to the SDK's request handling mechanism.",
+  "rootCause": "service_wrapper was replaced with gRPC interceptor, leaving tests referencing old implementation",
+  "proposedFix": "Migrate service_wrapper_test to interceptor_test to align with new architecture",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were migrated from service_wrapper_test to interceptor_test following the architectural change",
+  "related": [
+    58
+  ],
+  "keyQuote": "service_wrapper was replaced with gRPC interceptor (#58) and tests needs to be migrated too.",
+  "number": 60,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:58.898Z"
+}

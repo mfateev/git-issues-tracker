@@ -1,0 +1,33 @@
+{
+  "summary": "RetryPolicy is not propagated when using ContinueAsNew, and there's no parameter to set it explicitly. The policy should either be automatically inherited or accepted as a configuration parameter.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNewWorkflowExecution"
+  ],
+  "components": [
+    "workflow-executor",
+    "retry-policy",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "retry",
+    "workflow-continuation",
+    "policy-propagation",
+    "execution-attributes",
+    "configuration",
+    "lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows using ContinueAsNew lose their retry configuration, potentially causing unexpected behavior when retries are needed after continuation.",
+  "rootCause": "ContinueAsNewWorkflowExecutionCommandAttributes does not include or propagate RetryPolicy from the parent workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "RetryPolicy propagation was implemented for ContinueAsNew workflows.",
+  "related": [],
+  "keyQuote": "RetryPolicy should either be propagated or accepted as a param for continue as new",
+  "number": 695,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:56.462Z"
+}

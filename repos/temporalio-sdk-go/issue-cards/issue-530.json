@@ -1,0 +1,30 @@
+{
+  "summary": "ByteSliceConverter panics when converting []byte payload to interface{} type, preventing activities from accepting bytes via the interface{} parameter pattern used for flexible payload handling.",
+  "category": "bug",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "ByteSliceConverter",
+    "payload-converter",
+    "activity-worker"
+  ],
+  "concepts": [
+    "type-conversion",
+    "payload-handling",
+    "interface-flexibility",
+    "panic-recovery",
+    "activity-parameters"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot write activities that accept bytes through interface{} parameters, limiting flexibility in activity parameter handling.",
+  "rootCause": "ByteSliceConverter does not properly handle conversion to interface{} type, causing a panic instead of converting the bytes payload.",
+  "proposedFix": "Modify ByteSliceConverter to accept interface{} in FromPayload method and properly convert []byte payloads to this type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ByteSliceConverter was updated to support interface{} type in FromPayload conversion.",
+  "related": [],
+  "keyQuote": "ByteSliceConverter be able to convert []byte payload to interface{}. But it actually panics instead.",
+  "number": 530,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:03.445Z"
+}

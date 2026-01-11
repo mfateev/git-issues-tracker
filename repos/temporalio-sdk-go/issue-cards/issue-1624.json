@@ -1,0 +1,36 @@
+{
+  "summary": "Signals sent to a Selector can be lost if the Default path is blocking. When AddDefault executes a long-running operation, signals sent during that execution are dropped because the readyFunc is never called. The issue requires storing signal values in the channel's recValue to prevent loss.",
+  "category": "bug",
+  "subcategory": "selector-signal-handling",
+  "apis": [
+    "AddDefault",
+    "Selector"
+  ],
+  "components": [
+    "selector",
+    "signal-handling",
+    "channel-management"
+  ],
+  "concepts": [
+    "signal-loss",
+    "concurrent-execution",
+    "blocking-operations",
+    "race-condition",
+    "channel-buffering"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose signals when their Selector's Default path contains blocking operations, leading to missed workflow signals and potential deadlocks.",
+  "rootCause": "When AddDefault is specified, the readyFunc is never executed, causing signals sent during AddDefault execution to be dropped without being stored or received.",
+  "proposedFix": "Store signal values in the channel's recValue beforehand to make them available for future receives without dropping signals.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2070,
+    2066
+  ],
+  "keyQuote": "When a signal is sent to the channel while the AddDefault method (long running) is executing, the signal is lost without being received.",
+  "number": 1624,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:02.463Z"
+}

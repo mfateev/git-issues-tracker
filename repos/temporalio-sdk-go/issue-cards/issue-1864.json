@@ -1,0 +1,32 @@
+{
+  "summary": "The SDK's Payload visitor doesn't properly handle repeated Any fields in protobuf messages. Currently it visits individual Any fields but fails to parse and visit through arrays/maps of Any values, such as the repeated Any field in MultiOperationExecutionFailure_OperationStatus in the Temporal API.",
+  "category": "bug",
+  "subcategory": "payload-visitor",
+  "apis": [
+    "VisitPayloads"
+  ],
+  "components": [
+    "payload-visitor",
+    "proxy-generator",
+    "interceptor"
+  ],
+  "concepts": [
+    "protobuf-any",
+    "field-traversal",
+    "payload-handling",
+    "message-introspection",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly visit and transform payloads nested within repeated Any fields, limiting payload transformation capabilities in complex error detail messages.",
+  "rootCause": "The VisitPayloads visitor and proxy generator interceptor lack support for iterating through repeated/array Any fields, only handling singular Any fields.",
+  "proposedFix": "Enhance the case handling in the proxy generator interceptor (around line 262 in interceptor.go) to properly traverse and visit repeated Any field elements.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed indicating the enhancement to support repeated Any fields was implemented in the api-go proxy generator.",
+  "related": [],
+  "keyQuote": "we don't properly visit and parse through a map of Any's, i.e. [this repeated Any field] in our API",
+  "number": 1864,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:04.025Z"
+}

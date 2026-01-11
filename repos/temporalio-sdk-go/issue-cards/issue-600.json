@@ -1,0 +1,31 @@
+{
+  "summary": "Child workflow logger was reported to be outputting during replay, which should not occur as loggers should not log on replay. Upon investigation, the issue could not be replicated and was confirmed by the original user to not be an issue.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "IsReplaying"
+  ],
+  "components": [
+    "workflow",
+    "logger",
+    "child-workflow"
+  ],
+  "concepts": [
+    "replay",
+    "logging",
+    "determinism",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users may see unexpected log output during child workflow replays, potentially causing confusion about logging behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue could not be replicated by the maintainer. When testing child workflows with workflow.IsReplaying(ctx) returning true, no logging occurred. The original user confirmed this is not an issue.",
+  "related": [],
+  "keyQuote": "Confirmed from original user that this is not an issue.",
+  "number": 600,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:42.260Z"
+}

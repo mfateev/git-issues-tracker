@@ -1,0 +1,31 @@
+{
+  "summary": "Ensure that gRPC metadata headers like client-name and client-version are properly forwarded through the Temporal proxy helpers. Need to write tests to confirm metadata flows correctly and implement forwarding if necessary.",
+  "category": "feature",
+  "subcategory": "proxy-helpers",
+  "apis": [],
+  "components": [
+    "proxy-helpers",
+    "grpc-metadata",
+    "code-generation"
+  ],
+  "concepts": [
+    "metadata-forwarding",
+    "grpc-headers",
+    "client-identification",
+    "proxy-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on proxy helpers need to ensure that client identification headers are preserved when routing requests through the proxy layer.",
+  "rootCause": "Code generation may not be properly copying gRPC metadata from incoming to outgoing context in the proxy helpers.",
+  "proposedFix": "Use google.golang.org/grpc/metadata to populate incoming context to outgoing context, with an option to disable if needed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR opened at api-go#167 to implement metadata forwarding in proxy helpers, pending SDK release.",
+  "related": [
+    1502
+  ],
+  "keyQuote": "we need to confirm that when using the proxy library in the default way, that the headers like client-name/client-version flow through the proxy",
+  "number": 1497,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:03:04.252Z"
+}

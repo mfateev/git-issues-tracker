@@ -1,0 +1,30 @@
+{
+  "summary": "The SDK uses the deprecated golang/mock library for testing. The upstream project has been archived and now recommends migrating to the maintained fork at go.uber.org/mock, which is a straightforward search-and-replace migration.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "internal-worker",
+    "mocking"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "dependency-management",
+    "maintenance",
+    "code-generation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on the SDK for testing may face issues if golang/mock is deprecated or drops support, and the codebase should use a maintained alternative.",
+  "rootCause": "golang/mock (github.com/golang/mock) has been deprecated and archived upstream since June 2023, with official recommendation to use go.uber.org/mock instead.",
+  "proposedFix": "Port all uses of golang/mock to go.uber.org/mock through search-and-replace at the code level. This includes updating the reference in internal/internal_worker.go and test imports throughout the codebase.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The upstream github.com/golang/mock project has been deprecated and archive. As of June 2023, their README recommends using go.uber.org/mock instead.",
+  "number": 1410,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:18.556Z"
+}

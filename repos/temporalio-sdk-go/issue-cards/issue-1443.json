@@ -1,0 +1,32 @@
+{
+  "summary": "The grpc-ecosystem/go-grpc-middleware/retry dependency uses golang.org/x/net/trace which pulls in text/template and reflect.Value.MethodByName, severely hampering Go dead code elimination in compiled binaries.",
+  "category": "bug",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "grpc-middleware",
+    "retry",
+    "client"
+  ],
+  "concepts": [
+    "dead-code-elimination",
+    "dependencies",
+    "reflection",
+    "binary-size",
+    "build-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building Temporal SDK applications experience larger binary sizes and reduced dead code elimination due to transitive dependency chain.",
+  "rootCause": "grpc-ecosystem/go-grpc-middleware/retry imports golang.org/x/net/trace which uses text/template that calls reflect.Value.MethodByName, preventing linker dead code elimination.",
+  "proposedFix": "Wait for upstream grpc-ecosystem/go-grpc-middleware to resolve their issue #704, then update the dependency.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined that no reasonable workaround exists for the commonly used dependency. Resolution depends on upstream grpc-ecosystem/go-grpc-middleware addressing the issue.",
+  "related": [
+    704
+  ],
+  "keyQuote": "I am not sure it's reasonable to work around this issue with a commonly used dependency like go-grpc-middleware.",
+  "number": 1443,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:07.183Z"
+}

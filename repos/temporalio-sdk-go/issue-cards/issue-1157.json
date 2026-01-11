@@ -1,0 +1,32 @@
+{
+  "summary": "Local activities in the Go SDK need support for WaitForCancellation option to allow them to react to worker stop cancellation events.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity",
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "cancellation",
+    "worker-stop",
+    "graceful-shutdown",
+    "cleanup",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly handle cleanup or cancellation logic in local activities when workers are stopped.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Local activities need to be able to react to worker stop cancellation if they want.",
+  "number": 1157,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:24.897Z"
+}

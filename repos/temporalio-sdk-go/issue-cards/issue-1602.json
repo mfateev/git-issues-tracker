@@ -1,0 +1,34 @@
+{
+  "summary": "Update internal SDK timers to use NewTimerWithOptions and provide summary information for better observability. Also expose summary parameter on AwaitWithTimeout for both internal and external use.",
+  "category": "feature",
+  "subcategory": "timers",
+  "apis": [
+    "NewTimerWithOptions",
+    "AwaitWithTimeout"
+  ],
+  "components": [
+    "timer",
+    "internal-timers",
+    "await-operations"
+  ],
+  "concepts": [
+    "observability",
+    "summary",
+    "timer-details",
+    "internal-sdk-operations"
+  ],
+  "severity": "low",
+  "userImpact": "Provides better visibility into internal timer operations through summary information, improving debugging and observability.",
+  "rootCause": null,
+  "proposedFix": "Use NewTimerWithOptions for internal timers and expose summary parameter on AwaitWithTimeout",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Internal timers updated to use NewTimerWithOptions with summary information",
+  "related": [
+    1597
+  ],
+  "keyQuote": "Since #1597, there is now a way to provide a summary for a timer, so we should do so for internal timers we create inside the SDK",
+  "number": 1602,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:27.311Z"
+}

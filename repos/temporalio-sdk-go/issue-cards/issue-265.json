@@ -1,0 +1,31 @@
+{
+  "summary": "Go SDK lacks an ActivityInterceptor feature that exists in the Java SDK. This feature would enable logging, tracing, and other cross-cutting concerns for activity execution.",
+  "category": "feature",
+  "subcategory": "activity-interceptor",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "interceptor-framework",
+    "worker"
+  ],
+  "concepts": [
+    "logging",
+    "tracing",
+    "cross-cutting-concerns",
+    "interceptor-pattern",
+    "activity-execution",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot intercept and customize activity execution behavior for logging, tracing, and monitoring purposes.",
+  "rootCause": null,
+  "proposedFix": "Implement ActivityInterceptor similar to Java SDK's implementation to allow activity execution interception.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ActivityInterceptor was implemented in the Go SDK to match Java SDK functionality.",
+  "related": [],
+  "keyQuote": "This one would be really useful, especially for logging, tracing, of activities etc...",
+  "number": 265,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:05.350Z"
+}

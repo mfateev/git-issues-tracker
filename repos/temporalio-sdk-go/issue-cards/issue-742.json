@@ -1,0 +1,30 @@
+{
+  "summary": "Documentation for Client.ListWorkflow needs clarification about which operations require Elasticsearch. Currently the docs incorrectly state that ES is required for all calls, but some operations work without it.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "ListWorkflow"
+  ],
+  "components": [
+    "client",
+    "documentation"
+  ],
+  "concepts": [
+    "elasticsearch",
+    "search",
+    "api-requirements",
+    "documentation-accuracy"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about whether Elasticsearch is required for ListWorkflow operations, potentially leading them to unnecessary infrastructure setup.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Explain some things on the calls work w/ only ES but others don't require ES.",
+  "number": 742,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:00.182Z"
+}

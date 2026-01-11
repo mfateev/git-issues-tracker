@@ -1,0 +1,36 @@
+{
+  "summary": "Non-deterministic workflow code causes the SDK to incorrectly re-send acceptance and completion messages for a previously handled update on subsequent workflow task executions, resulting in invalid state transitions in the History service.",
+  "category": "bug",
+  "subcategory": "workflow-determinism-updates",
+  "apis": [
+    "UpdateWithStart",
+    "Update"
+  ],
+  "components": [
+    "workflow-task-handler",
+    "update-manager",
+    "history-service"
+  ],
+  "concepts": [
+    "determinism",
+    "non-deterministic-code",
+    "update-handling",
+    "workflow-state",
+    "task-failure",
+    "message-idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Users with non-deterministic workflow code may experience invalid state transitions and incorrect update completions, potentially corrupting workflow execution history.",
+  "rootCause": "When non-deterministic workflow code changes execution flow on subsequent workflow task executions, the SDK re-sends acceptance and completion messages for previously handled updates instead of only handling the current update.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1835
+  ],
+  "keyQuote": "the SDK re-sends acceptance and completion messages for update A, which is incorrect",
+  "number": 1838,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:03.786Z"
+}

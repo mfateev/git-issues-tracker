@@ -1,0 +1,34 @@
+{
+  "summary": "The worker.WorkflowReplayer interface does not expose the GetWorkflowResult method that exists on the underlying concrete type, requiring users to perform manual type assertions. The issue requests adding this method to the public interface to enable testing workflows and verifying results remain consistent across replays.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "WorkflowReplayer",
+    "NewWorkflowReplayerWithOptions",
+    "GetWorkflowResult"
+  ],
+  "components": [
+    "worker",
+    "workflow-replayer",
+    "public-api"
+  ],
+  "concepts": [
+    "interface-design",
+    "backward-compatibility",
+    "testing",
+    "type-assertion",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users building test helpers that replay workflows to verify results must use type assertions to access the GetWorkflowResult method, which is unintuitive and brittle.",
+  "rootCause": "The WorkflowReplayer is returned as an interface rather than a concrete type, preventing new methods from being added without breaking backward compatibility.",
+  "proposedFix": "Multiple options discussed: (1) Create a new API returning concrete type (NewWorkflowReplayerWithResults), (2) Expose internal.WorkflowReplayer via type alias, (3) Create a new WorkflowReplayerWithResults interface, or (4) Document additional methods available via type assertion. Author prefers option 1, considers option 2 acceptable.",
+  "workaround": "Users can define their own interface that embeds worker.WorkflowReplayer and adds GetWorkflowResult method, then perform type assertion on the returned value.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I am using this to build a test helper to replay workflows and ensure that their results are the same each time",
+  "number": 1610,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:47.600Z"
+}

@@ -1,0 +1,40 @@
+{
+  "summary": "Workflow fails with \"BadRequestCancelActivityAttributes: invalid history builder state\" when using a disconnected context with WaitForCancellation enabled to handle cancellation and timeouts gracefully.",
+  "category": "bug",
+  "subcategory": "cancellation-handling",
+  "apis": [
+    "ExecuteActivity",
+    "NewDisconnectedContext",
+    "WithCancel",
+    "NewTimer",
+    "NewSelector"
+  ],
+  "components": [
+    "workflow-context",
+    "activity-executor",
+    "cancellation-handler",
+    "history-builder"
+  ],
+  "concepts": [
+    "cancellation",
+    "disconnected-context",
+    "timeout",
+    "activity-lifecycle",
+    "state-management",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot implement graceful cancellation workflows that use disconnected contexts to handle both timeouts and cancellations, blocking a common workflow pattern.",
+  "rootCause": "Invalid history builder state when attempting to add activity cancel-requested event after using a disconnected context with WaitForCancellation enabled.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #1181 which addressed the interaction between disconnected contexts and WaitForCancellation flag.",
+  "related": [
+    1181
+  ],
+  "keyQuote": "The workflow fails with BadRequestCancelActivityAttributes: invalid history builder state for action: add-activitytask-cancel-requested-event",
+  "number": 1176,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:57.384Z"
+}

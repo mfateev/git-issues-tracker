@@ -1,0 +1,32 @@
+{
+  "summary": "The SDK's query response API only exposes a single value, but the query registration validates that there are exactly two return types with the second being an error type. This creates a disconnect between the validation rules and the available API surface.",
+  "category": "feature",
+  "subcategory": "query-interface",
+  "apis": [
+    "Query"
+  ],
+  "components": [
+    "query-handler",
+    "type-validation",
+    "response-api"
+  ],
+  "concepts": [
+    "return-types",
+    "error-handling",
+    "api-consistency",
+    "type-safety",
+    "validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot fully utilize query return type validation rules in their code, as the API doesn't expose access to multiple return values despite the underlying validation expecting them.",
+  "rootCause": "The query response API design only provides access to a single value, while the registration-time validation enforces exactly two return types (value and error).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed that the implementation correctly errors at query registration time if there aren't exactly two return types with the second being an error type.",
+  "related": [],
+  "keyQuote": "Confirmed that we error at query registration time if there aren't exactly two return types and the second one is error.",
+  "number": 646,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:58.632Z"
+}

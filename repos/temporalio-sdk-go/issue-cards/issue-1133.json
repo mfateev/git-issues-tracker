@@ -1,0 +1,34 @@
+{
+  "summary": "User reported a workflow deadlock when using timers in both root scope and coroutines, manifesting as a 'workflow goroutine didn't yield for over a second' error. The issue was resolved when the user discovered they needed to call selector.Select() to actually block on the selector.",
+  "category": "question",
+  "subcategory": "workflow-selector-concurrency",
+  "apis": [
+    "workflow.Go",
+    "workflow.NewTimer",
+    "workflow.NewSelector"
+  ],
+  "components": [
+    "workflow-dispatcher",
+    "selector",
+    "coroutine-executor"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "goroutine-yielding",
+    "blocking-selector",
+    "concurrent-timers",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users may incorrectly implement workflow selectors with multiple timers and encounter spurious deadlock errors.",
+  "rootCause": "User forgot to call selector.Select() to block on the selector, causing the workflow goroutine to not yield control properly.",
+  "proposedFix": "Call selector.Select(ctx) after adding futures to the selector to actually block and wait for events.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was user error - the workflow code was missing the required selector.Select() call to block on the selector. Documentation clarifies this requirement.",
+  "related": [],
+  "keyQuote": "To wait until a future is ready you need to call `Select`, See this take from the documentation I linked above.",
+  "number": 1133,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:44.545Z"
+}

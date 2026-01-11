@@ -1,0 +1,36 @@
+{
+  "summary": "ExecuteLocalActivity results in the activity struct pointer being nil when the activity is registered as a struct instance, while ExecuteActivity works correctly. This causes panics when the activity method tries to access receiver fields.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity",
+    "ExecuteActivity",
+    "RegisterActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "activity-registration",
+    "workflow-context"
+  ],
+  "concepts": [
+    "nil-pointer",
+    "method-receiver",
+    "struct-instantiation",
+    "activity-invocation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use struct-based activities with ExecuteLocalActivity as the receiver becomes nil, causing runtime panics.",
+  "rootCause": "Local activity execution does not properly preserve the struct receiver pointer when invoking methods on registered activity instances.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #426 as noted in closing comment",
+  "related": [
+    436,
+    426
+  ],
+  "keyQuote": "ExecuteLocalActivity results in the struct pointer to the activities being nil. This does not happen when the activity is executed normally.",
+  "number": 405,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:40.853Z"
+}

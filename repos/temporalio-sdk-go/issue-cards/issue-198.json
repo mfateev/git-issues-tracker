@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a mechanism to support backward-incompatible changes to workflow and activity function signatures while maintaining compatibility with callers using the old signatures.",
+  "category": "feature",
+  "subcategory": "signature-evolution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "activity-executor",
+    "function-signature"
+  ],
+  "concepts": [
+    "backward-compatibility",
+    "signature-versioning",
+    "function-evolution",
+    "migration-path",
+    "api-stability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot modify workflow or activity function signatures in breaking ways without disrupting existing callers or duplicating function logic.",
+  "rootCause": null,
+  "proposedFix": "Implement a versioning or overloading mechanism that allows multiple signatures for the same workflow or activity while maintaining backward compatibility.",
+  "workaround": "Use input and output structures for activities and workflows to allow flexible parameter passing.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is no way to change workflow or activity function signature in a nonbackward compatible way.",
+  "number": 198,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:07.600Z"
+}

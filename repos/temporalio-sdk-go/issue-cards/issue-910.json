@@ -1,0 +1,31 @@
+{
+  "number": 910,
+  "repository": "temporalio-sdk-go",
+  "summary": "Request to add an activity.InActivity(context.Context) bool function to determine whether a context is an activity context. This would allow developers to check if code is executing within an activity execution context.",
+  "category": "feature",
+  "subcategory": "activity-context",
+  "apis": [
+    "InActivity"
+  ],
+  "components": [
+    "activity",
+    "context"
+  ],
+  "concepts": [
+    "context-detection",
+    "activity-execution",
+    "runtime-introspection",
+    "execution-context"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can now programmatically determine if their code is running within an activity context, enabling context-aware behavior.",
+  "rootCause": null,
+  "proposedFix": "Implement activity.InActivity(context.Context) bool function",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and the issue closed",
+  "related": [],
+  "keyQuote": "Need to know whether the context is an activity context.",
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:16.468Z"
+}

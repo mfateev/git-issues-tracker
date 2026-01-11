@@ -1,0 +1,34 @@
+{
+  "summary": "Data converter WithContext is not being called for local activity response errors and marker details. The issue is complicated by the fact that errors and marker metadata use custom converters without context information during both serialization and deserialization.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "local-activity",
+    "error-handling",
+    "marker-serialization"
+  ],
+  "concepts": [
+    "context-aware-conversion",
+    "custom-converter",
+    "serialization",
+    "deserialization",
+    "replay",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Custom data converter implementations that rely on context information will not receive context when processing local activity errors and marker metadata, causing serialization/deserialization failures.",
+  "rootCause": "Local activity completion records results, errors, and marker details using different converters. While results use context-aware converter, errors and marker details use custom-but-not-context-aware converters. During replay, context is not available when deserializing errors, preventing use of context-aware converters even if available.",
+  "proposedFix": null,
+  "workaround": "Custom converter creators who rely on context-aware pieces should passthrough data when they don't have context-specific information.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved by documenting that context-aware data converters should not rely on being given a context, and opening issue #699 as a related compatibility note.",
+  "related": [
+    699
+  ],
+  "keyQuote": "we don't have such a context when we are extracting the error back out...so we'll have to create such a header-infused context on every single replay",
+  "number": 697,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:59.910Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "ExecuteWorkflow with WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE was incorrectly replacing a running workflow instead of returning the existing workflow ID and run ID as documented.",
+  "category": "bug",
+  "subcategory": "workflow-id-reuse-policy",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-execution",
+    "id-reuse-policy"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "duplicate-handling",
+    "running-workflow",
+    "policy-enforcement"
+  ],
+  "severity": "high",
+  "userImpact": "Users could lose running workflows when attempting to re-execute with the same ID, contradicting the documented behavior of ALLOW_DUPLICATE policy.",
+  "rootCause": "The ExecuteWorkflow API incorrectly implemented the WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE logic, replacing running workflows instead of allowing duplicates.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test confirming duplicate ID behavior was merged, showing that ExecuteWorkflow now correctly returns the same workflow ID and run ID when executing for the same ID while it is still running.",
+  "related": [],
+  "keyQuote": "The current logic is: The new created workflow will REPLACE the current running workflow with the same id.",
+  "number": 518,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:36.289Z"
+}

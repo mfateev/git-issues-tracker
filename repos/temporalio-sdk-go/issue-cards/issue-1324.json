@@ -1,0 +1,33 @@
+{
+  "summary": "ActivityTestEnvironment crashes with concurrent map read/write errors when executing multiple activities in parallel using t.Parallel(), despite parallel activity execution being supported in real workflows.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "testWorkflowEnvironmentImpl",
+    "activityExecutorWrapper",
+    "ActivityTestEnvironment"
+  ],
+  "concepts": [
+    "concurrency",
+    "thread-safety",
+    "map access",
+    "race condition",
+    "parallel execution",
+    "testing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely execute multiple activities in parallel within ActivityTestEnvironment tests, causing runtime crashes.",
+  "rootCause": "Concurrent reads and writes to a map in testWorkflowEnvironmentImpl.getActivityHandle() without synchronization when multiple goroutines execute activities in parallel.",
+  "proposedFix": null,
+  "workaround": "Avoid using t.Parallel() when executing multiple activities with the same ActivityTestEnvironment instance.",
+  "resolution": "wontfix",
+  "resolutionDetails": "ActivityTestEnvironment is not designed to be thread-safe; API is not thread-safe unless explicitly documented.",
+  "related": [],
+  "keyQuote": "The ActivityTestEnvironment is not designed to be thread safe. There is no documentation that says it is OK to use in multiple go routines.",
+  "number": 1324,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:37.050Z"
+}

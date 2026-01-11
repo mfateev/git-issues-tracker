@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to add a result field to RespondActivityTaskFailedRequest so that partial results can be obtained when an activity fails, similar to the result field in RespondActivityTaskCompletedRequest.",
+  "category": "feature",
+  "subcategory": "activity-error-handling",
+  "apis": [
+    "ExecuteActivity",
+    "RespondActivityTaskFailedRequest",
+    "RespondActivityTaskCompletedRequest",
+    "NewApplicationError"
+  ],
+  "components": [
+    "activity-executor",
+    "future",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "result-retrieval",
+    "activity-failure",
+    "error-details",
+    "cross-language-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access partial results when an activity fails, making it difficult to handle errors that still produce useful data.",
+  "rootCause": "Temporal architecture design choice to support multiple languages and maintain backward compatibility by treating result and error as mutually exclusive.",
+  "proposedFix": "Add result field to RespondActivityTaskFailedRequest matching RespondActivityTaskCompletedRequest.Result structure, or alternatively use NewApplicationError with details.",
+  "workaround": "Use NewApplicationError with details parameter to return error information along with data.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer explained that the current architecture (result XOR error) is intentional for cross-language support and backward compatibility. Users should use NewApplicationError with details instead.",
+  "related": [],
+  "keyQuote": "In Temporal a workflow or an activity can either return a result or an error... Returning an error and a value that are both valid is a special case.",
+  "number": 1201,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:40.318Z"
+}

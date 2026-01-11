@@ -1,0 +1,30 @@
+{
+  "summary": "The Datadog tracing module fails to build because a transitive dependency on the unavailable sourcegraph.com/sourcegraph/appdash-data package causes go get to fail. Upgrading gopkg.in/DataDog/dd-trace-go.v1 to a recent version resolves the issue.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "contrib",
+    "datadog",
+    "dependencies"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "transitive-dependencies",
+    "module-management",
+    "go-mod",
+    "package-availability"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build projects that depend on the Datadog tracing contrib module due to missing transitive dependencies.",
+  "rootCause": "gopkg.in/DataDog/dd-trace-go.v1 v1.42.0 has a transitive dependency on the no-longer-reachable sourcegraph.com/sourcegraph/appdash-data package.",
+  "proposedFix": "Upgrade gopkg.in/DataDog/dd-trace-go.v1 to the most recent version (v1.58.1 or later) which removes the sourcegraph dependency.",
+  "workaround": "Users can explicitly upgrade the dependency using: go mod edit -replace=gopkg.in/DataDog/dd-trace-go.v1@v1.42.0=gopkg.in/DataDog/dd-trace-go.v1@v1.58.1",
+  "resolution": "fixed",
+  "resolutionDetails": "The Datadog contrib module dependency was upgraded to a version that no longer requires the unavailable appdash-data package.",
+  "related": [],
+  "keyQuote": "upgrading gopkg.in/DataDog/dd-trace-go.v1 to the most recent version will remove sourcegraph as a dep.",
+  "number": 1326,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:51.695Z"
+}

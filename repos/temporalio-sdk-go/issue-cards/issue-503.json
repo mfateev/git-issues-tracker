@@ -1,0 +1,30 @@
+{
+  "summary": "The SDK incorrectly sends timer cancel commands for timers that have already fired during workflow cancellations, which violates the expected behavior that cancel commands should never be sent for already-resolved timers.",
+  "category": "bug",
+  "subcategory": "timer-management",
+  "apis": [],
+  "components": [
+    "timer-executor",
+    "workflow-cancellation",
+    "command-handler"
+  ],
+  "concepts": [
+    "timer",
+    "cancellation",
+    "command-sequencing",
+    "state-management",
+    "workflow-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may encounter unexpected behavior when timers fire during cancellation, potentially causing SDK errors or incorrect cancellation semantics.",
+  "rootCause": "The SDK does not properly track fired timer state before issuing cancel commands during workflow cancellation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by properly handling timer state during workflow cancellations to avoid issuing cancel commands for already-resolved timers.",
+  "related": [],
+  "keyQuote": "We should never send a timer cancel command for a timer that has already fired",
+  "number": 503,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:05.995Z"
+}

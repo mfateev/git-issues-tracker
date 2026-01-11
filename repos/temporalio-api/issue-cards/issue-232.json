@@ -1,0 +1,30 @@
+{
+  "summary": "RetryState.RETRY_STATE_IN_PROGRESS is exposed in the public API but used only internally, causing confusion for users. Request to remove it from public exposure and keep it internal only.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "api-enums",
+    "workflow-proto"
+  ],
+  "concepts": [
+    "retry-state",
+    "public-api",
+    "internal-api",
+    "api-design",
+    "backwards-compatibility",
+    "user-confusion"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused by the presence of an internal-only retry state in the public API surface.",
+  "rootCause": null,
+  "proposedFix": "Remove RetryState.RETRY_STATE_IN_PROGRESS from public API and keep it internal only",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RetryState.RETRY_STATE_IN_PROGRESS is used internally only but is exposed via public api",
+  "number": 232,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:30:59.304Z"
+}

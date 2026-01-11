@@ -1,0 +1,32 @@
+{
+  "summary": "User requests the ability to return a CanceledError from an activity without it being treated as an unexpected error. Currently, the SDK wraps user-returned CanceledErrors in a generic error, causing them to be retried rather than marked as cancelled.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "NewCanceledError"
+  ],
+  "components": [
+    "activity-executor",
+    "task-handler",
+    "error-handling"
+  ],
+  "concepts": [
+    "activity-cancellation",
+    "error-handling",
+    "retry-logic",
+    "context-cancellation",
+    "activity-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot elegantly represent non-error stop conditions in activities and must use non-retryable errors as a workaround.",
+  "rootCause": "The SDK checks whether the context was actually cancelled by the server before accepting a CanceledError; if not cancelled server-side, the error is wrapped as unexpected and treated as a retriable error.",
+  "proposedFix": "Stop checking that context is cancelled when handling a CanceledError returned from an activity.",
+  "workaround": "Return a non-retryable error instead of CanceledError to represent the stop condition.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Server-side platform behavior prevents activities from being marked as cancelled unless the server issued the cancellation. The SDK correctly enforces this constraint by converting non-server-initiated cancellations to errors.",
+  "related": [],
+  "keyQuote": "Activity cancellation can only result from the server issuing a cancellation, an activity cannot appear cancelled just by returning cancelled.",
+  "number": 1527,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:04.836Z"
+}

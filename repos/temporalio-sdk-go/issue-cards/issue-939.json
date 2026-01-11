@@ -1,0 +1,32 @@
+{
+  "summary": "Implement nightly CI tests against the server master branch to catch SDK-server incompatibilities early. The testing will be performed in the sdk-features repository instead.",
+  "category": "feature",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "integration-tests",
+    "test-framework"
+  ],
+  "concepts": [
+    "nightly-testing",
+    "integration-testing",
+    "compatibility",
+    "server-version",
+    "ci-pipeline"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures SDK compatibility with latest server versions is caught quickly, reducing incompatibility issues reaching users.",
+  "rootCause": null,
+  "proposedFix": "Run nightly CI tests in sdk-features repository against server master branch",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Testing moved to sdk-features repository (issue #150) as a more appropriate location for integration testing",
+  "related": [
+    150
+  ],
+  "keyQuote": "In order to catch SDK-server incompatibilities ASAP, we should test integration of the latest version of these components.",
+  "number": 939,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:54.094Z"
+}

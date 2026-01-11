@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support dynamic query and update handlers in the Go SDK that act as fallbacks when no specific handler matches. These handlers should accept a handler name string and encoded values array.",
+  "category": "feature",
+  "subcategory": "query-update-handlers",
+  "apis": [
+    "QueryHandler",
+    "UpdateHandler"
+  ],
+  "components": [
+    "workflow-execution",
+    "handler-registry",
+    "query-system",
+    "update-system"
+  ],
+  "concepts": [
+    "dynamic-routing",
+    "handler-fallback",
+    "flexible-api",
+    "encoded-values",
+    "extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement generic or dynamic query/update handlers that work with arbitrary handler names without pre-registering each one.",
+  "rootCause": null,
+  "proposedFix": "Add support for a dynamic query or update handler that accepts (string name, []converter.EncodedValue) and is invoked when no other handler matches",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to allow a dynamic query or update handler that is called when no other query or update handler is found",
+  "number": 997,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:02.551Z"
+}

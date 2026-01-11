@@ -1,0 +1,32 @@
+{
+  "summary": "Sticky cache is leaked when a worker stops, causing memory and goroutine leaks. The issue stems from using a global singleton cache that can't be properly cleaned up when multiple workers share it. The fix is to create a per-worker sticky cache and purge it completely on worker.Stop().",
+  "category": "bug",
+  "subcategory": "sticky-cache",
+  "apis": [],
+  "components": [
+    "sticky-cache",
+    "worker",
+    "memory-management"
+  ],
+  "concepts": [
+    "resource-leak",
+    "cache-management",
+    "worker-lifecycle",
+    "goroutine-leak",
+    "singleton-pattern"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience memory leaks and goroutine leaks when stopping workers due to sticky cache not being properly cleaned up.",
+  "rootCause": "Sticky cache is implemented as a global singleton, making it impossible to clear entries belonging to a specific worker without affecting other workers.",
+  "proposedFix": "Create a per-worker sticky cache instance and completely purge it when worker.Stop() is called.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #310 which implements per-worker sticky cache with proper cleanup.",
+  "related": [
+    310
+  ],
+  "keyQuote": "The right fix here is to create stickyCache per worker and purge it completely on worker.Stop()",
+  "number": 51,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:41.716Z"
+}

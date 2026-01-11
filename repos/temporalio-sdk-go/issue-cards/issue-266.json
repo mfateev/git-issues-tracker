@@ -1,0 +1,34 @@
+{
+  "summary": "Request to expose activity start and completion information (timestamps, attempt numbers, etc.) to workflow code so developers can access metadata about activity execution lifecycle.",
+  "category": "feature",
+  "subcategory": "activity-metadata",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-runtime",
+    "activity-result-handler"
+  ],
+  "concepts": [
+    "activity-lifecycle",
+    "execution-metadata",
+    "timestamps",
+    "attempt-tracking",
+    "activity-information"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently access detailed activity execution metadata within workflows, limiting visibility into activity behavior and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    228
+  ],
+  "keyQuote": "Expose activity start and completion information to the workflow code",
+  "number": 266,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:07.753Z"
+}

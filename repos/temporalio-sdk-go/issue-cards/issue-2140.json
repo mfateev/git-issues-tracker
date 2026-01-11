@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTelemetry metrics handler incorrectly implements Counter metrics as UpDownCounter instead of Counter, causing them to be exposed as Gauge instead of Counter with _total suffix in Prometheus, violating the OpenMetrics specification.",
+  "category": "bug",
+  "subcategory": "opentelemetry-metrics",
+  "apis": [],
+  "components": [
+    "opentelemetry-handler",
+    "metrics-handler",
+    "prometheus-exporter"
+  ],
+  "concepts": [
+    "metrics",
+    "counter",
+    "opentelemetry",
+    "prometheus",
+    "monotonic",
+    "gauge"
+  ],
+  "severity": "medium",
+  "userImpact": "Users exporting metrics via OpenTelemetry get incorrect metric types that don't comply with Prometheus specifications, breaking metric collection and monitoring pipelines.",
+  "rootCause": "OpenTelemetry handler uses Int64UpDownCounter for Counter metrics instead of Int64Counter, and the non-monotonic UpDownCounter is converted to Gauge by the Prometheus exporter.",
+  "proposedFix": "Change the Counter method in handler to use m.meter.Int64Counter(name) instead of m.meter.Int64UpDownCounter(name).",
+  "workaround": "Apply a local patch changing UpDownCounter to Counter in the OpenTelemetry handler.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1137
+  ],
+  "keyQuote": "OpenTelemetry handler implements Counter as m.meter.Int64UpDownCounter(name). In opentelemetry-go prometheus exporter, it explicitly checks whether the type Sum is monotonic or not. If it is not - then it is Gauge value.",
+  "number": 2140,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:29:05.740Z"
+}

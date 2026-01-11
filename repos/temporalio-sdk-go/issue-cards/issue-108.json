@@ -1,0 +1,28 @@
+{
+  "summary": "Race condition exists in testWorkflowEnvironmentImpl that is currently bypassed by a workaround. The issue needs to be properly fixed rather than worked around.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testWorkflowEnvironmentImpl",
+    "testsuite"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "testing",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Test suite may have unpredictable behavior due to race conditions, affecting reliability of workflow testing.",
+  "rootCause": "Race condition in testWorkflowEnvironmentImpl implementation",
+  "proposedFix": null,
+  "workaround": "Currently bypassed by workaround in internal_workflow_testsuite_test.go",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently it bypassed by workaround: https://github.com/temporalio/temporal-go-sdk/blob/master/internal/internal_workflow_testsuite_test.go#L1751 but it must be properly fixed.",
+  "number": 108,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:16.192Z"
+}

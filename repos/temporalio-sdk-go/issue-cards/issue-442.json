@@ -1,0 +1,30 @@
+{
+  "summary": "Metrics reporting for gRPC calls to Temporal server include intermediate retry failures even when the final call succeeds, making the reported failure rate misleading. The request is to add a higher-level metric that excludes retries for ultimately successful calls while still including retry latency.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "interceptor",
+    "grpc-client"
+  ],
+  "concepts": [
+    "retry",
+    "availability-metrics",
+    "sla-reporting",
+    "failure-rate",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive misleading availability metrics that conflate transient retry failures with actual service failures.",
+  "rootCause": "The metrics interceptor records success/failure per-request, so retried failed requests are counted as failures even if the overall operation succeeds.",
+  "proposedFix": "Add an additional higher-level metric that excludes intermediate retries for ultimately successful calls, while preserving retry latency in the calculation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement accepted to add metrics that differentiate between overall SLA and SLA including retry failures.",
+  "related": [],
+  "keyQuote": "an additional metric that excludes retries for ultimately successful calls would be useful",
+  "number": 442,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:22:24.743Z"
+}

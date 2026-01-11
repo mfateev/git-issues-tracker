@@ -1,0 +1,32 @@
+{
+  "summary": "The MutableSideEffect function in the Go SDK's test framework ignores the custom comparison function (cmp), always updating the value instead of respecting the comparison logic. This causes test workflows to behave differently than production.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "MutableSideEffect"
+  ],
+  "components": [
+    "test-suite",
+    "workflow-testsuite",
+    "side-effect"
+  ],
+  "concepts": [
+    "mutable-side-effect",
+    "comparison-function",
+    "value-update",
+    "test-behavior",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests using MutableSideEffect with custom comparison functions produce incorrect results, failing to detect when values should remain unchanged.",
+  "rootCause": "The cmp parameter is ignored in the test framework implementation at internal_workflow_testsuite.go#L2875",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In test framework MutableSideEffect with cmp `func(a, b any) bool { return true }` should not update value, even if value is different",
+  "number": 2109,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:22.056Z"
+}

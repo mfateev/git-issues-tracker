@@ -1,0 +1,32 @@
+{
+  "summary": "Add ability to pass configuration to workflows safely without breaking determinism. Currently there's no clean way to share configuration with workflows that isn't passed as arguments or through unsafe context propagators.",
+  "category": "feature",
+  "subcategory": "workflow-configuration",
+  "apis": [
+    "GetConfiguration"
+  ],
+  "components": [
+    "workflow",
+    "worker-options",
+    "context-propagator"
+  ],
+  "concepts": [
+    "configuration",
+    "determinism",
+    "side-effect",
+    "workflow-execution",
+    "context-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a safe, determinism-preserving way to pass configuration to workflows without exposing implementation details to clients.",
+  "rootCause": null,
+  "proposedFix": "Add `configuration` field to WorkerOptions and provide `workflow.GetConfiguration()` method that uses SideEffect, MutableSideEffect, or local activity to preserve determinism.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add `configuration` field to WorkerOptions and return them to the workflow through workflow.GetConfiguration(&config)",
+  "number": 35,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:14.939Z"
+}

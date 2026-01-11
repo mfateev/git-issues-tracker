@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for the Build ID Reachability API in the Go SDK, allowing developers to query which build IDs are reachable within a temporal workflow or activity.",
+  "category": "feature",
+  "subcategory": "build-id-versioning",
+  "apis": [
+    "BuildIDReachability"
+  ],
+  "components": [
+    "worker",
+    "sdk-core",
+    "versioning"
+  ],
+  "concepts": [
+    "build-id",
+    "reachability",
+    "versioning",
+    "compatibility",
+    "deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Go SDK users cannot use the Build ID Reachability API to query build ID compatibility, limiting their ability to manage safe deployments.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Build ID Reachability API support was implemented in the Go SDK.",
+  "related": [],
+  "keyQuote": "Build ID reachability API should be supported in the Go SDK",
+  "number": 1237,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:42.711Z"
+}

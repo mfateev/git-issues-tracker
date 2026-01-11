@@ -1,0 +1,34 @@
+{
+  "summary": "The HTTP API routes need to be configurable at a non-root subpath (e.g., /api) to avoid conflicts with UI client-side routes and to support use cases where UI Server is hosted at a subpath. Currently, API routes are set at the root level, which creates integration challenges.",
+  "category": "feature",
+  "subcategory": "http-api-routing",
+  "apis": [],
+  "components": [
+    "http-api",
+    "routing",
+    "ui-integration"
+  ],
+  "concepts": [
+    "api-routing",
+    "subpath-configuration",
+    "route-conflict",
+    "ui-integration",
+    "path-prefix"
+  ],
+  "severity": "medium",
+  "userImpact": "Users hosting UI Server at a subpath cannot properly integrate it with the API, and root-level API routes conflict with client-side UI routing.",
+  "rootCause": "API routes were simplified to root level in #410, but this creates routing conflicts when UI and API are served together.",
+  "proposedFix": "Make the API route path configurable and default to a non-root subpath like /api instead of root level.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    410,
+    428,
+    6212
+  ],
+  "keyQuote": "The path for the API routes should be configurable. They should default to something (e.g. /api) and not be set at the root by default",
+  "number": 427,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:53.269Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow replay fails with a panic when a workflow contains multiple consecutive calls to GetVersion. The panic occurs during event processing with a lookup error for scheduledEventID to activityID mapping, breaking query functionality.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "GetVersion",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-replay",
+    "decision-state-machine",
+    "event-handler",
+    "task-processor"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "event-replay",
+    "state-management",
+    "activity-scheduling",
+    "panic-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflows with multiple GetVersion calls without experiencing panics and query failures.",
+  "rootCause": "Event handler lookup logic fails to properly map scheduledEventID to activityID when multiple GetVersion calls exist in sequence, causing illegal state panic during replay.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 9, activityID: 9",
+  "number": 473,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:38.907Z"
+}

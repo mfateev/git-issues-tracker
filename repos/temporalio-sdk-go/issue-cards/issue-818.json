@@ -1,0 +1,31 @@
+{
+  "summary": "The workflow static analyzer tool incorrectly raises a non-deterministic error when using workflow.AwaitWithTimeout in workflows. This causes false positive warnings that prevent valid code from passing analysis.",
+  "category": "bug",
+  "subcategory": "static-analysis",
+  "apis": [
+    "workflow.AwaitWithTimeout"
+  ],
+  "components": [
+    "static-analyzer",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "timeout",
+    "determinism",
+    "static-analysis",
+    "validation",
+    "error-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use workflow.AwaitWithTimeout without triggering false warnings from the static analyzer, blocking valid workflow implementations.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Looks as static analyzer raises an error on: isNotTimeout, err := workflow.AwaitWithTimeout( ctx, content.ApprovalExpiration, submitSelector.HasPending)",
+  "number": 818,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:07.476Z"
+}

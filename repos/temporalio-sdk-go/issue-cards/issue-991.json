@@ -1,0 +1,33 @@
+{
+  "summary": "The QueryWorkflowWithOptions method bypasses the client interceptor, while the non-options form goes through it. The interceptor should wrap all query calls, including the options variant.",
+  "category": "bug",
+  "subcategory": "interceptor",
+  "apis": [
+    "QueryWorkflowWithOptions",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "client",
+    "interceptor",
+    "query"
+  ],
+  "concepts": [
+    "interceptor",
+    "method-dispatch",
+    "query-execution",
+    "options-pattern",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using QueryWorkflowWithOptions bypass custom interceptor logic, breaking observability and middleware functionality.",
+  "rootCause": "QueryWorkflowWithOptions calls the non-intercepted form instead of having the interceptor wrap both variants",
+  "proposedFix": "Route QueryWorkflowWithOptions through the interceptor, with error handling to convert query rejected errors appropriately",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "QueryWorkflowWithOptions now goes through the interceptor chain like the non-options form",
+  "related": [],
+  "keyQuote": "The client interceptor for queries should intercept all query calls, not just the non-options form.",
+  "number": 991,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:40.017Z"
+}

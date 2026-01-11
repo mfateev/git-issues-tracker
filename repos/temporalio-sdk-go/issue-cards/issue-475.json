@@ -1,0 +1,40 @@
+{
+  "summary": "A panic occurs when querying a workflow during failure and retry - the SDK attempts to generate a command before processing WorkflowTaskStarted event. This happens when queries are issued concurrently while the workflow is retrying after activity failure.",
+  "category": "bug",
+  "subcategory": "query-handling",
+  "apis": [
+    "QueryWorkflow",
+    "SetQueryHandler",
+    "ExecuteActivity",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-worker",
+    "command-generation",
+    "query-handler",
+    "event-processing"
+  ],
+  "concepts": [
+    "query",
+    "retry",
+    "panic",
+    "workflow-failure",
+    "concurrent-operations",
+    "event-replay"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that are retried after activity failure panic when queries are concurrently issued, causing workflow execution to fail.",
+  "rootCause": "The SDK attempts to generate a command before processing WorkflowTaskStarted event when handling queries during workflow retry states, violating event ordering assumptions.",
+  "proposedFix": "Server-side fix via https://github.com/temporalio/temporal/pull/2826 to properly handle queries during workflow retry, cron, or pending continue as new states.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2300,
+    2826
+  ],
+  "keyQuote": "Attempt to generate a command before processing WorkflowTaskStarted event due to WorkerType WorkflowWorker Error operation GetWorkflowExecution encounter not found",
+  "number": 475,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:58.298Z"
+}

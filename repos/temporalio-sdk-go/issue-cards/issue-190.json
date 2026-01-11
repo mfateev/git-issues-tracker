@@ -1,0 +1,34 @@
+{
+  "summary": "Context propagation is broken in the test suite. The code path that extracts headers from context passed to testWorkflowEnvironment.Execute is missing, preventing context propagators from working correctly during unit tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Execute"
+  ],
+  "components": [
+    "testsuite",
+    "context-propagation",
+    "test-environment"
+  ],
+  "concepts": [
+    "context-propagation",
+    "headers",
+    "unit-testing",
+    "workflow-execution",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot properly test context propagation in their workflows, limiting the ability to validate custom context propagators during unit testing.",
+  "rootCause": "The testWorkflowEnvironment.Execute code path does not extract headers from context, unlike the production code path.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #29, which addresses the same context propagation problem in the test suite.",
+  "related": [
+    29
+  ],
+  "keyQuote": "The code path that extracts headers from context passed to testWorkflowEnvironment.Execute is not present in the testsuite code.",
+  "number": 190,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:52.147Z"
+}

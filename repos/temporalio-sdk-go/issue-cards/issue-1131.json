@@ -1,0 +1,33 @@
+{
+  "summary": "WorkerActivitiesPerSecond rate limit is applied after receiving polls from the server, causing potential timeouts when activity processing is delayed. This creates issues when users set low rate limits (e.g., 1 activity per 10 seconds) combined with heartbeat timeouts.",
+  "category": "bug",
+  "subcategory": "activity-rate-limiting",
+  "apis": [
+    "WorkerActivitiesPerSecond"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "poller"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "timeout",
+    "heartbeat",
+    "polling",
+    "activity-processing",
+    "server-timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Activities can timeout due to rate limiting delays even when intentionally configured with low throughput, breaking documented usage patterns.",
+  "rootCause": "Rate limit is enforced post-poll-pre-process rather than pre-poll, causing server timeouts to occur while waiting for the rate limit to allow activity processing.",
+  "proposedFix": "Either fix the timing of when the rate limit is applied (move it pre-poll), or at minimum add documentation warning users about this interaction with heartbeat timeouts.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if they had a heartbeat timeout, it could timeout before it starts",
+  "number": 1131,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:29.886Z"
+}

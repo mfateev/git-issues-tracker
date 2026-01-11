@@ -1,0 +1,35 @@
+{
+  "summary": "Invoking struct local activities fails with nil pointer dereference when passing method values like `a.GetGreeting`. The SDK cannot access the receiver pointer of method values to validate and invoke them correctly.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity-handler",
+    "activity-executor",
+    "reflection"
+  ],
+  "concepts": [
+    "method-values",
+    "receiver-pointer",
+    "reflection",
+    "nil-dereference",
+    "activity-invocation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot invoke struct local activities using method value syntax (e.g., `a.GetGreeting`), forcing them to either initialize structs or use string-based activity lookup.",
+  "rootCause": "Reflection cannot access the receiver pointer of method values, so the SDK cannot validate it's not nil or invoke the method safely through reflection.",
+  "proposedFix": "Look up the function name in the activity registry and call it by registration, or require method expression syntax like `(*Activities).GetGreeting` instead of method values.",
+  "workaround": "Users can initialize structs before calling local activities, or call activities by string name instead of method reference.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #436 with changes to how local activities handle method invocation and receiver validation.",
+  "related": [
+    405,
+    436
+  ],
+  "keyQuote": "The problem seems to be if you pass a 'method value' like `a.GetGreeting` there is no way to use reflection or anything else to access the receiver pointer",
+  "number": 424,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:39.714Z"
+}

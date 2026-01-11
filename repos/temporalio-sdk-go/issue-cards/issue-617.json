@@ -1,0 +1,32 @@
+{
+  "summary": "User requested better error messages when calling an activity with the wrong number of parameters. Currently, the SDK silently accepts fewer parameters and only reports type mismatches on the first misaligned parameter, making debugging difficult.",
+  "category": "feature",
+  "subcategory": "activity-validation",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "parameter-validation",
+    "error-reporting"
+  ],
+  "concepts": [
+    "parameter-count",
+    "error-messages",
+    "debugging",
+    "type-mismatch",
+    "function-signature"
+  ],
+  "severity": "low",
+  "userImpact": "Users debugging activity parameter mismatches receive unclear error messages about type failures instead of parameter count violations, extending debug time.",
+  "rootCause": "The SDK validates parameters by attempting to decode each one sequentially without first checking parameter count matches the activity function signature.",
+  "proposedFix": "Add parameter count validation before attempting to decode individual parameters, reporting count mismatches explicitly.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer determined the SDK intentionally allows fewer parameters (giving zero values to missing ones), so the current behavior is by design. The type error on misaligned parameters is the correct diagnostic.",
+  "related": [],
+  "keyQuote": "Any parameter you don't provide will be given the zero value. Therefore fewer parameters are allowed. The error about it being the wrong type is the correct one.",
+  "number": 617,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:26.481Z"
+}

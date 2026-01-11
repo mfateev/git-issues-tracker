@@ -1,0 +1,31 @@
+{
+  "summary": "Built-in query responses should return raw values instead of encoded values to match the behavior defined in the Temporal features specification.",
+  "category": "feature",
+  "subcategory": "query-responses",
+  "apis": [],
+  "components": [
+    "query",
+    "response-encoding"
+  ],
+  "concepts": [
+    "raw-value",
+    "encoding",
+    "query-response",
+    "built-in-queries"
+  ],
+  "severity": "medium",
+  "userImpact": "Users expect built-in query responses to follow the standard raw value encoding pattern established in the Temporal features spec.",
+  "rootCause": null,
+  "proposedFix": "When #1231 is completed, update built-in queries to return raw values as specified in features/issues/604",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Built-in queries were updated to use RawValue responses after the completion of issue #1231",
+  "related": [
+    1231,
+    604
+  ],
+  "keyQuote": "When #1231 is done, make sure built-in queries return a raw value",
+  "number": 1843,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:34.386Z"
+}

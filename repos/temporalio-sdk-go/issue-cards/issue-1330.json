@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add TaskQueue to TracerStartSpanOptions in the tracing interceptor to enable better OpenTelemetry peer service detection. This would allow developers to infer cross-worker interactions by comparing task queue names in span data.",
+  "category": "feature",
+  "subcategory": "tracing-observability",
+  "apis": [
+    "StartActivity",
+    "StartWorkflow"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "span-options",
+    "opentelemetry-integration"
+  ],
+  "concepts": [
+    "peer-service-name",
+    "distributed-tracing",
+    "service-interactions",
+    "task-queue",
+    "span-context",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot easily detect cross-service interactions in their Temporal applications through OpenTelemetry spans without access to task queue information.",
+  "rootCause": null,
+  "proposedFix": "Add TaskQueue as a field in TracerStartSpanOptions, similar to Name and Operation fields, to provide context about which task queue will handle the request.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This would allow developers to externally infer if a cross-service request is being made based on whether the TaskQueue of the outbound request is different",
+  "number": 1330,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:54.403Z"
+}

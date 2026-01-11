@@ -1,0 +1,30 @@
+{
+  "summary": "Data converters used in workflows are constrained by Temporal's deadlock detection timeout. Advanced use cases need the ability to perform data conversion outside this constraint, potentially by measuring conversion time and adjusting the deadlock detector timeout accordingly.",
+  "category": "feature",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "deadlock-detector",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "data-conversion",
+    "deadlock-detection",
+    "timeout",
+    "performance",
+    "constraint"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with advanced data converter implementations that need flexibility from deadlock detection constraints are unable to optimize their use cases.",
+  "rootCause": "Data conversion is performed within the workflow deadlock detection scope, which applies Temporal's workflow deadlock timeout rules to conversion operations.",
+  "proposedFix": "Measure time spent in DataConverter and extend the deadlock detector timeout by this value, or implement a timer that can be stopped and started again.",
+  "workaround": "Measure conversion time and compensate the deadlock detector timeout.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation decided on measuring time spent in DataConverter and adjusting the deadlock detector timeout accordingly.",
+  "related": [],
+  "keyQuote": "Some advanced use cases of workflow data converters do not want to be bound to Temporal workflow deadlock rules",
+  "number": 769,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:36:03.211Z"
+}

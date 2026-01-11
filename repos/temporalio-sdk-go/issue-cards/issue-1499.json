@@ -1,0 +1,33 @@
+{
+  "summary": "Add warnings or errors when update and signal handlers are not completed when a workflow exits due to cancellation, failure, or success. SDK should provide methods to await all handlers and a configurable policy to warn or abandon unfinished handlers.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "all_handlers_finished"
+  ],
+  "components": [
+    "worker",
+    "update-handler",
+    "signal-handler",
+    "workflow-exit"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "graceful-shutdown",
+    "workflow-completion",
+    "cancellation",
+    "abandonment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need visibility into unfinished update/signal handlers and methods to properly await or abandon them before workflow exit.",
+  "rootCause": "Update and signal handlers can dangle across cancellation or workflow exit without user awareness or control.",
+  "proposedFix": "Implement await-all-handlers method, emit UnfinishedUpdateHandlersWarning/UnfinishedSignalHandlersWarning by default, and provide HandlerUnfinishedPolicy configuration (WARN_AND_ABANDON, ABANDON, etc.)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in Python SDK (PR #556) with spec for other SDKs including all_handlers_finished() method, warnings on worker-side exit, and per-handler unfinished_policy configuration.",
+  "related": [],
+  "keyQuote": "Workflow code can wait on a method named similarly to `workflow.all_handlers_finished()`",
+  "number": 1499,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:03:07.291Z"
+}

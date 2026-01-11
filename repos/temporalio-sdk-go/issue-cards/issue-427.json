@@ -1,0 +1,33 @@
+{
+  "summary": "Test framework fails when asserting that an activity wasn't called. The mock setup using OnActivity().Panic() expects the activity to be invoked, causing the test to fail when the activity is correctly not called due to conditional branching.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "WorkflowExecute"
+  ],
+  "components": [
+    "testsuite",
+    "workflow-mock",
+    "activity-mock"
+  ],
+  "concepts": [
+    "conditional-branches",
+    "activity-assertions",
+    "mock-expectations",
+    "test-verification",
+    "false-positives"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test that activities are not called in conditional workflows, making it difficult to verify correct branching logic in unit tests.",
+  "rootCause": "The mock framework treats unmet expectations as test failures, but there's no distinction between an activity that should be called but wasn't vs. an activity that shouldn't be called at all.",
+  "proposedFix": "Implement a way to assert that an activity should not be called, possibly through a method like OnActivity().Never() or similar that expects zero invocations instead of failing on unmet expectations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to properly handle assertions that activities should not be called in test scenarios.",
+  "related": [],
+  "keyQuote": "Should return an error if the activity was called and the assert should pass if the activity wasn't called.",
+  "number": 427,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:43.817Z"
+}

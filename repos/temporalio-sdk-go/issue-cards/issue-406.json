@@ -1,0 +1,37 @@
+{
+  "summary": "Activity retry policy is not respected in workflow test environments. When testing workflows with activities that have a retry policy, the test framework fails to retry activities on failure, causing tests to incorrectly report workflow errors.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "test-suite",
+    "activity-executor",
+    "retry-policy",
+    "mock-environment"
+  ],
+  "concepts": [
+    "retry",
+    "testing",
+    "activity-execution",
+    "error-handling",
+    "workflow-context",
+    "default-policy"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot accurately test workflow behavior with activity retries, leading to incorrect test assertions and potential production bugs.",
+  "rootCause": "The default retry policy is set by the Temporal server but is not applied to the local unit test environment.",
+  "proposedFix": "Set the default retry policy for the test environment to match server behavior.",
+  "workaround": "Explicitly set the retry policy in workflow ActivityOptions rather than relying on the default policy.",
+  "resolution": "fixed",
+  "resolutionDetails": "Default retry policy behavior was implemented for test environments to match server behavior.",
+  "related": [
+    461
+  ],
+  "keyQuote": "The default policy is set by server, we need to set the default one for test as well.",
+  "number": 406,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:56.478Z"
+}

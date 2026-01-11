@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a queryable registry interface to the worker so users can programmatically retrieve information about registered activities and workflows. This would help with service discovery and introspection without requiring external data structures.",
+  "category": "feature",
+  "subcategory": "worker-registry",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "registry"
+  ],
+  "concepts": [
+    "service-discovery",
+    "introspection",
+    "registration",
+    "metadata-query"
+  ],
+  "severity": "low",
+  "userImpact": "Users could query the worker to discover registered activities and workflows at runtime instead of maintaining external registries or service discovery mechanisms.",
+  "rootCause": null,
+  "proposedFix": "Add queryable registry interface to the Worker that allows users to retrieve registered activities and workflows.",
+  "workaround": "Store registration information in an external data structure, or expose a simple HTTP API that returns what was registered.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers determined this is unnecessary because users are already adding to the registry and can track what they add themselves. Adding new methods to interfaces is also a breaking change.",
+  "related": [],
+  "keyQuote": "Users are the ones adding to the registry, so they can keep track of what they add... we still sometimes do it [breaking changes].",
+  "number": 1212,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:55.712Z"
+}

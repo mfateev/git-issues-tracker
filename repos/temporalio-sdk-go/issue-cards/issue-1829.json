@@ -1,0 +1,35 @@
+{
+  "summary": "The doclink tool incorrectly adds an 'Exposed' requirement to the GetHandle method even though the method itself does not require this documentation directive. The -fix flag was adding unnecessary and incorrect documentation.",
+  "category": "bug",
+  "subcategory": "documentation-generation",
+  "apis": [
+    "WorkerDeploymentHandle",
+    "WorkerDeploymentClient"
+  ],
+  "components": [
+    "doclink-tool",
+    "documentation-generator",
+    "worker-deployment-client"
+  ],
+  "concepts": [
+    "documentation-generation",
+    "api-exposure",
+    "code-annotation",
+    "tooling",
+    "experimental-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the doclink tool's -fix flag receive incorrect and unnecessary documentation requirements that don't match the actual API structure.",
+  "rootCause": "The -fix flag in the doclink tool automatically adds 'Exposed' requirements to methods without proper validation of whether the method actually needs this directive.",
+  "proposedFix": "Update the doclink tool's -fix logic to not add 'Exposed' requirements to methods that don't need them, as demonstrated in the related PR #1814.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by updating doclink tool logic to correctly handle 'Exposed' requirements for methods. See PR #1814 for implementation details.",
+  "related": [
+    1814
+  ],
+  "keyQuote": "It should not add/require Exposed in GetHandle",
+  "number": 1829,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:02.860Z"
+}

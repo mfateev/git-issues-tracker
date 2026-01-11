@@ -1,0 +1,29 @@
+{
+  "summary": "Remove unnecessary warning log that fires when a worker is explicitly stopped. Currently logs 'Failed to poll for task' with error 'worker stopping' even though this is expected behavior during graceful shutdown.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "polling",
+    "logging"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "worker-stop",
+    "log-noise",
+    "expected-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Users see warning logs during normal worker shutdown that incorrectly suggest an error condition, causing confusion and noise in log aggregation systems.",
+  "rootCause": "The polling loop logs all failures without distinguishing between unexpected errors and expected ones that occur during graceful worker shutdown.",
+  "proposedFix": "Suppress the log message when the worker is explicitly stopping, as this is not an error condition.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The poll failure log is now suppressed when the worker is in a stopping state.",
+  "related": [],
+  "keyQuote": "Failed to poll for task. ... \"Error\": \"worker stopping\" ... We should stop",
+  "number": 882,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:16.501Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User requested moving SDK errors out of the internal package to make them more accessible for developers. The discussion revealed that commonly-needed errors are already exposed through aliases in public packages like the temporal and activity packages.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "internal-package",
+    "temporal-package",
+    "activity-package"
+  ],
+  "concepts": [
+    "error-handling",
+    "package-organization",
+    "API-accessibility",
+    "developer-experience",
+    "internal-packages"
+  ],
+  "severity": "low",
+  "userImpact": "Developers need easier access to SDK errors for proper error handling in their applications.",
+  "rootCause": "SDK errors were kept in the internal package, making them harder to access directly for error matching.",
+  "proposedFix": "Move SDK errors to a public-facing package or ensure they are properly aliased in public packages.",
+  "workaround": "Errors can be accessed through aliases already exposed in public packages like temporal and activity.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by confirming that errors like ErrScheduleAlreadyRunning are already exposed through public package aliases, addressing the user's specific use case.",
+  "related": [],
+  "keyQuote": "Errors a users is expected to need are aliased in other packages for example ErrActivityResultPending is aliased here",
+  "number": 1364,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:05.623Z"
+}

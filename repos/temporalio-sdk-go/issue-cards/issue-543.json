@@ -1,0 +1,39 @@
+{
+  "summary": "Request to support dynamic activity and workflow implementations that can be loaded at runtime, matching feature parity with the Java SDK.",
+  "category": "feature",
+  "subcategory": "dynamic-activities-workflows",
+  "apis": [
+    "RegisterWorkflowWithOptions",
+    "RegisterActivityWithOptions",
+    "GetLogger",
+    "GetInfo"
+  ],
+  "components": [
+    "worker",
+    "workflow-registration",
+    "activity-registration",
+    "registry"
+  ],
+  "concepts": [
+    "dynamic-loading",
+    "runtime-registration",
+    "fallthrough-handler",
+    "extension-point",
+    "worker-splitting",
+    "dsl-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to dynamically register and execute activities and workflows at runtime for use cases like DSLs and worker splitting.",
+  "rootCause": null,
+  "proposedFix": "Add Dynamic flag to RegisterOptions for both workflows and activities, requiring function signatures that accept a string name and slice of EncodedValue parameters.",
+  "workaround": "Use explicit activities/workflows with input parameters to decide behavior inside the body instead of dynamic registration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with RegisterOptions{Dynamic: true} for both workflows and activities.",
+  "related": [
+    245
+  ],
+  "keyQuote": "workflow or activity is called when one for the specific name is not found",
+  "number": 543,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:22.752Z"
+}

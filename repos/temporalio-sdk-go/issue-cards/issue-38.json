@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow and activity type names currently include the full package path prefix (e.g., `go.temporal.io/temporal/internal.splitJoinActivityWorkflow`), which makes it difficult to move workflows between directories and requires manual string naming. The proposal is to remove the path prefix and use only the simple name (e.g., `splitJoinActivityWorkflow`).",
+  "category": "feature",
+  "subcategory": "naming-conventions",
+  "apis": [],
+  "components": [
+    "workflow-registration",
+    "activity-registration",
+    "type-naming"
+  ],
+  "concepts": [
+    "naming",
+    "modularity",
+    "code-organization",
+    "refactoring",
+    "portability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently struggle with moving workflows between directories due to hardcoded path-based type names, requiring manual string specifications.",
+  "rootCause": null,
+  "proposedFix": "Change workflow and activity type names to use only the simple function name without the package path prefix.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The path prefix was removed from type names and capitalization of the first letter was added.",
+  "related": [],
+  "keyQuote": "This make moving workflows between directories hard and forces specifying string name for every workflow.",
+  "number": 38,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:28.800Z"
+}

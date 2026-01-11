@@ -1,0 +1,32 @@
+{
+  "summary": "Add resource tuner metrics for CPU and memory usage tracking in the Go SDK, matching the metrics available in Core and Java SDKs. These metrics help monitor resource slot usage and allocation during workflow execution.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "metrics",
+    "resource-tuner",
+    "worker"
+  ],
+  "concepts": [
+    "resource-management",
+    "cpu-usage",
+    "memory-usage",
+    "observability",
+    "metrics",
+    "resource-slots",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently monitor CPU and memory resource slot usage in the Go SDK, limiting visibility into resource allocation and performance tuning.",
+  "rootCause": null,
+  "proposedFix": "Add CPU/memory usage metrics following the existing pattern from Core/Java implementations as documented in the Temporal SDK metrics reference.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resource tuner metrics were implemented to provide CPU and memory usage visibility matching Core and Java SDKs.",
+  "related": [],
+  "keyQuote": "The CPU/mem usage metrics that are present in Core/Java are absent here.",
+  "number": 2089,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:23.144Z"
+}

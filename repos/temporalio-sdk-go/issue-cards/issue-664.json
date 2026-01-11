@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add Must-style convenience functions (MustNewInterceptor and MustNewTracingInterceptor) for opentracing and opentelemetry that panic on error instead of returning error values, since these functions don't typically fail in practice.",
+  "category": "feature",
+  "subcategory": "interceptor-api",
+  "apis": [
+    "MustNewInterceptor",
+    "MustNewTracingInterceptor"
+  ],
+  "components": [
+    "interceptor",
+    "opentracing",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "convenience-function",
+    "error-handling",
+    "sdk-api",
+    "must-pattern",
+    "panic-on-error"
+  ],
+  "severity": "low",
+  "userImpact": "Provides a more convenient API for users who want to use opentracing/opentelemetry interceptors without handling errors that rarely occur in practice.",
+  "rootCause": null,
+  "proposedFix": "Add Must-style wrapper functions that panic on error instead of returning errors.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Author reconsidered the value of these convenience shortcuts and determined they were not worth adding.",
+  "related": [],
+  "keyQuote": "I'm no longer convinced in the value of these shortcuts. We should reopen if necessary.",
+  "number": 664,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:26.179Z"
+}

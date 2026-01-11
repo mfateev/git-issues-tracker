@@ -1,0 +1,36 @@
+{
+  "summary": "Activity error information is lost when ScheduleToCloseTimeout expires during retries. Currently, the system returns a generic ScheduleToClose timeout error instead of preserving the original activity error, making it difficult for developers to understand what actually failed.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-handler",
+    "timeout-manager",
+    "error-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "error-handling",
+    "activity-lifecycle",
+    "error-information",
+    "ScheduleToCloseTimeout"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot determine the root cause of activity failures when retries are exhausted by timeout, as the original error is discarded.",
+  "rootCause": "The timeout exit condition does not propagate or preserve the original activity error when ScheduleToCloseTimeout is exceeded during retries.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed to ensure activity errors are preserved and returned even when ScheduleToCloseTimeout is exceeded during retries.",
+  "related": [
+    119
+  ],
+  "keyQuote": "Currently only 1st case will return actual activity error but 2nd will return TimeoutType: ScheduleToClose error w/o information about original error.",
+  "number": 120,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:31.244Z"
+}

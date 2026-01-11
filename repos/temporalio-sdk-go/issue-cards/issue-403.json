@@ -1,0 +1,33 @@
+{
+  "summary": "Activity errors returned as custom error types cannot be checked using `errors.Is()` because errors are wrapped in ApplicationError when crossing process boundaries. The issue involves confusion about which methods exist for accessing original error information.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "error-handling",
+    "activity-executor",
+    "test-framework"
+  ],
+  "concepts": [
+    "error-wrapping",
+    "process-boundaries",
+    "error-type-assertion",
+    "error-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use standard Go error checking patterns like `errors.Is()` with activity errors, forcing them to use `errors.As()` and manual field comparison instead.",
+  "rootCause": "Errors are reconstructed when crossing process boundaries, so the original error object identity is lost. Temporal errors don't implement `Is()` method, only `Unwrap()` and support for `errors.As()`.",
+  "proposedFix": "Implement `Is()` method on Temporal error types that perform deep field comparison rather than pointer equality, while carefully handling cases like CanceledError and ApplicationError with varying fields.",
+  "workaround": "Use `errors.As()` with type assertion instead of `errors.Is()`, or compare ApplicationError's message and type fields manually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "By design - errors crossing process boundaries must be reconstructed, making pointer equality checks impossible. The maintainers clarified the correct approach using `errors.As()` instead.",
+  "related": [
+    1453
+  ],
+  "keyQuote": "The reason is that the process that called an activity and the process that implements the activity are frequently not the same... it is not really possible to return a Go error across process boundaries.",
+  "number": 403,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:43.952Z"
+}

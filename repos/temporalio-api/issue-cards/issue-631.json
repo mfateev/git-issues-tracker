@@ -1,0 +1,35 @@
+{
+  "summary": "Users need visibility into workflow start delays when listing or describing workflows. Currently, WorkflowExecutionInfo doesn't expose when a workflow will actually begin execution if scheduled with a delay, making it unclear whether a workflow is truly running or waiting to start.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-execution-info",
+    "api-proto",
+    "cli",
+    "ui"
+  ],
+  "concepts": [
+    "workflow-scheduling",
+    "start-delay",
+    "execution-time",
+    "visibility",
+    "user-experience",
+    "delayed-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot determine if a workflow is delayed from startup or running normally, leading to confusion when workflows have scheduled start times.",
+  "rootCause": "WorkflowExecutionInfo does not expose ExecutionTime (StartTime + StartDelay), which is needed to show users the actual scheduled execution time.",
+  "proposedFix": "Add startDelay or ExecutionTime to WorkflowExecutionInfo, make it visible via DescribeWorkflowExecution and ListWorkflowExecutions (stored in memo for list), and surface it in CLI and UI displays.",
+  "workaround": "ExecutionTime is already available in ListWorkflowExecutionsResponse and DescribeWorkflowExecutionResponse and can be accessed via JSON output: `temporal workflow list -o jsonl | jq`",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by surfacing ExecutionTime in the workflow page UI. ExecutionTime was already available in API responses but not exposed in the UI, causing confusion.",
+  "related": [],
+  "keyQuote": "Users want visibility into when the workflow will begin execution, not just when it was requested.",
+  "number": 631,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:32:14.237Z"
+}

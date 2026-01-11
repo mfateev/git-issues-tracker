@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add a start delay option to workflow start options in the Go SDK, allowing workflows to be scheduled to start after a specified delay.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-options"
+  ],
+  "concepts": [
+    "delayed-execution",
+    "scheduling",
+    "workflow-initialization",
+    "temporal-configuration",
+    "start-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to schedule workflows to start at a future time without needing external scheduling logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support start delay in workflow options.",
+  "related": [
+    338
+  ],
+  "keyQuote": null,
+  "number": 1243,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:57.337Z"
+}

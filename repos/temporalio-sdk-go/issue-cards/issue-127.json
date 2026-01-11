@@ -1,0 +1,31 @@
+{
+  "summary": "ContextPropagator is not invoked for ExecuteLocalActivity, only for ExecuteActivity. This prevents proper context propagation in local activity execution.",
+  "category": "bug",
+  "subcategory": "context-propagation",
+  "apis": [
+    "ExecuteActivity",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "context-propagator"
+  ],
+  "concepts": [
+    "context-propagation",
+    "local-activities",
+    "execution-context",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot rely on context propagation for local activities, limiting their ability to maintain consistent context across activity types.",
+  "rootCause": "ContextPropagator invocation logic was missing for the ExecuteLocalActivity code path.",
+  "proposedFix": "Add ContextPropagator invocation to ExecuteLocalActivity similar to how it's implemented in ExecuteActivity.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in Cadence and cherry-picked into the Go SDK via commit ccea6a6fb6d5f219e0c1abf5b5573bbc3cce4072",
+  "related": [],
+  "keyQuote": "ContextPropagator is invoked only inside ExecuteActivity and not ExecuteLocalActivity",
+  "number": 127,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:46.420Z"
+}

@@ -1,0 +1,39 @@
+{
+  "summary": "In SDK 1.5.0, registering activities as struct methods without explicit naming causes conflicts between structs with identically named methods, and ExecuteActivity cannot find activities even when registered with a Name prefix. This differs from 1.4.1 where struct method naming scoping worked automatically.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "RegisterActivity",
+    "RegisterActivityWithOptions",
+    "ExecuteActivity",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "registration",
+    "naming"
+  ],
+  "concepts": [
+    "struct-methods",
+    "activity-naming",
+    "naming-conflicts",
+    "registration-scoping",
+    "method-resolution",
+    "activity-lookup"
+  ],
+  "severity": "high",
+  "userImpact": "Users migrating from 1.4.1 to 1.5.0 cannot register multiple struct types with identically named methods or execute activities registered with struct method names.",
+  "rootCause": "A change in how activity method names are registered and resolved between struct instances; struct method names are no longer automatically scoped by the struct type name.",
+  "proposedFix": "Restore automatic struct type name prefixing for activity method names during registration and execution, or provide automatic name qualification for struct-based activities.",
+  "workaround": "Manually set RegisterOptions.Name to the struct type name when registering, and use string names (e.g., \"MyStruct.Activity1\") when executing activities instead of method references.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers confirmed the behavior is expected: activity names are based on non-qualified method names, requiring explicit Name prefixes for disambiguation. Closing as expected behavior rather than fixing.",
+  "related": [
+    92
+  ],
+  "keyQuote": "I have confirmed, even in a fresh 1.4.1 clone, that activities are registered based on their non-qualified method name and to prevent ambiguity for the same method names on different structs a name prefix must be used.",
+  "number": 379,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:11.199Z"
+}

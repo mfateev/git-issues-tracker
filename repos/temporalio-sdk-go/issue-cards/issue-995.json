@@ -1,0 +1,33 @@
+{
+  "summary": "The gRPC interceptor automatically retries ResourceExhausted errors, but messages larger than the server's 4MB limit should fail immediately rather than retry. Need to prevent retry of grpc-message-size-too-large errors while still retrying other ResourceExhausted cases.",
+  "category": "bug",
+  "subcategory": "grpc-error-handling",
+  "apis": [],
+  "components": [
+    "grpc-interceptor",
+    "retry-logic",
+    "message-serialization"
+  ],
+  "concepts": [
+    "retry",
+    "error-handling",
+    "grpc",
+    "message-size",
+    "resource-exhaustion"
+  ],
+  "severity": "medium",
+  "userImpact": "Oversized workflow task completions cause implicit retries instead of failing workflow tasks, leading to delayed failure visibility and potential retry storms.",
+  "rootCause": "The gRPC interceptor treats all ResourceExhausted errors uniformly and retries them, but grpc-message-size-too-large errors are unrecoverable and should not be retried.",
+  "proposedFix": "Distinguish grpc-message-size-too-large errors from other ResourceExhausted errors and skip retry logic for this specific case. May require message string checking or changing error type before retry interceptor processes it.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented logic to detect and skip retry for grpc-message-size-too-large errors while preserving retry behavior for other ResourceExhausted errors.",
+  "related": [
+    466,
+    624
+  ],
+  "keyQuote": "We need to stop retrying this one in particular but still retry others. If we can prevent it from going over the wire without pre-calculating the size that would be best.",
+  "number": 995,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:44.384Z"
+}

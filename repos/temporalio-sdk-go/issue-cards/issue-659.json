@@ -1,0 +1,34 @@
+{
+  "summary": "Exploration of deprecating the `Control` attribute used in signal external workflow and request cancel external workflow operations in the Go SDK. The `Control` field was inherited from Cadence SDK and contains an auto-incremented ID for internal state machine tracking, but its deprecation needs careful evaluation for compatibility concerns.",
+  "category": "feature",
+  "subcategory": "external-workflow-operations",
+  "apis": [
+    "SignalExternalWorkflow",
+    "RequestCancelExternalWorkflow"
+  ],
+  "components": [
+    "decision-state-machine",
+    "event-handlers",
+    "internal-state-management"
+  ],
+  "concepts": [
+    "deprecation",
+    "state-machine",
+    "backwards-compatibility",
+    "external-workflow-control",
+    "id-tracking",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently depend on the Control attribute for external workflow operations; deprecation would require migration path and compatibility considerations.",
+  "rootCause": "The Control attribute is an inherited design from Cadence SDK used for auto-incrementing IDs in internal state machine tracking across multiple operation types (activities, timers, child workflows, etc.), making it difficult to deprecate without breaking changes.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I am afraid it is not easy to deprecate since it is in active use and could affect compatibility if changed.",
+  "number": 659,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:15.009Z"
+}

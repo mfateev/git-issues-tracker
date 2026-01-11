@@ -1,0 +1,29 @@
+{
+  "summary": "User reported that custom error types defined in the internal package were inaccessible from external modules despite documentation suggesting they should be available. The issue was resolved when the author discovered the error types were also exported in the public temporal package.",
+  "category": "docs",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "public-api",
+    "internal-package"
+  ],
+  "concepts": [
+    "error-types",
+    "package-visibility",
+    "documentation-accuracy",
+    "public-api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the error handling documentation may be confused about where to import custom error types from.",
+  "rootCause": "Documentation did not clearly indicate that custom error types are available in the public temporal package, not the internal package.",
+  "proposedFix": null,
+  "workaround": "Import error types from go.temporal.io/sdk/temporal instead of attempting to use the internal package.",
+  "resolution": "invalid",
+  "resolutionDetails": "The author discovered that custom error types are exported in the public temporal package, making this a documentation clarity issue rather than an actual accessibility problem.",
+  "related": [],
+  "keyQuote": "Apparently I'm blind, as they are also in `go.temporal.io/sdk/temporal`",
+  "number": 305,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:25.331Z"
+}

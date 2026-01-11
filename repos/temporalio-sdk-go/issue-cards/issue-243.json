@@ -1,0 +1,31 @@
+{
+  "summary": "Google protocol buffer compiler-generated structs are not fully supported by the SDK, unlike gogo-generated structs. This causes issues with enum serialization when using google protobuf in activity arguments.",
+  "category": "bug",
+  "subcategory": "proto-serialization",
+  "apis": [],
+  "components": [
+    "proto-marshaller",
+    "jsonpb",
+    "serialization"
+  ],
+  "concepts": [
+    "protocol-buffers",
+    "struct-serialization",
+    "enum-handling",
+    "google-protoc",
+    "gogo-proto",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use google protocol buffer compiler-generated structs in activity arguments due to incorrect enum serialization.",
+  "rootCause": "SDK only supports gogo proto structs and uses gogo jsonpb marshaller, which handles google proto structs differently, particularly for enums.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved long time ago according to the issue author.",
+  "related": [],
+  "keyQuote": "Currently only gogo proto structs are supported since we use gogo jsonpb and proto marshaller.",
+  "number": 243,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:51.266Z"
+}

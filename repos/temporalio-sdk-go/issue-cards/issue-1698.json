@@ -1,0 +1,33 @@
+{
+  "summary": "Add a DefaultVersioningBehavior option to workflow.RegisterOptions to provide a default versioning behavior for workflow types, reducing the need for programmatic SetVersioningBehavior() calls during workflow task execution.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "RegisterOptions",
+    "SetVersioningBehavior"
+  ],
+  "components": [
+    "workflow-registration",
+    "versioning-engine",
+    "build-id-selector"
+  ],
+  "concepts": [
+    "versioning",
+    "build-id",
+    "workflow-type",
+    "default-behavior",
+    "type-scoped-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides a simpler, less error-prone way to configure versioning behavior for workflows without requiring programmatic calls.",
+  "rootCause": null,
+  "proposedFix": "Add DefaultVersioningBehavior option to workflow.RegisterOptions to associate a default behavior with workflow types",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to allow type-scoped versioning behavior configuration via RegisterOptions",
+  "related": [],
+  "keyQuote": "Add the option `DefaultVersioningBehavior` to `workflow.RegisterOptions`, providing a default behavior for all workflows of a particular type",
+  "number": 1698,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:38.163Z"
+}

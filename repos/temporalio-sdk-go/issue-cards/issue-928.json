@@ -1,0 +1,33 @@
+{
+  "summary": "Scheduled workflows experience significant delays (up to a minute) before starting execution in the Go SDK. Multiple workflows in a loop show some waiting in scheduled state longer than expected before transitioning to running state.",
+  "category": "bug",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "worker",
+    "task-poller",
+    "scheduler"
+  ],
+  "concepts": [
+    "scheduling",
+    "delay",
+    "workflow-execution",
+    "task-queue",
+    "concurrency",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unexpected delays when starting multiple scheduled workflows, causing workflows to remain in scheduled state for up to a minute before execution begins.",
+  "rootCause": "Server-side issue in scheduled workflow processing, fixed in Temporal server version 1.21.1 (addressed by temporalio/temporal#4562)",
+  "proposedFix": "Upgrade to Temporal server version 1.21.1 or above",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by temporalio/temporal#4562 in server 1.21.1+. Issue was on server side, not SDK side.",
+  "related": [],
+  "keyQuote": "The delay between Scheduled Workflow task and actual start of the workflow should be quite small. It certainly should not be order of a minute.",
+  "number": 928,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:08.274Z"
+}

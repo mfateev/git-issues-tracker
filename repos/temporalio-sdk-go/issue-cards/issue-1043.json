@@ -1,0 +1,35 @@
+{
+  "summary": "User seeks a way to get task queue backlog size for implementing autoscaling of workers. The `DescribeTaskQueue` API's `BacklogCountHint` field returns 0 even when tasks are queued, making it unsuitable for scaling decisions.",
+  "category": "question",
+  "subcategory": "task-queue-monitoring",
+  "apis": [
+    "DescribeTaskQueue",
+    "WorkflowService"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "metrics",
+    "client"
+  ],
+  "concepts": [
+    "autoscaling",
+    "backlog",
+    "task-queue-status",
+    "polling",
+    "worker-capacity",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine task queue backlog size to implement dynamic worker autoscaling, forcing them to rely on indirect metrics or custom solutions.",
+  "rootCause": "The `BacklogCountHint` field is an internal implementation detail that doesn't accurately reflect actual task queue depth and is not intended for user-facing scaling decisions.",
+  "proposedFix": "Improve documentation to clarify that SDK-side slot metrics and server-side poll metrics should be used instead of `BacklogCountHint` for autoscaling decisions.",
+  "workaround": "Use server-side poll metrics (poll success rate, available slots) and SDK-side slot metrics to infer when scaling is needed, rather than directly querying backlog size.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was addressed as a documentation/guidance matter. The `BacklogCountHint` is not suitable for scaling; users should use poll success metrics and slot utilization instead.",
+  "related": [],
+  "keyQuote": "the hint may not reflect that value. I am getting details on that value now, but it is a mostly internal value that you should not use for scaling workers.",
+  "number": 1043,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:47.810Z"
+}

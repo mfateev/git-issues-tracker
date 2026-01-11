@@ -1,0 +1,32 @@
+{
+  "summary": "gogo/protobuf is unmaintained and the SDK should migrate to google.golang.org/protobuf. Migration is blocked on server-side changes, but there's debate about whether the performance concerns still apply for general-purpose worker clients.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "protobuf-serialization",
+    "payload-converter",
+    "dependencies"
+  ],
+  "concepts": [
+    "unmaintained-dependency",
+    "backwards-compatibility",
+    "migration",
+    "protobuf-library",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be exposed to security risks or bugs from an unmaintained protobuf dependency, and the SDK carries unnecessary legacy support code.",
+  "rootCause": "gogo/protobuf is unmaintained and blocked on server-side API migration (temporalio/temporal#38)",
+  "proposedFix": "Migrate to google.golang.org/protobuf as the standard library, pending resolution of server-side blocking issues",
+  "workaround": "The gogo dependency is harmless if not used in user code; only affects those using gogoproto structs",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed but gogo dependency retained for backwards compatibility in ProtoJSONPayloadConverter and ProtoPayloadConverter",
+  "related": [
+    38
+  ],
+  "keyQuote": "gogoproto is still in the mod file because ProtoJSONPayloadConverter and ProtoPayloadConverter support gogoproto structs and we did not remove support for backwards compatibility",
+  "number": 658,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:13.520Z"
+}

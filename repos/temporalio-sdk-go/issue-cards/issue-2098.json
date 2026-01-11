@@ -1,0 +1,34 @@
+{
+  "summary": "Documentation request to add inline comments in ChildWorkflowOptions clarifying the default values for WorkflowIDReusePolicy and WorkflowIdConflictPolicy, as these defaults are not currently clear from reading the SDK code.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "ChildWorkflowOptions",
+    "WorkflowIDReusePolicy",
+    "WorkflowIdConflictPolicy"
+  ],
+  "components": [
+    "workflow",
+    "options",
+    "documentation"
+  ],
+  "concepts": [
+    "default-behavior",
+    "code-comments",
+    "api-clarity",
+    "child-workflows",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Developers working with child workflows cannot easily determine default behavior without consulting external documentation or source code exploration.",
+  "rootCause": null,
+  "proposedFix": "Add inline comments to ChildWorkflowOptions in internal/workflow.go explaining the default WorkflowIDReusePolicy and WorkflowIdConflictPolicy values",
+  "workaround": "Refer to external Temporal developer guide documentation",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add inline comments to make the default behavior clear",
+  "number": 2098,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:50.556Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "TestCancelTimerAfterActivity test was experiencing flakiness with activity timeout errors during timer cancellation operations. The test has since stabilized and no longer appears flaky in CI.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "RequestCancelTimer",
+    "NewTimer"
+  ],
+  "components": [
+    "worker",
+    "timer",
+    "activity-executor",
+    "test-integration"
+  ],
+  "concepts": [
+    "flakiness",
+    "timer-cancellation",
+    "activity-timeout",
+    "scheduling",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the SDK and waste developer time with intermittent failures that are difficult to debug.",
+  "rootCause": "Activity timeout (ScheduleToStart) occurring during timer cancellation, though the underlying cause was not explicitly identified in the discussion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The test no longer appears flaky in CI according to the maintainer's comment.",
+  "related": [],
+  "keyQuote": "This test does not appear flaky anymore in CI",
+  "number": 558,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:24.065Z"
+}

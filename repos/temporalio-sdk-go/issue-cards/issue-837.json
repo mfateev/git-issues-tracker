@@ -1,0 +1,29 @@
+{
+  "summary": "The SDK does not provide qualified proto message type names for the deprecated github.com/golang/protobuf library, only for the newer google.golang.org/protobuf. A dependency conflict prevents supporting the older library version.",
+  "category": "bug",
+  "subcategory": "protobuf-serialization",
+  "apis": [],
+  "components": [
+    "proto_json_payload_converter",
+    "protobuf-support"
+  ],
+  "concepts": [
+    "protobuf",
+    "serialization",
+    "compatibility",
+    "message-types",
+    "deprecated-library"
+  ],
+  "severity": "low",
+  "userImpact": "Users relying on the deprecated github.com/golang/protobuf library cannot access qualified proto message type names in metadata.",
+  "rootCause": "Dependency conflict: the SDK properly depends on google.golang.org/protobuf (1.4.0+), which prevents depending on the older pre-1.4.0 github.com/golang/protobuf to extract message type information.",
+  "proposedFix": null,
+  "workaround": "Use the newer google.golang.org/protobuf library instead of the deprecated github.com/golang/protobuf.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Cannot be implemented due to dependency constraints. The deprecated library is too old to support alongside the modern protobuf dependency.",
+  "related": [],
+  "keyQuote": "we cannot depend on the pre `1.4.0` `github.com/golang/protobuf` to check this because we properly depend on the later one. This really old version is deprecated",
+  "number": 837,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:14.220Z"
+}

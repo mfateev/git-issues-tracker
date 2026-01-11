@@ -1,0 +1,31 @@
+{
+  "summary": "User expected the Args field in ScheduleWorkflowAction to accept any type like traditional workflow execution, but it requires []interface{}. Clarification provided that this is expected behavior and no type conversion is needed.",
+  "category": "question",
+  "subcategory": "schedule-workflow",
+  "apis": [
+    "ScheduleClient.Create",
+    "ScheduleWorkflowAction"
+  ],
+  "components": [
+    "schedule-client",
+    "workflow-action"
+  ],
+  "concepts": [
+    "arguments",
+    "type-conversion",
+    "api-design",
+    "workflow-scheduling"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about the expected argument format for scheduled workflows and whether type conversion is required.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Pass arguments as a list ([]interface{}) to the Args field of ScheduleWorkflowAction.",
+  "resolution": "invalid",
+  "resolutionDetails": "Clarified as expected behavior - no type conversion needed, just pass arguments as a list. User education resolved the confusion.",
+  "related": [],
+  "keyQuote": "You should not need to convert any types, just pass your arguments in as a list",
+  "number": 1153,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:14.268Z"
+}

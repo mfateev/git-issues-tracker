@@ -1,0 +1,32 @@
+{
+  "summary": "The test framework does not respect ParentClosePolicy settings on child workflows. When a child workflow has ParentClosePolicy set to ABANDON, the test framework should allow the child workflow to continue executing after the parent closes, but currently it doesn't.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "test-framework",
+    "child-workflow",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "parent-close-policy",
+    "child-workflow-lifecycle",
+    "workflow-termination",
+    "test-isolation",
+    "async-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test workflows that use PARENT_CLOSE_POLICY_ABANDON, limiting the test framework's ability to validate async child workflow behavior.",
+  "rootCause": "The test framework implementation does not take into account the ParentClosePolicy attribute when managing child workflow lifecycle during parent workflow closure.",
+  "proposedFix": "Modify the test framework to respect the ParentClosePolicy setting on child workflows, allowing child workflows with ABANDON policy to continue executing after parent closure.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test framework was updated to properly respect ParentClosePolicy settings on child workflows.",
+  "related": [],
+  "keyQuote": "Test framework does not respect ParentClosePolicy set on child workflow. For example, if set child workflow's ParentClosePolicy to PARENT_CLOSE_POLICY_ABANDON, which means when parent workflow closed, its child workflow should continue executing.",
+  "number": 470,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:40.741Z"
+}

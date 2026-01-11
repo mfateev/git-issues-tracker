@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a warning when the server-provided task start time differs significantly from when the SDK begins processing the task. This feature was proposed to help detect timing issues between server and client.",
+  "category": "feature",
+  "subcategory": "task-processing",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-processor",
+    "time-sync"
+  ],
+  "concepts": [
+    "task-timing",
+    "server-client-synchronization",
+    "time-drift",
+    "diagnostics"
+  ],
+  "severity": "low",
+  "userImpact": "Users would receive warnings to help diagnose timing discrepancies between server and SDK task processing.",
+  "rootCause": null,
+  "proposedFix": "Add warning logic to detect and alert when server task start time differs significantly from SDK processing start time.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as too niche - the use case was deemed not significant enough to warrant implementation.",
+  "related": [
+    616
+  ],
+  "keyQuote": "We're not gonna do this. Too niche.",
+  "number": 1926,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:47.175Z"
+}

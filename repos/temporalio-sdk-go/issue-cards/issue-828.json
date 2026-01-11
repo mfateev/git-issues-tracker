@@ -1,0 +1,32 @@
+{
+  "summary": "Replaying workflows with local activities executed by interceptors causes panics due to missing interceptor execution during replay. The replayer does not run worker interceptors, leading to event mismatches between recording and replay.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "interceptors",
+    "event-handlers",
+    "decision-state-machine"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "local-activities",
+    "interceptors",
+    "event-mismatch",
+    "non-determinism",
+    "scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely replay workflows that use local activities called by interceptors, causing production issues when re-hydrating workflow instances from recorded events.",
+  "rootCause": "The WorkflowReplayer does not run worker interceptors, causing a mismatch between the events recorded during original execution (with interceptor modifications) and the replayed execution.",
+  "proposedFix": "Add SetWorkerInterceptors method to WorkflowReplayer to allow interceptors to be executed during replay, ensuring event consistency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented SetWorkerInterceptors method for WorkflowReplayer to ensure interceptors are executed during replay, matching the original execution behavior.",
+  "related": [],
+  "keyQuote": "The replayer does not run interceptors. I will add worker.WorkflowReplayer.SetWorkerInterceptors([]WorkerInterceptor) which should be fairly easy.",
+  "number": 828,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:39.582Z"
+}

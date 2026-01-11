@@ -1,0 +1,28 @@
+{
+  "summary": "User inquires about adopting Zap logger instead of Logrus, which is in maintenance mode. Issue was resolved when user discovered Logrus adapters can be used with Temporal.",
+  "category": "question",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "logger-integration"
+  ],
+  "concepts": [
+    "logging",
+    "logger-selection",
+    "library-maintenance",
+    "adapter-pattern"
+  ],
+  "severity": "low",
+  "userImpact": "Users concerned about Logrus maintenance can use adapters to integrate alternative loggers like Zap.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use Logrus adapter to plug with Temporal instead of switching loggers entirely.",
+  "resolution": "self_resolved",
+  "resolutionDetails": "User discovered that Logrus adapters can be used with Temporal, eliminating the need for a logger switch.",
+  "related": [],
+  "keyQuote": "Found can use logur adapter to plug with Temporal..so I'll close this Issue",
+  "number": 324,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:35.988Z"
+}

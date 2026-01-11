@@ -1,0 +1,35 @@
+{
+  "summary": "When using NewClientFromExisting, calling Close() on either the parent or child client closes the connection for both immediately, rather than having independent lifecycles where resources are only cleaned up when all references are closed.",
+  "category": "bug",
+  "subcategory": "client-lifecycle",
+  "apis": [
+    "NewClientFromExisting",
+    "Close"
+  ],
+  "components": [
+    "client",
+    "connection-management",
+    "resource-cleanup"
+  ],
+  "concepts": [
+    "lifecycle-management",
+    "reference-counting",
+    "resource-sharing",
+    "client-cloning",
+    "connection-pooling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely share cloned clients without risk of closing the connection for all users, making it difficult to use in large programs with shared client instances.",
+  "rootCause": "The Close() method closes the shared connection immediately without reference counting or tracking how many client instances are using it.",
+  "proposedFix": "Implement independent lifecycles for cloned clients with reference counting so resources are only cleaned up when all client instances are closed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed through implementation of reference counting for cloned clients to manage independent lifecycles.",
+  "related": [
+    881
+  ],
+  "keyQuote": "I can call `Close` on only one or both of them, and resources will be cleaned up when appropriate.",
+  "number": 886,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:16.016Z"
+}

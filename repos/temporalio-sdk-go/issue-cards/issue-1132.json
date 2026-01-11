@@ -1,0 +1,33 @@
+{
+  "summary": "Add opt-in support for visiting all payloads at once in the proxy visitor interceptor instead of handling them one set at a time. This enables users to apply transformations (like encryption/decryption) across all payloads collected from a proto message.",
+  "category": "feature",
+  "subcategory": "payload-visitor",
+  "apis": [
+    "VisitPayloads"
+  ],
+  "components": [
+    "proxy",
+    "payload-visitor",
+    "interceptor",
+    "grpc-client"
+  ],
+  "concepts": [
+    "payload-transformation",
+    "interceptor",
+    "proto-message",
+    "batching",
+    "encryption-decryption"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently must implement custom payload collection logic in user-land; native support would simplify building payload transforming interceptors.",
+  "rootCause": null,
+  "proposedFix": "Add an `AllAtOnce bool` option to `VisitPayloadsOptions` that causes a single visitor call with all collected payloads, with documentation requirements that output payloads must be 1:1 with input and `VisitPayloadsContext.Parent` will be nil.",
+  "workaround": "Users can implement `CollectAllPayloads()` and `ApplyToAllPayloads()` utility functions as shown in the issue to gather payloads and apply transformations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users want to collect these and then visit them together all at once.",
+  "number": 1132,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:27.392Z"
+}

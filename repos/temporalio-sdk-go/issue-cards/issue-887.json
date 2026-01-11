@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow and activity methods with identical names collide in the test framework's mock system, causing incorrect mock signature validation errors despite the workflow executing correctly in production. The test framework doesn't incorporate type information when creating mock names, leading to ambiguity between methods with the same name in different contexts.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-suite",
+    "mock-framework",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "name-collision",
+    "mock-expectations",
+    "type-disambiguation",
+    "test-validation",
+    "method-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use identical method names for workflows and activities in tests, restricting naming conventions and forcing workarounds despite actual workflows functioning correctly.",
+  "rootCause": "Mock framework doesn't incorporate type information into mock names, causing name collisions between workflow and activity methods with identical names when registering mock expectations.",
+  "proposedFix": "Incorporate type information into mock names to allow proper disambiguation between methods with the same name but different types/packages.",
+  "workaround": "Rename activity methods to have different names from workflow methods.",
+  "resolution": "fixed",
+  "resolutionDetails": "Pull request #1371 was referenced as fixing this issue.",
+  "related": [
+    1371
+  ],
+  "keyQuote": "I have a set of workflows and activities implemented as methods on a struct. I happened to name an activity method with the same name as the workflow method.",
+  "number": 887,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:28.555Z"
+}

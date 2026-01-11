@@ -1,0 +1,31 @@
+{
+  "summary": "ExecuteWorkflow with string name fails when passing fewer parameters than the workflow expects, causing a panic that regressed from a previous release.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "parameter-binding"
+  ],
+  "concepts": [
+    "parameter-mismatch",
+    "workflow-invocation",
+    "backward-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use ExecuteWorkflow with string names and variable argument counts, breaking existing code patterns.",
+  "rootCause": "Regression introduced in PR #610 that changed how parameters are validated for string-based workflow execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was fixed by reverting or correcting the parameter validation logic introduced in #610.",
+  "related": [
+    610
+  ],
+  "keyQuote": "This works in all released versions, but just regressed in #610 to cause a panic.",
+  "number": 639,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:25.823Z"
+}

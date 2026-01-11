@@ -1,0 +1,30 @@
+{
+  "summary": "Implement a data converter wrapper that compresses payloads using a customizable algorithm with configurable minimum size threshold. The converter must handle previously compressed data transparently and support both single Payload and multiple Payloads approaches.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-handler",
+    "compression-algorithm"
+  ],
+  "concepts": [
+    "compression",
+    "payload-wrapping",
+    "data-serialization",
+    "performance-optimization",
+    "algorithm-customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain ability to reduce data size in workflows and activities through transparent compression, improving storage and network efficiency.",
+  "rootCause": null,
+  "proposedFix": "Create a compression data converter wrapper that compresses individual Payloads with configurable algorithms and minimum size thresholds, with option to combine multiple payloads into a single compressed payload.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as a configurable data converter wrapper supporting compression algorithms with customizable minimum size threshold.",
+  "related": [],
+  "keyQuote": "We can compress all of the separate Payloads into a single Payload and do the reverse when we decompress.",
+  "number": 596,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:40.801Z"
+}

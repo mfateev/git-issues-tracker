@@ -1,0 +1,37 @@
+{
+  "summary": "When canceling a parent workflow through a mocked child workflow, the parent workflow panics instead of returning a cancellation error. The test framework doesn't properly propagate cancellation from child to parent workflows.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "WithChildOptions",
+    "CancelWorkflow",
+    "IsCanceledError"
+  ],
+  "components": [
+    "workflow-testing",
+    "child-workflow-execution",
+    "workflow-cancellation",
+    "test-environment"
+  ],
+  "concepts": [
+    "cancellation",
+    "parent-child-workflow",
+    "workflow-testing",
+    "mocking",
+    "error-handling",
+    "panic"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly test cancellation scenarios involving parent and child workflows, making it difficult to validate workflow cancellation behavior in test environments.",
+  "rootCause": "The test environment's mock workflow execution does not properly handle cancellation propagation when a mocked child workflow cancels the parent, resulting in either panics or incorrect error handling.",
+  "proposedFix": null,
+  "workaround": "The issue mentions using Return() with the mock, but this prevents proper cancellation error propagation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When mocking a child workflow to run a function that cancels the parent workflow, it should return that the parent workflow was cancelled.",
+  "number": 351,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:07.539Z"
+}

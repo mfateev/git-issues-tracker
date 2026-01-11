@@ -1,0 +1,29 @@
+{
+  "summary": "Upgrade the Tally metrics library to a newer version that has resolved a statsd dependency issue, eliminating the need for users to maintain `replace` directives in their projects.",
+  "category": "other",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "metrics",
+    "tally",
+    "statsd"
+  ],
+  "concepts": [
+    "dependency-management",
+    "metrics-collection",
+    "third-party-libraries",
+    "build-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users no longer need to use `replace` directives in their module configuration to work around statsd dependency issues with Tally.",
+  "rootCause": "Tally had an unresolved statsd dependency that was fixed in upstream uber-go/tally PR #171.",
+  "proposedFix": "Upgrade Tally to the version with the fix merged and tagged, and apply the same upgrade to the server project.",
+  "workaround": "Use a `replace` directive in go.mod to work around the statsd dependency issue.",
+  "resolution": "fixed",
+  "resolutionDetails": "Tally was upgraded to include the statsd dependency fix.",
+  "related": [],
+  "keyQuote": "Right now anyone using this SDK and statsd has to use a `replace` directive.",
+  "number": 645,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:39.969Z"
+}

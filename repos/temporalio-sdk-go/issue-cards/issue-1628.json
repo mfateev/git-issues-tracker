@@ -1,0 +1,30 @@
+{
+  "summary": "MockWorkflowServiceServer generated mock does not properly implement WorkflowServiceServer interface because it fails to embed UnimplementedWorkflowServiceServer, which became required after gRPC changes. This causes compile errors when attempting to use the mock.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "MockWorkflowServiceServer",
+    "WorkflowServiceServer",
+    "code-generation"
+  ],
+  "concepts": [
+    "interface-implementation",
+    "mocking",
+    "code-generation",
+    "gRPC",
+    "embedding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the generated MockWorkflowServiceServer for testing because it fails to compile against the current WorkflowServiceServer interface.",
+  "rootCause": "MockWorkflowServiceServer was generated before WorkflowServiceServer required embedding UnimplementedWorkflowServiceServer; the generated mock was not updated to reflect this requirement.",
+  "proposedFix": "Alter the generated mock to embed UnimplementedWorkflowServiceServer and add compile-time checks to ensure conformity to the interface it's mocking.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "MockWorkflowServiceServer is generated via a step created in the gRPC days before WorkflowServiceServer required embedding UnimplementedWorkflowServiceServer.",
+  "number": 1628,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:16.198Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add an opt-in worker option to control whether the __stack_trace query response uses custom data conversion. Currently the stack trace query response is not converted, but this feature allows users to enable data conversion for stack trace queries if needed.",
+  "category": "feature",
+  "subcategory": "stack-trace-query",
+  "apis": [],
+  "components": [
+    "worker",
+    "query-handler",
+    "data-converter"
+  ],
+  "concepts": [
+    "stack-trace",
+    "data-conversion",
+    "query-response",
+    "worker-option",
+    "encoding"
+  ],
+  "severity": "low",
+  "userImpact": "Users gain the option to control whether stack trace query responses are encoded using their custom data converter, enabling more consistent data handling across different query types.",
+  "rootCause": null,
+  "proposedFix": "Introduce a new worker option `StackTraceQueryUsesConverter bool` to opt-in to having the stack trace query use the custom data converter for encoding/conversion.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Make a new worker option like `StackTraceQueryUsesConverter bool`. If false, the `__stack_trace` query response should not be converted/encoded/etc, but if `true` it should be.",
+  "number": 996,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:03.535Z"
+}

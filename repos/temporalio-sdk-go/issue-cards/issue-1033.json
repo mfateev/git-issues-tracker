@@ -1,0 +1,36 @@
+{
+  "summary": "OnUpsertSearchAttributes and OnUpsertMemo mocking behavior is unclear. These mock interceptors are currently event listeners that cannot affect workflow behavior, but users are confused about their purpose and whether they should support mocking with return values or error handling.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnUpsertSearchAttributes",
+    "OnUpsertMemo"
+  ],
+  "components": [
+    "test-framework",
+    "mocking",
+    "workflow-execution",
+    "interceptors"
+  ],
+  "concepts": [
+    "mocking",
+    "event-listeners",
+    "search-attributes",
+    "memo",
+    "test-environment",
+    "validation",
+    "behavior-parity"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about whether OnUpsertSearchAttributes and OnUpsertMemo can be mocked in tests, leading to potential misuse and false expectations about test behavior.",
+  "rootCause": "Unclear documentation about whether these interceptors are meant to be event listeners or mockable functions that can affect behavior.",
+  "proposedFix": "Document that OnUpsertSearchAttributes and OnUpsertMemo are event listeners that cannot affect behavior, with rationale that mocking would create discrepancies between test and real environments.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should document that `OnUpsertSearchAttributes` and `OnUpsertMemo` are just `event listeners`. Mocking these calls return value in the test environment doesn't make sense since the real environment and the test environment perform identical validation",
+  "number": 1033,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:48:12.291Z"
+}

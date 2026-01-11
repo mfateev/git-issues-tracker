@@ -1,0 +1,37 @@
+{
+  "summary": "The Go SDK's interceptor design lacks capabilities present in Java and Node.js SDKs. Interceptors cannot modify default SDK behavior, don't capture full operation spans for tracing, and some methods aren't properly chainable, limiting use cases like authorization and distributed tracing.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "interceptors",
+    "client",
+    "tracing"
+  ],
+  "concepts": [
+    "interceptor-chain",
+    "authorization",
+    "distributed-tracing",
+    "operation-span",
+    "SDK-consistency",
+    "protocol-design"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot implement authorization checks for workflow operations or properly trace distributed workflows using interceptors, limiting observability and security features.",
+  "rootCause": "The interceptor architecture was not designed to be fully chainable or to capture entire operation spans, and differs from Java/Node.js implementations.",
+  "proposedFix": "Redesign interceptors to match Java/Node.js capabilities: make them chainable, capture full operation spans, and allow modification of default SDK behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The interceptor design was redesigned to match Java and Node.js SDK capabilities with proper chaining and operation span coverage.",
+  "related": [
+    526
+  ],
+  "keyQuote": "Interceptors should have similar capabilities across the different SDKs, they should all be chainable, capture the entires span of the operation and allow modification of the default SDK behavior.",
+  "number": 529,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:02.659Z"
+}

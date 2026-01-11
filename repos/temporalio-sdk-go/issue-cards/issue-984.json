@@ -1,0 +1,34 @@
+{
+  "summary": "User reports that WorkflowRunTimeout doesn't throw an error or allow cleanup via defer function when the timeout is reached. The workflow simply terminates without entering the defer block, making it difficult to detect timeouts or send alerts.",
+  "category": "question",
+  "subcategory": "workflow-timeout",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-execution",
+    "timeout-handling",
+    "context-management"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "cleanup",
+    "error-handling",
+    "workflow-termination",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably detect workflow timeouts or perform cleanup logic, making it difficult to implement alerting and monitoring for long-running workflows with hard deadlines.",
+  "rootCause": "WorkflowRunTimeout is designed to hard-terminate workflow execution without running additional workflow tasks, so defer blocks and other cleanup logic are never executed.",
+  "proposedFix": "Use a parent workflow to supervise child workflows and react to completion/failure, or implement a timer at workflow start that cancels the workflow when it expires to allow cleanup logic.",
+  "workaround": "Implement a parent workflow pattern to supervise child workflows, or use workflow.NewTimer to create a timeout timer that allows cleanup when triggered.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers clarified this is intended behavior - WorkflowRunTimeout is a hard deadline that terminates execution. Business logic should not depend on timeout handling; alternatives like parent workflows or timers are recommended.",
+  "related": [],
+  "keyQuote": "Per our documentation on WorkflowRunTimeout it will terminate the workflow execution so no other workflow tasks should be run. We don't recommend putting any business logic on workflow timeouts.",
+  "number": 984,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:21.236Z"
+}

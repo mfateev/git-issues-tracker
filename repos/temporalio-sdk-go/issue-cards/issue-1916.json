@@ -1,0 +1,31 @@
+{
+  "summary": "User requested an option to prevent local activity results from being logged to workflow history to handle large data (2-5MB+) that exceeds size limits. The maintainer clarified this is unsafe and recommended restructuring data to only return the subset needed.",
+  "category": "feature",
+  "subcategory": "local-activity",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity",
+    "history",
+    "marker-recording"
+  ],
+  "concepts": [
+    "history-size-limit",
+    "large-data-handling",
+    "replay-safety",
+    "marker-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need workarounds for handling large cached data in workflows when local activity results exceed history size limits.",
+  "rootCause": "Local activity results are recorded as markers in workflow history; large results exceed RecordMarkerCommandAttributes size limits.",
+  "proposedFix": "Restructure workflow to load and process only the subset of data needed as local activity return value, rather than loading all 2-5MB.",
+  "workaround": "Use a side effect instead of local activity for handling large data, while monitoring the deadlock detector.",
+  "resolution": "invalid",
+  "resolutionDetails": "The maintainer clarified this is not a safe pattern and recommended architectural changes instead of adding an option to skip history logging.",
+  "related": [],
+  "keyQuote": "We don't store what you load in the local activity, we store what you return in the local activity.",
+  "number": 1916,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:32.473Z"
+}

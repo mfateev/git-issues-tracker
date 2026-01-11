@@ -1,0 +1,36 @@
+{
+  "summary": "During workflow replay after a worker crash, the update acceptance validator is skipped but Accept() is still called on the update state machine, causing a duplicate UpdateAccepted event to be added to the history that breaks subsequent replays.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Accept"
+  ],
+  "components": [
+    "update-state-machine",
+    "workflow-replay",
+    "history",
+    "worker"
+  ],
+  "concepts": [
+    "replay",
+    "state-machine",
+    "durability",
+    "history",
+    "update-acceptance",
+    "idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that experience worker crashes while processing updates will have corrupted history that fails to replay correctly.",
+  "rootCause": "The update validator is not re-run during replay, but Accept() is still called on the update state machine, resulting in a duplicate UpdateAccepted event being persisted to history.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by #1059, which presumably fixes the issue by ensuring validators are re-run or Accept() is not called during replay.",
+  "related": [
+    1059
+  ],
+  "keyQuote": "If a workflow replays due to something like a worker crash while there is an update in-flight, we don't re-run the validator for the update but we _do_ call Accept()",
+  "number": 1057,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:30.771Z"
+}

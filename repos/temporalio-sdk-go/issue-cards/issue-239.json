@@ -1,0 +1,33 @@
+{
+  "summary": "Documentation claimed Tracer property was available in WorkerOptions, but it was actually removed and only available in ClientOptions. User reported missing tracer support and confusion about trace span relationships when using OpenTelemetry.",
+  "category": "docs",
+  "subcategory": "tracing",
+  "apis": [
+    "WorkerOptions",
+    "ClientOptions"
+  ],
+  "components": [
+    "tracer",
+    "worker",
+    "client-options"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "opentracing",
+    "span-propagation",
+    "context-propagation",
+    "opentelemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users were confused by outdated documentation and struggled to implement proper distributed tracing across workers.",
+  "rootCause": "Documentation was not updated when Tracer property was moved from WorkerOptions to ClientOptions.",
+  "proposedFix": "Update documentation to reflect that Tracer is only in ClientOptions. Provide clear examples and integration tests for tracing setup.",
+  "workaround": "Set tracer on all workers and starters manually; check the implementation in tracer.go and tracer_test.go.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated at docs.temporal.io/docs/go-tracing/. Integration tests were added and end-to-end sample provided in samples-go/ctxpropagation/.",
+  "related": [],
+  "keyQuote": "Doc is outdated and will fix it soon. I removed all duplicate options from WorkerOptions and move few of them to ClientOptions.",
+  "number": 239,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:53.363Z"
+}

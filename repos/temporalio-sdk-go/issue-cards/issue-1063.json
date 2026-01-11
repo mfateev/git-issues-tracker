@@ -1,0 +1,34 @@
+{
+  "summary": "workflowcheck tool incorrectly reports non-deterministic check failures when code containing non-deterministic operations is properly wrapped in SideEffect, which should be ignored by the checker.",
+  "category": "bug",
+  "subcategory": "workflowcheck",
+  "apis": [
+    "SideEffect"
+  ],
+  "components": [
+    "workflowcheck",
+    "workflow-checker",
+    "determinism-validation"
+  ],
+  "concepts": [
+    "non-determinism",
+    "side-effects",
+    "static-analysis",
+    "workflow-validation",
+    "deterministic-code"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive false positive errors from workflowcheck tool when using SideEffect to wrap non-deterministic code, blocking workflow development.",
+  "rootCause": "workflowcheck was not properly excluding SideEffect blocks when performing non-deterministic code analysis.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1230 which fixed the workflowcheck tool to properly ignore SideEffect blocks during non-determinism checks.",
+  "related": [
+    1230
+  ],
+  "keyQuote": "workflowcheck is failing non-deterministic check when code is wrapped with the SideEffect.",
+  "number": 1063,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:44.745Z"
+}

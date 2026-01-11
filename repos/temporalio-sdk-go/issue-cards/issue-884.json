@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to enable passing open sessions from parent workflows to child workflows. Child workflows should be able to use sessions opened by the parent while they remain active, with the parent responsible for opening and closing the session.",
+  "category": "feature",
+  "subcategory": "sessions",
+  "apis": [
+    "GetSessionInfo",
+    "RecreateSession"
+  ],
+  "components": [
+    "workflow-engine",
+    "session-management",
+    "child-workflow"
+  ],
+  "concepts": [
+    "session-sharing",
+    "parent-child-workflows",
+    "resource-reuse",
+    "stateful-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently share active sessions between parent and child workflows, limiting the ability to coordinate stateful operations across workflow boundaries.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use RecreateSession with a recreate token to open a new session on the same worker, but this creates a separate session rather than sharing the same one.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This feature request is to give ability to share session among multiple workflows while it is still open.",
+  "number": 884,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:13.540Z"
+}

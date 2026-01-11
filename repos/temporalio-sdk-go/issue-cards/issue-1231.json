@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a RawValue type to the Go SDK that allows users to retrieve signal/payload data without automatic data conversion, similar to Python SDK's RawValue. This is particularly useful for handling corrupted signals.",
+  "category": "feature",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "signal-handling"
+  ],
+  "concepts": [
+    "raw-payload",
+    "data-conversion",
+    "signal-processing",
+    "error-handling",
+    "type-system"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now access raw signal/payload data without automatic conversion, enabling handling of corrupted or problematic data.",
+  "rootCause": null,
+  "proposedFix": "Add a RawValue type similar to Python SDK's RawValue that bypasses data conversion",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented as a new RawValue type in the Go SDK",
+  "related": [
+    603
+  ],
+  "keyQuote": "Sometimes users just want to get the payload from something without attempting any data conversion.",
+  "number": 1231,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:29.613Z"
+}

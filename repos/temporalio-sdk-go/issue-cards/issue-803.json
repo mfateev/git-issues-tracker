@@ -1,0 +1,35 @@
+{
+  "summary": "MutableSideEffect fails during workflow replay with payload decoding errors. The function works initially but crashes when workers are restarted and workflows are replayed, due to double-base64 encoding and improper command counter management during deterministic replay.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "MutableSideEffect"
+  ],
+  "components": [
+    "workflow-engine",
+    "side-effect-handler",
+    "command-counter",
+    "payload-encoding"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "command-ordering",
+    "marker-recording",
+    "callback-equality"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably use MutableSideEffect across worker restarts, as workflow replay causes panics and prevents workflow execution from completing.",
+  "rootCause": "Two issues: (1) double-base64 encoding of payloads from history wrapping without proper unwrapping; (2) command counter mismatch during replay - markers are not recorded when mutable side effect results are equal during normal execution, but the SDK cannot determine equality during replay, causing the counter to diverge and break command IDs for subsequent operations like timers.",
+  "proposedFix": "Use marker lookahead during replay to determine whether a marker was recorded, allowing proper command counter synchronization regardless of callback result equality.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed using marker lookahead to properly handle command counter during replay by checking history to determine if markers were recorded.",
+  "related": [
+    151
+  ],
+  "keyQuote": "mutable side effects have never worked properly during replay... we need to know if we should record a command or not, and if we don't get it right, the command counter mismatches",
+  "number": 803,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:19.366Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Remove tech debt from internal/context.go including commented-out code that should be deleted and incorrect use of goroutines in workflow context that appears to be dead code.",
+  "category": "feature",
+  "subcategory": "code-cleanup",
+  "apis": [],
+  "components": [
+    "internal/context",
+    "workflow-context"
+  ],
+  "concepts": [
+    "tech-debt",
+    "code-cleanup",
+    "dead-code",
+    "goroutine-usage"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; improves code maintainability and reduces confusion for developers working with the SDK.",
+  "rootCause": "Commented-out code left in internal/context.go and incorrect goroutine spawning in workflow context that is unreachable due to parentCancelCtx always returning true.",
+  "proposedFix": "Remove commented-out code and replace the unreachable else statement with a panic to catch undefined state.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Code cleanup was completed by removing the tech debt from internal/context.go.",
+  "related": [],
+  "keyQuote": "When I last reviewed the code I conclude that the `else` statement was never satisfied since `parentCancelCtx` should always return true.",
+  "number": 1270,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:36.954Z"
+}

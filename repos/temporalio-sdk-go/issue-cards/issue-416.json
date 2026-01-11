@@ -1,0 +1,34 @@
+{
+  "summary": "Documentation for WorkflowIDReusePolicy and WorkflowExecutionErrorWhenAlreadyStarted is confusing because it doesn't clearly explain that reuse policy only applies to completed/failed workflows, and the parameter descriptions don't properly clarify when each applies.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "ExecuteWorkflow",
+    "WorkflowIDReusePolicy",
+    "WorkflowExecutionErrorWhenAlreadyStarted"
+  ],
+  "components": [
+    "client",
+    "workflow-execution",
+    "documentation"
+  ],
+  "concepts": [
+    "workflow-reuse",
+    "workflow-id-deduplication",
+    "error-handling",
+    "policy-configuration",
+    "api-clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Developers are confused about when to use WorkflowIDReusePolicy and WorkflowExecutionErrorWhenAlreadyStarted parameters, leading to incorrect usage and misunderstanding of workflow ID handling.",
+  "rootCause": "Documentation lacks clarity on the scope of WorkflowIDReusePolicy (completed workflows only) and how it relates to the WorkflowExecutionErrorWhenAlreadyStarted parameter.",
+  "proposedFix": "Rephrase documentation to clarify that WorkflowExecutionErrorWhenAlreadyStarted controls behavior for in-progress workflows, while WorkflowIDReusePolicy applies to completed/failed workflows, and ensure both settings are explained together.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify the parameters.",
+  "related": [],
+  "keyQuote": "if the WorkflowIDReusePolicy only applies to completed/failed workflows only, I'm not sure how we'd have a \"current\" or last run.",
+  "number": 416,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:11.375Z"
+}

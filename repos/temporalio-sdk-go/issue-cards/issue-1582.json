@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add `workflow.WithCancelCause(..)` function to the Go SDK to match the updated `context.WithCancelCause(...)` function in the standard library. This would provide consistency between the Go SDK's context API and Go's native context package.",
+  "category": "feature",
+  "subcategory": "context-api",
+  "apis": [
+    "WithCancelCause"
+  ],
+  "components": [
+    "context-functions",
+    "workflow-context",
+    "api-compatibility"
+  ],
+  "concepts": [
+    "cancellation",
+    "context",
+    "api-consistency",
+    "stdlib-alignment"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use the modern WithCancelCause pattern in Go SDK workflows, limiting parity with Go's standard library.",
+  "rootCause": null,
+  "proposedFix": "Add `workflow.WithCancelCause(..)` function to match the Go standard library's `context.WithCancelCause(...)`",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would be awesome to update the go sdk to have `workflow.WithCancelCause(..)` to match the updated context function `context.WithCancelCause(...)`",
+  "number": 1582,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:46.614Z"
+}

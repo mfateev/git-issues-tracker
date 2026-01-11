@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enable parallel execution of payload visitors in the api-go proxy with configurable concurrency control, while maintaining backward compatibility with sequential processing as the default.",
+  "category": "feature",
+  "subcategory": "proxy-payload-visitor",
+  "apis": [],
+  "components": [
+    "proxy",
+    "payload-visitor",
+    "concurrency-control"
+  ],
+  "concepts": [
+    "parallelization",
+    "concurrency",
+    "performance",
+    "payload-processing",
+    "visitor-pattern",
+    "throughput"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with slow payload visitors can improve performance by enabling parallel execution with configurable concurrency limits.",
+  "rootCause": null,
+  "proposedFix": "Add an option to the proxy visitor configuration to enable parallelization with a user-configurable max concurrency factor parameter.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When visiting payloads in the proxy my visitor is slow and would benefit from being run in parellel",
+  "number": 2123,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:38.868Z"
+}

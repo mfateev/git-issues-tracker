@@ -1,0 +1,32 @@
+{
+  "summary": "User requests more customizable history output for workflows - the current GetWorkflowHistory output is difficult to manipulate into custom formats since HistoryEvent is directly derived from Protobuf definitions rather than being idiomatic Go structures.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [
+    "GetWorkflowHistory"
+  ],
+  "components": [
+    "history",
+    "protobuf-bindings",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "history-events",
+    "event-filtering",
+    "data-transformation",
+    "protobuf-compatibility",
+    "api-ergonomics"
+  ],
+  "severity": "low",
+  "userImpact": "Users providing custom workflow event history output must manually parse and transform Protobuf-derived HistoryEvent structures rather than working with idiomatic Go constructs.",
+  "rootCause": "HistoryEvent is directly derived from Protobuf definitions for server compatibility, lacking Go-idiomatic helper methods or conversion utilities.",
+  "proposedFix": "Provide helpers around the history object or iterator to extract and transform specific event types and attributes into custom shapes.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided to keep raw history for server compatibility but remain open to helper utilities. Issue closed without implementing full conversion to idiomatic Go structs.",
+  "related": [],
+  "keyQuote": "The raw history does let us remain compatible with the server, but it might make sense to have helpers around either the history object or the iterator to extract certain things.",
+  "number": 560,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:25.902Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The poller uses an overly aggressive retry policy when encountering ResourceExhausted errors, instead of backing off as expected. The issue discusses whether ResourceExhausted should receive special treatment compared to other retryable gRPC error codes.",
+  "category": "bug",
+  "subcategory": "poller-retry-policy",
+  "apis": [],
+  "components": [
+    "poller",
+    "retry-policy",
+    "grpc-client"
+  ],
+  "concepts": [
+    "backoff",
+    "retry",
+    "resource-exhaustion",
+    "error-handling",
+    "rate-limiting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience aggressive retries that consume resources when the server is resource-exhausted, instead of backing off and allowing recovery.",
+  "rootCause": "Poller's retry policy treats ResourceExhausted errors the same as other retryable errors without implementing backoff behavior.",
+  "proposedFix": "Implement special handling for ResourceExhausted errors with backoff/exponential delay, potentially different from other retryable error codes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "current retry policy is overly aggressive. I would like to discuss this with Alex before we make a change though.",
+  "number": 502,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:04.633Z"
+}

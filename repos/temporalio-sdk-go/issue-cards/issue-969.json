@@ -1,0 +1,33 @@
+{
+  "summary": "Request to display stack traces of deadlocking coroutines in Go SDK workflows. When deadlock detection triggers, users only see the stack of the timed-out coroutine, not the blocked workflow coroutines that caused the deadlock.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [
+    "workflow.Go"
+  ],
+  "components": [
+    "deadlock-detector",
+    "runtime-stack-trace",
+    "coroutine-tracking"
+  ],
+  "concepts": [
+    "deadlock",
+    "stack-trace",
+    "goroutine",
+    "coroutine-debugging",
+    "runtime-introspection",
+    "timeout-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users have difficulty diagnosing workflow deadlocks because they cannot see the stack traces of blocked coroutines, making troubleshooting complex concurrency issues harder.",
+  "rootCause": "Go does not provide direct APIs to identify or introspect specific goroutines by ID, requiring workarounds like stack parsing or internal reflection.",
+  "proposedFix": "Track goroutine IDs when workflow.Go is called, then parse runtime.Stack() output to filter and display only the stack traces of running coroutines for the workflow. Can be made opt-in if performance is a concern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented stack trace collection for deadlocked coroutines. Discussion clarified that only one coroutine can be executing at timeout, simplifying the implementation approach.",
+  "related": [],
+  "keyQuote": "Allow users to see a stack of all running coroutines of a workflow",
+  "number": 969,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:45:20.020Z"
+}

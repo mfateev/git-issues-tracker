@@ -1,0 +1,36 @@
+{
+  "summary": "Add `Patched()` and `DeprecatePatch()` APIs to the Go SDK for better workflow versioning support, with potential deprecation of the `GetVersion` API.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "Patched",
+    "DeprecatePatch",
+    "GetVersion"
+  ],
+  "components": [
+    "workflow-execution",
+    "versioning-system",
+    "api-design"
+  ],
+  "concepts": [
+    "versioning",
+    "patches",
+    "workflow-compatibility",
+    "deprecation",
+    "memoization"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to manage workflow changes with improved APIs for patching and deprecating versions, aligned with Temporal Core implementation.",
+  "rootCause": null,
+  "proposedFix": "Implement `Patched(patchId, memoized): boolean` and `DeprecatePatch(patchId, memoized): boolean` APIs following Core's implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add the `Patched(patchId, memoized): boolean` and `DeprecatePatch(patchId, memoized): boolean` APIs. Refer to Core's implementation (once it is ready).",
+  "number": 1796,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:05.894Z"
+}

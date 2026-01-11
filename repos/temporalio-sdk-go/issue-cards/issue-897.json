@@ -1,0 +1,30 @@
+{
+  "summary": "Four vulnerabilities detected in golang.org/x/tools-v0.1.8 dependency, primarily jQuery XSS issues with CVSS scores ranging from 5.3 to 6.1. The issue was automatically closed by Mend after the vulnerable library was removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-tools",
+    "golang.org/x-tools"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "xss-attack",
+    "dependency-upgrade",
+    "jquery",
+    "transitive-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Vulnerable dependencies could potentially allow XSS attacks if the SDK is used in contexts where untrusted HTML is processed.",
+  "rootCause": "golang.org/x/tools-v0.1.8 included vulnerable jQuery versions (pre-3.5.0) that had XSS vulnerabilities in DOM manipulation methods.",
+  "proposedFix": "Upgrade golang.org/x/tools to a version that depends on jQuery 3.5.0 or later, and address CVE-2022-29526 in golang.org/x/sys.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was removed from the Mend inventory, indicating the dependency was either upgraded or removed from the codebase.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 897,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:47.456Z"
+}

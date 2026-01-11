@@ -1,0 +1,32 @@
+{
+  "summary": "Version 1.24.0 of the Go SDK uses atomic.Bool which requires Go 1.19+, but go.mod hasn't been updated to reflect this minimum requirement. The code should either update go.mod or use uberatomic.Bool for consistency.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "go.mod",
+    "atomic-operations",
+    "dependency-management"
+  ],
+  "concepts": [
+    "version-requirement",
+    "compatibility",
+    "dependency-constraint",
+    "go-version",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users on Go versions below 1.19 will experience compilation failures when upgrading to v1.24.0.",
+  "rootCause": "PR #1164 introduced atomic.Bool (Go 1.19+) without updating go.mod minimum version requirement.",
+  "proposedFix": "Update go.mod to specify Go 1.19+ as minimum requirement, or replace atomic.Bool with uberatomic.Bool for consistency with existing code.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved when Go module file is updated to reflect Go 1.19+ requirement during CI update for Go 1.21.",
+  "related": [
+    1164
+  ],
+  "keyQuote": "This PR added the usage of atomic.Bool which was only added in Go v1.19",
+  "number": 1196,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:26.799Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add context parameter to MetricsHandler interface to enable OpenTelemetry exemplar support, allowing metrics to link directly to traces for improved observability and debugging.",
+  "category": "feature",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "opentelemetry-bridge",
+    "task-handler",
+    "worker"
+  ],
+  "concepts": [
+    "exemplar",
+    "opentelemetry",
+    "context-propagation",
+    "tracing",
+    "observability",
+    "prometheus",
+    "grafana"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot link SDK metrics to traces via exemplars, requiring manual trace hunting instead of direct click-through from Grafana metric spikes.",
+  "rootCause": "MetricsHandler interface lacks context parameter, forcing OpenTelemetry bridge to use context.Background() which cannot extract trace information for exemplar creation.",
+  "proposedFix": "Add context parameter to CounterIface and other metric interfaces (e.g., Inc(ctx context.Context, value int64)), update all SDK metric calls to pass available context, ensuring backward compatibility via new method or type assertion.",
+  "workaround": "Users can implement custom metrics in activity code with context passed explicitly to OpenTelemetry metric calls.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Without the context containing trace information, OpenTelemetry can't extract the trace_id and span_id needed to create the exemplar that links the metric to the trace.",
+  "number": 2097,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:38.971Z"
+}

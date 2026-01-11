@@ -1,0 +1,34 @@
+{
+  "summary": "User requested SignalWithStartWorkflow support in the Go SDK test suite. The feature exists in the client but lacks a direct testing equivalent, forcing users to rely on integration tests instead of unit tests.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "testsuite",
+    "test-workflow-environment",
+    "signal-handling"
+  ],
+  "concepts": [
+    "testing",
+    "signals",
+    "workflow-startup",
+    "unit-testing",
+    "test-utilities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily unit test workflows that use SignalWithStartWorkflow, forcing them to resort to slower integration tests.",
+  "rootCause": "TestWorkflowEnvironment lacks a dedicated method for SignalWithStartWorkflow, though RegisterDelayedCallback with 0 delay can simulate it.",
+  "proposedFix": "Include SignalWithStartWorkflow in the test suite API, potentially as an enhancement to TestWorkflowEnvironment.",
+  "workaround": "Use testsuite.TestWorkflowEnvironment.RegisterDelayedCallback with 0 delayDuration to simulate SignalWithStart.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after clarification that the workaround exists via RegisterDelayedCallback with 0 delay, and documentation was improved via temporalio/documentation#939.",
+  "related": [
+    939
+  ],
+  "keyQuote": "Use 0 delayDuration to send a signal to simulate SignalWithStart.",
+  "number": 736,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:34:45.633Z"
+}

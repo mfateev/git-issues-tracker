@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow replay immediately exits without running code after upgrading to go.temporal.io/api v1.19, when previously working with v1.18.1. The issue was related to a bug in the SDK that was subsequently fixed in master/v1.22.1.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistoryFromJSONFile"
+  ],
+  "components": [
+    "replayer",
+    "workflow-engine",
+    "history-processor"
+  ],
+  "concepts": [
+    "replay",
+    "version-compatibility",
+    "api-upgrade",
+    "history-loading"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot replay workflow histories after upgrading the API version, breaking their ability to test and debug workflows offline.",
+  "rootCause": "A bug in the SDK related to API v1.19 that caused replay to exit immediately without executing code. The issue was resolved in later SDK versions.",
+  "proposedFix": "Upgrade to SDK v1.22.1 or later which includes the fix for this replay bug.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in later SDK releases (v1.22.1+). Users reporting the issue were advised to upgrade to master or latest released version.",
+  "related": [
+    1091
+  ],
+  "keyQuote": "A replay immediately exits without running code. Used to work with version go.temporal.io/api v1.18.1.",
+  "number": 1084,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:16.705Z"
+}

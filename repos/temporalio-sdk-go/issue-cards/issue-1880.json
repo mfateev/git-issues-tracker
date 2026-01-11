@@ -1,0 +1,32 @@
+{
+  "summary": "Internal GetSystemInfo calls in multiple locations ignore the ConnectionOptions.GetSystemInfoTimeout value and use the default timeout instead. This causes timeouts even when users configure a custom timeout for system info requests.",
+  "category": "bug",
+  "subcategory": "connection-options",
+  "apis": [],
+  "components": [
+    "internal_workflow_client",
+    "internal_worker",
+    "connection"
+  ],
+  "concepts": [
+    "timeout",
+    "connection-options",
+    "system-info",
+    "configuration",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot effectively configure GetSystemInfo timeout, causing connection failures despite providing custom timeout values.",
+  "rootCause": "Issue #1416 did not apply the user-provided timeout to all callsites where GetSystemInfo is called internally.",
+  "proposedFix": "Apply ConnectionOptions.GetSystemInfoTimeout to all internal GetSystemInfo callsites, not just some of them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified and acknowledged as needing a fix to apply the timeout consistently across all GetSystemInfo callsites.",
+  "related": [
+    1416
+  ],
+  "keyQuote": "It appears #1416 didn't apply the timeout to all places get system info is called. We do need to fix this, thanks!",
+  "number": 1880,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:36.202Z"
+}

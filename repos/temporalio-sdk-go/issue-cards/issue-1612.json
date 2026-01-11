@@ -1,0 +1,32 @@
+{
+  "summary": "Request to make the queryRejectedError public in the Go SDK to enable proper error handling of query rejection in interceptors when using QueryWorkflowWithOptions with QUERY_REJECT_CONDITION_NOT_OPEN.",
+  "category": "feature",
+  "subcategory": "query-handling",
+  "apis": [
+    "QueryWorkflowWithOptions"
+  ],
+  "components": [
+    "interceptor",
+    "query-handling",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-visibility",
+    "interceptor-patterns",
+    "query-rejection",
+    "type-safety",
+    "error-classification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly catch and handle query rejection errors in interceptors without relying on error message string matching or response inspection.",
+  "rootCause": "queryRejectedError type is unexported (private) in the SDK, preventing interceptors from using type assertions to distinguish query rejections from other errors.",
+  "proposedFix": "Export the queryRejectedError type as QueryRejectedError to allow explicit type checking in error interceptors.",
+  "workaround": "Use QueryWorkflowWithOptionsResponse.QueryRejected field directly or perform error message string matching, neither of which integrates well with interceptor error handling patterns.",
+  "resolution": "fixed",
+  "resolutionDetails": "The queryRejectedError was likely exported to make it publicly accessible for interceptor error handling.",
+  "related": [],
+  "keyQuote": "Making queryRejectedError public would allow better handling in error interceptors",
+  "number": 1612,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:45.446Z"
+}

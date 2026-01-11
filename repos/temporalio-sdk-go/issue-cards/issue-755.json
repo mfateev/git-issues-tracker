@@ -1,0 +1,33 @@
+{
+  "summary": "Sticky queries can fail with invalid state machine transitions when the workflow cache is evicted on the server but the SDK rebuilds history that has since advanced beyond the original query's previousStartedEventID, causing outdated replay mode calculations.",
+  "category": "bug",
+  "subcategory": "query-execution",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "state-machine",
+    "workflow-executor",
+    "history-retrieval"
+  ],
+  "concepts": [
+    "state-transition",
+    "replay-mode",
+    "workflow-cache",
+    "event-history",
+    "previousStartedEventID",
+    "cache-eviction",
+    "consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Sticky query operations fail with cryptic state machine errors when server loses workflow cache but SDK cache is also evicted, making some queries unreliable.",
+  "rootCause": "When a sticky query is dispatched but the SDK has lost the workflow cache, getWorkflowExecutionHistory is called to rebuild state. If history advances between query dispatch and retrieval, the previousStartedEventID becomes outdated, causing the state machine to attempt invalid transitions during replay.",
+  "proposedFix": "Three approaches proposed: (1) Process all events in replay mode for query tasks (SDK-only), (2) Include nextEventID in query task and truncate history (requires server change, implemented in Cadence), (3) Have getWorkflowExecutionHistory return previousStartedEventID (requires server change).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Existing SDK implementation will continue to use that outdated previousStartedEventID to run the query task and this will lead to invalid state transition error.",
+  "number": 755,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:31.501Z"
+}

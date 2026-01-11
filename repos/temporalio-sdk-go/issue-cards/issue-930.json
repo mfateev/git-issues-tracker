@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for failure encoding in proxy gRPC interceptor by moving message and stack trace into encoded attributes, allowing proxies to transparently support encoded failure attributes through the interceptor.",
+  "category": "feature",
+  "subcategory": "grpc-interceptor",
+  "apis": [],
+  "components": [
+    "grpc-interceptor",
+    "payload-codec",
+    "failure-encoding"
+  ],
+  "concepts": [
+    "failure-encoding",
+    "message-encoding",
+    "stack-trace",
+    "encoded-attributes",
+    "proxy-support",
+    "grpc-proxy"
+  ],
+  "severity": "medium",
+  "userImpact": "Proxies using the gRPC interceptor can now transparently support encoded failure attributes in a way that's understandable in the UI.",
+  "rootCause": null,
+  "proposedFix": "Alter generateinterceptor/main.go to add EncodeCommonAttributes bool flag to PayloadCodecGRPCClientInterceptorOptions, moving message and stack trace to encoded attributes pre-encode and back out post-decode.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as converter.NewFailureGRPCClientInterceptor in PR #974",
+  "related": [
+    924,
+    974
+  ],
+  "keyQuote": "move the message and stack trace to the encoded attributes pre-encode (and back out post-decode). This will allow proxies using this interceptor to support encoded failure attributes transparently",
+  "number": 930,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:19.552Z"
+}

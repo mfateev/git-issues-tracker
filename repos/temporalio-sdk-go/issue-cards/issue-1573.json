@@ -1,0 +1,33 @@
+{
+  "summary": "gRPC status code 'Unavailable' (HTTP 503) is being incorrectly reported as 'Unknown' by the Go SDK client, even though other gRPC clients (Python SDK, raw gRPC, Postman) correctly report the 'Unavailable' code.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "Dial",
+    "ListNamespaces"
+  ],
+  "components": [
+    "client",
+    "error-handling",
+    "grpc-wrapper"
+  ],
+  "concepts": [
+    "grpc-status-codes",
+    "error-mapping",
+    "connection-failure",
+    "http-503",
+    "status-code-translation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot correctly identify 'Unavailable' gRPC errors returned by the server, making error handling and retry logic incorrect.",
+  "rootCause": "The Go SDK is wrapping or translating gRPC errors incorrectly, converting 'Unavailable' status codes to 'Unknown', unlike raw gRPC clients.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed in a recent commit after master branch; tests confirm that DialClient now correctly returns Unavailable status code.",
+  "related": [],
+  "keyQuote": "We want to make sure we match what Go gRPC does here, so maybe we're wrapping incorrectly compared to pure gRPC use.",
+  "number": 1573,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:31.038Z"
+}

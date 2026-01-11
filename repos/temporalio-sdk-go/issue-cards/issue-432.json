@@ -1,0 +1,30 @@
+{
+  "summary": "Activity responses that contain non-serializable types like `error` fields fail silently with no worker log output. The JSON serializer successfully marshals the struct but fails to unmarshal it on the next workflow task, causing confusion for developers who must inspect the web UI to discover the issue.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "json-converter",
+    "activity-executor",
+    "payload-converter"
+  ],
+  "concepts": [
+    "json-serialization",
+    "error-handling",
+    "interface-marshaling",
+    "silent-failure",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive no error logs when activities return non-serializable types, requiring manual inspection of the web UI to diagnose failures.",
+  "rootCause": "The default JSON converter marshals structs with error fields without error (serializing the error as an empty object), but fails to unmarshal the result. The failure only appears during subsequent workflow task processing, with no corresponding worker log entry.",
+  "proposedFix": "Improve documentation about JSON serialization limitations with interface types, and consider validation in the JSON converter to detect non-serializable fields at marshal time.",
+  "workaround": "Implement custom JSON Marshal/Unmarshal functions for types containing interface fields, or use wrapper types instead of error fields.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was recognized as a limitation of Go's JSON serializer behavior with interface types rather than an SDK bug. Resolution focused on improving documentation rather than changing serializer behavior.",
+  "related": [],
+  "keyQuote": "The reason why this doesn't produce any message when you complete an activity is because underlying json serializer succeeds and we successfully send bytes back to the server",
+  "number": 432,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:59.866Z"
+}

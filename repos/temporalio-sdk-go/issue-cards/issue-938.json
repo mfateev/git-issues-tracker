@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for replaying multiple workflow histories in a loop in the Go SDK, similar to existing functionality in TypeScript and Python SDKs. The team decided this wasn't necessary as a built-in feature since calling ReplayWorkflowHistory in a loop is already performant, but a list API for histories should be added to match other SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistory"
+  ],
+  "components": [
+    "workflow-engine",
+    "replay-engine",
+    "history-processor"
+  ],
+  "concepts": [
+    "replay",
+    "history",
+    "workflow-execution",
+    "testing",
+    "determinism",
+    "concurrency"
+  ],
+  "severity": "low",
+  "userImpact": "Users wanting to replay multiple workflow histories would benefit from a consistent list API across all SDKs, though looping manually is already acceptable.",
+  "rootCause": null,
+  "proposedFix": "Add a list API for histories in the Go SDK following the same pattern as other SDKs, allowing users to list and iterate through workflow histories.",
+  "workaround": "Call ReplayWorkflowHistory in a loop, which is already performant and the idiomatic Go approach.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined that multi-history replay as a built-in feature wasn't necessary since looping with ReplayWorkflowHistory is already performant. Scope shifted to adding a list API for histories instead (tracked separately in issue #972).",
+  "related": [
+    972
+  ],
+  "keyQuote": "it's easy (and performant) enough to call `ReplayWorkflowHistory` in a loop, so we probably don't need this",
+  "number": 938,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:36.465Z"
+}

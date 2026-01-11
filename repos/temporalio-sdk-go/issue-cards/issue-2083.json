@@ -1,0 +1,31 @@
+{
+  "summary": "Port metrics enhancement from sdk-core to use normal task queue names for sticky task queue client metrics, improving metric consistency across Temporal SDKs.",
+  "category": "other",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "task-queue",
+    "client"
+  ],
+  "concepts": [
+    "sticky-task-queue",
+    "metrics-naming",
+    "consistency",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users will see more consistent and meaningful task queue names in sticky task queue client metrics.",
+  "rootCause": null,
+  "proposedFix": "Port the metrics enhancement from sdk-core PR #1039 to improve sticky task queue metric naming",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement was ported from sdk-core/pull/1039",
+  "related": [
+    1039
+  ],
+  "keyQuote": "Port https://github.com/temporalio/sdk-core/pull/1039",
+  "number": 2083,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:04.456Z"
+}

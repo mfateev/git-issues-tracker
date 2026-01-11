@@ -1,0 +1,34 @@
+{
+  "summary": "A nil pointer timestamp in protobuf maps to Jan 1st, 1970 UTC with IsZero() returning false, causing CLI filters (cardOmitEmpty, omitEmpty) to not properly exclude uninitialized timestamps. This affects both CLI and raw gRPC API users.",
+  "category": "bug",
+  "subcategory": "timestamp-handling",
+  "apis": [
+    "AsTime",
+    "IsZero",
+    "IsValid"
+  ],
+  "components": [
+    "timestamp-conversion",
+    "protobuf-mapping",
+    "cli-filtering"
+  ],
+  "concepts": [
+    "nil-pointer",
+    "timestamp-initialization",
+    "zero-value",
+    "protobuf-behavior",
+    "filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience incorrect timestamp filtering in CLI commands and APIs when timestamps haven't been initialized, as nil values incorrectly serialize to epoch time.",
+  "rootCause": "Protobuf library maps nil timestamps to Jan 1st, 1970 UTC instead of treating them as uninitialized, and IsZero() returns false for these values.",
+  "proposedFix": "Check IsValid() before calling AsTime() on timestamps to properly distinguish between uninitialized and epoch-time values.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "(*timestamppb.Timestamp)(nil).AsTime().IsZero() // FALSE!",
+  "number": 1846,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:33.261Z"
+}

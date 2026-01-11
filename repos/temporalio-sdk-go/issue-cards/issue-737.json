@@ -1,0 +1,30 @@
+{
+  "summary": "Verify that the temporal_workflow_task_execution_failed metric is incremented when a data converter fails to convert workflow input, and confirm temporal_activity_execution_failed metric is properly updated on activity failures.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "metrics-handler",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "concepts": [
+    "metric-tracking",
+    "data-conversion",
+    "failure-handling",
+    "prometheus-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may miss visibility into workflow and activity failures if metrics are not properly incremented during data conversion failures.",
+  "rootCause": "Data converter failure during workflow input conversion may not trigger the temporal_workflow_task_execution_failed metric update.",
+  "proposedFix": "Ensure the metric is updated in the data converter failure code path.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metric updates were confirmed to be working correctly for both workflow task execution failures and activity execution failures.",
+  "related": [],
+  "keyQuote": "We may not be updating `temporal_workflow_task_execution_failed` when a data converter fails to convert workflow input.",
+  "number": 737,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:04.262Z"
+}

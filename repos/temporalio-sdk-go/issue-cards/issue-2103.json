@@ -1,0 +1,31 @@
+{
+  "summary": "TraceID and SpanID fields in OpenTelemetry logs are printed as byte arrays instead of human-readable strings due to missing String() conversion in the logger.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "opentelemetry-tracing",
+    "logger",
+    "tracing-interceptor"
+  ],
+  "concepts": [
+    "logging",
+    "opentelemetry",
+    "tracing",
+    "slog",
+    "string-conversion",
+    "cosmetic-formatting"
+  ],
+  "severity": "low",
+  "userImpact": "Logs display unreadable byte arrays for TraceID and SpanID instead of formatted trace identifiers, making log inspection difficult.",
+  "rootCause": "TraceID and SpanID values are not converted to string using String() method before logging, which is expected by Go loggers including slog and the default log package.",
+  "proposedFix": "Convert TraceID and SpanID to strings using their String() methods in the logger at lines 225-228 of tracing_interceptor.go.",
+  "workaround": "Use the otelslog bridge from opentelemetry-go-contrib which properly handles OTEL types with slog.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the logger in lines 225-228 has a bug where the TraceID and SpanID are not converted to string which is causing a cosmetic bug when log gets printed, we see the byte array instead",
+  "number": 2103,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:10.268Z"
+}

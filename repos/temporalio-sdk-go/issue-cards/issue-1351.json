@@ -1,0 +1,36 @@
+{
+  "summary": "Request to support interceptors on WorkflowRun.Get() method to allow context-aware data converters to access workflow-specific information (like workflow ID) when retrieving workflow results. Currently, interceptors work for other client calls but not for result fetching.",
+  "category": "feature",
+  "subcategory": "interceptor",
+  "apis": [
+    "WorkflowRun.Get",
+    "GetWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "data-converter",
+    "interceptor"
+  ],
+  "concepts": [
+    "interceptor",
+    "workflow-id",
+    "data-converter",
+    "context-aware",
+    "result-fetching",
+    "client-call"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with context-aware data converters cannot properly decode workflow results when retrieving them via WorkflowRun.Get because interceptors cannot inject workflow-specific context at that point.",
+  "rootCause": "The WorkflowRun.Get method does not support interceptors, unlike other client calls to workflow executions, making it impossible for context-aware data converters to access workflow-specific information during result deserialization.",
+  "proposedFix": "Add interceptor support to WorkflowRun.Get, similar to the Java SDK's WorkflowClientCallsInterceptor.getResult() method.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1349
+  ],
+  "keyQuote": "With every other client call to a workflow execution this can be set in the interceptor, except for getting the workflow result because there is no interceptor.",
+  "number": 1351,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:58:19.878Z"
+}

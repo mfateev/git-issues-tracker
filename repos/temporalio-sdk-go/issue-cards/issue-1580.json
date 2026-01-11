@@ -1,0 +1,30 @@
+{
+  "summary": "The workflow handler warning system should be disabled when the workflow has already failed, to avoid spurious warnings about unfinished handlers on failed workflows.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "error-handling",
+    "handler-lifecycle"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "handler-cleanup",
+    "warning-suppression",
+    "error-state",
+    "lifecycle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see unnecessary warnings about unfinished handlers when workflows fail, cluttering logs and causing confusion about actual error conditions.",
+  "rootCause": "The handler warning logic does not account for the workflow failure state before emitting warnings about incomplete handlers.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The warning logic was updated to suppress warnings on unfinished handlers when the workflow has already failed.",
+  "related": [],
+  "keyQuote": "It was decided we would not warn on unfinished handlers if the workflow has failed.",
+  "number": 1580,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:44.148Z"
+}

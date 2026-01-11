@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add custom payload processing support to the codec gRPC interceptor, allowing users to selectively skip processing for certain payload types (like headers) instead of processing all non-search-attribute payloads.",
+  "category": "feature",
+  "subcategory": "codec-interceptor",
+  "apis": [],
+  "components": [
+    "codec",
+    "gRPC-interceptor",
+    "payload-processing"
+  ],
+  "concepts": [
+    "custom-processor",
+    "header-handling",
+    "payload-filtering",
+    "codec-options",
+    "interception"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need selective payload processing (e.g., skipping tracing headers) would have more flexible control over codec behavior.",
+  "rootCause": null,
+  "proposedFix": "Add a CustomProcessor field to PayloadCodecGRPCClientInterceptorOptions that accepts a function taking a ProcessContext with Stack, Current, Encode, and Next fields, allowing custom logic to conditionally skip processing.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No reason to make it purposefully less flexible. For example, what if you wanted to conditionally skip processing an object?",
+  "number": 842,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:39:11.044Z"
+}

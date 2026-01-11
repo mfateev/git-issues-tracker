@@ -1,0 +1,34 @@
+{
+  "summary": "When WORKFLOW_ID_REUSE_POLICY_REJECT_DUPLICATE is set, ExecuteWorkflow returns the previous workflow result instead of rejecting the duplicate call. Users need an option to force returning WorkflowExecutionAlreadyStarted error to detect duplicate calls.",
+  "category": "feature",
+  "subcategory": "workflow-deduplication",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "execution-reuse-policy"
+  ],
+  "concepts": [
+    "deduplication",
+    "workflow-reuse",
+    "error-handling",
+    "idempotency",
+    "duplicate-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot detect whether an ExecuteWorkflow call is a duplicate when using REJECT_DUPLICATE reuse policy, making it impossible to distinguish between first execution and reuse.",
+  "rootCause": "WORKFLOW_ID_REUSE_POLICY_REJECT_DUPLICATE returns previous workflow result instead of error for duplicate calls.",
+  "proposedFix": "Add StartWorkflowOptions.FailOnAlreadyStarted option to force returning WorkflowExecutionAlreadyStarted error for duplicate calls.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #220 in the same repository.",
+  "related": [
+    220
+  ],
+  "keyQuote": "Add StartWorkflowOptions.FailOnAlreadyStareted option that would force returning WorkflowExecutionAlreadyStarted in this case.",
+  "number": 268,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:22.006Z"
+}

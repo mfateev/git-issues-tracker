@@ -1,0 +1,30 @@
+{
+  "summary": "Worker reports a 'premature end of stream' validation error when processing a transient decision that is scheduled after a decision failure. The error indicates a mismatch between expected and actual event IDs in the workflow history.",
+  "category": "bug",
+  "subcategory": "history-processing",
+  "apis": [],
+  "components": [
+    "worker",
+    "history-processor",
+    "decision-handler"
+  ],
+  "concepts": [
+    "transient-decision",
+    "history-events",
+    "decision-failure",
+    "event-stream",
+    "validation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow executions fail with validation errors when transient decisions follow failed decisions, preventing normal workflow progression.",
+  "rootCause": "Mismatch in event ID tracking when processing transient decisions after decision failures, causing the history processor to expect an event ID that doesn't exist in the stream",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "history_events: premature end of stream, expectedLastEventID=55 but no more events after eventID=53",
+  "number": 186,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:53.175Z"
+}

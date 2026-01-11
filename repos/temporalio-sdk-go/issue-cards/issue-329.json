@@ -1,0 +1,34 @@
+{
+  "summary": "ExecuteLocalActivity() calls trigger a deadlock detection panic in SDK v1.3.0, occurring in ~90% of cases. The issue is caused by the new deadlock detector firing when workflow threads are blocked (e.g., by debuggers), rather than a genuine deadlock condition.",
+  "category": "bug",
+  "subcategory": "local-activity",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "workflow-executor",
+    "deadlock-detector",
+    "coroutine-state"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "debugging",
+    "goroutine-blocking",
+    "workflow-thread",
+    "yield-timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to v1.3.0 experience frequent workflow panics when using local activities, forcing them to downgrade or disable the deadlock detector.",
+  "rootCause": "The deadlock detector introduced in v1.3.0 fires when workflow goroutines don't yield for over a second, including legitimate cases where threads are blocked by debuggers or other external factors.",
+  "proposedFix": "Add TEMPORAL_DEBUG environment variable to disable deadlock detection during debugging, or allow configuration of DeadlockDetectionTimeout via worker options.",
+  "workaround": "Either stay on v1.2.0, set TEMPORAL_DEBUG=true, or configure DeadlockDetectionTimeout to a higher value (e.g., 5 minutes) via worker.Options.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #330 which introduced TEMPORAL_DEBUG environment variable and made deadlock detection configurable via DeadlockDetectionTimeout in worker options.",
+  "related": [
+    330
+  ],
+  "keyQuote": "Yes, blocking the workflow thread on breakpoint would cause the deadlock detector to fire. The #330 introduced the TEMPORAL_DEBUG environment variable that can be used to disable the deadlock detector for debugging purposes.",
+  "number": 329,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:18:39.095Z"
+}

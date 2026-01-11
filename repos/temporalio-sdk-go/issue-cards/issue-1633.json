@@ -1,0 +1,31 @@
+{
+  "summary": "Proposal to modify the Go SDK test suite to output JUnit XML files, enabling better analysis of test flakiness patterns, timings, and performance across matrix builds and multiple runs.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "ci-cd",
+    "test-reporting"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "junit-xml",
+    "test-metrics",
+    "test-timing",
+    "matrix-builds",
+    "test-analysis"
+  ],
+  "severity": "low",
+  "userImpact": "Enables developers and maintainers to better analyze test reliability patterns and performance characteristics across different environments and runs.",
+  "rootCause": null,
+  "proposedFix": "Add JUnit XML output to the test suite following the pattern established in sdk-python PR #617 and cli PR #650",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Producing the files now will allow us to test tools for doing this",
+  "number": 1633,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:14.059Z"
+}

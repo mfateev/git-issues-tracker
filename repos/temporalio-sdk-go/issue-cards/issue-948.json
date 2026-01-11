@@ -1,0 +1,32 @@
+{
+  "summary": "The workflow test suite defaults to a maximum activity attempt of 10, but this behavior was not documented when the feature was implemented in PR #462. This task is to add documentation for this test framework default.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "activity-executor",
+    "workflow-testing"
+  ],
+  "concepts": [
+    "testing",
+    "activity-attempts",
+    "defaults",
+    "documentation",
+    "test-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users of the workflow test suite may not understand the default maximum activity attempt limit of 10, potentially causing confusion when tests behave unexpectedly.",
+  "rootCause": null,
+  "proposedFix": "Add documentation explaining that the workflow test suite defaults to a maximum activity attempt of 10.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added for the workflow test suite's default maximum activity attempt limit of 10.",
+  "related": [
+    462
+  ],
+  "keyQuote": "When https://github.com/temporalio/sdk-go/pull/462 was done, no documentation was made. Document this.",
+  "number": 948,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:44:08.691Z"
+}

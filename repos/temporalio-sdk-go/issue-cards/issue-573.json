@@ -1,0 +1,31 @@
+{
+  "summary": "The `temporal_activity_endtoend_latency` metric is redundant and misleading, duplicating the sum of `activity_scheduletostart_latency` and `activity_execution_latency`. It should measure the time from when an activity was first scheduled to when it completed successfully, requiring a fix to use `GetScheduledTime` instead of `GetStartedTime`.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "task-pollers"
+  ],
+  "concepts": [
+    "latency",
+    "metric-accuracy",
+    "activity-lifecycle",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive misleading metrics about activity execution latency, making it difficult to accurately monitor and diagnose activity performance issues.",
+  "rootCause": "The metric uses `GetStartedTime` instead of `GetScheduledTime`, causing it to measure only execution latency rather than the full schedule-to-completion time.",
+  "proposedFix": "Change the metric calculation in internal_task_pollers.go line 895 from using `GetStartedTime` to `GetScheduledTime`, and only record the metric when the activity completes successfully.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix implemented to use `GetScheduledTime` and only record on successful completion, matching Java SDK changes from PR #800.",
+  "related": [
+    799
+  ],
+  "keyQuote": "This metric is almost completely duplicative of `activity_scheduletostart_latency` + `activity_execution_latency` currently. It provides effectively no value and is misleading.",
+  "number": 573,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:56.933Z"
+}

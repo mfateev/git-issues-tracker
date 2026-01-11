@@ -1,0 +1,33 @@
+{
+  "summary": "Simplify NewClient API signature to accept hostPort and domain directly instead of requiring callers to manually construct gRPC connections. The change hides complexity, allows mandatory interceptors and default load balancing configuration, and provides cleaner API ergonomics.",
+  "category": "feature",
+  "subcategory": "client-initialization",
+  "apis": [
+    "NewClient"
+  ],
+  "components": [
+    "client",
+    "grpc-connection",
+    "options"
+  ],
+  "concepts": [
+    "API-simplification",
+    "gRPC-configuration",
+    "interceptors",
+    "load-balancing",
+    "defaults",
+    "extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently need deep knowledge of gRPC internals to construct clients; this change enables simpler, more intuitive client initialization.",
+  "rootCause": "Current NewClient signature requires manual gRPC connection setup and client instantiation, exposing implementation details and making it difficult to apply mandatory interceptors and default configurations.",
+  "proposedFix": "Change NewClient to accept hostPort and domain directly, add GRPCOptions to Options struct, and internally merge passed options with mandatory defaults. Alternative approach: provide three separate constructor methods (NewClientLocal, NewClientByAddress, NewClientFromGRPC).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing simplified client initialization API that abstracts gRPC connection details and provides reasonable defaults.",
+  "related": [],
+  "keyQuote": "This is overwhelming and requires deep understanding of go-client internals.",
+  "number": 39,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:12:28.371Z"
+}

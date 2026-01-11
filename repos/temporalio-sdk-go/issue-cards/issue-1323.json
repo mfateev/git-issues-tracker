@@ -1,0 +1,32 @@
+{
+  "summary": "Request for dynamic worker configuration capability that would allow runtime changes to worker settings. The issue is unclear in scope and was closed as implementation approach evolved with the emergence of Nexus as a potential transport mechanism for configuration changes.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "configuration",
+    "nexus"
+  ],
+  "concepts": [
+    "dynamic-config",
+    "runtime-changes",
+    "worker-settings",
+    "transport",
+    "configuration-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to modify worker configuration at runtime without restarting, improving operational flexibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to unclear requirements and architectural changes. Nexus is being considered as a potential transport for config changes, making the original approach obsolete.",
+  "related": [
+    388
+  ],
+  "keyQuote": "Unclear what/how we want to do this, and a lot has changed since this was opened (e.g. we are building Nexus now, which could be a transport for config changes).",
+  "number": 1323,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:57:38.311Z"
+}

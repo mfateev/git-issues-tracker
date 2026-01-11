@@ -1,0 +1,33 @@
+{
+  "summary": "Versioning-3 experimental API introduces new versioning_info metadata that needs to be exposed in WorkflowExecutionInfo. The Go SDK exposes raw protobufs for WorkflowExecutionInfo, and this feature would make the new versioning metadata accessible to users and the CLI.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "workflow-execution",
+    "protobuf-bindings",
+    "cli"
+  ],
+  "concepts": [
+    "versioning",
+    "metadata",
+    "workflow-info",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users and CLI tools need access to versioning metadata for workflow executions to support versioning-3 experimental features.",
+  "rootCause": null,
+  "proposedFix": "Expose versioning_info metadata through WorkflowExecutionInfo in the Go SDK.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The Go SDK exposes raw protobufs directly, so users and CLI can access the metadata without additional SDK changes needed.",
+  "related": [
+    472
+  ],
+  "keyQuote": "The go sdk just exposes raw protobufs for WorkflowExecutionInfo, and the CLI just uses them directly.",
+  "number": 1714,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:20.685Z"
+}

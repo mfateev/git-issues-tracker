@@ -1,0 +1,28 @@
+{
+  "summary": "User requests a contrib/datadog/v0.3.0 release to remove dependency on retracted go.temporal.io/api v1.26.1, which was causing build failures due to transitive dependency issues.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "contrib-datadog",
+    "dependency-resolution"
+  ],
+  "concepts": [
+    "dependency",
+    "version-compatibility",
+    "retracted-version",
+    "build-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users unable to use contrib/datadog module due to broken transitive dependencies preventing successful builds.",
+  "rootCause": "contrib/datadog v0.2.0 still depends on retracted go.temporal.io/api v1.26.1, causing build failures for consumers.",
+  "proposedFix": "Release contrib/datadog/v0.3.0 with updated dependencies that remove reliance on retracted api version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "contrib/datadog/v0.3.0 was released with updated dependencies removing the retracted API version dependency.",
+  "related": [],
+  "keyQuote": "Would it be possible to release a `contrib/datadog/v0.3.0` version which no longer depends on the retracted `go.temporal.io/api v1.26.1`?",
+  "number": 1423,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:35.010Z"
+}

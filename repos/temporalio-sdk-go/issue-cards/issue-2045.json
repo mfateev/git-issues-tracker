@@ -1,0 +1,32 @@
+{
+  "summary": "Add tests to verify that custom slot supplier implementations properly set all required slot information fields. This relates to the features repository work on slot suppliers.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "slot-supplier",
+    "test-suite"
+  ],
+  "concepts": [
+    "testing",
+    "slot-management",
+    "custom-implementation",
+    "validation",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom slot suppliers need assurance that their implementations are correct and complete through comprehensive test coverage.",
+  "rootCause": null,
+  "proposedFix": "Create tests that validate custom slot supplier implementations include all necessary slot info fields",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    672
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/672",
+  "number": 2045,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:55.494Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The test environment for workflow updates does not deduplicate updates by ID, whereas the real server deduplicates update requests with the same UpdateID. This inconsistency means tests may not properly validate deduplication behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateClientWorkflow",
+    "UpdateWorkflowOptions"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-update",
+    "deduplication"
+  ],
+  "concepts": [
+    "idempotency",
+    "deduplication",
+    "update-id",
+    "test-parity",
+    "in-memory-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test update deduplication logic since the test environment behaves differently from production, potentially hiding bugs.",
+  "rootCause": "Test environment does not implement UpdateID deduplication logic that the real server provides.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The test environment was updated to implement deduplication of updates by ID, matching real server behavior.",
+  "related": [],
+  "keyQuote": "Test Environment accepts update with duplicate ID",
+  "number": 1638,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:07:26.780Z"
+}

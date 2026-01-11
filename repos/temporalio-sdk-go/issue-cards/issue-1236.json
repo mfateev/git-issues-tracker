@@ -1,0 +1,29 @@
+{
+  "summary": "Test `TestVersionLoopWorkflow` can sometimes fail because the workflow does not yield for more than a second, likely due to the for loop taking too long. Reducing the number of iterations in the loop is suggested as a fix.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "timing",
+    "yield",
+    "workflow-blocking",
+    "performance"
+  ],
+  "severity": "low",
+  "userImpact": "Developers experience intermittent test failures in the version loop workflow test, reducing confidence in the test suite.",
+  "rootCause": "The for loop in TestVersionLoopWorkflow takes too long to execute, preventing the workflow from yielding within a one-second threshold.",
+  "proposedFix": "Reduce the number of iterations in the for loop within the test.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by reducing iterations in the test loop to ensure the workflow yields within timing constraints.",
+  "related": [],
+  "keyQuote": "Test `TestVersionLoopWorkflow` can sometimes fail because the workflow does not yield for more then a second",
+  "number": 1236,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:44.710Z"
+}

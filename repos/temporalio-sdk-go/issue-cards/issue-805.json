@@ -1,0 +1,33 @@
+{
+  "summary": "User requested support for testing workflows that use `ContinueAsNewError` by adding an `EnableRunContinueAsNew` option to `TestWorkflowEnvironment` that would restart the workflow instead of returning the error.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ContinueAsNewError"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-testing",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "testing",
+    "unit-testing",
+    "continue-as-new",
+    "workflow-execution",
+    "child-workflows",
+    "integration-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily unit test workflows that rely on `ContinueAsNewError` for multi-run behavior without setting up full integration tests.",
+  "rootCause": "The test suite represents a single workflow run and does not support simulating multi-run scenarios triggered by `ContinueAsNewError`.",
+  "proposedFix": "Add an `EnableRunContinueAsNew` method to `TestWorkflowEnvironment` to execute the workflow instead of returning the error.",
+  "workaround": "Use integration testing with a full Temporal server setup or mock child workflows with `env.OnWorkflow`.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that unit tests should test single runs, not multi-run scenarios. Multi-run testing is better suited for integration tests with `temporalite/temporaltest`.",
+  "related": [],
+  "keyQuote": "The workflow unit test represents a single run, not multiple (be it by retry, continue as new, cron, etc).",
+  "number": 805,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:34.657Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Remove ClientOutboundInterceptor.PollWorkflowUpdate as it doesn't need to be interceptable, similar to how workflow results are handled. The author argues this API point is unnecessary for interception.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "ClientOutboundInterceptor.PollWorkflowUpdate"
+  ],
+  "components": [
+    "client",
+    "interceptor",
+    "workflow-updates"
+  ],
+  "concepts": [
+    "interceptor-design",
+    "api-simplification",
+    "workflow-updates",
+    "client-outbound",
+    "interceptability"
+  ],
+  "severity": "low",
+  "userImpact": "Removing this interceptor point would simplify the client interceptor API by eliminating an unnecessary interception point.",
+  "rootCause": null,
+  "proposedFix": "Remove ClientOutboundInterceptor.PollWorkflowUpdate from the SDK",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This does not need to be interceptable any more than getting a workflow result does",
+  "number": 1283,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:23.012Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Go SDK v1.22.1 fails to replay workflow history JSON files that contain null workerVersioningId fields, which are included by the Temporal Web UI. The SDK should handle these null fields gracefully instead of throwing an error.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowHistoryFromJSONFile"
+  ],
+  "components": [
+    "history-parser",
+    "workflow-replayer",
+    "event-unmarshaling"
+  ],
+  "concepts": [
+    "backward-compatibility",
+    "null-handling",
+    "JSON-deserialization",
+    "version-migration",
+    "schema-evolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot replay workflow histories exported from Temporal Web UI v2.10.3 with Go SDK v1.22.1, breaking existing compatibility tests.",
+  "rootCause": "The SDK's JSON unmarshaling logic treats the workerVersioningId field as required and rejects null values instead of ignoring them, despite this field being optional in the serialized history.",
+  "proposedFix": "Modify the JSON unmarshaling logic to ignore null values for optional fields like workerVersioningId, maintaining backward compatibility with history files from older Web UI versions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1084
+  ],
+  "keyQuote": "While the ideal solution is probably to ensure that the Web UI does not include null attributes like these, the fact that there's a version in production that includes them means that the SDK probably needs to handle them",
+  "number": 1091,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:50:30.050Z"
+}

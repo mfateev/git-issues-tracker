@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add an ApplicationErrorBuilder for Go SDK that uses method chaining to construct ApplicationError instances more concisely than the current NewApplicationError function.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "NewApplicationError"
+  ],
+  "components": [
+    "error-handling",
+    "api-design"
+  ],
+  "concepts": [
+    "builder-pattern",
+    "method-chaining",
+    "error-construction",
+    "api-ergonomics",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would have a more concise and readable way to construct application errors using builder pattern instead of verbose function calls.",
+  "rootCause": null,
+  "proposedFix": "Implement ApplicationErrorBuilder with chaining methods like WithCause(), WithMessage(), WithNonRetryable(), and Build()",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined the feature as builder pattern is not idiomatic Go and they prefer a single standard way to construct ApplicationError",
+  "related": [],
+  "keyQuote": "We currently have no plans to add an `ApplicationErrorBuilder` they are not a common approach in Go and we do not want to introduce multiple ways to construct an `ApplicationError`",
+  "number": 377,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:20:07.568Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow completion and continue-as-new counters should be incremented only after successful reporting to the server, not before. This ensures accurate metrics and consistency with server state.",
+  "category": "other",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "metrics",
+    "reporting"
+  ],
+  "concepts": [
+    "counters",
+    "metrics",
+    "server-reporting",
+    "workflow-lifecycle",
+    "accuracy",
+    "state-synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may see inaccurate workflow completion metrics if server reporting fails, leading to misleading observability data.",
+  "rootCause": "Counters are being logged before confirming successful server reporting, causing potential inconsistency between local metrics and actual workflow state.",
+  "proposedFix": "Move counter logging to occur after successful server reporting in the workflow completion and continue-as-new paths.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation updated to log counters after successful server reporting for both workflow_completed and workflow_continue_as_new events.",
+  "related": [
+    222
+  ],
+  "keyQuote": "workflow_completed and workflow_continue_as_new counters should be logged after a successful reporting to the server",
+  "number": 2111,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:23.524Z"
+}

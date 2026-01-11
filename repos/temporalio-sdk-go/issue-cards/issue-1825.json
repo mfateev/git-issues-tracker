@@ -1,0 +1,31 @@
+{
+  "summary": "The gRPC interceptors in api-go should visit payloads and failures not only in the main payload, but also within the status details of gRPC errors, to ensure comprehensive payload and failure transformation across error responses.",
+  "category": "feature",
+  "subcategory": "grpc-interceptors",
+  "apis": [],
+  "components": [
+    "api-go",
+    "grpc-interceptors",
+    "payload-visitor",
+    "failure-visitor"
+  ],
+  "concepts": [
+    "payload-transformation",
+    "error-handling",
+    "grpc-status",
+    "visitor-pattern",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably transform payloads and failures in gRPC error responses, limiting the ability to apply consistent data handling policies across error cases.",
+  "rootCause": "NewPayloadVisitorInterceptor and NewFailureVisitorInterceptor do not unpack and visit payloads/failures within the status details of gRPC errors.",
+  "proposedFix": "Modify NewPayloadVisitorInterceptor to visit payloads in status details and NewFailureVisitorInterceptor to visit failures in status details, unpacking any types, visiting, and repacking them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "NewPayloadVisitorInterceptor should visit payloads in the status details of gRPC errors as well, and NewFailureVisitorInterceptor should do the same for visiting failures.",
+  "number": 1825,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:46.804Z"
+}

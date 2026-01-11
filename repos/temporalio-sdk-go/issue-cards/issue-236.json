@@ -1,0 +1,30 @@
+{
+  "summary": "Duplicate protobuf extension registration panic occurs when using Temporal SDK with conflicting protobuf dependencies. Multiple transitive dependencies (envoyproxy/protoc-gen-validate, cncf/udpa) register the same gogo.proto extensions, causing initialization failure in Go applications.",
+  "category": "bug",
+  "subcategory": "protobuf-dependencies",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "module-loading",
+    "gogo-proto"
+  ],
+  "concepts": [
+    "dependency-conflict",
+    "protobuf-extension",
+    "initialization",
+    "go-modules",
+    "transitive-dependencies"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the SDK fail to start with a panic error when protobuf dependencies are improperly configured or when transitive dependencies have conflicting extension registrations.",
+  "rootCause": "Multiple transitive dependencies (protoc-gen-validate, udpa) included in the dependency tree register the same protobuf extensions (e.g., descriptor.EnumOptions 62001) to gogo.proto, causing duplicate registration panics during module initialization.",
+  "proposedFix": "Update dependency versions or refactor dependency tree to avoid multiple registrations of the same protobuf extensions. Using latest master commit resolved the issue.",
+  "workaround": "Remove vendor directory and use Go modules with 'go mod download' instead of vendoring; ensure go.mod/go.sum properly resolve dependencies without duplication.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by updating to a later version of dependencies (confirmed working on latest master commit). The issue was related to how protobuf extensions were registered across multiple transitive dependencies.",
+  "related": [],
+  "keyQuote": "panic: proto: duplicate extension registered: descriptor.EnumOptions 62001",
+  "number": 236,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:38.383Z"
+}

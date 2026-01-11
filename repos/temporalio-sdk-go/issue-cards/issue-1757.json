@@ -1,0 +1,32 @@
+{
+  "summary": "Documentation for StartWorkflowOptions on pkg.go.dev still references the deprecated WithStartOperation from the old Update-with-Start API. The docs should be updated to remove this outdated reference and clarify that WorkflowIDConflictPolicy is required.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "documentation",
+    "godoc",
+    "workflow-options"
+  ],
+  "concepts": [
+    "documentation",
+    "api-reference",
+    "deprecation",
+    "configuration",
+    "workflow-creation"
+  ],
+  "severity": "low",
+  "userImpact": "Users consulting the pkg.go.dev documentation may encounter outdated API references that no longer apply to the current SDK.",
+  "rootCause": "Documentation was not updated when the Update-with-Start API was changed.",
+  "proposedFix": "Remove WithStartOperation reference from StartWorkflowOptions documentation and add clarification that WorkflowIDConflictPolicy is required.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation updated to remove outdated WithStartOperation reference and clarify WorkflowIDConflictPolicy requirement.",
+  "related": [],
+  "keyQuote": "WithStartOperation from the old Update-with-Start API. Also, mention that WorkflowIDConflictPolicy is required.",
+  "number": 1757,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:17:08.308Z"
+}

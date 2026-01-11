@@ -1,0 +1,32 @@
+{
+  "summary": "Request to export a Carrier implementation for OpenTelemetry trace context propagation in Temporal headers, allowing custom interceptors to use the same carrier that the temporal interceptor uses for consistent trace propagation.",
+  "category": "feature",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "opentelemetry-contrib",
+    "tracing-interceptor",
+    "header-carrier"
+  ],
+  "concepts": [
+    "trace-propagation",
+    "opentelemetry",
+    "context-carrier",
+    "interceptor",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing custom interceptors can now use the same OpenTelemetry carrier implementation as Temporal's interceptor, ensuring consistent trace context propagation across mixed interceptor setups.",
+  "rootCause": null,
+  "proposedFix": "Export a Carrier implementation that parses/loads OpenTelemetry data into temporal headers and refactor the temporal interceptor to use this exported carrier.",
+  "workaround": "Define the carrier locally in private code or implement a custom OpenTelemetry interceptor without using the standard carrier.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed based on discussion in PR #1534. Maintainers indicated they encourage users to write their own custom interceptors rather than exporting a shared carrier implementation.",
+  "related": [
+    1534
+  ],
+  "keyQuote": "We encourage users to write their own interceptors to do what they need if they need something beyond that.",
+  "number": 1535,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:02.044Z"
+}

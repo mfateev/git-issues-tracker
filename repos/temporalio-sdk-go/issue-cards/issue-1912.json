@@ -1,0 +1,33 @@
+{
+  "summary": "Activity fails with \"Activity complete after timeout\" error when Temporal cluster nodes have unsynchronized clocks and the schedule-to-close timeout is exceeded on the worker's local time. The issue occurs because the deadline is calculated based on server time, not worker local time.",
+  "category": "bug",
+  "subcategory": "activity-timeout",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "clock-skew",
+    "timeout",
+    "deadline",
+    "distributed-systems",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows fail prematurely when cluster nodes have significant time differences, requiring operators to maintain strict clock synchronization.",
+  "rootCause": "Schedule-to-close timeout deadline is calculated based on server time at task start, not worker local time. When worker clocks are ahead of server clock, the deadline is already exceeded when task execution begins.",
+  "proposedFix": "Make schedule-to-close timeout relative to local time instead of server time (though this is technically challenging since there's no local-time equivalent of when the task was first scheduled).",
+  "workaround": "Ensure all cluster nodes maintain synchronized clocks and set timeouts high enough to account for any potential clock skew.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team determined that schedule-to-close timeout cannot be made relative to local time because there is no local-time equivalent of when the task was first scheduled. Instead, opened related issues #1926 (warn on clock skew) and #1930 (make start-to-close relative to local time).",
+  "related": [
+    1926,
+    1930
+  ],
+  "keyQuote": "We cannot do this with schedule to close, because there is no local-time equivalent of when first scheduled to base the timeout off of so we have to use the server time.",
+  "number": 1912,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:33.918Z"
+}

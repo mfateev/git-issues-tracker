@@ -1,0 +1,32 @@
+{
+  "summary": "A data race condition exists in the eager activity executor where a wait group is being mutated during concurrent access between activity task handling and worker shutdown, potentially causing missed activity tasks if received during Stop.",
+  "category": "bug",
+  "subcategory": "eager-activity-execution",
+  "apis": [],
+  "components": [
+    "eager-activity-executor",
+    "task-poller",
+    "base-worker",
+    "synchronization"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrent-access",
+    "goroutine-safety",
+    "wait-group",
+    "worker-shutdown",
+    "task-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience lost or missed activity tasks if they are received while the worker is shutting down, potentially causing workflows to fail or hang.",
+  "rootCause": "The wait group used for synchronization is being mutated concurrently by activity task handling and worker shutdown logic without proper synchronization, causing a race condition detected by Go's race detector.",
+  "proposedFix": "Switch to using channels instead of wait groups for synchronization, or implement proper locking around wait group access during shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through refactoring synchronization primitives away from the problematic wait group approach.",
+  "related": [],
+  "keyQuote": "we're mutating that wait group while waiting on it and not sure there's an easy way out short of switching to channels",
+  "number": 1050,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:18.448Z"
+}

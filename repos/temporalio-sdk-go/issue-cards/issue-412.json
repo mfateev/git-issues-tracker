@@ -1,0 +1,28 @@
+{
+  "summary": "Documentation link in the SDK repository's about section points to a broken URL. The link to the Go SDK overview page was incorrect due to a typo in a redirect rule, which was subsequently fixed.",
+  "category": "docs",
+  "subcategory": "documentation-links",
+  "apis": [],
+  "components": [
+    "documentation",
+    "repository-metadata"
+  ],
+  "concepts": [
+    "documentation-links",
+    "redirect-rules",
+    "sdk-overview",
+    "broken-links"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the SDK overview link from the repository about section encounter a 404 error instead of reaching the documentation.",
+  "rootCause": "Typo in the redirect rule for the Go SDK overview documentation URL.",
+  "proposedFix": "Fix the redirect rule in the documentation repository to point to the correct URL.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The typo in the redirect rule was fixed via temporalio/documentation PR #369.",
+  "related": [],
+  "keyQuote": "Looks like there was a typo in the redirect rule. Fixed here: https://github.com/temporalio/documentation/pull/369",
+  "number": 412,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:13.738Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Worker logs verbose 'no activities/workflow registered' messages at INFO level when running separate workers for activities and workflows. Request to reduce log severity to DEBUG level to reduce noise.",
+  "category": "other",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "logger"
+  ],
+  "concepts": [
+    "logging",
+    "worker-configuration",
+    "activity-registration",
+    "workflow-registration",
+    "log-levels"
+  ],
+  "severity": "low",
+  "userImpact": "Users running separate activity and workflow workers see annoying informational messages that don't provide actionable value.",
+  "rootCause": "Worker logs activity/workflow registration status at INFO level regardless of deployment architecture.",
+  "proposedFix": "Change the log level of 'no activities/workflow registered' message from INFO to DEBUG.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Log severity was reduced to DEBUG level in a subsequent release.",
+  "related": [],
+  "keyQuote": "Keep the message but use DEBUG level.",
+  "number": 276,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:35.870Z"
+}

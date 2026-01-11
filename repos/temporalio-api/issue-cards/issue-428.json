@@ -1,0 +1,31 @@
+{
+  "summary": "The feature request proposes renaming the `/cluster-info` API endpoint to `/cluster` for consistency with API design patterns. This aligns the self-hosted only endpoint with the naming convention used for other root endpoints like `/namespaces` and `/system-info`.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "GetClusterInfo"
+  ],
+  "components": [
+    "cluster-api",
+    "endpoint-routing"
+  ],
+  "concepts": [
+    "api-naming",
+    "endpoint-design",
+    "self-hosted",
+    "cloud-capability",
+    "api-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users calling the cluster info endpoint will need to update their code to use the new `/cluster` path instead of `/cluster-info`.",
+  "rootCause": null,
+  "proposedFix": "Rename the GetClusterInfo endpoint from `/cluster-info` to `/cluster`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The endpoint was renamed from `/cluster-info` to `/cluster` as part of API consolidation",
+  "related": [],
+  "keyQuote": "Make `GetClusterInfo` just be `/cluster`, not `/cluster-info`.",
+  "number": 428,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:53.698Z"
+}

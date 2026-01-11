@@ -1,0 +1,32 @@
+{
+  "summary": "The WithCallerSkip method in the logger wrapper does not expand keyvals when wrapping a logger, causing inconsistent behavior when caller skip is applied.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "withLogger",
+    "WithCallerSkip"
+  ],
+  "concepts": [
+    "logging",
+    "caller-skip",
+    "keyvals-expansion",
+    "logger-wrapping",
+    "method-chaining"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who use WithCallerSkip on wrapped loggers lose the key-value pairs that were previously set, breaking logging consistency.",
+  "rootCause": "The WithCallerSkip method returns a new withLogger with the original keyvals but does not pass the expanded/merged keyvals to the wrapped logger's WithCallerSkip call.",
+  "proposedFix": "The keyvals should be expanded (merged with the underlying logger's state) before being passed to the new withLogger instance returned by WithCallerSkip.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1219 which ensures keyvals are properly expanded when WithCallerSkip is called.",
+  "related": [
+    1219
+  ],
+  "keyQuote": "loggerWith.WithCallerSkip should expand keyvals",
+  "number": 1266,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:40.843Z"
+}

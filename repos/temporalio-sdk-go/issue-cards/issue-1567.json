@@ -1,0 +1,30 @@
+{
+  "summary": "Worker panics with index out of range error when receiving a legacy query task with no history while a destroyed execution exists in cache. The SDK should detect this is a legacy query task and reset the cached execution, but instead crashes.",
+  "category": "bug",
+  "subcategory": "workflow-task-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-handler",
+    "execution-cache"
+  ],
+  "concepts": [
+    "legacy-query-task",
+    "cache-management",
+    "panic-recovery",
+    "history-handling",
+    "execution-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash unexpectedly when processing legacy query tasks, causing service disruption and loss of task processing capacity.",
+  "rootCause": "GetOrCreateWorkflowContext attempts to access workflow history at index 0 without checking if history is empty for legacy query tasks with no history.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed in SDK release v1.28.1 or later with proper handling of legacy query tasks with no history",
+  "related": [],
+  "keyQuote": "runtime error: index out of range [0] with length 0",
+  "number": 1567,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:14.726Z"
+}

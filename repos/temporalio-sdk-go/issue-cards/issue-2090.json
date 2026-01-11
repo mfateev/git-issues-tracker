@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows started in tests leak goroutines that don't terminate after the workflow completes, causing test frameworks like goleak to fail when verifying no goroutines are left running.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "NewTestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-environment",
+    "child-workflow-executor",
+    "goroutine-management"
+  ],
+  "concepts": [
+    "goroutine-leak",
+    "child-workflow",
+    "test-cleanup",
+    "resource-cleanup",
+    "workflow-termination"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot write clean tests with goroutine leak detection enabled because child workflows leave lingering goroutines after completion.",
+  "rootCause": "The `executeChildWorkflowWithDelay` function leaves a goroutine running that doesn't terminate when the child workflow completes.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "A go routine is left running from `executeChildWorkflowWithDelay` which doesn't seem to terminate.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 2090,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:27:21.856Z"
+}

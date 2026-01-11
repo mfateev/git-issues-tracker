@@ -1,0 +1,30 @@
+{
+  "summary": "The slots available metric is not being properly removed when a worker stops, potentially causing incorrect slot accounting in monitoring and observability.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "slot-management"
+  ],
+  "concepts": [
+    "slots",
+    "worker-lifecycle",
+    "metrics-tracking",
+    "resource-management",
+    "cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may see incorrect or stale metrics for available slots after workers stop, leading to confused monitoring and debugging.",
+  "rootCause": "Slots available metric added during worker start may not be properly decremented or removed during worker stop.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Slots available added on start are removed on stop",
+  "number": 873,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:45.831Z"
+}

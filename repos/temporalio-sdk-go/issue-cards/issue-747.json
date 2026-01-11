@@ -1,0 +1,35 @@
+{
+  "summary": "Activity cancellation in workflows causes a panic with \"lookup failed for scheduledEventID to activityID\" error since version 1.13.1. The issue occurs when canceling activities within a signal handler, leading to a mismatch between scheduled event IDs and activity IDs.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "WithCancel",
+    "Go"
+  ],
+  "components": [
+    "activity-executor",
+    "event-scheduler",
+    "workflow-context"
+  ],
+  "concepts": [
+    "activity-cancellation",
+    "event-id-mismatch",
+    "panic-recovery",
+    "non-determinism",
+    "workflow-signals"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows panic and crash when users attempt to cancel running activities, preventing proper activity lifecycle management.",
+  "rootCause": "Non-deterministic behavior or event ID mismatch in the activity scheduling and cancellation logic introduced in version 1.13.1.",
+  "proposedFix": "Fixed by PR #741 which addresses the event ID lookup issue in activity cancellation.",
+  "workaround": "Upgrade to the master branch or wait for the release containing PR #741; ensure workflow implementation is deterministic.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by PR #741 which fixed the event ID lookup problem. Maintainers also noted that non-determinism in workflows can cause similar issues.",
+  "related": [
+    741
+  ],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 197, activityID: 196",
+  "number": 747,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:19.239Z"
+}

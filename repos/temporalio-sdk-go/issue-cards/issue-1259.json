@@ -1,0 +1,31 @@
+{
+  "summary": "A new release of contrib/opentelemetry is needed to incorporate the AllowInvalidParentSpans feature that was added to the tracing interceptor in SDK 1.25.0. The latest contrib/opentelemetry release (0.2.0) does not yet include these changes from PR #1178.",
+  "category": "feature",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [],
+  "components": [
+    "contrib/opentelemetry",
+    "tracing-interceptor"
+  ],
+  "concepts": [
+    "tracing",
+    "distributed-tracing",
+    "opentelemetry",
+    "parent-spans",
+    "release"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use the new AllowInvalidParentSpans feature in contrib/opentelemetry until a new release is published with the updated tracing interceptor changes.",
+  "rootCause": null,
+  "proposedFix": "Release a new version of contrib/opentelemetry that includes the changes from PR #1178",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Version 0.3.0 of contrib/opentelemetry was released with the required changes",
+  "related": [
+    1178
+  ],
+  "keyQuote": "A latest release has been tagged https://pkg.go.dev/go.temporal.io/sdk/contrib/opentelemetry@v0.3.0",
+  "number": 1259,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:26.137Z"
+}

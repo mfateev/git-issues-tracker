@@ -1,0 +1,30 @@
+{
+  "summary": "The NamespaceClient mock's Update function is missing the request argument, causing argument mismatch when attempting to use this mock to return values.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "NamespaceClient",
+    "mocks"
+  ],
+  "concepts": [
+    "mocking",
+    "test-setup",
+    "argument-mismatch",
+    "mock-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot properly mock NamespaceClient.Update calls in tests, preventing effective unit testing of code that uses this client.",
+  "rootCause": "Missing request argument in the Update function signature of the NamespaceClient mock implementation.",
+  "proposedFix": "Add the missing request argument to the Update function in mocks/NamespaceClient.go line 80.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The missing request argument was added to the NamespaceClient mock's Update function.",
+  "related": [],
+  "keyQuote": "This line is missing the `request` argument to the `Update` function. This means that there is _always_ a mismatch in arguments when attempting to use this mock to return values.",
+  "number": 1238,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:57.176Z"
+}

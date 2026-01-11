@@ -1,0 +1,34 @@
+{
+  "summary": "The Go SDK replayer cannot accept a custom workflow ID, causing child workflows with IDs derived from the parent's ID to fail during replay with non-determinism errors. The issue requests a way to set the workflow ID when replaying a history.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Replayer",
+    "StartChildWorkflowOptions"
+  ],
+  "components": [
+    "replayer",
+    "workflow-execution",
+    "command-state-machine"
+  ],
+  "concepts": [
+    "workflow-id",
+    "replay",
+    "determinism",
+    "child-workflows",
+    "history-replay",
+    "test-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with dynamically derived child workflow IDs encounter false non-determinism errors during CI replay testing.",
+  "rootCause": "The replayer uses 'ReplayId' as the workflow ID instead of accepting a custom execution ID from the history, causing child workflow ID derivations based on the parent ID to produce different values during replay.",
+  "proposedFix": "Allow providing a custom execution ID (derived from recorded history filename) when replaying a history, as other Temporal SDKs support.",
+  "workaround": "Record the workflow execution ID in a side-effect to make child workflow ID derivation deterministic.",
+  "resolution": "fixed",
+  "resolutionDetails": "The Go SDK was enhanced to support setting the workflow ID on the replayer, addressing the core issue.",
+  "related": [],
+  "keyQuote": "Unlike our other SDKs, the Go SDK does not offer a way to set the workflow ID on the replayer.",
+  "number": 994,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:46:41.882Z"
+}

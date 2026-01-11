@@ -1,0 +1,32 @@
+{
+  "summary": "SDK client connection times out when using 'localhost:7233' but works with '127.0.0.1:7233'. This is a known issue with gRPC Go's DNS resolver behavior on localhost.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "client.Dial"
+  ],
+  "components": [
+    "client",
+    "grpc-resolver",
+    "connection-manager"
+  ],
+  "concepts": [
+    "connection-timeout",
+    "localhost-resolution",
+    "dns-resolver",
+    "grpc",
+    "dial-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to connect to localhost using the hostname may experience connection timeouts unless they use the IP address workaround.",
+  "rootCause": "Known issue with gRPC Go's DNS resolver when resolving 'localhost' as a hostname",
+  "proposedFix": "Use 'passthrough:///localhost:7233' schema format instead of just 'localhost:7233'",
+  "workaround": "Use '127.0.0.1:7233' instead of 'localhost:7233' for the HostPort parameter",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue is rooted in gRPC Go behavior, not Temporal SDK. Closed as the workaround is sufficient and the root cause is external.",
+  "related": [],
+  "keyQuote": "It is a known issue with the dns resolver in the gRPC Go client. The solution for NewClient() usage suggested is to use passthrough:// as the schema",
+  "number": 1834,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:01.594Z"
+}

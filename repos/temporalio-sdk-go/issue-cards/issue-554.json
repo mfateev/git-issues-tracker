@@ -1,0 +1,33 @@
+{
+  "summary": "TestActivityNotRegisteredRetry test is flaky, failing intermittently with metric assertion errors. The test expects counter temporal_unregistered_activity_invocation to be 2 but gets 1, and sometimes fails with panic on parent test.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "test-integration",
+    "metrics"
+  ],
+  "concepts": [
+    "flaky-test",
+    "race-condition",
+    "metric-assertion",
+    "activity-registration",
+    "retry-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Test failures create noise in CI/CD pipelines and make it difficult to detect real issues, affecting developer productivity.",
+  "rootCause": "Likely a race condition in metric collection or activity retry logic that causes the counter to not increment reliably under certain timing conditions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Author closed the issue due to difficulty reproducing it individually, suggesting it may be environment-specific or require further investigation.",
+  "related": [],
+  "keyQuote": "Hard to repro individually. Going to close for now.",
+  "number": 554,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:26:55.062Z"
+}

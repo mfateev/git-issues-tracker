@@ -1,0 +1,30 @@
+{
+  "summary": "Panics occurring in the update state machine are not being handled properly and don't cause workflow task failures, unlike panics in command state machines which are handled correctly.",
+  "category": "bug",
+  "subcategory": "update-state-machine",
+  "apis": [],
+  "components": [
+    "update-state-machine",
+    "command-state-machine",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "panic-handling",
+    "error-recovery",
+    "state-machine",
+    "workflow-execution",
+    "failure-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Unhandled panics in update state machines can silently fail without properly failing the workflow task, potentially leaving workflows in inconsistent states.",
+  "rootCause": "Update state machine panic handling logic is not implemented to match the command state machine panic handling behavior.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Panic handling in update state machine was implemented to match command state machine behavior.",
+  "related": [],
+  "keyQuote": "Panics in update state machine should be treated like panics in command state machines.",
+  "number": 1252,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:55:11.747Z"
+}

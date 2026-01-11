@@ -1,0 +1,36 @@
+{
+  "summary": "Session workers experience significant delays (~120 seconds) before executing activities when MaxConcurrentActivityExecutionSize is set to 1, introduced after the worker tuner changes in SDK v1.29.0. Every other activity in a session is delayed despite completing quickly.",
+  "category": "bug",
+  "subcategory": "session-worker",
+  "apis": [
+    "EnableSessionWorker",
+    "MaxConcurrentActivityExecutionSize"
+  ],
+  "components": [
+    "worker",
+    "session-worker",
+    "activity-executor",
+    "tuner"
+  ],
+  "concepts": [
+    "activity-execution",
+    "concurrency-limit",
+    "session-management",
+    "scheduling-delay",
+    "tuner-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Session-based workflows experience ~120 second delays in activity execution when using a single activity concurrency limit, significantly impacting workflow performance.",
+  "rootCause": "Worker tuner introduction in commit a1d05a6f990da31143a702806e5915ef5a860e59 (PR #1546) caused improper slot allocation for session worker activities with MaxConcurrentActivityExecutionSize set to 1.",
+  "proposedFix": "Increase MaxConcurrentActivityExecutionSize to 3 or configure a fixed-size tuner with 3 slots for activity tasks.",
+  "workaround": "Set MaxConcurrentActivityExecutionSize to 3 or use a fixed-size tuner configuration with 3 slots instead of 1.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1546
+  ],
+  "keyQuote": "Every other activity in the session takes ~120 seconds to complete... Despite the worker completing the activity quickly (under a second), it delays starting execution.",
+  "number": 1732,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:16:40.643Z"
+}

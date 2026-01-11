@@ -1,0 +1,30 @@
+{
+  "summary": "Poll failures are currently logged only at DEBUG level after verbose logging is enabled. The request is to increase visibility by logging them at WARN level, specifically for connection failures.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "poller",
+    "logging"
+  ],
+  "concepts": [
+    "poll-failure",
+    "visibility",
+    "logging-level",
+    "connection-failure",
+    "debug-diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users have limited visibility into poll failures without explicitly enabling verbose logging, making it harder to diagnose connectivity and operational issues.",
+  "rootCause": null,
+  "proposedFix": "Add poll failures at WARN level, conditionally on connection failure to avoid noise.",
+  "workaround": "Enable verbose logging via EnableVerboseLogging to see poll failures at DEBUG level.",
+  "resolution": "fixed",
+  "resolutionDetails": "Poll failures are now logged at WARN level for improved visibility.",
+  "related": [],
+  "keyQuote": "Confirm they aren't noisy then add them at WARN level. If at all possible, only do this on connection failure.",
+  "number": 707,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:39.627Z"
+}

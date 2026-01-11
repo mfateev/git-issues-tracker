@@ -1,0 +1,32 @@
+{
+  "summary": "Users of the Workflow linter need a way to override the entry point for checking, as generic helper functions wrapping the actual workflow logic cause the checker to analyze the wrapper instead of the deterministic workflow code.",
+  "category": "feature",
+  "subcategory": "workflow-checker",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "linter",
+    "workflow-determinism"
+  ],
+  "concepts": [
+    "determinism",
+    "generics",
+    "entry-point",
+    "linting",
+    "static-analysis"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use generic helper functions to wrap workflows without the linter false-alarming on non-deterministic code in the wrapper.",
+  "rootCause": "The workflow checker cannot trace through generic function wrappers to identify the actual workflow entry point that needs determinism checking.",
+  "proposedFix": "Allow configuring an alternate entry point method for the linter to check (e.g., (w *Workflow) Execute instead of (w *Workflow) Run).",
+  "workaround": "Recent changes in #1215 now check all functions accepting workflow.Context as first parameter, which resolved the issue.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1215 implemented checking all functions with workflow.Context as first parameter, allowing the checker to find the actual workflow logic.",
+  "related": [
+    1215
+  ],
+  "keyQuote": "since we're using generics the workflow checker doesn't know that the main body of the workflow is actually the w.Execute function",
+  "number": 1229,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:54:28.339Z"
+}

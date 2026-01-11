@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support executing activities outside of workflow context. Workers and clients need new capabilities to start, manage, and retrieve activity results without requiring a workflow, pending new server APIs.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "client",
+    "activity-manager"
+  ],
+  "concepts": [
+    "activity-execution",
+    "context-independence",
+    "server-apis",
+    "activity-lifecycle",
+    "result-retrieval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to execute activities directly without workflow context, enabling new use cases and simplified activity management.",
+  "rootCause": null,
+  "proposedFix": "Implement worker support for running activities outside workflow context and client support for new server APIs for activity lifecycle management.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    640
+  ],
+  "keyQuote": "Allow executing activities without a workflow. The clients must support the new (upcoming) server APIs for starting, managing and getting results of activities.",
+  "number": 2124,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:35.231Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "A newly added gRPC message size test (TestGrpcMessageTooLarge) is flaky in CI with unknown cause, potentially due to timing-dependent error behavior. The test needs to be rewritten to not rely on error timing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "grpc",
+    "integration-tests"
+  ],
+  "concepts": [
+    "flaky-tests",
+    "timeout",
+    "error-handling",
+    "test-reliability",
+    "timing-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky CI tests reduce developer confidence and cause unpredictable test failures in the SDK development workflow.",
+  "rootCause": "Test relies on timing of error delivery, which can be unreliable in CI environments",
+  "proposedFix": "Rewrite test to not depend on timing of errors",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test was rewritten to eliminate timing dependencies",
+  "related": [
+    2026
+  ],
+  "keyQuote": "The test should be rewritten so that it does not rely on timing of errors.",
+  "number": 2033,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:25:27.545Z"
+}

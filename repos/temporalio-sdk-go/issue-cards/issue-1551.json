@@ -1,0 +1,33 @@
+{
+  "summary": "Typed search attributes defined in workflow options are not propagated when using SignalWithStartWorkflow to create a new execution, though they work correctly with ExecuteWorkflow.",
+  "category": "bug",
+  "subcategory": "workflow-options",
+  "apis": [
+    "SignalWithStartWorkflow",
+    "ExecuteWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "search-attributes",
+    "signal-handling"
+  ],
+  "concepts": [
+    "typed-search-attributes",
+    "workflow-creation",
+    "signal-with-start",
+    "options-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use typed search attributes with SignalWithStartWorkflow when creating new workflow executions, limiting searchability of dynamically created workflows.",
+  "rootCause": "The SignalWithStartWorkflow implementation in internal_workflow_client.go line 1713 does not propagate typed search attributes like the ExecuteWorkflow implementation at line 1572 does.",
+  "proposedFix": "Update SignalWithStartWorkflow to mirror the typed search attributes propagation logic from ExecuteWorkflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug confirmed by maintainer and fix implemented to propagate typed search attributes in SignalWithStartWorkflow similar to ExecuteWorkflow.",
+  "related": [],
+  "keyQuote": "are propagated fine via ExecuteWorkflow but are missed to be propagated to new execution via SignalWithStartWorkflow",
+  "number": 1551,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:44.653Z"
+}

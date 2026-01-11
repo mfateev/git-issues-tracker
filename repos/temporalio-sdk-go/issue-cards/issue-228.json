@@ -1,0 +1,32 @@
+{
+  "summary": "Local activities executed in parallel cause workflow to hang because they are incorrectly assigned the same activity ID. The ID counter is only incremented after a local activity completes, not when they start.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "command-state-machine",
+    "event-handlers",
+    "activity-execution",
+    "workflow-replay"
+  ],
+  "concepts": [
+    "parallel-execution",
+    "activity-id-assignment",
+    "workflow-deadlock",
+    "backwards-compatibility",
+    "event-replay",
+    "sequencing"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that spawn multiple local activities in parallel will hang indefinitely, blocking workflow execution entirely.",
+  "rootCause": "Local activity IDs are generated using GenerateSequenceID() which returns the same ID for all parallel activities since the counter only increments after an activity completes, not when it starts. This causes duplicate activity IDs which break replay matching.",
+  "proposedFix": "Find a backwards-compatible way to assign unique IDs to parallel local activities without breaking existing workflow event histories that rely on the current ID semantics.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Local Activities executed in parallel cause the Workflow to hang...they are incorrectly assigned the same activity ID as it uses the 'next command event ID' and for local activities, that next command event ID is only incremented when the local activity finishes.",
+  "number": 228,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:16:34.281Z"
+}

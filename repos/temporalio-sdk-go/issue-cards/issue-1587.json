@@ -1,0 +1,34 @@
+{
+  "summary": "Activity failure attributes are not encrypted with the context propagator's encryption key, even though workflow and activity payloads are properly encrypted. The failure converter uses a different or missing encryption key compared to the context propagator.",
+  "category": "bug",
+  "subcategory": "encryption",
+  "apis": [
+    "NewDefaultFailureConverter"
+  ],
+  "components": [
+    "failure-converter",
+    "context-propagator",
+    "data-converter"
+  ],
+  "concepts": [
+    "encryption",
+    "data-protection",
+    "key-management",
+    "failure-handling",
+    "payload-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Sensitive failure information may be exposed unencrypted while other payloads remain encrypted, creating a security inconsistency.",
+  "rootCause": "Failure converters cannot be context aware, so they cannot access the encryption key set in the context propagator used for encrypting workflow and activity payloads.",
+  "proposedFix": "Add support for failure converters to be context aware so they can access the context propagator's encryption key.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Not expected to work by design; failure converters are not context aware. A separate feature was opened to add this capability.",
+  "related": [
+    1609
+  ],
+  "keyQuote": "Failure converters cannot be context aware. I opened up an issue to add support to failure converters https://github.com/temporalio/sdk-go/issues/1609",
+  "number": 1587,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:57.662Z"
+}

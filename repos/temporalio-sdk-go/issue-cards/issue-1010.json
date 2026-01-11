@@ -1,0 +1,29 @@
+{
+  "summary": "The Go SDK documentation is missing a proper heading for the 'Async/Manual Activity Completion' section. The text appears as plain text instead of a heading in the rendered documentation due to the slash character preventing implicit heading recognition.",
+  "category": "docs",
+  "subcategory": "documentation-formatting",
+  "apis": [],
+  "components": [
+    "documentation",
+    "activity-doc"
+  ],
+  "concepts": [
+    "documentation-structure",
+    "heading-formatting",
+    "markdown-rendering",
+    "activity-completion",
+    "api-documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the Go SDK documentation are confused by missing section headings, making it difficult to navigate and understand the documentation structure.",
+  "rootCause": "The slash character in 'Async/Manual Activity Completion' prevents it from being recognized as an implicit heading in the documentation generator, requiring an explicit heading marker.",
+  "proposedFix": "Prefix the line with '# ' to make it an explicit heading in the doc.go file.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by adding explicit heading markup to the documentation.",
+  "related": [],
+  "keyQuote": "I suspect that the slash disqualifies this text as an implicit heading, and therefore prefixing [that line] with `# ` to make it an explicit heading might fix it.",
+  "number": 1010,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:38.727Z"
+}

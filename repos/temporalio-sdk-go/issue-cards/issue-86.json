@@ -1,0 +1,33 @@
+{
+  "summary": "Customer requests a health check feature for WorkflowClient to verify connectivity to Temporal frontends without executing workflows. Currently, no error is returned until actual workflow operations are attempted.",
+  "category": "feature",
+  "subcategory": "client-initialization",
+  "apis": [
+    "NewClient",
+    "WorkflowClient"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "frontend"
+  ],
+  "concepts": [
+    "health-check",
+    "connectivity-verification",
+    "initialization",
+    "error-handling",
+    "grpc"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot validate their Temporal client configuration early, forcing them to discover connection issues only when attempting workflow operations.",
+  "rootCause": null,
+  "proposedFix": "Add ability to call gRPC health check endpoint of the frontends from WorkflowClient.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support health check calls from WorkflowClient.",
+  "related": [],
+  "keyQuote": "does temporal client have something similar to Ping() ... would be nice to have something similar to SELECT 1 in postgres",
+  "number": 86,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:30.302Z"
+}

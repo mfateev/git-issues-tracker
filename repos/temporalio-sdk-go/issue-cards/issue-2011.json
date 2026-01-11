@@ -1,0 +1,30 @@
+{
+  "summary": "WorkerDeploymentVersion struct uses BuildId instead of BuildID, violating Go naming conventions and creating inconsistency with other SDK structs that use BuildID.",
+  "category": "bug",
+  "subcategory": "api-naming",
+  "apis": [
+    "WorkerDeploymentVersion"
+  ],
+  "components": [
+    "api",
+    "type-definitions"
+  ],
+  "concepts": [
+    "naming-convention",
+    "consistency",
+    "golang-style",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users encounter inconsistent naming conventions in the SDK API, reducing code clarity and violating Go style guidelines.",
+  "rootCause": "Oversight during initial implementation of WorkerDeploymentVersion struct that failed to follow Go naming conventions for initialisms.",
+  "proposedFix": "Rename BuildId field to BuildID in WorkerDeploymentVersion struct to match other SDK structs and Go conventions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Field renamed from BuildId to BuildID to maintain consistency with other SDK structs and follow Go naming conventions.",
+  "related": [],
+  "keyQuote": "Most (re-exported) structs have `BuildID`, but `WorkerDeploymentVersion` has `BuildId` (which also violates golang conventions)",
+  "number": 2011,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:38.354Z"
+}

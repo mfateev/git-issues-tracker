@@ -1,0 +1,29 @@
+{
+  "summary": "The workflowcheck binary doesn't embed version information and currently shows 'version devel' when queried with -V=full flag. Users want the actual version used during installation to be displayed.",
+  "category": "feature",
+  "subcategory": "build-tooling",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "build-system"
+  ],
+  "concepts": [
+    "version-embedding",
+    "semver",
+    "build-metadata",
+    "binary-information",
+    "tool-versioning"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot determine which version of workflowcheck they have installed, making it harder to troubleshoot compatibility issues.",
+  "rootCause": null,
+  "proposedFix": "Embed version information (semver, buildID, git hash) into the workflowcheck binary at build time so -V=full displays the actual installation version.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "workflowcheck binary to include the version that was used during its installation",
+  "number": 1980,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:33.997Z"
+}

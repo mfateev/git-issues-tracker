@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a custom time source in workflows to enable testing time-dependent behavior. User needs to simulate workflow execution over dynamically sized time spans using a fake clock that controls workflow.Now() and workflow.Sleep().",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Now",
+    "Sleep"
+  ],
+  "components": [
+    "workflow-runtime",
+    "time-source",
+    "test-suite"
+  ],
+  "concepts": [
+    "time-simulation",
+    "testing",
+    "mocking",
+    "scheduling",
+    "time-control"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing time-dependent workflows cannot easily simulate fast-forwarding through long time periods without the ability to control the clock.",
+  "rootCause": null,
+  "proposedFix": "Allow configuration of a custom time source (fake clock) that controls workflow.Now() and workflow.Sleep() behavior in tests.",
+  "workaround": "Use RegisterDelayedCallback in the test suite to control execution timing at specific points in workflow execution.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed as the existing test suite with RegisterDelayedCallback provides sufficient time control for testing purposes. Custom time sources in non-test environments are unreasonable due to server-side timeouts and other system dependencies.",
+  "related": [],
+  "keyQuote": "controlling time in a non-test-environment workflow is unreasonable as many internal things such as timeouts rely on clocks you cannot substitute",
+  "number": 929,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:43:22.090Z"
+}

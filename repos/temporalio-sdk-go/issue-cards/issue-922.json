@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment.SignalExternalWorkflow has a data race when signal data is modified after being sent. A concurrent goroutine attempts to look up mock signals while the workflow modifies the signal payload, causing race conditions detectable with go test -race.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "SignalExternalWorkflow"
+  ],
+  "components": [
+    "testWorkflowEnvironmentImpl",
+    "test-suite",
+    "mock-integration"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "signal-handling",
+    "test-isolation",
+    "goroutine-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users testing workflows that signal external workflows and modify signal data experience intermittent test failures and race condition warnings.",
+  "rootCause": "TestWorkflowEnvironment.SignalExternalWorkflow spawns a new goroutine to look up the correct mock signal receiver concurrently with workflow execution, while the workflow modifies the signal payload data simultaneously.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    908
+  ],
+  "keyQuote": "a new go-routine is spawned, which tries to look up the correct mock of the signal receiver _concurrently_ with the rest of the workflow proceeding (and modifying the data of the signal currently being processed)",
+  "number": 922,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:49.557Z"
+}

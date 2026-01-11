@@ -1,0 +1,28 @@
+{
+  "summary": "Remove deprecated `control` field usage from Go SDK that may be removed from server in the future. The field is currently set to event number, which should be used directly instead.",
+  "category": "other",
+  "subcategory": "deprecated-api-cleanup",
+  "apis": [],
+  "components": [
+    "internal_event_handlers",
+    "event-processing"
+  ],
+  "concepts": [
+    "deprecation",
+    "api-cleanup",
+    "technical-debt",
+    "server-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures SDK remains compatible with future server versions that may remove the deprecated control field.",
+  "rootCause": "Deprecated control field still being used in internal_event_handlers.go instead of event number directly.",
+  "proposedFix": "Replace usage of control field with event number and add test coverage.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This needs to be removed since it may be yeeted from server at some point in the future (and no other SDKs use it)",
+  "number": 2015,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:24:40.401Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Documentation for the Client interface mentions Cassandra and MySQL as databases where ListWorkflow will return BadRequestError, but does not mention Postgres. The issue asks whether Postgres should be added to this list or if ListWorkflow is actually supported on Postgres without Elasticsearch.",
+  "category": "docs",
+  "subcategory": "client-documentation",
+  "apis": [
+    "ListWorkflow"
+  ],
+  "components": [
+    "client",
+    "documentation"
+  ],
+  "concepts": [
+    "postgres",
+    "elasticsearch",
+    "cassandra",
+    "mysql",
+    "database-support",
+    "api-limitations"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the Client documentation may be confused about ListWorkflow support and requirements for Postgres databases.",
+  "rootCause": "Documentation is incomplete or inaccurate regarding Postgres support in Client interface comments.",
+  "proposedFix": "Update documentation to either include Postgres in the list of databases where ListWorkflow returns BadRequestError, or clarify if ListWorkflow is supported on Postgres without Elasticsearch.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I assume that this should read '[...] will return BadRequestError when using Cassandra, MySQL or Postgres'?",
+  "number": 524,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:49.545Z"
+}

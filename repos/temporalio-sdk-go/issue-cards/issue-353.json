@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow injection of additional gRPC client interceptors to enable custom authorization metadata in outgoing requests. User has forked the SDK to add a CredentialsInterceptor to ConnectionOptions but seeks the Temporal team's preferred approach.",
+  "category": "feature",
+  "subcategory": "grpc-interceptors",
+  "apis": [],
+  "components": [
+    "grpc-dialer",
+    "connection-options",
+    "client"
+  ],
+  "concepts": [
+    "authorization",
+    "metadata",
+    "gRPC interceptors",
+    "custom claims",
+    "authentication",
+    "credentials"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot inject custom authorization metadata into gRPC client requests, limiting authentication customization options.",
+  "rootCause": "SDK does not expose gRPC UnaryClientInterceptor injection mechanism in ConnectionOptions.",
+  "proposedFix": "Add CredentialsInterceptor field to ConnectionOptions struct to allow injection of gRPC UnaryClientInterceptor for authorization metadata.",
+  "workaround": "Fork the SDK and manually add CredentialsInterceptor field to ConnectionOptions and integrate it in grpc_dialer.go.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue #368 was identified as addressing this requirement.",
+  "related": [
+    277,
+    368
+  ],
+  "keyQuote": "In order to use a custom claims mapper / authorizer in the server, we need to be able to inject authorization metadata into the client request",
+  "number": 353,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:21.831Z"
+}

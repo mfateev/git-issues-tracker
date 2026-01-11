@@ -1,0 +1,36 @@
+{
+  "summary": "MutableSideEffect is not deterministic when called multiple times with the same ID in the same WFT (workflow task). The function uses the latest value for replay, causing different behavior between initial execution and replay if the value changes within the same WFT.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "MutableSideEffect",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-engine",
+    "mutable-side-effect",
+    "history-recording"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-replay",
+    "side-effects",
+    "state-consistency",
+    "workflow-task",
+    "history"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely call MutableSideEffect multiple times with the same ID in a single workflow task, as it will behave differently on replay than on initial execution.",
+  "rootCause": "The Go SDK records only the nextCommandID and user-defined marker ID for MutableSideEffect, providing insufficient information to distinguish between multiple calls with the same ID in a single WFT. Only the latest value is retained for replay.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Author concluded that fixing this would require writing new information to the history. The issue cannot be resolved without a breaking change to the history format.",
+  "related": [
+    809
+  ],
+  "keyQuote": "The Go SDK always uses the latest value of a MutableSideEffect up to the current WFT for each ID so if MutableSideEffect returns a different value in the same WFT the last will be used on replay.",
+  "number": 1014,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:54.378Z"
+}

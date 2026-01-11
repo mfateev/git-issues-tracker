@@ -1,0 +1,31 @@
+{
+  "summary": "NewWorkflowReplayer lacks support for custom data converters, preventing users from replaying workflow history with custom serialization logic.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "NewWorkflowReplayer"
+  ],
+  "components": [
+    "workflow-replayer",
+    "data-converter"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "data-serialization",
+    "custom-converter",
+    "history-replay",
+    "deserialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot replay workflow history files that were serialized with custom data converters.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "NewWorkflowReplayer should be able to replay history json file with custom data converter",
+  "number": 571,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:57.452Z"
+}

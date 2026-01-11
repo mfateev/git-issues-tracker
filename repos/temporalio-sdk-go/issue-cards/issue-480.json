@@ -1,0 +1,35 @@
+{
+  "summary": "Activity results are not stored when a worker is stopped gracefully during activity execution, causing the activity to restart from the beginning instead of continuing from where it was interrupted.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-poller"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "activity-result-persistence",
+    "worker-interrupt",
+    "state-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience activity restarts and lost progress when gracefully stopping and restarting workers during long-running activities.",
+  "rootCause": "The SDK does not record activity results when the worker receives an interrupt signal, causing loss of intermediate state.",
+  "proposedFix": "Modify the task poller to properly complete and record the activity result before stopping the worker during graceful shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #579 by properly recording activity results during graceful worker shutdown.",
+  "related": [
+    520,
+    579,
+    731
+  ],
+  "keyQuote": "The worker should properly complete the activity in this case when it receives the interrupt.",
+  "number": 480,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:23:58.841Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Go SDK metrics need to be reformatted to comply with OpenMetrics specification to achieve consistency with Java SDK, requiring counter metrics to have `_total` suffix and timer metrics to have `_seconds` suffix before bucket/count suffixes.",
+  "category": "other",
+  "subcategory": "metrics-format",
+  "apis": [],
+  "components": [
+    "metrics-exporter",
+    "prometheus-registry",
+    "telemetry"
+  ],
+  "concepts": [
+    "metrics-naming",
+    "openmetrics-compliance",
+    "prometheus-format",
+    "standardization",
+    "backwards-compatibility",
+    "dashboard-unification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use unified dashboards and Grafana queries across Go and Java SDKs due to inconsistent metrics naming conventions.",
+  "rootCause": "Go SDK uses Prometheus naming conventions that differ from OpenMetrics specification, while Java SDK is already compliant.",
+  "proposedFix": "Expose corrected metrics in addition to old format, or provide opt-in configuration option for new format to maintain backwards compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating metrics were likely synchronized with OpenMetrics standard.",
+  "related": [],
+  "keyQuote": "Temporal GoSDK should issue metrics in compliance with OpenMetrics specification to allow having a single dashboard and set of Grafana queries for both Java and Go SDKs.",
+  "number": 750,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:17.243Z"
+}

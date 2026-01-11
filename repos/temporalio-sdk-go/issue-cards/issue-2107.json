@@ -1,0 +1,36 @@
+{
+  "summary": "Test framework panics intermittently when executing workflows with 500 child workflow executions in a unit test, causing flaky test failures. The panic occurs in the internal workflow test suite callback processing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "ExecuteWorkflow",
+    "WithChildOptions"
+  ],
+  "components": [
+    "test-suite",
+    "workflow-executor",
+    "callback-handler",
+    "test-environment"
+  ],
+  "concepts": [
+    "concurrency",
+    "child-workflows",
+    "test-flakiness",
+    "panic-recovery",
+    "callback-processing",
+    "unit-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably run unit tests for workflows that execute multiple child workflows, causing intermittent test failures and blocking CI/CD pipelines.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "Test panics when executing env.ExecuteWorkflow() - Tried with v1.36.0 SDK version as well but still the test is flaky and fails intermittently.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 2107,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:28:05.656Z"
+}

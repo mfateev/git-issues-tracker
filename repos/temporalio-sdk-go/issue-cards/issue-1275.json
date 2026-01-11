@@ -1,0 +1,36 @@
+{
+  "summary": "Activity alias mapping returns incorrect alias when an activity from a different task queue is invoked. The getActivityAlias function uses the workflow's registry regardless of task queue context, causing activities registered in other queues to return their aliases instead of None.",
+  "category": "bug",
+  "subcategory": "activity-alias",
+  "apis": [
+    "ExecuteActivity",
+    "RegisterActivityWithOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-registry",
+    "alias-resolution"
+  ],
+  "concepts": [
+    "task-queue",
+    "alias-mapping",
+    "activity-registration",
+    "workflow-context",
+    "cross-queue-invocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users invoking activities across different task queues may receive incorrect alias mappings, leading to unexpected behavior or execution errors.",
+  "rootCause": "The workflow's activity registry is used to lookup aliases without checking if the activity belongs to the current task queue context.",
+  "proposedFix": null,
+  "workaround": "Disable aliasing via the DisableRegistrationAliasing option.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of #845. The behavior cannot be changed without breaking existing users. Issue #850 was created to address this situation.",
+  "related": [
+    845,
+    850
+  ],
+  "keyQuote": "Yes, we use the workflow's registry to lookup activity aliases. We can't really change this behavior without potentially breaking people.",
+  "number": 1275,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:56:07.256Z"
+}

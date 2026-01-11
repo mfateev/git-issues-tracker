@@ -1,0 +1,35 @@
+{
+  "summary": "When a workflow with a retry policy receives a non-retryable error from an activity, the workflow incorrectly gets retried despite the error type matching the NonRetryableErrorTypes specification. The error originating from the activity is not being properly recognized as non-retryable at the workflow level.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "ExecuteActivity",
+    "NewApplicationError"
+  ],
+  "components": [
+    "retry-engine",
+    "error-handling",
+    "workflow-executor",
+    "activity-executor"
+  ],
+  "concepts": [
+    "retry-policy",
+    "non-retryable-errors",
+    "error-propagation",
+    "activity-errors",
+    "error-type-matching",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot prevent workflow retries when activities return non-retryable errors, causing workflows to exhaust all retry attempts before failing.",
+  "rootCause": "The retry logic at the workflow level is not properly checking the error type from activities against the workflow's NonRetryableErrorTypes specification.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed by reporter after community discussion clarified the behavior; likely user misunderstanding of how retry policies apply across activity and workflow boundaries.",
+  "related": [],
+  "keyQuote": "I would expect the workflow to quit on the first attempt, but it keeps getting retried until MaxAttempts is reached.",
+  "number": 275,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:17:20.744Z"
+}

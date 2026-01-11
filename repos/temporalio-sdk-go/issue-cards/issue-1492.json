@@ -1,0 +1,31 @@
+{
+  "summary": "User requested the ability to configure the logging keys for TraceID and SpanID in the OpenTelemetry tracing interceptor, as the currently hardcoded keys make it difficult to maintain logging consistency with other system components.",
+  "category": "feature",
+  "subcategory": "logging-configuration",
+  "apis": [],
+  "components": [
+    "tracing-interceptor",
+    "opentelemetry-integration",
+    "logger"
+  ],
+  "concepts": [
+    "logging",
+    "tracing",
+    "configuration",
+    "key-naming",
+    "consistency",
+    "interceptor"
+  ],
+  "severity": "low",
+  "userImpact": "Users with custom logging systems cannot easily align the trace ID and span ID keys with their existing conventions without creating wrapper interceptors.",
+  "rootCause": null,
+  "proposedFix": "Add LoggingTraceIDKey and LoggingSpanIDKey fields to TracerOptions struct with defaults 'TraceID' and 'SpanID', and use these configurable keys in the GetLogger method instead of hardcoded values.",
+  "workaround": "Create a custom interceptor that wraps the OpenTelemetry tracing interceptor and maps the default keys to custom keys, though this results in duplicate keys in logs.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer indicated that logging keys can be changed by the logger implementation itself, specifically through slog's ReplaceAttr in HandlerOptions, making the requested feature unnecessary.",
+  "related": [],
+  "keyQuote": "All logging keys can also be changed by the logger implementation. If your using the standard library slog with our integration you can use ReplaceAttr in HandlerOptions to replace any key you want.",
+  "number": 1492,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:46.177Z"
+}

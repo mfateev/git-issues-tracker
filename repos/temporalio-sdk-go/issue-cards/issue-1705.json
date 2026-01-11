@@ -1,0 +1,33 @@
+{
+  "summary": "User requests ability to specify custom RequestId for SignalWorkflow to enable server-side deduplication. Currently RequestId is always generated as UUID, but server-side deduplication by RequestId is not a stable feature.",
+  "category": "feature",
+  "subcategory": "signal-deduplication",
+  "apis": [
+    "SignalWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "signal-handler"
+  ],
+  "concepts": [
+    "deduplication",
+    "request-id",
+    "idempotency",
+    "signal-delivery",
+    "server-side-deduplication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement server-side signal deduplication and must rely on application-level deduplication logic.",
+  "rootCause": "RequestId is hardcoded to uuid.New() in SignalWorkflow implementation, with no option for user override.",
+  "proposedFix": "Add an option parameter to override RequestId in each method, allowing users to specify their own identifier instead of generated UUID.",
+  "workaround": "Put your own ID in the signal input and deduplicate in the workflow",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4021
+  ],
+  "keyQuote": "An option to override the RequestId in each method, allowing users to specify their own identifier instead of a generated UUID.",
+  "number": 1705,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:15:52.306Z"
+}

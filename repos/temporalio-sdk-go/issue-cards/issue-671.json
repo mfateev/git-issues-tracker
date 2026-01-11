@@ -1,0 +1,38 @@
+{
+  "summary": "User requests documentation on how to provide authorization tokens in the Go SDK, similar to the existing Java SDK documentation. The issue describes two implementation methods: using HeadersProvider or gRPC dial options with interceptors.",
+  "category": "docs",
+  "subcategory": "authorization",
+  "apis": [
+    "client.Options.HeadersProvider",
+    "client.Options.ConnectionOptions.DialOptions"
+  ],
+  "components": [
+    "client",
+    "authentication",
+    "grpc-interceptor",
+    "header-provider"
+  ],
+  "concepts": [
+    "authorization",
+    "authentication",
+    "tokens",
+    "headers",
+    "grpc-metadata",
+    "bearer-token",
+    "documentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Go SDK users lack clear documentation on implementing authorization token handling, making it harder to secure their Temporal connections compared to other SDKs.",
+  "rootCause": "Missing documentation and samples for authorization token configuration in the Go SDK.",
+  "proposedFix": "Create documentation similar to the Java SDK authorization guide and provide sample code showing both HeadersProvider and gRPC interceptor approaches.",
+  "workaround": "Use client.Options.HeadersProvider with a custom header provider that returns Authorization headers with Bearer tokens, or use gRPC dial options with custom interceptors.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was created and a sample implementation was added to samples-go repository (serverjwtauth example) demonstrating custom header provider for JWT authentication.",
+  "related": [
+    160
+  ],
+  "keyQuote": "you can set `client.Options.HeadersProvider` with an instance that returns a map with `Authorization` as the key and `Bearer <mytoken>` as the value",
+  "number": 671,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:56.707Z"
+}

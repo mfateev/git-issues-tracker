@@ -1,0 +1,32 @@
+{
+  "summary": "TestActivityEnvironment.ExecuteActivity requires explicit RegisterActivity call when invoking activities by function reference, even though the activity instance is provided directly to ExecuteActivity. This forces unnecessary boilerplate in activity unit tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "RegisterActivity"
+  ],
+  "components": [
+    "test-suite",
+    "activity-executor",
+    "test-environment"
+  ],
+  "concepts": [
+    "activity-registration",
+    "test-setup",
+    "boilerplate-reduction",
+    "activity-invocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must write redundant registration code when unit testing activities with function references, increasing test complexity and reducing code clarity.",
+  "rootCause": "TestActivityEnvironment.ExecuteActivity requires activity registration in the taskqueue even when the activity function is directly provided as an argument.",
+  "proposedFix": null,
+  "workaround": "Comment out the RegisterActivity call as shown in the issue, or register the activity before calling ExecuteActivity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I expect this code to work without the commented section",
+  "number": 514,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:25:21.026Z"
+}

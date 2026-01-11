@@ -1,0 +1,32 @@
+{
+  "summary": "A panic occurs in eager activity code when RespondWorkflowTaskCompleted returns an error, because the code assumes a response is present without proper error handling. The fix should unreserve activity spots as if no tasks were returned.",
+  "category": "bug",
+  "subcategory": "eager-activity",
+  "apis": [
+    "RespondWorkflowTaskCompleted"
+  ],
+  "components": [
+    "internal_eager_activity",
+    "activity-executor",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "panic-handling",
+    "error-response",
+    "resource-cleanup",
+    "eager-execution",
+    "activity-reservation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience application panics when eager activity responses encounter errors, causing workflow task processing to crash unexpectedly.",
+  "rootCause": "The code in internal_eager_activity.go assumes a response is always present when RespondWorkflowTaskCompleted is called, without checking for errors first.",
+  "proposedFix": "Add proper error handling to check if a response is present before accessing it; unreserve activity spots when an error occurs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The panic issue was resolved by adding proper error handling and response presence checks in the eager activity code.",
+  "related": [],
+  "keyQuote": "Panics because we foolishly assume a response is present in `internal_eager_activity.go`",
+  "number": 860,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:09.242Z"
+}

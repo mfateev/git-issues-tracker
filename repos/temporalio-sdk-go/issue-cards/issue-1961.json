@@ -1,0 +1,34 @@
+{
+  "summary": "Test suite encounters an \"illegal access from outside of workflow context\" error when calling activities within child workflows during testing, despite the same code working correctly in production Temporal deployments. The error suggests context is not properly propagated in the test environment when using selector.AddReceive.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "workflow-context",
+    "selector",
+    "activity-executor"
+  ],
+  "concepts": [
+    "workflow-context",
+    "test-isolation",
+    "context-propagation",
+    "child-workflows",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot test workflows that execute child workflows with activities, blocking test suite validation of production-ready code.",
+  "rootCause": "Context propagation issue in test environment where ctx is not properly passed from inside selector.AddReceive calls, causing workflow context to be lost when executing activities in child workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Looks like there's an issue with the test environment propagating `ctx` from inside the `selector.AddReceive`",
+  "number": 1961,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:07.698Z"
+}

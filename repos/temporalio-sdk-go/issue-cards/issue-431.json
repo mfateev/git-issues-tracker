@@ -1,0 +1,30 @@
+{
+  "summary": "Activity end-to-end latency metric is incorrectly recorded using the poll start time instead of the actual activity task scheduled time, causing inaccurate latency measurements.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "metrics",
+    "task-pollers"
+  ],
+  "concepts": [
+    "latency",
+    "metrics",
+    "activity-scheduling",
+    "time-measurement",
+    "performance-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive inaccurate activity latency metrics that don't reflect true end-to-end activity execution time.",
+  "rootCause": "ActivityEndToEndLatency timer uses pollStartTime (when the poll request was made) instead of the actual activity task scheduled time, misaligning it with how ScheduleToStart is calculated.",
+  "proposedFix": "Use GetStartTime() method on the returned task for calculating ActivityEndToEndLatency, consistent with how ScheduleToStart is calculated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via merged PR that corrected the latency calculation to use the proper task start time.",
+  "related": [],
+  "keyQuote": "pollStartTime is the start time of when the poll was started that received the activity task, not the start time of the actual activity task.",
+  "number": 431,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:21:57.888Z"
+}

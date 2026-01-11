@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to change Worker.Run() to accept chan struct{} instead of chan interface{}, enabling direct use of context.Done() channels for shutdown signaling.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker.Run",
+    "Worker.Start",
+    "Worker.Stop"
+  ],
+  "components": [
+    "worker",
+    "interruption-handling"
+  ],
+  "concepts": [
+    "channel-signaling",
+    "context-cancellation",
+    "graceful-shutdown",
+    "api-ergonomics",
+    "type-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot conveniently pass context.Done() to Worker.Run(), requiring workarounds or helper functions.",
+  "rootCause": "Worker.Run() signature uses chan interface{} which is not compatible with chan struct{} due to Go's type system.",
+  "proposedFix": "Change Worker.Run() to accept chan struct{} instead of chan interface{}. Alternative: add RunCtx(context.Context) method.",
+  "workaround": "Create a top-level helper function that wraps Worker.Run() with a chan interface{}, or use Start()+Stop() for fine-grained control.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Breaking change not acceptable for current version. Suggested for v2 of the SDK.",
+  "related": [],
+  "keyQuote": "Then maybe something to keep in mind for v2 of the SDK.",
+  "number": 874,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:41:01.543Z"
+}

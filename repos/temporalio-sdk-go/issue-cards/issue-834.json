@@ -1,0 +1,33 @@
+{
+  "summary": "User couldn't check if an error is a ContinueAsNewError in an Interceptor because the type was in the internal package and not publicly accessible. The issue was resolved by pointing out that ContinueAsNewError is already exposed in the public workflow package.",
+  "category": "question",
+  "subcategory": "error-handling",
+  "apis": [
+    "ExecuteWorkflow",
+    "ContinueAsNewError"
+  ],
+  "components": [
+    "interceptor",
+    "error-handling",
+    "workflow"
+  ],
+  "concepts": [
+    "type-checking",
+    "error-wrapping",
+    "internal-package",
+    "public-api",
+    "accessibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users writing interceptors were unable to type-assert for ContinueAsNewError errors due to the type being unexpectedly internal.",
+  "rootCause": "ContinueAsNewError was in the internal package, but it is actually exposed in the public workflow package, causing confusion.",
+  "proposedFix": "Use the publicly exposed ContinueAsNewError from go.temporal.io/sdk/workflow instead of accessing the internal package.",
+  "workaround": "Reference ContinueAsNewError from the public workflow package: pkg.go.dev/go.temporal.io/sdk/workflow#ContinueAsNewError",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by clarifying that ContinueAsNewError is publicly available in the workflow package, not just in internal.",
+  "related": [],
+  "keyQuote": "It is exposed at https://pkg.go.dev/go.temporal.io/sdk/workflow#ContinueAsNewError",
+  "number": 834,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:58.361Z"
+}

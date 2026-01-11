@@ -1,0 +1,32 @@
+{
+  "summary": "Calls to workflowService.GetSystemInfo made by loadCapabilities are not included in distributed traces because a new background context is created instead of passing the parent context, causing a new separate trace to be created.",
+  "category": "bug",
+  "subcategory": "tracing-instrumentation",
+  "apis": [
+    "GetSystemInfo"
+  ],
+  "components": [
+    "workflow-client",
+    "capabilities-loader",
+    "tracing-interceptor"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "context-propagation",
+    "opentelemetry",
+    "span-instrumentation",
+    "background-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see GetSystemInfo calls in their distributed traces, making it difficult to diagnose intermittent network failures in trace logs.",
+  "rootCause": "loadCapabilities creates a new background context instead of accepting and using the parent context from callers, breaking trace continuity.",
+  "proposedFix": "Plumb the parent context through the capabilities loader function and use it when calling GetSystemInfo, allowing proper cancellation and trace propagation.",
+  "workaround": "Use gRPC stats handler or gRPC interceptor from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc to trace all gRPC calls instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "loadCapabilities now accepts context as a parameter and it is wired up in all call locations, allowing parent context to be properly propagated.",
+  "related": [],
+  "keyQuote": "loadCapabilities now takes the context and it is wired up in all possible locations we could.",
+  "number": 1406,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:20.191Z"
+}

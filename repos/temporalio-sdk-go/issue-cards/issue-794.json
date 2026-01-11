@@ -1,0 +1,28 @@
+{
+  "summary": "Increase the default gRPC maximum message size to 128MB in the Go SDK to align with other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc",
+    "client-configuration"
+  ],
+  "concepts": [
+    "message-size",
+    "protocol-buffers",
+    "sdk-consistency",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to send larger workflow/activity payloads without hitting gRPC message size limits, matching behavior in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Change the default gRPC max message size parameter to 128MB",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Default gRPC max message size was updated to 128MB to match other SDKs",
+  "related": [],
+  "keyQuote": "Matches other SDKs",
+  "number": 794,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:00.709Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The `TemporalChangeVersion` search attribute accumulates values every time `getVersion` is called in Java and Go SDKs, causing the search attribute to exceed its size limit and trap workflows in WFT failure loops. The fix should either stop adding new versions or remove oldest ones when the limit is reached, with clear error/warning logging.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-execution",
+    "temporal-change-version"
+  ],
+  "concepts": [
+    "search-attribute-size-limit",
+    "version-accumulation",
+    "workflow-failure-loop",
+    "memory-bloat"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using getVersion can get stuck in WFT failure loops when search attribute size limits are exceeded, with no easy recovery path.",
+  "rootCause": "TemporalChangeVersion search attribute continuously accumulates values without eviction or size management when getVersion is called repeatedly.",
+  "proposedFix": "Either stop adding new versions to TemporalChangeVersion when size limit is reached, or remove the oldest versions from the list. Log clear error/warning when the situation occurs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after implementing size limit handling and logging for the TemporalChangeVersion search attribute.",
+  "related": [],
+  "keyQuote": "The search attribute value size is capped, which causes user workflows to get stuck in a WFT failure loop without an easy way of out of this situation.",
+  "number": 1052,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:49:19.471Z"
+}

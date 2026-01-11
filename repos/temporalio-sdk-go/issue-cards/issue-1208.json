@@ -1,0 +1,37 @@
+{
+  "summary": "Child context cancellation propagates in non-deterministic order because Go map iteration order is random. This can cause issues when a parent context cancels multiple children, as the selector may record real-time-first event instead of state-based cancellation.",
+  "category": "bug",
+  "subcategory": "context-cancellation",
+  "apis": [
+    "WithCancel",
+    "ExecuteActivity",
+    "NewSelector"
+  ],
+  "components": [
+    "context",
+    "workflow-execution",
+    "selector"
+  ],
+  "concepts": [
+    "determinism",
+    "context-propagation",
+    "cancellation-order",
+    "map-iteration",
+    "non-deterministic-behavior",
+    "child-contexts"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows with multiple concurrent activities may exhibit unpredictable cancellation behavior and test flakiness due to non-deterministic cancellation ordering.",
+  "rootCause": "Child contexts are stored in a Go map which has non-deterministic iteration order, causing parent context cancellation to propagate to children in random order.",
+  "proposedFix": "Maintain child-context order using a deterministic data structure (like a slice) instead of a map for storing child contexts, similar to the fix applied in the Cadence Go client.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1340
+  ],
+  "keyQuote": "Map order in Go is not deterministic so the order child contexts are canceled is not deterministic.",
+  "number": 1208,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:53:43.546Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activities that are paused should have their heartbeats interrupted rather than continuing to send heartbeat signals. This is a behavior correction to ensure paused activities don't maintain background activity.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "pause-handler"
+  ],
+  "concepts": [
+    "heartbeat",
+    "pause",
+    "activity-lifecycle",
+    "interrupt",
+    "background-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected heartbeat signals from paused activities, causing confusion and potential downstream issues in activity lifecycle management.",
+  "rootCause": "The activity heartbeat mechanism does not respect the paused state and continues sending heartbeats regardless of pause status.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Heartbeat interruption logic was implemented to stop heartbeats when activities transition to paused state.",
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 1899,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:21:20.718Z"
+}

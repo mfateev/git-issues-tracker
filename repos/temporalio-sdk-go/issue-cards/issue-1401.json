@@ -1,0 +1,33 @@
+{
+  "number": 1401,
+  "repository": "temporalio-sdk-go",
+  "summary": "Add support for API key as a client option in the Go SDK, enabling secure authentication without exposing credentials in connection strings.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [],
+  "components": [
+    "client",
+    "credentials",
+    "connection"
+  ],
+  "concepts": [
+    "authentication",
+    "api-key",
+    "security",
+    "client-options",
+    "credential-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a secure way to provide API keys as a client option rather than embedding them in connection strings.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "API key client option was implemented in the Go SDK",
+  "related": [
+    426
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/426",
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:00:05.519Z"
+}

@@ -72,6 +72,38 @@ node scripts/get-issue.js sdk-typescript 1334   # 'temporalio-' prefix optional
 ./scripts/list-open-issues.sh temporalio-sdk-ruby
 ```
 
+## Semantic Analysis Pipeline
+
+Three-phase pipeline for intelligent issue analysis that fits within context limits:
+
+```bash
+# Phase 1: Generate semantic issue cards (LLM-based)
+node scripts/generate-cards.js                           # All repos
+node scripts/generate-cards.js temporalio-api            # Single repo
+node scripts/generate-cards.js temporalio-api --dry-run  # Preview without API calls
+node scripts/generate-cards.js temporalio-api --limit 5  # Test with 5 issues
+node scripts/generate-cards.js --resume                  # Resume interrupted run
+node scripts/generate-cards.js --model sonnet            # Use different model
+
+# Phase 2: Build enhanced index (script-based, no LLM)
+node scripts/build-enhanced-index.js                     # All repos with cards
+node scripts/build-enhanced-index.js temporalio-api      # Single repo
+node scripts/build-enhanced-index.js --summary-only      # Just rebuild cards-summary.txt
+
+# Phase 3: Generate theme summaries (LLM-based)
+node scripts/generate-themes.js --list                   # Show themes with issue counts
+node scripts/generate-themes.js testing                  # Generate single theme
+node scripts/generate-themes.js testing --dry-run        # Preview matches
+node scripts/generate-themes.js --all                    # Generate all themes
+
+# Quick search across all issues (grep-friendly)
+grep "nexus" analysis/cards-summary.txt
+grep "\[sdk-go\].*\[bug\].*severity:high" analysis/cards-summary.txt
+grep "ExecuteActivity" analysis/cards-summary.txt
+```
+
+**Requirements:** Claude CLI must be installed and authenticated (`claude` command available)
+
 ## Architecture
 
 ```
@@ -90,13 +122,26 @@ analysis/                       # Issue analysis documents
 ├── stats-<sdk>.md              # Per-SDK statistics (script-generated)
 ├── contributors.md             # Top contributors by repo
 ├── stats-recent.md             # Recent issues list (script-generated)
-└── recent.md                   # Recent issues analysis (LLM-generated)
+├── recent.md                   # Recent issues analysis (LLM-generated)
+├── cards-summary.txt           # Grep-friendly one-line issue summaries (Phase 2)
+└── themes/                     # Cross-cutting theme analysis (Phase 3)
+    ├── index.md                # Theme index with issue counts
+    ├── testing.md              # Testing-related issues across repos
+    ├── performance.md          # Performance issues
+    ├── api-design.md           # API design patterns
+    └── ...                     # Other themes (14 total)
 
 repos/                          # Per-repository data
 └── {owner}-{repo}/
     ├── issues/                 # Raw JSON per issue (issue-{num}.json)
     ├── issues-index.json       # Aggregated index with engagement stats
-    └── sync-metadata.json      # Sync state (last_sync, issue_count)
+    ├── issues-index-enhanced.json  # Enhanced index with semantic fields (Phase 2)
+    ├── issues-by-area.json     # Issues grouped by subcategory (Phase 2)
+    ├── sync-metadata.json      # Sync state (last_sync, issue_count)
+    └── issue-cards/            # Semantic issue cards (Phase 1)
+        ├── issue-{num}.json    # Individual semantic card per issue
+        ├── cards-index.json    # All cards combined for bulk loading
+        └── generation-log.json # Processing metadata and resume state
 
 scripts/
 ├── fetch-issues.sh             # Full download (uses gh CLI, supports --state)
@@ -111,7 +156,10 @@ scripts/
 ├── generate-contributors.js    # Generate contributors.md
 ├── generate-recent.js          # Generate stats-recent.md
 ├── get-issue.js                # Get full content of single issue
-└── list-open-issues.sh         # List open issues from repo dir
+├── list-open-issues.sh         # List open issues from repo dir
+├── generate-cards.js           # Phase 1: Generate semantic issue cards (LLM)
+├── build-enhanced-index.js     # Phase 2: Build enhanced index + summary (script)
+└── generate-themes.js          # Phase 3: Generate theme summaries (LLM)
 ```
 
 ## Key Patterns
@@ -152,6 +200,51 @@ Statistics files (`stats-*.md`) include the following sections:
 - Recent opened and closed counts
 - Bugs closed and enhancements completed
 - Popular requests resolved (issues with 3+ upvotes that were closed)
+
+## Semantic Analysis Data
+
+The semantic analysis pipeline creates intermediate data structures for efficient issue analysis:
+
+### Issue Cards (Phase 1)
+Per-issue semantic summaries (~200-400 tokens each) with structured fields:
+
+| Field | Description |
+|-------|-------------|
+| `summary` | 1-3 sentence description of the issue |
+| `category` | bug, feature, question, docs, other |
+| `subcategory` | Specific area (e.g., "activity-heartbeat", "workflow-replay") |
+| `apis` | Temporal APIs mentioned (e.g., ExecuteActivity, StartWorkflow) |
+| `components` | Affected code components (e.g., worker, activity-executor) |
+| `concepts` | Abstract concepts for semantic search (e.g., timeout, retry) |
+| `severity` | low, medium, high, critical |
+| `userImpact` | How this affects users |
+| `rootCause` | Technical root cause (if identified) |
+| `proposedFix` | Suggested solution (if mentioned) |
+| `workaround` | Temporary workaround (if mentioned) |
+| `resolution` | For closed issues: fixed, wontfix, duplicate, stale, invalid |
+| `related` | Related issue numbers |
+| `keyQuote` | Most important quote from discussion |
+
+### Enhanced Index (Phase 2)
+Combines base index data with:
+- **Objective fields** (extracted by script): bodyLength, hasCodeBlocks, hasStackTrace, mentionsVersions, linkedIssues, isQuestion, hasPR
+- **Semantic fields** (from cards): summary, category, subcategory, apis, components, concepts, severity
+
+### Theme Summaries (Phase 3)
+Cross-cutting analysis documents for 14 themes:
+- testing, nexus, performance, observability, versioning
+- signals-updates, activities, error-handling, serialization
+- security, breaking-changes, high-priority, api-design, workflow-execution
+
+Each theme document includes: Overview, By Repository analysis, Common Patterns, High-Impact Issues table, and Recommendations.
+
+### cards-summary.txt Format
+Grep-friendly one-line summaries:
+```
+#2141 [sdk-go] [O] [bug] [testing] Summary text | apis:X,Y | components:A,B | concepts:C,D | severity:medium
+```
+- `[O]` = Open, `[C]` = Closed
+- Pipe-separated fields for easy grep filtering
 
 ## LLM-Generated Files
 

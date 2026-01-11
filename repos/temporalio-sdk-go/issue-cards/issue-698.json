@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to make the \"unable to find workflow type\" error non-retryable and hard-fail the workflow, instead of allowing retries to support delayed worker deployments. The requester suggests implementing a catch-all workflow implementation pattern (#543) as a solution.",
+  "category": "feature",
+  "subcategory": "workflow-type-resolution",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-registry",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "workflow-type-registration",
+    "deployment",
+    "error-configuration",
+    "workflow-execution",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better control over how missing workflow types are handled, allowing them to configure hard failures instead of retries when deploying workers.",
+  "rootCause": null,
+  "proposedFix": "Support a catch-all workflow implementation pattern to handle missing workflow types gracefully",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    543
+  ],
+  "keyQuote": "Need to investigate options about making it non-retryable.",
+  "number": 698,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:12.164Z"
+}

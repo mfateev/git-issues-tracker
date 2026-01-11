@@ -1,0 +1,33 @@
+{
+  "summary": "TestActivityEnvironment has a hard-coded 10 minute timeout that prevents testing activities requiring longer execution times. User requests ability to configure timeout values when running activities in the test environment.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestActivityEnvironment"
+  ],
+  "components": [
+    "test-activity-environment",
+    "activity-executor",
+    "test-suite"
+  ],
+  "concepts": [
+    "timeout",
+    "testing",
+    "activity-execution",
+    "configuration",
+    "test-framework",
+    "long-running-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively test activities with execution times exceeding 10 minutes without using a real server, requiring additional boilerplate code and coupling to external test infrastructure.",
+  "rootCause": "TestActivityEnvironment has hard-coded 10 minute timeout without configuration options",
+  "proposedFix": "Add ability to set timeout values as options when creating or running activities in TestActivityEnvironment",
+  "workaround": "Use testsuite package to start a real development server for integration testing, though this requires additional boilerplate code",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently, the TestActivityEnvironment has a hard-coded 10 minute timeout. If I want to use the test suite to run an activity which takes longer than that, it fails with a timeout error.",
+  "number": 1167,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:52:40.451Z"
+}

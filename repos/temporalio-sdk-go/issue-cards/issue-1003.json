@@ -1,0 +1,30 @@
+{
+  "summary": "Setting MaxConcurrentWorkflowTaskExecutionSize to 1 causes the worker to not execute any tasks. The root cause is that the number of workflow task pollers is limited by this setting, preventing the worker from picking up work when set below the minimum required pollers.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-poller",
+    "configuration"
+  ],
+  "concepts": [
+    "concurrency",
+    "task-polling",
+    "worker-configuration",
+    "task-execution",
+    "load-balancing"
+  ],
+  "severity": "high",
+  "userImpact": "Users setting MaxConcurrentWorkflowTaskExecutionSize to 1 find their worker unable to execute any tasks, completely blocking workflow execution.",
+  "rootCause": "The MaxConcurrentWorkflowTaskExecutionSize setting is used to limit the number of workflow task pollers, but it must be at least equal to MaxConcurrentWorkflowTaskPollers for the worker to function. Setting it to 1 means only 1 poller starts, which only polls on the sticky queue and never picks up work.",
+  "proposedFix": "Enforce that MaxConcurrentWorkflowTaskExecutionSize must be greater than or equal to MaxConcurrentWorkflowTaskPollers, and document this invariant (currently only documented for Java SDK, but applies to Go SDK as well).",
+  "workaround": "Set MaxConcurrentWorkflowTaskExecutionSize to at least 2 instead of 1.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by enforcing the minimum value and documenting the invariant across SDKs.",
+  "related": [],
+  "keyQuote": "MaxConcurrentWorkflowTaskExecutionSize should never be less than MaxConcurrentWorkflowTaskPollers",
+  "number": 1003,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:47:24.406Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Panic occurs when calling GetSystemInfo with a context that has a timeout set on Windows. The issue was resolved by adjusting timeout settings - timeouts must be greater than 10 seconds or using the IP address 127.0.0.1 instead of localhost.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "GetSystemInfo",
+    "Dial"
+  ],
+  "components": [
+    "client",
+    "grpc-connection",
+    "context-management"
+  ],
+  "concepts": [
+    "timeout",
+    "panic",
+    "context",
+    "windows",
+    "connection-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users on Windows experience panics when initializing a Temporal client with timeout contexts, blocking application startup.",
+  "rootCause": "Context timeout was too short for Windows platform when resolving localhost:7233, causing the GetSystemInfo call to panic.",
+  "proposedFix": "Set timeout greater than 10 seconds or use IP address 127.0.0.1 instead of localhost.",
+  "workaround": "Either remove timeout from context, use a timeout greater than 10 seconds, or use 127.0.0.1:7233 instead of localhost:7233.",
+  "resolution": "invalid",
+  "resolutionDetails": "User identified platform-specific DNS resolution issue on Windows - not a bug in SDK but a configuration issue requiring longer timeouts for localhost resolution.",
+  "related": [],
+  "keyQuote": "using client.Dial(client.Options{}) to set localhost:7233 by default, timed out under windows. The timeout must be greater than 10 seconds, or use 127.0.0.1:7233",
+  "number": 1611,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:06:43.799Z"
+}

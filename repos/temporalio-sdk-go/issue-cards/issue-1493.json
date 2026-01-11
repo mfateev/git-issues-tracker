@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a RawValue payload converter to the Go SDK for testing purposes, allowing raw payloads to be created in workflows without custom data converters. This feature already exists in other SDKs like Python and is useful for internal and user testing.",
+  "category": "feature",
+  "subcategory": "payload-converter",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "data-converter",
+    "testing"
+  ],
+  "concepts": [
+    "raw-payload",
+    "testing",
+    "data-serialization",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users and Temporal developers can create raw payloads in workflows for testing without implementing custom data converters.",
+  "rootCause": null,
+  "proposedFix": "Implement RawValue payload converter similar to the Python SDK implementation (reference: temporalio/sdk-python common.py L151)",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #1231, which already addresses this feature request",
+  "related": [
+    1231
+  ],
+  "keyQuote": "It's frequently useful in our own various testing environments to be able to create raw payloads in a workflow without needing to hook up custom data converters.",
+  "number": 1493,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:02:49.234Z"
+}

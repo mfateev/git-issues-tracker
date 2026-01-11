@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a static analysis tool to detect non-determinism in Go workflows. The proposal includes moving existing temporal-determinist tool to the repo, integrating with golangci-lint and staticcheck.io, and documenting IDE integration with the ability to ignore specific calls or code sections.",
+  "category": "feature",
+  "subcategory": "development-tools",
+  "apis": [],
+  "components": [
+    "static-analysis",
+    "workflow-validation",
+    "linting"
+  ],
+  "concepts": [
+    "non-determinism",
+    "code-analysis",
+    "workflow-safety",
+    "determinism-checking",
+    "developer-tools",
+    "linting-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can automatically detect non-deterministic code patterns in workflows, reducing runtime errors and improving workflow reliability.",
+  "rootCause": null,
+  "proposedFix": "Move temporal-determinist tool to contrib/tools/temporal-check, integrate with golangci-lint and staticcheck.io, document IDE integration, and add ability to ignore specific calls or code sections.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing static analysis tooling for detecting non-determinism, with integration into standard Go linting tools.",
+  "related": [],
+  "keyQuote": "No tooling for detecting non-determinism in workflows.",
+  "number": 700,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:14.784Z"
+}

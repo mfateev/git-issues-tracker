@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment's OnWorkflow method doesn't automatically register mocked workflows like OnActivity does, and mocking workflows by name doesn't provide proper error handling when the workflow hasn't been pre-registered.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "OnWorkflow",
+    "OnActivity"
+  ],
+  "components": [
+    "workflow_testsuite",
+    "test-environment",
+    "workflow-registration"
+  ],
+  "concepts": [
+    "mocking",
+    "workflow-registration",
+    "test-setup",
+    "reflection",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing tests with TestWorkflowEnvironment must manually register mocked workflows unlike mocked activities, causing inconsistent API behavior and potential silent failures.",
+  "rootCause": "OnWorkflow method lacks the automatic registration logic that exists in OnActivity when using reflect.Func, and mock-by-name doesn't validate registration before attempting to use the workflow.",
+  "proposedFix": "Add automatic workflow registration in OnWorkflow similar to OnActivity's implementation at lines 338-340, and add proper error handling for mock-by-name scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflows that are mocked are automatically registered when using a reflect.Func as a reflect.TypeOf(workflow) when invoking the api OnWorkflow, the same way this happens using OnActivity",
+  "number": 1127,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:51:13.495Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The Godoc documentation for workflow.Sleep and workflow.NewTimer incorrectly states their second resolution. The documentation needs to be corrected to accurately describe the time unit resolution.",
+  "category": "docs",
+  "subcategory": "documentation",
+  "apis": [
+    "workflow.Sleep",
+    "workflow.NewTimer"
+  ],
+  "components": [
+    "documentation",
+    "godoc"
+  ],
+  "concepts": [
+    "timer",
+    "sleep",
+    "time-resolution",
+    "duration",
+    "documentation-accuracy"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the Godoc may be misled about the time resolution capabilities of Sleep and NewTimer functions.",
+  "rootCause": "Godoc comments contain incorrect statements about second resolution",
+  "proposedFix": "Remove the incorrect statements from the Godoc comments",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Statements about incorrect second resolution were removed from Godoc",
+  "related": [],
+  "keyQuote": "Just remove the statements",
+  "number": 925,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:42:50.447Z"
+}

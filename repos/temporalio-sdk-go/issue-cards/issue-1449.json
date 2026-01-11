@@ -1,0 +1,35 @@
+{
+  "summary": "Documentation needs clarification on waiting semantics for UpdateWorkflow API, specifically around acceptance/rejection waiting and whether WaitPolicy should be required with explicit opt-in rather than dangerous defaults.",
+  "category": "docs",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "UpdateWorkflow",
+    "WaitPolicy"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "update-handler"
+  ],
+  "concepts": [
+    "wait-semantics",
+    "acceptance-policy",
+    "rejection-handling",
+    "api-safety",
+    "default-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack clear guidance on how to safely wait for workflow update acceptance/rejection, risking dangerous default behavior.",
+  "rootCause": "Docstrings in UpdateWorkflow method do not clearly explain waiting semantics and WaitPolicy requirements.",
+  "proposedFix": "Make WaitPolicy required and document availability tradeoff clearly, ensuring users explicitly opt into a wait policy.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation and API were clarified to require explicit WaitPolicy configuration.",
+  "related": [
+    469
+  ],
+  "keyQuote": "Make sure availability tradeoff is documented clearly and user is opting in to a wait policy.",
+  "number": 1449,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:01:21.659Z"
+}

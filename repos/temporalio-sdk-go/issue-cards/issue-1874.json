@@ -1,0 +1,32 @@
+{
+  "summary": "Documentation needed for local activities to advise against using anonymous functions, as they can result in non-deterministic activity types and pose risks from capturing local variables.",
+  "category": "docs",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivity"
+  ],
+  "components": [
+    "local-activity",
+    "activity-registration",
+    "documentation"
+  ],
+  "concepts": [
+    "determinism",
+    "function-naming",
+    "variable-capture",
+    "best-practices",
+    "activity-type"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may unknowingly use anonymous functions for local activities, leading to non-deterministic behavior and potential bugs from variable capture.",
+  "rootCause": "Lack of explicit documentation warning against anonymous function usage in local activities, despite technical support for it.",
+  "proposedFix": "Add documentation clarifying that local activities should not use anonymous functions due to non-deterministic activity types and variable capture risks.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added to warn against using anonymous functions for local activities.",
+  "related": [],
+  "keyQuote": "Document that local activities should not use anonymous functions, even though it is technically allowed",
+  "number": 1874,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:34.119Z"
+}

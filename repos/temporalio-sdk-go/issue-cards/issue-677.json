@@ -1,0 +1,30 @@
+{
+  "summary": "Two tests are flaky in CI: TestCustomResolver occasionally expects 1 but gets 2, and TestOpenTelemetryTracing sometimes has an extra span in the children array. Both failures suggest race conditions or timing issues in test execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "grpc-dialer",
+    "opentelemetry-interceptor",
+    "test-infrastructure"
+  ],
+  "concepts": [
+    "flaky-tests",
+    "race-condition",
+    "timing",
+    "span-tracking",
+    "test-stability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the SDK's reliability and make CI/CD pipelines unreliable, affecting developer productivity.",
+  "rootCause": "Likely race condition or timing-dependent behavior in span collection or resolver initialization causing non-deterministic test results.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through test stabilization fixes",
+  "related": [],
+  "keyQuote": "expected: 1 actual: 2 ... expected 4 children, actual 5 children - non-deterministic test failures in CI",
+  "number": 677,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:32:13.167Z"
+}

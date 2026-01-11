@@ -1,0 +1,32 @@
+{
+  "summary": "Users need to create a new client from an existing client's connection while changing non-connection options. The discussion explores design options and identifies a challenge with gRPC interceptors that set namespace metrics at dial time.",
+  "category": "feature",
+  "subcategory": "client-creation",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "grpc",
+    "metrics",
+    "interceptors"
+  ],
+  "concepts": [
+    "connection-reuse",
+    "client-options",
+    "grpc-interceptors",
+    "namespace-metrics",
+    "dial-time-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently create multiple clients sharing the same connection with different options, and there are concerns about metrics consistency when reusing connections across clients.",
+  "rootCause": "gRPC interceptors that set namespace metrics are only applied at dial time, making it difficult to handle namespace context when creating new clients from existing connections without changing the metrics behavior.",
+  "proposedFix": "Three potential solutions discussed: (1) Accept WorkflowService in client options to ignore connection options, (2) Accept grpc.ClientConn in options with optional connection exposure, or (3) Create a Clone(existingClient Client, newOptions Options) function.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "One of the proposed solutions was implemented to allow creating new clients from existing connections.",
+  "related": [],
+  "keyQuote": "We use gRPC interceptors, which are only done at dial time, to put the namespace on the following all client methods",
+  "number": 861,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:40:12.905Z"
+}

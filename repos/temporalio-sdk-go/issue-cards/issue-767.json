@@ -1,0 +1,30 @@
+{
+  "summary": "workflowcheck tool hangs indefinitely when analyzing workflow code that uses text/template, due to the tool's non-determinism analysis following recursive function calls through the template package.",
+  "category": "bug",
+  "subcategory": "workflowcheck-tool",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "determinism-analyzer",
+    "template-package"
+  ],
+  "concepts": [
+    "non-determinism",
+    "infinite-loop",
+    "static-analysis",
+    "reflection",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot use text/template in workflows as workflowcheck hangs when analyzing such code, preventing validation of workflow determinism.",
+  "rootCause": "The workflowcheck tool's non-determinism analysis recursively follows function calls through text/template and reflect packages, hitting sync.Map iteration which causes infinite loop or excessive analysis on certain platforms (Linux/macOS).",
+  "proposedFix": null,
+  "workaround": "Remove or comment out text/template usage before running workflowcheck.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by improving the non-determinism detection in workflowcheck to handle reflection and template package calls more efficiently without infinite recursion.",
+  "related": [],
+  "keyQuote": "calls non-deterministic function (*sync.Map).dirtyLocked - iterates over map",
+  "number": 767,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:47.649Z"
+}

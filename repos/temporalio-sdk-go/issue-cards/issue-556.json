@@ -1,0 +1,34 @@
+{
+  "summary": "TestBasic integration test is flaky, failing with counter value mismatch (expected 5 but got 9) and subtest panic errors. The test appears to have timing or execution order issues causing inconsistent results across runs.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "integration-tests",
+    "worker",
+    "activity-executor",
+    "test-infrastructure"
+  ],
+  "concepts": [
+    "flakiness",
+    "timing",
+    "test-reliability",
+    "counter-accuracy",
+    "subtest-execution",
+    "panic-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Flaky tests reduce confidence in SDK reliability and block CI/CD pipelines, making it difficult to verify legitimate code changes.",
+  "rootCause": "Likely timing or race condition in test execution causing non-deterministic counter values and subtest panic when parent test calls FailNow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through test framework improvements and timing fixes.",
+  "related": [],
+  "keyQuote": "Expected value doesn't match actual value for counter temporal_request: expected: int(5) actual: int64(9)",
+  "number": 556,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:27:11.441Z"
+}

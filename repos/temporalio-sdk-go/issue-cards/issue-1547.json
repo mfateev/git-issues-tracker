@@ -1,0 +1,34 @@
+{
+  "summary": "Child workflow update handler was not being registered in test scenarios, causing test failures. The issue was identified and fixed via PR #1548.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-update",
+    "child-workflow"
+  ],
+  "concepts": [
+    "workflow-update",
+    "handler-registration",
+    "child-workflow",
+    "testing",
+    "test-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests for child workflow update handlers fail due to unregistered handlers, preventing users from properly testing update functionality.",
+  "rootCause": "Child workflow update handler was not being properly registered during test setup.",
+  "proposedFix": "Ensure update handler is registered before executing child workflow in tests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1548 which addressed the handler registration issue in the test framework.",
+  "related": [
+    1548
+  ],
+  "keyQuote": "Child workflow update handler not registered in test",
+  "number": 1547,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:04:33.597Z"
+}

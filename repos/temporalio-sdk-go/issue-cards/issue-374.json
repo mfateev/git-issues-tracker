@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow panics when a SideEffect is used inside a versioned block during query execution. The panic occurs with the error 'lookup failed for scheduledEventID to activityID', preventing newly launched workflows from being queried even though the workflow itself completes successfully.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [
+    "SideEffect"
+  ],
+  "components": [
+    "decision-state-machine",
+    "event-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "versioning",
+    "side-effect",
+    "query",
+    "event-processing",
+    "activity-scheduling",
+    "workflow-panic"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query newly launched workflows that use SideEffect inside versioned blocks, even though the workflows execute successfully, blocking legitimate use cases like adding unique IDs to activities.",
+  "rootCause": "The SDK's event handler fails to correctly map scheduledEventID to activityID when a SideEffect is combined with versioning, causing an illegal state panic during event processing.",
+  "proposedFix": null,
+  "workaround": "Remove either the SideEffect or the versioning - the issue only occurs when both are present together.",
+  "resolution": "fixed",
+  "resolutionDetails": "A unit test was created to reproduce the issue and a fix was implemented by the SDK maintainers.",
+  "related": [],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 8, activityID: 8",
+  "number": 374,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:19:52.003Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User unable to upgrade go.temporal.io/api from 1.26 to 1.27 due to type incompatibilities with go.temporal.io/sdk 1.25.1. The API library was updated to use newer proto libraries, but SDK version hasn't been released yet to match.",
+  "category": "question",
+  "subcategory": "go-sdk-compatibility",
+  "apis": [],
+  "components": [
+    "go.temporal.io/api",
+    "go.temporal.io/sdk",
+    "proto-libraries"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "version-compatibility",
+    "proto-buffers",
+    "type-mismatch",
+    "release-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to upgrade to the latest go.temporal.io/api version encounter compilation errors when using older SDK versions.",
+  "rootCause": "go.temporal.io/api 1.27 upgraded to new proto libraries (google.golang.org/protobuf), but go.temporal.io/sdk 1.25.1 still uses gogo/protobuf types, causing type incompatibilities.",
+  "proposedFix": "Use the newest RC of the Go SDK that matches the API version being used, ensuring API and SDK proto library versions align.",
+  "workaround": "Stay on go.temporal.io/api version compatible with the currently released SDK version (1.25.1 for SDK 1.25.1).",
+  "resolution": "invalid",
+  "resolutionDetails": "This is a usage question rather than a bug. Users must coordinate API and SDK versions - the newest API versions require the newest SDK versions.",
+  "related": [],
+  "keyQuote": "To use the newest Go API version, you have to be on the newest RC of the Go SDK.",
+  "number": 355,
+  "repo": "temporalio-api",
+  "generatedAt": "2026-01-10T19:31:30.992Z"
+}

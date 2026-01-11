@@ -1,0 +1,32 @@
+{
+  "summary": "Allow activities in the Go SDK to send heartbeats after server-initiated cancellation, similar to workflows' disconnected context behavior. Currently, activities cannot ignore cancellation requests, unlike other SDKs.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat",
+    "cancellation"
+  ],
+  "concepts": [
+    "heartbeat",
+    "cancellation",
+    "activity-execution",
+    "disconnected-context",
+    "server-request"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot keep activities alive to send final heartbeats after server cancellation, limiting graceful shutdown patterns available in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement heartbeat support after cancellation similar to workflow disconnected context behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow heartbeats after server-requested cancellation in activities.",
+  "related": [
+    1574
+  ],
+  "keyQuote": "Allow heartbeats after cancellation. This is a desire to be able to heartbeat even if server has requested cancellation, which we should support.",
+  "number": 2064,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:26:29.573Z"
+}

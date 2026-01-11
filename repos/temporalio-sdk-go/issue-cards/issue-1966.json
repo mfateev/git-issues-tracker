@@ -1,0 +1,31 @@
+{
+  "summary": "Users receive unhelpful generic 'context deadline exceeded' errors when activity results exceed the 2MB size limit. The request is for more specific error messages that clearly indicate the actual cause (e.g., 'context size limit exceeded') rather than generic timeout errors.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-messages",
+    "debugging",
+    "size-limits",
+    "context-deadline",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users waste significant time debugging mysterious 'context deadline exceeded' errors instead of immediately identifying the actual issue (size limit) and finding solutions.",
+  "rootCause": "Activity result size exceeds 2MB limit, but error message doesn't specify this constraint, leading users to mistakenly increase timeout values.",
+  "proposedFix": "Implement specific error messages for different failure cases (e.g., 'context size limit exceeded' for payload size violations, distinct from actual timeout errors).",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as duplicate of #995, which is being actively worked on across all SDKs to provide better error messages for this case.",
+  "related": [
+    995
+  ],
+  "keyQuote": "It's insanely frustrating when it gives generic error like 'context deadline exceeded' in case the data we are returning back is more than 2MB, with pretty much no info",
+  "number": 1966,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:23:23.414Z"
+}

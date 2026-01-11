@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow replay fails when a workflow is terminated because the SDK lacks a switch case for the WORKFLOW_EXECUTION_TERMINATED event type. The termination event is not handled, causing the replayer to fail.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "event-handlers",
+    "replayer",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "event-handling",
+    "workflow-termination",
+    "replay",
+    "state-machine",
+    "event-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot replay workflows that were terminated, making it impossible to use the replayer for testing or debugging terminated workflows.",
+  "rootCause": "Missing switch case for EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED in the event handler (internal_event_handlers.go line 810)",
+  "proposedFix": "Add a switch case for EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED event type, similar to how continue-as-new events are handled",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Switch case for workflow execution terminated event was added to the event handlers",
+  "related": [],
+  "keyQuote": "We don't have a switch case for EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED so running in replayer causes failure",
+  "number": 815,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:37:49.399Z"
+}

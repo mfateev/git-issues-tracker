@@ -1,0 +1,32 @@
+{
+  "summary": "UpdateWorkflow does not use the context-aware data converter that was provided to the client, causing payloads to be encrypted with the wrong key when a tenant-specific encryption context is set.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "client",
+    "data-converter",
+    "workflow-update"
+  ],
+  "concepts": [
+    "context-awareness",
+    "encryption",
+    "data-serialization",
+    "tenant-isolation",
+    "payload-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Users with context-aware data converters (e.g., for tenant-specific encryption) find their update payloads are unencrypted, breaking security guarantees.",
+  "rootCause": "UpdateWorkflow implementation does not pass or respect the context parameter when invoking the data converter, unlike other client methods.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateWorkflow was updated to use the context-aware data converter instead of a non-context aware variant.",
+  "related": [],
+  "keyQuote": "UpdateWorkflow should use a context aware data converter",
+  "number": 1951,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:22:49.737Z"
+}

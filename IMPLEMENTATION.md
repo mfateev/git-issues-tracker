@@ -157,6 +157,57 @@ node scripts/generate-recent.js
 
 Output: `analysis/stats-recent.md` with issues from last 30 days.
 
+### Semantic Analysis Pipeline
+
+Three-phase pipeline for intelligent issue analysis that enables complex queries without exceeding context limits.
+
+#### Phase 1: `scripts/generate-cards.js`
+Generate semantic issue cards using Claude CLI.
+
+```bash
+node scripts/generate-cards.js                           # All repos
+node scripts/generate-cards.js temporalio-api            # Single repo
+node scripts/generate-cards.js temporalio-api --dry-run  # Preview
+node scripts/generate-cards.js temporalio-api --limit 5  # Test with 5 issues
+node scripts/generate-cards.js --resume                  # Resume interrupted
+node scripts/generate-cards.js --model sonnet            # Use different model
+```
+
+Output per repo:
+- `issue-cards/issue-{num}.json` - Individual semantic cards
+- `issue-cards/cards-index.json` - All cards combined
+- `issue-cards/generation-log.json` - Processing state for resume
+
+**Requirements:** Claude CLI installed and authenticated (`claude` command)
+
+#### Phase 2: `scripts/build-enhanced-index.js`
+Build enhanced index by merging cards with objective fields (no LLM needed).
+
+```bash
+node scripts/build-enhanced-index.js                     # All repos with cards
+node scripts/build-enhanced-index.js temporalio-api      # Single repo
+node scripts/build-enhanced-index.js --summary-only      # Just rebuild summary
+```
+
+Output:
+- `repos/{repo}/issues-index-enhanced.json` - Enhanced index
+- `repos/{repo}/issues-by-area.json` - Issues grouped by subcategory
+- `analysis/cards-summary.txt` - Grep-friendly one-line summaries
+
+#### Phase 3: `scripts/generate-themes.js`
+Generate cross-cutting theme analysis documents.
+
+```bash
+node scripts/generate-themes.js --list                   # Show themes with counts
+node scripts/generate-themes.js testing                  # Generate single theme
+node scripts/generate-themes.js testing --dry-run        # Preview matches
+node scripts/generate-themes.js --all                    # Generate all themes
+```
+
+Output: `analysis/themes/{theme}.md` for 14 themes (testing, nexus, performance, observability, versioning, signals-updates, activities, error-handling, serialization, security, breaking-changes, high-priority, api-design, workflow-execution)
+
+**Requirements:** Claude CLI installed and authenticated
+
 ## Data Format
 
 ### Issue Files (`repos/<repo>/issues/issue-{number}.json`)
@@ -238,6 +289,81 @@ Output: `analysis/stats-recent.md` with issues from last 30 days.
 }
 ```
 
+### Semantic Issue Card (`repos/<repo>/issue-cards/issue-{number}.json`)
+
+```json
+{
+  "number": 123,
+  "repo": "temporalio-sdk-java",
+  "summary": "1-3 sentence description of the issue",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": ["ExecuteActivity", "HeartbeatActivity"],
+  "components": ["worker", "activity-executor"],
+  "concepts": ["timeout", "heartbeat", "retry"],
+  "severity": "medium",
+  "userImpact": "How this affects users",
+  "rootCause": "Technical root cause if identified",
+  "proposedFix": "Suggested solution if mentioned",
+  "workaround": "Temporary workaround if mentioned",
+  "resolution": "fixed",
+  "resolutionDetails": "How it was resolved",
+  "related": [456, 789],
+  "keyQuote": "Important quote from discussion",
+  "generatedAt": "2024-01-20T12:00:00Z"
+}
+```
+
+### Enhanced Index (`repos/<repo>/issues-index-enhanced.json`)
+
+```json
+{
+  "generatedAt": "2024-01-20T12:00:00Z",
+  "repo": "temporalio-sdk-java",
+  "totalCount": 215,
+  "cardsCount": 215,
+  "issues": [
+    {
+      "number": 123,
+      "title": "Issue title",
+      "state": "OPEN",
+      "author": "username",
+      "labels": ["bug"],
+      "createdAt": "2024-01-10T08:00:00Z",
+      "updatedAt": "2024-01-20T14:00:00Z",
+      "commentCount": 3,
+      "upvotes": 5,
+      "bodyLength": 1500,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": ["v1.2.0"],
+      "linkedIssues": [456],
+      "isQuestion": false,
+      "hasPR": true,
+      "summary": "Semantic summary from card",
+      "category": "bug",
+      "subcategory": "activity-heartbeat",
+      "apis": ["ExecuteActivity"],
+      "components": ["worker"],
+      "concepts": ["timeout", "heartbeat"],
+      "severity": "medium",
+      "hasCard": true
+    }
+  ]
+}
+```
+
+### Cards Summary (`analysis/cards-summary.txt`)
+
+Grep-friendly one-line-per-issue format:
+
+```
+#123 [sdk-java] [O] [bug] [activity-heartbeat] Summary text | apis:ExecuteActivity | components:worker | concepts:timeout,heartbeat | severity:medium
+```
+
+- `[O]` = Open, `[C]` = Closed
+- Pipe-separated fields for easy grep filtering
+
 ## Querying Issues Locally
 
 ### Using jq
@@ -277,6 +403,48 @@ const prioritized = index.issues.map(i => ({
 const cutoff = new Date();
 cutoff.setMonth(cutoff.getMonth() - 12);
 const stale = index.issues.filter(i => new Date(i.updatedAt) < cutoff);
+```
+
+### Using cards-summary.txt
+
+Quick grep-based discovery across all issues:
+
+```bash
+# Find all Nexus-related issues
+grep -i "nexus" analysis/cards-summary.txt
+
+# Find high-severity bugs in sdk-go
+grep "\[sdk-go\].*\[bug\].*severity:high" analysis/cards-summary.txt
+
+# Find issues mentioning a specific API
+grep "ExecuteActivity" analysis/cards-summary.txt
+
+# Find testing issues across all SDKs
+grep "\[testing\]" analysis/cards-summary.txt
+
+# Find open issues with specific component
+grep "\[O\]" analysis/cards-summary.txt | grep "components:worker"
+
+# Count issues by severity
+grep -o "severity:[a-z]*" analysis/cards-summary.txt | sort | uniq -c
+```
+
+### Using Enhanced Index
+
+```bash
+cd repos/temporalio-sdk-java
+
+# Find issues with stack traces
+jq '.issues[] | select(.hasStackTrace) | {number, title, severity}' issues-index-enhanced.json
+
+# Find high-severity bugs with code blocks
+jq '.issues[] | select(.severity == "high" and .hasCodeBlocks)' issues-index-enhanced.json
+
+# Group by subcategory
+jq '[.issues[] | .subcategory] | group_by(.) | map({category: .[0], count: length}) | sort_by(-.count)' issues-index-enhanced.json
+
+# Find issues mentioning a specific API
+jq '.issues[] | select(.apis[] | contains("StartWorkflow"))' issues-index-enhanced.json
 ```
 
 ## Key Patterns

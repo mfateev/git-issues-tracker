@@ -1,0 +1,32 @@
+{
+  "summary": "SetOnChildWorkflowCompletedListener is not being invoked when child workflows complete with errors in testing scenarios. The listener should catch async child workflow errors but currently fails to trigger.",
+  "category": "bug",
+  "subcategory": "child-workflow-listener",
+  "apis": [
+    "SetOnChildWorkflowCompletedListener"
+  ],
+  "components": [
+    "test-framework",
+    "child-workflow",
+    "listener"
+  ],
+  "concepts": [
+    "event-listener",
+    "child-workflow",
+    "error-handling",
+    "testing",
+    "async-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test error handling for child workflows because the completion listener fails to invoke, breaking test assertions and error validation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Testing an async child workflow error should be catch by `SetOnChildWorkflowCompletedListener`. That is not the case right now.",
+  "number": 1869,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:20:20.905Z"
+}

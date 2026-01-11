@@ -1,0 +1,31 @@
+{
+  "summary": "TestWorkflowEnvironment errors lack useful stack traces and context information, making debugging test failures difficult. The request is to implement a Format function on errors to provide more detailed information when formatted with %+v.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowEnvironment",
+    "error-handling",
+    "test-utils"
+  ],
+  "concepts": [
+    "debugging",
+    "error-formatting",
+    "stack-traces",
+    "test-diagnostics",
+    "error-context",
+    "verbose-output"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle to debug test failures in the Temporal Go SDK due to insufficient error information and missing stack traces.",
+  "rootCause": "TestWorkflowEnvironment errors do not implement Format functions that provide detailed context when printed with %+v formatting.",
+  "proposedFix": "Implement a Format function on errors to print more information when formatted using %+v, similar to how require.NoError uses this pattern.",
+  "workaround": "Manually unwrap and check errors to extract usable stack trace information.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a test fails, for example because a context is used wrongly, there's almost no information available to debug",
+  "number": 1395,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:59:51.778Z"
+}

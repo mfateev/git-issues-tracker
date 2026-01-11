@@ -1,0 +1,34 @@
+{
+  "summary": "TestUpdateCallback in the testsuite doesn't provide no-op implementations for optional callbacks, causing nil pointer panics when callbacks aren't supplied. Users need to implement all callbacks even if they only care about some of them, making tests brittle and error messages unhelpful.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "SetUpdateHandler",
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "testsuite",
+    "workflow-testing",
+    "update-handler"
+  ],
+  "concepts": [
+    "callback",
+    "test-utilities",
+    "nil-safety",
+    "optional-parameters",
+    "error-handling",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing UpdateWorkflow functionality must implement all callbacks in TestUpdateCallback even when only using some, resulting in confusing nil pointer exceptions.",
+  "rootCause": "TestUpdateCallback callbacks are not initialized with no-op defaults, so uninitialized callbacks cause nil pointer dereferences when invoked downstream.",
+  "proposedFix": "Provide no-op stub implementations for unspecified callbacks (e.g., OnAccept: func() {}) in TestUpdateCallback, or catch nil callbacks and provide meaningful error messages.",
+  "workaround": "Users can manually define empty callback functions for callbacks they don't need to use.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "provide no-op stubs when a particular callback is not provided (eg `OnAccept: func() {}`)",
+  "number": 1860,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:19:50.383Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add support for Search Attributes in Schedules through Query Update functionality in the Go SDK. The issue was flagged as potentially better suited for cross-SDK tracking in the features repository rather than being Go-specific.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "QueryUpdate"
+  ],
+  "components": [
+    "schedules",
+    "search-attributes",
+    "query"
+  ],
+  "concepts": [
+    "search-attributes",
+    "schedules",
+    "query-update",
+    "cross-sdk-feature"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently search for workflows in schedules using search attributes, limiting visibility and querying capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as the issue should be tracked in the features repository as a cross-SDK feature request rather than Go-specific, allowing coordinated implementation across all SDKs.",
+  "related": [],
+  "keyQuote": "We usually use the https://github.com/temporalio/features repository to make cross-SDK issues like this one so we track it for each SDK.",
+  "number": 1561,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:05:03.287Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Workflow panics with 'lookup failed for scheduledEventID to activityID' when root workflow cancels an intermediate workflow that has a cleanup activity and child workflow. The panic occurs during event processing when the SDK fails to map scheduled event IDs to activity IDs.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "ExecuteActivity",
+    "NewDisconnectedContext",
+    "WithActivityOptions",
+    "WithChildOptions"
+  ],
+  "components": [
+    "decision-state-machine",
+    "event-handlers",
+    "workflow-execution-context",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "workflow-cancellation",
+    "cleanup-activities",
+    "child-workflows",
+    "event-mapping",
+    "disconnected-context",
+    "state-machine"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows crash with a panic when attempting to execute cleanup activities after cancellation with child workflows, making graceful shutdown impossible in this pattern.",
+  "rootCause": "Mismatch between scheduled event IDs and activity IDs in the decision state machine when processing events for activities scheduled in a disconnected context after child workflow cancellation.",
+  "proposedFix": null,
+  "workaround": "Avoid executing cleanup activities in a disconnected context after child workflow cancellation, or restructure workflow to not combine child workflows with post-cancellation cleanup.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in a subsequent release by correcting the event ID mapping logic in the decision state machine",
+  "related": [],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 15, activityID: 14",
+  "number": 644,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:30:44.071Z"
+}

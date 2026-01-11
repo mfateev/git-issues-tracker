@@ -1,0 +1,35 @@
+{
+  "summary": "SDK inconsistently sets RequestId for API calls. Some operations like StartWorkflow set it, but others like SignalWorkflow and CancelWorkflow do not, creating risk of duplicate calls during retries.",
+  "category": "bug",
+  "subcategory": "request-id-handling",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStartWorkflow",
+    "SignalWorkflow",
+    "CancelWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-service",
+    "api-calls"
+  ],
+  "concepts": [
+    "request-id",
+    "idempotency",
+    "duplicate-prevention",
+    "retry-logic",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent RequestId usage across different workflow operations increases the risk of duplicate execution when SDK retries API calls.",
+  "rootCause": "SDK implementation inconsistently sets RequestId parameter across different workflow operation APIs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SDK was updated to consistently set RequestId across all API calls.",
+  "related": [],
+  "keyQuote": "SDK code should always set RequestId to avoid duplicate calls in case of retry.",
+  "number": 627,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:29:55.981Z"
+}

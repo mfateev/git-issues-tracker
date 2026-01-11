@@ -1,0 +1,35 @@
+{
+  "summary": "Go SDK test suite cannot query a workflow after signaling it due to framework limitations, unlike real applications and other SDKs. This requires splitting signal and query operations into separate delayed callbacks in tests, which doesn't match real-world usage patterns.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "SignalWorkflow",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "test-suite",
+    "workflow-testing",
+    "signal-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "signal",
+    "query",
+    "testing",
+    "read-after-write-consistency",
+    "test-framework-limitation",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Test developers must write unrealistic test code that splits signal and query operations into separate callbacks, making tests not reflective of actual production behavior.",
+  "rootCause": "The Go testing framework does not provide read-after-write consistency for query operations following signal operations, a limitation not present in real Go applications or other SDKs like Java.",
+  "proposedFix": "Implement read-after-write consistency in the Go test framework to allow querying workflows immediately after signaling them, matching behavior in production and other SDKs.",
+  "workaround": "Split signal and query operations into separate delayed callbacks in tests, as shown in the ecommerce blog post example.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The inability to query after the signal is purely Go testing framework limitation. In both real Go applications and Java we provide read after write consistency in signal then query case.",
+  "number": 497,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:24:50.625Z"
+}

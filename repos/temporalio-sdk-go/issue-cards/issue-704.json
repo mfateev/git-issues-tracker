@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a Zap logger implementation as a contrib module that provides a high-performance adapter using Zap's SugaredLogger for the SDK's log.Logger interface.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "contrib",
+    "logger",
+    "zap-adapter"
+  ],
+  "concepts": [
+    "logging",
+    "performance",
+    "stdlib-compatibility",
+    "contrib-module",
+    "key-value-logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now use Zap logging directly with the SDK instead of manually implementing their own adapter.",
+  "rootCause": null,
+  "proposedFix": "Add zap child module to contrib folder using zap.SugaredLogger <level>W calls, update vanity URL to go.temporal.io/sdk/contrib/zap, and tag release as contrib/zap/v0.1.0",
+  "workaround": "Manually implement log.Logger using Zap as shown in samples-go/zapadapter",
+  "resolution": "fixed",
+  "resolutionDetails": "Zap logger contribution was added to the SDK contrib modules",
+  "related": [
+    1158
+  ],
+  "keyQuote": "It should rely on the *zap.S's <level>W calls which are higher performing than you see from other people's adapters",
+  "number": 704,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:33:28.832Z"
+}

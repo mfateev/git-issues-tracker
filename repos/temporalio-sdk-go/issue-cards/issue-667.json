@@ -1,0 +1,31 @@
+{
+  "summary": "Clarify and document which contexts (workflow and activity context parameters) are cancelled when a worker stops, and ensure this behavior is properly tested. The issue was resolved by confirming that GetWorkerStopChannel provides during-stop handling and context cancellation handles after-stop-graceful-handling-timeout.",
+  "category": "docs",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "GetWorkerStopChannel"
+  ],
+  "components": [
+    "worker",
+    "activity",
+    "context-management"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "context-cancellation",
+    "worker-stop",
+    "timeout-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clear documentation on which contexts are cancelled during worker shutdown to properly implement graceful shutdown logic.",
+  "rootCause": "Lack of clarity in documentation about context cancellation behavior during worker stop; the functionality was already implemented but not clearly documented.",
+  "proposedFix": "Document that GetWorkerStopChannel can be used for during-worker-stop graceful handling, and parameter context can be used for after-worker-stop-graceful-handling-timeout handling.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by confirming existing functionality in GetWorkerStopChannel documentation. Clarified that workflow contexts don't need worker-tied cancellation (workflows run less than a second), while activity contexts have specific cancellation semantics.",
+  "related": [],
+  "keyQuote": "the parameter context can be used for after-worker-stop-graceful-handling-timeout handling",
+  "number": 667,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:31:41.480Z"
+}

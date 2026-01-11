@@ -1,0 +1,34 @@
+{
+  "summary": "NewWorker has a downcast and panic that needs to be refactored and removed. Users cannot wrap the temporal client with custom implementations due to worker needing internal client details.",
+  "category": "feature",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "NewWorker"
+  ],
+  "components": [
+    "worker",
+    "client",
+    "interceptors"
+  ],
+  "concepts": [
+    "client-wrapping",
+    "internal-dependencies",
+    "interceptors",
+    "architecture"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot wrap the temporal client with their own implementations due to internal client dependencies in NewWorker.",
+  "rootCause": "Worker requires access to internal client implementation details, preventing client wrapping and requiring explicit type checks with panic.",
+  "proposedFix": "Refactor NewWorker to remove downcast and panic; support client interception through the interceptors proposal instead of allowing client wrapping.",
+  "workaround": "Use client interceptors (via interceptors proposal) to achieve functionality instead of wrapping the client.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    69,
+    45
+  ],
+  "keyQuote": "However, due to the worker still needing internal things from the client, it can't be wrapped, but all functionality should be available via interceptors.",
+  "number": 70,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:13:11.745Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Support for specifying a custom activity ID during activity invocation to enable asynchronous activity completion by ID. Discussion revealed this feature may already be implemented via ExecuteActivityOptions.ActivityID.",
+  "category": "feature",
+  "subcategory": "activity-invocation",
+  "apis": [
+    "ExecuteActivity",
+    "CompleteActivityById",
+    "Activity.getActivityTask"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-execution",
+    "activity-options"
+  ],
+  "concepts": [
+    "activity-id",
+    "asynchronous-completion",
+    "task-token",
+    "idempotency",
+    "activity-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to specify custom activity IDs to complete activities asynchronously and enable idempotent activity retries.",
+  "rootCause": null,
+  "proposedFix": "Use ExecuteActivityOptions.ActivityID field to allow users to specify custom activity IDs during invocation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was already implemented in the Go SDK via ExecuteActivityOptions.ActivityID field, as confirmed by code reference to internal_activity.go",
+  "related": [
+    86
+  ],
+  "keyQuote": "Users can choose IDs but our framework makes it optional to decrease the crust. (ExecuteActivityOptions)",
+  "number": 129,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:14:49.737Z"
+}

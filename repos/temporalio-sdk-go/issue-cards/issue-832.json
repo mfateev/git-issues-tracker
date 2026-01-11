@@ -1,0 +1,30 @@
+{
+  "summary": "Go SDK v1.15.0 is incompatible with temporal API v1.9.0 due to missing GetWorkerBuildIdOrdering method implementation. The issue was resolved by embedding UnimplementedWorkflowServiceServer to prevent new API changes from breaking older SDKs.",
+  "category": "bug",
+  "subcategory": "api-compatibility",
+  "apis": [],
+  "components": [
+    "service_proxy",
+    "workflow_service_server",
+    "client"
+  ],
+  "concepts": [
+    "versioning",
+    "api-compatibility",
+    "interface-implementation",
+    "breaking-changes",
+    "dependency-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to the latest temporal SDK cannot build their applications due to interface incompatibility with the latest API version.",
+  "rootCause": "API v1.9.0 added GetWorkerBuildIdOrdering method to WorkflowServiceServer interface, but SDK v1.15.0's workflowServiceProxyServer implementation did not include this method.",
+  "proposedFix": "Embed UnimplementedWorkflowServiceServer in the service proxy to automatically provide implementations for new API methods, preventing older SDKs from breaking with newer API versions.",
+  "workaround": "Users can either downgrade the API dependency (go get go.temporal.io/api@v1.8.0) or use the master branch of the SDK (not recommended).",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by embedding UnimplementedWorkflowServiceServer to handle new API methods gracefully without requiring SDK updates.",
+  "related": [],
+  "keyQuote": "I think what I am going to do here is at least embed `UnimplementedWorkflowServiceServer` so that new APIs don't break older SDKs.",
+  "number": 832,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:38:57.044Z"
+}

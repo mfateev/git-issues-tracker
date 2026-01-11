@@ -1,0 +1,33 @@
+{
+  "summary": "Namespace registration fails with 'unknown service' error when using mismatched versions of Go SDK libraries and temporal-proto, or when unable to connect to the Temporal frontend service.",
+  "category": "bug",
+  "subcategory": "client-setup",
+  "apis": [
+    "Register",
+    "NewNamespaceClient"
+  ],
+  "components": [
+    "namespace-client",
+    "service-discovery",
+    "version-compatibility"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "connection-error",
+    "service-registration",
+    "dependency-management",
+    "client-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot register namespaces or create workflows when library versions are mismatched or the frontend service is unreachable, blocking basic workflow setup.",
+  "rootCause": "Version mismatch between go.temporal.io/temporal and go.temporal.io/temporal-proto libraries, or inability to connect to the Temporal frontend service due to incorrect host/port configuration.",
+  "proposedFix": "Ensure all Go SDK libraries (temporal, temporal-proto) match versions. Verify that the client can connect to the Temporal frontend service at the configured host and port.",
+  "workaround": "Downgrade Go SDK libraries to match the Temporal server version (e.g., use 0.23.1 when server is 0.23.1), or use matching docker image tags.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through version alignment - users confirmed that matching Go SDK versions with server versions or using consistent docker image tags resolved the problem.",
+  "related": [],
+  "keyQuote": "If you downgrade your go libraries to match the docker images (0.23.1) it worked as expected for me.",
+  "number": 163,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:15:03.597Z"
+}

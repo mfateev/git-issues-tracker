@@ -1,0 +1,31 @@
+{
+  "summary": "Need to create an integration/end-to-end test for the gRPC proxy that uses a custom codec/converter with both client and worker to run a workflow.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "grpc-proxy",
+    "codec",
+    "converter",
+    "integration-tests"
+  ],
+  "concepts": [
+    "testing",
+    "integration-test",
+    "grpc-proxy",
+    "custom-codec",
+    "end-to-end-test"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need test coverage to ensure gRPC proxy works correctly with custom codecs/converters.",
+  "rootCause": null,
+  "proposedFix": "Create test in test/integration_test.go that uses a proxy and custom codec/converter for both client and worker to run a workflow",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Create test (maybe in `test/integration_test.go`) that uses a proxy and a custom codec/converter for both the client and worker to run a workflow.",
+  "number": 754,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:35:31.501Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Add a test to verify that the payload proxy visits all payloads even when they are not reachable by the workflow service. The test should confirm payload encoding across existing integration tests rather than creating a contrived test case.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "proxy",
+    "payload-encoder",
+    "test-framework"
+  ],
+  "concepts": [
+    "payload-discovery",
+    "payload-encoding",
+    "test-coverage",
+    "reachability"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures comprehensive testing of payload handling in the proxy to prevent missed payloads in edge cases.",
+  "rootCause": null,
+  "proposedFix": "Add a test that confirms payload encoding in all existing integration tests rather than building a contrived test, using different payload discovery/walking approaches.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed in api-go PR #211",
+  "related": [],
+  "keyQuote": "Add a test that somehow makes sure every payload is visited even if it's not reachable from workflow service.",
+  "number": 1809,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T03:18:20.356Z"
+}

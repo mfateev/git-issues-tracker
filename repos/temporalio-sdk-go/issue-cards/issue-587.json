@@ -1,0 +1,30 @@
+{
+  "summary": "Index out of range panic occurring in ringpop-go's memberlist iterator when accessing members. The panic happens at index 1532 with length 1532, indicating a boundary condition issue in the gossiping protocol.",
+  "category": "bug",
+  "subcategory": "member-discovery",
+  "apis": [],
+  "components": [
+    "ringpop-go",
+    "memberlist",
+    "gossip-protocol"
+  ],
+  "concepts": [
+    "concurrency",
+    "race-condition",
+    "bounds-checking",
+    "member-list",
+    "index-out-of-range"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal Go SDK crashes with a runtime panic during member gossip operations, causing service disruptions.",
+  "rootCause": "Off-by-one or race condition in memberlist.MemberAt() or memberlistIter.Next() when accessing members at boundary condition (index 1532 with length 1532).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be in ringpop-go dependency (not actively developed), not the SDK itself. User encouraged to reopen if specifically an SDK issue.",
+  "related": [],
+  "keyQuote": "This appears like it may be an issue with https://github.com/temporalio/ringpop-go instead of this repository.",
+  "number": 587,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-11T02:28:25.885Z"
+}
